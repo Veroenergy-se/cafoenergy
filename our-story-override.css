@@ -46,6 +46,8 @@
   color: #f9f6ef !important;
   user-select: none !important;
   line-height: 1 !important;
+  display: block !important;
+  font-family: inherit !important;
 }
 
 .our-story-new .graphic-bolt {
@@ -57,6 +59,8 @@
   color: #f9f6ef !important;
   user-select: none !important;
   line-height: 1 !important;
+  display: block !important;
+  font-family: inherit !important;
 }
 
 .our-story-new .graphic-circle {
