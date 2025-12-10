@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How Vero Works – The Science Behind Clean Energy</title>
+  
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWFPL9ZW9R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JWFPL9ZW9R', {
+      'send_page_view': true,
+      'anonymize_ip': true
+    });
+  </script>
+  
+  <link rel="stylesheet" href="style.css?v=16" />
+  <link rel="stylesheet" href="deux-style.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <style>
+    .vero-navbar {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      width: 100%;
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .vero-navbar--scrolled {
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      border-color: transparent;
+    }
+    .vero-navbar__inner {
+      max-width: 1120px;
+      margin: auto;
+      padding: 1.2rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .vero-navbar__brand {
+      text-decoration: none;
+      color: #111827;
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .vero-navbar__menu {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .vero-navbar__links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+    }
+    .vero-navbar__link {
+      text-decoration: none;
+      color: #111827;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 1.05rem;
+      padding-bottom: 2px;
+      position: relative;
+    }
+    .vero-navbar__link::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: #111827;
+      transition: width 0.2s ease;
+    }
+    .vero-navbar__link:hover::after {
+      width: 100%;
+    }
+    .vero-navbar__cta {
+      background-color: rgba(255, 208, 116);
+      color: #1d1d1f;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: 600;
+      padding: 1em 2em;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      border: 1px solid black;
+      box-shadow: 0 0 0 0 black;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .vero-navbar__cta:hover {
+      transform: translateY(-4px) translateX(-2px);
+      box-shadow: 2px 5px 0 0 black;
+    }
+    .vero-navbar__cta:active {
+      transform: translateY(2px) translateX(1px);
+      box-shadow: 0 0 0 0 black;
+    }
+    .vero-navbar__toggle {
+      display: none;
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+      flex-direction: column;
+      justify-content: center;
+      gap: 6px;
+    }
+    .vero-navbar__toggle span {
+      height: 3px;
+      width: 100%;
+      background: #111827;
+      border-radius: 5px;
+      transition: 0.3s ease;
+    }
+    .vero-navbar__toggle--open span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+    .vero-navbar__toggle--open span:nth-child(2) {
+      opacity: 0;
+    }
+    .vero-navbar__toggle--open span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+    @media (max-width: 768px) {
+      .vero-navbar__toggle {
+        display: flex;
+      }
+      .vero-navbar__menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #ffffff;
+        border-bottom: 1px solid #e5e7eb;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.25rem;
+        opacity: 0;
+        transform: translateY(-10px);
+        pointer-events: none;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+      }
+      .vero-navbar__menu--open {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+      .vero-navbar__links {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      .vero-navbar__cta {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+
+  <nav class="vero-navbar" id="veroNavbar">
+    <div class="vero-navbar__inner">
+      <a class="vero-navbar__brand" href="index.html">Vero</a>
+      
+      <div class="vero-navbar__toggle" id="veroToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      
+      <div class="vero-navbar__menu" id="veroMenu">
+        <ul class="vero-navbar__links">
+          <li><a class="vero-navbar__link" href="index.html">Home</a></li>
+          <li><a class="vero-navbar__link" href="Shop.html">Shop</a></li>
+          <li><a class="vero-navbar__link" href="How-It-Works.html">How It Works</a></li>
+          <li><a class="vero-navbar__link" href="Why-Vero.html">Why Vero</a></li>
+        </ul>
+        <a href="Shop.html#products" class="vero-navbar__cta">Get Energized</a>
+      </div>
+    </div>
+  </nav>
+
+  <script>
+    const toggle = document.getElementById("veroToggle");
+    const menu = document.getElementById("veroMenu");
+    const navbar = document.getElementById("veroNavbar");
+    
+    toggle.addEventListener("click", () => {
+      toggle.classList.toggle("vero-navbar__toggle--open");
+      menu.classList.toggle("vero-navbar__menu--open");
+    });
+    
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 10) {
+        navbar.classList.add("vero-navbar--scrolled");
+      } else {
+        navbar.classList.remove("vero-navbar--scrolled");
+      }
+    });
+  </script>
+
+  <main>
+
+    <!-- ===== CLEAN HERO SECTION ===== -->
+    <section style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #bae6fd 100%); padding: 120px 20px 80px; position: relative; overflow: hidden;">
+      <!-- Subtle wave decoration -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; height: 100%; background: url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1200 120\"><path d=\"M0,60 C300,20 600,100 900,60 C1050,30 1150,80 1200,60 L1200,0 L0,0 Z\" fill=\"%23ffffff\" fill-opacity=\"0.1\"/></svg>') repeat-x; background-size: 1200px 120px; opacity: 0.3;"></div>
+      
+      <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; position: relative; z-index: 2;">
+        <div>
+          <div style="display: inline-block; background: rgba(59, 130, 246, 0.1); color: #1d4ed8; padding: 8px 20px; border-radius: 25px; font-size: 0.9rem; font-weight: 600; margin-bottom: 30px;">
+            🧬 Science-Backed • Research-Driven
+          </div>
+          
+          <h1 style="font-size: 4rem; font-weight: 700; color: #1f2937; margin-bottom: 30px; line-height: 1.1;">
+            The Science of <span style="background: linear-gradient(135deg, #3b82f6, #2563eb); -webkit-background-clip: text; background-clip: text; color: transparent;">Better Energy</span>
+          </h1>
+          
+          <p style="font-size: 1.3rem; color: #4b5563; margin-bottom: 30px; line-height: 1.6;">
+            Most energy products are built on outdated thinking: more caffeine = better energy. We took a different approach.
+          </p>
+          
+          <p style="font-size: 1.1rem; color: #6b7280; margin-bottom: 40px; line-height: 1.6;">
+            Vero combines decades of research on caffeine, amino acids, and nutrition to create energy that feels as good as it works.
+          </p>
+          
+          <div style="background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); border-left: 4px solid #3b82f6; margin-bottom: 40px;">
+            <p style="font-size: 1.1rem; color: #1f2937; margin: 0; font-style: italic; line-height: 1.5;">
+              "We didn't just want to make another energy bar. We wanted to solve the energy problem for good."
+            </p>
+            <p style="font-size: 0.9rem; color: #6b7280; margin-top: 15px;">— The Vero Team</p>
+          </div>
+          
+          <div style="display: flex; gap: 20px; align-items: center;">
+            <a href="#the-curve" style="background: linear-gradient(135deg, #3b82f6, #2563eb); color: white; padding: 18px 40px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(59, 130, 246, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(59, 130, 246, 0.3)'">
+              See How It Works
+            </a>
+            <a href="Shop.html" style="color: #3b82f6; text-decoration: none; font-weight: 600; padding: 18px 30px; border: 2px solid #3b82f6; border-radius: 12px; transition: all 0.3s ease;" onmouseover="this.style.background='#3b82f6'; this.style.color='white'" onmouseout="this.style.background='transparent'; this.style.color='#3b82f6'">
+              Shop Vero
+            </a>
+          </div>
+        </div>
+        
+        <div style="display: flex; justify-content: center; align-items: center;">
+          <div style="width: 400px; height: 300px; background: white; border-radius: 25px; display: flex; align-items: center; justify-content: center; box-shadow: 0 20px 60px rgba(59, 130, 246, 0.2); position: relative; padding: 40px;">
+            <!-- Clean energy curve visualization -->
+            <svg viewBox="0 0 320 200" style="width: 100%; height: 100%;">
+              <!-- Grid lines -->
+              <defs>
+                <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#f3f4f6" stroke-width="1"/>
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#grid)" />
+              
+              <!-- Axes -->
+              <path d="M40 160 L280 160 M40 160 L40 40" stroke="#9ca3af" stroke-width="2"/>
+              
+              <!-- Coffee spike (red dashed) -->
+              <path d="M40 150 C 70 80, 90 60, 110 55 S 150 100, 280 150" 
+                    fill="none" stroke="#ef4444" stroke-width="3" stroke-dasharray="8,4" />
+              
+              <!-- Vero curve (blue solid) -->
+              <path d="M40 150 C 80 110, 120 90, 160 85 S 240 100, 280 150" 
+                    fill="none" stroke="#3b82f6" stroke-width="4" />
+              
+              <!-- Labels -->
+              <text x="110" y="45" fill="#ef4444" font-size="12" text-anchor="middle" font-weight="600">Coffee</text>
+              <text x="180" y="75" fill="#3b82f6" font-size="12" text-anchor="middle" font-weight="600">Vero</text>
+              
+              <!-- Time labels -->
+              <text x="40" y="180" fill="#6b7280" font-size="10" text-anchor="middle">0</text>
+              <text x="160" y="180" fill="#6b7280" font-size="10" text-anchor="middle">2hrs</text>
+              <text x="280" y="180" fill="#6b7280" font-size="10" text-anchor="middle">4hrs</text>
+              
+              <!-- Y-axis label -->
+              <text x="25" y="50" fill="#6b7280" font-size="10" text-anchor="middle" transform="rotate(-90 25 50)">Energy</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WAVE TRANSITION ===== -->
+    <div style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #bae6fd 100%); height: 100px; position: relative;">
+      <svg style="position: absolute; bottom: 0; left: 0; width: 100%; height: 100px;" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,60 C300,20 600,100 900,60 C1050,30 1150,80 1200,60 L1200,120 L0,120 Z" fill="#ffffff"></path>
+      </svg>
+    </div>
+
+    <!-- ===== THE PROBLEM WITH TRADITIONAL ENERGY ===== -->
+    <section id="the-problem" style="background: white; padding: 100px 20px;">
+      <div style="max-width: 1200px; margin: 0 auto;">
+        <div style="text-align: center; margin-bottom: 80px;">
+          <h2 style="font-size: 3.5rem; font-weight: 700; color: #1f2937; margin-bottom: 30px;">Why Most Energy Products Fail You</h2>
+          <p style="font-size: 1.3rem; color: #4b5563; max-width: 800px; margin: 0 auto; line-height: 1.6;">
+            The energy industry has been stuck on the same broken formula for decades. More caffeine, more sugar, more stimulants. But more isn't better – it's just more problems.
+          </p>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; margin-bottom: 80px;">
+          <div style="background: white; padding: 40px; border-radius: 25px; box-shadow: 0 10px 40px rgba(239, 68, 68, 0.1); border-left: 6px solid #ef4444; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 20px 60px rgba(239, 68, 68, 0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 40px rgba(239, 68, 68, 0.1)'">
+            <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #ef4444, #dc2626); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: 25px; color: white; font-size: 1.8rem;">☕</div>
+            <h3 style="color: #1f2937; margin-bottom: 15px; font-size: 1.5rem; font-weight: 700;">The Coffee Trap</h3>
+            <p style="color: #4b5563; margin-bottom: 25px; line-height: 1.6; font-size: 1.05rem;">200-400mg of caffeine hits your system like a freight train. You feel amazing for 45 minutes, then crash harder than you started.</p>
+            <div style="background: #fef2f2; padding: 20px; border-radius: 15px; border-left: 4px solid #ef4444;">
+              <p style="color: #dc2626; margin: 0; font-size: 0.95rem; font-style: italic; font-weight: 500;">"I was drinking 4+ cups a day just to feel normal."</p>
+            </div>
+          </div>
+          
+          <div style="background: white; padding: 40px; border-radius: 25px; box-shadow: 0 10px 40px rgba(245, 158, 11, 0.1); border-left: 6px solid #f59e0b; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 20px 60px rgba(245, 158, 11, 0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 40px rgba(245, 158, 11, 0.1)'">
+            <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #f59e0b, #d97706); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: 25px; color: white; font-size: 1.8rem;">⚡</div>
+            <h3 style="color: #1f2937; margin-bottom: 15px; font-size: 1.5rem; font-weight: 700;">The Sugar Rush</h3>
+            <p style="color: #4b5563; margin-bottom: 25px; line-height: 1.6; font-size: 1.05rem;">Energy drinks pump you full of sugar and synthetic caffeine. Your blood sugar spikes, then plummets, leaving you worse than before.</p>
+            <div style="background: #fffbeb; padding: 20px; border-radius: 15px; border-left: 4px solid #f59e0b;">
+              <p style="color: #d97706; margin: 0; font-size: 0.95rem; font-style: italic; font-weight: 500;">"The crash was so bad I'd need another one just to function."</p>
+            </div>
+          </div>
+          
+          <div style="background: white; padding: 40px; border-radius: 25px; box-shadow: 0 10px 40px rgba(139, 92, 246, 0.1); border-left: 6px solid #8b5cf6; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 20px 60px rgba(139, 92, 246, 0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 40px rgba(139, 92, 246, 0.1)'">
+            <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #8b5cf6, #7c3aed); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: 25px; color: white; font-size: 1.8rem;">🍫</div>
+            <h3 style="color: #1f2937; margin-bottom: 15px; font-size: 1.5rem; font-weight: 700;">The Snack Cycle</h3>
+            <p style="color: #4b5563; margin-bottom: 25px; line-height: 1.6; font-size: 1.05rem;">Grabbing whatever's available – candy bars, chips, pastries. Quick calories, zero nutrition, and you're hungry again in an hour.</p>
+            <div style="background: #faf5ff; padding: 20px; border-radius: 15px; border-left: 4px solid #8b5cf6;">
+              <p style="color: #7c3aed; margin: 0; font-size: 0.95rem; font-style: italic; font-weight: 500;">"I was basically living on vending machine food."</p>
+            </div>
+          </div>
+        </div>
+        
+        <div style="text-align: center; background: linear-gradient(135deg, #f8fafc, #f1f5f9); padding: 60px; border-radius: 25px; box-shadow: 0 10px 40px rgba(0,0,0,0.05);">
+          <h3 style="color: #1f2937; margin-bottom: 25px; font-size: 2rem; font-weight: 700;">The Real Problem</h3>
+          <p style="color: #4b5563; font-size: 1.2rem; max-width: 700px; margin: 0 auto; line-height: 1.6;">
+            It's not that you need more energy – it's that you need <strong>better energy</strong>. Energy that builds you up instead of breaking you down. Energy that works with your body, not against it.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== THE CURVE (Clean Data Visualization) ===== -->
+    <section id="the-curve" style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #bae6fd 100%); padding: 100px 20px; position: relative;">
+      <div style="max-width: 1200px; margin: 0 auto;">
+        <div style="text-align: center; margin-bottom: 80px;">
+          <h2 style="font-size: 3.5rem; font-weight: 700; color: #1f2937; margin-bottom: 30px;">The Curve, Not Just The Caffeine</h2>
+          <p style="font-size: 1.3rem; color: #4b5563; max-width: 700px; margin: 0 auto; line-height: 1.6;">
+            Coffee spikes hard, then crashes. Vero creates a smoother, longer focus window that actually works with your body's natural rhythms.
+          </p>
+        </div>
+        
+        <div style="background: white; padding: 60px; border-radius: 25px; margin-bottom: 80px; box-shadow: 0 20px 60px rgba(0,0,0,0.1);">
+          <svg viewBox="0 0 800 300" style="width: 100%; height: auto; max-width: 700px; margin: 0 auto; display: block;">
+            <!-- Grid background -->
+            <defs>
+              <pattern id="grid2" width="50" height="30" patternUnits="userSpaceOnUse">
+                <path d="M 50 0 L 0 0 0 30" fill="none" stroke="#f3f4f6" stroke-width="1"/>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#grid2)" />
+            
+            <!-- Axes -->
+            <path d="M80 250 L720 250 M80 250 L80 50" stroke="#6b7280" stroke-width="3"/>
+            
+            <!-- Coffee spike area (red) -->
+            <path d="M80 240 C 150 120, 200 80, 250 70 S 350 160, 720 240 L720 250 L80 250 Z" 
+                  fill="rgba(239, 68, 68, 0.1)" />
+            
+            <!-- Coffee spike line (red) -->
+            <path d="M80 240 C 150 120, 200 80, 250 70 S 350 160, 720 240" 
+                  fill="none" stroke="#ef4444" stroke-width="4" stroke-dasharray="10,5" />
+            
+            <!-- Vero curve area (blue) -->
+            <path d="M80 240 C 180 180, 280 140, 400 130 S 600 150, 720 240 L720 250 L80 250 Z" 
+                  fill="rgba(59, 130, 246, 0.1)" />
+            
+            <!-- Vero curve line (blue) -->
+            <path d="M80 240 C 180 180, 280 140, 400 130 S 600 150, 720 240" 
+                  fill="none" stroke="#3b82f6" stroke-width="5" />
+            
+            <!-- Labels -->
+            <text x="250" y="60" fill="#ef4444" font-size="16" text-anchor="middle" font-weight="700">Coffee Spike</text>
+            <text x="450" y="115" fill="#3b82f6" font-size="16" text-anchor="middle" font-weight="700">Vero Curve</text>
+            
+            <!-- Time markers -->
+            <line x1="80" y1="250" x2="80" y2="260" stroke="#6b7280" stroke-width="2"/>
+            <text x="80" y="280" fill="#6b7280" font-size="14" text-anchor="middle" font-weight="600">0min</text>
+            
+            <line x1="280" y1="250" x2="280" y2="260" stroke="#6b7280" stroke-width="2"/>
+            <text x="280" y="280" fill="#6b7280" font-size="14" text-anchor="middle" font-weight="600">1hr</text>
+            
+            <line x1="480" y1="250" x2="480" y2="260" stroke="#6b7280" stroke-width="2"/>
+            <text x="480" y="280" fill="#6b7280" font-size="14" text-anchor="middle" font-weight="600">2hrs</text>
+            
+            <line x1="680" y1="250" x2="680" y2="260" stroke="#6b7280" stroke-width="2"/>
+            <text x="680" y="280" fill="#6b7280" font-size="14" text-anchor="middle" font-weight="600">4hrs</text>
+            
+            <!-- Y-axis label -->
+            <text x="40" y="150" fill="#6b7280" font-size="16" text-anchor="middle" font-weight="600" transform="rotate(-90 40 150)">Energy Level</text>
+          </svg>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
+          <div style="background: white; padding: 40px; border-radius: 20px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+            <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #22c55e, #16a34a); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 1.8rem;">⚡</div>
+            <h3 style="color: #1f2937; margin-bottom: 15px; font-size: 1.3rem; font-weight: 700;">Fast Ramp</h3>
+            <p style="color: #4b5563; line-height: 1.5;">You actually feel it kick in within 15-30 minutes</p>
+          </div>
+          
+          <div style="background: white; padding: 40px; border-radius: 20px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+            <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #3b82f6, #2563eb); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 1.8rem;">🧘</div>
+            <h3 style="color: #1f2937; margin-bottom: 15px; font-size: 1.3rem; font-weight: 700;">Smooth Peak</h3>
+            <p style="color: #4b5563; line-height: 1.5;">No jitters or anxiety, just calm alertness</p>
+          </div>
+          
+          <div style="background: white; padding: 40px; border-radius: 20px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+            <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #8b5cf6, #7c3aed); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 1.8rem;">🛬</div>
+            <h3 style="color: #1f2937; margin-bottom: 15px; font-size: 1.3rem; font-weight: 700;">Gentle Landing</h3>
+            <p style="color: #4b5563; line-height: 1.5;">No afternoon crash, just gradual return to baseline</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== THE VERO SOLUTION (Green Background) ===== -->
+    <section class="our-story" style="padding: 100px 20px; --s: 120px; --c1: #6ca700; --c2: #406102; --_g: radial-gradient(25% 25% at 25% 25%, var(--c1) 99%, rgba(0, 0, 0, 0) 101%); background: var(--_g) var(--s) var(--s) / calc(2 * var(--s)) calc(2 * var(--s)), var(--_g) 0 0 / calc(2 * var(--s)) calc(2 * var(--s)), radial-gradient(50% 50%, var(--c2) 98%, rgba(0, 0, 0, 0)) 0 0 / var(--s) var(--s), repeating-conic-gradient(var(--c2) 0 50%, var(--c1) 0 100%) calc(0.5 * var(--s)) 0 / calc(2 * var(--s)) var(--s);">
+      <div style="max-width: 1200px; margin: 0 auto;">
+        <div style="text-align: center; margin-bottom: 60px;">
+          <h2 style="font-size: 3rem; margin-bottom: 20px; color: white;">The Vero Solution</h2>
+          <p style="font-size: 1.2rem; color: rgba(255,255,255,0.9); max-width: 700px; margin: 0 auto;">Instead of throwing more caffeine at the problem, we built a smarter system. Four research-backed ingredients that work together to create steady, sustainable energy.</p>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 50px;">
+          <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 40px; border-radius: 20px; border-left: 4px solid rgba(255,255,255,0.4);">
+            <div style="display: flex; align-items: center; margin-bottom: 25px;">
+              <div style="font-size: 3.5rem; margin-right: 20px;">🌿</div>
+              <div>
+                <h3 style="color: white; margin: 0; font-size: 1.4rem;">Green Tea Caffeine</h3>
+                <div style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-top: 5px;">~80mg • Natural • Sustained</div>
+              </div>
+            </div>
+            <p style="color: rgba(255,255,255,0.8); margin-bottom: 20px;">Not synthetic caffeine that hits like a truck. This is natural caffeine from green tea leaves, released slowly for a smoother, longer-lasting boost.</p>
+            <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px; margin-bottom: 15px;">
+              <h4 style="color: white; margin-bottom: 10px; font-size: 1rem;">Why Green Tea?</h4>
+              <ul style="color: rgba(255,255,255,0.8); margin: 0; padding-left: 20px; font-size: 0.9rem;">
+                <li>Naturally paired with L-theanine</li>
+                <li>Slower absorption = less crash</li>
+                <li>Rich in antioxidants</li>
+              </ul>
+            </div>
+            <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px;">
+              <p style="color: rgba(255,255,255,0.9); margin: 0; font-size: 0.9rem; font-style: italic;">"Like your morning matcha, but in a bar that actually tastes good."</p>
+            </div>
+          </div>
+          
+          <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 40px; border-radius: 20px; border-left: 4px solid rgba(255,255,255,0.4);">
+            <div style="display: flex; align-items: center; margin-bottom: 25px;">
+              <div style="font-size: 3.5rem; margin-right: 20px;">🧠</div>
+              <div>
+                <h3 style="color: white; margin: 0; font-size: 1.4rem;">L-Theanine</h3>
+                <div style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-top: 5px;">Optimal ratio • Calm focus • No jitters</div>
+              </div>
+            </div>
+            <p style="color: rgba(255,255,255,0.8); margin-bottom: 20px;">The secret weapon. This amino acid from tea leaves takes the edge off caffeine, giving you alert focus without the anxiety or jitters.</p>
+            <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px; margin-bottom: 15px;">
+              <h4 style="color: white; margin-bottom: 10px; font-size: 1rem;">The Science</h4>
+              <ul style="color: rgba(255,255,255,0.8); margin: 0; padding-left: 20px; font-size: 0.9rem;">
+                <li>Increases alpha brain waves (calm alertness)</li>
+                <li>Reduces cortisol (stress hormone)</li>
+                <li>Synergizes perfectly with caffeine</li>
+              </ul>
+            </div>
+            <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px;">
+              <p style="color: rgba(255,255,255,0.9); margin: 0; font-size: 0.9rem; font-style: italic;">"It's like being in the zone, but on purpose."</p>
+            </div>
+          </div>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 50px;">
+          <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 40px; border-radius: 20px; border-left: 4px solid rgba(255,255,255,0.4);">
+            <div style="display: flex; align-items: center; margin-bottom: 25px;">
+              <div style="font-size: 3.5rem; margin-right: 20px;">💪</div>
+              <div>
+                <h3 style="color: white; margin: 0; font-size: 1.4rem;">Plant Protein</h3>
+                <div style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-top: 5px;">10g • Complete amino profile • Sustained energy</div>
+              </div>
+            </div>
+            <p style="color: rgba(255,255,255,0.8); margin-bottom: 20px;">Pea, rice, and hemp proteins work together to keep you satisfied and provide steady fuel for your muscles and brain. No chalky aftertaste.</p>
+            <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px; margin-bottom: 15px;">
+              <h4 style="color: white; margin-bottom: 10px; font-size: 1rem;">Why Protein Matters</h4>
+              <ul style="color: rgba(255,255,255,0.8); margin: 0; padding-left: 20px; font-size: 0.9rem;">
+                <li>Slows sugar absorption</li>
+                <li>Keeps you full longer</li>
+                <li>Supports muscle recovery</li>
+              </ul>
+            </div>
+            <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px;">
+              <p style="color: rgba(255,255,255,0.9); margin: 0; font-size: 0.9rem; font-style: italic;">"Finally, an energy bar that doesn't leave me hungry in 30 minutes."</p>
+            </div>
+          </div>
+          
+          <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 40px; border-radius: 20px; border-left: 4px solid rgba(255,255,255,0.4);">
+            <div style="display: flex; align-items: center; margin-bottom: 25px;">
+              <div style="font-size: 3.5rem; margin-right: 20px;">⚡</div>
+              <div>
+                <h3 style="color: white; margin: 0; font-size: 1.4rem;">Electrolytes</h3>
+                <div style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-top: 5px;">Sodium • Potassium • Magnesium</div>
+              </div>
+            </div>
+            <p style="color: rgba(255,255,255,0.8); margin-bottom: 20px;">Even mild dehydration kills focus and performance. These essential minerals help your brain and muscles function at their best.</p>
+            <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px; margin-bottom: 15px;">
+              <h4 style="color: white; margin-bottom: 10px; font-size: 1rem;">The Hidden Factor</h4>
+              <ul style="color: rgba(255,255,255,0.8); margin: 0; padding-left: 20px; font-size: 0.9rem;">
+                <li>2% dehydration = 20% performance drop</li>
+                <li>Supports nerve function</li>
+                <li>Prevents afternoon fatigue</li>
+              </ul>
+            </div>
+            <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px;">
+              <p style="color: rgba(255,255,255,0.9); margin: 0; font-size: 0.9rem; font-style: italic;">"I didn't realize how much dehydration was affecting my focus."</p>
+            </div>
+          </div>
+        </div>
+        
+        <div style="text-align: center; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 50px; border-radius: 20px;">
+          <h3 style="color: white; margin-bottom: 25px; font-size: 1.8rem;">The Magic is in the Combination</h3>
+          <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem; max-width: 700px; margin: 0 auto; margin-bottom: 30px;">These ingredients don't just work individually – they work together. The L-theanine smooths the caffeine. The protein sustains the energy. The electrolytes keep everything running smoothly.</p>
+          <div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; display: inline-block;">
+            <p style="color: white; margin: 0; font-size: 1.2rem; font-weight: 600;">Caffeine + L-Theanine + Protein + Electrolytes = Steady Energy That Actually Lasts</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== HOW IT FEELS (Timeline) ===== -->
+    <section style="background: white; padding: 100px 20px;">
+      <div style="max-width: 1000px; margin: 0 auto;">
+        <div style="text-align: center; margin-bottom: 60px;">
+          <h2 style="font-size: 3rem; margin-bottom: 20px; color: #2d5016;">How It Feels</h2>
+          <p style="font-size: 1.2rem; color: #666;">Your energy journey with Vero</p>
+        </div>
+        
+        <div style="position: relative;">
+          <!-- Timeline line -->
+          <div style="position: absolute; left: 50%; top: 0; bottom: 0; width: 4px; background: linear-gradient(to bottom, #6ca700, #22c55e); transform: translateX(-50%);"></div>
+          
+          <!-- Timeline items -->
+          <div style="display: flex; flex-direction: column; gap: 80px;">
+            <div style="display: flex; align-items: center; gap: 40px;">
+              <div style="flex: 1; text-align: right; padding-right: 40px;">
+                <div style="background: rgba(108, 167, 0, 0.1); padding: 30px; border-radius: 20px; border-left: 4px solid #6ca700;">
+                  <h3 style="color: #2d5016; margin-bottom: 10px; font-size: 1.3rem;">0-30 Minutes</h3>
+                  <h4 style="color: #6ca700; margin-bottom: 15px;">Wake Up Without Whiplash</h4>
+                  <p style="color: #666;">Smooth lift. You notice you're more "on", not suddenly buzzing.</p>
+                </div>
+              </div>
+              <div style="width: 60px; height: 60px; background: #6ca700; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; z-index: 2; position: relative;">1</div>
+              <div style="flex: 1; padding-left: 40px;"></div>
+            </div>
+            
+            <div style="display: flex; align-items: center; gap: 40px;">
+              <div style="flex: 1; padding-right: 40px;"></div>
+              <div style="width: 60px; height: 60px; background: #22c55e; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; z-index: 2; position: relative;">2</div>
+              <div style="flex: 1; text-align: left; padding-left: 40px;">
+                <div style="background: rgba(34, 197, 94, 0.1); padding: 30px; border-radius: 20px; border-right: 4px solid #22c55e;">
+                  <h3 style="color: #2d5016; margin-bottom: 10px; font-size: 1.3rem;">30-120 Minutes</h3>
+                  <h4 style="color: #22c55e; margin-bottom: 15px;">Deep Work Window</h4>
+                  <p style="color: #666;">Energy stays steady. Your brain has fuel to run on.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div style="display: flex; align-items: center; gap: 40px;">
+              <div style="flex: 1; text-align: right; padding-right: 40px;">
+                <div style="background: rgba(108, 167, 0, 0.1); padding: 30px; border-radius: 20px; border-left: 4px solid #6ca700;">
+                  <h3 style="color: #2d5016; margin-bottom: 10px; font-size: 1.3rem;">Afterwards</h3>
+                  <h4 style="color: #6ca700; margin-bottom: 15px;">Still Feel Human</h4>
+                  <p style="color: #666;">Gentle comedown. No zombie crash.</p>
+                </div>
+              </div>
+              <div style="width: 60px; height: 60px; background: #6ca700; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; z-index: 2; position: relative;">3</div>
+              <div style="flex: 1; padding-left: 40px;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SIMPLE CTA ===== -->
+    <section class="our-story" style="padding: 80px 20px; --s: 120px; --c1: #6ca700; --c2: #406102; --_g: radial-gradient(25% 25% at 25% 25%, var(--c1) 99%, rgba(0, 0, 0, 0) 101%); background: var(--_g) var(--s) var(--s) / calc(2 * var(--s)) calc(2 * var(--s)), var(--_g) 0 0 / calc(2 * var(--s)) calc(2 * var(--s)), radial-gradient(50% 50%, var(--c2) 98%, rgba(0, 0, 0, 0)) 0 0 / var(--s) var(--s), repeating-conic-gradient(var(--c2) 0 50%, var(--c1) 0 100%) calc(0.5 * var(--s)) 0 / calc(2 * var(--s)) var(--s); text-align: center;">
+      <div style="max-width: 600px; margin: 0 auto;">
+        <h2 style="font-size: 2.5rem; margin-bottom: 20px; color: white;">Ready to experience the difference?</h2>
+        <p style="font-size: 1.1rem; margin-bottom: 40px; color: rgba(255,255,255,0.9);">Try Vero and feel what steady energy actually feels like.</p>
+        <a href="Shop.html#products" style="background: white; color: #2d5016; padding: 16px 40px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 1.1rem; display: inline-block; transition: all 0.3s ease;">Shop Vero</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="footer" class="footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3 class="footer-title">Vero</h3>
+        <p>Clean energy, smarter nutrition.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn">Instagram</a>
+          <a href="#" class="social-btn">TikTok</a>
+          <a href="#" class="social-btn">LinkedIn</a>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:tomwiseman@Vero.se">tomwiseman@Vero.se</a></li>
+          <li><a href="mailto:oliverwiseman@Vero.se">oliverwiseman@Vero.se</a></li>
+          <li><a href="mailto:charliewiseman@Vero.se">charliewiseman@Vero.se</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Info</h4>
+        <ul>
+          <li>Plant-based. No artificial sweeteners.</li>
+          <li>Made with care in the EU.</li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Join our newsletter</h4>
+        <p>No spam, just smarter energy.</p>
+        <form class="newsletter-form" id="how-it-works-newsletter-form" action="#" method="post">
+          <input type="email" id="how-it-works-newsletter-email" name="email" placeholder="your@email.com" required aria-label="Email address" />
+          <button type="submit" aria-label="Subscribe to newsletter">→</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 Vero. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
