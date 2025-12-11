@@ -216,53 +216,117 @@
 
   <main>
 
-    <!-- ===== ADVANCED STORYTELLING HERO ===== -->
-    <section style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 30%, #cbd5e1 60%, #94a3b8 100%); padding: 0; position: relative; overflow: hidden; min-height: 100vh;">
-      
-      <!-- Complex Animated Background -->
-      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.4;">
-        <!-- Floating Molecules -->
-        <div style="position: absolute; top: 15%; left: 8%; width: 120px; height: 120px; background: radial-gradient(circle, rgba(245, 158, 11, 0.2) 0%, transparent 70%); border-radius: 50%; animation: moleculeFloat 8s ease-in-out infinite;"></div>
-        <div style="position: absolute; top: 60%; right: 12%; width: 80px; height: 80px; background: radial-gradient(circle, rgba(16, 185, 129, 0.2) 0%, transparent 70%); border-radius: 50%; animation: moleculeFloat 6s ease-in-out infinite reverse;"></div>
-        <div style="position: absolute; bottom: 25%; left: 15%; width: 100px; height: 100px; background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%); border-radius: 50%; animation: moleculeFloat 10s ease-in-out infinite;"></div>
+    <!-- ===== CLEAN SHOP HERO ===== -->
+    <section style="background: white; padding: 80px 20px; position: relative;">
+      <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
         
-        <!-- Energy Waves -->
-        <svg style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.1;" viewBox="0 0 1200 800">
-          <path d="M0,400 Q300,200 600,400 T1200,400" stroke="rgba(245, 158, 11, 0.3)" stroke-width="2" fill="none">
-            <animate attributeName="d" values="M0,400 Q300,200 600,400 T1200,400;M0,400 Q300,600 600,400 T1200,400;M0,400 Q300,200 600,400 T1200,400" dur="8s" repeatCount="indefinite"/>
-          </path>
-          <path d="M0,300 Q400,100 800,300 T1200,300" stroke="rgba(16, 185, 129, 0.3)" stroke-width="2" fill="none">
-            <animate attributeName="d" values="M0,300 Q400,100 800,300 T1200,300;M0,300 Q400,500 800,300 T1200,300;M0,300 Q400,100 800,300 T1200,300" dur="6s" repeatCount="indefinite"/>
-          </path>
-        </svg>
-      </div>
-      
-      <!-- Main Content Container -->
-      <div style="position: relative; z-index: 10; padding: 80px 20px 0;">
-        <div style="max-width: 1400px; margin: 0 auto;">
+        <!-- Simple, Clean Header -->
+        <div style="margin-bottom: 60px;">
+          <h1 style="font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800; color: #111827; margin-bottom: 20px; line-height: 1.1;">
+            Clean Energy That Tastes Great
+          </h1>
+          <p style="font-size: 1.2rem; color: #6b7280; max-width: 600px; margin: 0 auto; line-height: 1.6;">
+            Real ingredients, zero added sugar, 4+ hours of sustained energy. Choose your pack size below.
+          </p>
+        </div>
+
+        <!-- Product Selection -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto;">
           
-          <!-- Story Introduction -->
-          <div style="text-align: center; margin-bottom: 80px;">
-            <div style="display: inline-flex; align-items: center; gap: 12px; background: rgba(245, 158, 11, 0.1); backdrop-filter: blur(15px); border: 1px solid rgba(245, 158, 11, 0.3); color: #f59e0b; padding: 12px 28px; border-radius: 50px; font-size: 0.95rem; font-weight: 600; margin-bottom: 30px; box-shadow: 0 8px 32px rgba(245, 158, 11, 0.2);">
-              <div style="width: 10px; height: 10px; background: #f59e0b; border-radius: 50%; animation: energyPulse 2s infinite;"></div>
-              The Energy Revolution Starts Here
+          <!-- Try It Pack -->
+          <div style="background: white; border: 2px solid #e5e7eb; border-radius: 16px; padding: 30px; text-align: center; position: relative; transition: all 0.3s ease;" onmouseover="this.style.borderColor='#f59e0b'; this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='#e5e7eb'; this.style.transform='translateY(0)'">
+            <div style="background: #fef3c7; color: #92400e; padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; display: inline-block; margin-bottom: 20px;">TRY IT</div>
+            
+            <h3 style="font-size: 1.5rem; font-weight: 700; color: #111827; margin-bottom: 10px;">12 Bars</h3>
+            <div style="font-size: 2.5rem; font-weight: 900; color: #111827; margin-bottom: 5px;">$29</div>
+            <div style="color: #6b7280; font-size: 0.9rem; margin-bottom: 20px;">$2.42 per bar</div>
+            
+            <div style="background: #f9fafb; padding: 20px; border-radius: 12px; margin-bottom: 25px;">
+              <div style="color: #374151; font-size: 0.95rem; margin-bottom: 8px;"><strong>Perfect for:</strong> First-time buyers</div>
+              <div style="color: #6b7280; font-size: 0.85rem;">Low commitment, see if you like them</div>
             </div>
             
-            <h1 style="font-size: clamp(3.5rem, 8vw, 6rem); font-weight: 900; margin-bottom: 30px; line-height: 0.95; color: #111827; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-              Energy That<br/>
-              <span style="background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 50%, #f59e0b 100%); -webkit-background-clip: text; background-clip: text; color: transparent;">Actually Works</span>
-            </h1>
-            
-            <p style="font-size: 1.4rem; color: #cbd5e1; margin-bottom: 50px; line-height: 1.7; max-width: 700px; margin-left: auto; margin-right: auto; opacity: 0.9;">
-              Real ingredients. Real energy. <span style="color: #10b981; font-weight: 600;">Real results</span>. 
-              The clean protein bar that keeps you going for <span style="color: #10b981; font-weight: 600;">4+ hours</span>.
-            </p>
+            <a href="Purchase.html?product=Try It Pack&price=29&quantity=12" style="background: #f59e0b; color: white; padding: 14px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; display: block; transition: all 0.2s ease;" onmouseover="this.style.background='#d97706'" onmouseout="this.style.background='#f59e0b'">
+              Try Vero
+            </a>
           </div>
 
-          <!-- Interactive Energy Journey -->
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-bottom: 100px;">
+          <!-- Most Popular Pack -->
+          <div style="background: white; border: 3px solid #8b5cf6; border-radius: 16px; padding: 30px; text-align: center; position: relative; transform: scale(1.05); box-shadow: 0 10px 40px rgba(139, 92, 246, 0.15);">
+            <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #8b5cf6; color: white; padding: 8px 20px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;">MOST POPULAR</div>
             
-            <!-- Left: The Problem Visualization -->
+            <h3 style="font-size: 1.5rem; font-weight: 700; color: #111827; margin-bottom: 10px; margin-top: 10px;">24 Bars</h3>
+            <div style="font-size: 2.5rem; font-weight: 900; color: #111827; margin-bottom: 5px;">$54</div>
+            <div style="color: #6b7280; font-size: 0.9rem; margin-bottom: 20px;">$2.25 per bar • <span style="color: #10b981; font-weight: 600;">Save $4</span></div>
+            
+            <div style="background: #f0f9ff; padding: 20px; border-radius: 12px; margin-bottom: 25px; border: 1px solid #bfdbfe;">
+              <div style="color: #374151; font-size: 0.95rem; margin-bottom: 8px;"><strong>Perfect for:</strong> Regular users</div>
+              <div style="color: #6b7280; font-size: 0.85rem;">1 month supply, best value per bar</div>
+            </div>
+            
+            <a href="Purchase.html?product=Most Popular Pack&price=54&quantity=24" style="background: #8b5cf6; color: white; padding: 16px 24px; border-radius: 8px; text-decoration: none; font-weight: 700; display: block; transition: all 0.2s ease;" onmouseover="this.style.background='#7c3aed'" onmouseout="this.style.background='#8b5cf6'">
+              Get Most Popular
+            </a>
+          </div>
+
+          <!-- Stock Up Pack -->
+          <div style="background: white; border: 2px solid #e5e7eb; border-radius: 16px; padding: 30px; text-align: center; position: relative; transition: all 0.3s ease;" onmouseover="this.style.borderColor='#10b981'; this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='#e5e7eb'; this.style.transform='translateY(0)'">
+            <div style="background: #d1fae5; color: #065f46; padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; display: inline-block; margin-bottom: 20px;">BEST VALUE</div>
+            
+            <h3 style="font-size: 1.5rem; font-weight: 700; color: #111827; margin-bottom: 10px;">36 Bars</h3>
+            <div style="font-size: 2.5rem; font-weight: 900; color: #111827; margin-bottom: 5px;">$75</div>
+            <div style="color: #6b7280; font-size: 0.9rem; margin-bottom: 20px;">$2.08 per bar • <span style="color: #10b981; font-weight: 600;">Save $12</span></div>
+            
+            <div style="background: #f0fdf4; padding: 20px; border-radius: 12px; margin-bottom: 25px; border: 1px solid #bbf7d0;">
+              <div style="color: #374151; font-size: 0.95rem; margin-bottom: 8px;"><strong>Perfect for:</strong> Committed users</div>
+              <div style="color: #6b7280; font-size: 0.85rem;">6+ weeks supply, maximum savings</div>
+            </div>
+            
+            <a href="Purchase.html?product=Stock Up Pack&price=75&quantity=36" style="background: #10b981; color: white; padding: 14px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; display: block; transition: all 0.2s ease;" onmouseover="this.style.background='#059669'" onmouseout="this.style.background='#10b981'">
+              Stock Up & Save
+            </a>
+          </div>
+        </div>
+
+        <!-- Trust Signals -->
+        <div style="text-align: center; margin-top: 50px; padding-top: 40px; border-top: 1px solid #e5e7eb;">
+          <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; color: #6b7280; font-size: 0.9rem;">
+            <div>🚚 Free shipping over $50</div>
+            <div>🔄 30-day money back guarantee</div>
+            <div>🌱 100% plant-based</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== SIMPLE TESTIMONIALS ===== -->
+    <section style="background: #f8fafc; padding: 60px 20px;">
+      <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <h2 style="font-size: 2rem; font-weight: 700; color: #111827; margin-bottom: 40px;">What People Are Saying</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+          <div style="background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+            <p style="color: #374151; font-style: italic; margin-bottom: 15px; line-height: 1.5;">
+              "Finally, an energy bar that actually tastes good and keeps me going. Perfect for long days when I need real fuel."
+            </p>
+            <div style="color: #6b7280; font-size: 0.9rem; font-weight: 600;">— Sarah M., Student</div>
+          </div>
+          
+          <div style="background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+            <p style="color: #374151; font-style: italic; margin-bottom: 15px; line-height: 1.5;">
+              "Replaced my afternoon coffee habit. Way better energy and I actually sleep at night now."
+            </p>
+            <div style="color: #6b7280; font-size: 0.9rem; font-weight: 600;">— Tom K., Founder</div>
+          </div>
+          
+          <div style="background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+            <p style="color: #374151; font-style: italic; margin-bottom: 15px; line-height: 1.5;">
+              "Clean ingredients, great taste, lasting energy. This is what I've been looking for."
+            </p>
+            <div style="color: #6b7280; font-size: 0.9rem; font-weight: 600;">— Alex R., Designer</div>
+          </div>
+        </div>
+      </div>
+    </section>
             <div style="position: relative;">
               <div style="background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(20px); border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 24px; padding: 40px; position: relative; overflow: hidden; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);">
                 
@@ -983,79 +1047,7 @@
       }
     </style>
 
-    <!-- ===== WAVE TRANSITION ===== -->
-    <div style="background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 50%, #86efac 100%); height: 100px; position: relative;">
-      <svg style="position: absolute; bottom: 0; left: 0; width: 100%; height: 100px;" viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path d="M0,60 C300,100 600,20 900,60 C1050,90 1150,40 1200,60 L1200,120 L0,120 Z" fill="#ffffff"></path>
-      </svg>
-    </div>
 
-    <!-- ===== REAL PEOPLE, REAL RESULTS ===== -->
-    <section style="background: white; padding: 80px 20px;">
-      <div style="max-width: 900px; margin: 0 auto; text-align: center;">
-        <h2 style="font-size: 2.8rem; font-weight: 700; color: #1f2937; margin-bottom: 20px;">Real People, Real Results</h2>
-        <p style="font-size: 1.2rem; color: #6b7280; margin-bottom: 60px;">
-          People are discovering what clean energy actually tastes like. Here's what they're saying:
-        </p>
-        
-        <!-- Testimonials Grid - Fixed Alignment -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-bottom: 60px;">
-          <div style="background: linear-gradient(135deg, #f0fdf4, #dcfce7); padding: 35px 25px; border-radius: 20px; border-left: 5px solid #22c55e; height: 160px; display: flex; flex-direction: column; justify-content: space-between;">
-            <p style="color: #1f2937; font-style: italic; margin: 0; line-height: 1.5; font-size: 1rem;">
-              "Finally, an energy bar that actually tastes good and keeps me going. Perfect for long days when I need real fuel."
-            </p>
-            <p style="color: #15803d; font-size: 0.9rem; font-weight: 600; margin: 0;">— Sarah M., Med Student</p>
-          </div>
-          
-          <div style="background: linear-gradient(135deg, #eff6ff, #dbeafe); padding: 35px 25px; border-radius: 20px; border-left: 5px solid #3b82f6; height: 160px; display: flex; flex-direction: column; justify-content: space-between;">
-            <p style="color: #1f2937; font-style: italic; margin: 0; line-height: 1.5; font-size: 1rem;">
-              "Perfect for my 6am training sessions. Steady energy without feeling like I'm going to explode."
-            </p>
-            <p style="color: #1d4ed8; font-size: 0.9rem; font-weight: 600; margin: 0;">— Mike R., CrossFit Athlete</p>
-          </div>
-          
-          <div style="background: linear-gradient(135deg, #faf5ff, #f3e8ff); padding: 35px 25px; border-radius: 20px; border-left: 5px solid #8b5cf6; height: 160px; display: flex; flex-direction: column; justify-content: space-between;">
-            <p style="color: #1f2937; font-style: italic; margin: 0; line-height: 1.5; font-size: 1rem;">
-              "Replaced my afternoon coffee habit. Way better energy curve and I actually sleep at night now."
-            </p>
-            <p style="color: #7c3aed; font-size: 0.9rem; font-weight: 600; margin: 0;">— Tom K., Startup Founder</p>
-          </div>
-        </div>
-        
-        <!-- Risk-Free Guarantee -->
-        <div style="background: linear-gradient(135deg, #f0fdf4, #dcfce7); padding: 50px 40px; border-radius: 25px; margin-bottom: 40px; position: relative; overflow: hidden;">
-          <div style="position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; background: rgba(34, 197, 94, 0.1); border-radius: 50%; z-index: 1;"></div>
-          <div style="position: relative; z-index: 2;">
-            <h3 style="color: #15803d; margin-bottom: 20px; font-size: 2rem; font-weight: 700;">Try Vero Risk-Free</h3>
-            <p style="color: #166534; font-size: 1.2rem; margin-bottom: 35px; line-height: 1.6; max-width: 600px; margin-left: auto; margin-right: auto;">
-              We're so confident you'll love the smooth energy and focus that we offer a full 30-day money-back guarantee. No questions, no hassle.
-            </p>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 25px; margin-bottom: 35px;">
-              <div style="text-align: center; background: rgba(255,255,255,0.7); padding: 25px 15px; border-radius: 15px;">
-                <div style="font-size: 2.2rem; margin-bottom: 12px;">🚚</div>
-                <h4 style="color: #15803d; margin-bottom: 8px; font-size: 1.1rem; font-weight: 600;">Free Shipping</h4>
-                <p style="color: #166534; font-size: 0.9rem; margin: 0;">Orders over $50</p>
-              </div>
-              <div style="text-align: center; background: rgba(255,255,255,0.7); padding: 25px 15px; border-radius: 15px;">
-                <div style="font-size: 2.2rem; margin-bottom: 12px;">⚡</div>
-                <h4 style="color: #15803d; margin-bottom: 8px; font-size: 1.1rem; font-weight: 600;">Fast Delivery</h4>
-                <p style="color: #166534; font-size: 0.9rem; margin: 0;">2-3 business days</p>
-              </div>
-              <div style="text-align: center; background: rgba(255,255,255,0.7); padding: 25px 15px; border-radius: 15px;">
-                <div style="font-size: 2.2rem; margin-bottom: 12px;">🔄</div>
-                <h4 style="color: #15803d; margin-bottom: 8px; font-size: 1.1rem; font-weight: 600;">Easy Returns</h4>
-                <p style="color: #166534; font-size: 0.9rem; margin: 0;">Hassle-free process</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <a href="#products" style="background: linear-gradient(135deg, #22c55e, #16a34a); color: white; padding: 20px 60px; border-radius: 15px; text-decoration: none; font-weight: 700; font-size: 1.3rem; display: inline-block; box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3); transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 0.5px;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 35px rgba(34, 197, 94, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 25px rgba(34, 197, 94, 0.3)'">
-          Get Your Energy Upgrade
-        </a>
-      </div>
-    </section>
 
   </main>
 
