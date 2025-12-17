@@ -19,288 +19,391 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&family=Nunito:wght@400;500;600;700;800;900&family=Comfortaa:wght@300;400;500;600;700&family=Yellowtail&family=Belanosima:wght@400;600;700&family=Caveat:wght@400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=44" />
+  <link rel="stylesheet" href="deux-style.css?v=33" />
   
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --primary: #667eea;
-      --primary-dark: #5a67d8;
-      --accent: #f093fb;
-      --success: #10b981;
-      --warning: #f59e0b;
-      --error: #ef4444;
-      --text-primary: #1f2937;
-      --text-secondary: #6b7280;
-      --text-muted: #9ca3af;
-      --surface: #ffffff;
-      --surface-elevated: #f9fafb;
-      --surface-dark: #111827;
-      --border: #e5e7eb;
-      --border-light: #f3f4f6;
-      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-      --radius-sm: 8px;
-      --radius-md: 12px;
-      --radius-lg: 16px;
-      --radius-xl: 24px;
-    }
-
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      line-height: 1.6;
-      color: var(--text-primary);
-      background: linear-gradient(180deg, #fafbff 0%, #f0f4ff 100%);
       overflow-x: hidden;
     }
+    
+    .page-top-gradient {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 200px;
+      background: linear-gradient(180deg, rgba(34, 197, 94, 0.3) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
 
-    /* ===== NAVBAR ===== */
-    .navbar {
+    /* ===== NAVBAR (matching index.html exactly) ===== */
+    .vero-navbar {
       position: sticky;
       top: 0;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 999;
+      width: 100%;
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      transition: box-shadow 0.2s ease, border-color 0.2s ease;
     }
-
-    .navbar.scrolled {
-      background: rgba(255, 255, 255, 0.95);
-      box-shadow: var(--shadow-lg);
+    .vero-navbar--scrolled {
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      border-color: transparent;
     }
-
-    .navbar-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 1rem 2rem;
+    .vero-navbar__inner {
+      max-width: 1120px;
+      margin: auto;
+      padding: 1.2rem 1.5rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
-
-    .navbar-brand {
-      font-size: 1.75rem;
-      font-weight: 800;
-      color: var(--primary);
+    .vero-navbar__brand {
       text-decoration: none;
-      letter-spacing: -0.02em;
+      color: #111827;
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
     }
-
-    .navbar-nav {
+    .vero-navbar__center {
       display: flex;
-      list-style: none;
-      gap: 2rem;
       align-items: center;
     }
-
-    .navbar-link {
+    .vero-navbar__links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+    }
+    .vero-navbar__link {
       text-decoration: none;
-      color: var(--text-primary);
-      font-weight: 500;
-      font-size: 0.95rem;
-      padding: 0.5rem 1rem;
-      border-radius: var(--radius-sm);
-      transition: all 0.2s ease;
+      color: #111827;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 1.05rem;
+      padding-bottom: 2px;
+      position: relative;
     }
-
-    .navbar-link:hover {
-      background: rgba(102, 126, 234, 0.1);
-      color: var(--primary);
+    .vero-navbar__link::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: #111827;
+      transition: width 0.2s ease;
     }
-
-    .navbar-cta {
-      background: var(--primary);
+    .vero-navbar__link:hover::after {
+      width: 100%;
+    }
+    .vero-navbar__cta {
+      background-color: rgba(34, 197, 94);
       color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: var(--radius-md);
-      text-decoration: none;
+      border-radius: 12px;
+      font-size: 17px;
       font-weight: 600;
-      font-size: 0.9rem;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+      padding: 1em 2em;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      border: 1px solid black;
+      box-shadow: 0 0 0 0 black;
+      text-decoration: none;
+      display: inline-block;
     }
-
-    .navbar-cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
-      background: var(--primary-dark);
+    .vero-navbar__cta:hover {
+      transform: translateY(-4px) translateX(-2px);
+      box-shadow: 2px 5px 0 0 black;
+    }
+    .vero-navbar__cta:active {
+      transform: translateY(2px) translateX(1px);
+      box-shadow: 0 0 0 0 black;
+    }
+    .vero-navbar__toggle {
+      display: none;
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+      flex-direction: column;
+      justify-content: center;
+      gap: 6px;
+    }
+    .vero-navbar__toggle span {
+      height: 3px;
+      width: 100%;
+      background: #111827;
+      border-radius: 5px;
+      transition: 0.3s ease;
+    }
+    .vero-navbar__toggle--open span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+    .vero-navbar__toggle--open span:nth-child(2) {
+      opacity: 0;
+    }
+    .vero-navbar__toggle--open span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+    @media (max-width: 768px) {
+      .vero-navbar__toggle {
+        display: flex;
+      }
+      .vero-navbar__center {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #ffffff;
+        border-bottom: 1px solid #e5e7eb;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.25rem;
+        opacity: 0;
+        transform: translateY(-10px);
+        pointer-events: none;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+      }
+      .vero-navbar__center--open {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+      .vero-navbar__links {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      .vero-navbar__cta {
+        width: 100%;
+        text-align: center;
+      }
     }
 
     /* ===== HERO SECTION ===== */
     .hero {
-      padding: 8rem 2rem 6rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
+      padding: 80px 0;
     }
 
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: 
-        radial-gradient(circle at 30% 20%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 70% 80%, rgba(240, 147, 251, 0.1) 0%, transparent 50%);
-      pointer-events: none;
-    }
-
-    .hero-content {
-      max-width: 900px;
+    .hero-container {
+      max-width: 1120px;
       margin: 0 auto;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-badge {
-      display: inline-flex;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
       align-items: center;
-      gap: 0.5rem;
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--border);
-      padding: 0.5rem 1rem;
-      border-radius: 50px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--text-secondary);
-      margin-bottom: 2rem;
-      animation: fadeInUp 0.8s ease-out;
+      min-height: 70vh;
     }
 
-    .hero-title {
-      font-size: clamp(3rem, 8vw, 5.5rem);
+    .hero-text-side {
+      z-index: 10;
+    }
+
+    .hero-headline {
+      margin-bottom: 24px;
+    }
+
+    .headline-main {
+      display: block;
+      font-size: clamp(3rem, 8vw, 4.5rem);
       font-weight: 900;
       line-height: 1.1;
-      margin-bottom: 1.5rem;
-      background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary) 50%, var(--accent) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      letter-spacing: -0.03em;
-      animation: fadeInUp 0.8s ease-out 0.2s both;
+      color: #1f2937;
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: -0.02em;
     }
 
-    .hero-subtitle {
-      font-size: 1.3rem;
-      color: var(--text-secondary);
-      margin-bottom: 3rem;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-      animation: fadeInUp 0.8s ease-out 0.4s both;
+    .headline-script {
+      display: block;
+      font-size: clamp(3rem, 8vw, 4.5rem);
+      font-weight: 400;
+      line-height: 1.1;
+      color: #22c55e;
+      font-family: 'Yellowtail', cursive;
+      margin-left: 20px;
     }
 
-    /* ===== ENERGY COMPARISON SECTION ===== */
-    .energy-comparison {
-      padding: 8rem 2rem;
-      background: var(--surface-elevated);
-    }
-
-    .comparison-container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .comparison-header {
-      text-align: center;
-      margin-bottom: 5rem;
-    }
-
-    .comparison-title {
-      font-size: 3rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-      color: var(--text-primary);
-    }
-
-    .comparison-subtitle {
+    .hero-description {
       font-size: 1.2rem;
-      color: var(--text-secondary);
-      max-width: 600px;
+      line-height: 1.6;
+      color: #6b7280;
+      margin-bottom: 32px;
+      max-width: 500px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .cta-primary {
+      background-color: rgba(34, 197, 94);
+      color: white;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: 600;
+      padding: 1em 2em;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      border: 1px solid black;
+      box-shadow: 0 0 0 0 black;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .cta-primary:hover {
+      transform: translateY(-4px) translateX(-2px);
+      box-shadow: 2px 5px 0 0 black;
+    }
+
+    .cta-primary:active {
+      transform: translateY(2px) translateX(1px);
+      box-shadow: 0 0 0 0 black;
+    }
+
+    .cta-secondary {
+      background: transparent;
+      color: #1f2937;
+      border: 2px solid #e5e7eb;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: 600;
+      padding: calc(1em - 2px) 2em;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s ease;
+    }
+
+    .cta-secondary:hover {
+      border-color: #22c55e;
+      color: #1f2937;
+    }
+
+    .hero-product-showcase {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-product-card {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      transform: rotate(-2deg);
+      transition: transform 0.3s ease;
+    }
+
+    .hero-product-card:hover {
+      transform: rotate(0deg) scale(1.05);
+    }
+
+    .product-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .bar-3d {
+      width: 200px;
+      height: 60px;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      border-radius: 30px;
+      position: relative;
+      box-shadow: 0 10px 20px rgba(34, 197, 94, 0.3);
+    }
+
+    .bar-3d::before {
+      content: 'VERO';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-weight: 900;
+      font-size: 1.2rem;
+      letter-spacing: 2px;
+    }
+
+    /* ===== SCIENCE SECTIONS ===== */
+    .science-section {
+      padding: 80px 0;
+      background: #bfdbfe;
+    }
+
+    .container {
+      max-width: 1120px;
       margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      font-size: 5rem;
+      font-weight: 900;
+      color: #1f2937;
+      margin-bottom: 16px;
+      font-family: 'Poppins', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .section-subtitle {
+      font-size: 1.2rem;
+      color: #6b7280;
+      max-width: 600px;
+      margin: 0 auto 60px;
+      text-align: center;
     }
 
     .energy-chart {
-      background: var(--surface);
-      border-radius: var(--radius-xl);
-      padding: 3rem;
-      box-shadow: var(--shadow-lg);
-      margin-bottom: 4rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .chart-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 2rem;
-      color: var(--text-primary);
+      background: white;
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      margin-bottom: 60px;
     }
 
     .chart-container {
       position: relative;
       height: 300px;
-      margin-bottom: 2rem;
+      margin: 40px 0;
     }
 
-    .chart-axis {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: var(--border);
-    }
-
-    .chart-y-axis {
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: var(--border);
-    }
-
-    .energy-curve {
-      position: absolute;
-      bottom: 2px;
-      left: 2px;
-      right: 0;
-      height: calc(100% - 2px);
+    .chart-svg {
+      width: 100%;
+      height: 100%;
     }
 
     .vero-curve {
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      clip-path: polygon(0% 100%, 0% 60%, 15% 40%, 30% 30%, 50% 25%, 70% 30%, 85% 35%, 100% 40%, 100% 100%);
-      animation: drawCurve 2s ease-out 0.5s both;
+      stroke: #22c55e;
+      stroke-width: 4;
+      fill: none;
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: drawCurve 3s ease-out forwards;
     }
 
     .coffee-curve {
-      background: linear-gradient(135deg, var(--warning), var(--error));
-      clip-path: polygon(0% 100%, 0% 80%, 10% 30%, 20% 20%, 30% 60%, 50% 80%, 70% 85%, 100% 90%, 100% 100%);
-      animation: drawCurve 2s ease-out 1s both;
-      opacity: 0.8;
+      stroke: #ef4444;
+      stroke-width: 4;
+      fill: none;
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: drawCurve 3s ease-out 1s forwards;
     }
 
-    .chart-labels {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 1rem;
-      font-size: 0.9rem;
-      color: var(--text-secondary);
+    @keyframes drawCurve {
+      to {
+        stroke-dashoffset: 0;
+      }
     }
 
     .chart-legend {
@@ -314,137 +417,50 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      font-size: 0.9rem;
-      font-weight: 500;
+      font-weight: 600;
     }
 
     .legend-color {
-      width: 16px;
-      height: 16px;
-      border-radius: 4px;
+      width: 20px;
+      height: 4px;
+      border-radius: 2px;
     }
 
     .legend-vero {
-      background: linear-gradient(135deg, var(--primary), var(--accent));
+      background: #22c55e;
     }
 
     .legend-coffee {
-      background: linear-gradient(135deg, var(--warning), var(--error));
+      background: #ef4444;
     }
 
-    /* ===== COMPARISON TABLE ===== */
-    .comparison-table {
-      background: var(--surface);
-      border-radius: var(--radius-xl);
-      overflow: hidden;
-      box-shadow: var(--shadow-lg);
-      margin-bottom: 4rem;
-    }
-
-    .table-header {
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      color: white;
-      padding: 2rem;
-      text-align: center;
-    }
-
-    .table-header h3 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-
-    .table-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-    }
-
-    .table-column {
-      padding: 2rem;
-      border-right: 1px solid var(--border);
-    }
-
-    .table-column:last-child {
-      border-right: none;
-    }
-
-    .column-header {
-      font-size: 1.2rem;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 1.5rem;
-      color: var(--text-primary);
-    }
-
-    .vero-column .column-header {
-      color: var(--primary);
-    }
-
-    .table-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 0;
-      border-bottom: 1px solid var(--border-light);
-    }
-
-    .table-row:last-child {
-      border-bottom: none;
-    }
-
-    .row-label {
-      font-weight: 500;
-      color: var(--text-secondary);
-    }
-
-    .row-value {
-      font-weight: 700;
-      font-size: 1.1rem;
-    }
-
-    .vero-column .row-value {
-      color: var(--primary);
-    }
-
-    .positive-value {
-      color: var(--success);
-    }
-
-    .negative-value {
-      color: var(--error);
-    }
-
-    /* ===== HOW IT WORKS STEPS ===== */
-    .how-it-works {
-      padding: 8rem 2rem;
-    }
-
-    .steps-container {
-      max-width: 1200px;
-      margin: 0 auto;
+    /* ===== STEPS SECTION ===== */
+    .steps-section {
+      padding: 80px 0;
     }
 
     .steps-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 3rem;
-      margin-top: 4rem;
+      gap: 40px;
+      margin-top: 60px;
     }
 
     .step-card {
-      background: var(--surface);
-      border-radius: var(--radius-xl);
-      padding: 3rem;
+      background: white;
+      border-radius: 24px;
+      padding: 40px;
       text-align: center;
-      box-shadow: var(--shadow-lg);
-      border: 1px solid var(--border);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border: 2px solid transparent;
       transition: all 0.3s ease;
       position: relative;
     }
 
     .step-card:hover {
+      border-color: #22c55e;
       transform: translateY(-8px);
-      box-shadow: var(--shadow-xl);
+      box-shadow: 0 20px 40px rgba(34, 197, 94, 0.2);
     }
 
     .step-number {
@@ -454,441 +470,174 @@
       transform: translateX(-50%);
       width: 40px;
       height: 40px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
+      background: linear-gradient(135deg, #22c55e, #16a34a);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       color: white;
-      font-weight: 700;
+      font-weight: 900;
       font-size: 1.2rem;
     }
 
     .step-icon {
-      width: 80px;
-      height: 80px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      border-radius: var(--radius-lg);
-      margin: 2rem auto 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
+      font-size: 3rem;
+      margin: 20px 0;
     }
 
     .step-title {
       font-size: 1.5rem;
       font-weight: 700;
-      margin-bottom: 1rem;
-      color: var(--text-primary);
+      margin-bottom: 16px;
+      color: #1f2937;
     }
 
     .step-description {
-      color: var(--text-secondary);
+      color: #6b7280;
       line-height: 1.6;
     }
 
-    /* ===== INGREDIENTS SECTION ===== */
-    .ingredients {
-      padding: 8rem 2rem;
-      background: var(--surface-dark);
-      color: white;
-    }
-
-    .ingredients-container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .ingredients-header {
-      text-align: center;
-      margin-bottom: 5rem;
-    }
-
-    .ingredients-title {
-      font-size: 3rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .ingredients-subtitle {
-      font-size: 1.2rem;
-      color: var(--text-muted);
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .ingredients-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-    }
-
-    .ingredient-card {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: var(--radius-xl);
-      padding: 2.5rem;
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-
-    .ingredient-card:hover {
-      transform: translateY(-4px);
-      background: rgba(255, 255, 255, 0.08);
-    }
-
-    .ingredient-icon {
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      border-radius: var(--radius-md);
-      margin: 0 auto 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-    }
-
-    .ingredient-name {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      color: white;
-    }
-
-    .ingredient-benefit {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
-    /* ===== CTA SECTION ===== */
-    .cta-section {
-      padding: 8rem 2rem;
-      text-align: center;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      color: white;
-    }
-
-    .cta-content {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .cta-title {
-      font-size: 3rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-      letter-spacing: -0.02em;
-    }
-
-    .cta-subtitle {
-      font-size: 1.2rem;
-      margin-bottom: 3rem;
-      opacity: 0.9;
-    }
-
-    .cta-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      background: white;
-      color: var(--primary);
-      padding: 1.25rem 2.5rem;
-      border-radius: var(--radius-lg);
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 1.1rem;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    }
-
-    .cta-button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-    }
-
-    /* ===== FOOTER ===== */
-    .footer {
-      background: var(--text-primary);
-      color: white;
-      padding: 5rem 2rem 2rem;
-      text-align: center;
-    }
-
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .footer-brand {
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--primary);
-      margin-bottom: 1rem;
-    }
-
-    .footer-tagline {
-      color: var(--text-muted);
-      margin-bottom: 3rem;
-      font-size: 1.1rem;
-    }
-
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-bottom: 3rem;
-      flex-wrap: wrap;
-    }
-
-    .footer-link {
-      color: #d1d5db;
-      text-decoration: none;
-      transition: color 0.2s ease;
-      font-weight: 500;
-    }
-
-    .footer-link:hover {
-      color: white;
-    }
-
-    .footer-bottom {
-      border-top: 1px solid #374151;
-      padding-top: 2rem;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
-    /* ===== ANIMATIONS ===== */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes drawCurve {
-      from {
-        opacity: 0;
-        transform: scaleX(0);
-      }
-      to {
-        opacity: 1;
-        transform: scaleX(1);
-      }
-    }
-
-    /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
-      .navbar-container {
-        padding: 1rem;
-      }
-
-      .navbar-nav {
-        display: none;
-      }
-
-      .hero {
-        padding: 6rem 1rem 4rem;
-      }
-
-      .energy-comparison,
-      .how-it-works,
-      .ingredients,
-      .cta-section {
-        padding: 6rem 1rem;
-      }
-
-      .table-content {
+      .hero-container {
         grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+      }
+      
+      .hero-text-side {
+        order: 2;
+      }
+      
+      .hero-product-showcase {
+        order: 1;
       }
 
-      .table-column {
-        border-right: none;
-        border-bottom: 1px solid var(--border);
-      }
-
-      .table-column:last-child {
-        border-bottom: none;
-      }
-
-      .steps-grid,
-      .ingredients-grid {
+      .steps-grid {
         grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-
-      .energy-chart {
-        padding: 2rem;
-      }
-
-      .chart-container {
-        height: 200px;
-      }
-
-      .chart-legend {
-        flex-direction: column;
-        gap: 1rem;
+        gap: 30px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- ===== NAVBAR ===== -->
-  <nav class="navbar" id="navbar">
-    <div class="navbar-container">
-      <a href="index.html" class="navbar-brand">Vero</a>
+  <!-- Soft green band behind transparent header -->
+  <div class="page-top-gradient"></div>
+
+  <!-- ===== NAVBAR (matching index.html exactly) ===== -->
+  <nav class="vero-navbar" id="veroNavbar">
+    <div class="vero-navbar__inner">
+      <a class="vero-navbar__brand" href="index.html">Vero</a>
       
-      <ul class="navbar-nav">
-        <li><a href="index.html" class="navbar-link">Home</a></li>
-        <li><a href="Shop.html" class="navbar-link">Shop</a></li>
-        <li><a href="How-It-Works.html" class="navbar-link">How It Works</a></li>
-        <li><a href="Why-Vero.html" class="navbar-link">Why Vero</a></li>
-      </ul>
+      <div class="vero-navbar__toggle" id="veroToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
       
-      <a href="Shop.html" class="navbar-cta">Get Started</a>
+      <div class="vero-navbar__center" id="veroMenu">
+        <ul class="vero-navbar__links">
+          <li><a class="vero-navbar__link" href="index.html">Home</a></li>
+          <li><a class="vero-navbar__link" href="Shop.html">Shop</a></li>
+          <li><a class="vero-navbar__link" href="How-It-Works.html">How It Works</a></li>
+          <li><a class="vero-navbar__link" href="Why-Vero.html">Why Vero</a></li>
+        </ul>
+      </div>
+      
+      <div class="vero-navbar__right">
+        <a href="Shop.html#products" class="vero-navbar__cta">Get Energized</a>
+      </div>
     </div>
   </nav>
 
   <!-- ===== HERO SECTION ===== -->
-  <section class="hero">
-    <div class="hero-content">
-      <div class="hero-badge">
-        <span>🔬</span>
-        <span>Science-backed energy formula</span>
+  <section class="hero" id="home">
+    <div class="hero-container">
+      
+      <!-- Hero Text Side -->
+      <div class="hero-text-side">
+        <h1 class="hero-headline">
+          <span class="headline-main">The Science Behind</span>
+          <span class="headline-script">Clean Energy.</span>
+        </h1>
+        
+        <p class="hero-description">
+          Discover how Vero delivers sustained energy without the crash. Our unique formula combines premium ingredients for optimal performance.
+        </p>
+        
+        <div class="hero-cta-group">
+          <a href="#science" class="cta-primary">See The Science</a>
+          <a href="Shop.html" class="cta-secondary">Shop Now</a>
+        </div>
+      </div>
+
+      <!-- Hero Product Side -->
+      <div class="hero-product-showcase">
+        <div class="hero-product-card">
+          <div class="product-visual">
+            <div class="bar-3d bar-energy-3d"></div>
+          </div>
+        </div>
       </div>
       
-      <h1 class="hero-title">
-        The Science Behind
-        <br>Sustained Energy
-      </h1>
-      
-      <p class="hero-subtitle">
-        Discover how Vero delivers clean, lasting energy without the crash. Our unique formula combines premium ingredients for optimal performance.
-      </p>
     </div>
   </section>
 
-  <!-- ===== ENERGY COMPARISON ===== -->
-  <section class="energy-comparison">
-    <div class="comparison-container">
-      <div class="comparison-header">
-        <h2 class="comparison-title">Energy That Lasts</h2>
-        <p class="comparison-subtitle">
-          See how Vero's sustained energy release compares to traditional coffee and energy drinks.
-        </p>
-      </div>
+  <!-- ===== ENERGY COMPARISON SECTION ===== -->
+  <section id="science" class="science-section">
+    <div class="container">
+      <h2 class="section-title">Energy That Lasts</h2>
+      <p class="section-subtitle">
+        See how Vero's sustained energy release compares to traditional coffee and energy drinks.
+      </p>
 
       <div class="energy-chart">
-        <h3 class="chart-title">Energy Levels Over Time</h3>
+        <h3 style="text-align: center; font-size: 1.5rem; margin-bottom: 20px; color: #1f2937;">Energy Levels Over Time</h3>
         <div class="chart-container">
-          <div class="chart-y-axis"></div>
-          <div class="chart-axis"></div>
-          <div class="energy-curve vero-curve"></div>
-          <div class="energy-curve coffee-curve"></div>
+          <svg class="chart-svg" viewBox="0 0 800 300">
+            <!-- Grid lines -->
+            <defs>
+              <pattern id="grid" width="80" height="60" patternUnits="userSpaceOnUse">
+                <path d="M 80 0 L 0 0 0 60" fill="none" stroke="#f3f4f6" stroke-width="1"/>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#grid)" />
+            
+            <!-- Axes -->
+            <line x1="60" y1="20" x2="60" y2="260" stroke="#6b7280" stroke-width="2"/>
+            <line x1="60" y1="260" x2="740" y2="260" stroke="#6b7280" stroke-width="2"/>
+            
+            <!-- Y-axis label -->
+            <text x="30" y="140" fill="#6b7280" font-size="14" text-anchor="middle" transform="rotate(-90 30 140)">Energy Level</text>
+            
+            <!-- X-axis labels -->
+            <text x="100" y="280" fill="#6b7280" font-size="12" text-anchor="middle">0 min</text>
+            <text x="200" y="280" fill="#6b7280" font-size="12" text-anchor="middle">30 min</text>
+            <text x="300" y="280" fill="#6b7280" font-size="12" text-anchor="middle">1 hour</text>
+            <text x="450" y="280" fill="#6b7280" font-size="12" text-anchor="middle">2 hours</text>
+            <text x="600" y="280" fill="#6b7280" font-size="12" text-anchor="middle">3 hours</text>
+            <text x="720" y="280" fill="#6b7280" font-size="12" text-anchor="middle">4 hours</text>
+            
+            <!-- Vero curve (higher and longer lasting) -->
+            <path class="vero-curve" d="M 60 260 Q 150 120 250 100 T 500 120 T 720 180"/>
+            
+            <!-- Coffee curve (spike and crash) -->
+            <path class="coffee-curve" d="M 60 260 Q 120 80 180 60 Q 240 80 300 140 Q 400 200 500 220 T 720 240"/>
+            
+            <!-- Labels -->
+            <text x="400" y="90" fill="#22c55e" font-size="14" font-weight="bold">Vero Energy</text>
+            <text x="200" y="50" fill="#ef4444" font-size="14" font-weight="bold">Coffee/Energy Drinks</text>
+          </svg>
         </div>
-        <div class="chart-labels">
-          <span>0 min</span>
-          <span>30 min</span>
-          <span>1 hour</span>
-          <span>2 hours</span>
-          <span>3 hours</span>
-          <span>4 hours</span>
-        </div>
+        
         <div class="chart-legend">
           <div class="legend-item">
             <div class="legend-color legend-vero"></div>
-            <span>Vero Energy</span>
+            <span>Vero - Sustained Energy</span>
           </div>
           <div class="legend-item">
             <div class="legend-color legend-coffee"></div>
-            <span>Coffee/Energy Drinks</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Comparison Table -->
-      <div class="comparison-table">
-        <div class="table-header">
-          <h3>Nutritional Comparison</h3>
-          <p>How Vero stacks up against the competition</p>
-        </div>
-        <div class="table-content">
-          <div class="table-column">
-            <div class="column-header">Feature</div>
-            <div class="table-row">
-              <span class="row-label">Protein</span>
-            </div>
-            <div class="table-row">
-              <span class="row-label">Added Sugar</span>
-            </div>
-            <div class="table-row">
-              <span class="row-label">Caffeine</span>
-            </div>
-            <div class="table-row">
-              <span class="row-label">Net Carbs</span>
-            </div>
-            <div class="table-row">
-              <span class="row-label">Fiber</span>
-            </div>
-            <div class="table-row">
-              <span class="row-label">Energy Duration</span>
-            </div>
-          </div>
-          
-          <div class="table-column vero-column">
-            <div class="column-header">Vero</div>
-            <div class="table-row">
-              <span class="row-value positive-value">10g</span>
-            </div>
-            <div class="table-row">
-              <span class="row-value positive-value">0g</span>
-            </div>
-            <div class="table-row">
-              <span class="row-value">90mg</span>
-            </div>
-            <div class="table-row">
-              <span class="row-value positive-value">8g</span>
-            </div>
-            <div class="table-row">
-              <span class="row-value positive-value">5g</span>
-            </div>
-            <div class="table-row">
-              <span class="row-value positive-value">4+ hours</span>
-            </div>
-          </div>
-          
-          <div class="table-column">
-            <div class="column-header">Energy Drinks</div>
-            <div class="table-row">
-              <span class="row-value">3g</span>
-            </div>
-            <div class="table-row">
-              <span class="row-value negative-value">12g</span>
-            </div>
-            <div class="table-row">
-              <span class="row-value negative-value">160mg</span>
-            </div>
-            <div class="table-row">
-              <span class="row-value negative-value">15g</span>
-            </div>
-            <div class="table-row">
-              <span class="row-value">0g</span>
-            </div>
-            <div class="table-row">
-              <span class="row-value negative-value">1-2 hours</span>
-            </div>
+            <span>Coffee - Spike & Crash</span>
           </div>
         </div>
       </div>
@@ -896,14 +645,12 @@
   </section>
 
   <!-- ===== HOW IT WORKS STEPS ===== -->
-  <section class="how-it-works">
-    <div class="steps-container">
-      <div class="comparison-header">
-        <h2 class="comparison-title">How Vero Works</h2>
-        <p class="comparison-subtitle">
-          Our three-stage energy system delivers sustained performance without the crash.
-        </p>
-      </div>
+  <section class="steps-section">
+    <div class="container">
+      <h2 class="section-title">How Vero Works</h2>
+      <p class="section-subtitle">
+        Our three-stage energy system delivers sustained performance without the crash.
+      </p>
 
       <div class="steps-grid">
         <div class="step-card">
@@ -936,100 +683,72 @@
     </div>
   </section>
 
-  <!-- ===== INGREDIENTS SECTION ===== -->
-  <section class="ingredients">
-    <div class="ingredients-container">
-      <div class="ingredients-header">
-        <h2 class="ingredients-title">Premium Ingredients</h2>
-        <p class="ingredients-subtitle">
-          Every ingredient is carefully selected for maximum efficacy and clean energy delivery.
-        </p>
-      </div>
-
-      <div class="ingredients-grid">
-        <div class="ingredient-card">
-          <div class="ingredient-icon">🍃</div>
-          <h3 class="ingredient-name">Green Tea Caffeine</h3>
-          <p class="ingredient-benefit">Natural, smooth energy without jitters</p>
-        </div>
-
-        <div class="ingredient-card">
-          <div class="ingredient-icon">🌿</div>
-          <h3 class="ingredient-name">L-Theanine</h3>
-          <p class="ingredient-benefit">Promotes calm focus and reduces anxiety</p>
-        </div>
-
-        <div class="ingredient-card">
-          <div class="ingredient-icon">💪</div>
-          <h3 class="ingredient-name">Plant Protein</h3>
-          <p class="ingredient-benefit">Complete amino acids for sustained energy</p>
-        </div>
-
-        <div class="ingredient-card">
-          <div class="ingredient-icon">🌾</div>
-          <h3 class="ingredient-name">Complex Carbs</h3>
-          <p class="ingredient-benefit">Slow-release energy without spikes</p>
-        </div>
-
-        <div class="ingredient-card">
-          <div class="ingredient-icon">🍄</div>
-          <h3 class="ingredient-name">Adaptogens</h3>
-          <p class="ingredient-benefit">Stress resilience and cognitive support</p>
-        </div>
-
-        <div class="ingredient-card">
-          <div class="ingredient-icon">⚡</div>
-          <h3 class="ingredient-name">Electrolytes</h3>
-          <p class="ingredient-benefit">Optimal hydration and performance</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CTA SECTION ===== -->
-  <section class="cta-section">
-    <div class="cta-content">
-      <h2 class="cta-title">Ready to Experience Clean Energy?</h2>
-      <p class="cta-subtitle">
-        Join thousands who've made the switch to sustained, natural energy without the crash.
-      </p>
-      <a href="Shop.html" class="cta-button">
-        <span>Shop Vero Now</span>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M5 12h14M12 5l7 7-7 7"/>
-        </svg>
-      </a>
-    </div>
-  </section>
-
   <!-- ===== FOOTER ===== -->
-  <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-brand">Vero</div>
-      <p class="footer-tagline">Clean energy, smarter nutrition.</p>
-      
-      <div class="footer-links">
-        <a href="index.html" class="footer-link">Home</a>
-        <a href="Shop.html" class="footer-link">Shop</a>
-        <a href="Why-Vero.html" class="footer-link">Why Vero</a>
-        <a href="mailto:hello@vero.energy" class="footer-link">Contact</a>
+  <footer id="footer" class="footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3 class="footer-title">Vero</h3>
+        <div class="footer-socials">
+          <a href="#" class="social-btn" aria-label="Follow us on Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+            <span>Instagram</span>
+          </a>
+          <a href="#" class="social-btn" aria-label="Follow us on TikTok">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+            </svg>
+            <span>TikTok</span>
+          </a>
+          <a href="#" class="social-btn" aria-label="Follow us on LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+            <span>LinkedIn</span>
+          </a>
+        </div>
+        <p>Clean energy, smarter nutrition.</p>
       </div>
-      
-      <div class="footer-bottom">
-        <p>&copy; 2025 Vero. All rights reserved.</p>
+      <div class="footer-column">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:tomwiseman@Vero.se">tomwiseman@Vero.se</a></li>
+          <li><a href="mailto:oliverwiseman@Vero.se">oliverwiseman@Vero.se</a></li>
+          <li><a href="mailto:charliewiseman@Vero.se">charliewiseman@Vero.se</a></li>
+        </ul>
       </div>
+  
+      <div class="footer-column">
+        <h4>Info</h4>
+        <ul>
+          <li>Plant-based. No artificial sweeteners.</li>
+          <li>Made with care in the EU.</li>
+        </ul>
+      </div>
+
+    </div>
+  
+    <div class="footer-bottom">
+      <p>© 2025 Vero. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- ===== JAVASCRIPT ===== -->
   <script>
-    // Navbar scroll effect
-    window.addEventListener('scroll', () => {
-      const navbar = document.getElementById('navbar');
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
+    const toggle = document.getElementById("veroToggle");
+    const menu = document.getElementById("veroMenu");
+    const navbar = document.getElementById("veroNavbar");
+    
+    toggle.addEventListener("click", () => {
+      toggle.classList.toggle("vero-navbar__toggle--open");
+      menu.classList.toggle("vero-navbar__center--open");
+    });
+    
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 10) {
+        navbar.classList.add("vero-navbar--scrolled");
       } else {
-        navbar.classList.remove('scrolled');
+        navbar.classList.remove("vero-navbar--scrolled");
       }
     });
 
@@ -1044,58 +763,6 @@
             block: 'start'
           });
         }
-      });
-    });
-
-    // Intersection Observer for animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, observerOptions);
-
-    // Initialize animations
-    document.addEventListener('DOMContentLoaded', () => {
-      const cards = document.querySelectorAll('.step-card, .ingredient-card, .energy-chart, .comparison-table');
-      cards.forEach((card, index) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-        observer.observe(card);
-      });
-
-      // Animate energy curves when they come into view
-      const curves = document.querySelectorAll('.energy-curve');
-      const curveObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.animationPlayState = 'running';
-          }
-        });
-      }, { threshold: 0.5 });
-
-      curves.forEach(curve => {
-        curve.style.animationPlayState = 'paused';
-        curveObserver.observe(curve);
-      });
-    });
-
-    // Add hover effects to comparison table rows
-    document.querySelectorAll('.table-row').forEach(row => {
-      row.addEventListener('mouseenter', () => {
-        row.style.background = 'rgba(102, 126, 234, 0.05)';
-      });
-      
-      row.addEventListener('mouseleave', () => {
-        row.style.background = '';
       });
     });
   </script>

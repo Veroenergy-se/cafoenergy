@@ -19,235 +19,372 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&family=Nunito:wght@400;500;600;700;800;900&family=Comfortaa:wght@300;400;500;600;700&family=Yellowtail&family=Belanosima:wght@400;600;700&family=Caveat:wght@400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=44" />
+  <link rel="stylesheet" href="deux-style.css?v=33" />
   
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --primary: #667eea;
-      --primary-dark: #5a67d8;
-      --accent: #f093fb;
-      --success: #10b981;
-      --warning: #f59e0b;
-      --error: #ef4444;
-      --text-primary: #1f2937;
-      --text-secondary: #6b7280;
-      --text-muted: #9ca3af;
-      --surface: #ffffff;
-      --surface-elevated: #f9fafb;
-      --surface-dark: #111827;
-      --border: #e5e7eb;
-      --border-light: #f3f4f6;
-      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-      --radius-sm: 8px;
-      --radius-md: 12px;
-      --radius-lg: 16px;
-      --radius-xl: 24px;
-    }
-
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      line-height: 1.6;
-      color: var(--text-primary);
-      background: linear-gradient(180deg, #fafbff 0%, #f0f4ff 100%);
       overflow-x: hidden;
     }
+    
+    .page-top-gradient {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 200px;
+      background: linear-gradient(180deg, rgba(168, 85, 247, 0.3) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
 
-    /* ===== NAVBAR ===== */
-    .navbar {
+    /* ===== NAVBAR (matching index.html exactly) ===== */
+    .vero-navbar {
       position: sticky;
       top: 0;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 999;
+      width: 100%;
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      transition: box-shadow 0.2s ease, border-color 0.2s ease;
     }
-
-    .navbar.scrolled {
-      background: rgba(255, 255, 255, 0.95);
-      box-shadow: var(--shadow-lg);
+    .vero-navbar--scrolled {
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      border-color: transparent;
     }
-
-    .navbar-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 1rem 2rem;
+    .vero-navbar__inner {
+      max-width: 1120px;
+      margin: auto;
+      padding: 1.2rem 1.5rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
-
-    .navbar-brand {
-      font-size: 1.75rem;
-      font-weight: 800;
-      color: var(--primary);
+    .vero-navbar__brand {
       text-decoration: none;
-      letter-spacing: -0.02em;
+      color: #111827;
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
     }
-
-    .navbar-nav {
+    .vero-navbar__center {
       display: flex;
-      list-style: none;
-      gap: 2rem;
       align-items: center;
     }
-
-    .navbar-link {
+    .vero-navbar__links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+    }
+    .vero-navbar__link {
       text-decoration: none;
-      color: var(--text-primary);
-      font-weight: 500;
-      font-size: 0.95rem;
-      padding: 0.5rem 1rem;
-      border-radius: var(--radius-sm);
-      transition: all 0.2s ease;
+      color: #111827;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 1.05rem;
+      padding-bottom: 2px;
+      position: relative;
     }
-
-    .navbar-link:hover {
-      background: rgba(102, 126, 234, 0.1);
-      color: var(--primary);
+    .vero-navbar__link::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: #111827;
+      transition: width 0.2s ease;
     }
-
-    .navbar-cta {
-      background: var(--primary);
+    .vero-navbar__link:hover::after {
+      width: 100%;
+    }
+    .vero-navbar__cta {
+      background-color: rgba(168, 85, 247);
       color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: var(--radius-md);
-      text-decoration: none;
+      border-radius: 12px;
+      font-size: 17px;
       font-weight: 600;
-      font-size: 0.9rem;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+      padding: 1em 2em;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      border: 1px solid black;
+      box-shadow: 0 0 0 0 black;
+      text-decoration: none;
+      display: inline-block;
     }
-
-    .navbar-cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
-      background: var(--primary-dark);
+    .vero-navbar__cta:hover {
+      transform: translateY(-4px) translateX(-2px);
+      box-shadow: 2px 5px 0 0 black;
+    }
+    .vero-navbar__cta:active {
+      transform: translateY(2px) translateX(1px);
+      box-shadow: 0 0 0 0 black;
+    }
+    .vero-navbar__toggle {
+      display: none;
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+      flex-direction: column;
+      justify-content: center;
+      gap: 6px;
+    }
+    .vero-navbar__toggle span {
+      height: 3px;
+      width: 100%;
+      background: #111827;
+      border-radius: 5px;
+      transition: 0.3s ease;
+    }
+    .vero-navbar__toggle--open span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+    .vero-navbar__toggle--open span:nth-child(2) {
+      opacity: 0;
+    }
+    .vero-navbar__toggle--open span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+    @media (max-width: 768px) {
+      .vero-navbar__toggle {
+        display: flex;
+      }
+      .vero-navbar__center {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #ffffff;
+        border-bottom: 1px solid #e5e7eb;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.25rem;
+        opacity: 0;
+        transform: translateY(-10px);
+        pointer-events: none;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+      }
+      .vero-navbar__center--open {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+      .vero-navbar__links {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      .vero-navbar__cta {
+        width: 100%;
+        text-align: center;
+      }
     }
 
     /* ===== HERO SECTION ===== */
     .hero {
-      padding: 8rem 2rem 6rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
+      padding: 80px 0;
     }
 
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: 
-        radial-gradient(circle at 30% 20%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 70% 80%, rgba(240, 147, 251, 0.1) 0%, transparent 50%);
-      pointer-events: none;
-    }
-
-    .hero-content {
-      max-width: 900px;
+    .hero-container {
+      max-width: 1120px;
       margin: 0 auto;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-badge {
-      display: inline-flex;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
       align-items: center;
-      gap: 0.5rem;
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--border);
-      padding: 0.5rem 1rem;
-      border-radius: 50px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--text-secondary);
-      margin-bottom: 2rem;
-      animation: fadeInUp 0.8s ease-out;
+      min-height: 70vh;
     }
 
-    .hero-title {
-      font-size: clamp(3.5rem, 8vw, 6rem);
+    .hero-text-side {
+      z-index: 10;
+    }
+
+    .hero-headline {
+      margin-bottom: 24px;
+    }
+
+    .headline-main {
+      display: block;
+      font-size: clamp(3rem, 8vw, 4.5rem);
       font-weight: 900;
       line-height: 1.1;
-      margin-bottom: 1.5rem;
-      background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary) 50%, var(--accent) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      letter-spacing: -0.03em;
-      animation: fadeInUp 0.8s ease-out 0.2s both;
+      color: #1f2937;
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: -0.02em;
     }
 
-    .hero-subtitle {
-      font-size: 1.3rem;
-      color: var(--text-secondary);
-      margin-bottom: 3rem;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-      animation: fadeInUp 0.8s ease-out 0.4s both;
+    .headline-script {
+      display: block;
+      font-size: clamp(3rem, 8vw, 4.5rem);
+      font-weight: 400;
+      line-height: 1.1;
+      color: #a855f7;
+      font-family: 'Yellowtail', cursive;
+      margin-left: 20px;
+    }
+
+    .hero-description {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #6b7280;
+      margin-bottom: 32px;
+      max-width: 500px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .cta-primary {
+      background-color: rgba(168, 85, 247);
+      color: white;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: 600;
+      padding: 1em 2em;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      border: 1px solid black;
+      box-shadow: 0 0 0 0 black;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .cta-primary:hover {
+      transform: translateY(-4px) translateX(-2px);
+      box-shadow: 2px 5px 0 0 black;
+    }
+
+    .cta-primary:active {
+      transform: translateY(2px) translateX(1px);
+      box-shadow: 0 0 0 0 black;
+    }
+
+    .cta-secondary {
+      background: transparent;
+      color: #1f2937;
+      border: 2px solid #e5e7eb;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: 600;
+      padding: calc(1em - 2px) 2em;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s ease;
+    }
+
+    .cta-secondary:hover {
+      border-color: #a855f7;
+      color: #1f2937;
+    }
+
+    .hero-product-showcase {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-product-card {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      transform: rotate(-2deg);
+      transition: transform 0.3s ease;
+    }
+
+    .hero-product-card:hover {
+      transform: rotate(0deg) scale(1.05);
+    }
+
+    .product-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .bar-3d {
+      width: 200px;
+      height: 60px;
+      background: linear-gradient(135deg, #a855f7, #9333ea);
+      border-radius: 30px;
+      position: relative;
+      box-shadow: 0 10px 20px rgba(168, 85, 247, 0.3);
+    }
+
+    .bar-3d::before {
+      content: 'VERO';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-weight: 900;
+      font-size: 1.2rem;
+      letter-spacing: 2px;
     }
 
     /* ===== PROBLEM SECTION ===== */
     .problem-section {
-      padding: 8rem 2rem;
-      background: var(--surface-dark);
+      padding: 80px 0;
+      background: #1f2937;
       color: white;
     }
 
-    .problem-container {
-      max-width: 1200px;
+    .container {
+      max-width: 1120px;
       margin: 0 auto;
+      padding: 0 20px;
     }
 
-    .problem-header {
+    .section-title {
+      font-size: 5rem;
+      font-weight: 900;
+      color: #1f2937;
+      margin-bottom: 16px;
+      font-family: 'Poppins', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
       text-align: center;
-      margin-bottom: 5rem;
     }
 
     .problem-title {
-      font-size: 3rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: white;
+      background: linear-gradient(135deg, #a855f7, #ec4899);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
 
-    .problem-subtitle {
+    .section-subtitle {
       font-size: 1.2rem;
-      color: var(--text-muted);
+      color: #9ca3af;
       max-width: 600px;
-      margin: 0 auto;
+      margin: 0 auto 60px;
+      text-align: center;
     }
 
     .problems-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 60px;
     }
 
     .problem-card {
       background: rgba(255, 255, 255, 0.05);
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: var(--radius-xl);
-      padding: 3rem;
+      border-radius: 24px;
+      padding: 40px;
       text-align: center;
       transition: all 0.3s ease;
     }
@@ -255,74 +392,46 @@
     .problem-card:hover {
       transform: translateY(-8px);
       background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(168, 85, 247, 0.3);
     }
 
     .problem-icon {
-      width: 80px;
-      height: 80px;
-      background: linear-gradient(135deg, var(--error), var(--warning));
-      border-radius: var(--radius-lg);
-      margin: 0 auto 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
+      font-size: 3rem;
+      margin-bottom: 20px;
     }
 
-    .problem-title-card {
+    .problem-card-title {
       font-size: 1.5rem;
       font-weight: 700;
-      margin-bottom: 1rem;
+      margin-bottom: 16px;
       color: white;
     }
 
     .problem-description {
-      color: var(--text-muted);
+      color: #d1d5db;
       line-height: 1.6;
     }
 
     /* ===== SOLUTION SECTION ===== */
     .solution-section {
-      padding: 8rem 2rem;
-    }
-
-    .solution-container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .solution-header {
-      text-align: center;
-      margin-bottom: 5rem;
-    }
-
-    .solution-title {
-      font-size: 3rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-      color: var(--text-primary);
-    }
-
-    .solution-subtitle {
-      font-size: 1.2rem;
-      color: var(--text-secondary);
-      max-width: 600px;
-      margin: 0 auto;
+      padding: 80px 0;
+      background: #bfdbfe;
     }
 
     .solutions-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 60px;
     }
 
     .solution-card {
-      background: var(--surface);
-      border-radius: var(--radius-xl);
-      padding: 3rem;
+      background: white;
+      border-radius: 24px;
+      padding: 40px;
       text-align: center;
-      box-shadow: var(--shadow-lg);
-      border: 1px solid var(--border);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border: 2px solid transparent;
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
@@ -335,14 +444,15 @@
       left: 0;
       right: 0;
       height: 4px;
-      background: linear-gradient(90deg, var(--success), var(--primary));
+      background: linear-gradient(90deg, #a855f7, #ec4899);
       transform: scaleX(0);
       transition: transform 0.3s ease;
     }
 
     .solution-card:hover {
       transform: translateY(-8px);
-      box-shadow: var(--shadow-xl);
+      border-color: #a855f7;
+      box-shadow: 0 20px 40px rgba(168, 85, 247, 0.2);
     }
 
     .solution-card:hover::before {
@@ -350,178 +460,42 @@
     }
 
     .solution-icon {
-      width: 80px;
-      height: 80px;
-      background: linear-gradient(135deg, var(--success), var(--primary));
-      border-radius: var(--radius-lg);
-      margin: 0 auto 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
+      font-size: 3rem;
+      margin-bottom: 20px;
     }
 
-    .solution-title-card {
+    .solution-card-title {
       font-size: 1.5rem;
       font-weight: 700;
-      margin-bottom: 1rem;
-      color: var(--text-primary);
+      margin-bottom: 16px;
+      color: #1f2937;
     }
 
     .solution-description {
-      color: var(--text-secondary);
+      color: #6b7280;
       line-height: 1.6;
-    }
-
-    /* ===== BENEFITS SECTION ===== */
-    .benefits-section {
-      padding: 8rem 2rem;
-      background: var(--surface-elevated);
-    }
-
-    .benefits-container {
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    .benefits-header {
-      text-align: center;
-      margin-bottom: 5rem;
-    }
-
-    .benefits-title {
-      font-size: 3rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-      color: var(--text-primary);
-    }
-
-    .benefits-subtitle {
-      font-size: 1.2rem;
-      color: var(--text-secondary);
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .benefits-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-
-    .benefit-card {
-      background: var(--surface);
-      border-radius: var(--radius-xl);
-      padding: 2.5rem;
-      text-align: left;
-      box-shadow: var(--shadow-md);
-      border: 1px solid var(--border);
-      transition: all 0.3s ease;
-    }
-
-    .benefit-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-xl);
-    }
-
-    .benefit-header {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .benefit-icon {
-      width: 50px;
-      height: 50px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      border-radius: var(--radius-md);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      flex-shrink: 0;
-    }
-
-    .benefit-title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--text-primary);
-    }
-
-    .benefit-description {
-      color: var(--text-secondary);
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
-
-    .benefit-stats {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-
-    .stat-item {
-      text-align: center;
-      flex: 1;
-    }
-
-    .stat-number {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--primary);
-      display: block;
-    }
-
-    .stat-label {
-      font-size: 0.8rem;
-      color: var(--text-secondary);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
     }
 
     /* ===== TESTIMONIALS SECTION ===== */
     .testimonials-section {
-      padding: 8rem 2rem;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
+      padding: 80px 0;
+      background: linear-gradient(135deg, #a855f7, #ec4899);
       color: white;
-    }
-
-    .testimonials-container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .testimonials-header {
-      text-align: center;
-      margin-bottom: 5rem;
-    }
-
-    .testimonials-title {
-      font-size: 3rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-    }
-
-    .testimonials-subtitle {
-      font-size: 1.2rem;
-      opacity: 0.9;
-      max-width: 600px;
-      margin: 0 auto;
     }
 
     .testimonials-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
+      gap: 30px;
+      margin-top: 60px;
     }
 
     .testimonial-card {
       background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: var(--radius-xl);
-      padding: 3rem;
+      border-radius: 24px;
+      padding: 40px;
       text-align: center;
       transition: all 0.3s ease;
     }
@@ -534,7 +508,7 @@
     .testimonial-quote {
       font-size: 1.1rem;
       line-height: 1.6;
-      margin-bottom: 2rem;
+      margin-bottom: 30px;
       font-style: italic;
     }
 
@@ -542,7 +516,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 1rem;
+      gap: 16px;
     }
 
     .author-avatar {
@@ -563,7 +537,7 @@
 
     .author-name {
       font-weight: 700;
-      margin-bottom: 0.25rem;
+      margin-bottom: 4px;
     }
 
     .author-role {
@@ -571,260 +545,106 @@
       opacity: 0.8;
     }
 
-    /* ===== CTA SECTION ===== */
-    .cta-section {
-      padding: 8rem 2rem;
-      text-align: center;
-    }
-
-    .cta-content {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .cta-title {
-      font-size: 3rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-      color: var(--text-primary);
-      letter-spacing: -0.02em;
-    }
-
-    .cta-subtitle {
-      font-size: 1.2rem;
-      color: var(--text-secondary);
-      margin-bottom: 3rem;
-    }
-
-    .cta-buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .cta-button-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      background: var(--primary);
-      color: white;
-      padding: 1.25rem 2.5rem;
-      border-radius: var(--radius-lg);
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 1.1rem;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 8px 32px rgba(102, 126, 234, 0.4);
-    }
-
-    .cta-button-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 40px rgba(102, 126, 234, 0.6);
-      background: var(--primary-dark);
-    }
-
-    .cta-button-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      background: transparent;
-      color: var(--text-primary);
-      padding: 1.25rem 2.5rem;
-      border: 2px solid var(--border);
-      border-radius: var(--radius-lg);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.1rem;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .cta-button-secondary:hover {
-      border-color: var(--primary);
-      color: var(--primary);
-      transform: translateY(-2px);
-    }
-
-    /* ===== FOOTER ===== */
-    .footer {
-      background: var(--text-primary);
-      color: white;
-      padding: 5rem 2rem 2rem;
-      text-align: center;
-    }
-
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .footer-brand {
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--primary);
-      margin-bottom: 1rem;
-    }
-
-    .footer-tagline {
-      color: var(--text-muted);
-      margin-bottom: 3rem;
-      font-size: 1.1rem;
-    }
-
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-bottom: 3rem;
-      flex-wrap: wrap;
-    }
-
-    .footer-link {
-      color: #d1d5db;
-      text-decoration: none;
-      transition: color 0.2s ease;
-      font-weight: 500;
-    }
-
-    .footer-link:hover {
-      color: white;
-    }
-
-    .footer-bottom {
-      border-top: 1px solid #374151;
-      padding-top: 2rem;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
-    /* ===== ANIMATIONS ===== */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-    }
-
-    /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
-      .navbar-container {
-        padding: 1rem;
+      .hero-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
       }
-
-      .navbar-nav {
-        display: none;
+      
+      .hero-text-side {
+        order: 2;
       }
-
-      .hero {
-        padding: 6rem 1rem 4rem;
-      }
-
-      .problem-section,
-      .solution-section,
-      .benefits-section,
-      .testimonials-section,
-      .cta-section {
-        padding: 6rem 1rem;
+      
+      .hero-product-showcase {
+        order: 1;
       }
 
       .problems-grid,
       .solutions-grid,
-      .benefits-grid,
       .testimonials-grid {
         grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-
-      .problem-card,
-      .solution-card,
-      .benefit-card,
-      .testimonial-card {
-        padding: 2rem;
-      }
-
-      .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .cta-button-primary,
-      .cta-button-secondary {
-        width: 100%;
-        max-width: 300px;
-        justify-content: center;
-      }
-
-      .footer {
-        padding: 4rem 1rem 2rem;
-      }
-
-      .footer-links {
-        flex-direction: column;
-        gap: 1rem;
+        gap: 20px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- ===== NAVBAR ===== -->
-  <nav class="navbar" id="navbar">
-    <div class="navbar-container">
-      <a href="index.html" class="navbar-brand">Vero</a>
+  <!-- Soft purple band behind transparent header -->
+  <div class="page-top-gradient"></div>
+
+  <!-- ===== NAVBAR (matching index.html exactly) ===== -->
+  <nav class="vero-navbar" id="veroNavbar">
+    <div class="vero-navbar__inner">
+      <a class="vero-navbar__brand" href="index.html">Vero</a>
       
-      <ul class="navbar-nav">
-        <li><a href="index.html" class="navbar-link">Home</a></li>
-        <li><a href="Shop.html" class="navbar-link">Shop</a></li>
-        <li><a href="How-It-Works.html" class="navbar-link">How It Works</a></li>
-        <li><a href="Why-Vero.html" class="navbar-link">Why Vero</a></li>
-      </ul>
+      <div class="vero-navbar__toggle" id="veroToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
       
-      <a href="Shop.html" class="navbar-cta">Get Started</a>
+      <div class="vero-navbar__center" id="veroMenu">
+        <ul class="vero-navbar__links">
+          <li><a class="vero-navbar__link" href="index.html">Home</a></li>
+          <li><a class="vero-navbar__link" href="Shop.html">Shop</a></li>
+          <li><a class="vero-navbar__link" href="How-It-Works.html">How It Works</a></li>
+          <li><a class="vero-navbar__link" href="Why-Vero.html">Why Vero</a></li>
+        </ul>
+      </div>
+      
+      <div class="vero-navbar__right">
+        <a href="Shop.html#products" class="vero-navbar__cta">Get Energized</a>
+      </div>
     </div>
   </nav>
 
   <!-- ===== HERO SECTION ===== -->
-  <section class="hero">
-    <div class="hero-content">
-      <div class="hero-badge">
-        <span>💡</span>
-        <span>The energy revolution starts here</span>
+  <section class="hero" id="home">
+    <div class="hero-container">
+      
+      <!-- Hero Text Side -->
+      <div class="hero-text-side">
+        <h1 class="hero-headline">
+          <span class="headline-main">Why We Built</span>
+          <span class="headline-script">Vero.</span>
+        </h1>
+        
+        <p class="hero-description">
+          We were tired of choosing between energy and health. So we created the first energy bar that delivers both – clean, sustained power without compromise.
+        </p>
+        
+        <div class="hero-cta-group">
+          <a href="#problems" class="cta-primary">See The Problem</a>
+          <a href="Shop.html" class="cta-secondary">Shop Now</a>
+        </div>
+      </div>
+
+      <!-- Hero Product Side -->
+      <div class="hero-product-showcase">
+        <div class="hero-product-card">
+          <div class="product-visual">
+            <div class="bar-3d bar-energy-3d"></div>
+          </div>
+        </div>
       </div>
       
-      <h1 class="hero-title">
-        Why We Built
-        <br>Vero
-      </h1>
-      
-      <p class="hero-subtitle">
-        We were tired of choosing between energy and health. So we created the first energy bar that delivers both – clean, sustained power without compromise.
-      </p>
     </div>
   </section>
 
   <!-- ===== PROBLEM SECTION ===== -->
-  <section class="problem-section">
-    <div class="problem-container">
-      <div class="problem-header">
-        <h2 class="problem-title">The Energy Problem</h2>
-        <p class="problem-subtitle">
-          Traditional energy sources leave you worse off than when you started.
-        </p>
-      </div>
+  <section id="problems" class="problem-section">
+    <div class="container">
+      <h2 class="section-title problem-title">The Energy Problem</h2>
+      <p class="section-subtitle">
+        Traditional energy sources leave you worse off than when you started.
+      </p>
 
       <div class="problems-grid">
         <div class="problem-card">
           <div class="problem-icon">☕</div>
-          <h3 class="problem-title-card">Coffee Crashes</h3>
+          <h3 class="problem-card-title">Coffee Crashes</h3>
           <p class="problem-description">
             High caffeine spikes followed by inevitable crashes. You're left more tired than before, reaching for another cup in an endless cycle.
           </p>
@@ -832,7 +652,7 @@
 
         <div class="problem-card">
           <div class="problem-icon">🍭</div>
-          <h3 class="problem-title-card">Sugar Rushes</h3>
+          <h3 class="problem-card-title">Sugar Rushes</h3>
           <p class="problem-description">
             Energy drinks and bars loaded with sugar give you a quick high, then send your blood sugar plummeting. The crash is brutal.
           </p>
@@ -840,7 +660,7 @@
 
         <div class="problem-card">
           <div class="problem-icon">⚠️</div>
-          <h3 class="problem-title-card">Artificial Ingredients</h3>
+          <h3 class="problem-card-title">Artificial Ingredients</h3>
           <p class="problem-description">
             Synthetic stimulants, artificial sweeteners, and chemical additives. Your body deserves better than a lab experiment.
           </p>
@@ -848,7 +668,7 @@
 
         <div class="problem-card">
           <div class="problem-icon">😰</div>
-          <h3 class="problem-title-card">Jitters & Anxiety</h3>
+          <h3 class="problem-card-title">Jitters & Anxiety</h3>
           <p class="problem-description">
             Too much caffeine too fast creates jitters, anxiety, and that uncomfortable wired feeling. Energy shouldn't come with side effects.
           </p>
@@ -859,18 +679,16 @@
 
   <!-- ===== SOLUTION SECTION ===== -->
   <section class="solution-section">
-    <div class="solution-container">
-      <div class="solution-header">
-        <h2 class="solution-title">The Vero Solution</h2>
-        <p class="solution-subtitle">
-          We engineered a better way to fuel your body and mind.
-        </p>
-      </div>
+    <div class="container">
+      <h2 class="section-title">The Vero Solution</h2>
+      <p class="section-subtitle">
+        We engineered a better way to fuel your body and mind.
+      </p>
 
       <div class="solutions-grid">
         <div class="solution-card">
           <div class="solution-icon">🌿</div>
-          <h3 class="solution-title-card">Natural Caffeine</h3>
+          <h3 class="solution-card-title">Natural Caffeine</h3>
           <p class="solution-description">
             Green tea caffeine paired with L-theanine for smooth, sustained energy without jitters. Clean fuel for your brain.
           </p>
@@ -878,7 +696,7 @@
 
         <div class="solution-card">
           <div class="solution-icon">⚖️</div>
-          <h3 class="solution-title-card">Balanced Macros</h3>
+          <h3 class="solution-card-title">Balanced Macros</h3>
           <p class="solution-description">
             Protein, complex carbs, and healthy fats work together to provide steady energy release over hours, not minutes.
           </p>
@@ -886,7 +704,7 @@
 
         <div class="solution-card">
           <div class="solution-icon">🌱</div>
-          <h3 class="solution-title-card">Plant-Based Power</h3>
+          <h3 class="solution-card-title">Plant-Based Power</h3>
           <p class="solution-description">
             100% plant-based ingredients with complete amino acids. Clean nutrition that your body recognizes and loves.
           </p>
@@ -894,7 +712,7 @@
 
         <div class="solution-card">
           <div class="solution-icon">🎯</div>
-          <h3 class="solution-title-card">Zero Added Sugar</h3>
+          <h3 class="solution-card-title">Zero Added Sugar</h3>
           <p class="solution-description">
             Naturally sweetened with no artificial additives. Stable blood sugar means stable energy and mood.
           </p>
@@ -902,7 +720,7 @@
 
         <div class="solution-card">
           <div class="solution-icon">🧠</div>
-          <h3 class="solution-title-card">Cognitive Support</h3>
+          <h3 class="solution-card-title">Cognitive Support</h3>
           <p class="solution-description">
             Adaptogens and nootropics enhance focus, reduce stress, and support mental clarity for peak performance.
           </p>
@@ -910,7 +728,7 @@
 
         <div class="solution-card">
           <div class="solution-icon">⏰</div>
-          <h3 class="solution-title-card">Long-Lasting Energy</h3>
+          <h3 class="solution-card-title">Long-Lasting Energy</h3>
           <p class="solution-description">
             4+ hours of sustained energy without crashes. Fuel that lasts as long as your ambition.
           </p>
@@ -919,149 +737,13 @@
     </div>
   </section>
 
-  <!-- ===== BENEFITS SECTION ===== -->
-  <section class="benefits-section">
-    <div class="benefits-container">
-      <div class="benefits-header">
-        <h2 class="benefits-title">Real Benefits, Real Results</h2>
-        <p class="benefits-subtitle">
-          Experience the difference that clean, sustained energy makes in your daily life.
-        </p>
-      </div>
-
-      <div class="benefits-grid">
-        <div class="benefit-card">
-          <div class="benefit-header">
-            <div class="benefit-icon">🎯</div>
-            <h3 class="benefit-title">Enhanced Focus</h3>
-          </div>
-          <p class="benefit-description">
-            Stay locked in for hours with smooth, sustained mental energy. No more afternoon brain fog or concentration crashes.
-          </p>
-          <div class="benefit-stats">
-            <div class="stat-item">
-              <span class="stat-number">4+</span>
-              <span class="stat-label">Hours Focus</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number">90mg</span>
-              <span class="stat-label">Clean Caffeine</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-header">
-            <div class="benefit-icon">💪</div>
-            <h3 class="benefit-title">Sustained Energy</h3>
-          </div>
-          <p class="benefit-description">
-            Power through your day with steady energy that doesn't quit. Perfect for long work sessions, study marathons, or active lifestyles.
-          </p>
-          <div class="benefit-stats">
-            <div class="stat-item">
-              <span class="stat-number">10g</span>
-              <span class="stat-label">Plant Protein</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number">0g</span>
-              <span class="stat-label">Added Sugar</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-header">
-            <div class="benefit-icon">😌</div>
-            <h3 class="benefit-title">Stress Resilience</h3>
-          </div>
-          <p class="benefit-description">
-            Adaptogens help your body manage stress while maintaining energy. Stay calm, focused, and productive under pressure.
-          </p>
-          <div class="benefit-stats">
-            <div class="stat-item">
-              <span class="stat-number">100%</span>
-              <span class="stat-label">Natural</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number">5g</span>
-              <span class="stat-label">Fiber</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-header">
-            <div class="benefit-icon">🏃</div>
-            <h3 class="benefit-title">Physical Performance</h3>
-          </div>
-          <p class="benefit-description">
-            Fuel your workouts and active lifestyle with clean energy that supports both endurance and recovery.
-          </p>
-          <div class="benefit-stats">
-            <div class="stat-item">
-              <span class="stat-number">210</span>
-              <span class="stat-label">Calories</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number">8g</span>
-              <span class="stat-label">Net Carbs</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-header">
-            <div class="benefit-icon">🌙</div>
-            <h3 class="benefit-title">Better Sleep</h3>
-          </div>
-          <p class="benefit-description">
-            No late-day crashes or sleep disruption. Clean energy that works with your natural rhythms, not against them.
-          </p>
-          <div class="benefit-stats">
-            <div class="stat-item">
-              <span class="stat-number">L-Theanine</span>
-              <span class="stat-label">Calm Focus</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number">No</span>
-              <span class="stat-label">Crashes</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-header">
-            <div class="benefit-icon">🎨</div>
-            <h3 class="benefit-title">Creative Flow</h3>
-          </div>
-          <p class="benefit-description">
-            Unlock your creative potential with sustained mental energy. Perfect for artists, writers, and innovators.
-          </p>
-          <div class="benefit-stats">
-            <div class="stat-item">
-              <span class="stat-number">Nootropics</span>
-              <span class="stat-label">Brain Boost</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number">Clean</span>
-              <span class="stat-label">Ingredients</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ===== TESTIMONIALS SECTION ===== -->
   <section class="testimonials-section">
-    <div class="testimonials-container">
-      <div class="testimonials-header">
-        <h2 class="testimonials-title">What People Are Saying</h2>
-        <p class="testimonials-subtitle">
-          Real feedback from people who've made the switch to clean energy.
-        </p>
-      </div>
+    <div class="container">
+      <h2 class="section-title" style="color: white;">What People Are Saying</h2>
+      <p class="section-subtitle">
+        Real feedback from people who've made the switch to clean energy.
+      </p>
 
       <div class="testimonials-grid">
         <div class="testimonial-card">
@@ -1106,58 +788,72 @@
     </div>
   </section>
 
-  <!-- ===== CTA SECTION ===== -->
-  <section class="cta-section">
-    <div class="cta-content">
-      <h2 class="cta-title">Ready to Experience the Difference?</h2>
-      <p class="cta-subtitle">
-        Join thousands who've discovered what clean, sustained energy feels like. Your body and mind will thank you.
-      </p>
-      <div class="cta-buttons">
-        <a href="Shop.html" class="cta-button-primary">
-          <span>Shop Vero Now</span>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-        <a href="How-It-Works.html" class="cta-button-secondary">
-          <span>Learn How It Works</span>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M9 18l6-6-6-6"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
   <!-- ===== FOOTER ===== -->
-  <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-brand">Vero</div>
-      <p class="footer-tagline">Clean energy, smarter nutrition.</p>
-      
-      <div class="footer-links">
-        <a href="index.html" class="footer-link">Home</a>
-        <a href="Shop.html" class="footer-link">Shop</a>
-        <a href="How-It-Works.html" class="footer-link">How It Works</a>
-        <a href="mailto:hello@vero.energy" class="footer-link">Contact</a>
+  <footer id="footer" class="footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3 class="footer-title">Vero</h3>
+        <div class="footer-socials">
+          <a href="#" class="social-btn" aria-label="Follow us on Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+            <span>Instagram</span>
+          </a>
+          <a href="#" class="social-btn" aria-label="Follow us on TikTok">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+            </svg>
+            <span>TikTok</span>
+          </a>
+          <a href="#" class="social-btn" aria-label="Follow us on LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+            <span>LinkedIn</span>
+          </a>
+        </div>
+        <p>Clean energy, smarter nutrition.</p>
       </div>
-      
-      <div class="footer-bottom">
-        <p>&copy; 2025 Vero. All rights reserved.</p>
+      <div class="footer-column">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:tomwiseman@Vero.se">tomwiseman@Vero.se</a></li>
+          <li><a href="mailto:oliverwiseman@Vero.se">oliverwiseman@Vero.se</a></li>
+          <li><a href="mailto:charliewiseman@Vero.se">charliewiseman@Vero.se</a></li>
+        </ul>
       </div>
+  
+      <div class="footer-column">
+        <h4>Info</h4>
+        <ul>
+          <li>Plant-based. No artificial sweeteners.</li>
+          <li>Made with care in the EU.</li>
+        </ul>
+      </div>
+
+    </div>
+  
+    <div class="footer-bottom">
+      <p>© 2025 Vero. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- ===== JAVASCRIPT ===== -->
   <script>
-    // Navbar scroll effect
-    window.addEventListener('scroll', () => {
-      const navbar = document.getElementById('navbar');
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
+    const toggle = document.getElementById("veroToggle");
+    const menu = document.getElementById("veroMenu");
+    const navbar = document.getElementById("veroNavbar");
+    
+    toggle.addEventListener("click", () => {
+      toggle.classList.toggle("vero-navbar__toggle--open");
+      menu.classList.toggle("vero-navbar__center--open");
+    });
+    
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 10) {
+        navbar.classList.add("vero-navbar--scrolled");
       } else {
-        navbar.classList.remove('scrolled');
+        navbar.classList.remove("vero-navbar--scrolled");
       }
     });
 
@@ -1172,54 +868,6 @@
             block: 'start'
           });
         }
-      });
-    });
-
-    // Intersection Observer for animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, observerOptions);
-
-    // Initialize animations
-    document.addEventListener('DOMContentLoaded', () => {
-      const cards = document.querySelectorAll('.problem-card, .solution-card, .benefit-card, .testimonial-card');
-      cards.forEach((card, index) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-        observer.observe(card);
-      });
-    });
-
-    // Add hover effects to stat numbers
-    document.querySelectorAll('.stat-number').forEach(stat => {
-      stat.addEventListener('mouseenter', () => {
-        stat.style.animation = 'pulse 0.6s ease-in-out';
-      });
-      
-      stat.addEventListener('animationend', () => {
-        stat.style.animation = '';
-      });
-    });
-
-    // Add micro-interactions to CTA buttons
-    document.querySelectorAll('.cta-button-primary, .cta-button-secondary').forEach(button => {
-      button.addEventListener('mouseenter', () => {
-        button.style.animation = 'pulse 0.6s ease-in-out';
-      });
-      
-      button.addEventListener('animationend', () => {
-        button.style.animation = '';
       });
     });
   </script>
