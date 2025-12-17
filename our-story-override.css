@@ -2,7 +2,7 @@
 
 /* Reset any conflicting styles - but exclude graphic elements */
 #our-story.our-story-new,
-#our-story.our-story-new *:not(.graphic-star):not(.graphic-bolt):not(.graphic-circle) {
+#our-story.our-story-new *:not(.graphic-star):not(.graphic-bolt):not(.graphic-circle):not(.corner-accent):not(.sticker-bolt):not(.sticker-est) {
   all: unset;
   display: revert;
   box-sizing: border-box;
@@ -11,7 +11,10 @@
 /* Ensure graphic elements are visible */
 .our-story-new .graphic-star,
 .our-story-new .graphic-bolt,
-.our-story-new .graphic-circle {
+.our-story-new .graphic-circle,
+.our-story-new .corner-accent,
+.our-story-new .sticker-bolt,
+.our-story-new .sticker-est {
   all: revert !important;
 }
 
@@ -152,10 +155,11 @@
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-}
-
-.our-story-new .corner-accent svg {
-  display: block !important;
+  z-index: 10 !important;
+  visibility: visible !important;
+  font-size: 16px !important;
+  line-height: 1 !important;
+  text-align: center !important;
 }
 
 .our-story-new .our-story-text-content {
@@ -279,12 +283,11 @@
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-}
-
-.our-story-new .sticker-bolt svg {
-  display: block !important;
-  color: white !important;
-  fill: white !important;
+  z-index: 10 !important;
+  visibility: visible !important;
+  font-size: 20px !important;
+  line-height: 1 !important;
+  text-align: center !important;
 }
 
 .our-story-new .sticker-est {
@@ -479,4 +482,826 @@ a.cta-primary::before {
   font-weight: 700 !important;
   text-shadow: none !important;
   border: 1px solid #CC8400 !important;
+}
+/* ===== BADGE CONTAINER ===== */
+.badge-container {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 0 16px !important;
+  margin: 8px 0 !important;
+  width: 100% !important;
+}
+
+/* ===== POPULAR BADGE STRETCHED ACROSS CARD ===== */
+.popular-badge {
+  position: relative !important;
+  top: auto !important;
+  right: auto !important;
+  left: auto !important;
+  background: #f59e0b !important;
+  color: white !important;
+  padding: 12px 16px !important;
+  border-radius: 8px !important;
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  z-index: 10 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  text-align: center !important;
+  text-shadow: none !important;
+  border: none !important;
+  outline: none !important;
+  display: block !important;
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+/* Remove any pseudo-elements that might be causing issues */
+.popular-badge::before,
+.popular-badge::after {
+  display: none !important;
+}
+
+/* Ensure no focus styles on badges */
+.popular-badge:focus,
+.popular-badge:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+/* FORCE HARD CORNERS ON QUANTITY CARDS - MAXIMUM OVERRIDE */
+.quantity-card,
+.quantity-card.popular,
+.quantity-card.active,
+.quantity-card:hover,
+.quantity-card-inner,
+article.quantity-card,
+article.quantity-card.popular,
+article.quantity-card.active {
+  border-radius: 0px !important;
+}
+
+/* Also override any pseudo-elements that might have rounded corners */
+.quantity-card::before,
+.quantity-card::after,
+.quantity-card-inner::before,
+.quantity-card-inner::after {
+  border-radius: 0px !important;
+}
+/* FORCE BLACK BORDERS ON QUANTITY CARDS */
+.quantity-card,
+.quantity-card.popular,
+.quantity-card.active,
+.quantity-card:hover,
+article.quantity-card,
+article.quantity-card.popular,
+article.quantity-card.active {
+  border: 2px solid #000000 !important;
+}
+
+/* Also make sure buttons have black borders */
+.quantity-card button.quantity-cta,
+.quantity-card.popular button.quantity-cta,
+.quantity-card button.quantity-cta.cta-primary,
+.quantity-card.popular button.quantity-cta.cta-primary {
+  border: 2px solid #000000 !important;
+}
+
+/* Fix focus states to be black too */
+.quantity-card .quantity-cta.cta-primary:focus,
+.quantity-card .quantity-cta.cta-primary:focus-visible,
+.quantity-card.popular .quantity-cta.cta-primary:focus,
+.quantity-card.popular .quantity-cta.cta-primary:focus-visible {
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.3) !important;
+}
+/* MAKE POPULAR CARD BUTTON SAME GREEN AS OTHERS */
+.quantity-card.popular .quantity-cta.cta-primary {
+  background: #4ade80 !important;
+  box-shadow: 0 4px 12px rgba(74, 222, 128, 0.4) !important;
+}
+
+.quantity-card.popular .quantity-cta.cta-primary:hover {
+  background: #22c55e !important;
+  box-shadow: 0 8px 20px rgba(74, 222, 128, 0.5) !important;
+}
+/* OVERRIDE POPULAR CARD BUTTON TO MATCH GREEN THEME */
+.quantity-card.popular .quantity-cta,
+.quantity-card.popular .quantity-cta.cta-primary {
+  background: #4ade80 !important;
+  box-shadow: 0 4px 12px rgba(74, 222, 128, 0.4) !important;
+}
+
+.quantity-card.popular .quantity-cta:hover,
+.quantity-card.popular .quantity-cta.cta-primary:hover {
+  background: #22c55e !important;
+  box-shadow: 0 8px 20px rgba(74, 222, 128, 0.5) !important;
+}
+/* SUPER SPECIFIC OVERRIDE FOR MIDDLE BOX BUTTON */
+.quantity-card.popular.active .quantity-cta,
+.quantity-card.popular.active .quantity-cta.cta-primary,
+article.quantity-card.popular.active .quantity-cta,
+article.quantity-card.popular.active .quantity-cta.cta-primary {
+  background: #4ade80 !important;
+  background-image: none !important;
+  box-shadow: 0 4px 12px rgba(74, 222, 128, 0.4) !important;
+}
+
+.quantity-card.popular.active .quantity-cta:hover,
+.quantity-card.popular.active .quantity-cta.cta-primary:hover,
+article.quantity-card.popular.active .quantity-cta:hover,
+article.quantity-card.popular.active .quantity-cta.cta-primary:hover {
+  background: #22c55e !important;
+  background-image: none !important;
+  box-shadow: 0 8px 20px rgba(74, 222, 128, 0.5) !important;
+}
+/* FINAL OVERRIDE - MIDDLE BUTTON MATCHES OTHER BUTTONS */
+button[onclick="addToCart('duo')"] {
+  background: #2d5016 !important;
+  background-image: none !important;
+  background-color: #2d5016 !important;
+  color: white !important;
+  box-shadow: none !important;
+}
+
+button[onclick="addToCart('duo')"]:hover {
+  background: #3d6b1e !important;
+  background-image: none !important;
+  background-color: #3d6b1e !important;
+  color: white !important;
+  box-shadow: none !important;
+}
+/* ABSOLUTE FINAL NUCLEAR OVERRIDE - FORCE MIDDLE BUTTON TO MATCH */
+article.quantity-card.popular.active button[onclick="addToCart('duo')"].quantity-cta.cta-primary,
+.quantity-card.popular.active button[onclick="addToCart('duo')"].quantity-cta.cta-primary,
+button[onclick="addToCart('duo')"].quantity-cta.cta-primary {
+  background: #2d5016 !important;
+  background-color: #2d5016 !important;
+  background-image: none !important;
+  color: white !important;
+  box-shadow: none !important;
+  border: 2px solid black !important;
+}
+
+article.quantity-card.popular.active button[onclick="addToCart('duo')"].quantity-cta.cta-primary:hover,
+.quantity-card.popular.active button[onclick="addToCart('duo')"].quantity-cta.cta-primary:hover,
+button[onclick="addToCart('duo')"].quantity-cta.cta-primary:hover {
+  background: #3d6b1e !important;
+  background-color: #3d6b1e !important;
+  background-image: none !important;
+  color: white !important;
+  box-shadow: none !important;
+  border: 2px solid black !important;
+}
+
+/* Also remove any conflicting popular card rules */
+.quantity-card.popular .quantity-cta.cta-primary {
+  background: #2d5016 !important;
+  background-color: #2d5016 !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+.quantity-card.popular .quantity-cta.cta-primary:hover {
+  background: #3d6b1e !important;
+  background-color: #3d6b1e !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+/* MAKE BADGE BAR TEXT STRONG WHITE */
+.box-label {
+  color: #ffffff !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+  font-weight: 700 !important;
+}
+/* MAKE BOTH NUMBER AND BARS TEXT STRONG WHITE */
+.quantity-amount::before,
+.quantity-amount::after {
+  color: #ffffff !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+  font-weight: 700 !important;
+}
+
+.quantity-amount {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+/* HIDE THE SUBTITLE TEXT UNDER PACK NAMES */
+.quantity-subtitle {
+  display: none !important;
+}
+/* ADD BOX COUNT NEXT TO PACK NAMES */
+.quantity-card[data-index="0"] .quantity-header h3::after {
+  content: " - 1 Box" !important;
+  font-weight: normal !important;
+  color: #666 !important;
+}
+
+.quantity-card[data-index="1"] .quantity-header h3::after {
+  content: " - 2 Boxes" !important;
+  font-weight: normal !important;
+  color: #666 !important;
+}
+
+.quantity-card[data-index="2"] .quantity-header h3::after {
+  content: " - 3 Boxes" !important;
+  font-weight: normal !important;
+  color: #666 !important;
+}
+/* MOVE PACK NAMES CLOSER TO ADD TO CART BUTTON */
+.quantity-header {
+  margin-bottom: 8px !important;
+  padding-bottom: 0px !important;
+}
+
+.quantity-details {
+  margin-top: 0px !important;
+  padding-top: 0px !important;
+}
+/* CHANGE "ENERGY THAT FEELS" TO ELEGANT SERIF FONT */
+.headline-main {
+  font-family: "Times New Roman", "Georgia", "Times", serif !important;
+  font-weight: 400 !important;
+  font-stretch: normal !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  color: #000000 !important;
+  font-style: normal !important;
+}
+/* APPLY NICE ELEGANT FONT TO "STOCK UP AND SAVE" */
+.products-title {
+  font-family: "Playfair Display", "Georgia", "Times New Roman", serif !important;
+  font-weight: 600 !important;
+  font-stretch: normal !important;
+  text-transform: none !important;
+  letter-spacing: 0.02em !important;
+  font-size: clamp(2.5rem, 5vw, 4rem) !important;
+  color: #2c1810 !important;
+  font-style: normal !important;
+}
+/* HIDE "PICK THE PACK THAT FITS YOUR ROUTINE" TEXT */
+.products-subtitle {
+  display: none !important;
+}
+/* APPLY NICE ELEGANT FONT TO QUANTITY BOX TEXT */
+.quantity-header h3 {
+  font-family: "Playfair Display", "Georgia", "Times New Roman", serif !important;
+  font-weight: 600 !important;
+  font-stretch: normal !important;
+  text-transform: none !important;
+  letter-spacing: 0.01em !important;
+  color: #2c1810 !important;
+}
+
+/* APPLY NICE ELEGANT FONT TO NUMBERS AND BARS TEXT */
+.quantity-amount::before,
+.quantity-amount::after {
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif !important;
+  font-weight: 700 !important;
+  font-stretch: normal !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  color: #ffffff !important;
+}
+/* HIDE ORANGE PLACEHOLDER IN HERO SECTION */
+.bar-3d.bar-energy-3d {
+  display: none !important;
+}
+/* HIDE "NEW RELEASE" TEXT */
+.product-badge {
+  display: none !important;
+}
+/* REMOVE WHITE HOVER EFFECT FROM HERO SECTION */
+.bar-3d::before {
+  display: none !important;
+}
+/* REMOVE WHITE HOVER EFFECT FROM HERO PRODUCT CARD */
+.hero-product-card:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  border-color: transparent !important;
+}
+
+/* Also remove any general product card hover effects in hero */
+.hero-product-showcase .product-card:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+/* REMOVE LINE BETWEEN NAVBAR AND HERO SECTION */
+.vero-navbar {
+  border-bottom: none !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px) !important;
+}
+/* REPLACE HERO PRODUCT VISUAL WITH NEW IMAGE - BIGGER SIZE */
+.hero-product-showcase .product-visual {
+  background-image: url('ChatGPT Image 14 dec. 2025 16_43_50.png') !important;
+  background-size: 80% !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-color: transparent !important;
+  min-height: 500px !important;
+  width: 100% !important;
+}
+
+/* Hide the 3D bar element completely */
+.hero-product-showcase .bar-3d {
+  display: none !important;
+}
+/* MAKE HERO PRODUCT IMAGE BIGGER */
+.hero-product-showcase .product-visual {
+  background-size: 80% !important;
+  min-height: 500px !important;
+  width: 100% !important;
+}
+
+/* Make the entire product showcase area bigger */
+.hero-product-showcase {
+  min-height: 500px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Make the product card bigger too */
+.hero-product-card {
+  min-height: 500px !important;
+  width: 100% !important;
+}
+/* MAKE PRODUCT IMAGE THE FULL HERO BACKGROUND */
+.hero,
+.hero-container {
+  background-image: url('ChatGPT Image 14 dec. 2025 16_43_50.png') !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-attachment: fixed !important;
+}
+
+/* Hide the product showcase area since image is now full background */
+.hero-product-showcase {
+  display: none !important;
+}
+
+/* Make sure text is readable over the background */
+.hero-text-side {
+  background: rgba(255, 255, 255, 0.9) !important;
+  padding: 40px !important;
+  border-radius: 12px !important;
+  backdrop-filter: blur(10px) !important;
+}
+/* REVERT HERO SECTION TO ORIGINAL STATE */
+.hero,
+.hero-container {
+  background-image: none !important;
+  background-size: initial !important;
+  background-repeat: initial !important;
+  background-position: initial !important;
+  background-attachment: initial !important;
+}
+
+/* Show the product showcase area again */
+.hero-product-showcase {
+  display: block !important;
+  min-height: initial !important;
+  align-items: initial !important;
+  justify-content: initial !important;
+}
+
+/* Remove text background overlay */
+.hero-text-side {
+  background: transparent !important;
+  padding: initial !important;
+  border-radius: initial !important;
+  backdrop-filter: none !important;
+}
+
+/* Remove product image from product visual */
+.hero-product-showcase .product-visual {
+  background-image: none !important;
+  background-size: initial !important;
+  background-repeat: initial !important;
+  background-position: initial !important;
+  background-color: initial !important;
+  min-height: initial !important;
+  width: initial !important;
+}
+
+/* Show the 3D bar element again */
+.hero-product-showcase .bar-3d {
+  display: block !important;
+}
+
+/* Remove product card size overrides */
+.hero-product-card {
+  min-height: initial !important;
+  width: initial !important;
+}
+/* STYLE "ENERGY THAT FEELS" TO MATCH IMAGE */
+.headline-main {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif !important;
+  font-weight: 800 !important;
+  font-stretch: initial !important;
+  text-transform: initial !important;
+  letter-spacing: -0.02em !important;
+  color: #3c2415 !important;
+  font-style: normal !important;
+}
+
+
+
+/* COMPLETELY HIDE PRODUCT BAR AND KEEP HERO WHITE */
+.bar-3d,
+.bar-energy-3d {
+  display: none !important;
+}
+
+/* HIDE PRODUCT BADGE */
+.product-badge {
+  display: none !important;
+}
+
+/* ENSURE HERO BACKGROUND STAYS WHITE */
+.hero,
+.hero-container {
+  background: white !important;
+  background-image: none !important;
+}
+
+/* HIDE ENTIRE PRODUCT SHOWCASE AREA */
+.hero-product-showcase {
+  display: none !important;
+}
+/* RESTORE GREEN COLOR TO "GOOD." TEXT */
+.headline-script {
+  color: #22c55e !important;
+}
+/* MAKE "GOOD." A DARKER GREEN */
+.headline-script {
+  color: #1a5a1a !important;
+}
+/* MAKE HEADLINE 2 LINES WITH 2 WORDS EACH */
+.hero-headline {
+  font-size: clamp(3.5rem, 8vw, 6rem) !important;
+  line-height: 1.2 !important;
+  white-space: normal !important;
+  max-width: 600px !important;
+  width: 100% !important;
+}
+
+.headline-main,
+.headline-script {
+  display: inline !important;
+  white-space: normal !important;
+}
+
+.headline-main {
+  display: inline !important;
+  white-space: normal !important;
+}
+
+.headline-script {
+  display: inline !important;
+  white-space: nowrap !important;
+}
+/* ===== NEON ORANGE HERO BACKGROUND ===== */
+body {
+  background: linear-gradient(135deg, 
+    #CC6600 0%, 
+    #E67E00 15%,
+    #FF8C00 30%,
+    #FFA500 45%, 
+    #FFB84D 60%, 
+    #FF9500 75%,
+    #E67E00 90%,
+    #B85C00 100%) !important;
+}
+
+.hero {
+  background: transparent !important;
+  position: relative !important;
+  min-height: 78vh !important;
+  max-height: 78vh !important;
+  overflow: visible !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.page-top-gradient {
+  display: none !important;
+}
+
+.vero-navbar {
+  background: transparent !important;
+  backdrop-filter: none !important;
+}
+
+.hero-container {
+  position: relative !important;
+  z-index: 10 !important;
+  background: transparent !important;
+}
+
+/* Ensure text is readable over the neon background */
+.hero-headline .headline-main {
+  color: #ffffff !important;
+  font-weight: 900 !important;
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5), 2px 2px 4px rgba(0, 0, 0, 0.3) !important;
+  -webkit-text-stroke: 0 !important;
+}
+
+.hero-headline .headline-script {
+  color: #ffffff !important;
+  font-weight: 900 !important;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4), 1px 1px 3px rgba(0, 0, 0, 0.2) !important;
+  -webkit-text-stroke: 0 !important;
+}
+
+.hero-headline {
+  font-size: clamp(3rem, 8vw, 6rem) !important;
+}
+
+.hero-description {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  font-size: 1.2rem !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6) !important;
+  background: rgba(0, 0, 0, 0.25) !important;
+  padding: 1.5rem !important;
+  border-radius: 12px !important;
+  backdrop-filter: blur(8px) !important;
+  border: 2px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Scroll indicator at bottom */
+.hero::after {
+  content: '↓ Scroll to explore' !important;
+  position: absolute !important;
+  bottom: 2rem !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  color: #ffffff !important;
+  font-size: 0.9rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  animation: bounce 2s infinite !important;
+  z-index: 20 !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5) !important;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+/* ===== FLOATING NAVBAR WITH TRANSPARENT BACKGROUND ===== */
+.vero-navbar {
+  background: transparent !important;
+  border-bottom: none !important;
+  backdrop-filter: none !important;
+}
+
+.vero-navbar--scrolled {
+  background: rgba(230, 126, 0, 0.9) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.vero-navbar__brand,
+.vero-navbar__link {
+  color: #ffffff !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5) !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+}
+
+.vero-navbar__brand {
+  font-weight: 800 !important;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6) !important;
+}
+
+.vero-navbar__link:hover {
+  color: #ffffff !important;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7) !important;
+  transform: translateY(-1px) !important;
+}
+
+.vero-navbar__link::after {
+  background: #ffffff !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* ===== WHITE CTA BUTTONS WITH HARD CORNERS ===== */
+.hero-cta-group .cta-primary,
+.hero-cta-group .cta-secondary {
+  background: transparent !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+  border-radius: 0 !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  padding: 1rem 2rem !important;
+  transition: all 0.3s ease !important;
+}
+
+.hero-cta-group .cta-primary:hover,
+.hero-cta-group .cta-secondary:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #ffffff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Hide hero description text */
+.hero-description {
+  display: none !important;
+}
+
+/* ===== ANIMATED BACKGROUND ELEMENTS ===== */
+.hero::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -50% !important;
+  left: -50% !important;
+  width: 200% !important;
+  height: 200% !important;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(255, 100, 0, 0.4) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(255, 200, 50, 0.3) 0%, transparent 45%),
+    radial-gradient(circle at 60% 10%, rgba(230, 126, 0, 0.35) 0%, transparent 35%),
+    radial-gradient(circle at 10% 80%, rgba(255, 150, 0, 0.25) 0%, transparent 50%) !important;
+  animation: energyPulse 12s ease-in-out infinite !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+}
+
+.hero::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: 
+    linear-gradient(45deg, transparent 0%, rgba(255, 180, 0, 0.15) 25%, transparent 50%),
+    linear-gradient(-45deg, transparent 0%, rgba(230, 126, 0, 0.1) 30%, transparent 60%),
+    linear-gradient(90deg, rgba(255, 140, 0, 0.08) 0%, transparent 100%) !important;
+  background-size: 300% 300%, 250% 250%, 400% 100% !important;
+  animation: dynamicShift 18s ease-in-out infinite, energyWave 25s linear infinite !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+}
+
+@keyframes energyPulse {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    opacity: 0.8;
+  }
+  25% {
+    transform: translate(40px, -25px) rotate(3deg) scale(1.1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-30px, 35px) rotate(-2deg) scale(0.95);
+    opacity: 0.9;
+  }
+  75% {
+    transform: translate(25px, -40px) rotate(4deg) scale(1.05);
+    opacity: 0.85;
+  }
+}
+
+@keyframes dynamicShift {
+  0%, 100% {
+    background-position: 0% 0%, 100% 100%, 0% 50%;
+  }
+  33% {
+    background-position: 100% 50%, 0% 0%, 100% 50%;
+  }
+  66% {
+    background-position: 50% 100%, 50% 50%, 50% 50%;
+  }
+}
+
+@keyframes energyWave {
+  0% {
+    background-position: 0% 0%, 0% 0%, 0% 0%;
+  }
+  100% {
+    background-position: 200% 200%, -200% -200%, 400% 0%;
+  }
+}
+
+/* Ensure content stays above animated background */
+.hero-container {
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+/* Reduce padding on products section */
+.products-section {
+  padding-top: 2rem !important;
+}
+
+.products-header {
+  margin-bottom: 2rem !important;
+}
+
+/* Savings badges in red */
+.savings-badge {
+  display: inline-block !important;
+  background: transparent !important;
+  color: #FF0000 !important;
+  font-size: 0.9rem !important;
+  font-weight: 700 !important;
+  padding: 8px 0 !important;
+  margin-top: 12px !important;
+  margin-bottom: 8px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+}
+/* ===== NAVBAR LAYOUT RESTRUCTURE ===== */
+.vero-navbar__inner {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  padding: 1.2rem 0.5rem !important;
+}
+
+.vero-navbar__brand {
+  flex: 0 0 auto !important;
+}
+
+.vero-navbar__center {
+  flex: 1 !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.vero-navbar__links {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 3rem !important;
+  margin: 0 !important;
+  list-style: none !important;
+}
+
+.vero-navbar__right {
+  flex: 0 0 auto !important;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .vero-navbar__inner {
+    grid-template-columns: 1fr auto !important;
+    grid-template-rows: auto auto !important;
+  }
+  
+  .vero-navbar__center {
+    grid-column: 1 / -1 !important;
+    grid-row: 2 !important;
+    justify-self: center !important;
+  }
+  
+  .vero-navbar__right {
+    grid-column: 1 / -1 !important;
+    grid-row: 3 !important;
+    justify-self: center !important;
+  }
+}
+/* Style navbar CTA button to match hero buttons */
+.vero-navbar__cta {
+  background: transparent !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+  border-radius: 0 !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  padding: 0.8rem 1.5rem !important;
+  transition: all 0.3s ease !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5) !important;
+}
+
+.vero-navbar__cta:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #ffffff !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+  text-shadow: none !important;
 }

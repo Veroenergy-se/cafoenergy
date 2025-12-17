@@ -26,7 +26,7 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&family=Yellowtail&family=Belanosima:wght@400;600;700&family=Caveat:wght@400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&family=Nunito:wght@400;500;600;700;800;900&family=Comfortaa:wght@300;400;500;600;700&family=Yellowtail&family=Belanosima:wght@400;600;700&family=Caveat:wght@400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=44" />
   <link rel="stylesheet" href="deux-style.css?v=33" />
   <link rel="stylesheet" href="our-story-override.css?v=6" />
@@ -224,13 +224,16 @@
         <span></span>
       </div>
       
-      <div class="vero-navbar__menu" id="veroMenu">
+      <div class="vero-navbar__center">
         <ul class="vero-navbar__links">
           <li><a class="vero-navbar__link" href="index.html">Home</a></li>
           <li><a class="vero-navbar__link" href="Shop.html">Shop</a></li>
           <li><a class="vero-navbar__link" href="How-It-Works.html">How It Works</a></li>
           <li><a class="vero-navbar__link" href="Why-Vero.html">Why Vero</a></li>
         </ul>
+      </div>
+      
+      <div class="vero-navbar__right">
         <a href="Shop.html#products" class="vero-navbar__cta">Get Energized</a>
       </div>
     </div>
@@ -256,60 +259,38 @@
   </script>
 
 
- <!-- ===== HERO ===== -->
-  <section class="hero hero--colorblock" id="home">
-    <!-- Content first -->
-    <div class="hero-details">
-      <div class="container">
-        <!-- LEFT: Catchy Text -->
-        <div class="hero-text-side">
-          <h1 class="hero-headline"><span class="headline-main">Energy that feels</span> <span class="headline-script">Good.</span></h1>
-          <p class="hero-subtext" style="color: black; font-weight: 600;">The Clean Caffeinated Protein Bar.</p>
-          <div class="hero-cta-group">
-            <a href="#products" class="cta-primary">Get Vero</a>
-            <a href="How-It-Works.html" class="cta-secondary">Learn More</a>
-          </div>
-          <p style="margin-top: 0.75rem; font-size: 1.1rem; opacity: 0.85;">Real Energy. No Crash, No Nonsense</p>
-        </div>
-        
-        <!-- RIGHT: Product Visual Only -->
-        <div class="hero-product-showcase">
-          <article class="product-card hero-product-card-large">
-            <div class="product-visual">
-              <span class="product-badge">New Release</span>
-              <div class="bar-3d bar-energy-3d"></div>
-            </div>
-            <div class="product-info">
-              <h3>Energy</h3>
-              <p class="product-tagline">Bright, uplifting, sustained.</p>
-              <p class="product-description">Green tea caffeine + B-vitamins.</p>
-              <div class="product-specs">
-                <span class="spec">Electrolytes</span>
-                <span class="spec">No Crash</span>
-                <span class="spec">Gluten-free</span>
-              </div>
-            </div>
-          </article>
-        </div>
+<!-- ===== HERO SECTION ===== -->
+<section class="hero" id="home">
+  <div class="hero-container">
+    
+    <!-- Hero Text Side -->
+    <div class="hero-text-side">
+      <h1 class="hero-headline">
+        <span class="headline-main">Energy That Feels</span>
+        <span class="headline-script">Good.</span>
+      </h1>
+      
+      <p class="hero-description">
+        The clean caffeinated protein bar. Real energy that lasts, with green tea caffeine, protein, and zero added sugar. No crash, no nonsense.
+      </p>
+      
+      <div class="hero-cta-group">
+        <a href="#products" class="cta-primary">Shop Now</a>
+        <a href="How-It-Works.html" class="cta-secondary">Learn More</a>
       </div>
     </div>
 
-    <!-- Color blocks below -->
-    <div class="hero-colorblock-wrapper">
-      <!-- Bold color blocks -->
-      <div class="color-block block-tagline">
-        <div class="container">
-          <h2 class="block-text">the bar that gives you clean energy</h2>
-        </div>
-      </div>
-      
-      <div class="color-block block-accent">
-        <div class="container">
-          <h2 class="block-text">without the crash</h2>
+    <!-- Hero Product Side -->
+    <div class="hero-product-showcase">
+      <div class="hero-product-card">
+        <div class="product-visual">
+          <div class="bar-3d bar-energy-3d"></div>
         </div>
       </div>
     </div>
-  </section>
+    
+  </div>
+</section>
 
 <!-- ===== PRODUCTS SECTION ===== -->
 <section id="products" class="products-section" data-fade-scope>
@@ -317,10 +298,7 @@
     
     <!-- Section Header -->
     <div class="products-header">
-      <h2 class="products-title">Choose Your Quantity</h2>
-      <p class="products-subtitle">
-        Pick the pack that fits your routine.
-      </p>
+      <h2 class="products-title">Stock Up and Save</h2>
     </div>
 
     <!-- Quantity Options Carousel -->
@@ -330,63 +308,68 @@
       
       <!-- 1 Box = 12 Bars -->
       <article class="quantity-card" data-index="0">
-        <span class="popular-badge">Try It Out</span>
         <div class="quantity-card-inner">
-          <div class="quantity-amount" data-number="12"></div>
-          <div class="quantity-header">
-            <h3>Starter Pack</h3>
-            <p class="quantity-subtitle">1 Box</p>
-          </div>
           <div class="quantity-visual">
+            <div class="quantity-amount" data-number="12"></div>
             <div class="product-box">
               <span class="box-label">12 bars</span>
             </div>
           </div>
+          <div class="quantity-header">
+            <h3>Starter Pack</h3>
+            <p class="quantity-subtitle">1 Box • 12 Bars</p>
+          </div>
           <div class="quantity-details">
-            <div class="quantity-price">$29</div>
-            <a href="Purchase.html?product=Starter Pack&price=29&quantity=12" class="quantity-cta cta-primary" style="text-decoration: none; display: block;">Select Pack</a>
+            <button class="quantity-cta cta-primary" onclick="addToCart('starter')" style="text-decoration: none; display: block; width: 100%; border: none;">
+              <span class="cta-text">Add to Cart</span>
+              <span class="cta-price">$29</span>
+            </button>
           </div>
         </div>
       </article>
 
       <!-- 2 Boxes = 24 Bars (Most Popular) -->
       <article class="quantity-card popular active" data-index="1">
-        <span class="popular-badge">Most Popular</span>
         <div class="quantity-card-inner">
-          <div class="quantity-amount" data-number="24"></div>
-          <div class="quantity-header">
-            <h3>Duo Pack</h3>
-            <p class="quantity-subtitle">2 Boxes</p>
-          </div>
           <div class="quantity-visual">
+            <div class="quantity-amount" data-number="24"></div>
             <div class="product-box">
-              <span class="box-label">12 bars</span>
+              <span class="box-label">24 bars</span>
             </div>
           </div>
+          <div class="quantity-header">
+            <h3>Duo Pack</h3>
+            <p class="quantity-subtitle">2 Boxes • 24 Bars</p>
+            <span class="savings-badge">Save 7%</span>
+          </div>
           <div class="quantity-details">
-            <div class="quantity-price">$54 <span style="font-size: 0.85em; color: #666; font-weight: 500;">($27/box)</span></div>
-            <a href="Purchase.html?product=Duo Pack&price=54&quantity=24" class="quantity-cta cta-primary" style="text-decoration: none; display: block;">Select Pack</a>
+            <button class="quantity-cta cta-primary" onclick="addToCart('duo')" style="text-decoration: none; display: block; width: 100%; border: none;">
+              <span class="cta-text">Add to Cart</span>
+              <span class="cta-price">$54 <small>($27/box)</small></span>
+            </button>
           </div>
         </div>
       </article>
 
       <!-- 3 Boxes = 36 Bars -->
       <article class="quantity-card" data-index="2">
-        <span class="popular-badge">Best Value</span>
         <div class="quantity-card-inner">
-          <div class="quantity-amount" data-number="36"></div>
-          <div class="quantity-header">
-            <h3>Family Pack</h3>
-            <p class="quantity-subtitle">3 Boxes</p>
-          </div>
           <div class="quantity-visual">
+            <div class="quantity-amount" data-number="36"></div>
             <div class="product-box">
-              <span class="box-label">12 bars</span>
+              <span class="box-label">36 bars</span>
             </div>
           </div>
+          <div class="quantity-header">
+            <h3>Family Pack</h3>
+            <p class="quantity-subtitle">3 Boxes • 36 Bars</p>
+            <span class="savings-badge">Save 14%</span>
+          </div>
           <div class="quantity-details">
-            <div class="quantity-price">$75 <span style="font-size: 0.85em; color: #666; font-weight: 500;">($25/box)</span></div>
-            <a href="Purchase.html?product=Family Pack&price=75&quantity=36" class="quantity-cta cta-primary" style="text-decoration: none; display: block;">Select Pack</a>
+            <button class="quantity-cta cta-primary" onclick="addToCart('family')" style="text-decoration: none; display: block; width: 100%; border: none;">
+              <span class="cta-text">Add to Cart</span>
+              <span class="cta-price">$75 <small>($25/box)</small></span>
+            </button>
           </div>
         </div>
       </article>
@@ -548,9 +531,7 @@
           <div class="our-story-text-box">
             <!-- Corner accent -->
             <div class="corner-accent">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-              </svg>
+              ★
             </div>
             
             <div class="our-story-text-content">
@@ -590,9 +571,7 @@
             
             <!-- Sticker-style accents -->
             <div class="sticker-bolt">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/>
-              </svg>
+              ⚡
             </div>
             <div class="sticker-est">Est. 2025</div>
           </div>
@@ -1382,6 +1361,323 @@
       autoScroll();
     });
   </script>
+
+  <!-- Cart Overlay -->
+  <div class="cart-overlay" onclick="closeCart()"></div>
+
+  <!-- Cart Drawer -->
+  <div class="cart-drawer">
+    <div class="cart-header">
+      <h2 class="cart-title">Your Cart</h2>
+      <button class="close-button" onclick="closeCart()">×</button>
+    </div>
+    
+    <div class="cart-content" id="cartContent">
+      <div class="empty-cart" id="emptyCart">
+        <div class="empty-cart-icon">🛒</div>
+        <p>Your cart is empty</p>
+      </div>
+    </div>
+    
+    <div class="cart-footer" id="cartFooter" style="display: none;">
+      <div class="subtotal">
+        <span>Subtotal:</span>
+        <span id="subtotalAmount">$0.00</span>
+      </div>
+      <button class="checkout-button" onclick="checkout()">
+        Proceed to Checkout
+      </button>
+    </div>
+  </div>
+
+  <!-- Cart JavaScript -->
+  <script>
+    // Cart state
+    let cart = [];
+    let isCartOpen = false;
+
+    // Product data
+    const products = {
+      'starter': { id: 1, name: 'Starter Pack (12 bars)', price: 29.00, image: 'VERO' },
+      'duo': { id: 2, name: 'Duo Pack (24 bars)', price: 54.00, image: 'VERO' },
+      'family': { id: 3, name: 'Family Pack (36 bars)', price: 75.00, image: 'VERO' }
+    };
+
+    // DOM elements
+    const cartOverlay = document.querySelector('.cart-overlay');
+    const cartDrawer = document.querySelector('.cart-drawer');
+    const cartContent = document.getElementById('cartContent');
+    const cartFooter = document.getElementById('cartFooter');
+    const emptyCart = document.getElementById('emptyCart');
+    const subtotalAmount = document.getElementById('subtotalAmount');
+
+    // Add to cart function
+    function addToCart(productKey) {
+      console.log('addToCart called with:', productKey);
+      const product = products[productKey];
+      console.log('Product found:', product);
+      if (!product) {
+        console.log('Product not found!');
+        return;
+      }
+      
+      const existingItem = cart.find(item => item.id === product.id);
+      
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cart.push({
+          ...product,
+          quantity: 1
+        });
+      }
+      
+      updateCartDisplay();
+      openCart();
+    }
+
+    // Open cart
+    function openCart() {
+      console.log('Opening cart...');
+      isCartOpen = true;
+      cartOverlay.classList.add('active');
+      cartDrawer.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      console.log('Cart should be open now');
+    }
+
+    // Close cart
+    function closeCart() {
+      isCartOpen = false;
+      cartOverlay.classList.remove('active');
+      cartDrawer.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Update quantity
+    function updateQuantity(itemId, change) {
+      const item = cart.find(item => item.id === itemId);
+      if (item) {
+        item.quantity += change;
+        if (item.quantity <= 0) {
+          cart = cart.filter(item => item.id !== itemId);
+        }
+        updateCartDisplay();
+      }
+    }
+
+    // Update cart display
+    function updateCartDisplay() {
+      if (cart.length === 0) {
+        emptyCart.style.display = 'block';
+        cartFooter.style.display = 'none';
+        cartContent.innerHTML = '<div class="empty-cart"><div class="empty-cart-icon">🛒</div><p>Your cart is empty</p></div>';
+        return;
+      }
+
+      emptyCart.style.display = 'none';
+      cartFooter.style.display = 'block';
+
+      // Generate cart items HTML
+      const cartItemsHTML = cart.map(item => `
+        <div class="cart-item">
+          <div class="item-image">${item.image}</div>
+          <div class="item-details">
+            <div class="item-name">${item.name}</div>
+            <div class="item-price">$${item.price.toFixed(2)}</div>
+            <div class="quantity-controls">
+              <button class="quantity-btn" onclick="updateQuantity(${item.id}, -1)">−</button>
+              <span class="quantity-display">${item.quantity}</span>
+              <button class="quantity-btn" onclick="updateQuantity(${item.id}, 1)">+</button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      cartContent.innerHTML = cartItemsHTML;
+
+      // Update subtotal
+      const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+      subtotalAmount.textContent = `$${subtotal.toFixed(2)}`;
+    }
+
+    // Checkout function
+    function checkout() {
+      // Redirect to existing purchase page
+      window.location.href = 'Purchase.html';
+    }
+
+    // Keyboard support
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && isCartOpen) {
+        closeCart();
+      }
+    });
+
+    // Initialize
+    updateCartDisplay();
+    
+    // Test function
+    window.testCart = function() {
+      console.log('Test function called');
+      alert('JavaScript is working!');
+      openCart();
+    };
+  </script>
+
+</body>
+</html>
+
+  <!-- Quantity Carousel Script -->
+  <script>
+    (function() {
+      const cards = document.querySelectorAll('.quantity-card');
+      const prevBtn = document.querySelector('.carousel-prev');
+      const nextBtn = document.querySelector('.carousel-next');
+      const indicators = document.querySelectorAll('.indicator');
+      let currentIndex = 1; // Start with middle card (2 boxes)
+
+      if (!cards.length) return;
+
+      function updateCarousel() {
+        cards.forEach((card, index) => {
+          card.classList.remove('active', 'prev', 'next');
+          
+          if (index === currentIndex) {
+            card.classList.add('active');
+          } else if (index === currentIndex - 1) {
+            card.classList.add('prev');
+          } else if (index === currentIndex + 1) {
+            card.classList.add('next');
+          }
+        });
+
+        // Update indicators
+        indicators.forEach((indicator, index) => {
+          indicator.classList.toggle('active', index === currentIndex);
+        });
+      }
+
+      function goToSlide(index) {
+        currentIndex = Math.max(0, Math.min(index, cards.length - 1));
+        updateCarousel();
+      }
+
+      // Click on cards to select them
+      cards.forEach((card, index) => {
+        card.addEventListener('click', () => {
+          if (index !== currentIndex) {
+            goToSlide(index);
+          }
+        });
+      });
+
+      prevBtn.addEventListener('click', () => {
+        goToSlide(currentIndex - 1);
+      });
+
+      nextBtn.addEventListener('click', () => {
+        goToSlide(currentIndex + 1);
+      });
+
+      indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+          goToSlide(index);
+        });
+      });
+
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') goToSlide(currentIndex - 1);
+        if (e.key === 'ArrowRight') goToSlide(currentIndex + 1);
+      });
+
+      // Initialize
+      updateCarousel();
+    })();
+  </script>
+
+  <!-- Cart Functionality Script -->
+  <script>
+    (function() {
+      let cartCount = 0;
+      const cartCountElement = document.querySelector('.cart-count');
+      const buyButtons = document.querySelectorAll('.quantity-cta');
+      
+      function updateCartCount() {
+        cartCountElement.textContent = cartCount;
+        if (cartCount > 0) {
+          cartCountElement.classList.add('has-items');
+        } else {
+          cartCountElement.classList.remove('has-items');
+        }
+      }
+      
+      // Removed preventDefault to allow links to work
+      buyButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+          // Don't prevent default - let the link navigate
+          cartCount++;
+          updateCartCount();
+          
+          // Add animation feedback
+          button.style.transform = 'scale(0.95)';
+          setTimeout(() => {
+            button.style.transform = '';
+          }, 150);
+        });
+      });
+    })();
+  </script>
+
+  <!-- Hamburger Menu Script -->
+  <script>
+    (function() {
+      const hamburger = document.querySelector('.hamburger-menu');
+      const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+      if (!hamburger || !mobileMenuOverlay) return;
+
+      // Reset menu state on page load
+      hamburger.classList.remove('active');
+      mobileMenuOverlay.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+
+      // Toggle menu
+      hamburger.addEventListener('click', function() {
+        const isActive = this.classList.toggle('active');
+        mobileMenuOverlay.classList.toggle('active');
+        this.setAttribute('aria-expanded', isActive);
+        
+        // Prevent body scroll when menu is open
+        document.body.style.overflow = isActive ? 'hidden' : '';
+      });
+
+      // Close menu when clicking on a link
+      mobileNavLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          hamburger.classList.remove('active');
+          mobileMenuOverlay.classList.remove('active');
+          hamburger.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        });
+      });
+
+      // Close menu when clicking overlay
+      mobileMenuOverlay.addEventListener('click', function(e) {
+        if (e.target === mobileMenuOverlay) {
+          hamburger.classList.remove('active');
+          mobileMenuOverlay.classList.remove('active');
+          hamburger.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        }
+      });
+    })();
+  </script>
+
+
 
 </body>
 </html>
