@@ -441,20 +441,36 @@
 
     .steps-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 40px;
       margin-top: 60px;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .step-card {
       background: white;
       border-radius: 24px;
       padding: 40px;
-      text-align: center;
+      text-align: left;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       border: 2px solid transparent;
       transition: all 0.3s ease;
       position: relative;
+      overflow: hidden;
+    }
+
+    .step-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #22c55e, #16a34a);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
     }
 
     .step-card:hover {
@@ -463,26 +479,42 @@
       box-shadow: 0 20px 40px rgba(34, 197, 94, 0.2);
     }
 
+    .step-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
     .step-number {
-      position: absolute;
-      top: -20px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 40px;
-      height: 40px;
+      width: 50px;
+      height: 50px;
       background: linear-gradient(135deg, #22c55e, #16a34a);
-      border-radius: 50%;
+      border-radius: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
       color: white;
       font-weight: 900;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+      box-shadow: 0 8px 20px rgba(34, 197, 94, 0.3);
     }
 
-    .step-icon {
-      font-size: 3rem;
-      margin: 20px 0;
+    .step-badge {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 16px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-left: auto;
     }
 
     .step-title {
@@ -495,6 +527,130 @@
     .step-description {
       color: #6b7280;
       line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .step-details {
+      list-style: none;
+      padding: 0;
+    }
+
+    .step-details li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+
+    .step-details li::before {
+      content: '→';
+      width: 20px;
+      height: 20px;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+
+    /* ===== INGREDIENTS SECTION ===== */
+    .ingredients-section {
+      padding: 80px 0;
+      background: #1f2937;
+      color: white;
+    }
+
+    .ingredients-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      margin-top: 60px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .ingredient-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      padding: 30px;
+      text-align: left;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ingredient-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, #22c55e, #16a34a);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .ingredient-card:hover {
+      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(34, 197, 94, 0.3);
+    }
+
+    .ingredient-card:hover::before {
+      opacity: 1;
+    }
+
+    .ingredient-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .ingredient-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .ingredient-name {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: white;
+      margin: 0;
+    }
+
+    .ingredient-description {
+      color: #d1d5db;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .ingredient-benefit {
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.2);
+      border-radius: 12px;
+      padding: 8px 12px;
+      font-size: 0.8rem;
+      color: #22c55e;
+      font-weight: 600;
+      display: inline-block;
     }
 
     @media (max-width: 768px) {
@@ -515,6 +671,19 @@
       .steps-grid {
         grid-template-columns: 1fr;
         gap: 30px;
+      }
+
+      .ingredients-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .step-card {
+        text-align: center;
+      }
+
+      .step-header {
+        justify-content: center;
       }
     }
   </style>
@@ -654,30 +823,107 @@
 
       <div class="steps-grid">
         <div class="step-card">
-          <div class="step-number">1</div>
-          <div class="step-icon">⚡</div>
-          <h3 class="step-title">Immediate Energy</h3>
+          <div class="step-header">
+            <div class="step-number">1</div>
+            <div class="step-badge">Instant</div>
+          </div>
+          <h3 class="step-title">Clean Activation</h3>
           <p class="step-description">
-            Natural caffeine from green tea provides an instant, clean energy boost without jitters or anxiety.
+            Within 15 minutes, you feel it. Not the jittery rush of synthetic caffeine, but a smooth, focused alertness. Green tea caffeine enters your system gently, paired with L-theanine to keep you calm and collected.
           </p>
+          <ul class="step-details">
+            <li>90mg natural green tea caffeine</li>
+            <li>L-theanine for smooth focus</li>
+            <li>No synthetic stimulants</li>
+          </ul>
         </div>
 
         <div class="step-card">
-          <div class="step-number">2</div>
-          <div class="step-icon">🔄</div>
-          <h3 class="step-title">Sustained Release</h3>
+          <div class="step-header">
+            <div class="step-number">2</div>
+            <div class="step-badge">Sustained</div>
+          </div>
+          <h3 class="step-title">Steady Fuel Release</h3>
           <p class="step-description">
-            Complex carbs and protein work together to maintain steady energy levels for hours, not minutes.
+            While others crash, you keep going. Our balanced macros - protein, complex carbs, and healthy fats - work together like a time-release system. Your energy stays consistent for hours, not minutes.
           </p>
+          <ul class="step-details">
+            <li>10g complete plant protein</li>
+            <li>Complex carbs for steady glucose</li>
+            <li>Healthy fats for satiety</li>
+          </ul>
         </div>
 
         <div class="step-card">
-          <div class="step-number">3</div>
-          <div class="step-icon">🧠</div>
-          <h3 class="step-title">Enhanced Focus</h3>
+          <div class="step-header">
+            <div class="step-number">3</div>
+            <div class="step-badge">Enhanced</div>
+          </div>
+          <h3 class="step-title">Peak Performance</h3>
           <p class="step-description">
-            L-theanine and adaptogens support cognitive function and stress resilience for peak mental performance.
+            This is where Vero shines. Adaptogens like rhodiola and ashwagandha help your body handle stress while maintaining mental clarity. You're not just energized - you're optimized.
           </p>
+          <ul class="step-details">
+            <li>Rhodiola for stress resilience</li>
+            <li>Lion's mane for cognitive support</li>
+            <li>Ashwagandha for calm energy</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== KEY INGREDIENTS SECTION ===== -->
+  <section class="ingredients-section">
+    <div class="container">
+      <h2 class="section-title" style="color: white;">The Science Behind The Ingredients</h2>
+      <p class="section-subtitle" style="color: #9ca3af;">
+        Every ingredient in Vero has a purpose. Here's what makes our formula work.
+      </p>
+
+      <div class="ingredients-grid">
+        <div class="ingredient-card">
+          <div class="ingredient-header">
+            <div class="ingredient-icon">🍃</div>
+            <h3 class="ingredient-name">Green Tea Caffeine</h3>
+          </div>
+          <p class="ingredient-description">
+            Unlike synthetic caffeine that hits like a truck, green tea caffeine provides a gentle, sustained energy boost. It's naturally paired with L-theanine, creating the perfect balance of alertness and calm.
+          </p>
+          <div class="ingredient-benefit">Smooth Energy</div>
+        </div>
+
+        <div class="ingredient-card">
+          <div class="ingredient-header">
+            <div class="ingredient-icon">🌿</div>
+            <h3 class="ingredient-name">Rhodiola Rosea</h3>
+          </div>
+          <p class="ingredient-description">
+            This Arctic root has been used for centuries to combat fatigue and stress. Modern research shows it helps your body adapt to physical and mental demands, keeping you resilient under pressure.
+          </p>
+          <div class="ingredient-benefit">Stress Resilience</div>
+        </div>
+
+        <div class="ingredient-card">
+          <div class="ingredient-header">
+            <div class="ingredient-icon">🧠</div>
+            <h3 class="ingredient-name">Lion's Mane</h3>
+          </div>
+          <p class="ingredient-description">
+            This unique mushroom supports cognitive function and mental clarity. Studies suggest it may help with focus, memory, and overall brain health - perfect for those demanding mental tasks.
+          </p>
+          <div class="ingredient-benefit">Cognitive Support</div>
+        </div>
+
+        <div class="ingredient-card">
+          <div class="ingredient-header">
+            <div class="ingredient-icon">⚖️</div>
+            <h3 class="ingredient-name">Ashwagandha</h3>
+          </div>
+          <p class="ingredient-description">
+            Known as the "strength of the stallion," ashwagandha helps reduce cortisol levels and promotes calm energy. It's the reason you feel energized but not anxious after eating Vero.
+          </p>
+          <div class="ingredient-benefit">Calm Energy</div>
         </div>
       </div>
     </div>
