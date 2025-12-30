@@ -31,6 +31,46 @@
   <link rel="stylesheet" href="deux-style.css?v=33" />
   <link rel="stylesheet" href="our-story-override.css?v=6" />
   <style>
+    /* FORCE PRODUCT BUTTONS TO MATCH HERO BUTTONS - HIGHEST PRIORITY */
+    .products-section .quantity-card button.quantity-cta.cta-primary,
+    .products-section .quantity-card.popular button.quantity-cta.cta-primary,
+    .products-section .quantity-card.popular.active button.quantity-cta.cta-primary,
+    .products-section article.quantity-card button.quantity-cta.cta-primary,
+    .products-section article.quantity-card.popular button.quantity-cta.cta-primary,
+    .products-section article.quantity-card.popular.active button.quantity-cta.cta-primary {
+      background: transparent !important;
+      background-color: transparent !important;
+      background-image: none !important;
+      color: #00d435 !important;
+      border: 2px solid #00d435 !important;
+      border-radius: 0px !important;
+      font-weight: 700 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.05em !important;
+      padding: 1rem 2rem !important;
+      transition: all 0.3s ease !important;
+      text-shadow: 0 0 8px rgba(0, 212, 53, 0.5) !important;
+      box-shadow: 0 0 12px rgba(0, 212, 53, 0.3) !important;
+    }
+    
+    .products-section .quantity-card button.quantity-cta.cta-primary:hover,
+    .products-section .quantity-card.popular button.quantity-cta.cta-primary:hover,
+    .products-section .quantity-card.popular.active button.quantity-cta.cta-primary:hover,
+    .products-section article.quantity-card button.quantity-cta.cta-primary:hover,
+    .products-section article.quantity-card.popular button.quantity-cta.cta-primary:hover,
+    .products-section article.quantity-card.popular.active button.quantity-cta.cta-primary:hover {
+      background: #00d435 !important;
+      background-color: #00d435 !important;
+      background-image: none !important;
+      color: #000000 !important;
+      border: 2px solid #00d435 !important;
+      border-radius: 0px !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 8px 20px rgba(0, 212, 53, 0.6) !important;
+      text-shadow: none !important;
+    }
+  </style>
+  <style>
     @keyframes scroll-reviews {
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
@@ -293,7 +333,7 @@
 </section>
 
 <!-- ===== PRODUCTS SECTION ===== -->
-<section id="products" class="products-section" data-fade-scope>
+<section id="products" class="products-section" data-fade-scope data-fade-in>
   <div class="container">
     
     <!-- Section Header -->
@@ -307,7 +347,7 @@
       <div class="quantity-carousel">
       
       <!-- 1 Box = 12 Bars -->
-      <article class="quantity-card" data-index="0">
+      <article class="quantity-card" data-index="0" data-fade-in="2">
         <div class="quantity-card-inner">
           <div class="quantity-visual">
             <div class="quantity-amount" data-number="12"></div>
@@ -329,7 +369,7 @@
       </article>
 
       <!-- 2 Boxes = 24 Bars (Most Popular) -->
-      <article class="quantity-card popular active" data-index="1">
+      <article class="quantity-card popular active" data-index="1" data-fade-in="3">
         <div class="quantity-card-inner">
           <div class="quantity-visual">
             <div class="quantity-amount" data-number="24"></div>
@@ -352,7 +392,7 @@
       </article>
 
       <!-- 3 Boxes = 36 Bars -->
-      <article class="quantity-card" data-index="2">
+      <article class="quantity-card" data-index="2" data-fade-in="4">
         <div class="quantity-card-inner">
           <div class="quantity-visual">
             <div class="quantity-amount" data-number="36"></div>
@@ -394,17 +434,17 @@
 </section>
 
 <!-- ===== NUTRITION COMPARISON TABLE ===== -->
-<section id="science" class="nutrition-comparison-section" data-fade-scope style="background: #bfdbfe; padding: 80px 0;"
+<section id="science" class="nutrition-comparison-section" data-fade-scope data-fade-in style="background: #bfdbfe; padding: 80px 0;"
   <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 160px 20px 40px 20px !important;">
     
-    <div class="comparison-header" style="text-align: center; margin-bottom: 50px;">
+    <div class="comparison-header" style="text-align: center; margin-bottom: 50px;" data-fade-in="1">
       <h2 style="font-size: 5rem !important; font-weight: 900 !important; color: #1f2937 !important; margin-bottom: 16px; font-family: 'Poppins', sans-serif !important; text-transform: uppercase !important; letter-spacing: 0.1em !important; text-shadow: 2px 2px 4px rgba(0,0,0,0.1) !important;">US VS. THEM</h2>
       <p style="font-size: 1.2rem; color: black; max-width: 600px; margin: 0 auto; font-family: 'Poppins', sans-serif;">
         See how Vero stacks up against typical energy drinks.
       </p>
     </div>
 
-    <div class="comparison-table-wrapper" style="max-width: 900px; margin: 0 auto; position: relative; padding: 0;">
+    <div class="comparison-table-wrapper" style="max-width: 900px; margin: 0 auto; position: relative; padding: 0;" data-fade-scale>
       
       <!-- Professional Comparison Table -->
       <div class="comparison-table-container" style="position: relative; border-radius: 20px; padding: 0;">
@@ -507,18 +547,22 @@
 <!-- NEW OUR STORY SECTION -->
 <!-- Copy this into index.html to replace the current Our Story section -->
 
-<section id="our-story" class="our-story-new" data-fade-scope>
+<section id="our-story" class="our-story-new" data-fade-scope data-fade-in>
   <div class="our-story-container">
     <!-- Bold graphic elements -->
     <div class="our-story-graphics">
       <div class="graphic-star">★</div>
-      <div class="graphic-bolt">⚡</div>
+      <div class="graphic-bolt">
+        <svg width="200" height="200" viewBox="0 0 24 24" fill="white">
+          <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/>
+        </svg>
+      </div>
       <div class="graphic-circle">●</div>
     </div>
 
     <div class="our-story-content">
       <!-- Title - Big and Bold -->
-      <div class="our-story-header">
+      <div class="our-story-header" data-fade-in="1">
         <h1 class="our-story-title">
           Who is
           <span class="our-story-title-highlight">VERO?</span>
@@ -527,7 +571,7 @@
 
       <div class="our-story-grid">
         <!-- Left side - Text content with bold styling -->
-        <div class="our-story-text-wrapper">
+        <div class="our-story-text-wrapper" data-fade-left>
           <div class="our-story-text-box">
             <!-- Corner accent -->
             <div class="corner-accent">
@@ -558,7 +602,7 @@
         </div>
 
         <!-- Right side - Image with polaroid style -->
-        <div class="our-story-image-wrapper">
+        <div class="our-story-image-wrapper" data-fade-right>
           <div class="polaroid-container">
             <!-- Polaroid frame -->
             <div class="polaroid-frame">
@@ -571,7 +615,9 @@
             
             <!-- Sticker-style accents -->
             <div class="sticker-bolt">
-              ⚡
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/>
+              </svg>
             </div>
             <div class="sticker-est">Est. 2025</div>
           </div>
@@ -1176,7 +1222,7 @@
   <script>
     // Fade in elements on scroll
     (function() {
-      const fadeElements = document.querySelectorAll('[data-fade-in]');
+      const fadeElements = document.querySelectorAll('[data-fade-in], [data-fade-left], [data-fade-right], [data-fade-scale]');
       
       if (!fadeElements.length) return;
       
@@ -1188,8 +1234,8 @@
           }
         });
       }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.15,
+        rootMargin: '0px 0px -80px 0px'
       });
       
       fadeElements.forEach(el => observer.observe(el));
