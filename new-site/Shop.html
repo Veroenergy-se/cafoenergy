@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shop Vero – Natural Energy Bars</title>
+  
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWFPL9ZW9R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JWFPL9ZW9R', {
+      'send_page_view': true,
+      'anonymize_ip': true
+    });
+  </script>
+  
+  <link rel="stylesheet" href="style.css?v=16" />
+  <link rel="stylesheet" href="deux-style.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <style>
+    .vero-navbar {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      width: 100%;
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .vero-navbar--scrolled {
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      border-color: transparent;
+    }
+    .vero-navbar__inner {
+      max-width: 1120px;
+      margin: auto;
+      padding: 1.2rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .vero-navbar__brand {
+      text-decoration: none;
+      color: #111827;
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .vero-navbar__menu {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .vero-navbar__links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+    }
+    .vero-navbar__link {
+      text-decoration: none;
+      color: #111827;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 1.05rem;
+      padding-bottom: 2px;
+      position: relative;
+    }
+    .vero-navbar__link::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: #111827;
+      transition: width 0.2s ease;
+    }
+    .vero-navbar__link:hover::after {
+      width: 100%;
+    }
+    .vero-navbar__cta {
+      background-color: rgba(255, 208, 116);
+      color: #1d1d1f;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: 600;
+      padding: 1em 2em;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      border: 1px solid black;
+      box-shadow: 0 0 0 0 black;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .vero-navbar__cta:hover {
+      transform: translateY(-4px) translateX(-2px);
+      box-shadow: 2px 5px 0 0 black;
+    }
+    .vero-navbar__cta:active {
+      transform: translateY(2px) translateX(1px);
+      box-shadow: 0 0 0 0 black;
+    }
+    .vero-navbar__toggle {
+      display: none;
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+      flex-direction: column;
+      justify-content: center;
+      gap: 6px;
+    }
+    .vero-navbar__toggle span {
+      height: 3px;
+      width: 100%;
+      background: #111827;
+      border-radius: 5px;
+      transition: 0.3s ease;
+    }
+    .vero-navbar__toggle--open span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+    .vero-navbar__toggle--open span:nth-child(2) {
+      opacity: 0;
+    }
+    .vero-navbar__toggle--open span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+    @media (max-width: 768px) {
+      .vero-navbar__toggle {
+        display: flex;
+      }
+      .vero-navbar__menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #ffffff;
+        border-bottom: 1px solid #e5e7eb;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.25rem;
+        opacity: 0;
+        transform: translateY(-10px);
+        pointer-events: none;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+      }
+      .vero-navbar__menu--open {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+      .vero-navbar__links {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      .vero-navbar__cta {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+
+  <nav class="vero-navbar" id="veroNavbar">
+    <div class="vero-navbar__inner">
+      <a class="vero-navbar__brand" href="index.html">Vero</a>
+      
+      <div class="vero-navbar__toggle" id="veroToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      
+      <div class="vero-navbar__menu" id="veroMenu">
+        <ul class="vero-navbar__links">
+          <li><a class="vero-navbar__link" href="index.html">Home</a></li>
+          <li><a class="vero-navbar__link" href="Shop.html">Shop</a></li>
+          <li><a class="vero-navbar__link" href="How-It-Works.html">How It Works</a></li>
+          <li><a class="vero-navbar__link" href="Why-Vero.html">Why Vero</a></li>
+        </ul>
+        <a href="#products" class="vero-navbar__cta">Get Energized</a>
+      </div>
+    </div>
+  </nav>
+
+  <script>
+    const toggle = document.getElementById("veroToggle");
+    const menu = document.getElementById("veroMenu");
+    const navbar = document.getElementById("veroNavbar");
+    
+    toggle.addEventListener("click", () => {
+      toggle.classList.toggle("vero-navbar__toggle--open");
+      menu.classList.toggle("vero-navbar__menu--open");
+    });
+    
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 10) {
+        navbar.classList.add("vero-navbar--scrolled");
+      } else {
+        navbar.classList.remove("vero-navbar--scrolled");
+      }
+    });
+  </script>
+
+  <main>
+
+    <!-- ===== HERO WITH IMMEDIATE PRODUCT FOCUS ===== -->
+    <section style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 50%, #bbf7d0 100%); padding: 80px 20px 60px; position: relative; overflow: hidden;">
+      <div style="max-width: 1200px; margin: 0 auto; text-align: center; position: relative; z-index: 2;">
+        <div style="display: inline-block; background: rgba(34, 197, 94, 0.1); color: #15803d; padding: 8px 20px; border-radius: 25px; font-size: 0.9rem; font-weight: 600; margin-bottom: 20px;">
+          Clean Energy • Real Nutrition
+        </div>
+        
+        <h1 style="font-size: 3.5rem; font-weight: 700; color: #1f2937; margin-bottom: 20px; line-height: 1.1;">
+          Energy That Actually <span style="background: linear-gradient(135deg, #22c55e, #16a34a); -webkit-background-clip: text; background-clip: text; color: transparent;">Works</span>
+        </h1>
+        
+        <p style="font-size: 1.2rem; color: #4b5563; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.5;">
+          Stop settling for energy that crashes. Vero gives you 4+ hours of smooth focus without the jitters or afternoon slump.
+        </p>
+        
+        <a href="#products" style="background: linear-gradient(135deg, #22c55e, #16a34a); color: white; padding: 18px 50px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 1.2rem; box-shadow: 0 6px 20px rgba(34, 197, 94, 0.3); transition: all 0.3s ease; display: inline-block; margin-bottom: 60px;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 10px 30px rgba(34, 197, 94, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 20px rgba(34, 197, 94, 0.3)'">
+          Choose Your Pack
+        </a>
+      </div>
+    </section>
+
+    <!-- ===== PRODUCTS SECTION (MOVED UP) ===== -->
+    <section id="products" class="products-section" data-fade-scope style="background: white; padding: 80px 0;">
+      <div class="container">
+        
+        <!-- Section Header -->
+        <div class="products-header">
+          <span class="section-eyebrow">Our Product</span>
+          <h2 class="products-title">Choose Your Quantity</h2>
+          <p class="products-subtitle">
+            Pick the pack that fits your routine.
+          </p>
+        </div>
+
+        <!-- Quantity Options Carousel -->
+        <div class="quantity-carousel-wrapper">
+          <button class="carousel-nav carousel-prev" aria-label="Previous option">‹</button>
+          <div class="quantity-carousel">
+          
+          <!-- 1 Box = 12 Bars -->
+          <article class="quantity-card" data-index="0">
+            <span class="popular-badge">Try It Out</span>
+            <div class="quantity-card-inner">
+              <div class="quantity-amount" data-number="12"></div>
+              <div class="quantity-header">
+                <h3>Starter Pack</h3>
+                <p class="quantity-subtitle">1 Box</p>
+              </div>
+              <div class="quantity-visual">
+                <div class="box-stack">
+                  <div class="product-box">
+                    <span class="box-label">12 bars</span>
+                  </div>
+                </div>
+              </div>
+              <div class="quantity-details">
+                <div class="quantity-price">$29</div>
+                <a href="Purchase.html?product=Starter Pack&price=29&quantity=12" class="quantity-cta cta-primary" style="text-decoration: none; display: block;">Select Pack</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2 Boxes = 24 Bars (Most Popular) -->
+          <article class="quantity-card popular active" data-index="1">
+            <span class="popular-badge">Most Popular</span>
+            <div class="quantity-card-inner">
+              <div class="quantity-amount" data-number="24"></div>
+              <div class="quantity-header">
+                <h3>Duo Pack</h3>
+                <p class="quantity-subtitle">2 Boxes</p>
+              </div>
+              <div class="quantity-visual">
+                <div class="box-stack">
+                  <div class="product-box">
+                    <span class="box-label">12 bars</span>
+                  </div>
+                  <div class="product-box">
+                    <span class="box-label">12 bars</span>
+                  </div>
+                </div>
+              </div>
+              <div class="quantity-details">
+                <div class="quantity-price">$54 <span style="font-size: 0.85em; color: #666; font-weight: 500;">($27/box)</span></div>
+                <a href="Purchase.html?product=Duo Pack&price=54&quantity=24" class="quantity-cta cta-primary" style="text-decoration: none; display: block;">Select Pack</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3 Boxes = 36 Bars -->
+          <article class="quantity-card" data-index="2">
+            <span class="popular-badge">Best Value</span>
+            <div class="quantity-card-inner">
+              <div class="quantity-amount" data-number="36"></div>
+              <div class="quantity-header">
+                <h3>Family Pack</h3>
+                <p class="quantity-subtitle">3 Boxes</p>
+              </div>
+              <div class="quantity-visual">
+                <div class="box-stack">
+                  <div class="product-box">
+                    <span class="box-label">12 bars</span>
+                  </div>
+                  <div class="product-box">
+                    <span class="box-label">12 bars</span>
+                  </div>
+                  <div class="product-box">
+                    <span class="box-label">12 bars</span>
+                  </div>
+                </div>
+              </div>
+              <div class="quantity-details">
+                <div class="quantity-price">$75 <span style="font-size: 0.85em; color: #666; font-weight: 500;">($25/box)</span></div>
+                <a href="Purchase.html?product=Family Pack&price=75&quantity=36" class="quantity-cta cta-primary" style="text-decoration: none; display: block;">Select Pack</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+        <button class="carousel-nav carousel-next" aria-label="Next option">›</button>
+        </div>
+
+        <!-- Carousel Indicators -->
+        <div class="carousel-indicators">
+          <button class="indicator" data-slide="0" aria-label="1 Box"></button>
+          <button class="indicator active" data-slide="1" aria-label="2 Boxes"></button>
+          <button class="indicator" data-slide="2" aria-label="3 Boxes"></button>
+        </div>
+
+        <!-- Additional Info -->
+        <div class="products-footer-info">
+          <p>Free shipping on orders over $50 • 30-day satisfaction guarantee</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== WAVE TRANSITION ===== -->
+    <div style="background: white; height: 100px; position: relative;">
+      <svg style="position: absolute; bottom: 0; left: 0; width: 100%; height: 100px;" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,60 C300,20 600,100 900,60 C1050,30 1150,80 1200,60 L1200,120 L0,120 Z" fill="url(#greenGradient)"></path>
+        <defs>
+          <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#dcfce7;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#bbf7d0;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#86efac;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+
+    <!-- ===== WHY VERO WORKS ===== -->
+    <section style="background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 50%, #86efac 100%); padding: 80px 20px;">
+      <div style="max-width: 1000px; margin: 0 auto; text-align: center;">
+        <h2 style="font-size: 2.8rem; font-weight: 700; color: #1f2937; margin-bottom: 20px;">Why Vero Actually Works</h2>
+        <p style="font-size: 1.2rem; color: #374151; margin-bottom: 60px; max-width: 600px; margin-left: auto; margin-right: auto;">
+          Most energy products spike you up and crash you down. We built something different.
+        </p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 50px;">
+          <div style="background: white; padding: 30px 20px; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+            <div style="font-size: 2.5rem; color: #22c55e; margin-bottom: 15px; font-weight: 700;">80mg</div>
+            <h3 style="color: #1f2937; margin-bottom: 8px; font-size: 1.1rem; font-weight: 600;">Natural Caffeine</h3>
+            <p style="color: #6b7280; font-size: 0.9rem;">From green tea, not synthetic</p>
+          </div>
+          
+          <div style="background: white; padding: 30px 20px; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+            <div style="font-size: 2.5rem; color: #8b5cf6; margin-bottom: 15px; font-weight: 700;">L</div>
+            <h3 style="color: #1f2937; margin-bottom: 8px; font-size: 1.1rem; font-weight: 600;">L-Theanine</h3>
+            <p style="color: #6b7280; font-size: 0.9rem;">Smooth focus, no jitters</p>
+          </div>
+          
+          <div style="background: white; padding: 30px 20px; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+            <div style="font-size: 2.5rem; color: #3b82f6; margin-bottom: 15px; font-weight: 700;">10g</div>
+            <h3 style="color: #1f2937; margin-bottom: 8px; font-size: 1.1rem; font-weight: 600;">Plant Protein</h3>
+            <p style="color: #6b7280; font-size: 0.9rem;">Sustained energy release</p>
+          </div>
+          
+          <div style="background: white; padding: 30px 20px; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+            <div style="font-size: 2.5rem; color: #f59e0b; margin-bottom: 15px; font-weight: 700;">0g</div>
+            <h3 style="color: #1f2937; margin-bottom: 8px; font-size: 1.1rem; font-weight: 600;">Added Sugar</h3>
+            <p style="color: #6b7280; font-size: 0.9rem;">No crash, no guilt</p>
+          </div>
+        </div>
+        
+        <div style="background: rgba(255,255,255,0.9); padding: 40px; border-radius: 20px; backdrop-filter: blur(10px);">
+          <h3 style="color: #1f2937; margin-bottom: 20px; font-size: 1.5rem; font-weight: 700;">The Result</h3>
+          <p style="color: #4b5563; font-size: 1.1rem; max-width: 600px; margin: 0 auto; line-height: 1.6;">
+            4+ hours of steady energy. Clear thinking without the crash. Nutrition that actually supports your goals.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WAVE TRANSITION ===== -->
+    <div style="background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 50%, #86efac 100%); height: 100px; position: relative;">
+      <svg style="position: absolute; bottom: 0; left: 0; width: 100%; height: 100px;" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,60 C300,100 600,20 900,60 C1050,90 1150,40 1200,60 L1200,120 L0,120 Z" fill="#ffffff"></path>
+      </svg>
+    </div>
+
+    <!-- ===== SOCIAL PROOF & GUARANTEE ===== -->
+    <section style="background: white; padding: 80px 20px;">
+      <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <h2 style="font-size: 2.5rem; font-weight: 700; color: #1f2937; margin-bottom: 40px;">Join Thousands Who've Upgraded Their Energy</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 60px;">
+          <div style="background: #f8fafc; padding: 30px; border-radius: 15px; border-left: 4px solid #22c55e;">
+            <p style="color: #4b5563; font-style: italic; margin-bottom: 15px; line-height: 1.5;">
+              "Finally found an energy bar that doesn't make me crash. The focus is incredible."
+            </p>
+            <p style="color: #6b7280; font-size: 0.9rem; font-weight: 600;">— Sarah M., Student</p>
+          </div>
+          
+          <div style="background: #f8fafc; padding: 30px; border-radius: 15px; border-left: 4px solid #3b82f6;">
+            <p style="color: #4b5563; font-style: italic; margin-bottom: 15px; line-height: 1.5;">
+              "Perfect for long training sessions. Steady energy without the jitters."
+            </p>
+            <p style="color: #6b7280; font-size: 0.9rem; font-weight: 600;">— Mike R., Athlete</p>
+          </div>
+          
+          <div style="background: #f8fafc; padding: 30px; border-radius: 15px; border-left: 4px solid #8b5cf6;">
+            <p style="color: #4b5563; font-style: italic; margin-bottom: 15px; line-height: 1.5;">
+              "Replaced my afternoon coffee. Much better energy curve."
+            </p>
+            <p style="color: #6b7280; font-size: 0.9rem; font-weight: 600;">— Tom K., Entrepreneur</p>
+          </div>
+        </div>
+        
+        <div style="background: linear-gradient(135deg, #f0fdf4, #dcfce7); padding: 50px; border-radius: 20px; margin-bottom: 40px;">
+          <h3 style="color: #15803d; margin-bottom: 20px; font-size: 1.8rem; font-weight: 700;">30-Day Money-Back Guarantee</h3>
+          <p style="color: #166534; font-size: 1.1rem; margin-bottom: 30px; line-height: 1.6;">
+            Try Vero risk-free. If it doesn't upgrade your energy game, we'll refund every penny. No questions asked.
+          </p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px;">
+            <div style="text-align: center;">
+              <div style="font-size: 2rem; margin-bottom: 10px;">🚚</div>
+              <h4 style="color: #15803d; margin-bottom: 5px; font-size: 1rem;">Free Shipping</h4>
+              <p style="color: #166534; font-size: 0.9rem;">On orders over $50</p>
+            </div>
+            <div style="text-align: center;">
+              <div style="font-size: 2rem; margin-bottom: 10px;">⚡</div>
+              <h4 style="color: #15803d; margin-bottom: 5px; font-size: 1rem;">Fast Delivery</h4>
+              <p style="color: #166534; font-size: 0.9rem;">2-3 business days</p>
+            </div>
+            <div style="text-align: center;">
+              <div style="font-size: 2rem; margin-bottom: 10px;">🔄</div>
+              <h4 style="color: #15803d; margin-bottom: 5px; font-size: 1rem;">Easy Returns</h4>
+              <p style="color: #166534; font-size: 0.9rem;">Hassle-free process</p>
+            </div>
+          </div>
+        </div>
+        
+        <a href="#products" style="background: linear-gradient(135deg, #22c55e, #16a34a); color: white; padding: 18px 50px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 1.2rem; display: inline-block; box-shadow: 0 6px 20px rgba(34, 197, 94, 0.3); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 10px 30px rgba(34, 197, 94, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 20px rgba(34, 197, 94, 0.3)'">
+          Choose Your Pack
+        </a>
+      </div>
+    </section>
+
+ crashed, wired, or guilty. Vero is the upgrade you've been looking for.</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 50px;">
+          <div style="background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            <div style="font-size: 2.5rem; margin-bottom: 15px;">🚚</div>
+            <h3 style="color: #2d5016; margin-bottom: 10px; font-size: 1.1rem;">Free Shipping</h3>
+            <p style="color: #666; font-size: 0.9rem;">On orders over $50</p>
+          </div>
+          
+          <div style="background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            <div style="font-size: 2.5rem; margin-bottom: 15px;">🔄</div>
+            <h3 style="color: #2d5016; margin-bottom: 10px; font-size: 1.1rem;">30-Day Guarantee</h3>
+            <p style="color: #666; font-size: 0.9rem;">Love it or get your money back</p>
+          </div>
+          
+          <div style="background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            <div style="font-size: 2.5rem; margin-bottom: 15px;">⚡</div>
+            <h3 style="color: #2d5016; margin-bottom: 10px; font-size: 1.1rem;">Fast Delivery</h3>
+            <p style="color: #666; font-size: 0.9rem;">Get energized in 2-3 days</p>
+          </div>
+        </div>
+        
+        <div style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 8px 30px rgba(0,0,0,0.1); margin-bottom: 40px;">
+          <h3 style="color: #2d5016; margin-bottom: 20px; font-size: 1.5rem;">Try Vero Risk-Free</h3>
+          <p style="color: #666; margin-bottom: 25px;">We're so confident you'll love Vero that we offer a full 30-day money-back guarantee. If it doesn't upgrade your energy game, we'll refund every penny.</p>
+          <a href="#products" style="background: linear-gradient(135deg, #6ca700, #22c55e); color: white; padding: 18px 50px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 1.2rem; display: inline-block; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(108, 167, 0, 0.3);" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 25px rgba(108, 167, 0, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(108, 167, 0, 0.3)'">Choose Your Pack</a>
+        </div>
+        
+        <p style="color: #15803d; font-size: 0.95rem; font-style: italic;">"Best energy bar I've tried. The focus blend really works." - Tom M., Entrepreneur</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="footer" class="footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3 class="footer-title">Vero</h3>
+        <p>Clean energy, smarter nutrition.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn">Instagram</a>
+          <a href="#" class="social-btn">TikTok</a>
+          <a href="#" class="social-btn">LinkedIn</a>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:tomwiseman@Vero.se">tomwiseman@Vero.se</a></li>
+          <li><a href="mailto:oliverwiseman@Vero.se">oliverwiseman@Vero.se</a></li>
+          <li><a href="mailto:charliewiseman@Vero.se">charliewiseman@Vero.se</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Info</h4>
+        <ul>
+          <li>Plant-based. No artificial sweeteners.</li>
+          <li>Made with care in the EU.</li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Join our newsletter</h4>
+        <p>No spam, just smarter energy.</p>
+        <form class="newsletter-form" id="shop-newsletter-form" action="#" method="post">
+          <input type="email" id="shop-newsletter-email" name="email" placeholder="your@email.com" required aria-label="Email address" />
+          <button type="submit" aria-label="Subscribe to newsletter">→</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 Vero. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ===== JS ===== -->
+  <script>
+    // Quantity Carousel Script
+    (function() {
+      const cards = document.querySelectorAll('.quantity-card');
+      const prevBtn = document.querySelector('.carousel-prev');
+      const nextBtn = document.querySelector('.carousel-next');
+      const indicators = document.querySelectorAll('.indicator');
+      let currentIndex = 1; // Start with middle card (2 boxes)
+
+      if (!cards.length) return;
+
+      function updateCarousel() {
+        cards.forEach((card, index) => {
+          card.classList.remove('active', 'prev', 'next');
+          
+          if (index === currentIndex) {
+            card.classList.add('active');
+          } else if (index === currentIndex - 1) {
+            card.classList.add('prev');
+          } else if (index === currentIndex + 1) {
+            card.classList.add('next');
+          }
+        });
+
+        // Update indicators
+        indicators.forEach((indicator, index) => {
+          indicator.classList.toggle('active', index === currentIndex);
+        });
+      }
+
+      function goToSlide(index) {
+        currentIndex = Math.max(0, Math.min(index, cards.length - 1));
+        updateCarousel();
+      }
+
+      // Click on cards to select them
+      cards.forEach((card, index) => {
+        card.addEventListener('click', () => {
+          if (index !== currentIndex) {
+            goToSlide(index);
+          }
+        });
+      });
+
+      prevBtn.addEventListener('click', () => {
+        goToSlide(currentIndex - 1);
+      });
+
+      nextBtn.addEventListener('click', () => {
+        goToSlide(currentIndex + 1);
+      });
+
+      indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+          goToSlide(index);
+        });
+      });
+
+      // Initialize
+      updateCarousel();
+    })();
+  </script>
+
+</body>
+</html>

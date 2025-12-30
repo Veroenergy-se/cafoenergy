@@ -17,16 +17,29 @@
     });
   </script>
   
-  <link rel="stylesheet" href="style.css?v=16" />
-  <link rel="stylesheet" href="deux-style.css" />
-</head>
-<body>
-
-  <!-- Soft purple band behind transparent header -->
-  <div class="page-top-gradient"></div>
-
-  <!-- ===== NAVBAR (only once) ===== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&family=Nunito:wght@400;500;600;700;800;900&family=Comfortaa:wght@300;400;500;600;700&family=Yellowtail&family=Belanosima:wght@400;600;700&family=Caveat:wght@400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=44" />
+  <link rel="stylesheet" href="deux-style.css?v=33" />
+  
   <style>
+    body {
+      overflow-x: hidden;
+    }
+    
+    .page-top-gradient {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 200px;
+      background: linear-gradient(180deg, rgba(34, 197, 94, 0.3) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ===== NAVBAR (matching index.html exactly) ===== */
     .vero-navbar {
       position: sticky;
       top: 0;
@@ -56,10 +69,9 @@
       letter-spacing: 0.06em;
       text-transform: uppercase;
     }
-    .vero-navbar__menu {
+    .vero-navbar__center {
       display: flex;
       align-items: center;
-      gap: 2rem;
     }
     .vero-navbar__links {
       list-style: none;
@@ -90,8 +102,8 @@
       width: 100%;
     }
     .vero-navbar__cta {
-      background-color: rgba(255, 208, 116);
-      color: #1d1d1f;
+      background-color: rgba(34, 197, 94);
+      color: white;
       border-radius: 12px;
       font-size: 17px;
       font-weight: 600;
@@ -140,7 +152,7 @@
       .vero-navbar__toggle {
         display: flex;
       }
-      .vero-navbar__menu {
+      .vero-navbar__center {
         position: absolute;
         top: 100%;
         left: 0;
@@ -155,7 +167,7 @@
         pointer-events: none;
         transition: opacity 0.2s ease, transform 0.2s ease;
       }
-      .vero-navbar__menu--open {
+      .vero-navbar__center--open {
         opacity: 1;
         transform: translateY(0);
         pointer-events: auto;
@@ -171,8 +183,517 @@
         text-align: center;
       }
     }
-  </style>
 
+    /* ===== HERO SECTION ===== */
+    .hero {
+      padding: 80px 0;
+    }
+
+    .hero-container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      min-height: 70vh;
+    }
+
+    .hero-text-side {
+      z-index: 10;
+    }
+
+    .hero-headline {
+      margin-bottom: 24px;
+    }
+
+    .headline-main {
+      display: block;
+      font-size: clamp(3rem, 8vw, 4.5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      color: #1f2937;
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: -0.02em;
+    }
+
+    .headline-script {
+      display: block;
+      font-size: clamp(3rem, 8vw, 4.5rem);
+      font-weight: 400;
+      line-height: 1.1;
+      color: #22c55e;
+      font-family: 'Yellowtail', cursive;
+      margin-left: 20px;
+    }
+
+    .hero-description {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #6b7280;
+      margin-bottom: 32px;
+      max-width: 500px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .cta-primary {
+      background-color: rgba(34, 197, 94);
+      color: white;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: 600;
+      padding: 1em 2em;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      border: 1px solid black;
+      box-shadow: 0 0 0 0 black;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .cta-primary:hover {
+      transform: translateY(-4px) translateX(-2px);
+      box-shadow: 2px 5px 0 0 black;
+    }
+
+    .cta-primary:active {
+      transform: translateY(2px) translateX(1px);
+      box-shadow: 0 0 0 0 black;
+    }
+
+    .cta-secondary {
+      background: transparent;
+      color: #1f2937;
+      border: 2px solid #e5e7eb;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: 600;
+      padding: calc(1em - 2px) 2em;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s ease;
+    }
+
+    .cta-secondary:hover {
+      border-color: #22c55e;
+      color: #1f2937;
+    }
+
+    .hero-product-showcase {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-product-card {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      transform: rotate(-2deg);
+      transition: transform 0.3s ease;
+    }
+
+    .hero-product-card:hover {
+      transform: rotate(0deg) scale(1.05);
+    }
+
+    .product-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .bar-3d {
+      width: 200px;
+      height: 60px;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      border-radius: 30px;
+      position: relative;
+      box-shadow: 0 10px 20px rgba(34, 197, 94, 0.3);
+    }
+
+    .bar-3d::before {
+      content: 'VERO';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-weight: 900;
+      font-size: 1.2rem;
+      letter-spacing: 2px;
+    }
+
+    /* ===== SCIENCE SECTIONS ===== */
+    .science-section {
+      padding: 80px 0;
+      background: #bfdbfe;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      font-size: 5rem;
+      font-weight: 900;
+      color: #1f2937;
+      margin-bottom: 16px;
+      font-family: 'Poppins', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .section-subtitle {
+      font-size: 1.2rem;
+      color: #6b7280;
+      max-width: 600px;
+      margin: 0 auto 60px;
+      text-align: center;
+    }
+
+    .energy-chart {
+      background: white;
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      margin-bottom: 60px;
+    }
+
+    .chart-container {
+      position: relative;
+      height: 300px;
+      margin: 40px 0;
+    }
+
+    .chart-svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .vero-curve {
+      stroke: #22c55e;
+      stroke-width: 4;
+      fill: none;
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: drawCurve 3s ease-out forwards;
+    }
+
+    .coffee-curve {
+      stroke: #ef4444;
+      stroke-width: 4;
+      fill: none;
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: drawCurve 3s ease-out 1s forwards;
+    }
+
+    @keyframes drawCurve {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    .chart-legend {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+    }
+
+    .legend-color {
+      width: 20px;
+      height: 4px;
+      border-radius: 2px;
+    }
+
+    .legend-vero {
+      background: #22c55e;
+    }
+
+    .legend-coffee {
+      background: #ef4444;
+    }
+
+    /* ===== STEPS SECTION ===== */
+    .steps-section {
+      padding: 80px 0;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      margin-top: 60px;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .step-card {
+      background: white;
+      border-radius: 24px;
+      padding: 40px;
+      text-align: left;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .step-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #22c55e, #16a34a);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .step-card:hover {
+      border-color: #22c55e;
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(34, 197, 94, 0.2);
+    }
+
+    .step-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .step-number {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 900;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+      box-shadow: 0 8px 20px rgba(34, 197, 94, 0.3);
+    }
+
+    .step-badge {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 16px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-left: auto;
+    }
+
+    .step-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #1f2937;
+    }
+
+    .step-description {
+      color: #6b7280;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .step-details {
+      list-style: none;
+      padding: 0;
+    }
+
+    .step-details li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+
+    .step-details li::before {
+      content: '→';
+      width: 20px;
+      height: 20px;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+
+    /* ===== INGREDIENTS SECTION ===== */
+    .ingredients-section {
+      padding: 80px 0;
+      background: #1f2937;
+      color: white;
+    }
+
+    .ingredients-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      margin-top: 60px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .ingredient-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      padding: 30px;
+      text-align: left;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ingredient-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, #22c55e, #16a34a);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .ingredient-card:hover {
+      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(34, 197, 94, 0.3);
+    }
+
+    .ingredient-card:hover::before {
+      opacity: 1;
+    }
+
+    .ingredient-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .ingredient-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .ingredient-name {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: white;
+      margin: 0;
+    }
+
+    .ingredient-description {
+      color: #d1d5db;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .ingredient-benefit {
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.2);
+      border-radius: 12px;
+      padding: 8px 12px;
+      font-size: 0.8rem;
+      color: #22c55e;
+      font-weight: 600;
+      display: inline-block;
+    }
+
+    @media (max-width: 768px) {
+      .hero-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+      }
+      
+      .hero-text-side {
+        order: 2;
+      }
+      
+      .hero-product-showcase {
+        order: 1;
+      }
+
+      .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .ingredients-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .step-card {
+        text-align: center;
+      }
+
+      .step-header {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Soft green band behind transparent header -->
+  <div class="page-top-gradient"></div>
+
+  <!-- ===== NAVBAR (matching index.html exactly) ===== -->
   <nav class="vero-navbar" id="veroNavbar">
     <div class="vero-navbar__inner">
       <a class="vero-navbar__brand" href="index.html">Vero</a>
@@ -183,17 +704,281 @@
         <span></span>
       </div>
       
-      <div class="vero-navbar__menu" id="veroMenu">
+      <div class="vero-navbar__center" id="veroMenu">
         <ul class="vero-navbar__links">
           <li><a class="vero-navbar__link" href="index.html">Home</a></li>
           <li><a class="vero-navbar__link" href="Shop.html">Shop</a></li>
           <li><a class="vero-navbar__link" href="How-It-Works.html">How It Works</a></li>
           <li><a class="vero-navbar__link" href="Why-Vero.html">Why Vero</a></li>
         </ul>
+      </div>
+      
+      <div class="vero-navbar__right">
         <a href="Shop.html#products" class="vero-navbar__cta">Get Energized</a>
       </div>
     </div>
   </nav>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero" id="home">
+    <div class="hero-container">
+      
+      <!-- Hero Text Side -->
+      <div class="hero-text-side">
+        <h1 class="hero-headline">
+          <span class="headline-main">The Science Behind</span>
+          <span class="headline-script">Clean Energy.</span>
+        </h1>
+        
+        <p class="hero-description">
+          Discover how Vero delivers sustained energy without the crash. Our unique formula combines premium ingredients for optimal performance.
+        </p>
+        
+        <div class="hero-cta-group">
+          <a href="#science" class="cta-primary">See The Science</a>
+          <a href="Shop.html" class="cta-secondary">Shop Now</a>
+        </div>
+      </div>
+
+      <!-- Hero Product Side -->
+      <div class="hero-product-showcase">
+        <div class="hero-product-card">
+          <div class="product-visual">
+            <div class="bar-3d bar-energy-3d"></div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- ===== ENERGY COMPARISON SECTION ===== -->
+  <section id="science" class="science-section">
+    <div class="container">
+      <h2 class="section-title">Energy That Lasts</h2>
+      <p class="section-subtitle">
+        See how Vero's sustained energy release compares to traditional coffee and energy drinks.
+      </p>
+
+      <div class="energy-chart">
+        <h3 style="text-align: center; font-size: 1.5rem; margin-bottom: 20px; color: #1f2937;">Energy Levels Over Time</h3>
+        <div class="chart-container">
+          <svg class="chart-svg" viewBox="0 0 800 300">
+            <!-- Grid lines -->
+            <defs>
+              <pattern id="grid" width="80" height="60" patternUnits="userSpaceOnUse">
+                <path d="M 80 0 L 0 0 0 60" fill="none" stroke="#f3f4f6" stroke-width="1"/>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#grid)" />
+            
+            <!-- Axes -->
+            <line x1="60" y1="20" x2="60" y2="260" stroke="#6b7280" stroke-width="2"/>
+            <line x1="60" y1="260" x2="740" y2="260" stroke="#6b7280" stroke-width="2"/>
+            
+            <!-- Y-axis label -->
+            <text x="30" y="140" fill="#6b7280" font-size="14" text-anchor="middle" transform="rotate(-90 30 140)">Energy Level</text>
+            
+            <!-- X-axis labels -->
+            <text x="100" y="280" fill="#6b7280" font-size="12" text-anchor="middle">0 min</text>
+            <text x="200" y="280" fill="#6b7280" font-size="12" text-anchor="middle">30 min</text>
+            <text x="300" y="280" fill="#6b7280" font-size="12" text-anchor="middle">1 hour</text>
+            <text x="450" y="280" fill="#6b7280" font-size="12" text-anchor="middle">2 hours</text>
+            <text x="600" y="280" fill="#6b7280" font-size="12" text-anchor="middle">3 hours</text>
+            <text x="720" y="280" fill="#6b7280" font-size="12" text-anchor="middle">4 hours</text>
+            
+            <!-- Vero curve (higher and longer lasting) -->
+            <path class="vero-curve" d="M 60 260 Q 150 120 250 100 T 500 120 T 720 180"/>
+            
+            <!-- Coffee curve (spike and crash) -->
+            <path class="coffee-curve" d="M 60 260 Q 120 80 180 60 Q 240 80 300 140 Q 400 200 500 220 T 720 240"/>
+            
+            <!-- Labels -->
+            <text x="400" y="90" fill="#22c55e" font-size="14" font-weight="bold">Vero Energy</text>
+            <text x="200" y="50" fill="#ef4444" font-size="14" font-weight="bold">Coffee/Energy Drinks</text>
+          </svg>
+        </div>
+        
+        <div class="chart-legend">
+          <div class="legend-item">
+            <div class="legend-color legend-vero"></div>
+            <span>Vero - Sustained Energy</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color legend-coffee"></div>
+            <span>Coffee - Spike & Crash</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS STEPS ===== -->
+  <section class="steps-section">
+    <div class="container">
+      <h2 class="section-title">How Vero Works</h2>
+      <p class="section-subtitle">
+        Our three-stage energy system delivers sustained performance without the crash.
+      </p>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-header">
+            <div class="step-number">1</div>
+            <div class="step-badge">Instant</div>
+          </div>
+          <h3 class="step-title">Clean Activation</h3>
+          <p class="step-description">
+            Within 15 minutes, you feel it. Not the jittery rush of synthetic caffeine, but a smooth, focused alertness. Green tea caffeine enters your system gently, paired with L-theanine to keep you calm and collected.
+          </p>
+          <ul class="step-details">
+            <li>90mg natural green tea caffeine</li>
+            <li>L-theanine for smooth focus</li>
+            <li>No synthetic stimulants</li>
+          </ul>
+        </div>
+
+        <div class="step-card">
+          <div class="step-header">
+            <div class="step-number">2</div>
+            <div class="step-badge">Sustained</div>
+          </div>
+          <h3 class="step-title">Steady Fuel Release</h3>
+          <p class="step-description">
+            While others crash, you keep going. Our balanced macros - protein, complex carbs, and healthy fats - work together like a time-release system. Your energy stays consistent for hours, not minutes.
+          </p>
+          <ul class="step-details">
+            <li>10g complete plant protein</li>
+            <li>Complex carbs for steady glucose</li>
+            <li>Healthy fats for satiety</li>
+          </ul>
+        </div>
+
+        <div class="step-card">
+          <div class="step-header">
+            <div class="step-number">3</div>
+            <div class="step-badge">Enhanced</div>
+          </div>
+          <h3 class="step-title">Peak Performance</h3>
+          <p class="step-description">
+            This is where Vero shines. Adaptogens like rhodiola and ashwagandha help your body handle stress while maintaining mental clarity. You're not just energized - you're optimized.
+          </p>
+          <ul class="step-details">
+            <li>Rhodiola for stress resilience</li>
+            <li>Lion's mane for cognitive support</li>
+            <li>Ashwagandha for calm energy</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== KEY INGREDIENTS SECTION ===== -->
+  <section class="ingredients-section">
+    <div class="container">
+      <h2 class="section-title" style="color: white;">The Science Behind The Ingredients</h2>
+      <p class="section-subtitle" style="color: #9ca3af;">
+        Every ingredient in Vero has a purpose. Here's what makes our formula work.
+      </p>
+
+      <div class="ingredients-grid">
+        <div class="ingredient-card">
+          <div class="ingredient-header">
+            <div class="ingredient-icon">🍃</div>
+            <h3 class="ingredient-name">Green Tea Caffeine</h3>
+          </div>
+          <p class="ingredient-description">
+            Unlike synthetic caffeine that hits like a truck, green tea caffeine provides a gentle, sustained energy boost. It's naturally paired with L-theanine, creating the perfect balance of alertness and calm.
+          </p>
+          <div class="ingredient-benefit">Smooth Energy</div>
+        </div>
+
+        <div class="ingredient-card">
+          <div class="ingredient-header">
+            <div class="ingredient-icon">🌿</div>
+            <h3 class="ingredient-name">Rhodiola Rosea</h3>
+          </div>
+          <p class="ingredient-description">
+            This Arctic root has been used for centuries to combat fatigue and stress. Modern research shows it helps your body adapt to physical and mental demands, keeping you resilient under pressure.
+          </p>
+          <div class="ingredient-benefit">Stress Resilience</div>
+        </div>
+
+        <div class="ingredient-card">
+          <div class="ingredient-header">
+            <div class="ingredient-icon">🧠</div>
+            <h3 class="ingredient-name">Lion's Mane</h3>
+          </div>
+          <p class="ingredient-description">
+            This unique mushroom supports cognitive function and mental clarity. Studies suggest it may help with focus, memory, and overall brain health - perfect for those demanding mental tasks.
+          </p>
+          <div class="ingredient-benefit">Cognitive Support</div>
+        </div>
+
+        <div class="ingredient-card">
+          <div class="ingredient-header">
+            <div class="ingredient-icon">⚖️</div>
+            <h3 class="ingredient-name">Ashwagandha</h3>
+          </div>
+          <p class="ingredient-description">
+            Known as the "strength of the stallion," ashwagandha helps reduce cortisol levels and promotes calm energy. It's the reason you feel energized but not anxious after eating Vero.
+          </p>
+          <div class="ingredient-benefit">Calm Energy</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="footer" class="footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3 class="footer-title">Vero</h3>
+        <div class="footer-socials">
+          <a href="#" class="social-btn" aria-label="Follow us on Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+            <span>Instagram</span>
+          </a>
+          <a href="#" class="social-btn" aria-label="Follow us on TikTok">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+            </svg>
+            <span>TikTok</span>
+          </a>
+          <a href="#" class="social-btn" aria-label="Follow us on LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+            <span>LinkedIn</span>
+          </a>
+        </div>
+        <p>Clean energy, smarter nutrition.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:tomwiseman@Vero.se">tomwiseman@Vero.se</a></li>
+          <li><a href="mailto:oliverwiseman@Vero.se">oliverwiseman@Vero.se</a></li>
+          <li><a href="mailto:charliewiseman@Vero.se">charliewiseman@Vero.se</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-column">
+        <h4>Info</h4>
+        <ul>
+          <li>Plant-based. No artificial sweeteners.</li>
+          <li>Made with care in the EU.</li>
+        </ul>
+      </div>
+
+    </div>
+  
+    <div class="footer-bottom">
+      <p>© 2025 Vero. All rights reserved.</p>
+    </div>
+  </footer>
 
   <script>
     const toggle = document.getElementById("veroToggle");
@@ -202,7 +987,7 @@
     
     toggle.addEventListener("click", () => {
       toggle.classList.toggle("vero-navbar__toggle--open");
-      menu.classList.toggle("vero-navbar__menu--open");
+      menu.classList.toggle("vero-navbar__center--open");
     });
     
     window.addEventListener("scroll", () => {
@@ -212,1059 +997,21 @@
         navbar.classList.remove("vero-navbar--scrolled");
       }
     });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
   </script>
-
-  <main>
-
-    <!-- ===== CLEAN HOW IT WORKS HERO ===== -->
-    <section style="background: white; padding: 80px 20px;">
-      <div style="max-width: 1000px; margin: 0 auto; text-align: center;">
-        
-        <!-- Simple Header -->
-        <div style="margin-bottom: 60px;">
-          <h1 style="font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800; color: #111827; margin-bottom: 20px; line-height: 1.1;">
-            What Makes Vero Different
-          </h1>
-          <p style="font-size: 1.2rem; color: #6b7280; max-width: 600px; margin: 0 auto; line-height: 1.6;">
-            Most energy bars are loaded with sugar and artificial ingredients. We use real food to fuel your day the way nature intended.
-          </p>
-        </div>
-
-        <!-- Clean Ingredient Breakdown -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 60px;">
-          
-          <div style="background: white; border: 2px solid #e5e7eb; border-radius: 16px; padding: 30px; text-align: center; transition: all 0.3s ease;" onmouseover="this.style.borderColor='#10b981'; this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='#e5e7eb'; this.style.transform='translateY(0)'">
-            <div style="width: 60px; height: 60px; background: #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 1.5rem; font-weight: 700;">10g</div>
-            <h3 style="font-size: 1.2rem; font-weight: 700; color: #111827; margin-bottom: 10px;">Plant Protein</h3>
-            <p style="color: #6b7280; font-size: 0.9rem; line-height: 1.4;">Complete amino profile from pea, rice, and hemp proteins. Keeps you satisfied for hours.</p>
-          </div>
-
-          <div style="background: white; border: 2px solid #e5e7eb; border-radius: 16px; padding: 30px; text-align: center; transition: all 0.3s ease;" onmouseover="this.style.borderColor='#f59e0b'; this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='#e5e7eb'; this.style.transform='translateY(0)'">
-            <div style="width: 60px; height: 60px; background: #f59e0b; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 1.2rem; font-weight: 700;">80mg</div>
-            <h3 style="font-size: 1.2rem; font-weight: 700; color: #111827; margin-bottom: 10px;">Natural Caffeine</h3>
-            <p style="color: #6b7280; font-size: 0.9rem; line-height: 1.4;">From green tea extract. Smooth, sustained alertness without synthetic stimulants.</p>
-          </div>
-
-          <div style="background: white; border: 2px solid #e5e7eb; border-radius: 16px; padding: 30px; text-align: center; transition: all 0.3s ease;" onmouseover="this.style.borderColor='#8b5cf6'; this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='#e5e7eb'; this.style.transform='translateY(0)'">
-            <div style="width: 60px; height: 60px; background: #8b5cf6; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 1.5rem; font-weight: 700;">0g</div>
-            <h3 style="font-size: 1.2rem; font-weight: 700; color: #111827; margin-bottom: 10px;">Added Sugar</h3>
-            <p style="color: #6b7280; font-size: 0.9rem; line-height: 1.4;">Naturally sweetened with dates and monk fruit. No sugar spikes or energy dips.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Simple Comparison Section -->
-    <section style="background: #f8fafc; padding: 60px 20px;">
-      <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-        <h2 style="font-size: 2rem; font-weight: 700; color: #111827; margin-bottom: 40px;">How We Compare</h2>
-        
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
-          
-          <div style="background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
-            <h4 style="color: #dc2626; font-size: 1.1rem; font-weight: 700; margin-bottom: 15px;">Typical Energy Bars</h4>
-            <ul style="text-align: left; color: #6b7280; font-size: 0.9rem; line-height: 1.6; margin: 0; padding-left: 20px;">
-              <li>15-25g added sugar</li>
-              <li>Artificial flavors & colors</li>
-              <li>Cheap protein fillers</li>
-              <li>Energy spikes and dips</li>
-            </ul>
-          </div>
-
-          <div style="background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 2px solid #10b981;">
-            <h4 style="color: #10b981; font-size: 1.1rem; font-weight: 700; margin-bottom: 15px;">Vero Energy Bars</h4>
-            <ul style="text-align: left; color: #6b7280; font-size: 0.9rem; line-height: 1.6; margin: 0; padding-left: 20px;">
-              <li>0g added sugar</li>
-              <li>Real food ingredients</li>
-              <li>Complete plant proteins</li>
-              <li>Sustained 4+ hour energy</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- ===== FOOTER ===== -->
-          <g style="animation: helixRotate 15s linear infinite;">
-            <!-- DNA Strands -->
-            <path d="M50,50 Q150,100 250,50 Q150,0 50,50" stroke="#3b82f6" stroke-width="3" fill="none" opacity="0.6">
-              <animate attributeName="d" values="M50,50 Q150,100 250,50 Q150,0 50,50;M50,50 Q150,0 250,50 Q150,100 50,50;M50,50 Q150,100 250,50 Q150,0 50,50" dur="4s" repeatCount="indefinite"/>
-            </path>
-            <path d="M50,150 Q150,200 250,150 Q150,100 50,150" stroke="#22c55e" stroke-width="3" fill="none" opacity="0.6">
-              <animate attributeName="d" values="M50,150 Q150,200 250,150 Q150,100 50,150;M50,150 Q150,100 250,150 Q150,200 50,150;M50,150 Q150,200 250,150 Q150,100 50,150" dur="4s" repeatCount="indefinite"/>
-            </path>
-            <path d="M50,250 Q150,300 250,250 Q150,200 50,250" stroke="#8b5cf6" stroke-width="3" fill="none" opacity="0.6">
-              <animate attributeName="d" values="M50,250 Q150,300 250,250 Q150,200 50,250;M50,250 Q150,200 250,250 Q150,300 50,250;M50,250 Q150,300 250,250 Q150,200 50,250" dur="4s" repeatCount="indefinite"/>
-            </path>
-            <!-- Base Pairs -->
-            <line x1="100" y1="75" x2="200" y2="75" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
-            <line x1="100" y1="175" x2="200" y2="175" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
-            <line x1="100" y1="275" x2="200" y2="275" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
-          </g>
-        </svg>
-        
-        <!-- Molecular Network -->
-        <svg style="position: absolute; bottom: 10%; left: 5%; width: 250px; height: 250px;" viewBox="0 0 250 250">
-          <g style="animation: networkPulse 8s ease-in-out infinite;">
-            <circle cx="125" cy="50" r="12" fill="#22c55e" opacity="0.7">
-              <animate attributeName="r" values="12;18;12" dur="3s" repeatCount="indefinite"/>
-            </circle>
-            <circle cx="200" cy="125" r="10" fill="#3b82f6" opacity="0.7">
-              <animate attributeName="r" values="10;16;10" dur="4s" repeatCount="indefinite"/>
-            </circle>
-            <circle cx="125" cy="200" r="14" fill="#8b5cf6" opacity="0.7">
-              <animate attributeName="r" values="14;20;14" dur="3.5s" repeatCount="indefinite"/>
-            </circle>
-            <circle cx="50" cy="125" r="8" fill="#f59e0b" opacity="0.7">
-              <animate attributeName="r" values="8;14;8" dur="2.8s" repeatCount="indefinite"/>
-            </circle>
-            <!-- Connections -->
-            <line x1="125" y1="50" x2="200" y2="125" stroke="#22c55e" stroke-width="2" opacity="0.5">
-              <animate attributeName="opacity" values="0.5;0.9;0.5" dur="2s" repeatCount="indefinite"/>
-            </line>
-            <line x1="200" y1="125" x2="125" y2="200" stroke="#3b82f6" stroke-width="2" opacity="0.5">
-              <animate attributeName="opacity" values="0.5;0.9;0.5" dur="2.5s" repeatCount="indefinite"/>
-            </line>
-            <line x1="125" y1="200" x2="50" y2="125" stroke="#8b5cf6" stroke-width="2" opacity="0.5">
-              <animate attributeName="opacity" values="0.5;0.9;0.5" dur="3s" repeatCount="indefinite"/>
-            </line>
-            <line x1="50" y1="125" x2="125" y2="50" stroke="#f59e0b" stroke-width="2" opacity="0.5">
-              <animate attributeName="opacity" values="0.5;0.9;0.5" dur="2.2s" repeatCount="indefinite"/>
-            </line>
-          </g>
-        </svg>
-        
-        <!-- Energy Flow Patterns -->
-        <svg style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.08;" viewBox="0 0 1200 800">
-          <defs>
-            <linearGradient id="energyFlow" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.8" />
-              <stop offset="50%" style="stop-color:#22c55e;stop-opacity:0.6" />
-              <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0.4" />
-            </linearGradient>
-          </defs>
-          <path d="M0,400 Q300,200 600,350 T1200,300" stroke="url(#energyFlow)" stroke-width="4" fill="none">
-            <animate attributeName="d" values="M0,400 Q300,200 600,350 T1200,300;M0,400 Q300,600 600,450 T1200,500;M0,400 Q300,200 600,350 T1200,300" dur="15s" repeatCount="indefinite"/>
-          </path>
-          <path d="M0,300 Q400,100 800,250 T1200,200" stroke="url(#energyFlow)" stroke-width="3" fill="none" opacity="0.6">
-            <animate attributeName="d" values="M0,300 Q400,100 800,250 T1200,200;M0,300 Q400,500 800,350 T1200,400;M0,300 Q400,100 800,250 T1200,200" dur="12s" repeatCount="indefinite"/>
-          </path>
-        </svg>
-      </div>
-      
-      <!-- Main Content Container -->
-      <div style="position: relative; z-index: 10; padding: 100px 20px 0;">
-        <div style="max-width: 1400px; margin: 0 auto;">
-          
-          <!-- Advanced Story Introduction -->
-          <div style="text-align: center; margin-bottom: 100px;">
-            <div style="display: inline-flex; align-items: center; gap: 15px; background: rgba(16, 185, 129, 0.1); backdrop-filter: blur(15px); border: 1px solid rgba(16, 185, 129, 0.3); color: #10b981; padding: 15px 30px; border-radius: 50px; font-size: 1rem; font-weight: 600; margin-bottom: 40px; box-shadow: 0 10px 40px rgba(16, 185, 129, 0.2);">
-              <div style="width: 12px; height: 12px; background: #10b981; border-radius: 50%; animation: scientificPulse 2s infinite;"></div>
-              The Science Behind Superior Energy
-            </div>
-            
-            <h1 style="font-size: clamp(3.5rem, 8vw, 6.5rem); font-weight: 900; margin-bottom: 30px; line-height: 0.95; color: #111827; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-              What Makes Vero<br/>
-              <span style="background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 50%, #f59e0b 100%); -webkit-background-clip: text; background-clip: text; color: transparent;">Different</span>
-            </h1>
-            
-            <p style="font-size: 1.5rem; color: #64748b; margin-bottom: 60px; line-height: 1.7; max-width: 800px; margin-left: auto; margin-right: auto; opacity: 0.9;">
-              Most energy bars are loaded with sugar and artificial ingredients. 
-              We use <span style="color: #10b981; font-weight: 600;">real food</span> to fuel your day the way nature intended.
-            </p>
-          </div>
-
-          <!-- Advanced Problem-Solution Flow Diagram -->
-          <div style="margin-bottom: 120px;">
-            <h2 style="text-align: center; color: white; font-size: 2.5rem; font-weight: 800; margin-bottom: 60px;">
-              Other Bars vs. <span style="color: #10b981;">Vero</span> Comparison
-            </h2>
-            
-            <!-- Interactive Flow Diagram -->
-            <div style="background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(20px); border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 30px; padding: 60px; position: relative; overflow: hidden; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);">
-              
-              <!-- Animated Background Pattern -->
-              <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(45deg, transparent 30%, rgba(16, 185, 129, 0.02) 50%, transparent 70%); animation: flowPattern 8s ease-in-out infinite;"></div>
-              
-              <div style="position: relative; z-index: 2;">
-                <!-- Step 1: Traditional Approach -->
-                <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 40px; align-items: center; margin-bottom: 60px;">
-                  
-                  <!-- Problem Side -->
-                  <div style="background: rgba(239, 68, 68, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 20px; padding: 40px; position: relative; overflow: hidden;">
-                    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(45deg, transparent 30%, rgba(239, 68, 68, 0.05) 50%, transparent 70%); animation: problemPulse 4s ease-in-out infinite;"></div>
-                    
-                    <div style="position: relative; z-index: 2;">
-                      <h3 style="color: #ef4444; font-size: 1.6rem; font-weight: 700; margin-bottom: 25px; display: flex; align-items: center; gap: 12px;">
-                        <div style="width: 16px; height: 16px; background: #ef4444; border-radius: 50%; animation: errorBlink 2s infinite;"></div>
-                        Traditional Approach
-                      </h3>
-                      
-                      <!-- Problem Timeline -->
-                      <div style="space-y: 20px;">
-                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px; padding: 15px; background: rgba(239, 68, 68, 0.15); border-radius: 12px; border-left: 4px solid #ef4444;">
-                          <div style="font-size: 1.3rem;">☕</div>
-                          <div>
-                            <div style="color: #fecaca; font-weight: 600; font-size: 0.95rem;">7:00 AM - Coffee Hit</div>
-                            <div style="color: #fca5a5; font-size: 0.9rem;">200mg+ caffeine spike</div>
-                          </div>
-                        </div>
-                        
-                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px; padding: 15px; background: rgba(239, 68, 68, 0.2); border-radius: 12px; border-left: 4px solid #dc2626;">
-                          <div style="font-size: 1.3rem;">📉</div>
-                          <div>
-                            <div style="color: #fecaca; font-weight: 600; font-size: 0.95rem;">11:00 AM - The Crash</div>
-                            <div style="color: #fca5a5; font-size: 0.9rem;">Energy plummets, need more</div>
-                          </div>
-                        </div>
-                        
-                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px; padding: 15px; background: rgba(239, 68, 68, 0.25); border-radius: 12px; border-left: 4px solid #b91c1c;">
-                          <div style="font-size: 1.3rem;">⚡</div>
-                          <div>
-                            <div style="color: #fecaca; font-weight: 600; font-size: 0.95rem;">2:00 PM - Desperation</div>
-                            <div style="color: #fca5a5; font-size: 0.9rem;">Energy drink + 35g sugar</div>
-                          </div>
-                        </div>
-                        
-                        <div style="display: flex; align-items: center; gap: 15px; padding: 15px; background: rgba(239, 68, 68, 0.3); border-radius: 12px; border-left: 4px solid #991b1b;">
-                          <div style="font-size: 1.3rem;">😰</div>
-                          <div>
-                            <div style="color: #fecaca; font-weight: 600; font-size: 0.95rem;">11:00 PM - Wired & Tired</div>
-                            <div style="color: #fca5a5; font-size: 0.9rem;">Can't sleep, cycle repeats</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <!-- Arrow Transformation -->
-                  <div style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
-                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #3b82f6, #2563eb); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: 700; box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4); animation: transformPulse 3s infinite;">
-                      →
-                    </div>
-                    <div style="color: #3b82f6; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Transform</div>
-                  </div>
-                  
-                  <!-- Solution Side -->
-                  <div style="background: rgba(59, 130, 246, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 20px; padding: 40px; position: relative; overflow: hidden;">
-                    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(45deg, transparent 30%, rgba(59, 130, 246, 0.05) 50%, transparent 70%); animation: solutionFlow 4s ease-in-out infinite;"></div>
-                    
-                    <div style="position: relative; z-index: 2;">
-                      <h3 style="color: #3b82f6; font-size: 1.6rem; font-weight: 700; margin-bottom: 25px; display: flex; align-items: center; gap: 12px;">
-                        <div style="width: 16px; height: 16px; background: #3b82f6; border-radius: 50%; animation: successPulse 2s infinite;"></div>
-                        Vero's Approach
-                      </h3>
-                      
-                      <!-- Solution Timeline -->
-                      <div style="space-y: 20px;">
-                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px; padding: 15px; background: rgba(59, 130, 246, 0.15); border-radius: 12px; border-left: 4px solid #3b82f6;">
-                          <div style="font-size: 1.3rem;">🟢</div>
-                          <div>
-                            <div style="color: #bfdbfe; font-weight: 600; font-size: 0.95rem;">8:00 AM - Smooth Start</div>
-                            <div style="color: #93c5fd; font-size: 0.9rem;">80mg natural caffeine + L-theanine</div>
-                          </div>
-                        </div>
-                        
-                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px; padding: 15px; background: rgba(59, 130, 246, 0.2); border-radius: 12px; border-left: 4px solid #2563eb;">
-                          <div style="font-size: 1.3rem;">🎯</div>
-                          <div>
-                            <div style="color: #bfdbfe; font-weight: 600; font-size: 0.95rem;">10:00 AM - Peak Focus</div>
-                            <div style="color: #93c5fd; font-size: 0.9rem;">Sustained energy plateau</div>
-                          </div>
-                        </div>
-                        
-                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px; padding: 15px; background: rgba(59, 130, 246, 0.25); border-radius: 12px; border-left: 4px solid #1d4ed8;">
-                          <div style="font-size: 1.3rem;">⚡</div>
-                          <div>
-                            <div style="color: #bfdbfe; font-weight: 600; font-size: 0.95rem;">2:00 PM - Still Strong</div>
-                            <div style="color: #93c5fd; font-size: 0.9rem;">Protein maintains energy</div>
-                          </div>
-                        </div>
-                        
-                        <div style="display: flex; align-items: center; gap: 15px; padding: 15px; background: rgba(59, 130, 246, 0.3); border-radius: 12px; border-left: 4px solid #1e40af;">
-                          <div style="font-size: 1.3rem;">😌</div>
-                          <div>
-                            <div style="color: #bfdbfe; font-weight: 600; font-size: 0.95rem;">11:00 PM - Natural Rest</div>
-                            <div style="color: #93c5fd; font-size: 0.9rem;">Perfect sleep, ready for tomorrow</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                <!-- Key Scientific Insight -->
-                <div style="text-align: center; padding: 40px; background: rgba(34, 197, 94, 0.1); border-radius: 20px; border: 1px solid rgba(34, 197, 94, 0.3);">
-                  <h4 style="color: #22c55e; font-size: 1.5rem; font-weight: 700; margin-bottom: 20px;">🧬 The Scientific Breakthrough</h4>
-                  <p style="color: #bbf7d0; font-size: 1.2rem; line-height: 1.6; max-width: 800px; margin: 0 auto;">
-                    It's not about <em>more</em> caffeine – it's about <strong>smarter delivery</strong>. 
-                    L-theanine + plant protein creates a sustained-release system that works with your circadian rhythm, not against it.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Call to Action -->
-          <div style="text-align: center; margin-bottom: 80px;">
-            <div style="display: flex; gap: 25px; justify-content: center; align-items: center; flex-wrap: wrap; margin-bottom: 50px;">
-              <a href="#the-curve" style="background: linear-gradient(135deg, #3b82f6, #2563eb); color: white; padding: 22px 50px; border-radius: 16px; text-decoration: none; font-weight: 700; font-size: 1.2rem; box-shadow: 0 12px 40px rgba(59, 130, 246, 0.4); transition: all 0.4s ease; display: inline-block; position: relative; overflow: hidden; text-transform: uppercase; letter-spacing: 1px;" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 20px 60px rgba(59, 130, 246, 0.5)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 12px 40px rgba(59, 130, 246, 0.4)'">
-                <span style="position: relative; z-index: 2;">See The Science</span>
-                <div style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transition: left 0.6s ease;"></div>
-              </a>
-              
-              <a href="Shop.html#products" style="color: #3b82f6; border: 2px solid #3b82f6; padding: 20px 40px; border-radius: 16px; text-decoration: none; font-weight: 600; font-size: 1.1rem; backdrop-filter: blur(10px); transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1px;" onmouseover="this.style.background='#3b82f6'; this.style.color='white'; this.style.transform='translateY(-3px)'" onmouseout="this.style.background='transparent'; this.style.color='#3b82f6'; this.style.transform='translateY(0)'">
-                Try Vero Now
-              </a>
-            </div>
-            
-            <!-- Advanced Trust Indicators -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 30px; max-width: 700px; margin: 0 auto;">
-              <div style="text-align: center; padding: 25px; background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border-radius: 18px; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.background='rgba(255, 255, 255, 0.08)'" onmouseout="this.style.transform='translateY(0)'; this.style.background='rgba(255, 255, 255, 0.05)'">
-                <div style="font-size: 2.5rem; font-weight: 900; color: #3b82f6; margin-bottom: 8px; text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);">4-6+</div>
-                <div style="font-size: 0.9rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">Hours Focus</div>
-              </div>
-              <div style="text-align: center; padding: 25px; background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border-radius: 18px; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.background='rgba(255, 255, 255, 0.08)'" onmouseout="this.style.transform='translateY(0)'; this.style.background='rgba(255, 255, 255, 0.05)'">
-                <div style="font-size: 2.5rem; font-weight: 900; color: #ef4444; margin-bottom: 8px; text-shadow: 0 0 20px rgba(239, 68, 68, 0.5);">0</div>
-                <div style="font-size: 0.9rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">Crashes</div>
-              </div>
-              <div style="text-align: center; padding: 25px; background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border-radius: 18px; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.background='rgba(255, 255, 255, 0.08)'" onmouseout="this.style.transform='translateY(0)'; this.style.background='rgba(255, 255, 255, 0.05)'">
-                <div style="font-size: 2.5rem; font-weight: 900; color: #22c55e; margin-bottom: 8px; text-shadow: 0 0 20px rgba(34, 197, 94, 0.5);">100%</div>
-                <div style="font-size: 0.9rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">Natural</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Scroll Indicator -->
-      <div style="position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); color: rgba(255, 255, 255, 0.7); text-align: center; animation: scrollBounce 2s infinite;">
-        <div style="font-size: 0.9rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">Explore The Science</div>
-        <div style="font-size: 1.5rem;">↓</div>
-      </div>
-    </section>
-
-    <!-- Advanced CSS Animations -->
-    <style>
-      @keyframes helixRotate {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
-      }
-      
-      @keyframes networkPulse {
-        0%, 100% { transform: scale(1); opacity: 0.7; }
-        50% { transform: scale(1.1); opacity: 1; }
-      }
-      
-      @keyframes scientificPulse {
-        0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
-        50% { opacity: 0.8; transform: scale(1.2); box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
-      }
-      
-      @keyframes flowPattern {
-        0%, 100% { transform: translateX(0px) translateY(0px); opacity: 0.3; }
-        33% { transform: translateX(10px) translateY(-5px); opacity: 0.6; }
-        66% { transform: translateX(-5px) translateY(5px); opacity: 0.4; }
-      }
-      
-      @keyframes problemPulse {
-        0%, 100% { transform: translateX(0px); opacity: 0.3; }
-        50% { transform: translateX(5px); opacity: 0.6; }
-      }
-      
-      @keyframes solutionFlow {
-        0%, 100% { transform: translateX(0px) translateY(0px); opacity: 0.4; }
-        33% { transform: translateX(3px) translateY(-3px); opacity: 0.7; }
-        66% { transform: translateX(-2px) translateY(2px); opacity: 0.5; }
-      }
-      
-      @keyframes transformPulse {
-        0%, 100% { transform: scale(1) rotate(0deg); }
-        50% { transform: scale(1.1) rotate(180deg); }
-      }
-      
-      @keyframes errorBlink {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.3; }
-      }
-      
-      @keyframes successPulse {
-        0%, 100% { opacity: 1; transform: scale(1); }
-        50% { opacity: 0.8; transform: scale(1.1); }
-      }
-      
-      @keyframes scrollBounce {
-        0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-        40% { transform: translateX(-50%) translateY(-12px); }
-        60% { transform: translateX(-50%) translateY(-6px); }
-      }
-      
-      @keyframes float {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-20px); }
-      }
-      @keyframes pulse {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.5; }
-      }
-      @keyframes rotate {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
-      }
-      @keyframes bounce {
-        0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-        40% { transform: translateX(-50%) translateY(-10px); }
-        60% { transform: translateX(-50%) translateY(-5px); }
-      }
-      
-      /* Mobile Responsiveness */
-      @media (max-width: 768px) {
-        .hero-grid { grid-template-columns: 1fr !important; gap: 40px !important; text-align: center; }
-        .story-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
-        .timeline-item { padding: 12px !important; margin-bottom: 15px !important; }
-        .hero-title { font-size: 2.5rem !important; line-height: 1.1 !important; }
-        .hero-subtitle { font-size: 1.1rem !important; }
-        .cta-buttons { flex-direction: column !important; align-items: center !important; }
-        .trust-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
-        .flow-diagram { grid-template-columns: 1fr !important; gap: 30px !important; }
-        .transform-arrow { transform: rotate(90deg) !important; }
-      }
-    </style>
-        
-        <!-- Energy curve comparison -->
-        <div style="background: white; padding: 50px; border-radius: 25px; box-shadow: 0 15px 50px rgba(0,0,0,0.1); max-width: 800px; margin: 0 auto;">
-          <h3 style="text-align: center; color: #1f2937; margin-bottom: 30px; font-size: 1.5rem; font-weight: 700;">The Difference is Clear</h3>
-          <svg viewBox="0 0 600 250" style="width: 100%; height: auto;">
-            <!-- Grid background -->
-            <defs>
-              <pattern id="grid" width="50" height="25" patternUnits="userSpaceOnUse">
-                <path d="M 50 0 L 0 0 0 25" fill="none" stroke="#f3f4f6" stroke-width="1"/>
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#grid)" />
-            
-            <!-- Coffee spike area (red) -->
-            <path d="M50 220 C 120 100, 180 80, 240 70 S 350 140, 550 220 L550 230 L50 230 Z" 
-                  fill="rgba(239, 68, 68, 0.1)" />
-            
-            <!-- Coffee spike (red) -->
-            <path d="M50 220 C 120 100, 180 80, 240 70 S 350 140, 550 220" 
-                  fill="none" stroke="#ef4444" stroke-width="4" stroke-dasharray="8,4" />
-            
-            <!-- Vero curve area (blue) -->
-            <path d="M50 220 C 150 170, 250 130, 350 120 S 500 140, 550 220 L550 230 L50 230 Z" 
-                  fill="rgba(59, 130, 246, 0.1)" />
-            
-            <!-- Vero curve (blue) -->
-            <path d="M50 220 C 150 170, 250 130, 350 120 S 500 140, 550 220" 
-                  fill="none" stroke="#3b82f6" stroke-width="5" />
-            
-            <!-- Labels -->
-            <text x="200" y="60" fill="#ef4444" font-size="16" text-anchor="middle" font-weight="700">Coffee Crash</text>
-            <text x="400" y="110" fill="#3b82f6" font-size="16" text-anchor="middle" font-weight="700">Vero Curve</text>
-            
-            <!-- Time axis -->
-            <line x1="50" y1="230" x2="550" y2="230" stroke="#6b7280" stroke-width="2"/>
-            <text x="50" y="245" fill="#6b7280" font-size="12" text-anchor="middle">0hr</text>
-            <text x="200" y="245" fill="#6b7280" font-size="12" text-anchor="middle">1hr</text>
-            <text x="350" y="245" fill="#6b7280" font-size="12" text-anchor="middle">2hr</text>
-            <text x="500" y="245" fill="#6b7280" font-size="12" text-anchor="middle">4hr</text>
-          </svg>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== WAVE TRANSITION ===== -->
-    <div style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #bae6fd 100%); height: 100px; position: relative;">
-      <svg style="position: absolute; bottom: 0; left: 0; width: 100%; height: 100px;" viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path d="M0,60 C300,20 600,100 900,60 C1050,30 1150,80 1200,60 L1200,120 L0,120 Z" fill="#ffffff"></path>
-      </svg>
-    </div>
-
-    <!-- ===== THE PROBLEM STORY ===== -->
-    <section id="the-problem" style="background: white; padding: 80px 20px;">
-      <div style="max-width: 1000px; margin: 0 auto;">
-        <div style="text-align: center; margin-bottom: 60px;">
-          <h2 style="font-size: 3rem; font-weight: 700; color: #1f2937; margin-bottom: 30px;">The Energy Bar Revolution</h2>
-          <p style="font-size: 1.2rem; color: #4b5563; max-width: 700px; margin: 0 auto; line-height: 1.6;">
-            Most energy bars are either candy bars in disguise or taste like cardboard. We created something different: clean ingredients that actually taste good and keep you energized for hours.
-          </p>
-        </div>
-        
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 60px;">
-          <div style="background: linear-gradient(135deg, #fef2f2, #fee2e2); padding: 40px; border-radius: 20px; text-align: center; border: 2px solid #fecaca;">
-            <div style="font-size: 3rem; margin-bottom: 20px;">☕</div>
-            <h3 style="color: #dc2626; margin-bottom: 15px; font-size: 1.3rem; font-weight: 700;">Typical Energy Bars</h3>
-            <p style="color: #7f1d1d; font-size: 1rem; line-height: 1.5;">
-              Loaded with sugar, artificial flavors, and cheap protein. Quick energy that doesn't last and often tastes chalky.
-            </p>
-          </div>
-          
-          <div style="background: linear-gradient(135deg, #fffbeb, #fef3c7); padding: 40px; border-radius: 20px; text-align: center; border: 2px solid #fed7aa;">
-            <div style="font-size: 3rem; margin-bottom: 20px;">⚡</div>
-            <h3 style="color: #d97706; margin-bottom: 15px; font-size: 1.3rem; font-weight: 700;">Candy Bars</h3>
-            <p style="color: #92400e; font-size: 1rem; line-height: 1.5;">
-              Pure sugar rush with no nutritional value. Tastes great for 5 minutes, then leaves you wanting more and feeling sluggish.
-            </p>
-          </div>
-          
-          <div style="background: linear-gradient(135deg, #f0f9ff, #dbeafe); padding: 40px; border-radius: 20px; text-align: center; border: 2px solid #93c5fd;">
-            <div style="font-size: 3rem; margin-bottom: 20px;">🎯</div>
-            <h3 style="color: #2563eb; margin-bottom: 15px; font-size: 1.3rem; font-weight: 700;">Vero Energy Bars</h3>
-            <p style="color: #1e40af; font-size: 1rem; line-height: 1.5;">
-              Real ingredients, great taste, lasting energy. Clean protein, natural caffeine, and zero added sugar. Finally, an energy bar that delivers.
-            </p>
-          </div>
-        </div>
-        
-        <div style="text-align: center; background: linear-gradient(135deg, #f8fafc, #f1f5f9); padding: 50px; border-radius: 20px;">
-          <h3 style="color: #1f2937; margin-bottom: 20px; font-size: 1.8rem; font-weight: 700;">We Built The Solution</h3>
-          <p style="color: #4b5563; font-size: 1.1rem; max-width: 600px; margin: 0 auto 30px; line-height: 1.6;">
-            Vero combines the right amount of natural caffeine with ingredients that smooth the curve and extend the benefits.
-          </p>
-          <a href="#the-curve" style="background: linear-gradient(135deg, #3b82f6, #2563eb); color: white; padding: 16px 35px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 1.1rem; display: inline-block; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-            See How It Works
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== ADVANCED MOLECULAR SCIENCE SECTION ===== -->
-    <section id="the-curve" style="background: linear-gradient(180deg, #0a0f1c 0%, #1a1f2e 30%, #2d3748 60%, #4a5568 100%); padding: 120px 20px; position: relative; overflow: hidden;">
-      
-      <!-- Complex Scientific Background -->
-      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.15;">
-        <!-- Advanced Molecular Structure -->
-        <svg style="position: absolute; top: 5%; right: 8%; width: 300px; height: 300px;" viewBox="0 0 300 300">
-          <g style="animation: moleculeRotate 20s linear infinite;">
-            <!-- Caffeine Molecule Structure -->
-            <circle cx="150" cy="80" r="15" fill="#3b82f6" opacity="0.8">
-              <animate attributeName="r" values="15;20;15" dur="4s" repeatCount="indefinite"/>
-            </circle>
-            <circle cx="220" cy="120" r="12" fill="#22c55e" opacity="0.8">
-              <animate attributeName="r" values="12;17;12" dur="3.5s" repeatCount="indefinite"/>
-            </circle>
-            <circle cx="200" cy="200" r="14" fill="#8b5cf6" opacity="0.8">
-              <animate attributeName="r" values="14;19;14" dur="4.2s" repeatCount="indefinite"/>
-            </circle>
-            <circle cx="100" cy="180" r="10" fill="#f59e0b" opacity="0.8">
-              <animate attributeName="r" values="10;15;10" dur="3.8s" repeatCount="indefinite"/>
-            </circle>
-            <circle cx="80" cy="120" r="13" fill="#ef4444" opacity="0.8">
-              <animate attributeName="r" values="13;18;13" dur="3.2s" repeatCount="indefinite"/>
-            </circle>
-            <!-- Molecular Bonds -->
-            <line x1="150" y1="80" x2="220" y2="120" stroke="#3b82f6" stroke-width="3" opacity="0.6"/>
-            <line x1="220" y1="120" x2="200" y2="200" stroke="#22c55e" stroke-width="3" opacity="0.6"/>
-            <line x1="200" y1="200" x2="100" y2="180" stroke="#8b5cf6" stroke-width="3" opacity="0.6"/>
-            <line x1="100" y1="180" x2="80" y2="120" stroke="#f59e0b" stroke-width="3" opacity="0.6"/>
-            <line x1="80" y1="120" x2="150" y2="80" stroke="#ef4444" stroke-width="3" opacity="0.6"/>
-            <!-- Electron Orbits -->
-            <circle cx="150" cy="150" r="80" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-dasharray="5,5">
-              <animateTransform attributeName="transform" type="rotate" values="0 150 150;360 150 150" dur="8s" repeatCount="indefinite"/>
-            </circle>
-          </g>
-        </svg>
-        
-        <!-- Protein Chain Animation -->
-        <svg style="position: absolute; bottom: 10%; left: 5%; width: 400px; height: 200px;" viewBox="0 0 400 200">
-          <g style="animation: proteinFold 12s ease-in-out infinite;">
-            <path d="M20,100 Q80,50 140,100 T260,100 T380,100" stroke="#22c55e" stroke-width="4" fill="none" opacity="0.7">
-              <animate attributeName="d" values="M20,100 Q80,50 140,100 T260,100 T380,100;M20,100 Q80,150 140,100 T260,100 T380,100;M20,100 Q80,50 140,100 T260,100 T380,100" dur="6s" repeatCount="indefinite"/>
-            </path>
-            <!-- Amino Acid Nodes -->
-            <circle cx="80" cy="75" r="8" fill="#22c55e" opacity="0.8">
-              <animate attributeName="cy" values="75;125;75" dur="6s" repeatCount="indefinite"/>
-            </circle>
-            <circle cx="200" cy="100" r="8" fill="#3b82f6" opacity="0.8"/>
-            <circle cx="320" cy="100" r="8" fill="#8b5cf6" opacity="0.8"/>
-          </g>
-        </svg>
-      </div>
-      
-      <div style="max-width: 1400px; margin: 0 auto; position: relative; z-index: 2;">
-        
-        <!-- Advanced Section Header -->
-        <div style="text-align: center; margin-bottom: 100px;">
-          <div style="display: inline-flex; align-items: center; gap: 15px; background: rgba(59, 130, 246, 0.1); backdrop-filter: blur(15px); border: 1px solid rgba(59, 130, 246, 0.3); color: #3b82f6; padding: 15px 30px; border-radius: 50px; font-size: 1rem; font-weight: 600; margin-bottom: 40px; box-shadow: 0 10px 40px rgba(59, 130, 246, 0.2);">
-            <div style="width: 12px; height: 12px; background: #3b82f6; border-radius: 50%; animation: scientificPulse 2s infinite;"></div>
-            Molecular-Level Engineering
-          </div>
-          
-          <h2 style="font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 900; color: #ffffff; margin-bottom: 30px; line-height: 1.1; text-shadow: 0 0 40px rgba(255, 255, 255, 0.1);">
-            Why Vero 
-            <span style="background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 30%, #22c55e 70%, #f59e0b 100%); -webkit-background-clip: text; background-clip: text; color: transparent; position: relative;">
-              Actually Works
-              <div style="position: absolute; bottom: -15px; left: 0; right: 0; height: 6px; background: linear-gradient(135deg, #3b82f6, #8b5cf6); border-radius: 3px; opacity: 0.4;"></div>
-            </span>
-          </h2>
-          
-          <p style="font-size: 1.4rem; color: #cbd5e1; max-width: 800px; margin: 0 auto; line-height: 1.7; opacity: 0.9;">
-            While everyone else throws more caffeine at the problem, we engineered a solution at the <em>molecular level</em> that works with your body's natural biochemistry.
-          </p>
-        </div>
-
-        <!-- CORRECTED Advanced Energy Curve Comparison -->
-        <div style="background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 30px; padding: 60px; margin-bottom: 100px; position: relative; overflow: hidden;">
-          
-          <!-- Background Pattern -->
-          <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(45deg, transparent 30%, rgba(59, 130, 246, 0.02) 50%, transparent 70%); animation: flowPattern 8s ease-in-out infinite;"></div>
-          
-          <div style="position: relative; z-index: 2;">
-            <h3 style="text-align: center; color: white; font-size: 2.5rem; font-weight: 800; margin-bottom: 50px;">
-              The Energy Curve Revolution
-            </h3>
-            
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
-              
-              <!-- CORRECTED Interactive Energy Chart -->
-              <div style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border-radius: 20px; padding: 40px; border: 1px solid rgba(255, 255, 255, 0.1);">
-                <svg viewBox="0 0 500 300" style="width: 100%; height: auto;">
-                  <!-- Grid Background -->
-                  <defs>
-                    <pattern id="energyGrid" width="50" height="30" patternUnits="userSpaceOnUse">
-                      <path d="M 50 0 L 0 0 0 30" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-                    </pattern>
-                    <linearGradient id="coffeeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:0.8" />
-                      <stop offset="100%" style="stop-color:#dc2626;stop-opacity:0.6" />
-                    </linearGradient>
-                    <linearGradient id="veroGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.9" />
-                      <stop offset="100%" style="stop-color:#2563eb;stop-opacity:0.7" />
-                    </linearGradient>
-                  </defs>
-                  <rect width="100%" height="100%" fill="url(#energyGrid)" />
-                  
-                  <!-- Axes -->
-                  <line x1="50" y1="250" x2="450" y2="250" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
-                  <line x1="50" y1="250" x2="50" y2="50" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
-                  
-                  <!-- Coffee Crash Curve (Lower, Shorter Duration) -->
-                  <path d="M50 220 C 120 80, 160 60, 200 50 C 240 40, 280 120, 320 180 C 360 240, 400 250, 450 250" 
-                        fill="none" stroke="url(#coffeeGradient)" stroke-width="4" stroke-dasharray="8,4" opacity="0.8">
-                    <animate attributeName="stroke-dashoffset" values="0;-20" dur="2s" repeatCount="indefinite"/>
-                  </path>
-                  
-                  <!-- Coffee Area Fill -->
-                  <path d="M50 220 C 120 80, 160 60, 200 50 C 240 40, 280 120, 320 180 C 360 240, 400 250, 450 250 L450 250 L50 250 Z" 
-                        fill="rgba(239, 68, 68, 0.1)" opacity="0.6"/>
-                  
-                  <!-- CORRECTED Vero Smooth Curve (HIGHER and LONGER) -->
-                  <path d="M50 220 C 100 100, 150 60, 200 50 C 280 40, 350 45, 400 50 C 430 52, 450 55, 450 60" 
-                        fill="none" stroke="url(#veroGradient)" stroke-width="5" opacity="0.9">
-                    <animate attributeName="stroke-width" values="5;7;5" dur="3s" repeatCount="indefinite"/>
-                  </path>
-                  
-                  <!-- Vero Area Fill -->
-                  <path d="M50 220 C 100 100, 150 60, 200 50 C 280 40, 350 45, 400 50 C 430 52, 450 55, 450 60 L450 250 L50 250 Z" 
-                        fill="rgba(59, 130, 246, 0.15)" opacity="0.8"/>
-                  
-                  <!-- Enhanced Labels with Animation -->
-                  <text x="180" y="40" fill="#ef4444" font-size="14" text-anchor="middle" font-weight="700" opacity="0.9">
-                    Coffee Spike & Crash
-                    <animate attributeName="opacity" values="0.9;0.6;0.9" dur="2s" repeatCount="indefinite"/>
-                  </text>
-                  <text x="320" y="35" fill="#3b82f6" font-size="14" text-anchor="middle" font-weight="700" opacity="0.9">
-                    Vero Sustained Energy (HIGHER & LONGER)
-                    <animate attributeName="opacity" values="0.9;1;0.9" dur="3s" repeatCount="indefinite"/>
-                  </text>
-                  
-                  <!-- Time Markers -->
-                  <text x="50" y="270" fill="rgba(255,255,255,0.7)" font-size="12" text-anchor="middle">0hr</text>
-                  <text x="150" y="270" fill="rgba(255,255,255,0.7)" font-size="12" text-anchor="middle">1hr</text>
-                  <text x="250" y="270" fill="rgba(255,255,255,0.7)" font-size="12" text-anchor="middle">2hr</text>
-                  <text x="350" y="270" fill="rgba(255,255,255,0.7)" font-size="12" text-anchor="middle">4hr</text>
-                  <text x="450" y="270" fill="rgba(255,255,255,0.7)" font-size="12" text-anchor="middle">6hr+</text>
-                  
-                  <!-- Energy Level Markers -->
-                  <text x="30" y="80" fill="rgba(255,255,255,0.7)" font-size="11" text-anchor="middle">High</text>
-                  <text x="30" y="150" fill="rgba(255,255,255,0.7)" font-size="11" text-anchor="middle">Med</text>
-                  <text x="30" y="220" fill="rgba(255,255,255,0.7)" font-size="11" text-anchor="middle">Low</text>
-                  
-                  <!-- Key Difference Indicators -->
-                  <circle cx="200" cy="50" r="5" fill="#3b82f6" opacity="0.8">
-                    <animate attributeName="r" values="5;8;5" dur="2s" repeatCount="indefinite"/>
-                  </circle>
-                  <text x="200" y="30" fill="#3b82f6" font-size="10" text-anchor="middle" font-weight="600">VERO PEAK</text>
-                  
-                  <circle cx="200" cy="50" r="5" fill="#ef4444" opacity="0.8" transform="translate(0,10)">
-                    <animate attributeName="r" values="5;8;5" dur="2s" repeatCount="indefinite"/>
-                  </circle>
-                  <text x="200" y="75" fill="#ef4444" font-size="10" text-anchor="middle" font-weight="600">COFFEE PEAK</text>
-                </svg>
-              </div>
-              
-              <!-- Enhanced Detailed Comparison -->
-              <div>
-                <div style="margin-bottom: 40px;">
-                  <h4 style="color: #ef4444; font-size: 1.5rem; font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; gap: 12px;">
-                    <div style="width: 20px; height: 4px; background: #ef4444; border-radius: 2px;"></div>
-                    Traditional Coffee/Energy Drinks
-                  </h4>
-                  <div style="space-y: 15px;">
-                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px; padding: 15px; background: rgba(239, 68, 68, 0.1); border-radius: 12px; border-left: 4px solid #ef4444;">
-                      <div style="font-size: 1.1rem;">📈</div>
-                      <div style="color: #fecaca; font-size: 0.95rem;">Sharp spike but LOWER peak energy</div>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px; padding: 15px; background: rgba(239, 68, 68, 0.15); border-radius: 12px; border-left: 4px solid #dc2626;">
-                      <div style="font-size: 1.1rem;">⏱️</div>
-                      <div style="color: #fecaca; font-size: 0.95rem;">SHORT duration: 1-2 hours max</div>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px; padding: 15px; background: rgba(239, 68, 68, 0.2); border-radius: 12px; border-left: 4px solid #b91c1c;">
-                      <div style="font-size: 1.1rem;">📉</div>
-                      <div style="color: #fecaca; font-size: 0.95rem;">Severe crash after peak</div>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 15px; padding: 15px; background: rgba(239, 68, 68, 0.25); border-radius: 12px; border-left: 4px solid #991b1b;">
-                      <div style="font-size: 1.1rem;">😰</div>
-                      <div style="color: #fecaca; font-size: 0.95rem;">Jitters, anxiety, sleep disruption</div>
-                    </div>
-                  </div>
-                </div>
-                
-                <div>
-                  <h4 style="color: #3b82f6; font-size: 1.5rem; font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; gap: 12px;">
-                    <div style="width: 20px; height: 4px; background: #3b82f6; border-radius: 2px;"></div>
-                    Vero's Engineered Approach
-                  </h4>
-                  <div style="space-y: 15px;">
-                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px; padding: 15px; background: rgba(59, 130, 246, 0.1); border-radius: 12px; border-left: 4px solid #3b82f6;">
-                      <div style="font-size: 1.1rem;">🚀</div>
-                      <div style="color: #bfdbfe; font-size: 0.95rem;">HIGHER peak energy than coffee</div>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px; padding: 15px; background: rgba(59, 130, 246, 0.15); border-radius: 12px; border-left: 4px solid #2563eb;">
-                      <div style="font-size: 1.1rem;">⏰</div>
-                      <div style="color: #bfdbfe; font-size: 0.95rem;">EXTENDED duration: 4-6+ hours</div>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px; padding: 15px; background: rgba(59, 130, 246, 0.2); border-radius: 12px; border-left: 4px solid #1d4ed8;">
-                      <div style="font-size: 1.1rem;">📊</div>
-                      <div style="color: #bfdbfe; font-size: 0.95rem;">Sustained plateau, no crash</div>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 15px; padding: 15px; background: rgba(59, 130, 246, 0.25); border-radius: 12px; border-left: 4px solid #1e40af;">
-                      <div style="font-size: 1.1rem;">😌</div>
-                      <div style="color: #bfdbfe; font-size: 0.95rem;">Smooth, calm focus + natural wind-down</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Enhanced Key Insight -->
-            <div style="text-align: center; margin-top: 50px; padding: 40px; background: rgba(34, 197, 94, 0.1); border-radius: 20px; border: 1px solid rgba(34, 197, 94, 0.3);">
-              <h4 style="color: #22c55e; font-size: 1.5rem; font-weight: 700; margin-bottom: 20px;">🔬 The Scientific Breakthrough</h4>
-              <p style="color: #bbf7d0; font-size: 1.2rem; line-height: 1.6; max-width: 800px; margin: 0 auto;">
-                Same 80mg caffeine as coffee, but our molecular engineering creates <strong>HIGHER peak energy that lasts 3x longer</strong>. 
-                L-theanine + plant protein = sustained-release system that works with your circadian rhythm.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Advanced Molecular Ingredient Breakdown -->
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-bottom: 100px;">
-          
-          <!-- Molecular Ingredient Grid -->
-          <div class="ingredients-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
-            
-            <!-- Caffeine Molecule -->
-            <div style="background: rgba(59, 130, 246, 0.1); backdrop-filter: blur(20px); border: 1px solid rgba(59, 130, 246, 0.3); padding: 35px; border-radius: 24px; text-align: center; transition: all 0.5s ease; position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-15px) scale(1.05)'; this.style.background='rgba(59, 130, 246, 0.2)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.background='rgba(59, 130, 246, 0.1)'">
-              
-              <!-- Molecular Animation -->
-              <div style="position: absolute; top: 10px; right: 10px; width: 40px; height: 40px;">
-                <svg viewBox="0 0 40 40" style="width: 100%; height: 100%;">
-                  <g style="animation: moleculeRotate 8s linear infinite;">
-                    <circle cx="20" cy="10" r="3" fill="#3b82f6" opacity="0.8"/>
-                    <circle cx="30" cy="20" r="2" fill="#2563eb" opacity="0.8"/>
-                    <circle cx="20" cy="30" r="2.5" fill="#1d4ed8" opacity="0.8"/>
-                    <circle cx="10" cy="20" r="2" fill="#1e40af" opacity="0.8"/>
-                    <line x1="20" y1="10" x2="30" y2="20" stroke="#3b82f6" stroke-width="1"/>
-                    <line x1="30" y1="20" x2="20" y2="30" stroke="#3b82f6" stroke-width="1"/>
-                    <line x1="20" y1="30" x2="10" y2="20" stroke="#3b82f6" stroke-width="1"/>
-                    <line x1="10" y1="20" x2="20" y2="10" stroke="#3b82f6" stroke-width="1"/>
-                  </g>
-                </svg>
-              </div>
-              
-              <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #3b82f6, #2563eb); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; color: white; font-size: 1.8rem; font-weight: 800; box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4); position: relative; overflow: hidden;">
-                <span style="position: relative; z-index: 2;">C₈H₁₀N₄O₂</span>
-                <div style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: conic-gradient(from 0deg, transparent, rgba(255,255,255,0.3), transparent); animation: rotate 6s linear infinite;"></div>
-              </div>
-              <h4 style="color: white; margin-bottom: 12px; font-size: 1.2rem; font-weight: 800;">Natural Caffeine</h4>
-              <div style="color: #3b82f6; font-size: 1.4rem; font-weight: 800; margin-bottom: 12px;">80mg</div>
-              <p style="color: #bfdbfe; font-size: 0.9rem; line-height: 1.4;">From green tea extract - smooth, sustained alertness without synthetic jitters</p>
-            </div>
-            
-            <!-- L-Theanine Molecule -->
-            <div style="background: rgba(139, 92, 246, 0.1); backdrop-filter: blur(20px); border: 1px solid rgba(139, 92, 246, 0.3); padding: 35px; border-radius: 24px; text-align: center; transition: all 0.5s ease; position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-15px) scale(1.05)'; this.style.background='rgba(139, 92, 246, 0.2)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.background='rgba(139, 92, 246, 0.1)'">
-              
-              <!-- Calming Wave Animation -->
-              <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.3;">
-                <svg viewBox="0 0 100 100" style="width: 100%; height: 100%;">
-                  <path d="M0,50 Q25,30 50,50 T100,50" stroke="#8b5cf6" stroke-width="2" fill="none" opacity="0.5">
-                    <animate attributeName="d" values="M0,50 Q25,30 50,50 T100,50;M0,50 Q25,70 50,50 T100,50;M0,50 Q25,30 50,50 T100,50" dur="4s" repeatCount="indefinite"/>
-                  </path>
-                </svg>
-              </div>
-              
-              <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #8b5cf6, #7c3aed); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; color: white; font-size: 1.8rem; font-weight: 800; box-shadow: 0 15px 40px rgba(139, 92, 246, 0.4); position: relative; z-index: 2;">L</div>
-              <h4 style="color: white; margin-bottom: 12px; font-size: 1.2rem; font-weight: 800;">L-Theanine</h4>
-              <div style="color: #8b5cf6; font-size: 1.4rem; font-weight: 800; margin-bottom: 12px;">Calm Focus</div>
-              <p style="color: #c4b5fd; font-size: 0.9rem; line-height: 1.4;">Amino acid that promotes relaxed alertness - the jitter-killer</p>
-            </div>
-            
-            <!-- Plant Protein -->
-            <div style="background: rgba(34, 197, 94, 0.1); backdrop-filter: blur(20px); border: 1px solid rgba(34, 197, 94, 0.3); padding: 35px; border-radius: 24px; text-align: center; transition: all 0.5s ease; position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-15px) scale(1.05)'; this.style.background='rgba(34, 197, 94, 0.2)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.background='rgba(34, 197, 94, 0.1)'">
-              
-              <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #22c55e, #16a34a); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; color: white; font-size: 1.8rem; font-weight: 800; box-shadow: 0 15px 40px rgba(34, 197, 94, 0.4);">P</div>
-              <h4 style="color: white; margin-bottom: 12px; font-size: 1.2rem; font-weight: 800;">Plant Protein</h4>
-              <div style="color: #22c55e; font-size: 1.4rem; font-weight: 800; margin-bottom: 12px;">10g Complete</div>
-              <p style="color: #bbf7d0; font-size: 0.9rem; line-height: 1.4;">Sustained fuel that prevents energy crashes and maintains focus</p>
-            </div>
-            
-            <!-- Zero Sugar -->
-            <div style="background: rgba(245, 158, 11, 0.1); backdrop-filter: blur(20px); border: 1px solid rgba(245, 158, 11, 0.3); padding: 35px; border-radius: 24px; text-align: center; transition: all 0.5s ease; position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-15px) scale(1.05)'; this.style.background='rgba(245, 158, 11, 0.2)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.background='rgba(245, 158, 11, 0.1)'">
-              
-              <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #f59e0b, #d97706); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; color: white; font-size: 2rem; font-weight: 800; box-shadow: 0 15px 40px rgba(245, 158, 11, 0.4);">0</div>
-              <h4 style="color: white; margin-bottom: 12px; font-size: 1.2rem; font-weight: 800;">Added Sugar</h4>
-              <div style="color: #f59e0b; font-size: 1.4rem; font-weight: 800; margin-bottom: 12px;">0g</div>
-              <p style="color: #fed7aa; font-size: 0.9rem; line-height: 1.4;">No sugar spikes or crashes - just clean, sustained energy</p>
-            </div>
-          </div>
-          
-          <!-- Enhanced Synergy Visualization -->
-          <div style="position: relative;">
-            <div style="background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(25px); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 30px; padding: 50px; text-align: center; position: relative; overflow: hidden; box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);">
-              
-              <!-- Advanced Animated Border -->
-              <div style="position: absolute; top: -3px; left: -3px; right: -3px; bottom: -3px; background: linear-gradient(45deg, #3b82f6, #8b5cf6, #22c55e, #f59e0b, #3b82f6); border-radius: 33px; z-index: -1; animation: rotate 12s linear infinite;"></div>
-              <div style="position: absolute; top: 3px; left: 3px; right: 3px; bottom: 3px; background: rgba(15, 23, 42, 0.95); border-radius: 27px; z-index: -1;"></div>
-              
-              <!-- Central Synergy Icon -->
-              <div style="font-size: 4.5rem; margin-bottom: 25px; color: #3b82f6; filter: drop-shadow(0 10px 20px rgba(59, 130, 246, 0.3));">⚗️</div>
-              <h4 style="color: white; margin-bottom: 20px; font-size: 1.5rem; font-weight: 800;">Molecular Synergy</h4>
-              <p style="color: #cbd5e1; font-size: 1.1rem; margin-bottom: 30px; line-height: 1.6;">
-                Each ingredient amplifies the others at the molecular level, creating an energy experience that's greater than the sum of its parts.
-              </p>
-              
-              <!-- Interactive Synergy Elements -->
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 30px;">
-                <div style="background: rgba(59, 130, 246, 0.2); padding: 15px; border-radius: 12px; border: 1px solid rgba(59, 130, 246, 0.3);">
-                  <div style="color: #3b82f6; font-weight: 700; font-size: 0.9rem; margin-bottom: 5px;">Caffeine + L-Theanine</div>
-                  <div style="color: #bfdbfe; font-size: 0.8rem;">Smooth alertness</div>
-                </div>
-                <div style="background: rgba(34, 197, 94, 0.2); padding: 15px; border-radius: 12px; border: 1px solid rgba(34, 197, 94, 0.3);">
-                  <div style="color: #22c55e; font-weight: 700; font-size: 0.9rem; margin-bottom: 5px;">Protein + Caffeine</div>
-                  <div style="color: #bbf7d0; font-size: 0.8rem;">Sustained release</div>
-                </div>
-              </div>
-              
-              <!-- Pulsing Connection Lines -->
-              <div style="display: flex; justify-content: center; gap: 15px;">
-                <div style="width: 15px; height: 15px; background: #3b82f6; border-radius: 50%; animation: scientificPulse 2s infinite;"></div>
-                <div style="width: 15px; height: 15px; background: #8b5cf6; border-radius: 50%; animation: scientificPulse 2s infinite 0.5s;"></div>
-                <div style="width: 15px; height: 15px; background: #22c55e; border-radius: 50%; animation: scientificPulse 2s infinite 1s;"></div>
-                <div style="width: 15px; height: 15px; background: #f59e0b; border-radius: 50%; animation: scientificPulse 2s infinite 1.5s;"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- The Revolutionary Result -->
-        <div style="text-align: center; background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); padding: 80px 60px; border-radius: 30px; position: relative; overflow: hidden;">
-          
-          <!-- Success Pattern -->
-          <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(45deg, transparent 30%, rgba(59, 130, 246, 0.05) 50%, transparent 70%); animation: solutionFlow 6s ease-in-out infinite;"></div>
-          
-          <div style="position: relative; z-index: 2;">
-            <h3 style="color: white; margin-bottom: 30px; font-size: 3rem; font-weight: 900; text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);">The Revolutionary Result</h3>
-            <p style="color: #cbd5e1; font-size: 1.5rem; max-width: 800px; margin: 0 auto 50px; line-height: 1.7; opacity: 0.9;">
-              4-6+ hours of steady, focused energy. Clear thinking without the crash. Finally, nutrition that works <em>with</em> your molecular biology, not against it.
-            </p>
-            
-            <!-- Advanced Results Grid -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: 900px; margin: 0 auto;">
-              <div style="text-align: center; padding: 30px; background: rgba(59, 130, 246, 0.1); border-radius: 20px; border: 1px solid rgba(59, 130, 246, 0.3); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'; this.style.background='rgba(59, 130, 246, 0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.background='rgba(59, 130, 246, 0.1)'">
-                <div style="font-size: 3rem; font-weight: 900; color: #3b82f6; margin-bottom: 10px; text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);">4-6+</div>
-                <div style="color: #bfdbfe; font-size: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Hours Focus</div>
-              </div>
-              <div style="text-align: center; padding: 30px; background: rgba(239, 68, 68, 0.1); border-radius: 20px; border: 1px solid rgba(239, 68, 68, 0.3); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'; this.style.background='rgba(239, 68, 68, 0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.background='rgba(239, 68, 68, 0.1)'">
-                <div style="font-size: 3rem; font-weight: 900; color: #ef4444; margin-bottom: 10px; text-shadow: 0 0 20px rgba(239, 68, 68, 0.5);">0</div>
-                <div style="color: #fecaca; font-size: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Crashes</div>
-              </div>
-              <div style="text-align: center; padding: 30px; background: rgba(34, 197, 94, 0.1); border-radius: 20px; border: 1px solid rgba(34, 197, 94, 0.3); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'; this.style.background='rgba(34, 197, 94, 0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.background='rgba(34, 197, 94, 0.1)'">
-                <div style="font-size: 3rem; font-weight: 900; color: #22c55e; margin-bottom: 10px; text-shadow: 0 0 20px rgba(34, 197, 94, 0.5);">100%</div>
-                <div style="color: #bbf7d0; font-size: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Natural</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Advanced CSS Animations -->
-    <style>
-      @keyframes moleculeRotate {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
-      }
-      
-      @keyframes proteinFold {
-        0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.05); }
-      }
-      
-      @keyframes twinkle {
-        0%, 100% { opacity: 0.3; transform: scale(1); }
-        50% { opacity: 1; transform: scale(1.5); }
-      }
-    </style>
-
-    <!-- ===== WAVE TRANSITION ===== -->
-    <div style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #bae6fd 100%); height: 100px; position: relative;">
-      <svg style="position: absolute; bottom: 0; left: 0; width: 100%; height: 100px;" viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path d="M0,60 C300,20 600,100 900,60 C1050,30 1150,80 1200,60 L1200,120 L0,120 Z" fill="#ffffff"></path>
-      </svg>
-    </div>
-
-    <!-- ===== PREMIUM CTA SECTION ===== -->
-    <section style="background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%); padding: 120px 20px; text-align: center; position: relative; overflow: hidden;">
-      
-      <!-- Background Elements -->
-      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.05;">
-        <div style="position: absolute; top: 20%; left: 10%; width: 200px; height: 200px; background: radial-gradient(circle, #3b82f6 0%, transparent 70%); border-radius: 50%; animation: float 8s ease-in-out infinite;"></div>
-        <div style="position: absolute; bottom: 20%; right: 15%; width: 150px; height: 150px; background: radial-gradient(circle, #22c55e 0%, transparent 70%); border-radius: 50%; animation: float 6s ease-in-out infinite reverse;"></div>
-      </div>
-      
-      <div style="max-width: 900px; margin: 0 auto; position: relative; z-index: 2;">
-        
-        <!-- Header -->
-        <div style="margin-bottom: 60px;">
-          <div style="display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, #3b82f6, #2563eb); color: white; padding: 8px 20px; border-radius: 25px; font-size: 0.9rem; font-weight: 600; margin-bottom: 30px;">
-            <div style="width: 6px; height: 6px; background: white; border-radius: 50%;"></div>
-            Ready to Upgrade?
-          </div>
-          
-          <h2 style="font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 800; color: #0f172a; margin-bottom: 30px; line-height: 1.2;">
-            Ready for <span style="background: linear-gradient(135deg, #3b82f6, #8b5cf6); -webkit-background-clip: text; background-clip: text; color: transparent;">Better Energy?</span>
-          </h2>
-          
-          <p style="font-size: 1.3rem; color: #64748b; margin-bottom: 50px; line-height: 1.6; max-width: 700px; margin-left: auto; margin-right: auto;">
-            Stop settling for energy that crashes. Experience the smooth, sustained focus that thousands of students, athletes, and professionals trust every day.
-          </p>
-        </div>
-        
-        <!-- Premium Guarantee Box -->
-        <div style="background: linear-gradient(135deg, #f0f9ff, #e0f2fe); padding: 50px 40px; border-radius: 25px; margin-bottom: 50px; position: relative; overflow: hidden; border: 1px solid rgba(59, 130, 246, 0.1);">
-          
-          <!-- Decorative Elements -->
-          <div style="position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; background: rgba(59, 130, 246, 0.1); border-radius: 50%; z-index: 1;"></div>
-          <div style="position: absolute; bottom: -30px; left: -30px; width: 120px; height: 120px; background: rgba(139, 92, 246, 0.05); border-radius: 50%; z-index: 1;"></div>
-          
-          <div style="position: relative; z-index: 2;">
-            <h3 style="color: #1d4ed8; margin-bottom: 25px; font-size: 2rem; font-weight: 700;">30-Day Money-Back Guarantee</h3>
-            <p style="color: #1e40af; font-size: 1.2rem; margin-bottom: 40px; line-height: 1.6; max-width: 600px; margin-left: auto; margin-right: auto;">
-              We're so confident you'll love the smooth energy and focus that we offer a full money-back guarantee. No questions, no hassle.
-            </p>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 25px; margin-bottom: 30px;">
-              <div style="text-align: center; background: rgba(255,255,255,0.7); padding: 25px 15px; border-radius: 15px; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-                <div style="font-size: 2.2rem; margin-bottom: 12px;">🚚</div>
-                <h4 style="color: #1d4ed8; margin-bottom: 8px; font-size: 1.1rem; font-weight: 600;">Free Shipping</h4>
-                <p style="color: #1e40af; font-size: 0.9rem; margin: 0;">Orders over $50</p>
-              </div>
-              <div style="text-align: center; background: rgba(255,255,255,0.7); padding: 25px 15px; border-radius: 15px; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-                <div style="font-size: 2.2rem; margin-bottom: 12px;">⚡</div>
-                <h4 style="color: #1d4ed8; margin-bottom: 8px; font-size: 1.1rem; font-weight: 600;">Fast Delivery</h4>
-                <p style="color: #1e40af; font-size: 0.9rem; margin: 0;">2-3 business days</p>
-              </div>
-              <div style="text-align: center; background: rgba(255,255,255,0.7); padding: 25px 15px; border-radius: 15px; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-                <div style="font-size: 2.2rem; margin-bottom: 12px;">🔄</div>
-                <h4 style="color: #1d4ed8; margin-bottom: 8px; font-size: 1.1rem; font-weight: 600;">Easy Returns</h4>
-                <p style="color: #1e40af; font-size: 0.9rem; margin: 0;">Hassle-free process</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- CTA Buttons -->
-        <div style="display: flex; gap: 25px; justify-content: center; align-items: center; flex-wrap: wrap;">
-          <a href="Shop.html#products" style="background: linear-gradient(135deg, #3b82f6, #2563eb); color: white; padding: 20px 50px; border-radius: 16px; text-decoration: none; font-weight: 700; font-size: 1.3rem; box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3); transition: all 0.4s ease; position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 15px 40px rgba(59, 130, 246, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 25px rgba(59, 130, 246, 0.3)'">
-            <span style="position: relative; z-index: 2;">Shop Vero Now</span>
-            <div style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); transition: left 0.5s ease;"></div>
-          </a>
-          
-          <a href="Why-Vero.html" style="color: #3b82f6; text-decoration: none; font-weight: 600; padding: 20px 40px; border: 2px solid #3b82f6; border-radius: 16px; font-size: 1.2rem; transition: all 0.3s ease; backdrop-filter: blur(10px);" onmouseover="this.style.background='#3b82f6'; this.style.color='white'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='transparent'; this.style.color='#3b82f6'; this.style.transform='translateY(0)'">
-            Our Story
-          </a>
-        </div>
-        
-        <!-- Social Proof -->
-        <div style="margin-top: 60px; display: flex; justify-content: center; gap: 40px; align-items: center; flex-wrap: wrap; opacity: 0.8;">
-          <div style="text-align: center;">
-            <div style="font-size: 2rem; font-weight: 800; color: #3b82f6; margin-bottom: 5px;">1000+</div>
-            <div style="color: #64748b; font-size: 0.9rem;">Happy Customers</div>
-          </div>
-          <div style="text-align: center;">
-            <div style="font-size: 2rem; font-weight: 800; color: #22c55e; margin-bottom: 5px;">4.9★</div>
-            <div style="color: #64748b; font-size: 0.9rem;">Average Rating</div>
-          </div>
-          <div style="text-align: center;">
-            <div style="font-size: 2rem; font-weight: 800; color: #8b5cf6; margin-bottom: 5px;">30-Day</div>
-            <div style="color: #64748b; font-size: 0.9rem;">Guarantee</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-
-  </main>
-
-  <!-- ===== FOOTER ===== -->
-  <footer id="footer" class="footer">
-    <div class="footer-container">
-      <div class="footer-column">
-        <h3 class="footer-title">Vero</h3>
-        <p>Clean energy, smarter nutrition.</p>
-        <div class="footer-socials">
-          <a href="#" class="social-btn">Instagram</a>
-          <a href="#" class="social-btn">TikTok</a>
-          <a href="#" class="social-btn">LinkedIn</a>
-        </div>
-      </div>
-
-      <div class="footer-column">
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="mailto:tomwiseman@Vero.se">tomwiseman@Vero.se</a></li>
-          <li><a href="mailto:oliverwiseman@Vero.se">oliverwiseman@Vero.se</a></li>
-          <li><a href="mailto:charliewiseman@Vero.se">charliewiseman@Vero.se</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-column">
-        <h4>Info</h4>
-        <ul>
-          <li>Plant-based. No artificial sweeteners.</li>
-          <li>Made with care in the EU.</li>
-        </ul>
-      </div>
-
-      <div class="footer-column">
-        <h4>Join our newsletter</h4>
-        <p>No spam, just smarter energy.</p>
-        <form class="newsletter-form" id="how-it-works-newsletter-form" action="#" method="post">
-          <input type="email" id="how-it-works-newsletter-email" name="email" placeholder="your@email.com" required aria-label="Email address" />
-          <button type="submit" aria-label="Subscribe to newsletter">→</button>
-        </form>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p>© 2025 Vero. All rights reserved.</p>
-    </div>
-  </footer>
 
 </body>
 </html>

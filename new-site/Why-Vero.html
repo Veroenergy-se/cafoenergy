@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Why Vero – Our Mission for Better Energy</title>
+  
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWFPL9ZW9R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JWFPL9ZW9R', {
+      'send_page_view': true,
+      'anonymize_ip': true
+    });
+  </script>
+  
+  <link rel="stylesheet" href="style.css?v=16" />
+  <link rel="stylesheet" href="deux-style.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <style>
+    .vero-navbar {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      width: 100%;
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .vero-navbar--scrolled {
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      border-color: transparent;
+    }
+    .vero-navbar__inner {
+      max-width: 1120px;
+      margin: auto;
+      padding: 1.2rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .vero-navbar__brand {
+      text-decoration: none;
+      color: #111827;
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .vero-navbar__menu {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .vero-navbar__links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+    }
+    .vero-navbar__link {
+      text-decoration: none;
+      color: #111827;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 1.05rem;
+      padding-bottom: 2px;
+      position: relative;
+    }
+    .vero-navbar__link::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: #111827;
+      transition: width 0.2s ease;
+    }
+    .vero-navbar__link:hover::after {
+      width: 100%;
+    }
+    .vero-navbar__cta {
+      background-color: rgba(255, 208, 116);
+      color: #1d1d1f;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: 600;
+      padding: 1em 2em;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      border: 1px solid black;
+      box-shadow: 0 0 0 0 black;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .vero-navbar__cta:hover {
+      transform: translateY(-4px) translateX(-2px);
+      box-shadow: 2px 5px 0 0 black;
+    }
+    .vero-navbar__cta:active {
+      transform: translateY(2px) translateX(1px);
+      box-shadow: 0 0 0 0 black;
+    }
+    .vero-navbar__toggle {
+      display: none;
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+      flex-direction: column;
+      justify-content: center;
+      gap: 6px;
+    }
+    .vero-navbar__toggle span {
+      height: 3px;
+      width: 100%;
+      background: #111827;
+      border-radius: 5px;
+      transition: 0.3s ease;
+    }
+    .vero-navbar__toggle--open span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+    .vero-navbar__toggle--open span:nth-child(2) {
+      opacity: 0;
+    }
+    .vero-navbar__toggle--open span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+    @media (max-width: 768px) {
+      .vero-navbar__toggle {
+        display: flex;
+      }
+      .vero-navbar__menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #ffffff;
+        border-bottom: 1px solid #e5e7eb;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.25rem;
+        opacity: 0;
+        transform: translateY(-10px);
+        pointer-events: none;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+      }
+      .vero-navbar__menu--open {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+      .vero-navbar__links {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      .vero-navbar__cta {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+
+  <nav class="vero-navbar" id="veroNavbar">
+    <div class="vero-navbar__inner">
+      <a class="vero-navbar__brand" href="index.html">Vero</a>
+      
+      <div class="vero-navbar__toggle" id="veroToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      
+      <div class="vero-navbar__menu" id="veroMenu">
+        <ul class="vero-navbar__links">
+          <li><a class="vero-navbar__link" href="index.html">Home</a></li>
+          <li><a class="vero-navbar__link" href="Shop.html">Shop</a></li>
+          <li><a class="vero-navbar__link" href="How-It-Works.html">How It Works</a></li>
+          <li><a class="vero-navbar__link" href="Why-Vero.html">Why Vero</a></li>
+        </ul>
+        <a href="Shop.html#products" class="vero-navbar__cta">Get Energized</a>
+      </div>
+    </div>
+  </nav>
+
+  <script>
+    const toggle = document.getElementById("veroToggle");
+    const menu = document.getElementById("veroMenu");
+    const navbar = document.getElementById("veroNavbar");
+    
+    toggle.addEventListener("click", () => {
+      toggle.classList.toggle("vero-navbar__toggle--open");
+      menu.classList.toggle("vero-navbar__menu--open");
+    });
+    
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 10) {
+        navbar.classList.add("vero-navbar--scrolled");
+      } else {
+        navbar.classList.remove("vero-navbar--scrolled");
+      }
+    });
+  </script>
+
+  <main>
+
+    <!-- ===== STORY-DRIVEN HERO ===== -->
+    <section style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 50%, #bbf7d0 100%); padding: 100px 20px 80px; position: relative; overflow: hidden;">
+      <div style="max-width: 1000px; margin: 0 auto; text-align: center; position: relative; z-index: 2;">
+        <div style="display: inline-block; background: rgba(34, 197, 94, 0.1); color: #15803d; padding: 8px 20px; border-radius: 25px; font-size: 0.9rem; font-weight: 600; margin-bottom: 20px;">
+          Built by Students, For Everyone
+        </div>
+        
+        <h1 style="font-size: 3.5rem; font-weight: 700; color: #1f2937; margin-bottom: 30px; line-height: 1.1;">
+          Three Brothers, One <span style="background: linear-gradient(135deg, #22c55e, #16a34a); -webkit-background-clip: text; background-clip: text; color: transparent;">Big Problem</span>
+        </h1>
+        
+        <p style="font-size: 1.3rem; color: #4b5563; margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+          We were living on coffee, energy drinks, and whatever we could grab between classes. It worked... until it didn't.
+        </p>
+        
+        <div style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 15px 50px rgba(0,0,0,0.1); margin-bottom: 50px; max-width: 600px; margin-left: auto; margin-right: auto;">
+          <p style="font-size: 1.1rem; color: #1f2937; margin: 0; font-style: italic; line-height: 1.6;">
+            "We were tired of choosing between energy that works and energy that's actually good for you. So we decided to build something that's both."
+          </p>
+          <p style="font-size: 0.9rem; color: #6b7280; margin-top: 20px; font-weight: 600;">— Tom, Charlie & Oliver Wiseman</p>
+        </div>
+        
+        <a href="#our-story" style="background: linear-gradient(135deg, #22c55e, #16a34a); color: white; padding: 18px 40px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3); transition: all 0.3s ease; display: inline-block; margin-bottom: 60px;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(34, 197, 94, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(34, 197, 94, 0.3)'">
+          Read Our Story
+        </a>
+        
+        <!-- Founders photo placeholder -->
+        <div style="width: 300px; height: 200px; background: white; border-radius: 20px; margin: 0 auto; box-shadow: 0 15px 40px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+          <div style="text-align: center; color: #6b7280;">
+            <div style="font-size: 2rem; margin-bottom: 10px;">👥</div>
+            <p style="margin: 0; font-weight: 600;">Tom, Charlie & Oliver</p>
+            <p style="margin: 5px 0 0 0; font-size: 0.9rem;">Co-Founders, Vero Energy</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WAVE TRANSITION ===== -->
+    <div style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 50%, #bbf7d0 100%); height: 100px; position: relative;">
+      <svg style="position: absolute; bottom: 0; left: 0; width: 100%; height: 100px;" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,60 C300,20 600,100 900,60 C1050,30 1150,80 1200,60 L1200,120 L0,120 Z" fill="#ffffff"></path>
+      </svg>
+    </div>
+
+    <!-- ===== THE STORY ===== -->
+    <section id="our-story" style="background: white; padding: 80px 20px;">
+      <div style="max-width: 900px; margin: 0 auto;">
+        <div style="text-align: center; margin-bottom: 60px;">
+          <h2 style="font-size: 3rem; font-weight: 700; color: #1f2937; margin-bottom: 30px;">The Energy Problem</h2>
+          <p style="font-size: 1.2rem; color: #4b5563; max-width: 600px; margin: 0 auto; line-height: 1.6;">
+            Like most students, we lived on coffee and energy drinks. But the cycle was brutal.
+          </p>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; margin-bottom: 60px;">
+          <div style="background: linear-gradient(135deg, #fef2f2, #fee2e2); padding: 40px; border-radius: 20px; text-align: center;">
+            <div style="font-size: 2.5rem; margin-bottom: 20px;">☕</div>
+            <h3 style="color: #dc2626; margin-bottom: 15px; font-size: 1.2rem; font-weight: 700;">Morning Coffee</h3>
+            <p style="color: #7f1d1d; font-size: 1rem; line-height: 1.5;">
+              Quick energy, but crashes by noon. Need another cup. Then another.
+            </p>
+          </div>
+          
+          <div style="background: linear-gradient(135deg, #fffbeb, #fef3c7); padding: 40px; border-radius: 20px; text-align: center;">
+            <div style="font-size: 2.5rem; margin-bottom: 20px;">⚡</div>
+            <h3 style="color: #d97706; margin-bottom: 15px; font-size: 1.2rem; font-weight: 700;">Afternoon Energy Drink</h3>
+            <p style="color: #92400e; font-size: 1rem; line-height: 1.5;">
+              Sugar rush, artificial everything. Feel wired but can't focus.
+            </p>
+          </div>
+          
+          <div style="background: linear-gradient(135deg, #f3f4f6, #e5e7eb); padding: 40px; border-radius: 20px; text-align: center;">
+            <div style="font-size: 2.5rem; margin-bottom: 20px;">😴</div>
+            <h3 style="color: #6b7280; margin-bottom: 15px; font-size: 1.2rem; font-weight: 700;">Evening Crash</h3>
+            <p style="color: #4b5563; font-size: 1rem; line-height: 1.5;">
+              Exhausted but can't sleep. Repeat tomorrow.
+            </p>
+          </div>
+        </div>
+        
+        <div style="background: linear-gradient(135deg, #f0fdf4, #dcfce7); padding: 50px; border-radius: 20px; text-align: center;">
+          <h3 style="color: #15803d; margin-bottom: 20px; font-size: 1.8rem; font-weight: 700;">We Had to Build Something Better</h3>
+          <p style="color: #166534; font-size: 1.1rem; max-width: 600px; margin: 0 auto; line-height: 1.6;">
+            Energy that doesn't crash. Nutrition that actually supports your goals. Something you can grab and go without thinking twice.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WAVE TRANSITION ===== -->
+    <div style="background: white; height: 100px; position: relative;">
+      <svg style="position: absolute; bottom: 0; left: 0; width: 100%; height: 100px;" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,60 C300,20 600,100 900,60 C1050,30 1150,80 1200,60 L1200,120 L0,120 Z" fill="url(#greenGradient2)"></path>
+        <defs>
+          <linearGradient id="greenGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#dcfce7;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#bbf7d0;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#86efac;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+
+    <!-- ===== THE SOLUTION ===== -->
+    <section style="background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 50%, #86efac 100%); padding: 80px 20px;">
+      <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <h2 style="font-size: 2.8rem; font-weight: 700; color: #1f2937; margin-bottom: 30px;">The Vero Solution</h2>
+        <p style="font-size: 1.2rem; color: #374151; margin-bottom: 50px;">
+          We combined everything you need for sustained energy into one convenient bar.
+        </p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; margin-bottom: 50px;">
+          <div style="background: white; padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.1);">
+            <div style="font-size: 2rem; color: #22c55e; margin-bottom: 15px;">🌱</div>
+            <h4 style="color: #1f2937; margin-bottom: 8px; font-size: 1.1rem; font-weight: 600;">Natural Caffeine</h4>
+            <p style="color: #6b7280; font-size: 0.9rem;">80mg from green tea</p>
+          </div>
+          
+          <div style="background: white; padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.1);">
+            <div style="font-size: 2rem; color: #8b5cf6; margin-bottom: 15px;">🧘</div>
+            <h4 style="color: #1f2937; margin-bottom: 8px; font-size: 1.1rem; font-weight: 600;">L-Theanine</h4>
+            <p style="color: #6b7280; font-size: 0.9rem;">Smooth focus</p>
+          </div>
+          
+          <div style="background: white; padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.1);">
+            <div style="font-size: 2rem; color: #f59e0b; margin-bottom: 15px;">💪</div>
+            <h4 style="color: #1f2937; margin-bottom: 8px; font-size: 1.1rem; font-weight: 600;">Plant Protein</h4>
+            <p style="color: #6b7280; font-size: 0.9rem;">10g complete</p>
+          </div>
+          
+          <div style="background: white; padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.1);">
+            <div style="font-size: 2rem; color: #3b82f6; margin-bottom: 15px;">💧</div>
+            <h4 style="color: #1f2937; margin-bottom: 8px; font-size: 1.1rem; font-weight: 600;">Electrolytes</h4>
+            <p style="color: #6b7280; font-size: 0.9rem;">Hydration support</p>
+          </div>
+        </div>
+        
+        <div style="background: rgba(255,255,255,0.9); padding: 40px; border-radius: 20px; backdrop-filter: blur(10px);">
+          <h3 style="color: #1f2937; margin-bottom: 20px; font-size: 1.5rem; font-weight: 700;">Built for Real Life</h3>
+          <p style="color: #4b5563; font-size: 1.1rem; max-width: 500px; margin: 0 auto; line-height: 1.6;">
+            No shaker bottle. No fridge. No prep time. Just grab it and go – whether you're heading to class, the gym, or an early meeting.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WAVE TRANSITION ===== -->
+    <div style="background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 50%, #86efac 100%); height: 100px; position: relative;">
+      <svg style="position: absolute; bottom: 0; left: 0; width: 100%; height: 100px;" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,60 C300,100 600,20 900,60 C1050,90 1150,40 1200,60 L1200,120 L0,120 Z" fill="#ffffff"></path>
+      </svg>
+    </div>
+
+    <!-- ===== WAVE TRANSITION ===== -->
+    <div style="background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 50%, #86efac 100%); height: 100px; position: relative;">
+      <svg style="position: absolute; bottom: 0; left: 0; width: 100%; height: 100px;" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,60 C300,100 600,20 900,60 C1050,90 1150,40 1200,60 L1200,120 L0,120 Z" fill="#ffffff"></path>
+      </svg>
+    </div>
+
+    <!-- ===== THE TEAM & MISSION ===== -->
+    <section style="background: white; padding: 80px 20px;">
+      <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <h2 style="font-size: 2.8rem; font-weight: 700; color: #1f2937; margin-bottom: 30px;">Three Brothers, One Standard</h2>
+        <p style="font-size: 1.2rem; color: #6b7280; margin-bottom: 50px;">
+          We test every version on ourselves first. If it doesn't help us focus and feel better, it doesn't ship.
+        </p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 60px;">
+          <div style="background: #f8fafc; padding: 30px; border-radius: 20px; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+            <div style="width: 60px; height: 60px; background: #22c55e; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem; margin: 0 auto 20px;">T</div>
+            <h3 style="color: #1f2937; margin-bottom: 8px; font-size: 1.1rem; font-weight: 600;">Tom</h3>
+            <p style="color: #22c55e; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem;">Product</p>
+            <p style="color: #6b7280; font-size: 0.9rem;">Obsessed with details</p>
+          </div>
+          
+          <div style="background: #f8fafc; padding: 30px; border-radius: 20px; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+            <div style="width: 60px; height: 60px; background: #3b82f6; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem; margin: 0 auto 20px;">C</div>
+            <h3 style="color: #1f2937; margin-bottom: 8px; font-size: 1.1rem; font-weight: 600;">Charlie</h3>
+            <p style="color: #3b82f6; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem;">Operations</p>
+            <p style="color: #6b7280; font-size: 0.9rem;">Makes it happen</p>
+          </div>
+          
+          <div style="background: #f8fafc; padding: 30px; border-radius: 20px; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+            <div style="width: 60px; height: 60px; background: #8b5cf6; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem; margin: 0 auto 20px;">O</div>
+            <h3 style="color: #1f2937; margin-bottom: 8px; font-size: 1.1rem; font-weight: 600;">Oliver</h3>
+            <p style="color: #8b5cf6; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem;">Brand</p>
+            <p style="color: #6b7280; font-size: 0.9rem;">Keeps us honest</p>
+          </div>
+        </div>
+        
+        <div style="background: linear-gradient(135deg, #f0fdf4, #dcfce7); padding: 50px; border-radius: 20px; margin-bottom: 50px;">
+          <h3 style="color: #15803d; margin-bottom: 20px; font-size: 1.8rem; font-weight: 700;">Our Mission</h3>
+          <p style="color: #166534; font-size: 1.1rem; max-width: 600px; margin: 0 auto; line-height: 1.6;">
+            Make smart energy the default choice. Start with students who need it most, then help everyone who refuses to settle for "good enough."
+          </p>
+        </div>
+        
+        <div style="display: flex; gap: 20px; justify-content: center; align-items: center; flex-wrap: wrap;">
+          <a href="Shop.html#products" style="background: linear-gradient(135deg, #22c55e, #16a34a); color: white; padding: 18px 50px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 1.2rem; box-shadow: 0 6px 20px rgba(34, 197, 94, 0.3); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 10px 30px rgba(34, 197, 94, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 20px rgba(34, 197, 94, 0.3)'">
+            Join the Movement
+          </a>
+          <a href="How-It-Works.html" style="color: #22c55e; text-decoration: none; font-weight: 600; padding: 18px 30px; border: 2px solid #22c55e; border-radius: 12px; transition: all 0.3s ease;" onmouseover="this.style.background='#22c55e'; this.style.color='white'" onmouseout="this.style.background='transparent'; this.style.color='#22c55e'">
+            How It Works
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="footer" class="footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3 class="footer-title">Vero</h3>
+        <p>Clean energy, smarter nutrition.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn">Instagram</a>
+          <a href="#" class="social-btn">TikTok</a>
+          <a href="#" class="social-btn">LinkedIn</a>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:tomwiseman@Vero.se">tomwiseman@Vero.se</a></li>
+          <li><a href="mailto:oliverwiseman@Vero.se">oliverwiseman@Vero.se</a></li>
+          <li><a href="mailto:charliewiseman@Vero.se">charliewiseman@Vero.se</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Info</h4>
+        <ul>
+          <li>Plant-based. No artificial sweeteners.</li>
+          <li>Made with care in the EU.</li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Join our newsletter</h4>
+        <p>No spam, just smarter energy.</p>
+        <form class="newsletter-form" id="why-vero-newsletter-form" action="#" method="post">
+          <input type="email" id="why-vero-newsletter-email" name="email" placeholder="your@email.com" required aria-label="Email address" />
+          <button type="submit" aria-label="Subscribe to newsletter">→</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 Vero. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
