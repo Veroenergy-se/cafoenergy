@@ -583,52 +583,53 @@
     /* ===== INGREDIENTS SECTION ===== */
     .ingredients-section {
       padding: 80px 0;
-      background: #1f2937;
-      color: white;
+      background: #bfdbfe;
+      color: #1f2937;
     }
 
     .ingredients-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 40px;
+      gap: 30px;
       margin-top: 60px;
-      max-width: 900px;
+      max-width: 1000px;
       margin-left: auto;
       margin-right: auto;
     }
 
     .ingredient-card {
-      background: rgba(255, 255, 255, 0.05);
+      background: white;
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(34, 197, 94, 0.1);
       border-radius: 24px;
       padding: 30px;
       text-align: left;
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     }
 
-    .ingredient-card::before {
+    .ingredient-card--featured::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
-      width: 4px;
-      height: 100%;
-      background: linear-gradient(180deg, #22c55e, #16a34a);
-      opacity: 0;
-      transition: opacity 0.3s ease;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #22c55e, #16a34a);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
     }
 
     .ingredient-card:hover {
-      transform: translateY(-4px);
-      background: rgba(255, 255, 255, 0.08);
+      transform: translateY(-8px);
       border-color: rgba(34, 197, 94, 0.3);
+      box-shadow: 0 20px 40px rgba(34, 197, 94, 0.15);
     }
 
     .ingredient-card:hover::before {
-      opacity: 1;
+      transform: scaleX(1);
     }
 
     .ingredient-header {
@@ -639,39 +640,87 @@
     }
 
     .ingredient-icon {
-      width: 40px;
-      height: 40px;
+      width: 50px;
+      height: 50px;
       background: linear-gradient(135deg, #22c55e, #16a34a);
-      border-radius: 12px;
+      border-radius: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       flex-shrink: 0;
+      box-shadow: 0 8px 20px rgba(34, 197, 94, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .ingredient-icon--caffeine {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+    }
+
+    .ingredient-icon--theanine {
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    }
+
+    .ingredient-icon--protein {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+    }
+
+    .ingredient-icon--macros {
+      background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    }
+
+    .ingredient-card:hover .ingredient-icon {
+      transform: scale(1.1) rotate(5deg);
     }
 
     .ingredient-name {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       font-weight: 700;
-      color: white;
+      color: #1f2937;
       margin: 0;
     }
 
     .ingredient-description {
-      color: #d1d5db;
+      color: #6b7280;
       line-height: 1.6;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
 
     .ingredient-benefit {
       background: rgba(34, 197, 94, 0.1);
       border: 1px solid rgba(34, 197, 94, 0.2);
       border-radius: 12px;
-      padding: 8px 12px;
-      font-size: 0.8rem;
+      padding: 8px 16px;
+      font-size: 0.85rem;
       color: #22c55e;
       font-weight: 600;
       display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .ingredient-benefit--primary {
+      background: rgba(34, 197, 94, 0.1);
+      border-color: rgba(34, 197, 94, 0.2);
+      color: #22c55e;
+    }
+
+    .ingredient-benefit--secondary {
+      background: rgba(59, 130, 246, 0.1);
+      border-color: rgba(59, 130, 246, 0.2);
+      color: #3b82f6;
+    }
+
+    .ingredient-benefit--tertiary {
+      background: rgba(245, 158, 11, 0.1);
+      border-color: rgba(245, 158, 11, 0.2);
+      color: #f59e0b;
+    }
+
+    .ingredient-benefit--quaternary {
+      background: rgba(139, 92, 246, 0.1);
+      border-color: rgba(139, 92, 246, 0.2);
+      color: #8b5cf6;
     }
 
     @media (max-width: 768px) {
@@ -704,6 +753,14 @@
       }
 
       .step-header {
+        justify-content: center;
+      }
+
+      .ingredient-card {
+        text-align: center;
+      }
+
+      .ingredient-header {
         justify-content: center;
       }
     }
@@ -809,10 +866,10 @@
             <text x="720" y="280" fill="#6b7280" font-size="12" text-anchor="middle">4 hours</text>
             
             <!-- Vero curve (matches coffee initially, then smoother decline) -->
-            <path class="vero-curve" d="M 60 260 Q 120 80 180 60 Q 300 70 450 90 Q 600 120 720 140"/>
+            <path class="vero-curve" d="M 60 260 C 90 170 120 100 180 60 C 240 65 280 70 350 75 C 450 85 550 105 650 125 C 680 130 700 135 720 140"/>
             
             <!-- Coffee curve (spike and crash) -->
-            <path class="coffee-curve" d="M 60 260 Q 120 80 180 60 Q 240 80 300 140 Q 400 200 500 220 T 720 240"/>
+            <path class="coffee-curve" d="M 60 260 C 90 170 120 100 180 60 C 210 70 240 100 280 130 C 340 180 400 200 480 215 C 550 225 650 235 720 240"/>
             
             <!-- Labels -->
             <text x="400" y="90" fill="#22c55e" font-size="14" font-weight="bold">Vero Energy</text>
@@ -897,54 +954,54 @@
   <!-- ===== WHAT'S INSIDE SECTION ===== -->
   <section class="ingredients-section">
     <div class="container">
-      <h2 class="section-title" style="color: white;">What's Inside The Bar</h2>
-      <p class="section-subtitle" style="color: #9ca3af;">
+      <h2 class="section-title" style="color: #1f2937;">What's Inside The Bar</h2>
+      <p class="section-subtitle" style="color: #6b7280;">
         Every ingredient serves a purpose. Here's what powers your day.
       </p>
 
       <div class="ingredients-grid">
-        <div class="ingredient-card">
+        <div class="ingredient-card ingredient-card--featured">
           <div class="ingredient-header">
-            <div class="ingredient-icon">☕</div>
+            <div class="ingredient-icon ingredient-icon--caffeine">☕</div>
             <h3 class="ingredient-name">Natural Caffeine</h3>
           </div>
           <p class="ingredient-description">
             90mg of clean caffeine from green tea - enough to energize without overwhelming. No synthetic stimulants, no crash, just smooth activation that works with your body's natural rhythms.
           </p>
-          <div class="ingredient-benefit">90mg Per Bar</div>
+          <div class="ingredient-benefit ingredient-benefit--primary">90mg Per Bar</div>
         </div>
 
-        <div class="ingredient-card">
+        <div class="ingredient-card ingredient-card--featured">
           <div class="ingredient-header">
-            <div class="ingredient-icon">🧘</div>
+            <div class="ingredient-icon ingredient-icon--theanine">🧘</div>
             <h3 class="ingredient-name">L-Theanine</h3>
           </div>
           <p class="ingredient-description">
             The secret to calm focus. This amino acid naturally occurs alongside caffeine in green tea, promoting relaxed alertness. You get the energy boost without the anxiety or jitters.
           </p>
-          <div class="ingredient-benefit">Calm Focus</div>
+          <div class="ingredient-benefit ingredient-benefit--secondary">Calm Focus</div>
         </div>
 
-        <div class="ingredient-card">
+        <div class="ingredient-card ingredient-card--featured">
           <div class="ingredient-header">
-            <div class="ingredient-icon">💪</div>
+            <div class="ingredient-icon ingredient-icon--protein">💪</div>
             <h3 class="ingredient-name">Plant Protein</h3>
           </div>
           <p class="ingredient-description">
             10g of complete plant-based protein from pea, rice, and hemp. Provides all essential amino acids for muscle support and helps slow the absorption of caffeine for sustained energy.
           </p>
-          <div class="ingredient-benefit">10g Complete Protein</div>
+          <div class="ingredient-benefit ingredient-benefit--tertiary">10g Complete Protein</div>
         </div>
 
-        <div class="ingredient-card">
+        <div class="ingredient-card ingredient-card--featured">
           <div class="ingredient-header">
-            <div class="ingredient-icon">⚖️</div>
+            <div class="ingredient-icon ingredient-icon--macros">⚖️</div>
             <h3 class="ingredient-name">Smart Macros</h3>
           </div>
           <p class="ingredient-description">
             Balanced carbs, protein, and healthy fats work together for steady energy release. 8g net carbs from dates and oats, plus MCT oil for sustained fuel that lasts hours.
           </p>
-          <div class="ingredient-benefit">Balanced Nutrition</div>
+          <div class="ingredient-benefit ingredient-benefit--quaternary">Balanced Nutrition</div>
         </div>
       </div>
     </div>
