@@ -20,8 +20,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&family=Nunito:wght@400;500;600;700;800;900&family=Comfortaa:wght@300;400;500;600;700&family=Yellowtail&family=Belanosima:wght@400;600;700&family=Caveat:wght@400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=51" />
-  <link rel="stylesheet" href="deux-style.css?v=40" />
+  <link rel="stylesheet" href="style.css?v=52" />
+  <link rel="stylesheet" href="deux-style.css?v=41" />
   
   <style>
     body {
@@ -35,7 +35,7 @@
       z-index: 999;
       width: 100%;
       background: transparent;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      border-bottom: none;
       transition: box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
     }
     .vero-navbar--scrolled {
@@ -54,11 +54,15 @@
     }
     .vero-navbar__brand {
       text-decoration: none;
-      color: #111827;
+      color: white;
       font-size: 1.8rem;
       font-weight: 600;
       letter-spacing: 0.06em;
       text-transform: uppercase;
+      transition: color 0.2s ease;
+    }
+    .vero-navbar--scrolled .vero-navbar__brand {
+      color: #111827;
     }
     .vero-navbar__center {
       display: flex;
@@ -72,12 +76,16 @@
     }
     .vero-navbar__link {
       text-decoration: none;
-      color: #111827;
+      color: white;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       font-size: 1.05rem;
       padding-bottom: 2px;
       position: relative;
+      transition: color 0.2s ease;
+    }
+    .vero-navbar--scrolled .vero-navbar__link {
+      color: #111827;
     }
     .vero-navbar__link::after {
       content: "";
@@ -86,8 +94,11 @@
       left: 0;
       width: 0%;
       height: 2px;
+      background: white;
+      transition: width 0.2s ease, background 0.2s ease;
+    }
+    .vero-navbar--scrolled .vero-navbar__link::after {
       background: #111827;
-      transition: width 0.2s ease;
     }
     .vero-navbar__link:hover::after {
       width: 100%;
@@ -143,12 +154,20 @@
       .vero-navbar__toggle {
         display: flex;
       }
+      .vero-navbar__toggle span {
+        background: white;
+        transition: background 0.2s ease;
+      }
+      .vero-navbar--scrolled .vero-navbar__toggle span {
+        background: #111827;
+      }
       .vero-navbar__center {
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
-        background: #ffffff;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
         border-bottom: 1px solid #e5e7eb;
         flex-direction: column;
         gap: 1rem;
@@ -162,6 +181,12 @@
         opacity: 1;
         transform: translateY(0);
         pointer-events: auto;
+      }
+      .vero-navbar__center .vero-navbar__link {
+        color: #111827;
+      }
+      .vero-navbar__center .vero-navbar__link::after {
+        background: #111827;
       }
       .vero-navbar__links {
         flex-direction: column;
