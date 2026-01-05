@@ -20,8 +20,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&family=Nunito:wght@400;500;600;700;800;900&family=Comfortaa:wght@300;400;500;600;700&family=Yellowtail&family=Belanosima:wght@400;600;700&family=Caveat:wght@400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=46" />
-  <link rel="stylesheet" href="deux-style.css?v=35" />
+  <link rel="stylesheet" href="style.css?v=47" />
+  <link rel="stylesheet" href="deux-style.css?v=36" />
   
   <style>
     body {
@@ -42,7 +42,7 @@
         rgba(34, 197, 94, 0.3) 50%, 
         transparent 80%) !important;
       pointer-events: none !important;
-      z-index: 1 !important;
+      z-index: 998 !important;
       transition: opacity 0.8s ease-out !important;
       display: block !important;
       visibility: visible !important;
@@ -778,6 +778,14 @@
       .ingredient-header {
         justify-content: center;
       }
+    }
+
+    /* FINAL OVERRIDE - ENSURE OVERLAY IS VISIBLE */
+    body[data-page="how-it-works"] .page-top-gradient {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      z-index: 998 !important;
     }
   </style>
 </head>
