@@ -99,6 +99,24 @@
       display: flex !important;
       flex-direction: column !important;
     }
+
+    /* Orange overlay effect */
+    .page-top-gradient {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100vh;
+      background: linear-gradient(180deg, rgba(255, 208, 116, 0.9) 0%, rgba(255, 208, 116, 0.5) 30%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+      transition: opacity 0.6s ease-out;
+    }
+
+    /* Fade out on scroll */
+    body.scrolled .page-top-gradient {
+      opacity: 0.3;
+    }
   </style>
 </head>
 <body style="overflow-x: hidden;">
@@ -292,8 +310,10 @@
     window.addEventListener("scroll", () => {
       if (window.scrollY > 10) {
         navbar.classList.add("vero-navbar--scrolled");
+        document.body.classList.add("scrolled");
       } else {
         navbar.classList.remove("vero-navbar--scrolled");
+        document.body.classList.remove("scrolled");
       }
     });
   </script>
