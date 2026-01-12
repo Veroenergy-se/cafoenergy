@@ -20,8 +20,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&family=Nunito:wght@400;500;600;700;800;900&family=Comfortaa:wght@300;400;500;600;700&family=Yellowtail&family=Belanosima:wght@400;600;700&family=Caveat:wght@400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=52" />
-  <link rel="stylesheet" href="deux-style.css?v=41" />
+  <link rel="stylesheet" href="style.css?v=53" />
+  <link rel="stylesheet" href="deux-style.css?v=42" />
   
   <style>
     body {
@@ -347,210 +347,289 @@
       letter-spacing: 2px;
     }
 
-    /* ===== SIMPLE SHOP PAGE DESIGN - CONVERSION FOCUSED ===== */
-    .simple-products-section {
-      padding: 80px 0 !important;
-      background: #f8fafc !important;
-      position: relative !important;
+    /* ===== CLEAN NOCCO-STYLE DESIGN ===== */
+    
+    /* Hero Section */
+    .hero {
+      padding: 60px 0 !important;
+      background: white !important;
     }
 
-    .simple-products-section .container {
-      max-width: 1000px !important;
+    .hero-container {
+      max-width: 1200px !important;
       margin: 0 auto !important;
-      padding: 0 20px !important;
+      padding: 0 40px !important;
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      gap: 80px !important;
+      align-items: center !important;
     }
 
-    .simple-products-section .products-header {
+    .hero-text-side h1 {
+      font-size: 4rem !important;
+      font-weight: 900 !important;
+      color: #1a1a1a !important;
+      margin-bottom: 24px !important;
+      line-height: 1.1 !important;
+    }
+
+    .hero-text-side .headline-script {
+      color: #93c5fd !important;
+    }
+
+    .hero-text-side p {
+      font-size: 1.2rem !important;
+      color: #666 !important;
+      margin-bottom: 32px !important;
+      line-height: 1.6 !important;
+    }
+
+    .hero-image-side {
+      display: flex !important;
+      justify-content: center !important;
+    }
+
+    .hero-product-image {
+      max-width: 100% !important;
+      height: auto !important;
+      border-radius: 20px !important;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1) !important;
+    }
+
+    /* Lifestyle Section */
+    .lifestyle-section {
+      padding: 100px 0 !important;
+      background: #f8f9fa !important;
+    }
+
+    .lifestyle-container {
+      max-width: 1200px !important;
+      margin: 0 auto !important;
+      padding: 0 40px !important;
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      gap: 80px !important;
+      align-items: center !important;
+    }
+
+    .lifestyle-image {
+      width: 100% !important;
+      height: auto !important;
+      border-radius: 20px !important;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1) !important;
+    }
+
+    .lifestyle-box {
+      background: white !important;
+      padding: 60px !important;
+      border-radius: 20px !important;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.05) !important;
+    }
+
+    .lifestyle-box h2 {
+      font-size: 2.5rem !important;
+      font-weight: 800 !important;
+      color: #1a1a1a !important;
+      margin-bottom: 20px !important;
+    }
+
+    .lifestyle-box p {
+      font-size: 1.1rem !important;
+      color: #666 !important;
+      line-height: 1.6 !important;
+    }
+
+    /* Clean Products Section */
+    .clean-products-section {
+      padding: 100px 0 !important;
+      background: white !important;
+    }
+
+    .clean-products-section .products-title {
+      font-size: 3rem !important;
+      font-weight: 800 !important;
+      color: #1a1a1a !important;
       text-align: center !important;
       margin-bottom: 60px !important;
     }
 
-    .simple-products-section .products-title {
-      font-size: 4rem !important;
-      font-weight: 900 !important;
-      color: #1f2937 !important;
-      margin-bottom: 16px !important;
-      font-family: 'Poppins', sans-serif !important;
-    }
-
-    .simple-products-section .products-subtitle {
-      font-size: 1.2rem !important;
-      color: #6b7280 !important;
-      margin-bottom: 0 !important;
-    }
-
-    .simple-products-grid {
+    .clean-products-grid {
       display: grid !important;
       grid-template-columns: repeat(3, 1fr) !important;
-      gap: 30px !important;
-      margin-bottom: 60px !important;
+      gap: 40px !important;
+      max-width: 1000px !important;
+      margin: 0 auto 60px !important;
     }
 
-    .simple-product-card {
+    .clean-product-card {
       background: white !important;
+      border: 1px solid #e5e5e5 !important;
       border-radius: 20px !important;
       padding: 40px 30px !important;
       text-align: center !important;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
-      border: 2px solid transparent !important;
       transition: all 0.3s ease !important;
       position: relative !important;
     }
 
-    .simple-product-card:hover {
+    .clean-product-card:hover {
       transform: translateY(-5px) !important;
-      box-shadow: 0 20px 40px rgba(147, 197, 253, 0.15) !important;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1) !important;
       border-color: #93c5fd !important;
     }
 
-    .simple-product-card.popular {
+    .clean-product-card.popular {
       border-color: #93c5fd !important;
-      transform: translateY(-5px) !important;
-      box-shadow: 0 15px 35px rgba(147, 197, 253, 0.2) !important;
+      box-shadow: 0 10px 40px rgba(147, 197, 253, 0.15) !important;
     }
 
-    .popular-badge {
+    .popular-tag {
       position: absolute !important;
       top: -12px !important;
       left: 50% !important;
       transform: translateX(-50%) !important;
-      background: linear-gradient(135deg, #93c5fd, #60a5fa) !important;
+      background: #93c5fd !important;
       color: white !important;
-      padding: 8px 20px !important;
+      padding: 6px 16px !important;
       border-radius: 20px !important;
       font-size: 0.8rem !important;
-      font-weight: 700 !important;
-      text-transform: uppercase !important;
-      letter-spacing: 0.05em !important;
-    }
-
-    .product-header h3 {
-      font-size: 1.8rem !important;
-      font-weight: 700 !important;
-      color: #1f2937 !important;
-      margin-bottom: 20px !important;
-    }
-
-    .product-price {
-      margin-bottom: 30px !important;
-    }
-
-    .price-main {
-      display: block !important;
-      font-size: 3.5rem !important;
-      font-weight: 900 !important;
-      color: #1f2937 !important;
-      font-family: 'Poppins', sans-serif !important;
-      line-height: 1 !important;
-    }
-
-    .price-per {
-      display: block !important;
-      font-size: 0.9rem !important;
-      color: #6b7280 !important;
-      margin-top: 5px !important;
-    }
-
-    .savings {
-      display: inline-block !important;
-      background: #10b981 !important;
-      color: white !important;
-      padding: 4px 12px !important;
-      border-radius: 12px !important;
-      font-size: 0.8rem !important;
       font-weight: 600 !important;
-      margin-top: 8px !important;
     }
 
-    .product-details {
-      margin-bottom: 30px !important;
+    .product-visual-box {
+      width: 80px !important;
+      height: 80px !important;
+      background: #93c5fd !important;
+      color: white !important;
+      border-radius: 16px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      font-size: 2rem !important;
+      font-weight: 900 !important;
+      margin: 0 auto 30px !important;
     }
 
-    .product-quantity {
-      font-size: 1.3rem !important;
+    .product-info h3 {
+      font-size: 1.5rem !important;
       font-weight: 700 !important;
-      color: #1f2937 !important;
+      color: #1a1a1a !important;
       margin-bottom: 8px !important;
     }
 
-    .product-description {
-      color: #6b7280 !important;
-      font-size: 0.95rem !important;
+    .product-desc {
+      color: #666 !important;
+      margin-bottom: 20px !important;
+      font-size: 0.9rem !important;
     }
 
-    .simple-cta {
-      background: linear-gradient(135deg, #93c5fd, #60a5fa) !important;
-      color: white !important;
+    .product-price {
+      font-size: 2rem !important;
+      font-weight: 900 !important;
+      color: #1a1a1a !important;
+      margin-bottom: 20px !important;
+    }
+
+    .save {
+      font-size: 0.8rem !important;
+      color: #10b981 !important;
+      font-weight: 600 !important;
+      display: block !important;
+      margin-top: 4px !important;
+    }
+
+    .clean-cta {
+      background: #f5f5f5 !important;
+      color: #1a1a1a !important;
       border: none !important;
-      border-radius: 16px !important;
-      font-size: 1.1rem !important;
-      font-weight: 700 !important;
-      padding: 18px 40px !important;
+      border-radius: 12px !important;
+      padding: 16px 32px !important;
+      font-weight: 600 !important;
       cursor: pointer !important;
       transition: all 0.3s ease !important;
       width: 100% !important;
-      text-transform: uppercase !important;
-      letter-spacing: 0.05em !important;
     }
 
-    .simple-cta:hover {
-      transform: translateY(-2px) !important;
-      box-shadow: 0 10px 25px rgba(147, 197, 253, 0.4) !important;
+    .clean-cta:hover {
+      background: #e5e5e5 !important;
     }
 
-    .popular-cta {
-      background: linear-gradient(135deg, #1f2937, #374151) !important;
-      box-shadow: 0 8px 20px rgba(31, 41, 55, 0.3) !important;
+    .clean-cta.primary {
+      background: #93c5fd !important;
+      color: white !important;
     }
 
-    .popular-cta:hover {
-      box-shadow: 0 12px 30px rgba(31, 41, 55, 0.4) !important;
+    .clean-cta.primary:hover {
+      background: #60a5fa !important;
     }
 
-    .trust-signals {
-      display: grid !important;
-      grid-template-columns: repeat(4, 1fr) !important;
-      gap: 30px !important;
-      padding: 40px 0 !important;
-      border-top: 1px solid #e5e7eb !important;
-    }
-
-    .trust-item {
+    .trust-line {
       text-align: center !important;
-      padding: 20px !important;
+      color: #666 !important;
+      font-size: 0.9rem !important;
+      padding: 20px 0 !important;
+      border-top: 1px solid #e5e5e5 !important;
     }
 
-    .trust-icon {
-      display: block !important;
-      font-size: 2rem !important;
+    /* Benefits Section */
+    .benefits-section {
+      padding: 100px 0 !important;
+      background: #f8f9fa !important;
+    }
+
+    .benefits-container {
+      max-width: 1200px !important;
+      margin: 0 auto !important;
+      padding: 0 40px !important;
+    }
+
+    .benefits-grid {
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 40px !important;
+    }
+
+    .benefit-box {
+      background: white !important;
+      padding: 40px !important;
+      border-radius: 20px !important;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.05) !important;
+    }
+
+    .benefit-box h3 {
+      font-size: 1.3rem !important;
+      font-weight: 700 !important;
+      color: #1a1a1a !important;
       margin-bottom: 12px !important;
     }
 
-    .trust-text {
-      font-size: 0.9rem !important;
-      font-weight: 600 !important;
-      color: #374151 !important;
-      text-transform: uppercase !important;
-      letter-spacing: 0.05em !important;
+    .benefit-box p {
+      color: #666 !important;
+      line-height: 1.6 !important;
     }
 
     @media (max-width: 768px) {
-      .simple-products-grid {
+      .hero-container,
+      .lifestyle-container {
         grid-template-columns: 1fr !important;
-        gap: 20px !important;
+        gap: 40px !important;
       }
 
-      .trust-signals {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 20px !important;
+      .clean-products-grid {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
       }
 
-      .simple-products-section .products-title {
+      .benefits-grid {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+      }
+
+      .hero-text-side h1 {
         font-size: 3rem !important;
       }
 
-      .price-main {
-        font-size: 2.5rem !important;
+      .lifestyle-box {
+        padding: 40px !important;
       }
     }
 
@@ -885,126 +964,123 @@
       <!-- Hero Text Side -->
       <div class="hero-text-side">
         <h1 class="hero-headline">
-          <span class="headline-main">Get Your</span>
-          <span class="headline-script">Energy.</span>
+          <span class="headline-main">Fuel Your</span>
+          <span class="headline-script">Ambition.</span>
         </h1>
         
         <p class="hero-description">
-          Clean caffeine. Real protein. Zero compromise. Choose your pack and start feeling the difference today.
+          Clean energy for the driven. Premium ingredients, sustained performance, zero compromise.
         </p>
         
         <div class="hero-cta-group">
           <a href="#products" class="cta-primary">Shop Now</a>
-          <a href="How-It-Works.html" class="cta-secondary">How It Works</a>
         </div>
       </div>
 
-      <!-- Hero Product Side -->
-      <div class="hero-product-showcase">
-        <div class="hero-product-card">
-          <div class="product-visual">
-            <div class="bar-3d bar-energy-3d"></div>
-          </div>
-        </div>
+      <!-- Hero Image Side -->
+      <div class="hero-image-side">
+        <img src="Peanut butter studio pic.jpg" alt="Vero Energy Bar" class="hero-product-image" />
       </div>
       
     </div>
   </section>
 
+  <!-- ===== LIFESTYLE SECTION ===== -->
+  <section class="lifestyle-section">
+    <div class="lifestyle-container">
+      <img src="ChatGPT Image 14 dec. 2025 16_43_50.png" alt="Students with Vero shirts" class="lifestyle-image" />
+      <div class="lifestyle-content">
+        <div class="lifestyle-box">
+          <h2>Built for Achievers</h2>
+          <p>Join thousands of students, athletes, and professionals who choose clean energy over quick fixes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== SIMPLE PRODUCTS SECTION ===== -->
-  <section id="products" class="simple-products-section">
+  <section id="products" class="clean-products-section">
     <div class="container">
       
       <!-- Section Header -->
       <div class="products-header">
         <h2 class="products-title">Choose Your Pack</h2>
-        <p class="products-subtitle">
-          Free shipping on all orders. 30-day money-back guarantee.
-        </p>
       </div>
 
-      <!-- Simple Product Grid -->
-      <div class="simple-products-grid">
+      <!-- Clean Product Grid -->
+      <div class="clean-products-grid">
         
         <!-- Single Box -->
-        <div class="simple-product-card">
-          <div class="product-header">
+        <div class="clean-product-card">
+          <div class="product-image">
+            <div class="product-visual-box">12</div>
+          </div>
+          <div class="product-info">
             <h3>Try It</h3>
-            <div class="product-price">
-              <span class="price-main">$29</span>
-              <span class="price-per">$2.42/bar</span>
-            </div>
+            <p class="product-desc">Perfect for first-timers</p>
+            <div class="product-price">$29</div>
+            <button class="clean-cta" onclick="addToCart('starter')">Order Now</button>
           </div>
-          <div class="product-details">
-            <div class="product-quantity">12 Bars</div>
-            <div class="product-description">Perfect for trying Vero</div>
-          </div>
-          <button class="simple-cta" onclick="addToCart('starter')">
-            Order Now
-          </button>
         </div>
 
         <!-- Most Popular - 2 Boxes -->
-        <div class="simple-product-card popular">
-          <div class="popular-badge">Most Popular</div>
-          <div class="product-header">
+        <div class="clean-product-card popular">
+          <div class="popular-tag">Most Popular</div>
+          <div class="product-image">
+            <div class="product-visual-box">24</div>
+          </div>
+          <div class="product-info">
             <h3>Stock Up</h3>
-            <div class="product-price">
-              <span class="price-main">$54</span>
-              <span class="price-per">$2.25/bar</span>
-              <span class="savings">Save $4</span>
-            </div>
+            <p class="product-desc">2 weeks of clean energy</p>
+            <div class="product-price">$54 <span class="save">Save $4</span></div>
+            <button class="clean-cta primary" onclick="addToCart('duo')">Order Now</button>
           </div>
-          <div class="product-details">
-            <div class="product-quantity">24 Bars</div>
-            <div class="product-description">2 weeks of clean energy</div>
-          </div>
-          <button class="simple-cta popular-cta" onclick="addToCart('duo')">
-            Order Now
-          </button>
         </div>
 
         <!-- Family Pack - 3 Boxes -->
-        <div class="simple-product-card">
-          <div class="product-header">
+        <div class="clean-product-card">
+          <div class="product-image">
+            <div class="product-visual-box">36</div>
+          </div>
+          <div class="product-info">
             <h3>Family Pack</h3>
-            <div class="product-price">
-              <span class="price-main">$75</span>
-              <span class="price-per">$2.08/bar</span>
-              <span class="savings">Save $12</span>
-            </div>
+            <p class="product-desc">Share with friends</p>
+            <div class="product-price">$75 <span class="save">Save $12</span></div>
+            <button class="clean-cta" onclick="addToCart('family')">Order Now</button>
           </div>
-          <div class="product-details">
-            <div class="product-quantity">36 Bars</div>
-            <div class="product-description">Share with family & friends</div>
-          </div>
-          <button class="simple-cta" onclick="addToCart('family')">
-            Order Now
-          </button>
         </div>
 
       </div>
 
-      <!-- Trust Signals -->
-      <div class="trust-signals">
-        <div class="trust-item">
-          <span class="trust-icon">🚚</span>
-          <span class="trust-text">Free Shipping</span>
-        </div>
-        <div class="trust-item">
-          <span class="trust-icon">🔄</span>
-          <span class="trust-text">30-Day Guarantee</span>
-        </div>
-        <div class="trust-item">
-          <span class="trust-icon">🌱</span>
-          <span class="trust-text">100% Plant-Based</span>
-        </div>
-        <div class="trust-item">
-          <span class="trust-icon">⚡</span>
-          <span class="trust-text">Clean Energy</span>
-        </div>
+      <!-- Trust Line -->
+      <div class="trust-line">
+        <span>Free shipping • 30-day guarantee • 100% plant-based</span>
       </div>
 
+    </div>
+  </section>
+
+  <!-- ===== BENEFITS SECTION ===== -->
+  <section class="benefits-section">
+    <div class="benefits-container">
+      <div class="benefits-grid">
+        <div class="benefit-box">
+          <h3>90mg Natural Caffeine</h3>
+          <p>From green tea. Clean energy without the crash.</p>
+        </div>
+        <div class="benefit-box">
+          <h3>10g Plant Protein</h3>
+          <p>Complete amino acids for sustained performance.</p>
+        </div>
+        <div class="benefit-box">
+          <h3>Zero Added Sugar</h3>
+          <p>Naturally sweetened. No artificial ingredients.</p>
+        </div>
+        <div class="benefit-box">
+          <h3>L-Theanine</h3>
+          <p>Smooth focus. No jitters or anxiety.</p>
+        </div>
+      </div>
     </div>
   </section>
 
