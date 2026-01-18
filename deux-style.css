@@ -764,6 +764,55 @@ footer {
     display: none !important;
 }
 
+/* OVERRIDE: Allow page overlays on specific pages */
+body[data-page="shop"] .page-top-gradient,
+body[data-page="how-it-works"] .page-top-gradient,
+body[data-page="why-vero"] .page-top-gradient {
+    display: block !important;
+    visibility: visible !important;
+}
+
+/* Page-specific overlay colors */
+body[data-page="shop"] .page-top-gradient {
+    background: linear-gradient(180deg, 
+        rgba(147, 197, 253, 0.9) 0%, 
+        rgba(147, 197, 253, 0.6) 20%, 
+        rgba(147, 197, 253, 0.3) 50%, 
+        transparent 80%) !important;
+    height: 100vh !important;
+    z-index: 0 !important;
+    transition: opacity 0.8s ease-out !important;
+}
+
+body[data-page="how-it-works"] .page-top-gradient {
+    background: linear-gradient(180deg, 
+        rgba(34, 197, 94, 0.9) 0%, 
+        rgba(34, 197, 94, 0.6) 20%, 
+        rgba(34, 197, 94, 0.3) 50%, 
+        transparent 80%) !important;
+    height: 100vh !important;
+    z-index: 0 !important;
+    transition: opacity 0.8s ease-out !important;
+}
+
+body[data-page="why-vero"] .page-top-gradient {
+    background: linear-gradient(180deg, 
+        rgba(168, 85, 247, 0.9) 0%, 
+        rgba(168, 85, 247, 0.6) 20%, 
+        rgba(168, 85, 247, 0.3) 50%, 
+        transparent 80%) !important;
+    height: 100vh !important;
+    z-index: 0 !important;
+    transition: opacity 0.8s ease-out !important;
+}
+
+/* Fade overlay on scroll for all pages */
+body.scrolled[data-page="shop"] .page-top-gradient,
+body.scrolled[data-page="how-it-works"] .page-top-gradient,
+body.scrolled[data-page="why-vero"] .page-top-gradient {
+    opacity: 0.2 !important;
+}
+
 /* Clean spacing */
 .container {
     max-width: 1280px !important;
