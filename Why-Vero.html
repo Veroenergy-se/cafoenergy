@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Why Vero – The Future of Clean Energy</title>
+  <title>Why Vero – Our Story & Vision</title>
   
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWFPL9ZW9R"></script>
@@ -19,24 +19,16 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&family=Playfair+Display:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&family=Nunito:wght@400;500;600;700;800;900&family=Comfortaa:wght@300;400;500;600;700&family=Yellowtail&family=Belanosima:wght@400;600;700&family=Caveat:wght@400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=56" />
-  <link rel="stylesheet" href="deux-style.css?v=45" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&family=Nunito:wght@400;500;600;700;800;900&family=Comfortaa:wght@300;400;500;600;700&family=Yellowtail&family=Belanosima:wght@400;600;700&family=Caveat:wght@400;500;600;700&family=Merriweather:wght@300;400;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=55" />
+  <link rel="stylesheet" href="deux-style.css?v=44" />
   
   <style>
     body {
       overflow-x: hidden;
-    }
-    
-    .page-top-gradient {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 200px;
-      background: linear-gradient(180deg, rgba(168, 85, 247, 0.3) 0%, transparent 100%);
-      pointer-events: none;
-      z-index: 0;
+      background: white !important;
+      margin: 0 !important;
+      padding: 0 !important;
     }
 
     /* ===== NAVBAR (matching index.html exactly) ===== */
@@ -45,12 +37,15 @@
       top: 0;
       z-index: 999;
       width: 100%;
-      background: transparent;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-      transition: box-shadow 0.2s ease, border-color 0.2s ease;
+      background: white !important;
+      border-bottom: 1px solid #e5e5e5 !important;
+      transition: box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
     }
     .vero-navbar--scrolled {
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
       border-color: transparent;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
     }
     .vero-navbar__inner {
       max-width: 1120px;
@@ -62,17 +57,19 @@
     }
     .vero-navbar__brand {
       text-decoration: none;
-      color: #ffffff !important;
+      color: #1a1a1a !important;
       font-size: 1.8rem;
       font-weight: 600;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      opacity: 1 !important;
+      transition: color 0.2s ease;
+    }
+    .vero-navbar--scrolled .vero-navbar__brand {
+      color: #111827;
     }
     .vero-navbar__center {
       display: flex;
       align-items: center;
-      gap: 2rem;
     }
     .vero-navbar__links {
       list-style: none;
@@ -82,13 +79,16 @@
     }
     .vero-navbar__link {
       text-decoration: none;
-      color: #ffffff !important;
+      color: #1a1a1a !important;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       font-size: 1.05rem;
       padding-bottom: 2px;
       position: relative;
-      opacity: 1 !important;
+      transition: color 0.2s ease;
+    }
+    .vero-navbar--scrolled .vero-navbar__link {
+      color: #111827;
     }
     .vero-navbar__link::after {
       content: "";
@@ -97,18 +97,17 @@
       left: 0;
       width: 0%;
       height: 2px;
-      background: #ffffff !important;
-      transition: width 0.2s ease;
+      background: #1a1a1a !important;
+      transition: width 0.2s ease, background 0.2s ease;
+    }
+    .vero-navbar--scrolled .vero-navbar__link::after {
+      background: #111827;
     }
     .vero-navbar__link:hover::after {
       width: 100%;
     }
-    .vero-navbar__link:hover {
-      color: #ffffff !important;
-      opacity: 1 !important;
-    }
     .vero-navbar__cta {
-      background-color: rgba(255, 208, 116);
+      background-color: rgba(168, 85, 247);
       color: #1d1d1f;
       border-radius: 12px;
       font-size: 17px;
@@ -141,7 +140,7 @@
     .vero-navbar__toggle span {
       height: 3px;
       width: 100%;
-      background: #111827;
+      background: #1a1a1a !important;
       border-radius: 5px;
       transition: 0.3s ease;
     }
@@ -158,12 +157,20 @@
       .vero-navbar__toggle {
         display: flex;
       }
+      .vero-navbar__toggle span {
+        background: #1a1a1a !important;
+        transition: background 0.2s ease;
+      }
+      .vero-navbar--scrolled .vero-navbar__toggle span {
+        background: #111827;
+      }
       .vero-navbar__center {
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
-        background: #ffffff;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
         border-bottom: 1px solid #e5e7eb;
         flex-direction: column;
         gap: 1rem;
@@ -178,6 +185,12 @@
         transform: translateY(0);
         pointer-events: auto;
       }
+      .vero-navbar__center .vero-navbar__link {
+        color: #111827;
+      }
+      .vero-navbar__center .vero-navbar__link::after {
+        background: #111827;
+      }
       .vero-navbar__links {
         flex-direction: column;
         width: 100%;
@@ -189,6 +202,110 @@
         text-align: center;
       }
     }
+
+    /* ===== ULTRA CLEAN IMAGE + TEXT DESIGN ===== */
+    
+    /* Hide all color overlays */
+    .page-top-gradient {
+      display: none !important;
+    }
+
+    /* Full Width Images */
+    .hero-image-section,
+    .problem-image-section,
+    .solution-image-section,
+    .movement-image-section,
+    .vision-image-section {
+      width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .full-width-image {
+      width: 100% !important;
+      height: 60vh !important;
+      object-fit: cover !important;
+      display: block !important;
+    }
+
+    /* Clean Text Boxes */
+    .text-box-section {
+      padding: 80px 0 !important;
+      background: white !important;
+    }
+
+    .text-box {
+      max-width: 800px !important;
+      margin: 0 auto !important;
+      padding: 0 40px !important;
+      text-align: center !important;
+    }
+
+    .text-box h1 {
+      font-size: 4rem !important;
+      font-weight: 900 !important;
+      color: #1a1a1a !important;
+      margin-bottom: 30px !important;
+      line-height: 1.1 !important;
+    }
+
+    .text-box h2 {
+      font-size: 3rem !important;
+      font-weight: 800 !important;
+      color: #1a1a1a !important;
+      margin-bottom: 30px !important;
+      line-height: 1.2 !important;
+    }
+
+    .text-box p {
+      font-size: 1.3rem !important;
+      color: #666 !important;
+      line-height: 1.6 !important;
+      margin-bottom: 20px !important;
+    }
+
+    .story-button {
+      background: #1a1a1a !important;
+      color: white !important;
+      padding: 20px 50px !important;
+      border-radius: 0 !important;
+      text-decoration: none !important;
+      font-weight: 600 !important;
+      font-size: 1.1rem !important;
+      display: inline-block !important;
+      margin-top: 20px !important;
+      transition: all 0.3s ease !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.1em !important;
+    }
+
+    .story-button:hover {
+      background: #333 !important;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .full-width-image {
+        height: 40vh !important;
+      }
+
+      .text-box {
+        padding: 0 20px !important;
+      }
+
+      .text-box h1 {
+        font-size: 2.5rem !important;
+      }
+
+      .text-box h2 {
+        font-size: 2rem !important;
+      }
+
+      .text-box p {
+        font-size: 1.1rem !important;
+      }
+    }
+  </style>
 
     /* ===== HERO SECTION ===== */
     .hero {
@@ -337,13 +454,7 @@
       letter-spacing: 2px;
     }
 
-    /* ===== PROBLEM SECTION ===== */
-    .problem-section {
-      padding: 80px 0;
-      background: #1f2937;
-      color: white;
-    }
-
+    /* ===== SHARED STYLES ===== */
     .container {
       max-width: 1120px;
       margin: 0 auto;
@@ -362,132 +473,139 @@
       text-align: center;
     }
 
-    .problem-title {
-      color: white;
-      background: linear-gradient(135deg, #a855f7, #ec4899);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
     .section-subtitle {
       font-size: 1.2rem;
-      color: #9ca3af;
+      color: #6b7280;
       max-width: 600px;
       margin: 0 auto 60px;
       text-align: center;
     }
 
-    .problems-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 40px;
-      margin-top: 60px;
+    /* ===== THE PROBLEM SECTION ===== */
+    .problem-section {
+      padding: 80px 0;
+      background: #fef3c7;
+      color: #1f2937;
+    }
+
+    .problem-content {
       max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .problem-intro {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .problem-story {
+      font-size: 1.4rem;
+      line-height: 1.8;
+      color: #374151;
+      margin-bottom: 30px;
+      text-align: center;
+      max-width: 700px;
       margin-left: auto;
       margin-right: auto;
     }
 
-    .problem-card {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 24px;
+    .problem-highlight {
+      color: #dc2626;
+      font-weight: 700;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      margin: 60px 0;
+    }
+
+    .stat-card {
+      background: white;
+      border-radius: 20px;
       padding: 40px;
-      text-align: left;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .problem-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 4px;
-      height: 100%;
-      background: linear-gradient(180deg, #ef4444, #dc2626);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .problem-card:hover {
-      transform: translateY(-8px);
-      background: rgba(255, 255, 255, 0.08);
-      border-color: rgba(168, 85, 247, 0.3);
-    }
-
-    .problem-card:hover::before {
-      opacity: 1;
-    }
-
-    .problem-header {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 20px;
-    }
-
-    .problem-number {
-      width: 40px;
-      height: 40px;
-      background: linear-gradient(135deg, #ef4444, #dc2626);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: 700;
-      font-size: 1.1rem;
-      flex-shrink: 0;
-    }
-
-    .problem-card-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: white;
-      margin: 0;
-    }
-
-    .problem-description {
-      color: #d1d5db;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-    .problem-stats {
-      display: flex;
-      gap: 20px;
-      margin-top: 20px;
-    }
-
-    .problem-stat {
       text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+      border-color: #dc2626;
+      box-shadow: 0 20px 40px rgba(220, 38, 38, 0.15);
     }
 
     .stat-number {
+      font-size: 4rem;
+      font-weight: 900;
+      color: #dc2626;
       display: block;
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: #ef4444;
-      margin-bottom: 4px;
+      margin-bottom: 15px;
+      font-family: 'Poppins', sans-serif;
     }
 
     .stat-label {
-      font-size: 0.8rem;
-      color: #9ca3af;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+      color: #1f2937;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
     }
 
-    /* ===== SOLUTION SECTION ===== */
+    .stat-description {
+      color: #6b7280;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .impact-section {
+      background: rgba(220, 38, 38, 0.05);
+      border-radius: 24px;
+      padding: 40px;
+      margin-top: 60px;
+    }
+
+    .impact-title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #dc2626;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .impact-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .impact-stat {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .impact-number {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: #dc2626;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .impact-text {
+      color: #374151;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    /* ===== OUR SOLUTION SECTION ===== */
     .solution-section {
       padding: 80px 0;
       background: #bfdbfe;
     }
 
-    .solutions-grid {
+    .solution-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 30px;
@@ -497,7 +615,7 @@
     .solution-card {
       background: white;
       border-radius: 24px;
-      padding: 40px;
+      padding: 30px;
       text-align: left;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       border: 2px solid transparent;
@@ -528,13 +646,6 @@
       transform: scaleX(1);
     }
 
-    .solution-header {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 20px;
-    }
-
     .solution-badge {
       background: linear-gradient(135deg, #a855f7, #ec4899);
       color: white;
@@ -544,117 +655,203 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.05em;
+      display: inline-block;
+      margin-bottom: 16px;
     }
 
-    .solution-card-title {
+    .solution-title {
       font-size: 1.5rem;
       font-weight: 700;
       color: #1f2937;
-      margin: 0;
+      margin-bottom: 16px;
     }
 
     .solution-description {
       color: #6b7280;
       line-height: 1.6;
+    }
+
+    /* ===== MOVEMENT SECTION ===== */
+    .movement-section {
+      padding: 80px 0;
+      background: #f0f9ff;
+    }
+
+    .movement-content {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .movement-intro {
+      font-size: 1.3rem;
+      line-height: 1.8;
+      color: #374151;
+      margin-bottom: 60px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .movement-highlight {
+      color: #a855f7;
+      font-weight: 700;
+    }
+
+    .success-stories {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      margin-top: 60px;
+    }
+
+    .success-card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      text-align: left;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .success-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #a855f7, #ec4899);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .success-card:hover {
+      transform: translateY(-5px);
+      border-color: #a855f7;
+      box-shadow: 0 20px 40px rgba(168, 85, 247, 0.2);
+    }
+
+    .success-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .success-badge {
+      background: linear-gradient(135deg, #a855f7, #ec4899);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 16px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: inline-block;
+      margin-bottom: 16px;
+    }
+
+    .success-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 12px;
+    }
+
+    .success-description {
+      color: #6b7280;
+      line-height: 1.6;
       margin-bottom: 20px;
     }
 
-    .solution-benefits {
-      list-style: none;
-      padding: 0;
-    }
-
-    .solution-benefits li {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 8px;
+    .success-cta {
+      color: #a855f7;
+      font-weight: 600;
+      text-decoration: none;
       font-size: 0.9rem;
-      color: #4b5563;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: all 0.2s ease;
     }
 
-    .solution-benefits li::before {
-      content: '✓';
-      width: 20px;
-      height: 20px;
-      background: linear-gradient(135deg, #10b981, #059669);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: 700;
-      font-size: 0.7rem;
-      flex-shrink: 0;
+    .success-cta:hover {
+      color: #9333ea;
+      text-decoration: underline;
     }
 
-    /* ===== TESTIMONIALS SECTION ===== */
-    .testimonials-section {
+    .movement-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin: 60px 0;
+      padding: 40px;
+      background: rgba(168, 85, 247, 0.05);
+      border-radius: 24px;
+    }
+
+    .movement-stat {
+      text-align: center;
+    }
+
+    .movement-number {
+      font-size: 3rem;
+      font-weight: 900;
+      color: #a855f7;
+      display: block;
+      margin-bottom: 10px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .movement-label {
+      color: #374151;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    /* ===== VISION SECTION ===== */
+    .vision-section {
       padding: 80px 0;
       background: linear-gradient(135deg, #a855f7, #ec4899);
       color: white;
     }
 
-    .testimonials-grid {
+    .vision-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .vision-text {
+      font-size: 1.3rem;
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+
+    .vision-goals {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 30px;
       margin-top: 60px;
     }
 
-    .testimonial-card {
+    .vision-goal {
       background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 24px;
-      padding: 40px;
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-
-    .testimonial-card:hover {
-      transform: translateY(-4px);
-      background: rgba(255, 255, 255, 0.15);
-    }
-
-    .testimonial-quote {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      margin-bottom: 30px;
-      font-style: italic;
-    }
-
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-    }
-
-    .author-avatar {
-      width: 50px;
-      height: 50px;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 1.2rem;
-    }
-
-    .author-info {
+      border-radius: 20px;
+      padding: 30px;
       text-align: left;
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
-    .author-name {
+    .vision-goal h4 {
+      font-size: 1.3rem;
       font-weight: 700;
-      margin-bottom: 4px;
+      margin-bottom: 16px;
     }
 
-    .author-role {
-      font-size: 0.9rem;
-      opacity: 0.8;
+    .vision-goal p {
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.6;
     }
 
     @media (max-width: 768px) {
@@ -672,31 +869,51 @@
         order: 1;
       }
 
-      .problems-grid {
+      .stats-grid {
         grid-template-columns: 1fr;
         gap: 20px;
       }
 
-      .solutions-grid {
+      .impact-stats {
         grid-template-columns: 1fr;
         gap: 20px;
       }
 
-      .testimonials-grid {
+      .solution-grid {
         grid-template-columns: 1fr;
         gap: 20px;
       }
 
-      .problem-stats {
-        justify-content: center;
+      .success-stories {
+        grid-template-columns: 1fr;
+        gap: 20px;
       }
+
+      .movement-stats {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .vision-goals {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .success-card {
+        text-align: center;
+      }
+    }
+
+    /* FINAL OVERRIDE - ENSURE OVERLAY IS VISIBLE */
+    body[data-page="why-vero"] .page-top-gradient {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      z-index: 998 !important;
     }
   </style>
 </head>
-<body>
-
-  <!-- Soft purple band behind transparent header -->
-  <div class="page-top-gradient"></div>
+<body data-page="why-vero">
 
   <!-- ===== NAVBAR (matching index.html exactly) ===== -->
   <nav class="vero-navbar" id="veroNavbar">
@@ -709,7 +926,7 @@
         <span></span>
       </div>
       
-      <div class="vero-navbar__center">
+      <div class="vero-navbar__center" id="veroMenu">
         <ul class="vero-navbar__links">
           <li><a class="vero-navbar__link" href="index.html">Home</a></li>
           <li><a class="vero-navbar__link" href="Shop.html">Shop</a></li>
@@ -724,281 +941,74 @@
     </div>
   </nav>
 
-  <!-- ===== HERO SECTION ===== -->
-  <section class="hero" id="home">
-    <div class="hero-container">
-      
-      <!-- Hero Text Side -->
-      <div class="hero-text-side">
-        <h1 class="hero-headline">
-          <span class="headline-main">Why We Built</span>
-          <span class="headline-script">Vero.</span>
-        </h1>
-        
-        <p class="hero-description">
-          We were tired of choosing between energy and health. So we created the first energy bar that delivers both – clean, sustained power without compromise.
-        </p>
-        
-        <div class="hero-cta-group">
-          <a href="#problems" class="cta-primary">See The Problem</a>
-          <a href="Shop.html" class="cta-secondary">Shop Now</a>
-        </div>
-      </div>
+  <!-- ===== HERO IMAGE SECTION ===== -->
+  <section class="hero-image-section">
+    <img src="IMG_8401.JPG" alt="Why We Built Vero" class="full-width-image" />
+  </section>
 
-      <!-- Hero Product Side -->
-      <div class="hero-product-showcase">
-        <div class="hero-product-card">
-          <div class="product-visual">
-            <div class="bar-3d bar-energy-3d"></div>
-          </div>
-        </div>
-      </div>
-      
+  <!-- ===== HERO TEXT BOX ===== -->
+  <section class="text-box-section">
+    <div class="text-box">
+      <h1>Why We Built Vero</h1>
+      <p>Our story isn't about disruption or innovation buzzwords. It's about three friends who got tired of choosing between energy and health.</p>
+      <a href="Shop.html" class="story-button">Join The Movement</a>
     </div>
   </section>
 
-  <!-- ===== PROBLEM SECTION ===== -->
-  <section id="problems" class="problem-section">
-    <div class="container">
-      <h2 class="section-title problem-title">The Energy Problem</h2>
-      <p class="section-subtitle">
-        Traditional energy sources leave you worse off than when you started.
-      </p>
+  <!-- ===== PROBLEM IMAGE SECTION ===== -->
+  <section class="problem-image-section">
+    <img src="ChatGPT Image 14 dec. 2025 16_43_50.png" alt="The Student Energy Crisis" class="full-width-image" />
+  </section>
 
-      <div class="problems-grid">
-        <div class="problem-card">
-          <div class="problem-header">
-            <div class="problem-number">1</div>
-            <h3 class="problem-card-title">The Coffee Trap</h3>
-          </div>
-          <p class="problem-description">
-            You know the cycle. That first cup hits perfectly, but by 11am you're already reaching for another. By afternoon, you're either wired or crashing. We've all been there.
-          </p>
-          <div class="problem-stats">
-            <div class="problem-stat">
-              <span class="stat-number">3-4</span>
-              <span class="stat-label">Cups Daily</span>
-            </div>
-            <div class="problem-stat">
-              <span class="stat-number">2pm</span>
-              <span class="stat-label">Crash Time</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="problem-card">
-          <div class="problem-header">
-            <div class="problem-number">2</div>
-            <h3 class="problem-card-title">Sugar Rollercoaster</h3>
-          </div>
-          <p class="problem-description">
-            Energy drinks promise the world but deliver a 20-minute high followed by a brutal low. Your productivity tanks, your mood suffers, and you're left feeling worse than when you started.
-          </p>
-          <div class="problem-stats">
-            <div class="problem-stat">
-              <span class="stat-number">39g</span>
-              <span class="stat-label">Sugar Per Can</span>
-            </div>
-            <div class="problem-stat">
-              <span class="stat-number">30min</span>
-              <span class="stat-label">Until Crash</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="problem-card">
-          <div class="problem-header">
-            <div class="problem-number">3</div>
-            <h3 class="problem-card-title">The Jitter Struggle</h3>
-          </div>
-          <p class="problem-description">
-            Too much caffeine too fast turns you into a shaky, anxious mess. You wanted focus but got fidgety hands and a racing heart. Energy shouldn't come with side effects.
-          </p>
-          <div class="problem-stats">
-            <div class="problem-stat">
-              <span class="stat-number">200mg+</span>
-              <span class="stat-label">Caffeine Overload</span>
-            </div>
-            <div class="problem-stat">
-              <span class="stat-number">Hours</span>
-              <span class="stat-label">Of Anxiety</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="problem-card">
-          <div class="problem-header">
-            <div class="problem-number">4</div>
-            <h3 class="problem-card-title">Fake Fuel</h3>
-          </div>
-          <p class="problem-description">
-            Artificial sweeteners, synthetic stimulants, chemical preservatives. Your body deserves real ingredients, not a chemistry experiment disguised as nutrition.
-          </p>
-          <div class="problem-stats">
-            <div class="problem-stat">
-              <span class="stat-number">15+</span>
-              <span class="stat-label">Additives</span>
-            </div>
-            <div class="problem-stat">
-              <span class="stat-number">0%</span>
-              <span class="stat-label">Real Nutrition</span>
-            </div>
-          </div>
-        </div>
-      </div>
+  <!-- ===== PROBLEM TEXT BOX ===== -->
+  <section class="text-box-section">
+    <div class="text-box">
+      <h2>The Student Energy Crisis</h2>
+      <p>Picture this: It's 2am in Stockholm. We're cramming for exams, surviving on our fifth cup of coffee and whatever energy drinks we could find. The next morning? We felt worse than when we started.</p>
+      <p>We realized we weren't alone. Students everywhere are stuck in the same destructive cycle, and it's crushing their academic performance.</p>
     </div>
   </section>
 
-  <!-- ===== SOLUTION SECTION ===== -->
-  <section class="solution-section">
-    <div class="container">
-      <h2 class="section-title">The Vero Solution</h2>
-      <p class="section-subtitle">
-        We engineered a better way to fuel your body and mind.
-      </p>
+  <!-- ===== SOLUTION IMAGE SECTION ===== -->
+  <section class="solution-image-section">
+    <img src="Peanut butter studio pic.jpg" alt="Our Solution" class="full-width-image" />
+  </section>
 
-      <div class="solutions-grid">
-        <div class="solution-card">
-          <div class="solution-header">
-            <div class="solution-badge">Clean</div>
-            <h3 class="solution-card-title">Natural Caffeine</h3>
-          </div>
-          <p class="solution-description">
-            Green tea caffeine paired with L-theanine creates the perfect balance - alert but calm, focused but not frantic.
-          </p>
-          <ul class="solution-benefits">
-            <li>90mg natural caffeine per bar</li>
-            <li>L-theanine for smooth focus</li>
-            <li>No synthetic stimulants</li>
-          </ul>
-        </div>
-
-        <div class="solution-card">
-          <div class="solution-header">
-            <div class="solution-badge">Balanced</div>
-            <h3 class="solution-card-title">Smart Macros</h3>
-          </div>
-          <p class="solution-description">
-            Protein, complex carbs, and healthy fats work together to provide steady energy release that lasts hours, not minutes.
-          </p>
-          <ul class="solution-benefits">
-            <li>10g complete plant protein</li>
-            <li>Complex carbs for sustained energy</li>
-            <li>Healthy fats for satiety</li>
-          </ul>
-        </div>
-
-        <div class="solution-card">
-          <div class="solution-header">
-            <div class="solution-badge">Pure</div>
-            <h3 class="solution-card-title">Zero Added Sugar</h3>
-          </div>
-          <p class="solution-description">
-            Naturally sweetened with dates and monk fruit. Stable blood sugar means stable energy and mood throughout your day.
-          </p>
-          <ul class="solution-benefits">
-            <li>0g added sugars</li>
-            <li>Natural sweeteners only</li>
-            <li>No blood sugar spikes</li>
-          </ul>
-        </div>
-
-        <div class="solution-card">
-          <div class="solution-header">
-            <div class="solution-badge">Smart</div>
-            <h3 class="solution-card-title">Cognitive Support</h3>
-          </div>
-          <p class="solution-description">
-            Adaptogens and nootropics enhance mental clarity while reducing stress, so you can perform at your peak under pressure.
-          </p>
-          <ul class="solution-benefits">
-            <li>Rhodiola for stress resilience</li>
-            <li>Lion's mane for focus</li>
-            <li>Ashwagandha for calm energy</li>
-          </ul>
-        </div>
-
-        <div class="solution-card">
-          <div class="solution-header">
-            <div class="solution-badge">Lasting</div>
-            <h3 class="solution-card-title">4+ Hour Energy</h3>
-          </div>
-          <p class="solution-description">
-            Our unique formula provides sustained energy that matches your ambition - no crashes, no regrets, just consistent performance.
-          </p>
-          <ul class="solution-benefits">
-            <li>4+ hours sustained energy</li>
-            <li>No afternoon crashes</li>
-            <li>Consistent performance</li>
-          </ul>
-        </div>
-
-        <div class="solution-card">
-          <div class="solution-header">
-            <div class="solution-badge">Real</div>
-            <h3 class="solution-card-title">Plant-Based Power</h3>
-          </div>
-          <p class="solution-description">
-            100% plant-based ingredients your body recognizes and loves. Clean nutrition without compromise or artificial additives.
-          </p>
-          <ul class="solution-benefits">
-            <li>100% plant-based</li>
-            <li>Complete amino acid profile</li>
-            <li>No artificial ingredients</li>
-          </ul>
-        </div>
-      </div>
+  <!-- ===== SOLUTION TEXT BOX ===== -->
+  <section class="text-box-section">
+    <div class="text-box">
+      <h2>Our Solution</h2>
+      <p>We spent months researching, testing, and perfecting a formula that actually works.</p>
+      <p>90mg from green tea - enough to energize without overwhelming. 10g plant protein, complex carbs, and healthy fats work together for sustained energy release. Zero added sugar. Naturally sweetened with dates and monk fruit.</p>
     </div>
   </section>
 
-  <!-- ===== TESTIMONIALS SECTION ===== -->
-  <section class="testimonials-section">
-    <div class="container">
-      <h2 class="section-title" style="color: white;">What People Are Saying</h2>
-      <p class="section-subtitle">
-        Real feedback from people who've made the switch to clean energy.
-      </p>
+  <!-- ===== MOVEMENT IMAGE SECTION ===== -->
+  <section class="movement-image-section">
+    <img src="hero-image.jpg" alt="Building The Movement" class="full-width-image" />
+  </section>
 
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <p class="testimonial-quote">
-            "Finally, an energy bar that doesn't make me crash. I can study for hours without that awful afternoon slump. Game changer for my productivity."
-          </p>
-          <div class="testimonial-author">
-            <div class="author-avatar">JS</div>
-            <div class="author-info">
-              <div class="author-name">Jessica S.</div>
-              <div class="author-role">Medical Student</div>
-            </div>
-          </div>
-        </div>
+  <!-- ===== MOVEMENT TEXT BOX ===== -->
+  <section class="text-box-section">
+    <div class="text-box">
+      <h2>Building The Movement</h2>
+      <p>We're not just selling energy bars. We're building a movement of students who refuse to compromise their health for their goals.</p>
+      <p>Every Vero bar sold is a vote for a future where clean energy is the norm, not the exception. Where students can achieve their dreams without sacrificing their wellbeing.</p>
+    </div>
+  </section>
 
-        <div class="testimonial-card">
-          <p class="testimonial-quote">
-            "I was skeptical about another energy bar, but Vero is different. Clean ingredients, great taste, and energy that actually lasts. No more 3pm coffee runs."
-          </p>
-          <div class="testimonial-author">
-            <div class="author-avatar">MK</div>
-            <div class="author-info">
-              <div class="author-name">Marcus K.</div>
-              <div class="author-role">Software Engineer</div>
-            </div>
-          </div>
-        </div>
+  <!-- ===== VISION IMAGE SECTION ===== -->
+  <section class="vision-image-section">
+    <img src="stacked polaroid.jpg" alt="Join The Movement" class="full-width-image" />
+  </section>
 
-        <div class="testimonial-card">
-          <p class="testimonial-quote">
-            "Perfect for my morning workouts and long work days. The energy is smooth and sustained - exactly what I needed to replace my energy drink habit."
-          </p>
-          <div class="testimonial-author">
-            <div class="author-avatar">AL</div>
-            <div class="author-info">
-              <div class="author-name">Anna L.</div>
-              <div class="author-role">Fitness Coach</div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <!-- ===== VISION TEXT BOX ===== -->
+  <section class="text-box-section">
+    <div class="text-box">
+      <h2>Join The Movement</h2>
+      <p>We're building more than a brand - we're creating a generation of students who prioritize their health while chasing their dreams.</p>
+      <p>Every student who chooses Vero is part of this movement. Make clean energy the new normal. Prove that you don't have to sacrifice your wellbeing to achieve academic excellence.</p>
+      <a href="Shop.html" class="story-button">Get Energized</a>
     </div>
   </section>
 
@@ -1055,7 +1065,7 @@
 
   <script>
     const toggle = document.getElementById("veroToggle");
-    const menu = document.querySelector(".vero-navbar__center");
+    const menu = document.getElementById("veroMenu");
     const navbar = document.getElementById("veroNavbar");
     
     toggle.addEventListener("click", () => {
@@ -1063,7 +1073,15 @@
       menu.classList.toggle("vero-navbar__center--open");
     });
     
-    // Scroll event listener removed to prevent navbar changes
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 10) {
+        navbar.classList.add("vero-navbar--scrolled");
+        document.body.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("vero-navbar--scrolled");
+        document.body.classList.remove("scrolled");
+      }
+    });
 
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

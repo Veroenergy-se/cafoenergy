@@ -19,40 +19,31 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&family=Anton&family=Gloock&family=Fredericka+the+Great&family=Playfair+Display:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&family=Nunito:wght@400;500;600;700;800;900&family=Comfortaa:wght@300;400;500;600;700&family=Yellowtail&family=Belanosima:wght@400;600;700&family=Caveat:wght@400;500;600;700&family=Merriweather:wght@300;400;700&family=Passion+One:wght@400;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=56" />
-  <link rel="stylesheet" href="deux-style.css?v=45" />
-  <link rel="stylesheet" href="our-story-override.css?v=22" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&family=Nunito:wght@400;500;600;700;800;900&family=Comfortaa:wght@300;400;500;600;700&family=Yellowtail&family=Belanosima:wght@400;600;700&family=Caveat:wght@400;500;600;700&family=Merriweather:wght@300;400;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=55" />
+  <link rel="stylesheet" href="deux-style.css?v=44" />
+  <link rel="stylesheet" href="our-story-override.css?v=21" />
   
   <style>
     body {
       overflow-x: hidden;
     }
-    
-    .page-top-gradient {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 200px;
-      background: linear-gradient(180deg, rgba(147, 197, 253, 0.3) 0%, transparent 100%);
-      pointer-events: none;
-      z-index: 0;
-    }
 
-    /* ===== NAVBAR (copied from index.html) ===== */
+    /* ===== NAVBAR (matching index.html exactly) ===== */
     .vero-navbar {
       position: sticky;
       top: 0;
       z-index: 999;
       width: 100%;
-      background: rgba(0, 0, 0, 1);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-      transition: box-shadow 0.2s ease, border-color 0.2s ease;
-      backdrop-filter: blur(10px);
+      background: transparent;
+      border-bottom: none;
+      transition: box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
     }
     .vero-navbar--scrolled {
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
       border-color: transparent;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
     }
     .vero-navbar__inner {
       max-width: 1120px;
@@ -64,20 +55,19 @@
     }
     .vero-navbar__brand {
       text-decoration: none;
-      color: #ffffff !important;
-      font-size: 2.2rem !important;
-      font-weight: 800 !important;
-      letter-spacing: 0.02em !important;
-      text-transform: uppercase !important;
-      opacity: 1 !important;
-      font-family: 'Bebas Neue', 'Oswald', 'Passion One', 'Anton', 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif !important;
-      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6) !important;
-      transition: all 0.3s ease !important;
+      color: white;
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s ease;
+    }
+    .vero-navbar--scrolled .vero-navbar__brand {
+      color: #111827;
     }
     .vero-navbar__center {
       display: flex;
       align-items: center;
-      gap: 2rem;
     }
     .vero-navbar__links {
       list-style: none;
@@ -87,17 +77,16 @@
     }
     .vero-navbar__link {
       text-decoration: none;
-      color: #ffffff !important;
-      text-transform: uppercase !important;
-      letter-spacing: 0.02em !important;
-      font-size: 1.3rem !important;
-      font-weight: 600 !important;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 1.05rem;
       padding-bottom: 2px;
       position: relative;
-      opacity: 1 !important;
-      font-family: 'Bebas Neue', 'Oswald', 'Passion One', 'Anton', 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif !important;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5) !important;
-      transition: all 0.3s ease !important;
+      transition: color 0.2s ease;
+    }
+    .vero-navbar--scrolled .vero-navbar__link {
+      color: #111827;
     }
     .vero-navbar__link::after {
       content: "";
@@ -106,48 +95,36 @@
       left: 0;
       width: 0%;
       height: 2px;
-      background: #ffffff !important;
-      transition: width 0.2s ease;
+      background: white;
+      transition: width 0.2s ease, background 0.2s ease;
+    }
+    .vero-navbar--scrolled .vero-navbar__link::after {
+      background: #111827;
     }
     .vero-navbar__link:hover::after {
       width: 100%;
     }
-    .vero-navbar__link:hover {
-      color: #ffffff !important;
-      opacity: 1 !important;
-      text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7) !important;
-      transform: translateY(-1px) !important;
-    }
     .vero-navbar__cta {
-      background: transparent !important;
-      color: #ffffff !important;
-      border: 2px solid #ffffff !important;
-      border-radius: 0 !important;
-      font-size: 1.2rem !important;
-      font-weight: 700 !important;
-      text-transform: uppercase !important;
-      letter-spacing: 0.02em !important;
-      padding: 0.8rem 2.5rem !important;
+      background-color: rgba(147, 197, 253);
+      color: #1d1d1f;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: 600;
+      padding: 1em 2em;
       cursor: pointer;
-      transition: all 0.3s ease !important;
+      transition: all 0.3s ease-in-out;
+      border: 1px solid black;
+      box-shadow: 0 0 0 0 black;
       text-decoration: none;
       display: inline-block;
-      font-family: 'Bebas Neue', 'Oswald', 'Passion One', 'Anton', 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif !important;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5) !important;
-      min-width: 180px !important;
-      text-align: center !important;
     }
     .vero-navbar__cta:hover {
-      background: #ffffff !important;
-      color: #000000 !important;
-      border: 2px solid #ffffff !important;
-      transform: translateY(-1px) !important;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
-      text-shadow: none !important;
+      transform: translateY(-4px) translateX(-2px);
+      box-shadow: 2px 5px 0 0 black;
     }
     .vero-navbar__cta:active {
-      transform: translateY(0) !important;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+      transform: translateY(2px) translateX(1px);
+      box-shadow: 0 0 0 0 black;
     }
     .vero-navbar__toggle {
       display: none;
@@ -178,12 +155,20 @@
       .vero-navbar__toggle {
         display: flex;
       }
+      .vero-navbar__toggle span {
+        background: white;
+        transition: background 0.2s ease;
+      }
+      .vero-navbar--scrolled .vero-navbar__toggle span {
+        background: #111827;
+      }
       .vero-navbar__center {
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
-        background: #ffffff;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
         border-bottom: 1px solid #e5e7eb;
         flex-direction: column;
         gap: 1rem;
@@ -197,6 +182,12 @@
         opacity: 1;
         transform: translateY(0);
         pointer-events: auto;
+      }
+      .vero-navbar__center .vero-navbar__link {
+        color: #111827;
+      }
+      .vero-navbar__center .vero-navbar__link::after {
+        background: #111827;
       }
       .vero-navbar__links {
         flex-direction: column;
@@ -357,6 +348,530 @@
       letter-spacing: 2px;
     }
 
+    /* ===== ULTRA CLEAN IMAGE + TEXT DESIGN ===== */
+    
+    /* Remove all background colors and overlays */
+    body {
+      background: white !important;
+      overflow-x: hidden;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    /* Hide the color overlay completely */
+    .page-top-gradient {
+      display: none !important;
+    }
+
+    /* Make navbar solid white */
+    .vero-navbar {
+      background: white !important;
+      border-bottom: 1px solid #e5e5e5 !important;
+    }
+
+    .vero-navbar__brand,
+    .vero-navbar__link {
+      color: #1a1a1a !important;
+    }
+
+    .vero-navbar__link::after {
+      background: #1a1a1a !important;
+    }
+
+    /* Full Width Images */
+    .hero-image-section,
+    .lifestyle-image-section {
+      width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .full-width-image {
+      width: 100% !important;
+      height: 60vh !important;
+      object-fit: cover !important;
+      display: block !important;
+    }
+
+    /* Clean Text Boxes */
+    .text-box-section,
+    .products-section,
+    .benefits-section {
+      padding: 80px 0 !important;
+      background: white !important;
+    }
+
+    .text-box {
+      max-width: 800px !important;
+      margin: 0 auto !important;
+      padding: 0 40px !important;
+      text-align: center !important;
+    }
+
+    .text-box h1 {
+      font-size: 4rem !important;
+      font-weight: 900 !important;
+      color: #1a1a1a !important;
+      margin-bottom: 30px !important;
+      line-height: 1.1 !important;
+    }
+
+    .text-box h2 {
+      font-size: 3rem !important;
+      font-weight: 800 !important;
+      color: #1a1a1a !important;
+      margin-bottom: 30px !important;
+      line-height: 1.2 !important;
+    }
+
+    .text-box p {
+      font-size: 1.3rem !important;
+      color: #666 !important;
+      line-height: 1.6 !important;
+      margin-bottom: 20px !important;
+    }
+
+    .shop-button {
+      background: #1a1a1a !important;
+      color: white !important;
+      padding: 20px 50px !important;
+      border-radius: 0 !important;
+      text-decoration: none !important;
+      font-weight: 600 !important;
+      font-size: 1.1rem !important;
+      display: inline-block !important;
+      margin-top: 20px !important;
+      transition: all 0.3s ease !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.1em !important;
+    }
+
+    .shop-button:hover {
+      background: #333 !important;
+    }
+
+    /* Simple Products Grid */
+    .products-simple-grid {
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 60px !important;
+      margin: 60px 0 40px !important;
+    }
+
+    .product-simple {
+      text-align: center !important;
+      position: relative !important;
+    }
+
+    .product-simple.featured {
+      transform: scale(1.05) !important;
+    }
+
+    .featured-label {
+      position: absolute !important;
+      top: -20px !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      background: #1a1a1a !important;
+      color: white !important;
+      padding: 8px 20px !important;
+      font-size: 0.8rem !important;
+      font-weight: 600 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.1em !important;
+    }
+
+    .product-number {
+      font-size: 5rem !important;
+      font-weight: 900 !important;
+      color: #1a1a1a !important;
+      margin-bottom: 20px !important;
+      line-height: 1 !important;
+    }
+
+    .product-simple h3 {
+      font-size: 1.8rem !important;
+      font-weight: 700 !important;
+      color: #1a1a1a !important;
+      margin-bottom: 10px !important;
+    }
+
+    .product-simple p {
+      color: #666 !important;
+      margin-bottom: 20px !important;
+      font-size: 1rem !important;
+    }
+
+    .price {
+      font-size: 2.5rem !important;
+      font-weight: 900 !important;
+      color: #1a1a1a !important;
+      margin-bottom: 30px !important;
+    }
+
+    .buy-button {
+      background: white !important;
+      color: #1a1a1a !important;
+      border: 2px solid #1a1a1a !important;
+      padding: 15px 40px !important;
+      font-weight: 600 !important;
+      cursor: pointer !important;
+      transition: all 0.3s ease !important;
+      width: 100% !important;
+      font-size: 1rem !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.1em !important;
+    }
+
+    .buy-button:hover {
+      background: #1a1a1a !important;
+      color: white !important;
+    }
+
+    .buy-button.primary {
+      background: #1a1a1a !important;
+      color: white !important;
+    }
+
+    .buy-button.primary:hover {
+      background: #333 !important;
+    }
+
+    .guarantee {
+      text-align: center !important;
+      color: #666 !important;
+      font-size: 1rem !important;
+      margin-top: 40px !important;
+      padding-top: 40px !important;
+      border-top: 1px solid #e5e5e5 !important;
+    }
+
+    /* Simple Benefits Grid */
+    .benefits-simple-grid {
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 60px !important;
+      margin-top: 60px !important;
+    }
+
+    .benefit-simple {
+      text-align: center !important;
+    }
+
+    .benefit-simple h3 {
+      font-size: 1.5rem !important;
+      font-weight: 700 !important;
+      color: #1a1a1a !important;
+      margin-bottom: 15px !important;
+    }
+
+    .benefit-simple p {
+      color: #666 !important;
+      line-height: 1.6 !important;
+      margin: 0 !important;
+      font-size: 1rem !important;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .full-width-image {
+        height: 40vh !important;
+      }
+
+      .text-box {
+        padding: 0 20px !important;
+      }
+
+      .text-box h1 {
+        font-size: 2.5rem !important;
+      }
+
+      .text-box h2 {
+        font-size: 2rem !important;
+      }
+
+      .text-box p {
+        font-size: 1.1rem !important;
+      }
+
+      .products-simple-grid {
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+      }
+
+      .product-simple.featured {
+        transform: none !important;
+      }
+
+      .benefits-simple-grid {
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+      }
+
+      .product-number {
+        font-size: 3.5rem !important;
+      }
+
+      .price {
+        font-size: 2rem !important;
+      }
+    }
+
+    /* FINAL OVERRIDE - ENSURE OVERLAY IS VISIBLE */
+    body[data-page="shop"] .page-top-gradient {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      z-index: 998 !important;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .products-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .products-title {
+      font-size: 5rem;
+      font-weight: 900;
+      color: #1f2937;
+      margin-bottom: 16px;
+      font-family: 'Poppins', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .products-subtitle {
+      font-size: 1.2rem;
+      color: #6b7280;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .quantity-carousel-wrapper {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      overflow: hidden;
+      padding: 0 60px;
+    }
+
+    .quantity-carousel {
+      display: flex;
+      gap: 30px;
+      transition: transform 0.5s ease;
+      padding: 20px 0;
+    }
+
+    .quantity-card {
+      flex: 0 0 350px;
+      background: white;
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+      position: relative;
+      opacity: 0.7;
+      transform: scale(0.95);
+    }
+
+    .quantity-card.active {
+      opacity: 1;
+      transform: scale(1);
+      border-color: #93c5fd;
+      box-shadow: 0 20px 40px rgba(147, 197, 253, 0.3);
+    }
+
+    .quantity-card.popular::before {
+      content: 'Most Popular';
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #f093fb, #f5576c);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .quantity-visual {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .quantity-amount {
+      font-size: 3rem;
+      font-weight: 900;
+      color: #93c5fd;
+      margin-bottom: 10px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .product-box {
+      width: 120px;
+      height: 80px;
+      background: linear-gradient(135deg, #93c5fd, #60a5fa);
+      border-radius: 12px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 20px rgba(147, 197, 253, 0.3);
+    }
+
+    .box-label {
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .quantity-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .quantity-header h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 8px;
+    }
+
+    .quantity-subtitle {
+      color: #6b7280;
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+    }
+
+    .savings-badge {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .quantity-details {
+      text-align: center;
+    }
+
+    .quantity-cta {
+      background-color: rgba(147, 197, 253);
+      color: #1d1d1f;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: 600;
+      padding: 1em 2em;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      border: 1px solid black;
+      box-shadow: 0 0 0 0 black;
+      text-decoration: none;
+      display: block;
+      width: 100%;
+    }
+
+    .quantity-cta:hover {
+      transform: translateY(-4px) translateX(-2px);
+      box-shadow: 2px 5px 0 0 black;
+    }
+
+    .quantity-cta:active {
+      transform: translateY(2px) translateX(1px);
+      box-shadow: 0 0 0 0 black;
+    }
+
+    .cta-text {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .cta-price {
+      font-size: 1.5rem;
+      font-weight: 900;
+    }
+
+    .carousel-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: white;
+      border: 2px solid #e5e7eb;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: #6b7280;
+      transition: all 0.2s ease;
+      z-index: 10;
+    }
+
+    .carousel-nav:hover {
+      border-color: #93c5fd;
+      color: #1f2937;
+      box-shadow: 0 4px 12px rgba(147, 197, 253, 0.3);
+    }
+
+    .carousel-prev {
+      left: 10px;
+    }
+
+    .carousel-next {
+      right: 10px;
+    }
+
+    .carousel-indicators {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 40px;
+    }
+
+    .indicator {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #e5e7eb;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .indicator.active {
+      background: #93c5fd;
+      transform: scale(1.2);
+    }
+
+    .products-footer-info {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+      background: #f8fafc;
+      border-radius: 16px;
+      color: #6b7280;
+      font-size: 0.95rem;
+    }
+
     @media (max-width: 768px) {
       .hero-container {
         grid-template-columns: 1fr;
@@ -371,15 +886,36 @@
       .hero-product-showcase {
         order: 1;
       }
+
+      .quantity-carousel {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .quantity-card {
+        padding: 30px 20px;
+      }
+
+      .quantity-amount {
+        font-size: 3rem;
+      }
+
+      .products-title {
+        font-size: 3rem;
+      }
+
+      .quantity-carousel-wrapper {
+        padding: 0 20px;
+      }
     }
   </style>
 </head>
-<body>
+<body data-page="shop">
 
   <!-- Soft blue band behind transparent header -->
   <div class="page-top-gradient"></div>
 
-  <!-- ===== NAVBAR (copied from index.html) ===== -->
+  <!-- ===== NAVBAR (matching index.html exactly) ===== -->
   <nav class="vero-navbar" id="veroNavbar">
     <div class="vero-navbar__inner">
       <a class="vero-navbar__brand" href="index.html">Vero</a>
@@ -390,7 +926,7 @@
         <span></span>
       </div>
       
-      <div class="vero-navbar__center">
+      <div class="vero-navbar__center" id="veroMenu">
         <ul class="vero-navbar__links">
           <li><a class="vero-navbar__link" href="index.html">Home</a></li>
           <li><a class="vero-navbar__link" href="Shop.html">Shop</a></li>
@@ -405,50 +941,151 @@
     </div>
   </nav>
 
-  <!-- ===== HERO SECTION ===== -->
-  <section class="hero" id="home">
-    <div class="hero-container">
-      
-      <!-- Hero Text Side -->
-      <div class="hero-text-side">
-        <h1 class="hero-headline">
-          <span class="headline-main">Energy That Feels</span>
-          <span class="headline-script">Amazing.</span>
-        </h1>
-        
-        <p class="hero-description">
-          Premium energy bars crafted for peak performance. Clean ingredients, sustained energy, zero compromise on taste or quality.
-        </p>
-        
-        <div class="hero-cta-group">
-          <a href="#products" class="cta-primary">Shop Now</a>
-          <a href="How-It-Works.html" class="cta-secondary">Learn More</a>
-        </div>
-      </div>
+  <!-- ===== HERO IMAGE SECTION ===== -->
+  <section class="hero-image-section">
+    <img src="Peanut butter studio pic.jpg" alt="Vero Energy Bar" class="full-width-image" />
+  </section>
 
-      <!-- Hero Product Side -->
-      <div class="hero-product-showcase">
-        <div class="hero-product-card">
-          <div class="product-visual">
-            <div class="bar-3d bar-energy-3d"></div>
-          </div>
-        </div>
-      </div>
-      
+  <!-- ===== HERO TEXT BOX ===== -->
+  <section class="text-box-section">
+    <div class="text-box">
+      <h1>Fuel Your Ambition</h1>
+      <p>Clean energy for the driven. Premium ingredients, sustained performance, zero compromise.</p>
+      <a href="#products" class="shop-button">Shop Now</a>
     </div>
   </section>
 
-  <!-- Simple content for now -->
-  <section id="products" style="padding: 80px 20px; text-align: center;">
-    <h2 style="font-size: 3rem; margin-bottom: 2rem;">Shop Vero Energy Bars</h2>
-    <p style="font-size: 1.2rem; color: #6b7280; max-width: 600px; margin: 0 auto;">
-      Coming soon - premium energy bars that deliver sustained energy without the crash.
-    </p>
+  <!-- ===== LIFESTYLE IMAGE SECTION ===== -->
+  <section class="lifestyle-image-section">
+    <img src="ChatGPT Image 14 dec. 2025 16_43_50.png" alt="Students with Vero shirts" class="full-width-image" />
   </section>
+
+  <!-- ===== LIFESTYLE TEXT BOX ===== -->
+  <section class="text-box-section">
+    <div class="text-box">
+      <h2>Built for Achievers</h2>
+      <p>Join thousands of students, athletes, and professionals who choose clean energy over quick fixes.</p>
+      <p>Real results. Real performance.</p>
+    </div>
+  </section>
+
+  <!-- ===== PRODUCTS SECTION ===== -->
+  <section id="products" class="products-section">
+    <div class="text-box">
+      <h2>Choose Your Pack</h2>
+      
+      <div class="products-simple-grid">
+        <div class="product-simple">
+          <div class="product-number">12</div>
+          <h3>Try It</h3>
+          <p>Perfect for first-timers</p>
+          <div class="price">$29</div>
+          <button class="buy-button" onclick="addToCart('starter')">Order Now</button>
+        </div>
+
+        <div class="product-simple featured">
+          <div class="featured-label">Most Popular</div>
+          <div class="product-number">24</div>
+          <h3>Stock Up</h3>
+          <p>2 weeks of clean energy</p>
+          <div class="price">$54</div>
+          <button class="buy-button primary" onclick="addToCart('duo')">Order Now</button>
+        </div>
+
+        <div class="product-simple">
+          <div class="product-number">36</div>
+          <h3>Family Pack</h3>
+          <p>Share with friends</p>
+          <div class="price">$75</div>
+          <button class="buy-button" onclick="addToCart('family')">Order Now</button>
+        </div>
+      </div>
+
+      <div class="guarantee">
+        Free shipping • 30-day guarantee • 100% plant-based
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BENEFITS SECTION ===== -->
+  <section class="benefits-section">
+    <div class="text-box">
+      <h2>What's Inside</h2>
+      <div class="benefits-simple-grid">
+        <div class="benefit-simple">
+          <h3>90mg Natural Caffeine</h3>
+          <p>From green tea. Clean energy without the crash.</p>
+        </div>
+        <div class="benefit-simple">
+          <h3>10g Plant Protein</h3>
+          <p>Complete amino acids for sustained performance.</p>
+        </div>
+        <div class="benefit-simple">
+          <h3>Zero Added Sugar</h3>
+          <p>Naturally sweetened. No artificial ingredients.</p>
+        </div>
+        <div class="benefit-simple">
+          <h3>L-Theanine</h3>
+          <p>Smooth focus. No jitters or anxiety.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="footer" class="footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3 class="footer-title">Vero</h3>
+        <div class="footer-socials">
+          <a href="#" class="social-btn" aria-label="Follow us on Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+            <span>Instagram</span>
+          </a>
+          <a href="#" class="social-btn" aria-label="Follow us on TikTok">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+            </svg>
+            <span>TikTok</span>
+          </a>
+          <a href="#" class="social-btn" aria-label="Follow us on LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+            <span>LinkedIn</span>
+          </a>
+        </div>
+        <p>Clean energy, smarter nutrition.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:tomwiseman@Vero.se">tomwiseman@Vero.se</a></li>
+          <li><a href="mailto:oliverwiseman@Vero.se">oliverwiseman@Vero.se</a></li>
+          <li><a href="mailto:charliewiseman@Vero.se">charliewiseman@Vero.se</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-column">
+        <h4>Info</h4>
+        <ul>
+          <li>Plant-based. No artificial sweeteners.</li>
+          <li>Made with care in the EU.</li>
+        </ul>
+      </div>
+
+    </div>
+  
+    <div class="footer-bottom">
+      <p>© 2025 Vero. All rights reserved.</p>
+    </div>
+  </footer>
 
   <script>
     const toggle = document.getElementById("veroToggle");
-    const menu = document.querySelector(".vero-navbar__center");
+    const menu = document.getElementById("veroMenu");
     const navbar = document.getElementById("veroNavbar");
     
     toggle.addEventListener("click", () => {
@@ -456,7 +1093,125 @@
       menu.classList.toggle("vero-navbar__center--open");
     });
     
-    // Scroll event listener removed to prevent navbar changes
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 10) {
+        navbar.classList.add("vero-navbar--scrolled");
+        document.body.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("vero-navbar--scrolled");
+        document.body.classList.remove("scrolled");
+      }
+    });
+
+    // Quantity Carousel Script
+    (function() {
+      const cards = document.querySelectorAll('.quantity-card');
+      const prevBtn = document.querySelector('.carousel-prev');
+      const nextBtn = document.querySelector('.carousel-next');
+      const indicators = document.querySelectorAll('.indicator');
+      let currentIndex = 1; // Start with middle card (2 boxes)
+
+      if (!cards.length) return;
+
+      function updateCarousel() {
+        cards.forEach((card, index) => {
+          card.classList.remove('active', 'prev', 'next');
+          
+          if (index === currentIndex) {
+            card.classList.add('active');
+          } else if (index === currentIndex - 1) {
+            card.classList.add('prev');
+          } else if (index === currentIndex + 1) {
+            card.classList.add('next');
+          }
+        });
+
+        // Update indicators
+        indicators.forEach((indicator, index) => {
+          indicator.classList.toggle('active', index === currentIndex);
+        });
+      }
+
+      function goToSlide(index) {
+        currentIndex = Math.max(0, Math.min(index, cards.length - 1));
+        updateCarousel();
+      }
+
+      // Click on cards to select them
+      cards.forEach((card, index) => {
+        card.addEventListener('click', () => {
+          if (index !== currentIndex) {
+            goToSlide(index);
+          }
+        });
+      });
+
+      prevBtn.addEventListener('click', () => {
+        goToSlide(currentIndex - 1);
+      });
+
+      nextBtn.addEventListener('click', () => {
+        goToSlide(currentIndex + 1);
+      });
+
+      indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+          goToSlide(index);
+        });
+      });
+
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') goToSlide(currentIndex - 1);
+        if (e.key === 'ArrowRight') goToSlide(currentIndex + 1);
+      });
+
+      // Initialize
+      updateCarousel();
+    })();
+
+    // Cart functionality
+    function addToCart(productType) {
+      const products = {
+        starter: { name: 'Starter Pack (12 bars)', price: 29, quantity: 12 },
+        duo: { name: 'Duo Pack (24 bars)', price: 54, quantity: 24 },
+        family: { name: 'Family Pack (36 bars)', price: 75, quantity: 36 }
+      };
+
+      const product = products[productType];
+      if (product) {
+        // Show success feedback
+        const button = event.target;
+        const originalText = button.innerHTML;
+        
+        button.innerHTML = '<span class="cta-text">Added!</span><span class="cta-price">✓</span>';
+        button.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+        
+        setTimeout(() => {
+          button.innerHTML = originalText;
+          button.style.background = '';
+        }, 2000);
+
+        // Redirect to purchase page after short delay
+        setTimeout(() => {
+          window.location.href = 'Purchase.html';
+        }, 1500);
+      }
+    }
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
   </script>
 
 </body>

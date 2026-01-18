@@ -19,24 +19,16 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&family=Playfair+Display:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&family=Nunito:wght@400;500;600;700;800;900&family=Comfortaa:wght@300;400;500;600;700&family=Yellowtail&family=Belanosima:wght@400;600;700&family=Caveat:wght@400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=56" />
-  <link rel="stylesheet" href="deux-style.css?v=45" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&family=Nunito:wght@400;500;600;700;800;900&family=Comfortaa:wght@300;400;500;600;700&family=Yellowtail&family=Belanosima:wght@400;600;700&family=Caveat:wght@400;500;600;700&family=Merriweather:wght@300;400;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=55" />
+  <link rel="stylesheet" href="deux-style.css?v=44" />
   
   <style>
     body {
       overflow-x: hidden;
-    }
-    
-    .page-top-gradient {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 200px;
-      background: linear-gradient(180deg, rgba(34, 197, 94, 0.3) 0%, transparent 100%);
-      pointer-events: none;
-      z-index: 0;
+      background: white !important;
+      margin: 0 !important;
+      padding: 0 !important;
     }
 
     /* ===== NAVBAR (matching index.html exactly) ===== */
@@ -45,12 +37,15 @@
       top: 0;
       z-index: 999;
       width: 100%;
-      background: transparent;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-      transition: box-shadow 0.2s ease, border-color 0.2s ease;
+      background: white !important;
+      border-bottom: 1px solid #e5e5e5 !important;
+      transition: box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
     }
     .vero-navbar--scrolled {
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
       border-color: transparent;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
     }
     .vero-navbar__inner {
       max-width: 1120px;
@@ -62,17 +57,19 @@
     }
     .vero-navbar__brand {
       text-decoration: none;
-      color: #ffffff !important;
+      color: #1a1a1a !important;
       font-size: 1.8rem;
       font-weight: 600;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      opacity: 1 !important;
+      transition: color 0.2s ease;
+    }
+    .vero-navbar--scrolled .vero-navbar__brand {
+      color: #111827;
     }
     .vero-navbar__center {
       display: flex;
       align-items: center;
-      gap: 2rem;
     }
     .vero-navbar__links {
       list-style: none;
@@ -82,13 +79,16 @@
     }
     .vero-navbar__link {
       text-decoration: none;
-      color: #ffffff !important;
+      color: #1a1a1a !important;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       font-size: 1.05rem;
       padding-bottom: 2px;
       position: relative;
-      opacity: 1 !important;
+      transition: color 0.2s ease;
+    }
+    .vero-navbar--scrolled .vero-navbar__link {
+      color: #111827;
     }
     .vero-navbar__link::after {
       content: "";
@@ -97,18 +97,17 @@
       left: 0;
       width: 0%;
       height: 2px;
-      background: #ffffff !important;
-      transition: width 0.2s ease;
+      background: #1a1a1a !important;
+      transition: width 0.2s ease, background 0.2s ease;
+    }
+    .vero-navbar--scrolled .vero-navbar__link::after {
+      background: #111827;
     }
     .vero-navbar__link:hover::after {
       width: 100%;
     }
-    .vero-navbar__link:hover {
-      color: #ffffff !important;
-      opacity: 1 !important;
-    }
     .vero-navbar__cta {
-      background-color: rgba(255, 208, 116);
+      background-color: rgba(34, 197, 94);
       color: #1d1d1f;
       border-radius: 12px;
       font-size: 17px;
@@ -141,7 +140,7 @@
     .vero-navbar__toggle span {
       height: 3px;
       width: 100%;
-      background: #111827;
+      background: #1a1a1a !important;
       border-radius: 5px;
       transition: 0.3s ease;
     }
@@ -158,12 +157,20 @@
       .vero-navbar__toggle {
         display: flex;
       }
+      .vero-navbar__toggle span {
+        background: #1a1a1a !important;
+        transition: background 0.2s ease;
+      }
+      .vero-navbar--scrolled .vero-navbar__toggle span {
+        background: #111827;
+      }
       .vero-navbar__center {
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
-        background: #ffffff;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
         border-bottom: 1px solid #e5e7eb;
         flex-direction: column;
         gap: 1rem;
@@ -178,6 +185,12 @@
         transform: translateY(0);
         pointer-events: auto;
       }
+      .vero-navbar__center .vero-navbar__link {
+        color: #111827;
+      }
+      .vero-navbar__center .vero-navbar__link::after {
+        background: #111827;
+      }
       .vero-navbar__links {
         flex-direction: column;
         width: 100%;
@@ -190,151 +203,106 @@
       }
     }
 
-    /* ===== HERO SECTION ===== */
-    .hero {
-      padding: 80px 0;
+    /* ===== ULTRA CLEAN IMAGE + TEXT DESIGN ===== */
+    
+    /* Hide all color overlays */
+    .page-top-gradient {
+      display: none !important;
     }
 
-    .hero-container {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0 20px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-      min-height: 70vh;
+    /* Full Width Images */
+    .hero-image-section,
+    .science-image-section,
+    .steps-image-section,
+    .ingredients-image-section {
+      width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
     }
 
-    .hero-text-side {
-      z-index: 10;
+    .full-width-image {
+      width: 100% !important;
+      height: 60vh !important;
+      object-fit: cover !important;
+      display: block !important;
     }
 
-    .hero-headline {
-      margin-bottom: 24px;
+    /* Clean Text Boxes */
+    .text-box-section {
+      padding: 80px 0 !important;
+      background: white !important;
     }
 
-    .headline-main {
-      display: block;
-      font-size: clamp(3rem, 8vw, 4.5rem);
-      font-weight: 900;
-      line-height: 1.1;
-      color: #1f2937;
-      font-family: 'Poppins', sans-serif;
-      letter-spacing: -0.02em;
+    .text-box {
+      max-width: 800px !important;
+      margin: 0 auto !important;
+      padding: 0 40px !important;
+      text-align: center !important;
     }
 
-    .headline-script {
-      display: block;
-      font-size: clamp(3rem, 8vw, 4.5rem);
-      font-weight: 400;
-      line-height: 1.1;
-      color: #22c55e;
-      font-family: 'Yellowtail', cursive;
-      margin-left: 20px;
+    .text-box h1 {
+      font-size: 4rem !important;
+      font-weight: 900 !important;
+      color: #1a1a1a !important;
+      margin-bottom: 30px !important;
+      line-height: 1.1 !important;
     }
 
-    .hero-description {
-      font-size: 1.2rem;
-      line-height: 1.6;
-      color: #6b7280;
-      margin-bottom: 32px;
-      max-width: 500px;
+    .text-box h2 {
+      font-size: 3rem !important;
+      font-weight: 800 !important;
+      color: #1a1a1a !important;
+      margin-bottom: 30px !important;
+      line-height: 1.2 !important;
     }
 
-    .hero-cta-group {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
+    .text-box p {
+      font-size: 1.3rem !important;
+      color: #666 !important;
+      line-height: 1.6 !important;
+      margin-bottom: 20px !important;
     }
 
-    .cta-primary {
-      background-color: rgba(34, 197, 94);
-      color: white;
-      border-radius: 12px;
-      font-size: 17px;
-      font-weight: 600;
-      padding: 1em 2em;
-      cursor: pointer;
-      transition: all 0.3s ease-in-out;
-      border: 1px solid black;
-      box-shadow: 0 0 0 0 black;
-      text-decoration: none;
-      display: inline-block;
+    .learn-button {
+      background: #1a1a1a !important;
+      color: white !important;
+      padding: 20px 50px !important;
+      border-radius: 0 !important;
+      text-decoration: none !important;
+      font-weight: 600 !important;
+      font-size: 1.1rem !important;
+      display: inline-block !important;
+      margin-top: 20px !important;
+      transition: all 0.3s ease !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.1em !important;
     }
 
-    .cta-primary:hover {
-      transform: translateY(-4px) translateX(-2px);
-      box-shadow: 2px 5px 0 0 black;
+    .learn-button:hover {
+      background: #333 !important;
     }
 
-    .cta-primary:active {
-      transform: translateY(2px) translateX(1px);
-      box-shadow: 0 0 0 0 black;
-    }
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .full-width-image {
+        height: 40vh !important;
+      }
 
-    .cta-secondary {
-      background: transparent;
-      color: #1f2937;
-      border: 2px solid #e5e7eb;
-      border-radius: 12px;
-      font-size: 17px;
-      font-weight: 600;
-      padding: calc(1em - 2px) 2em;
-      text-decoration: none;
-      display: inline-block;
-      transition: all 0.2s ease;
-    }
+      .text-box {
+        padding: 0 20px !important;
+      }
 
-    .cta-secondary:hover {
-      border-color: #22c55e;
-      color: #1f2937;
-    }
+      .text-box h1 {
+        font-size: 2.5rem !important;
+      }
 
-    .hero-product-showcase {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+      .text-box h2 {
+        font-size: 2rem !important;
+      }
 
-    .hero-product-card {
-      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-      border-radius: 24px;
-      padding: 40px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-      transform: rotate(-2deg);
-      transition: transform 0.3s ease;
-    }
-
-    .hero-product-card:hover {
-      transform: rotate(0deg) scale(1.05);
-    }
-
-    .product-visual {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .bar-3d {
-      width: 200px;
-      height: 60px;
-      background: linear-gradient(135deg, #22c55e, #16a34a);
-      border-radius: 30px;
-      position: relative;
-      box-shadow: 0 10px 20px rgba(34, 197, 94, 0.3);
-    }
-
-    .bar-3d::before {
-      content: 'VERO';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: white;
-      font-weight: 900;
-      font-size: 1.2rem;
-      letter-spacing: 2px;
+      .text-box p {
+        font-size: 1.1rem !important;
+      }
     }
 
     /* ===== SCIENCE SECTIONS ===== */
@@ -381,6 +349,16 @@
       position: relative;
       height: 300px;
       margin: 40px 0;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .chart-container:hover {
+      transform: scale(1.02);
+    }
+
+    .chart-container:active {
+      transform: scale(0.98);
     }
 
     .chart-svg {
@@ -394,7 +372,8 @@
       fill: none;
       stroke-dasharray: 1000;
       stroke-dashoffset: 1000;
-      animation: drawCurve 3s ease-out forwards;
+      animation: drawCurve 3s ease-out forwards, glowPulse 2s ease-in-out infinite alternate;
+      filter: drop-shadow(0 0 8px rgba(34, 197, 94, 0.6));
     }
 
     .coffee-curve {
@@ -403,12 +382,22 @@
       fill: none;
       stroke-dasharray: 1000;
       stroke-dashoffset: 1000;
-      animation: drawCurve 3s ease-out 1s forwards;
+      animation: drawCurve 3s ease-out 1s forwards, glowPulse 2s ease-in-out 1s infinite alternate;
+      filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.6));
     }
 
     @keyframes drawCurve {
       to {
         stroke-dashoffset: 0;
+      }
+    }
+
+    @keyframes glowPulse {
+      0% {
+        filter: drop-shadow(0 0 8px rgba(34, 197, 94, 0.6));
+      }
+      100% {
+        filter: drop-shadow(0 0 16px rgba(34, 197, 94, 0.9));
       }
     }
 
@@ -568,52 +557,53 @@
     /* ===== INGREDIENTS SECTION ===== */
     .ingredients-section {
       padding: 80px 0;
-      background: #1f2937;
-      color: white;
+      background: #bfdbfe;
+      color: #1f2937;
     }
 
     .ingredients-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 40px;
+      gap: 30px;
       margin-top: 60px;
-      max-width: 900px;
+      max-width: 1000px;
       margin-left: auto;
       margin-right: auto;
     }
 
     .ingredient-card {
-      background: rgba(255, 255, 255, 0.05);
+      background: white;
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(34, 197, 94, 0.1);
       border-radius: 24px;
       padding: 30px;
       text-align: left;
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     }
 
-    .ingredient-card::before {
+    .ingredient-card--featured::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
-      width: 4px;
-      height: 100%;
-      background: linear-gradient(180deg, #22c55e, #16a34a);
-      opacity: 0;
-      transition: opacity 0.3s ease;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #22c55e, #16a34a);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
     }
 
     .ingredient-card:hover {
-      transform: translateY(-4px);
-      background: rgba(255, 255, 255, 0.08);
+      transform: translateY(-8px);
       border-color: rgba(34, 197, 94, 0.3);
+      box-shadow: 0 20px 40px rgba(34, 197, 94, 0.15);
     }
 
     .ingredient-card:hover::before {
-      opacity: 1;
+      transform: scaleX(1);
     }
 
     .ingredient-header {
@@ -624,39 +614,87 @@
     }
 
     .ingredient-icon {
-      width: 40px;
-      height: 40px;
+      width: 50px;
+      height: 50px;
       background: linear-gradient(135deg, #22c55e, #16a34a);
-      border-radius: 12px;
+      border-radius: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       flex-shrink: 0;
+      box-shadow: 0 8px 20px rgba(34, 197, 94, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .ingredient-icon--caffeine {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+    }
+
+    .ingredient-icon--theanine {
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    }
+
+    .ingredient-icon--protein {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+    }
+
+    .ingredient-icon--macros {
+      background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    }
+
+    .ingredient-card:hover .ingredient-icon {
+      transform: scale(1.1) rotate(5deg);
     }
 
     .ingredient-name {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       font-weight: 700;
-      color: white;
+      color: #1f2937;
       margin: 0;
     }
 
     .ingredient-description {
-      color: #d1d5db;
+      color: #6b7280;
       line-height: 1.6;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
 
     .ingredient-benefit {
       background: rgba(34, 197, 94, 0.1);
       border: 1px solid rgba(34, 197, 94, 0.2);
       border-radius: 12px;
-      padding: 8px 12px;
-      font-size: 0.8rem;
+      padding: 8px 16px;
+      font-size: 0.85rem;
       color: #22c55e;
       font-weight: 600;
       display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .ingredient-benefit--primary {
+      background: rgba(34, 197, 94, 0.1);
+      border-color: rgba(34, 197, 94, 0.2);
+      color: #22c55e;
+    }
+
+    .ingredient-benefit--secondary {
+      background: rgba(59, 130, 246, 0.1);
+      border-color: rgba(59, 130, 246, 0.2);
+      color: #3b82f6;
+    }
+
+    .ingredient-benefit--tertiary {
+      background: rgba(245, 158, 11, 0.1);
+      border-color: rgba(245, 158, 11, 0.2);
+      color: #f59e0b;
+    }
+
+    .ingredient-benefit--quaternary {
+      background: rgba(139, 92, 246, 0.1);
+      border-color: rgba(139, 92, 246, 0.2);
+      color: #8b5cf6;
     }
 
     @media (max-width: 768px) {
@@ -691,13 +729,26 @@
       .step-header {
         justify-content: center;
       }
+
+      .ingredient-card {
+        text-align: center;
+      }
+
+      .ingredient-header {
+        justify-content: center;
+      }
+    }
+
+    /* FINAL OVERRIDE - ENSURE OVERLAY IS VISIBLE */
+    body[data-page="how-it-works"] .page-top-gradient {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      z-index: 998 !important;
     }
   </style>
 </head>
-<body>
-
-  <!-- Soft green band behind transparent header -->
-  <div class="page-top-gradient"></div>
+<body data-page="how-it-works">
 
   <!-- ===== NAVBAR (matching index.html exactly) ===== -->
   <nav class="vero-navbar" id="veroNavbar">
@@ -710,7 +761,7 @@
         <span></span>
       </div>
       
-      <div class="vero-navbar__center">
+      <div class="vero-navbar__center" id="veroMenu">
         <ul class="vero-navbar__links">
           <li><a class="vero-navbar__link" href="index.html">Home</a></li>
           <li><a class="vero-navbar__link" href="Shop.html">Shop</a></li>
@@ -725,213 +776,61 @@
     </div>
   </nav>
 
-  <!-- ===== HERO SECTION ===== -->
-  <section class="hero" id="home">
-    <div class="hero-container">
-      
-      <!-- Hero Text Side -->
-      <div class="hero-text-side">
-        <h1 class="hero-headline">
-          <span class="headline-main">The Science Behind</span>
-          <span class="headline-script">Clean Energy.</span>
-        </h1>
-        
-        <p class="hero-description">
-          Discover how Vero delivers sustained energy without the crash. Our unique formula combines premium ingredients for optimal performance.
-        </p>
-        
-        <div class="hero-cta-group">
-          <a href="#science" class="cta-primary">See The Science</a>
-          <a href="Shop.html" class="cta-secondary">Shop Now</a>
-        </div>
-      </div>
+  <!-- ===== HERO IMAGE SECTION ===== -->
+  <section class="hero-image-section">
+    <img src="ChatGPT Image 14 dec. 2025 16_43_50.png" alt="How Vero Works" class="full-width-image" />
+  </section>
 
-      <!-- Hero Product Side -->
-      <div class="hero-product-showcase">
-        <div class="hero-product-card">
-          <div class="product-visual">
-            <div class="bar-3d bar-energy-3d"></div>
-          </div>
-        </div>
-      </div>
-      
+  <!-- ===== HERO TEXT BOX ===== -->
+  <section class="text-box-section">
+    <div class="text-box">
+      <h1>The Science Behind Clean Energy</h1>
+      <p>Discover how Vero delivers sustained energy without the crash. Our unique formula combines premium ingredients for optimal performance.</p>
+      <a href="Shop.html" class="learn-button">Shop Now</a>
     </div>
   </section>
 
-  <!-- ===== ENERGY COMPARISON SECTION ===== -->
-  <section id="science" class="science-section">
-    <div class="container">
-      <h2 class="section-title">Energy That Lasts</h2>
-      <p class="section-subtitle">
-        See how Vero's sustained energy release compares to traditional coffee and energy drinks.
-      </p>
+  <!-- ===== SCIENCE IMAGE SECTION ===== -->
+  <section class="science-image-section">
+    <img src="Peanut butter studio pic.jpg" alt="Vero Energy Bar Ingredients" class="full-width-image" />
+  </section>
 
-      <div class="energy-chart">
-        <h3 style="text-align: center; font-size: 1.5rem; margin-bottom: 20px; color: #1f2937;">Energy Levels Over Time</h3>
-        <div class="chart-container">
-          <svg class="chart-svg" viewBox="0 0 800 300">
-            <!-- Grid lines -->
-            <defs>
-              <pattern id="grid" width="80" height="60" patternUnits="userSpaceOnUse">
-                <path d="M 80 0 L 0 0 0 60" fill="none" stroke="#f3f4f6" stroke-width="1"/>
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#grid)" />
-            
-            <!-- Axes -->
-            <line x1="60" y1="20" x2="60" y2="260" stroke="#6b7280" stroke-width="2"/>
-            <line x1="60" y1="260" x2="740" y2="260" stroke="#6b7280" stroke-width="2"/>
-            
-            <!-- Y-axis label -->
-            <text x="30" y="140" fill="#6b7280" font-size="14" text-anchor="middle" transform="rotate(-90 30 140)">Energy Level</text>
-            
-            <!-- X-axis labels -->
-            <text x="100" y="280" fill="#6b7280" font-size="12" text-anchor="middle">0 min</text>
-            <text x="200" y="280" fill="#6b7280" font-size="12" text-anchor="middle">30 min</text>
-            <text x="300" y="280" fill="#6b7280" font-size="12" text-anchor="middle">1 hour</text>
-            <text x="450" y="280" fill="#6b7280" font-size="12" text-anchor="middle">2 hours</text>
-            <text x="600" y="280" fill="#6b7280" font-size="12" text-anchor="middle">3 hours</text>
-            <text x="720" y="280" fill="#6b7280" font-size="12" text-anchor="middle">4 hours</text>
-            
-            <!-- Vero curve (higher and longer lasting) -->
-            <path class="vero-curve" d="M 60 260 Q 150 120 250 100 T 500 120 T 720 180"/>
-            
-            <!-- Coffee curve (spike and crash) -->
-            <path class="coffee-curve" d="M 60 260 Q 120 80 180 60 Q 240 80 300 140 Q 400 200 500 220 T 720 240"/>
-            
-            <!-- Labels -->
-            <text x="400" y="90" fill="#22c55e" font-size="14" font-weight="bold">Vero Energy</text>
-            <text x="200" y="50" fill="#ef4444" font-size="14" font-weight="bold">Coffee/Energy Drinks</text>
-          </svg>
-        </div>
-        
-        <div class="chart-legend">
-          <div class="legend-item">
-            <div class="legend-color legend-vero"></div>
-            <span>Vero - Sustained Energy</span>
-          </div>
-          <div class="legend-item">
-            <div class="legend-color legend-coffee"></div>
-            <span>Coffee - Spike & Crash</span>
-          </div>
-        </div>
-      </div>
+  <!-- ===== SCIENCE TEXT BOX ===== -->
+  <section class="text-box-section">
+    <div class="text-box">
+      <h2>Energy That Lasts</h2>
+      <p>90mg of clean caffeine from green tea - enough to energize without overwhelming. Paired with L-theanine for smooth, focused energy that doesn't make you jittery.</p>
+      <p>10g of complete plant protein works with complex carbs and healthy fats for sustained energy release. No spikes, no crashes - just steady fuel.</p>
     </div>
   </section>
 
-  <!-- ===== HOW IT WORKS STEPS ===== -->
-  <section class="steps-section">
-    <div class="container">
-      <h2 class="section-title">How Vero Works</h2>
-      <p class="section-subtitle">
-        Our three-stage energy system delivers sustained performance without the crash.
-      </p>
+  <!-- ===== STEPS IMAGE SECTION ===== -->
+  <section class="steps-image-section">
+    <img src="IMG_8401.JPG" alt="Vero Founders" class="full-width-image" />
+  </section>
 
-      <div class="steps-grid">
-        <div class="step-card">
-          <div class="step-header">
-            <div class="step-number">1</div>
-            <div class="step-badge">Instant</div>
-          </div>
-          <h3 class="step-title">Clean Activation</h3>
-          <p class="step-description">
-            Within 15 minutes, you feel it. Not the jittery rush of synthetic caffeine, but a smooth, focused alertness. Green tea caffeine enters your system gently, paired with L-theanine to keep you calm and collected.
-          </p>
-          <ul class="step-details">
-            <li>90mg natural green tea caffeine</li>
-            <li>L-theanine for smooth focus</li>
-            <li>No synthetic stimulants</li>
-          </ul>
-        </div>
-
-        <div class="step-card">
-          <div class="step-header">
-            <div class="step-number">2</div>
-            <div class="step-badge">Sustained</div>
-          </div>
-          <h3 class="step-title">Steady Fuel Release</h3>
-          <p class="step-description">
-            While others crash, you keep going. Our balanced macros - protein, complex carbs, and healthy fats - work together like a time-release system. Your energy stays consistent for hours, not minutes.
-          </p>
-          <ul class="step-details">
-            <li>10g complete plant protein</li>
-            <li>Complex carbs for steady glucose</li>
-            <li>Healthy fats for satiety</li>
-          </ul>
-        </div>
-
-        <div class="step-card">
-          <div class="step-header">
-            <div class="step-number">3</div>
-            <div class="step-badge">Enhanced</div>
-          </div>
-          <h3 class="step-title">Peak Performance</h3>
-          <p class="step-description">
-            This is where Vero shines. Adaptogens like rhodiola and ashwagandha help your body handle stress while maintaining mental clarity. You're not just energized - you're optimized.
-          </p>
-          <ul class="step-details">
-            <li>Rhodiola for stress resilience</li>
-            <li>Lion's mane for cognitive support</li>
-            <li>Ashwagandha for calm energy</li>
-          </ul>
-        </div>
-      </div>
+  <!-- ===== STEPS TEXT BOX ===== -->
+  <section class="text-box-section">
+    <div class="text-box">
+      <h2>How Vero Works</h2>
+      <p>Within 15 minutes, you feel it. Not the jittery rush of synthetic caffeine, but smooth, focused alertness.</p>
+      <p>While others crash, you keep going. Our balanced macros work together like a time-release system. Your energy stays consistent for hours, not minutes.</p>
+      <p>Zero added sugar. Naturally sweetened. Your blood sugar stays stable, which means your energy and mood do too.</p>
     </div>
   </section>
 
-  <!-- ===== KEY INGREDIENTS SECTION ===== -->
-  <section class="ingredients-section">
-    <div class="container">
-      <h2 class="section-title" style="color: white;">The Science Behind The Ingredients</h2>
-      <p class="section-subtitle" style="color: #9ca3af;">
-        Every ingredient in Vero has a purpose. Here's what makes our formula work.
-      </p>
+  <!-- ===== INGREDIENTS IMAGE SECTION ===== -->
+  <section class="ingredients-image-section">
+    <img src="hero-image.jpg" alt="Natural Ingredients" class="full-width-image" />
+  </section>
 
-      <div class="ingredients-grid">
-        <div class="ingredient-card">
-          <div class="ingredient-header">
-            <div class="ingredient-icon">🍃</div>
-            <h3 class="ingredient-name">Green Tea Caffeine</h3>
-          </div>
-          <p class="ingredient-description">
-            Unlike synthetic caffeine that hits like a truck, green tea caffeine provides a gentle, sustained energy boost. It's naturally paired with L-theanine, creating the perfect balance of alertness and calm.
-          </p>
-          <div class="ingredient-benefit">Smooth Energy</div>
-        </div>
-
-        <div class="ingredient-card">
-          <div class="ingredient-header">
-            <div class="ingredient-icon">🌿</div>
-            <h3 class="ingredient-name">Rhodiola Rosea</h3>
-          </div>
-          <p class="ingredient-description">
-            This Arctic root has been used for centuries to combat fatigue and stress. Modern research shows it helps your body adapt to physical and mental demands, keeping you resilient under pressure.
-          </p>
-          <div class="ingredient-benefit">Stress Resilience</div>
-        </div>
-
-        <div class="ingredient-card">
-          <div class="ingredient-header">
-            <div class="ingredient-icon">🧠</div>
-            <h3 class="ingredient-name">Lion's Mane</h3>
-          </div>
-          <p class="ingredient-description">
-            This unique mushroom supports cognitive function and mental clarity. Studies suggest it may help with focus, memory, and overall brain health - perfect for those demanding mental tasks.
-          </p>
-          <div class="ingredient-benefit">Cognitive Support</div>
-        </div>
-
-        <div class="ingredient-card">
-          <div class="ingredient-header">
-            <div class="ingredient-icon">⚖️</div>
-            <h3 class="ingredient-name">Ashwagandha</h3>
-          </div>
-          <p class="ingredient-description">
-            Known as the "strength of the stallion," ashwagandha helps reduce cortisol levels and promotes calm energy. It's the reason you feel energized but not anxious after eating Vero.
-          </p>
-          <div class="ingredient-benefit">Calm Energy</div>
-        </div>
-      </div>
+  <!-- ===== INGREDIENTS TEXT BOX ===== -->
+  <section class="text-box-section">
+    <div class="text-box">
+      <h2>What's Inside</h2>
+      <p>Every ingredient serves a purpose. Natural caffeine from green tea. L-theanine for calm focus. Complete plant protein for sustained performance.</p>
+      <p>Balanced carbs, protein, and healthy fats work together for steady energy release. 8g net carbs from dates and oats, plus MCT oil for fuel that lasts hours.</p>
+      <a href="Shop.html" class="learn-button">Get Energized</a>
     </div>
   </section>
 
@@ -988,7 +887,7 @@
 
   <script>
     const toggle = document.getElementById("veroToggle");
-    const menu = document.querySelector(".vero-navbar__center");
+    const menu = document.getElementById("veroMenu");
     const navbar = document.getElementById("veroNavbar");
     
     toggle.addEventListener("click", () => {
@@ -996,7 +895,15 @@
       menu.classList.toggle("vero-navbar__center--open");
     });
     
-    // Scroll event listener removed to prevent navbar changes
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 10) {
+        navbar.classList.add("vero-navbar--scrolled");
+        document.body.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("vero-navbar--scrolled");
+        document.body.classList.remove("scrolled");
+      }
+    });
 
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1011,6 +918,27 @@
         }
       });
     });
+
+    // Chart animation restart functionality
+    const chartContainer = document.querySelector('.chart-container');
+    const veroCurve = document.querySelector('.vero-curve');
+    const coffeeCurve = document.querySelector('.coffee-curve');
+    
+    if (chartContainer && veroCurve && coffeeCurve) {
+      chartContainer.addEventListener('click', () => {
+        // Remove and re-add animation classes to restart
+        veroCurve.style.animation = 'none';
+        coffeeCurve.style.animation = 'none';
+        
+        // Force reflow
+        veroCurve.offsetHeight;
+        coffeeCurve.offsetHeight;
+        
+        // Restart animations
+        veroCurve.style.animation = 'drawCurve 3s ease-out forwards, glowPulse 2s ease-in-out infinite alternate';
+        coffeeCurve.style.animation = 'drawCurve 3s ease-out 1s forwards, glowPulse 2s ease-in-out 1s infinite alternate';
+      });
+    }
   </script>
 
 </body>
