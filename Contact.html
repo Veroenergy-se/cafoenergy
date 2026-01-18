@@ -20,28 +20,202 @@
     });
   </script>
   
-  <link rel="stylesheet" href="style.css?v=7" />
-  <link rel="stylesheet" href="deux-style.css" />
+  <style>
+    body {
+      overflow-x: hidden;
+    }
+    
+    .page-top-gradient {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 200px;
+      background: linear-gradient(180deg, rgba(147, 197, 253, 0.3) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ===== NAVBAR (matching index.html exactly) ===== */
+    .vero-navbar {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      width: 100%;
+      background: transparent;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .vero-navbar--scrolled {
+      border-color: transparent;
+    }
+    .vero-navbar__inner {
+      max-width: 1120px;
+      margin: auto;
+      padding: 1.2rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .vero-navbar__brand {
+      text-decoration: none;
+      color: #ffffff !important;
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      opacity: 1 !important;
+    }
+    .vero-navbar__center {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .vero-navbar__links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+    }
+    .vero-navbar__link {
+      text-decoration: none;
+      color: #ffffff !important;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 1.05rem;
+      padding-bottom: 2px;
+      position: relative;
+      opacity: 1 !important;
+    }
+    .vero-navbar__link::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: #ffffff !important;
+      transition: width 0.2s ease;
+    }
+    .vero-navbar__link:hover::after {
+      width: 100%;
+    }
+    .vero-navbar__link:hover {
+      color: #ffffff !important;
+      opacity: 1 !important;
+    }
+    .vero-navbar__cta {
+      background-color: rgba(255, 208, 116);
+      color: #1d1d1f;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: 600;
+      padding: 1em 2em;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      border: 1px solid black;
+      box-shadow: 0 0 0 0 black;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .vero-navbar__cta:hover {
+      transform: translateY(-4px) translateX(-2px);
+      box-shadow: 2px 5px 0 0 black;
+    }
+    .vero-navbar__cta:active {
+      transform: translateY(2px) translateX(1px);
+      box-shadow: 0 0 0 0 black;
+    }
+    .vero-navbar__toggle {
+      display: none;
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+      flex-direction: column;
+      justify-content: center;
+      gap: 6px;
+    }
+    .vero-navbar__toggle span {
+      height: 3px;
+      width: 100%;
+      background: #111827;
+      border-radius: 5px;
+      transition: 0.3s ease;
+    }
+    .vero-navbar__toggle--open span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+    .vero-navbar__toggle--open span:nth-child(2) {
+      opacity: 0;
+    }
+    .vero-navbar__toggle--open span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+    @media (max-width: 768px) {
+      .vero-navbar__toggle {
+        display: flex;
+      }
+      .vero-navbar__center {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #ffffff;
+        border-bottom: 1px solid #e5e7eb;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.25rem;
+        opacity: 0;
+        transform: translateY(-10px);
+        pointer-events: none;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+      }
+      .vero-navbar__center--open {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+      .vero-navbar__links {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      .vero-navbar__cta {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 <body data-page="contact">
   <div class="page-top-gradient"></div>
-  <header class="site-header" role="banner">
-    <div class="container header-inner">
-      <a href="index.html" class="brand" aria-label="Vero — Home">
-        <span class="brand-line"><span class="brand-word buzz">Vero</span></span>
-        <span class="brand-sub">NATURAL ENERGY</span>
-      </a>
-      <nav class="main-nav" role="navigation" aria-label="Primary navigation">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="Products.html"  class="nav-link">Products</a>
-        <a href="Science.html"   class="nav-link">Science</a>
-        <a href="nutrition.html" class="nav-link">Nutrition</a>
-        <a href="Our-Story.html"     class="nav-link">Our Story</a>
-        <a href="Contact.html"   class="nav-link">Contact</a>
-      </nav>
-      <a href="Products.html" class="cta-contact">Buy Now</a>
+  
+  <!-- ===== NAVBAR (matching index.html exactly) ===== -->
+  <nav class="vero-navbar" id="veroNavbar">
+    <div class="vero-navbar__inner">
+      <a class="vero-navbar__brand" href="index.html">Vero</a>
+      
+      <div class="vero-navbar__toggle" id="veroToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      
+      <div class="vero-navbar__center">
+        <ul class="vero-navbar__links">
+          <li><a class="vero-navbar__link" href="index.html">Home</a></li>
+          <li><a class="vero-navbar__link" href="Shop.html">Shop</a></li>
+          <li><a class="vero-navbar__link" href="How-It-Works.html">How It Works</a></li>
+          <li><a class="vero-navbar__link" href="Why-Vero.html">Why Vero</a></li>
+        </ul>
+      </div>
+      
+      <div class="vero-navbar__right">
+        <a href="Shop.html#products" class="vero-navbar__cta">Get Energized</a>
+      </div>
     </div>
-  </header>
+  </nav>
 
   <main class="page">
     <section class="section-header container" style="padding-top:40px">
@@ -79,15 +253,16 @@
   </footer>
 
   <script>
-    (function(){
-      const header=document.querySelector('.site-header'); let lastY=window.scrollY;
-      window.addEventListener('scroll',()=>{const y=window.scrollY;
-        if(y>80 && y>lastY){header.classList.add('hide')} else{header.classList.remove('hide')}
-        lastY=y;},{passive:true});
-      document.querySelectorAll('.main-nav .nav-link').forEach(a=>{
-        const href=a.getAttribute('href')||''; if(href.startsWith('contact')) a.classList.add('is-active');
-      });
-    })();
+    const toggle = document.getElementById("veroToggle");
+    const menu = document.querySelector(".vero-navbar__center");
+    const navbar = document.getElementById("veroNavbar");
+    
+    toggle.addEventListener("click", () => {
+      toggle.classList.toggle("vero-navbar__toggle--open");
+      menu.classList.toggle("vero-navbar__center--open");
+    });
+    
+    // Scroll event listener removed to prevent navbar changes
   </script>
 </body>
 </html>

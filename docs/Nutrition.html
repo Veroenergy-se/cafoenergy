@@ -29,19 +29,18 @@
   <div class="page-top-gradient"></div>
 
 
-  <!-- ===== NAVBAR (only once) ===== -->
+  <!-- ===== NAVBAR (matching index.html exactly) ===== -->
   <style>
     .vero-navbar {
       position: sticky;
       top: 0;
       z-index: 999;
       width: 100%;
-      background: #ffffff;
-      border-bottom: 1px solid #e5e7eb;
+      background: transparent;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
       transition: box-shadow 0.2s ease, border-color 0.2s ease;
     }
     .vero-navbar--scrolled {
-      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
       border-color: transparent;
     }
     .vero-navbar__inner {
@@ -54,13 +53,14 @@
     }
     .vero-navbar__brand {
       text-decoration: none;
-      color: #111827;
+      color: #ffffff !important;
       font-size: 1.8rem;
       font-weight: 600;
       letter-spacing: 0.06em;
       text-transform: uppercase;
+      opacity: 1 !important;
     }
-    .vero-navbar__menu {
+    .vero-navbar__center {
       display: flex;
       align-items: center;
       gap: 2rem;
@@ -73,12 +73,13 @@
     }
     .vero-navbar__link {
       text-decoration: none;
-      color: #111827;
+      color: #ffffff !important;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       font-size: 1.05rem;
       padding-bottom: 2px;
       position: relative;
+      opacity: 1 !important;
     }
     .vero-navbar__link::after {
       content: "";
@@ -87,16 +88,20 @@
       left: 0;
       width: 0%;
       height: 2px;
-      background: #111827;
+      background: #ffffff !important;
       transition: width 0.2s ease;
     }
     .vero-navbar__link:hover::after {
       width: 100%;
     }
+    .vero-navbar__link:hover {
+      color: #ffffff !important;
+      opacity: 1 !important;
+    }
     .vero-navbar__cta {
-      background-color: #10B981;
-      color: white;
-      border-radius: 10em;
+      background-color: rgba(255, 208, 116);
+      color: #1d1d1f;
+      border-radius: 12px;
       font-size: 17px;
       font-weight: 600;
       padding: 1em 2em;
@@ -144,7 +149,7 @@
       .vero-navbar__toggle {
         display: flex;
       }
-      .vero-navbar__menu {
+      .vero-navbar__center {
         position: absolute;
         top: 100%;
         left: 0;
@@ -159,7 +164,7 @@
         pointer-events: none;
         transition: opacity 0.2s ease, transform 0.2s ease;
       }
-      .vero-navbar__menu--open {
+      .vero-navbar__center--open {
         opacity: 1;
         transform: translateY(0);
         pointer-events: auto;
@@ -187,36 +192,33 @@
         <span></span>
       </div>
       
-      <div class="vero-navbar__menu" id="veroMenu">
+      <div class="vero-navbar__center">
         <ul class="vero-navbar__links">
           <li><a class="vero-navbar__link" href="index.html">Home</a></li>
-          <li><a class="vero-navbar__link" href="Products.html">Products</a></li>
-          <li><a class="vero-navbar__link" href="Science.html">Science</a></li>
-          <li><a class="vero-navbar__link" href="Nutrition.html">Nutrition</a></li>
-          <li><a class="vero-navbar__link" href="Our-Story.html">Our Story</a></li>
+          <li><a class="vero-navbar__link" href="Shop.html">Shop</a></li>
+          <li><a class="vero-navbar__link" href="How-It-Works.html">How It Works</a></li>
+          <li><a class="vero-navbar__link" href="Why-Vero.html">Why Vero</a></li>
         </ul>
-        <a href="#products" class="vero-navbar__cta">Get Energized</a>
+      </div>
+      
+      <div class="vero-navbar__right">
+        <a href="Shop.html#products" class="vero-navbar__cta">Get Energized</a>
       </div>
     </div>
+  </nav>
   </nav>
 
   <script>
     const toggle = document.getElementById("veroToggle");
-    const menu = document.getElementById("veroMenu");
+    const menu = document.querySelector(".vero-navbar__center");
     const navbar = document.getElementById("veroNavbar");
     
     toggle.addEventListener("click", () => {
       toggle.classList.toggle("vero-navbar__toggle--open");
-      menu.classList.toggle("vero-navbar__menu--open");
+      menu.classList.toggle("vero-navbar__center--open");
     });
     
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 10) {
-        navbar.classList.add("vero-navbar--scrolled");
-      } else {
-        navbar.classList.remove("vero-navbar--scrolled");
-      }
-    });
+    // Scroll event listener removed to prevent navbar changes
   </script>
 
   <main>

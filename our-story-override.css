@@ -1,8 +1,8 @@
 /* ===== OUR STORY OVERRIDE - FORCE NEW DESIGN ===== */
 
-/* Reset any conflicting styles - but exclude graphic elements */
+/* Reset any conflicting styles - but exclude graphic elements and grid items */
 #our-story.our-story-new,
-#our-story.our-story-new *:not(.graphic-star):not(.graphic-bolt):not(.graphic-circle):not(.corner-accent):not(.sticker-bolt):not(.sticker-est) {
+#our-story.our-story-new *:not(.graphic-star):not(.graphic-bolt):not(.graphic-circle):not(.corner-accent):not(.sticker-bolt):not(.sticker-est):not(.our-story-grid):not(.our-story-text-wrapper):not(.our-story-image-wrapper) {
   all: unset;
   display: revert;
   box-sizing: border-box;
@@ -21,7 +21,7 @@
 /* Main section */
 #our-story.our-story-new {
   min-height: 100vh !important;
-  background: #0b5e3a !important;
+  background: transparent !important;
   display: flex !important;
   align-items: center !important;
   position: relative !important;
@@ -54,6 +54,7 @@
   left: -80px !important;
   top: 40px !important;
   color: #f9f6ef !important;
+  opacity: 0.2 !important;
   user-select: none !important;
   line-height: 1 !important;
   display: block !important;
@@ -80,6 +81,7 @@
   right: 25% !important;
   top: 25% !important;
   color: #f9f6ef !important;
+  opacity: 0.2 !important;
   user-select: none !important;
   line-height: 1 !important;
 }
@@ -93,28 +95,38 @@
 /* Title - Big and Bold */
 .our-story-new .our-story-header {
   margin-bottom: 48px !important;
+  text-align: left !important;
+  margin-top: 0px !important;
+  padding-top: 0px !important;
+  position: relative !important;
+  top: 10px !important;
 }
 
 .our-story-new .our-story-title {
-  color: #f9f6ef !important;
-  font-size: 3rem !important;
+  color: #000000 !important;
+  font-size: 2.5rem !important;
   text-transform: uppercase !important;
   letter-spacing: -0.02em !important;
   margin-bottom: 16px !important;
   position: relative !important;
   display: inline-block !important;
   line-height: 1.1 !important;
-  font-weight: 700 !important;
+  font-weight: 400 !important;
+  font-family: "Bebas Neue", "Oswald", "Passion One", "Anton", "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif !important;
+  text-shadow: none !important;
+  z-index: 50 !important;
+  -webkit-text-stroke: none !important;
+  white-space: nowrap !important;
 }
 
 .our-story-new .our-story-title-highlight {
-  display: block !important;
-  background: linear-gradient(to right, #6B9F3E, #8FD14F, #6B9F3E) !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  background-clip: text !important;
+  display: inline !important;
+  color: #000000 !important;
   margin-left: 0 !important;
-  animation: pulse 2s ease-in-out infinite !important;
+  font-family: "Bebas Neue", "Oswald", "Passion One", "Anton", "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif !important;
+  text-shadow: none !important;
+  font-weight: 400 !important;
+  -webkit-text-stroke: none !important;
 }
 
 @keyframes pulse {
@@ -122,59 +134,61 @@
   50% { opacity: 0.8; }
 }
 
+/* DISABLE FLEXBOX LAYOUT - GRID TAKES PRIORITY */
 .our-story-new .our-story-grid {
-  display: grid !important;
-  grid-template-columns: 1fr !important;
-  gap: 48px !important;
-  align-items: center !important;
+  display: flex !important;
+  flex-direction: row-reverse !important;
+  gap: 64px !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+  position: relative !important;
+}
+
+/* Force two-column layout at all screen sizes */
+@media (min-width: 600px) {
+  .our-story-new .our-story-grid {
+    display: flex !important;
+    flex-direction: row-reverse !important;
+    gap: 48px !important;
+  }
 }
 
 /* Left side - Text content */
 .our-story-new .our-story-text-wrapper {
   position: relative !important;
+  flex: 1 !important;
+  width: 50% !important;
+  max-width: 50% !important;
 }
 
 .our-story-new .our-story-text-box {
-  background: #f9f6ef !important;
-  padding: 40px !important;
+  background: transparent !important;
+  padding: 0 !important;
   position: relative !important;
-  border: 4px solid black !important;
-  box-shadow: 10px 10px 0px 0px rgba(107, 159, 62, 1) !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .our-story-new .corner-accent {
-  position: absolute !important;
-  top: -16px !important;
-  left: -16px !important;
-  background: #6B9F3E !important;
-  color: black !important;
-  padding: 12px 20px !important;
-  transform: rotate(-2deg) !important;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
-  border: 2px solid black !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  z-index: 10 !important;
-  visibility: visible !important;
-  font-size: 16px !important;
-  line-height: 1 !important;
-  text-align: center !important;
+  display: none !important;
 }
 
 .our-story-new .our-story-text-content {
-  color: #0b5e3a !important;
+  color: #000000 !important;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif !important;
+  max-width: 480px !important;
 }
 
 .our-story-new .our-story-text-content p {
   font-size: 1.125rem !important;
-  line-height: 1.7 !important;
-  margin-bottom: 20px !important;
-  color: #0b5e3a !important;
+  line-height: 1.5 !important;
+  margin-bottom: 12px !important;
+  color: #000000 !important;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif !important;
 }
 
 .our-story-new .text-highlight {
-  background: #6B9F3E !important;
+  background: #FF7F00 !important;
   color: white !important;
   padding: 2px 8px !important;
   transform: rotate(-1deg) !important;
@@ -189,7 +203,7 @@
 }
 
 .our-story-new .our-story-tagline svg {
-  color: #6B9F3E !important;
+  color: #FF6347 !important;
   flex-shrink: 0 !important;
   display: block !important;
 }
@@ -199,121 +213,61 @@
   text-transform: uppercase !important;
   letter-spacing: 0.05em !important;
   margin: 0 !important;
-  color: #0b5e3a !important;
+  color: #2C1810 !important;
   font-weight: 600 !important;
 }
 
 .our-story-new .decorative-box {
-  position: absolute !important;
-  bottom: -24px !important;
-  right: -24px !important;
-  width: 128px !important;
-  height: 128px !important;
-  background: #8FD14F !important;
-  z-index: -1 !important;
-  transform: rotate(12deg) !important;
+  display: none !important;
 }
 
-/* Right side - Image with polaroid style */
+/* Right side - Simple image */
 .our-story-new .our-story-image-wrapper {
   position: relative !important;
   display: flex !important;
   justify-content: center !important;
+  flex: 1 !important;
+  width: 50% !important;
+  max-width: 50% !important;
+  align-self: flex-start !important;
+  margin-top: -140px !important;
 }
 
-.our-story-new .polaroid-container {
-  position: relative !important;
-  transform: rotate(-3deg) !important;
-  transition: transform 0.3s ease !important;
-  backface-visibility: hidden !important;
-  -webkit-backface-visibility: hidden !important;
-  -webkit-font-smoothing: subpixel-antialiased !important;
-  transform-style: preserve-3d !important;
-}
-
-.our-story-new .polaroid-container:hover {
-  transform: rotate(0deg) !important;
-}
-
-.our-story-new .polaroid-frame {
-  background: white !important;
-  padding: 24px !important;
-  padding-bottom: 64px !important;
-  box-shadow: 12px 12px 0px 0px rgba(0, 0, 0, 1) !important;
-  outline: 2px solid black !important;
-  outline-offset: -2px !important;
-}
-
-.our-story-new .polaroid-image {
-  overflow: hidden !important;
-  border: 2px solid black !important;
-  line-height: 0 !important;
-}
-
-.our-story-new .polaroid-image img {
-  width: 100% !important;
-  max-width: 420px !important;
-  height: auto !important;
+.our-story-new .our-story-image-wrapper img {
+  width: 728px !important;
+  height: 728px !important;
   display: block !important;
   object-fit: cover !important;
+  object-position: 55% center !important;
+  border-radius: 0px !important;
+  filter: grayscale(100%) contrast(1.3) brightness(0.9) saturate(0) sepia(0.1) !important;
 }
 
+/* Hide polaroid elements */
+.our-story-new .polaroid-container,
+.our-story-new .polaroid-frame,
+.our-story-new .polaroid-image,
 .our-story-new .polaroid-caption {
-  text-align: center !important;
-  margin-top: 24px !important;
-  color: black !important;
-  font-size: 1.125rem !important;
-  font-style: italic !important;
-  letter-spacing: 0.05em !important;
-  margin-bottom: 0 !important;
+  display: none !important;
 }
 
 /* Sticker-style accents */
 .our-story-new .sticker-bolt {
-  position: absolute !important;
-  top: -24px !important;
-  right: -24px !important;
-  background: #6B9F3E !important;
-  color: white !important;
-  padding: 8px 16px !important;
-  border-radius: 50% !important;
-  border: 2px solid black !important;
-  transform: rotate(12deg) !important;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  z-index: 10 !important;
-  visibility: visible !important;
-  font-size: 20px !important;
-  line-height: 1 !important;
-  text-align: center !important;
+  display: none !important;
 }
 
 .our-story-new .sticker-est {
-  position: absolute !important;
-  bottom: -16px !important;
-  left: -16px !important;
-  background: #8FD14F !important;
-  color: black !important;
-  padding: 4px 12px !important;
-  transform: rotate(-8deg) !important;
-  border: 2px solid black !important;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
-  text-transform: uppercase !important;
-  font-size: 0.875rem !important;
-  letter-spacing: 0.1em !important;
-  font-weight: 600 !important;
+  display: none !important;
 }
 
 /* Responsive Design */
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .our-story-new .our-story-title {
-    font-size: 4.5rem !important;
+    font-size: 3.5rem !important;
   }
   
   .our-story-new .our-story-title-highlight {
-    margin-left: 32px !important;
+    margin-left: 0px !important;
   }
   
   .our-story-new .our-story-header {
@@ -321,7 +275,8 @@
   }
   
   .our-story-new .our-story-grid {
-    grid-template-columns: 1fr 1fr !important;
+    display: flex !important;
+    flex-direction: row-reverse !important;
     gap: 64px !important;
   }
   
@@ -332,7 +287,7 @@
 
 @media (min-width: 1280px) {
   .our-story-new .our-story-title {
-    font-size: 6rem !important;
+    font-size: 4.5rem !important;
   }
 }
 
@@ -342,7 +297,7 @@
   }
   
   .our-story-new .our-story-title {
-    font-size: 2.5rem !important;
+    font-size: 2rem !important;
   }
   
   .our-story-new .our-story-text-box {
@@ -732,8 +687,8 @@ button[onclick="addToCart('duo')"].quantity-cta.cta-primary:hover {
 }
 /* APPLY NICE ELEGANT FONT TO "STOCK UP AND SAVE" */
 .products-title {
-  font-family: "Playfair Display", "Georgia", "Times New Roman", serif !important;
-  font-weight: 600 !important;
+  font-family: 'Bebas Neue', 'Oswald', 'Passion One', 'Anton', 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif !important;
+  font-weight: 400 !important;
   font-stretch: normal !important;
   text-transform: none !important;
   letter-spacing: 0.02em !important;
@@ -945,7 +900,7 @@ button[onclick="addToCart('duo')"].quantity-cta.cta-primary:hover {
 }
 /* MAKE HEADLINE 2 LINES WITH 2 WORDS EACH */
 .hero-headline {
-  font-size: clamp(3.5rem, 8vw, 6rem) !important;
+  font-size: clamp(2.5rem, 6vw, 4.5rem) !important;
   line-height: 1.2 !important;
   white-space: normal !important;
   max-width: 600px !important;
@@ -967,17 +922,15 @@ button[onclick="addToCart('duo')"].quantity-cta.cta-primary:hover {
   display: inline !important;
   white-space: nowrap !important;
 }
-/* ===== NEON ORANGE HERO BACKGROUND ===== */
+/* ===== DARK HERO BACKGROUND - SOLID ===== */
 body {
-  background: linear-gradient(135deg, 
-    #CC6600 0%, 
-    #E67E00 15%,
-    #FF8C00 30%,
-    #FFA500 45%, 
-    #FFB84D 60%, 
-    #FF9500 75%,
-    #E67E00 90%,
-    #B85C00 100%) !important;
+  background: #0E0F14 !important;
+  position: relative !important;
+}
+
+/* Remove animation */
+@keyframes gradientShift {
+  /* Animation removed for static background */
 }
 
 .hero {
@@ -1005,32 +958,30 @@ body {
   background: transparent !important;
 }
 
-/* Ensure text is readable over the neon background */
+/* Ensure text is readable over the dark background */
 .hero-headline .headline-main {
-  color: #ffffff !important;
+  color: #FFFFFF !important;
   font-weight: 900 !important;
-  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5), 2px 2px 4px rgba(0, 0, 0, 0.3) !important;
-  -webkit-text-stroke: 0 !important;
+  text-shadow: none !important;
 }
 
 .hero-headline .headline-script {
-  color: #ffffff !important;
+  color: #FFD400 !important;
   font-weight: 900 !important;
-  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4), 1px 1px 3px rgba(0, 0, 0, 0.2) !important;
-  -webkit-text-stroke: 0 !important;
+  text-shadow: none !important;
 }
 
 .hero-headline {
-  font-size: clamp(3rem, 8vw, 6rem) !important;
+  font-size: clamp(2.5rem, 6vw, 4.5rem) !important;
 }
 
 .hero-description {
-  color: #ffffff !important;
+  color: #B0B3C0 !important;
   font-weight: 600 !important;
   font-size: 1.2rem !important;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6) !important;
-  background: rgba(0, 0, 0, 0.25) !important;
-  padding: 1.5rem !important;
+  text-shadow: none !important;
+  background: transparent !important;
+  padding: 0 !important;
   border-radius: 12px !important;
   backdrop-filter: blur(8px) !important;
   border: 2px solid rgba(255, 255, 255, 0.2) !important;
@@ -1072,9 +1023,9 @@ body {
 }
 
 .vero-navbar--scrolled {
-  background: rgba(230, 126, 0, 0.9) !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
-  backdrop-filter: blur(10px) !important;
+  /* No changes on scroll */
+  background: transparent !important;
+  border-bottom: none !important;
 }
 
 .vero-navbar__brand,
@@ -1138,10 +1089,11 @@ body {
   width: 200% !important;
   height: 200% !important;
   background: 
-    radial-gradient(circle at 20% 30%, rgba(255, 100, 0, 0.4) 0%, transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(255, 200, 50, 0.3) 0%, transparent 45%),
-    radial-gradient(circle at 60% 10%, rgba(230, 126, 0, 0.35) 0%, transparent 35%),
-    radial-gradient(circle at 10% 80%, rgba(255, 150, 0, 0.25) 0%, transparent 50%) !important;
+    radial-gradient(circle at 20% 30%, rgba(255, 140, 0, 0.5) 0%, transparent 35%),
+    radial-gradient(circle at 80% 70%, rgba(255, 215, 0, 0.4) 0%, transparent 40%),
+    radial-gradient(circle at 60% 10%, rgba(255, 127, 0, 0.45) 0%, transparent 30%),
+    radial-gradient(circle at 10% 80%, rgba(255, 165, 0, 0.3) 0%, transparent 45%),
+    radial-gradient(circle at 90% 20%, rgba(255, 179, 71, 0.35) 0%, transparent 35%) !important;
   animation: energyPulse 12s ease-in-out infinite !important;
   z-index: 1 !important;
   pointer-events: none !important;
@@ -1155,10 +1107,11 @@ body {
   right: 0 !important;
   bottom: 0 !important;
   background: 
-    linear-gradient(45deg, transparent 0%, rgba(255, 180, 0, 0.15) 25%, transparent 50%),
-    linear-gradient(-45deg, transparent 0%, rgba(230, 126, 0, 0.1) 30%, transparent 60%),
-    linear-gradient(90deg, rgba(255, 140, 0, 0.08) 0%, transparent 100%) !important;
-  background-size: 300% 300%, 250% 250%, 400% 100% !important;
+    linear-gradient(45deg, transparent 0%, rgba(255, 140, 0, 0.15) 20%, transparent 40%),
+    linear-gradient(-45deg, transparent 0%, rgba(255, 215, 0, 0.12) 25%, transparent 50%),
+    linear-gradient(90deg, rgba(255, 165, 0, 0.08) 0%, transparent 60%, rgba(255, 179, 71, 0.1) 100%),
+    linear-gradient(180deg, rgba(255, 127, 0, 0.06) 0%, transparent 50%, rgba(255, 99, 71, 0.08) 100%) !important;
+  background-size: 300% 300%, 250% 250%, 400% 100%, 100% 300% !important;
   animation: dynamicShift 18s ease-in-out infinite, energyWave 25s linear infinite !important;
   z-index: 2 !important;
   pointer-events: none !important;
@@ -1185,22 +1138,124 @@ body {
 
 @keyframes dynamicShift {
   0%, 100% {
-    background-position: 0% 0%, 100% 100%, 0% 50%;
+    background-position: 0% 0%, 100% 100%, 0% 50%, 50% 0%;
   }
-  33% {
-    background-position: 100% 50%, 0% 0%, 100% 50%;
+  25% {
+    background-position: 100% 25%, 0% 25%, 100% 75%, 25% 100%;
   }
-  66% {
-    background-position: 50% 100%, 50% 50%, 50% 50%;
+  50% {
+    background-position: 75% 100%, 75% 0%, 50% 100%, 100% 50%;
+  }
+  75% {
+    background-position: 25% 75%, 25% 75%, 0% 25%, 75% 25%;
   }
 }
 
 @keyframes energyWave {
   0% {
-    background-position: 0% 0%, 0% 0%, 0% 0%;
+    background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%;
   }
   100% {
-    background-position: 200% 200%, -200% -200%, 400% 0%;
+    background-position: 200% 200%, -200% -200%, 400% 0%, 0% 300%;
+  }
+}
+  0%, 100% {
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    transform: rotate(0deg) scale(1);
+  }
+  33% {
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    transform: rotate(120deg) scale(1.3);
+  }
+  66% {
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    transform: rotate(240deg) scale(0.7);
+  }
+}
+
+@keyframes hexagonFloat {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-40px) rotate(180deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(0) rotate(360deg);
+    opacity: 0.3;
+  }
+}
+
+@keyframes lightningStrike {
+  0%, 90%, 100% {
+    opacity: 0.6;
+    transform: scale(1) rotate(0deg);
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 140, 0, 0.4);
+  }
+  5%, 15% {
+    opacity: 1;
+    transform: scale(1.3) rotate(5deg);
+    text-shadow: 0 0 30px rgba(255, 215, 0, 1), 0 0 60px rgba(255, 140, 0, 0.8), 0 0 80px rgba(255, 165, 0, 0.6);
+  }
+  10% {
+    opacity: 0.3;
+    transform: scale(0.9) rotate(-3deg);
+  }
+}
+
+@keyframes particleSwarm {
+  0% {
+    background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+    opacity: 0.4;
+  }
+  50% {
+    background-position: 100% 50%, -50% 100%, 75% -25%, -25% 75%, 50% 100%, 100% -50%;
+    opacity: 0.8;
+  }
+  100% {
+    background-position: 200% 100%, -100% 200%, 150% -50%, -50% 150%, 100% 200%, 200% -100%;
+    opacity: 0.4;
+  }
+}
+
+@keyframes spiralVortex {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(180deg) scale(1.2);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg) scale(1);
+    opacity: 0.3;
+  }
+}
+
+@keyframes glitchScan {
+  0%, 95%, 100% {
+    background-position: -100% 0%, -100% 0%, -100% 0%;
+    opacity: 0;
+  }
+  1%, 3% {
+    background-position: 100% 0%, 100% 0%, 100% 0%;
+    opacity: 0.8;
+  }
+  2% {
+    background-position: 50% 0%, 50% 0%, 50% 0%;
+    opacity: 0.4;
+  }
+}
+
+@keyframes orbitalMotion {
+  0% {
+    transform: rotate(0deg) translateX(80px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(80px) rotate(-360deg);
   }
 }
 
@@ -1224,7 +1279,7 @@ body {
   display: inline-block !important;
   background: transparent !important;
   color: #FF0000 !important;
-  font-size: 0.9rem !important;
+  font-size: 1.2rem !important;
   font-weight: 700 !important;
   padding: 8px 0 !important;
   margin-top: 12px !important;
@@ -1238,11 +1293,16 @@ body {
   align-items: center !important;
   justify-content: space-between !important;
   width: 100% !important;
-  padding: 1.2rem 0.5rem !important;
+  padding: 1.2rem 1rem !important;
+  margin: 0 !important;
+  max-width: none !important;
 }
 
 .vero-navbar__brand {
-  flex: 0 0 auto !important;
+  flex: 1 !important;
+  display: flex !important;
+  justify-content: flex-start !important;
+  padding-left: 0.5rem !important;
 }
 
 .vero-navbar__center {
@@ -1258,10 +1318,18 @@ body {
   gap: 3rem !important;
   margin: 0 !important;
   list-style: none !important;
+  white-space: nowrap !important;
+}
+
+.vero-navbar__link {
+  white-space: nowrap !important;
 }
 
 .vero-navbar__right {
-  flex: 0 0 auto !important;
+  flex: 1 !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+  padding-right: 0.5rem !important;
 }
 
 /* Mobile adjustments */
@@ -1304,4 +1372,660 @@ body {
   transform: translateY(-1px) !important;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
   text-shadow: none !important;
+}
+/* Force lightning bolts to be white */
+.graphic-bolt svg,
+.sticker-bolt svg {
+  fill: white !important;
+  color: white !important;
+}
+
+.graphic-bolt svg path,
+.sticker-bolt svg path {
+  fill: white !important;
+}
+/* ===== DISABLE SCROLL FADE-IN ANIMATIONS ===== */
+[data-fade-in] {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+[data-fade-in].is-visible {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Staggered animations for multiple elements */
+[data-fade-in="1"] {
+  transition-delay: 0.1s !important;
+}
+
+[data-fade-in="2"] {
+  transition-delay: 0.2s !important;
+}
+
+[data-fade-in="3"] {
+  transition-delay: 0.3s !important;
+}
+
+[data-fade-in="4"] {
+  transition-delay: 0.4s !important;
+}
+
+[data-fade-in="5"] {
+  transition-delay: 0.5s !important;
+}
+
+/* Slide in from left */
+[data-fade-left] {
+  opacity: 0 !important;
+  transform: translateX(-50px) !important;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+[data-fade-left].is-visible {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+}
+
+/* Slide in from right */
+[data-fade-right] {
+  opacity: 0 !important;
+  transform: translateX(50px) !important;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+[data-fade-right].is-visible {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+}
+
+/* Scale up animation */
+[data-fade-scale] {
+  opacity: 0 !important;
+  transform: scale(0.9) !important;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+[data-fade-scale].is-visible {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+}
+/* ===== PRODUCT SECTION CTA BUTTONS - MATCH HERO STYLE - FINAL OVERRIDE ===== */
+.products-section .quantity-card button.quantity-cta.cta-primary,
+.products-section .quantity-card.popular button.quantity-cta.cta-primary,
+.products-section .quantity-card.popular.active button.quantity-cta.cta-primary,
+.products-section article.quantity-card button.quantity-cta.cta-primary,
+.products-section article.quantity-card.popular button.quantity-cta.cta-primary,
+.products-section article.quantity-card.popular.active button.quantity-cta.cta-primary,
+.products-section button[onclick="addToCart('starter')"].quantity-cta.cta-primary,
+.products-section button[onclick="addToCart('duo')"].quantity-cta.cta-primary,
+.products-section button[onclick="addToCart('family')"].quantity-cta.cta-primary {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+  border-radius: 0 !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  padding: 1rem 2rem !important;
+  transition: all 0.3s ease !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5) !important;
+  box-shadow: none !important;
+}
+
+.products-section .quantity-card button.quantity-cta.cta-primary:hover,
+.products-section .quantity-card.popular button.quantity-cta.cta-primary:hover,
+.products-section .quantity-card.popular.active button.quantity-cta.cta-primary:hover,
+.products-section article.quantity-card button.quantity-cta.cta-primary:hover,
+.products-section article.quantity-card.popular button.quantity-cta.cta-primary:hover,
+.products-section article.quantity-card.popular.active button.quantity-cta.cta-primary:hover,
+.products-section button[onclick="addToCart('starter')"].quantity-cta.cta-primary:hover,
+.products-section button[onclick="addToCart('duo')"].quantity-cta.cta-primary:hover,
+.products-section button[onclick="addToCart('family')"].quantity-cta.cta-primary:hover {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+  color: #000000 !important;
+  border: 2px solid #ffffff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+  text-shadow: none !important;
+}
+/* ===== FORCE HARD CORNERS ON ADD TO CART BUTTONS ===== */
+.quantity-cta,
+.quantity-cta.cta-primary,
+button.quantity-cta,
+button.quantity-cta.cta-primary,
+article.quantity-card button,
+article.quantity-card button.quantity-cta,
+article.quantity-card button.quantity-cta.cta-primary {
+  border-radius: 0 !important;
+}
+
+/* Also override any pseudo-elements */
+.quantity-cta::before,
+.quantity-cta::after,
+button.quantity-cta::before,
+button.quantity-cta::after {
+  border-radius: 0 !important;
+}
+
+/* ===== MAKE FOOTER TRANSPARENT TO SHOW BODY BACKGROUND ===== */
+footer,
+.footer,
+#footer {
+  background: transparent !important;
+  /* Remove any background properties that might override */
+  background-image: none !important;
+  background-color: transparent !important;
+}
+/* ===== MAKE FOOTER TEXT BIGGER AND MORE CLEAR - MAXIMUM SPECIFICITY ===== */
+footer,
+.footer,
+#footer {
+  color: #ffffff !important;
+}
+
+/* Footer headings - maximum specificity */
+footer h3,
+footer h4,
+footer .footer-title,
+.footer h3,
+.footer h4,
+.footer .footer-title,
+#footer h3,
+#footer h4,
+#footer .footer-title,
+.footer-column h3,
+.footer-column h4,
+#footer .footer-column h3,
+#footer .footer-column h4 {
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7) !important;
+  margin-bottom: 1rem !important;
+}
+
+/* Footer body text - maximum specificity */
+footer p,
+footer li,
+footer a,
+footer span,
+.footer p,
+.footer li,
+.footer a,
+.footer span,
+#footer p,
+#footer li,
+#footer a,
+#footer span,
+.footer-column p,
+.footer-column li,
+.footer-column a,
+.footer-column span,
+#footer .footer-column p,
+#footer .footer-column li,
+#footer .footer-column a,
+#footer .footer-column span,
+.footer-bottom p,
+#footer .footer-bottom p {
+  font-size: 1.125rem !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7) !important;
+  line-height: 1.6 !important;
+}
+
+/* Footer links hover - maximum specificity */
+footer a:hover,
+.footer a:hover,
+#footer a:hover,
+.footer-column a:hover,
+#footer .footer-column a:hover {
+  color: #ffffff !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+  text-decoration: underline !important;
+}
+
+/* Social button text - specific override */
+.footer-socials a span,
+#footer .footer-socials a span {
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7) !important;
+}
+
+/* ===== REMOVE ROUNDED CORNERS FROM FOOTER - MAKE IT A BOX ===== */
+footer,
+.footer,
+#footer,
+footer *,
+.footer *,
+#footer *,
+.footer-container,
+.footer-column,
+.footer-bottom,
+.footer-socials,
+.footer-socials a,
+.social-btn,
+#footer .footer-container,
+#footer .footer-column,
+#footer .footer-bottom,
+#footer .footer-socials,
+#footer .footer-socials a,
+#footer .social-btn {
+  border-radius: 0px !important;
+}
+
+/* Remove any pseudo-element rounded corners */
+footer::before,
+footer::after,
+.footer::before,
+.footer::after,
+#footer::before,
+#footer::after {
+  border-radius: 0px !important;
+}
+
+/* ===== HERO TEXT - MORE HUSTLE. LESS DISTRACTION. - BEBAS NEUE FONT ===== */
+.hero-headline .headline-main,
+.hero-headline .headline-script {
+  font-family: "Bebas Neue", "Oswald", "Passion One", "Anton", "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif !important;
+  font-weight: 400 !important;
+  color: #ffffff !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: none !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.02em !important;
+  line-height: 0.9 !important;
+  font-size: clamp(3rem, 8vw, 6rem) !important;
+}
+
+/* Make sure both lines display properly */
+.hero-headline {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  line-height: 0.9 !important;
+  margin-bottom: 2rem !important;
+}
+
+.hero-headline .headline-main {
+  display: block !important;
+  margin-bottom: 0.1em !important;
+  color: #ffffff !important;
+  font-family: "Londrina Solid", "Gloock", "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif !important;
+  font-weight: 900 !important;
+}
+
+.hero-headline .headline-script {
+  display: block !important;
+  color: #ffffff !important;
+  font-weight: 900 !important;
+  font-family: "Londrina Solid", "Gloock", "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif !important;
+}
+
+/* OVERRIDE ANY OTHER FONT RULES FOR HERO HEADLINE - FORCE BEBAS NEUE FOR BOTH LINES */
+.hero-headline .headline-main {
+  font-family: "Bebas Neue", "Oswald", "Passion One", "Anton", "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif !important;
+}
+
+.hero-headline .headline-script {
+  font-family: "Bebas Neue", "Oswald", "Passion One", "Anton", "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif !important;
+}
+
+/* ===== UNIFIED HERO TYPOGRAPHY - LONDRINA SOLID FOR ALL ELEMENTS ===== */
+/* Apply Londrina Solid font to hero and navbar elements */
+.hero .hero-description,
+.hero-description,
+.hero .cta-primary,
+.hero .cta-secondary,
+.vero-navbar__brand,
+.vero-navbar__link,
+.vero-navbar__cta {
+  font-family: "Londrina Solid", "Anton", "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.02em !important;
+}
+
+/* Adjust description font size to be readable with Anton */
+.hero .hero-description,
+.hero-description {
+  font-size: 1.1rem !important;
+  line-height: 1.4 !important;
+  font-weight: 400 !important;
+}
+
+/* Adjust navbar text sizes and opacity */
+.vero-navbar__brand {
+  font-size: 1.4rem !important;
+  font-weight: 400 !important;
+  opacity: 0.7 !important;
+}
+
+.vero-navbar__link {
+  font-size: 0.85rem !important;
+  font-weight: 400 !important;
+  opacity: 0.6 !important;
+}
+
+.vero-navbar__cta {
+  font-size: 0.85rem !important;
+  font-weight: 400 !important;
+  opacity: 0.8 !important;
+}
+
+/* ===== UNIFIED HERO TYPOGRAPHY - ALL LONDRINA SOLID FONT ===== */
+
+/* ===== HIDE LEARN MORE BUTTON ===== */
+.cta-secondary,
+.hero-cta-group .cta-secondary,
+a.cta-secondary {
+  display: none !important;
+}
+
+/* ===== REORDER HERO ELEMENTS - TEXT CENTERED, BUTTON BELOW ===== */
+.hero .hero-text-side,
+.hero-container .hero-text-side,
+.hero-text-side {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  min-height: 80vh !important;
+  margin-top: 0 !important;
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+.hero .hero-headline,
+.hero-container .hero-headline,
+.hero-headline {
+  order: 1 !important;
+  margin-top: 0 !important;
+  margin-bottom: 1rem !important;
+  text-align: center !important;
+}
+
+.hero .hero-description,
+.hero-container .hero-description,
+.hero-description {
+  order: 2 !important;
+  text-align: center !important;
+  margin-bottom: 1rem !important;
+}
+
+.hero .hero-cta-group,
+.hero-container .hero-cta-group,
+.hero-cta-group {
+  order: 3 !important;
+  margin-bottom: 0 !important;
+}
+
+/* ===== MAKE SHOP NOW BUTTON WIDER ===== */
+.hero-cta-group .cta-primary,
+.cta-primary {
+  padding: 1rem 3rem !important;
+  min-width: 200px !important;
+  text-align: center !important;
+}
+
+/* ===== MAKE GET ENERGIZED NAVBAR BUTTON WIDER ===== */
+.vero-navbar__cta {
+  padding: 0.8rem 2.5rem !important;
+  min-width: 180px !important;
+  text-align: center !important;
+}
+
+/* ===== MAKE WHO IS VERO SECTION ORANGE BOX WITH WHITE BACKGROUND ===== */
+#our-story.our-story-new {
+  background: white !important;
+  padding: 40px 24px !important;
+  min-height: auto !important;
+}
+
+.our-story-new .our-story-container {
+  background: transparent !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  max-width: 1300px !important;
+}
+
+/* ===== MAKE HERO TITLE TEXT PROMINENTLY LARGER AND POSTER-LIKE ===== */
+.hero .hero-headline,
+.hero-container .hero-headline,
+.hero-headline,
+.hero-headline .headline-main,
+.hero-headline .headline-script {
+  font-size: clamp(6.5rem, 15.6vw, 13rem) !important;
+  max-width: 900px !important;
+  letter-spacing: -0.04em !important;
+  line-height: 0.9 !important;
+  text-transform: uppercase !important;
+  white-space: nowrap !important;
+  font-weight: 900 !important;
+}
+
+.hero-headline .headline-main,
+.hero-headline .headline-script {
+  font-size: inherit !important;
+  display: inline !important;
+  white-space: nowrap !important;
+}
+.hero-cta-group .cta-primary,
+.hero-cta-group .cta-secondary,
+.hero-actions .cta-primary,
+.hero-actions .cta-secondary {
+  font-size: 0.9rem !important;
+  letter-spacing: 0.05em !important;
+}
+
+/* ===== FINAL APPROACH - SIMPLE CSS GRID OVERRIDE ===== */
+/* Use simple CSS Grid with maximum specificity - FORCE GRID LAYOUT */
+section#our-story.our-story-new .our-story-grid.story-grid,
+section#our-story.our-story-new .our-story-grid,
+#our-story.our-story-new .our-story-grid.story-grid,
+#our-story.our-story-new .our-story-grid,
+.our-story-new .our-story-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  grid-template-areas: "text image" !important;
+  gap: 64px !important;
+  width: 100% !important;
+  align-items: start !important;
+  position: relative !important;
+  /* Override any conflicting properties */
+  flex-direction: initial !important;
+  flex: initial !important;
+  table-layout: initial !important;
+  border-collapse: initial !important;
+  border-spacing: initial !important;
+  /* FORCE OVERRIDE FLEXBOX */
+  flex-wrap: initial !important;
+  justify-content: initial !important;
+  align-content: initial !important;
+}
+
+section#our-story.our-story-new .our-story-text-wrapper,
+#our-story.our-story-new .our-story-text-wrapper {
+  display: block !important;
+  width: 100% !important;
+  position: static !important;
+  float: none !important;
+  clear: none !important;
+  flex: none !important;
+  max-width: none !important;
+  /* Text on the left using grid area */
+  grid-area: text !important;
+}
+
+section#our-story.our-story-new .our-story-image-wrapper,
+#our-story.our-story-new .our-story-image-wrapper {
+  display: block !important;
+  width: 100% !important;
+  position: static !important;
+  float: none !important;
+  clear: none !important;
+  flex: none !important;
+  max-width: none !important;
+  /* Image on the right using grid area */
+  grid-area: image !important;
+  /* FORCE TO RIGHT SIDE */
+  margin-left: auto !important;
+  justify-self: end !important;
+}
+
+/* ===== LAYOUT WORKING - DEBUG BORDERS REMOVED ===== */
+
+/* Responsive: Stack on smaller screens */
+@media (max-width: 768px) {
+  section#our-story.our-story-new .our-story-grid,
+  #our-story.our-story-new .our-story-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+    width: 100% !important;
+  }
+  
+  section#our-story.our-story-new .our-story-text-wrapper,
+  section#our-story.our-story-new .our-story-image-wrapper,
+  #our-story.our-story-new .our-story-text-wrapper,
+  #our-story.our-story-new .our-story-image-wrapper {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    order: initial !important;
+  }
+}
+
+/* ===== APPLY BEBAS NEUE FONT TO "CHECK US OUT ON SOCIAL MEDIA" ===== */
+.social-header h2 {
+  font-family: 'Bebas Neue', 'Oswald', 'Passion One', 'Anton', 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.02em !important;
+}
+
+/* ===== APPLY BEBAS NEUE FONT TO "WHAT PEOPLE ARE SAYING" ===== */
+#reviews-title,
+.reviews-title {
+  font-family: 'Bebas Neue', 'Oswald', 'Passion One', 'Anton', 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.02em !important;
+}
+
+/* ===== STYLE @VERO.ENERGY BUTTON TO MATCH HERO CTA BUTTONS ===== */
+.social-link-btn {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border: 2px solid #000000 !important;
+  border-radius: 0 !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  padding: 1rem 2rem !important;
+  transition: all 0.3s ease !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.social-link-btn:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+  text-shadow: none !important;
+}
+
+.social-link-btn:active {
+  transform: translateY(0) !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* ===== REMOVE BROWN LINE AT TOP OF FOOTER ===== */
+footer,
+.footer,
+#footer {
+  border-top: none !important;
+  border: none !important;
+}
+
+footer::before,
+.footer::before,
+#footer::before {
+  display: none !important;
+}
+
+/* ===== APPLY INTER FONT TO ALL BODY TEXT AND SUB-TEXT ===== */
+body,
+p,
+span,
+div,
+a,
+li,
+.hero-description,
+.social-sub,
+.reviews-sub,
+.products-subtitle,
+.quantity-subtitle,
+.products-footer-info,
+.our-story-text-content p,
+footer p,
+footer span,
+footer li,
+.footer-column p,
+.footer-bottom p {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+/* Exclude headings that should keep Bebas Neue */
+h1, h2, h3, h4, h5, h6,
+.hero-headline,
+.headline-main,
+.headline-script,
+.products-title,
+.social-header h2,
+#reviews-title,
+.reviews-title,
+.our-story-title {
+  font-family: 'Bebas Neue', 'Oswald', 'Passion One', 'Anton', 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+/* ===== APPLY BEBAS NEUE FONT TO NAVBAR TEXT ===== */
+.vero-navbar__brand,
+.vero-navbar__link,
+.vero-navbar__cta {
+  font-family: 'Bebas Neue', 'Oswald', 'Passion One', 'Anton', 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+/* ===== APPLY INTER FONT TO REVIEW CARDS AND PLACEHOLDER TEXT ===== */
+.customer-review-card,
+.customer-review-card p,
+.customer-review-card h3,
+.review-text,
+.review-text p,
+.review-text h3,
+.reviews-gallery p,
+.reviews-gallery h3 {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+/* ===== MAKE NAVBAR TEXT BIGGER ===== */
+.vero-navbar__brand {
+  font-size: 2.2rem !important;
+}
+
+.vero-navbar__link {
+  font-size: 1.3rem !important;
+}
+
+.vero-navbar__cta {
+  font-size: 1.2rem !important;
 }

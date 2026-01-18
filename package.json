@@ -1,0 +1,12 @@
+{
+  "name": "vero-website",
+  "version": "1.0.0",
+  "description": "Vero energy bar website",
+  "scripts": {
+    "start": "live-server --port=8000 --no-browser --ignore=node_modules",
+    "dev": "live-server --port=8000 --open=/index.html --ignore=node_modules"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
