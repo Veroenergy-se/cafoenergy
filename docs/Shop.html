@@ -34,20 +34,27 @@
       color: #1a1a1a;
       background: white;
       overflow-x: hidden;
+      padding-top: 80px; /* Account for fixed navbar */
     }
 
     /* ===== NAVBAR ===== */
     .vero-navbar {
-      position: sticky;
+      position: fixed;
       top: 0;
       z-index: 999;
       width: 100%;
-      background: transparent;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-      transition: box-shadow 0.2s ease, border-color 0.2s ease;
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      transform: translateY(0);
+    }
+    .vero-navbar.hidden {
+      transform: translateY(-100%);
     }
     .vero-navbar--scrolled {
       border-color: transparent;
+      background: rgba(0, 0, 0, 1);
     }
     .vero-navbar__inner {
       max-width: 1120px;
@@ -777,6 +784,40 @@
     toggle.addEventListener("click", () => {
       toggle.classList.toggle("vero-navbar__toggle--open");
       menu.classList.toggle("vero-navbar__center--open");
+    });
+
+    // Auto-hide navbar on scroll down, show on scroll up
+    let lastScrollTop = 0;
+    let scrollTimeout;
+
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      
+      // Clear any existing timeout
+      clearTimeout(scrollTimeout);
+      
+      // Add scrolled class for styling
+      if (scrollTop > 50) {
+        navbar.classList.add('vero-navbar--scrolled');
+      } else {
+        navbar.classList.remove('vero-navbar--scrolled');
+      }
+      
+      // Hide/show navbar based on scroll direction
+      if (scrollTop > lastScrollTop && scrollTop > 100) {
+        // Scrolling down & past 100px - hide navbar
+        navbar.classList.add('hidden');
+      } else if (scrollTop < lastScrollTop) {
+        // Scrolling up - show navbar
+        navbar.classList.remove('hidden');
+      }
+      
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+      
+      // Show navbar after scroll stops for 1 second
+      scrollTimeout = setTimeout(() => {
+        navbar.classList.remove('hidden');
+      }, 1000);
     });
 
     // Enhanced image reveal effect - stronger panning down through the image
