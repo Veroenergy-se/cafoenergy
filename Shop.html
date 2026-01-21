@@ -69,19 +69,20 @@
       position: relative;
       overflow: hidden;
       margin: 0;
-      padding: 0;
+      padding: 0 2rem;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
     .product-image {
-      width: 100vw;
-      height: 160%;
+      width: calc(100vw - 4rem);
+      height: 140%;
       object-fit: cover;
       object-position: center top;
       position: relative;
       will-change: transform;
+      border-radius: 8px;
     }
 
     /* ===== FLAVOR STORY SECTION ===== */
@@ -392,7 +393,7 @@
     }
     .vero-navbar__brand {
       text-decoration: none;
-      color: #ffffff !important;
+      color: #111827 !important;
       font-size: 1.8rem;
       font-weight: 600;
       letter-spacing: 0.06em;
@@ -412,7 +413,7 @@
     }
     .vero-navbar__link {
       text-decoration: none;
-      color: #ffffff !important;
+      color: #111827 !important;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       font-size: 1.05rem;
@@ -427,14 +428,14 @@
       left: 0;
       width: 0%;
       height: 2px;
-      background: #ffffff;
+      background: #111827;
       transition: width 0.2s ease;
     }
     .vero-navbar__link:hover::after {
       width: 100%;
     }
     .vero-navbar__link:hover {
-      color: #ffffff !important;
+      color: #111827 !important;
       opacity: 1 !important;
     }
     .vero-navbar__cta {
@@ -513,6 +514,9 @@
         width: 100%;
         align-items: flex-start;
         gap: 1rem;
+      }
+      .vero-navbar__links .vero-navbar__link {
+        color: #111827 !important;
       }
       .vero-navbar__cta {
         width: 100%;
@@ -700,11 +704,11 @@
         // Calculate how much of the section has been scrolled through
         const scrollProgress = Math.max(0, Math.min(1, (windowHeight - rect.top) / (windowHeight + rect.height)));
         
-        // Much stronger pan down through the image
-        const panY = scrollProgress * -40; // Reduced from -60 to -40 for better balance
+        // Much stronger pan down through the image - enhanced animation
+        const panY = scrollProgress * -60; // Increased from -40 to -60 for stronger effect
         
         // More moderate zoom effect
-        const scale = 1 + (scrollProgress * 0.15); // Reduced from 0.2 to 0.15
+        const scale = 1 + (scrollProgress * 0.2); // Increased from 0.15 to 0.2
         
         // Apply the transform with stronger effects
         productImage.style.transform = `translateY(${panY}%) scale(${scale})`;
