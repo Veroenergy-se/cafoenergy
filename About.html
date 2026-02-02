@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us – The Story Behind Vero | Vero</title>
+  <meta name="description" content="Meet the team behind Vero. Learn about our mission to create the perfect energy bar and why we're passionate about clean, functional nutrition." />
+  
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWFPL9ZW9R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JWFPL9ZW9R', {
+      'send_page_view': true,
+      'anonymize_ip': true
+    });
+  </script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: white;
+      overflow-x: hidden;
+      padding-top: 80px;
+    }
+
+    /* ===== NAVBAR (matching shop page) ===== */
+    .vero-navbar {
+      position: fixed;
+      top: 0;
+      z-index: 999;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      transform: translateY(0);
+    }
+    .vero-navbar.hidden {
+      transform: translateY(-100%);
+    }
+    .vero-navbar--scrolled {
+      border-color: transparent;
+      background: rgba(0, 0, 0, 1);
+    }
+    .vero-navbar__inner {
+      max-width: 1120px;
+      margin: auto;
+      padding: 1.2rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .vero-navbar__brand {
+      text-decoration: none;
+      color: #ffffff !important;
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      opacity: 1 !important;
+    }
+    .vero-navbar__center {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .vero-navbar__links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+    }
+    .vero-navbar__link {
+      text-decoration: none;
+      color: #ffffff !important;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 1.05rem;
+      padding-bottom: 2px;
+      position: relative;
+      opacity: 1 !important;
+    }
+    .vero-navbar__link::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: #ffffff !important;
+      transition: width 0.2s ease;
+    }
+    .vero-navbar__link:hover::after {
+      width: 100%;
+    }
+    .vero-navbar__link:hover {
+      color: #ffffff !important;
+      opacity: 1 !important;
+    }
+    .vero-navbar__cta {
+      background-color: rgba(255, 208, 116);
+      color: #1d1d1f;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: 600;
+      padding: 1em 2em;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      border: 1px solid black;
+      box-shadow: 0 0 0 0 black;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .vero-navbar__cta:hover {
+      transform: translateY(-4px) translateX(-2px);
+      box-shadow: 2px 5px 0 0 black;
+    }
+    .vero-navbar__cta:active {
+      transform: translateY(2px) translateX(1px);
+      box-shadow: 0 0 0 0 black;
+    }
+    .vero-navbar__toggle {
+      display: none;
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+      flex-direction: column;
+      justify-content: center;
+      gap: 6px;
+    }
+    .vero-navbar__toggle span {
+      height: 3px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 5px;
+      transition: 0.3s ease;
+    }
+    .vero-navbar__toggle--open span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+    .vero-navbar__toggle--open span:nth-child(2) {
+      opacity: 0;
+    }
+    .vero-navbar__toggle--open span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+    @media (max-width: 768px) {
+      .vero-navbar__toggle {
+        display: flex;
+      }
+      .vero-navbar__center {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #000000;
+        border-bottom: 1px solid #333;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.25rem;
+        opacity: 0;
+        transform: translateY(-10px);
+        pointer-events: none;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+      }
+      .vero-navbar__center--open {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+      .vero-navbar__links {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      .vero-navbar__cta {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      height: 90vh;
+      background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.02"/%3E%3C/svg%3E');
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      padding: 0 2rem;
+    }
+
+    .hero-title {
+      font-family: 'Bebas Neue', cursive;
+      font-size: clamp(4rem, 12vw, 7rem);
+      font-weight: 400;
+      color: #1a1a1a;
+      letter-spacing: 0.05em;
+      margin-bottom: 2rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.2rem, 3vw, 1.6rem);
+      color: #d4a574;
+      font-weight: 600;
+      margin-bottom: 3rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .hero-description {
+      font-size: 1.3rem;
+      color: #4a4a4a;
+      line-height: 1.8;
+      margin-bottom: 3rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ===== STORY SHOWCASE ===== */
+    .story-showcase {
+      padding: 4rem 0;
+      background: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .story-showcase-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .story-showcase-title {
+      font-family: 'Bebas Neue', cursive;
+      font-size: clamp(3rem, 8vw, 6rem);
+      color: #1a1a1a;
+      text-align: center;
+      margin-bottom: 4rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* Hero Story Image */
+    .story-hero {
+      position: relative;
+      height: 80vh;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 3rem;
+    }
+
+    .story-hero img {
+      width: 100%;
+      height: 140%;
+      object-fit: cover;
+      transform: translateY(-15%);
+      transition: transform 0.6s ease;
+    }
+
+    .story-hero:hover img {
+      transform: translateY(-15%) scale(1.03);
+    }
+
+    .story-hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem;
+      text-align: center;
+    }
+
+    .story-hero-content h3 {
+      font-family: 'Bebas Neue', cursive;
+      font-size: clamp(3rem, 8vw, 5rem);
+      color: white;
+      margin-bottom: 2rem;
+      letter-spacing: 0.05em;
+    }
+
+    .story-hero-content p {
+      font-size: 1.4rem;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.8;
+      max-width: 700px;
+    }
+
+    .story-highlight {
+      color: #d4a574;
+      font-weight: 700;
+    }
+
+    /* Story Grid */
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 3rem;
+      margin-bottom: 4rem;
+      height: 70vh;
+    }
+
+    .story-large {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .story-large img {
+      width: 100%;
+      height: 140%;
+      object-fit: cover;
+      transform: translateY(-15%);
+      transition: transform 0.6s ease;
+    }
+
+    .story-large:hover img {
+      transform: translateY(-15%) scale(1.05);
+    }
+
+    .story-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 3rem;
+      background: #f8f9fa;
+      border-radius: 20px;
+      position: relative;
+    }
+
+    .story-content::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, #d4a574, #c19660);
+      border-radius: 2px;
+    }
+
+    .story-content h3 {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 2.5rem;
+      color: #1a1a1a;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    .story-content p {
+      font-size: 1.2rem;
+      color: #4a4a4a;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Floating Text Elements */
+    .story-floating-text {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(15px);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+      max-width: 280px;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid rgba(212, 165, 116, 0.2);
+      z-index: 10;
+    }
+
+    .story-floating-text.top-left {
+      top: 20%;
+      left: -140px;
+    }
+
+    .story-floating-text.bottom-right {
+      bottom: 20%;
+      right: -140px;
+    }
+
+    .story-floating-text:hover {
+      transform: scale(1.05) rotate(-1deg);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.18);
+    }
+
+    .story-floating-text h4 {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 1.5rem;
+      color: #1a1a1a;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    .story-floating-text p {
+      font-size: 0.95rem;
+      color: #4a4a4a;
+      line-height: 1.5;
+    }
+
+    /* Wide Bottom Story */
+    .story-wide {
+      position: relative;
+      height: 70vh;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 4rem;
+    }
+
+    .story-wide img {
+      width: 100%;
+      height: 140%;
+      object-fit: cover;
+      transform: translateY(-15%);
+      transition: transform 0.6s ease;
+    }
+
+    .story-wide:hover img {
+      transform: translateY(-15%) scale(1.02);
+    }
+
+    .story-wide-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(26,26,26,0.8) 0%, rgba(45,45,45,0.5) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .story-wide-content {
+      text-align: center;
+      color: white;
+      max-width: 800px;
+      padding: 2rem;
+    }
+
+    .story-wide-content h3 {
+      font-family: 'Bebas Neue', cursive;
+      font-size: clamp(3rem, 8vw, 5rem);
+      margin-bottom: 2rem;
+      letter-spacing: 0.05em;
+    }
+
+    .story-wide-content p {
+      font-size: 1.4rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+      line-height: 1.7;
+    }
+
+
+        padding: 3rem 2rem;
+      }
+      
+      .story-full-section {
+        height: 90vh; /* Increased from 70vh */
+      }
+      
+      .story-full-image {
+        height: 120vh; /* Ensure mobile images are also tall */
+      }
+      
+      .story-full-overlay {
+        padding: 2rem;
+      }
+      
+      .story-split-image {
+        height: 60vh; /* Minimum height for mobile */
+      }
+    }
+
+    /* ===== VALUES SECTION ===== */
+    .values-section {
+      padding: 8rem 2rem;
+      background: #f8f9fa;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .values-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.02"/%3E%3C/svg%3E');
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .values-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .values-title {
+      font-family: 'Bebas Neue', cursive;
+      font-size: clamp(3rem, 8vw, 5rem);
+      color: #1a1a1a;
+      margin-bottom: 4rem;
+      letter-spacing: 0.05em;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+    }
+
+    .value-card {
+      background: white;
+      padding: 3rem 2rem;
+      border-radius: 20px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transform-style: preserve-3d;
+    }
+
+    .value-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #d4a574, #c19660);
+    }
+
+    .value-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(212, 165, 116, 0.05) 0%, rgba(193, 150, 96, 0.05) 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: 1;
+    }
+
+    .value-card:hover {
+      transform: translateY(-15px) rotateX(5deg) rotateY(5deg);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+    }
+
+    .value-card:hover::after {
+      opacity: 1;
+    }
+
+    .value-card-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .value-image {
+      width: 100%;
+      height: 200px;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .value-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .value-card:hover .value-image img {
+      transform: scale(1.1);
+    }
+
+    .value-card-title {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 2rem;
+      color: #1a1a1a;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    .value-card-description {
+      font-size: 1.1rem;
+      color: #4a4a4a;
+      line-height: 1.7;
+    }
+
+    /* ===== TEAM SECTION ===== */
+    .team-section {
+      padding: 8rem 2rem;
+      background: white;
+    }
+
+    .team-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .team-title {
+      font-family: 'Bebas Neue', cursive;
+      font-size: clamp(3rem, 8vw, 5rem);
+      color: #1a1a1a;
+      margin-bottom: 3rem;
+      letter-spacing: 0.05em;
+    }
+
+    .team-description {
+      font-size: 1.3rem;
+      color: #4a4a4a;
+      line-height: 1.8;
+      margin-bottom: 4rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .team-image {
+      width: 100%;
+      max-width: 600px;
+      height: 400px;
+      background: #f8f9fa;
+      border-radius: 12px;
+      margin: 0 auto 3rem auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .team-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .team-quote {
+      font-size: 1.4rem;
+      color: #1a1a1a;
+      font-style: italic;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .team-signature {
+      font-size: 1.1rem;
+      color: #d4a574;
+      font-weight: 600;
+    }
+
+    /* ===== CTA SECTION ===== */
+    .cta-section {
+      padding: 8rem 2rem;
+      background: #1a1a1a;
+      color: white;
+      text-align: center;
+    }
+
+    .cta-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .cta-title {
+      font-family: 'Bebas Neue', cursive;
+      font-size: clamp(3rem, 8vw, 5rem);
+      margin-bottom: 2rem;
+      letter-spacing: 0.05em;
+    }
+
+    .cta-description {
+      font-size: 1.3rem;
+      color: #cccccc;
+      line-height: 1.8;
+      margin-bottom: 3rem;
+    }
+
+    .cta-btn {
+      background: #d4a574;
+      color: #1a1a1a;
+      padding: 1.2rem 3rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .cta-btn:hover {
+      background: #c19660;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(212, 165, 116, 0.3);
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: #000000;
+      color: #ffffff;
+      padding: 60px 20px 40px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .footer-description {
+      text-align: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #333;
+    }
+
+    .footer-brand {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 1.5rem;
+      color: #d4a574;
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-text {
+      color: #ccc;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .footer-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+      align-items: center;
+      font-size: 13px;
+      color: #999999;
+    }
+
+    /* ===== MOBILE RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .story-grid {
+        grid-template-columns: 1fr;
+        height: auto;
+        gap: 2rem;
+      }
+      
+      .story-hero {
+        height: 60vh;
+      }
+      
+      .story-wide {
+        height: 60vh;
+      }
+      
+      .story-floating-text.top-left,
+      .story-floating-text.bottom-right {
+        position: static;
+        margin: 1rem 0;
+        max-width: none;
+      }
+      
+      .story-content {
+        padding: 2rem;
+      }
+
+      .values-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .story-image,
+      .team-image {
+        height: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="vero-navbar" id="veroNavbar">
+    <div class="vero-navbar__inner">
+      <a class="vero-navbar__brand" href="index.html">Vero</a>
+      
+      <div class="vero-navbar__toggle" id="veroToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      
+      <div class="vero-navbar__center">
+        <ul class="vero-navbar__links">
+          <li><a class="vero-navbar__link" href="index.html">Home</a></li>
+          <li><a class="vero-navbar__link" href="Shop.html">Shop</a></li>
+          <li><a class="vero-navbar__link" href="Community.html">Community</a></li>
+          <li><a class="vero-navbar__link" href="About.html">About Us</a></li>
+        </ul>
+      </div>
+      
+      <div class="vero-navbar__right">
+        <a href="Shop.html#products" class="vero-navbar__cta">Get Energized</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">About Vero</h1>
+      <p class="hero-subtitle">The Story Behind the Perfect Bar</p>
+      <p class="hero-description">
+        We're not just another energy bar company. We're two friends from Sweden who got tired of choosing between taste and performance, between clean ingredients and actual results.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== STORY SECTION ===== -->
+  <section class="story-showcase">
+    <div class="story-showcase-container">
+      <h2 class="story-showcase-title">Our Story</h2>
+      
+      <!-- Large Hero Story Image -->
+      <div class="story-hero">
+        <img src="Peanut butter studio pic.jpg" alt="The Problem We Faced" />
+        <div class="story-hero-overlay">
+          <div class="story-hero-content">
+            <h3>The Problem We Faced</h3>
+            <p>
+              Picture this: It's 2 AM, you're deep in a study session or working on that project that could change everything. You need energy, but <span class="story-highlight">coffee makes you jittery</span>, energy drinks crash you harder than they lift you, and protein bars taste like cardboard.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Story Grid with Floating Text -->
+      <div class="story-grid">
+        
+        <!-- Large Left Image -->
+        <div class="story-large">
+          <img src="Peanut butter studio pic.jpg" alt="Our Solution" />
+          <div class="story-floating-text top-left">
+            <h4>Two Years of Testing</h4>
+            <p>Hundreds of combinations, working with nutritionists, refusing to compromise</p>
+          </div>
+        </div>
+
+        <!-- Content Section -->
+        <div class="story-content">
+          <h3>Our Solution</h3>
+          <p>
+            So we did what any obsessive perfectionists would do: we spent <span class="story-highlight">two years in the kitchen</span>, testing hundreds of combinations, working with nutritionists, and refusing to compromise.
+          </p>
+          <p>
+            We discovered that <span class="story-highlight">salted caramel wasn't just delicious</span> – when done right, it was the perfect vehicle for clean caffeine, plant protein, and zero added sugar. One flavor, perfected.
+          </p>
+        </div>
+      </div>
+
+      <!-- Full Width Mission Image -->
+      <div class="story-wide">
+        <img src="Peanut butter studio pic.jpg" alt="Why We Do This" />
+        <div class="story-wide-overlay">
+          <div class="story-wide-content">
+            <h3>Why We Do This</h3>
+            <p>
+              We believe that <span class="story-highlight">focus is a superpower</span>. In a world designed to scatter your attention, the ability to concentrate deeply is what separates dreamers from achievers.
+            </p>
+            <p>
+              Every Vero bar is crafted for the ambitious minds who refuse to settle. Students, entrepreneurs, creators – anyone who knows that <span class="story-highlight">great work requires great fuel</span>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== VALUES SECTION ===== -->
+  <section class="values-section">
+    <div class="values-container">
+      <h2 class="values-title">What We Stand For</h2>
+      
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-card-content">
+            <div class="value-image">
+              <img src="Peanut butter studio pic.jpg" alt="Plant-Based Ingredients" />
+            </div>
+            <h3 class="value-card-title">Clean Ingredients</h3>
+            <p class="value-card-description">
+              100% plant-based, zero added sugar, no artificial nonsense. We believe your body deserves real ingredients that work in harmony with your natural energy systems.
+            </p>
+          </div>
+        </div>
+
+        <div class="value-card">
+          <div class="value-card-content">
+            <div class="value-image">
+              <img src="Peanut butter studio pic.jpg" alt="Performance Testing" />
+            </div>
+            <h3 class="value-card-title">Functional Performance</h3>
+            <p class="value-card-description">
+              Every ingredient has a purpose. Green tea caffeine for clean energy, L-theanine for calm focus, plant protein for sustained performance. No fillers, no shortcuts.
+            </p>
+          </div>
+        </div>
+
+        <div class="value-card">
+          <div class="value-card-content">
+            <div class="value-image">
+              <img src="Peanut butter studio pic.jpg" alt="Quality Control" />
+            </div>
+            <h3 class="value-card-title">Relentless Quality</h3>
+            <p class="value-card-description">
+              We could have launched with "good enough." Instead, we spent two years perfecting one flavor because we believe excellence isn't negotiable.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TEAM SECTION ===== -->
+  <section class="team-section">
+    <div class="team-container">
+      <h2 class="team-title">Meet the Team</h2>
+      <p class="team-description">
+        We're two friends from Stockholm who turned our frustration with mediocre energy products into a mission to create something better.
+      </p>
+      
+      <div class="team-image">
+        <img src="IMG_8401.JPG" alt="Vero Co-founders" />
+      </div>
+      
+      <blockquote class="team-quote">
+        "We built Vero because we needed it ourselves. Every late-night study session, every early morning workout, every moment when focus matters – we wanted fuel that enhanced our performance without compromising our health."
+      </blockquote>
+      <p class="team-signature">– The Vero Team, Stockholm 2025</p>
+    </div>
+  </section>
+
+  <!-- ===== CTA SECTION ===== -->
+  <section class="cta-section">
+    <div class="cta-container">
+      <h2 class="cta-title">Ready to Experience the Difference?</h2>
+      <p class="cta-description">
+        Join thousands of ambitious minds who've discovered what clean, functional energy feels like. No crash, no compromise, just pure focus.
+      </p>
+      <a href="Shop.html" class="cta-btn">Try Vero Today</a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-description">
+        <h3 class="footer-brand">Vero</h3>
+        <p class="footer-text">The perfect bar. Clean energy that feels good.</p>
+        <p class="footer-text">Made with care in the EU. 100% plant-based, zero added sugar, real ingredients.</p>
+      </div>
+      
+      <div class="footer-links">
+        <a href="#">Social media</a>
+        <a href="#">News</a>
+        <a href="Contact.html">Contact us</a>
+        <a href="About.html">About us</a>
+        <a href="#">Privacy policy</a>
+        <a href="#">Cookies settings</a>
+      </div>
+      
+      <div class="footer-bottom">
+        <span>Copyright Vero 2025</span>
+        <span>Vero</span>
+        <span>Stockholm, Sweden</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    const toggle = document.getElementById("veroToggle");
+    const menu = document.querySelector(".vero-navbar__center");
+    const navbar = document.getElementById("veroNavbar");
+    
+    toggle.addEventListener("click", () => {
+      toggle.classList.toggle("vero-navbar__toggle--open");
+      menu.classList.toggle("vero-navbar__center--open");
+    });
+
+    // Auto-hide navbar on scroll down, show on scroll up
+    let lastScrollTop = 0;
+    let scrollTimeout;
+
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      
+      clearTimeout(scrollTimeout);
+      
+      if (scrollTop > 50) {
+        navbar.classList.add('vero-navbar--scrolled');
+      } else {
+        navbar.classList.remove('vero-navbar--scrolled');
+      }
+      
+      if (scrollTop > lastScrollTop && scrollTop > 100) {
+        navbar.classList.add('hidden');
+      } else if (scrollTop < lastScrollTop) {
+        navbar.classList.remove('hidden');
+      }
+      
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+      
+      scrollTimeout = setTimeout(() => {
+        navbar.classList.remove('hidden');
+      }, 1000);
+    });
+
+    // Parallax effects for images
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      
+      // Parallax for story images - subtle movement
+      const storyImages = document.querySelectorAll('.story-hero img, .story-large img, .story-wide img');
+      storyImages.forEach((img, index) => {
+        const speed = 0.1; // Very subtle parallax
+        const yPos = -(scrolled * speed);
+        img.style.transform = `translateY(calc(-15% + ${yPos}px))`;
+      });
+      
+      // Floating text animation on scroll for About page
+      const floatingTexts = document.querySelectorAll('.story-floating-text');
+      floatingTexts.forEach((text, index) => {
+        const rect = text.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+        
+        if (isVisible) {
+          const progress = (window.innerHeight - rect.top) / window.innerHeight;
+          const translateX = text.classList.contains('top-left') ? 
+            Math.min(0, -140 + (progress * 180)) : 
+            Math.max(0, 140 - (progress * 180));
+          
+          if (text.classList.contains('top-left')) {
+            text.style.left = `${translateX}px`;
+          } else {
+            text.style.right = `${Math.abs(translateX)}px`;
+          }
+        }
+      });
+    });
+
+    // 3D card tilt effect
+    document.querySelectorAll('.value-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = (y - centerY) / 10;
+        const rotateY = (centerX - x) / 10;
+        
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px)`;
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+      });
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
