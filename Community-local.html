@@ -1968,8 +1968,77 @@
         </div>
       </div>
 
-      <!-- Enhanced Image Grid with Better Flow -->
-      <div class="showcase-grid scroll-highlight">
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-description">
+        <h3 class="footer-brand">Vero</h3>
+        <p class="footer-text">The perfect bar. Clean energy that feels good.</p>
+        <p class="footer-text">Made with care in the EU. 100% plant-based, zero added sugar, real ingredients.</p>
+      </div>
+      
+      <div class="footer-links">
+        <a href="#">Social media</a>
+        <a href="#">News</a>
+        <a href="Contact.html">Contact us</a>
+        <a href="About.html">About us</a>
+        <a href="#">Privacy policy</a>
+        <a href="#">Cookies settings</a>
+      </div>
+      
+      <div class="footer-bottom">
+        <span>Copyright Vero 2025</span>
+        <span>Vero</span>
+        <span>Stockholm, Sweden</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    const toggle = document.getElementById("veroToggle");
+    const menu = document.querySelector(".vero-navbar__center");
+    const navbar = document.getElementById("veroNavbar");
+    
+    toggle.addEventListener("click", () => {
+      toggle.classList.toggle("vero-navbar__toggle--open");
+      menu.classList.toggle("vero-navbar__center--open");
+    });
+
+    // Auto-hide navbar on scroll down, show on scroll up
+    let lastScrollTop = 0;
+    let scrollTimeout;
+
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      
+      clearTimeout(scrollTimeout);
+      
+      if (scrollTop > 50) {
+        navbar.classList.add('vero-navbar--scrolled');
+      } else {
+        navbar.classList.remove('vero-navbar--scrolled');
+      }
+      
+      if (scrollTop > lastScrollTop && scrollTop > 100) {
+        navbar.classList.add('hidden');
+      } else if (scrollTop < lastScrollTop) {
+        navbar.classList.remove('hidden');
+      }
+      
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+      
+      scrollTimeout = setTimeout(() => {
+        navbar.classList.remove('hidden');
+      }, 1000);
+    });
+  </script>
+
+</body>
+</html>
         
         <!-- Large Left Image -->
         <div class="showcase-large animate-fade-left delay-4">

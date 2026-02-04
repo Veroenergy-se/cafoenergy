@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About Us – The Story Behind Vero | Vero</title>
-  <meta name="description" content="Meet the team behind Vero. Learn about our mission to create the perfect energy bar and why we're passionate about clean, functional nutrition." />
   
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWFPL9ZW9R"></script>
@@ -35,27 +34,28 @@
       color: #1a1a1a;
       background: white;
       overflow-x: hidden;
-      padding-top: 80px;
+      padding-top: 0;
     }
 
-    /* ===== NAVBAR (matching shop page) ===== */
+    /* ===== NAVBAR (fully transparent over video) ===== */
     .vero-navbar {
       position: fixed;
       top: 0;
       z-index: 999;
       width: 100%;
-      background: rgba(0, 0, 0, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      background: transparent;
+      backdrop-filter: none;
+      border-bottom: none;
+      transition: all 0.3s ease;
       transform: translateY(0);
     }
     .vero-navbar.hidden {
       transform: translateY(-100%);
     }
     .vero-navbar--scrolled {
-      border-color: transparent;
-      background: rgba(0, 0, 0, 1);
+      background: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
     .vero-navbar__inner {
       max-width: 1120px;
@@ -218,14 +218,14 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: brightness(0.9);
+      filter: brightness(0.6);
     }
 
     .hero-video img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: brightness(0.9);
+      filter: brightness(0.6);
     }
 
     .hero-overlay {
@@ -234,7 +234,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.2) 100%);
+      background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -243,9 +243,12 @@
 
     .hero-content {
       text-align: center;
-      color: rgba(255, 255, 255, 0.8);
+      color: white;
       max-width: 900px;
       padding: 0 2rem;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: heroContentAppear 1.5s ease-out 0.5s forwards;
     }
 
     .hero-title {
@@ -253,25 +256,15 @@
       font-size: clamp(4rem, 12vw, 8rem);
       font-weight: 400;
       letter-spacing: 0.05em;
-      margin-bottom: 1rem;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+      margin-bottom: 0;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     }
 
-    .hero-subtitle {
-      font-size: clamp(1.2rem, 3vw, 1.8rem);
-      color: #d4a574;
-      font-weight: 600;
-      margin-bottom: 2rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-
-    .hero-description {
-      font-size: 1.3rem;
-      color: rgba(255,255,255,0.9);
-      line-height: 1.8;
-      max-width: 700px;
-      margin: 0 auto;
+    @keyframes heroContentAppear {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* ===== STORY SHOWCASE ===== */
@@ -300,37 +293,39 @@
       animation: fadeInUp 1s ease-out 0.5s forwards;
     }
 
-    /* Hero Story Image */
-    .story-hero {
+    /* Hero Story Image - Full Screen Panning */
+    .story-hero-fullscreen {
       position: relative;
-      height: 80vh;
-      border-radius: 20px;
+      height: 100vh;
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      margin-bottom: 4rem;
       overflow: hidden;
-      margin-bottom: 3rem;
       opacity: 0;
-      transform: scale(0.9);
-      animation: scaleIn 1s ease-out 1s forwards;
+      transform: scale(0.95);
+      animation: scaleIn 1.2s ease-out 1s forwards;
     }
 
-    .story-hero img {
-      width: 100%;
-      height: 140%;
+    .story-hero-fullscreen img {
+      width: 105%;
+      height: 100%;
       object-fit: cover;
-      transform: translateY(-15%);
-      transition: transform 0.6s ease;
+      animation: panLeftToRight 20s ease-in-out infinite alternate;
+      filter: brightness(0.7);
     }
 
-    .story-hero:hover img {
-      transform: translateY(-15%) scale(1.03);
+    @keyframes panLeftToRight {
+      0% { transform: translateX(-2.5%); }
+      100% { transform: translateX(2.5%); }
     }
 
-    .story-hero-overlay {
+    .story-hero-fullscreen .story-hero-overlay {
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%);
+      background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 100%);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -338,25 +333,15 @@
       text-align: center;
     }
 
-    .story-hero-content h3 {
+    .story-hero-fullscreen .story-hero-content h3 {
       font-family: 'Bebas Neue', cursive;
-      font-size: clamp(3rem, 8vw, 5rem);
+      font-size: clamp(4rem, 10vw, 7rem);
       color: white;
-      margin-bottom: 2rem;
+      margin-bottom: 0;
       letter-spacing: 0.05em;
       opacity: 0;
-      transform: translateY(30px);
-      animation: fadeInUp 0.8s ease-out 1.5s forwards;
-    }
-
-    .story-hero-content p {
-      font-size: 1.4rem;
-      color: rgba(255,255,255,0.9);
-      line-height: 1.8;
-      max-width: 700px;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeInUp 0.8s ease-out 1.8s forwards;
+      transform: translateY(50px);
+      animation: fadeInUp 1s ease-out 1.8s forwards;
     }
 
     .story-highlight {
@@ -365,74 +350,179 @@
       text-shadow: 0 0 10px rgba(212, 165, 116, 0.3);
     }
 
-    /* Story Grid */
-    .story-grid {
+    /* Enhanced Story Grid */
+    .story-grid-enhanced {
       display: grid;
-      grid-template-columns: 1.5fr 1fr;
-      gap: 3rem;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 4rem;
       margin-bottom: 4rem;
-      height: 70vh;
+      min-height: 80vh;
       opacity: 0;
       transform: translateY(50px);
-      animation: fadeInUp 1s ease-out 2.5s forwards;
+      animation: fadeInUp 1s ease-out 3s forwards;
     }
 
-    .story-large {
+    .story-team-section {
       position: relative;
-      border-radius: 20px;
-      overflow: hidden;
-      transform: translateX(-50px);
-      animation: slideInLeft 1s ease-out 3s forwards;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
     }
 
-    .story-large img {
+    .team-photo-container {
+      position: relative;
+      height: 500px;
+      border-radius: 25px;
+      overflow: hidden;
+      box-shadow: 0 25px 80px rgba(0,0,0,0.15);
+      transform: rotate(-2deg);
+      transition: all 0.6s ease;
+    }
+
+    .team-photo-container:hover {
+      transform: rotate(0deg) scale(1.02);
+      box-shadow: 0 35px 100px rgba(0,0,0,0.2);
+    }
+
+    .team-photo-container img {
       width: 100%;
-      height: 140%;
+      height: 100%;
       object-fit: cover;
-      transform: translateY(-15%);
       transition: transform 0.6s ease;
     }
 
-    .story-large:hover img {
-      transform: translateY(-15%) scale(1.05);
+    .team-photo-container:hover img {
+      transform: scale(1.1);
     }
 
-    .story-content {
+    .team-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.8));
+      padding: 3rem;
+      color: white;
+      transform: translateY(20px);
+      opacity: 0;
+      animation: slideUpFade 1s ease-out 3.5s forwards;
+    }
+
+    .team-overlay h3 {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+    }
+
+    .team-overlay p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+
+    /* Team Stats Bubbles */
+    .team-stats {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s ease-out 4s forwards;
+    }
+
+    .stat-bubble {
+      background: linear-gradient(135deg, #d4a574, #c19660);
+      color: white;
+      padding: 1.5rem;
+      border-radius: 50%;
+      text-align: center;
+      min-width: 100px;
+      min-height: 100px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 3rem;
-      background: #f8f9fa;
-      border-radius: 20px;
-      position: relative;
-      transform: translateX(50px);
-      animation: slideInRight 1s ease-out 3.2s forwards;
+      box-shadow: 0 10px 30px rgba(212, 165, 116, 0.3);
+      transition: all 0.4s ease;
     }
 
-    .story-content::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 4px;
-      height: 100%;
-      background: linear-gradient(180deg, #d4a574, #c19660);
-      border-radius: 2px;
+    .stat-bubble:hover {
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 20px 50px rgba(212, 165, 116, 0.5);
     }
 
-    .story-content h3 {
+    .stat-number {
       font-family: 'Bebas Neue', cursive;
-      font-size: 2.5rem;
-      color: #1a1a1a;
+      font-size: 2rem;
+      font-weight: bold;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .story-content-enhanced {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 3rem;
+    }
+
+    .problem-section,
+    .solution-section {
+      padding: 2.5rem;
+      border-radius: 20px;
+      transform: translateX(50px);
+      opacity: 0;
+    }
+
+    .problem-section {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      border-left: 4px solid #dc3545;
+      animation: slideInRight 1s ease-out 3.8s forwards;
+    }
+
+    .solution-section {
+      background: linear-gradient(135deg, #d4a574 0%, #c19660 100%);
+      color: white;
+      animation: slideInRight 1s ease-out 4.2s forwards;
+    }
+
+    .problem-section h3,
+    .solution-section h3 {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 2.2rem;
       margin-bottom: 1.5rem;
       letter-spacing: 0.05em;
     }
 
-    .story-content p {
+    .problem-section p,
+    .solution-section p {
       font-size: 1.2rem;
-      color: #4a4a4a;
       line-height: 1.7;
-      margin-bottom: 1.5rem;
+    }
+
+    .solution-section .story-highlight {
+      color: #fff;
+      text-shadow: 0 0 10px rgba(255,255,255,0.3);
+    }
+
+    @keyframes slideUpFade {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideInRight {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
     }
 
     /* Wide Bottom Story */
@@ -524,151 +614,6 @@
       }
     }
 
-
-        padding: 3rem 2rem;
-      }
-      
-      .story-full-section {
-        height: 90vh; /* Increased from 70vh */
-      }
-      
-      .story-full-image {
-        height: 120vh; /* Ensure mobile images are also tall */
-      }
-      
-      .story-full-overlay {
-        padding: 2rem;
-      }
-      
-      .story-split-image {
-        height: 60vh; /* Minimum height for mobile */
-      }
-    }
-
-    /* ===== VALUES SECTION ===== */
-    .values-section {
-      padding: 8rem 2rem;
-      background: #f8f9fa;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .values-section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.02"/%3E%3C/svg%3E');
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .values-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      text-align: center;
-      position: relative;
-      z-index: 2;
-    }
-
-    .values-title {
-      font-family: 'Bebas Neue', cursive;
-      font-size: clamp(3rem, 8vw, 5rem);
-      color: #1a1a1a;
-      margin-bottom: 4rem;
-      letter-spacing: 0.05em;
-    }
-
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 3rem;
-    }
-
-    .value-card {
-      background: white;
-      padding: 3rem 2rem;
-      border-radius: 20px;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-      transform-style: preserve-3d;
-    }
-
-    .value-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(90deg, #d4a574, #c19660);
-    }
-
-    .value-card::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(135deg, rgba(212, 165, 116, 0.05) 0%, rgba(193, 150, 96, 0.05) 100%);
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      z-index: 1;
-    }
-
-    .value-card:hover {
-      transform: translateY(-15px) rotateX(5deg) rotateY(5deg);
-      box-shadow: 0 25px 50px rgba(0,0,0,0.15);
-    }
-
-    .value-card:hover::after {
-      opacity: 1;
-    }
-
-    .value-card-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .value-image {
-      width: 100%;
-      height: 200px;
-      border-radius: 12px;
-      margin-bottom: 2rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .value-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s ease;
-    }
-
-    .value-card:hover .value-image img {
-      transform: scale(1.1);
-    }
-
-    .value-card-title {
-      font-family: 'Bebas Neue', cursive;
-      font-size: 2rem;
-      color: #1a1a1a;
-      margin-bottom: 1.5rem;
-      letter-spacing: 0.05em;
-    }
-
-    .value-card-description {
-      font-size: 1.1rem;
-      color: #4a4a4a;
-      line-height: 1.7;
-    }
-
     /* ===== TEAM SECTION ===== */
     .team-section {
       padding: 8rem 2rem;
@@ -692,6 +637,19 @@
       animation: fadeInUp 1s ease-out 0.5s forwards;
     }
 
+    .team-description {
+      font-size: 1.3rem;
+      color: #4a4a4a;
+      line-height: 1.8;
+      margin-bottom: 4rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease-out 1s forwards;
+    }
+
     .team-image {
       width: 100%;
       max-width: 600px;
@@ -705,7 +663,7 @@
       overflow: hidden;
       opacity: 0;
       transform: scale(0.9) rotate(-2deg);
-      animation: teamImageAppear 1.2s ease-out 1s forwards;
+      animation: teamImageAppear 1.2s ease-out 1.5s forwards;
       box-shadow: 0 20px 60px rgba(0,0,0,0.1);
       transition: all 0.4s ease;
     }
@@ -738,7 +696,7 @@
       margin-right: auto;
       opacity: 0;
       transform: translateY(30px);
-      animation: fadeInUp 0.8s ease-out 2s forwards;
+      animation: fadeInUp 0.8s ease-out 2.5s forwards;
     }
 
     .team-signature {
@@ -747,7 +705,7 @@
       font-weight: 600;
       opacity: 0;
       transform: translateY(20px);
-      animation: fadeInUp 0.8s ease-out 2.3s forwards;
+      animation: fadeInUp 0.8s ease-out 2.8s forwards;
     }
 
     @keyframes teamImageAppear {
@@ -834,10 +792,527 @@
       box-shadow: 0 20px 50px rgba(212, 165, 116, 0.5);
     }
 
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     @keyframes ctaButtonAppear {
       to {
         opacity: 1;
         transform: translateY(0) scale(1);
+      }
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .simple-story {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+      }
+      
+      .story-text {
+        padding: 1rem;
+      }
+      
+      .story-image {
+        height: 300px;
+      }
+      
+      .solution-points {
+        justify-content: center;
+        gap: 1rem;
+      }
+      
+      .point {
+        min-width: 100px;
+        padding: 1rem;
+      }
+      
+      .schedule {
+        gap: 0.5rem;
+      }
+      
+      .time-block {
+        gap: 1rem;
+        padding: 0.8rem 0;
+      }
+      
+      .time {
+        font-size: 1.4rem;
+        min-width: 60px;
+      }
+      
+      .activity {
+        font-size: 1.2rem;
+      }
+      
+      .problem-overlay,
+      .why-overlay {
+        padding: 2rem;
+        margin: 0 1rem;
+      }
+      
+      .scroll-prompt {
+        bottom: 2rem;
+      }
+    }
+
+    /* Chapter 1: Floating Image */
+    .floating-image {
+      position: relative;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      overflow: hidden;
+      animation: floatUpDown 6s ease-in-out infinite;
+      box-shadow: 0 30px 80px rgba(212, 165, 116, 0.4);
+      border: 3px solid rgba(212, 165, 116, 0.3);
+    }
+
+    .floating-image::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(from 0deg, transparent, rgba(212, 165, 116, 0.3), transparent);
+      animation: rotateRing 10s linear infinite;
+      z-index: -1;
+    }
+
+    .floating-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      animation: slowRotate 20s linear infinite;
+      filter: brightness(1.1) contrast(1.05);
+    }
+
+    @keyframes floatUpDown {
+      0%, 100% { 
+        transform: translateY(0px) scale(1); 
+        box-shadow: 0 30px 80px rgba(212, 165, 116, 0.4);
+      }
+      50% { 
+        transform: translateY(-30px) scale(1.08); 
+        box-shadow: 0 50px 100px rgba(212, 165, 116, 0.6);
+      }
+    }
+
+    @keyframes slowRotate {
+      from { transform: rotate(0deg) scale(1); }
+      to { transform: rotate(360deg) scale(1.02); }
+    }
+
+    @keyframes rotateRing {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Chapter 2: Rotating Elements */
+    .rotating-elements {
+      position: relative;
+      width: 350px;
+      height: 350px;
+    }
+
+    .rotating-elements::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 200px;
+      height: 200px;
+      border: 2px dashed rgba(212, 165, 116, 0.3);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      animation: dashRotate 15s linear infinite reverse;
+    }
+
+    .rotating-elements::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 120px;
+      height: 120px;
+      border: 1px solid rgba(212, 165, 116, 0.5);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      animation: dashRotate 10s linear infinite;
+    }
+
+    @keyframes dashRotate {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    .element {
+      position: absolute;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #d4a574, #c19660);
+      animation: orbitRotate 12s linear infinite;
+      box-shadow: 0 10px 30px rgba(212, 165, 116, 0.4);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .element::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      animation: innerSpin 3s ease-in-out infinite;
+    }
+
+    @keyframes innerSpin {
+      0%, 100% { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+      50% { transform: translate(-50%, -50%) scale(1.3) rotate(180deg); }
+    }
+
+    .element-1 {
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      animation-delay: 0s;
+    }
+
+    .element-2 {
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      animation-delay: 4s;
+    }
+
+    .element-3 {
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      animation-delay: 8s;
+    }
+
+    @keyframes orbitRotate {
+      from { 
+        transform: rotate(0deg) translateX(140px) rotate(0deg); 
+        box-shadow: 0 10px 30px rgba(212, 165, 116, 0.4);
+      }
+      50% {
+        box-shadow: 0 20px 50px rgba(212, 165, 116, 0.6);
+      }
+      to { 
+        transform: rotate(360deg) translateX(140px) rotate(-360deg); 
+        box-shadow: 0 10px 30px rgba(212, 165, 116, 0.4);
+      }
+    }
+
+    /* Progress Bar Animation */
+    .progress-bar {
+      position: relative;
+      width: 100%;
+      height: 8px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 4px;
+      margin: 2rem 0;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #d4a574, #c19660);
+      border-radius: 4px;
+      width: 0%;
+      animation: progressFill 3s ease-out 1.5s forwards;
+    }
+
+    @keyframes progressFill {
+      to { width: 100%; }
+    }
+
+    .progress-text {
+      position: absolute;
+      top: -30px;
+      right: 0;
+      font-size: 0.9rem;
+      color: #d4a574;
+      opacity: 0;
+      animation: textAppear 0.5s ease-out 4s forwards;
+    }
+
+    @keyframes textAppear {
+      to { opacity: 1; }
+    }
+
+    /* Chapter 3: Success Animation */
+    .success-animation {
+      position: relative;
+      width: 200px;
+      height: 200px;
+    }
+
+    .success-circle {
+      width: 100%;
+      height: 100%;
+      border: 4px solid #d4a574;
+      border-radius: 50%;
+      position: relative;
+      animation: successPulse 2s ease-in-out infinite;
+    }
+
+    .success-circle::before {
+      content: '✓';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 4rem;
+      color: #d4a574;
+      animation: checkmarkAppear 1s ease-out 0.5s forwards;
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0);
+    }
+
+    @keyframes successPulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(212, 165, 116, 0.3); }
+      50% { transform: scale(1.1); box-shadow: 0 0 40px rgba(212, 165, 116, 0.6); }
+    }
+
+    @keyframes checkmarkAppear {
+      to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+    .success-particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .success-particles::before,
+    .success-particles::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: #d4a574;
+      border-radius: 50%;
+      animation: particleFloat 3s ease-out infinite;
+    }
+
+    .success-particles::before {
+      top: 20%;
+      left: 20%;
+      animation-delay: 0s;
+    }
+
+    .success-particles::after {
+      top: 70%;
+      right: 20%;
+      animation-delay: 1s;
+    }
+
+    @keyframes particleFloat {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-100px) scale(0); opacity: 0; }
+    }
+
+    /* Achievement Badges */
+    .achievement-badges {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .badge {
+      background: rgba(212, 165, 116, 0.1);
+      color: #1a1a1a;
+      padding: 0.8rem 1.5rem;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: 2px solid #d4a574;
+      backdrop-filter: blur(10px);
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.3s ease;
+    }
+
+    .badge:hover {
+      background: #d4a574;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* ===== MOBILE RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .story-scene {
+        flex-direction: column !important;
+        min-height: auto;
+      }
+      
+      .story-scene.reverse {
+        flex-direction: column !important;
+      }
+      
+      .scene-image {
+        height: 50vh;
+      }
+      
+      .scene-content,
+      .scene-visual {
+        padding: 2rem;
+      }
+      
+      .lifestyle-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      
+      .lifestyle-card {
+        height: 300px;
+      }
+      
+      .scene-overlay {
+        padding: 2rem;
+      }
+      
+      .scene-overlay h3 {
+        font-size: 2.5rem;
+      }
+      
+      .problem-overlay,
+      .why-overlay {
+        padding: 2rem;
+        margin: 0 1rem;
+      }
+      
+      .scroll-prompt {
+        bottom: 2rem;
+      }
+    }
+
+    /* Why Section - Full Width Panning */
+    .why-section {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .why-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 120%;
+      height: 100%;
+      background-image: url('Peanut butter studio pic.jpg');
+      background-size: cover;
+      background-position: center;
+      animation: panRightToLeft 25s ease-in-out infinite alternate;
+      filter: brightness(0.6);
+    }
+
+    @keyframes panRightToLeft {
+      0% { transform: translateX(10%); }
+      100% { transform: translateX(-10%); }
+    }
+
+    .why-overlay {
+      position: relative;
+      z-index: 2;
+      background: rgba(212, 165, 116, 0.95);
+      color: #1a1a1a;
+      padding: 4rem;
+      border-radius: 20px;
+      max-width: 900px;
+      margin: 0 2rem;
+      backdrop-filter: blur(15px);
+      text-align: center;
+      animation: contentSlideUp 1s ease-out;
+    }
+
+    @keyframes contentSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .why-overlay h2 {
+      font-family: 'Bebas Neue', cursive;
+      font-size: clamp(3rem, 6vw, 5rem);
+      margin-bottom: 2rem;
+      letter-spacing: 0.05em;
+    }
+
+    .why-overlay p {
+      font-size: 1.4rem;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+      font-weight: 500;
+    }
+
+    .why-cta {
+      background: #1a1a1a;
+      color: white;
+      padding: 1.5rem 3rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: all 0.4s ease;
+      display: inline-block;
+      margin-top: 2rem;
+    }
+
+    .why-cta:hover {
+      background: #333;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    /* ===== MOBILE RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .solution-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      
+      .solution-features {
+        grid-template-columns: 1fr;
+      }
+      
+      .problem-overlay,
+      .why-overlay {
+        padding: 2rem;
+        margin: 0 1rem;
+      }
+      
+      .scroll-prompt {
+        bottom: 2rem;
       }
     }
 
@@ -905,37 +1380,63 @@
 
     /* ===== MOBILE RESPONSIVE ===== */
     @media (max-width: 768px) {
-      .story-grid {
+      .story-hero-fullscreen {
+        height: 70vh;
+        margin-left: calc(-50vw + 50%);
+      }
+      
+      .story-hero-fullscreen .story-hero-content h3 {
+        font-size: clamp(2.5rem, 8vw, 4rem);
+      }
+      
+      .story-hero-fullscreen .story-hero-content p {
+        font-size: 1.2rem;
+      }
+      
+      .story-grid-enhanced {
         grid-template-columns: 1fr;
-        height: auto;
+        gap: 2rem;
+        min-height: auto;
+      }
+      
+      .team-photo-container {
+        min-height: 400px;
+        transform: rotate(0deg);
+      }
+      
+      .team-stats {
+        flex-direction: row;
+        gap: 1rem;
+      }
+      
+      .stat-bubble {
+        min-width: 80px;
+        min-height: 80px;
+        padding: 1rem;
+      }
+      
+      .stat-number {
+        font-size: 1.5rem;
+      }
+      
+      .stat-label {
+        font-size: 0.8rem;
+      }
+      
+      .story-content-enhanced {
         gap: 2rem;
       }
       
-      .story-hero {
-        height: 60vh;
+      .problem-section,
+      .solution-section {
+        padding: 2rem;
+        transform: translateX(0);
       }
       
       .story-wide {
         height: 60vh;
       }
       
-      .story-floating-text.top-left,
-      .story-floating-text.bottom-right {
-        position: static;
-        margin: 1rem 0;
-        max-width: none;
-      }
-      
-      .story-content {
-        padding: 2rem;
-      }
-
-      .values-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-
-      .story-image,
       .team-image {
         height: 300px;
       }
@@ -973,65 +1474,85 @@
   <!-- ===== HERO SECTION ===== -->
   <section class="hero">
     <div class="hero-video">
-      <!-- Using Times Square image as hero background -->
-      <img src="ChatGPT Image 14 dec. 2025 16_43_50.png" alt="Times Square Dreams" />
+      <video autoplay muted loop playsinline>
+        <source src="4AAF12C4-7BC8-4373-97A9-49E1C52353A6.MOV" type="video/mp4">
+        <!-- Fallback image if video doesn't load -->
+        <img src="ChatGPT Image 14 dec. 2025 16_43_50.png" alt="Times Square Dreams" />
+      </video>
     </div>
     <div class="hero-overlay">
       <div class="hero-content">
-        <h1 class="hero-title">Three Guys. Big Dreams.</h1>
-        <p class="hero-subtitle">Stockholm → Times Square</p>
-        <p class="hero-description">
-          We hate energy crashes. So we made something better.
-        </p>
+        <h1 class="hero-title">Three Brothers. Building A Movement.</h1>
       </div>
     </div>
   </section>
 
-  <!-- ===== STORY SECTION ===== -->
+  <!-- ===== STORY SHOWCASE ===== -->
   <section class="story-showcase">
     <div class="story-showcase-container">
-      <h2 class="story-showcase-title">The Problem</h2>
+      <h2 class="story-showcase-title">Our Story</h2>
       
-      <!-- Problem Hero -->
-      <div class="story-hero">
-        <img src="Peanut butter studio pic.jpg" alt="The Energy Problem" />
+      <!-- Large Hero Story Image - Full Screen Panning -->
+      <div class="story-hero-fullscreen">
+        <img src="Screenshot 2026-02-04 at 18.46.30.png" alt="The Problem We Faced" />
         <div class="story-hero-overlay">
           <div class="story-hero-content">
             <h3>We're Always Moving</h3>
-            <p>
-              Math test → Tennis finals → Ski park → Side hustle. <span class="story-highlight">Energy crashes kill momentum.</span>
-            </p>
           </div>
         </div>
       </div>
 
-      <!-- Split Story Grid -->
-      <div class="story-grid">
-        <div class="story-large">
-          <img src="../IMG_8401.JPG" alt="Three Ambitious Guys" />
+      <!-- Enhanced Story Grid with Better Balance -->
+      <div class="story-grid-enhanced">
+        
+        <!-- Team Photo Section with Better Layout -->
+        <div class="story-team-section">
+          <div class="team-photo-container">
+            <img src="IMG_3983.JPG" alt="The Three Founders" />
+            <div class="team-overlay">
+              <h3>Three Guys From Stockholm</h3>
+              <p>Always grinding. School, sports, startups at full speed.</p>
+            </div>
+          </div>
+          
+          <!-- Additional Visual Element -->
+          <div class="team-stats">
+            <div class="stat-bubble">
+              <span class="stat-number">700+</span>
+              <span class="stat-label">Experiments</span>
+            </div>
+            <div class="stat-bubble">
+              <span class="stat-number">2</span>
+              <span class="stat-label">Years</span>
+            </div>
+          </div>
         </div>
-        <div class="story-content">
-          <h3>Three Guys From Stockholm</h3>
-          <p>
-            <span class="story-highlight">Always grinding.</span> School, sports, startups. We live at full speed.
-          </p>
-          <p>
-            Coffee = jitters. Energy drinks = chemicals. Protein bars = cardboard. <span class="story-highlight">Everything sucks.</span>
-          </p>
+
+        <!-- Problem & Solution Content -->
+        <div class="story-content-enhanced">
+          <div class="problem-section">
+            <h3>The Problem</h3>
+            <p>Coffee = jitters. Energy drinks = chemicals. Protein bars = cardboard. <span class="story-highlight">Everything sucks.</span></p>
+          </div>
+          
+          <div class="solution-section">
+            <h3>The Solution</h3>
+            <p><span class="story-highlight">700+ experiments later.</span> Clean energy that actually works. No crash. No compromise.</p>
+          </div>
         </div>
       </div>
 
-      <!-- Solution Wide Image -->
+      <!-- Full Width Mission Image -->
       <div class="story-wide">
-        <img src="Peanut butter studio pic.jpg" alt="The Perfect Solution" />
+        <img src="Peanut butter studio pic.jpg" alt="Why We Do This" />
         <div class="story-wide-overlay">
           <div class="story-wide-content">
-            <h3>700+ Experiments Later</h3>
+            <h3>For People Like Us</h3>
             <p>
-              We cracked the code. <span class="story-highlight">Clean energy that actually works.</span>
+              Students. Athletes. Entrepreneurs. <span class="story-highlight">People who refuse to slow down</span>. Who understand that focus is a superpower in a world designed to scatter your attention.
             </p>
             <p>
-              No crash. No compromise. Just pure focus when you need it most.
+              This is for the ambitious minds who know that <span class="story-highlight">great work requires great fuel</span>. Join the movement.
             </p>
           </div>
         </div>
@@ -1043,20 +1564,21 @@
   <!-- ===== TEAM SECTION ===== -->
   <section class="team-section">
     <div class="team-container">
-      <h2 class="team-title">Meet The Guys</h2>
+      <h2 class="team-title">Meet The Three Guys</h2>
+      <p class="team-description">
+        We're three friends from Stockholm who turned our frustration with mediocre energy products into a mission to create something better.
+      </p>
       
       <div class="team-image">
-        <img src="../IMG_8401.JPG" alt="The Three Founders" />
+        <img src="IMG_3983.JPG" alt="Vero Co-founders" />
       </div>
       
       <blockquote class="team-quote">
-        "We built this because we needed it. Every late-night grind, every early workout, every moment when focus matters most."
+        "We built Vero because we needed it ourselves. Every late-night study session, every early morning workout, every moment when focus matters – we wanted fuel that enhanced our performance without compromising our health."
       </blockquote>
-      <p class="team-signature">– Stockholm, 2025</p>
+      <p class="team-signature">– The Vero Team, Stockholm 2025</p>
     </div>
   </section>
-
-  <!-- ===== CTA SECTION ===== -->
   <section class="cta-section">
     <div class="cta-container">
       <h2 class="cta-title">Join The Movement</h2>
@@ -1132,43 +1654,36 @@
       }, 1000);
     });
 
-    // Enhanced scroll-triggered animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-in');
-          
-          // Add staggered animations for child elements
-          const children = entry.target.querySelectorAll('.story-content h3, .story-content p, .team-quote, .team-signature');
-          children.forEach((child, index) => {
-            setTimeout(() => {
-              child.style.opacity = '1';
-              child.style.transform = 'translateY(0)';
-            }, index * 200);
-          });
-        }
-      });
-    }, observerOptions);
-
-    // Observe elements for scroll animations
-    document.querySelectorAll('.story-grid, .team-section, .cta-section').forEach(el => {
-      observer.observe(el);
-    });
-
-    // Parallax effect for images
+    // Parallax effects for images
     window.addEventListener('scroll', () => {
       const scrolled = window.pageYOffset;
-      const parallaxElements = document.querySelectorAll('.story-hero img, .story-large img, .story-wide img');
       
-      parallaxElements.forEach((img, index) => {
-        const speed = 0.05 + (index * 0.02); // Varying speeds
+      // Parallax for story images - subtle movement
+      const storyImages = document.querySelectorAll('.story-hero img, .story-large img, .story-wide img');
+      storyImages.forEach((img, index) => {
+        const speed = 0.1; // Very subtle parallax
         const yPos = -(scrolled * speed);
         img.style.transform = `translateY(calc(-15% + ${yPos}px))`;
+      });
+      
+      // Floating text animation on scroll
+      const floatingTexts = document.querySelectorAll('.story-floating-text');
+      floatingTexts.forEach((text, index) => {
+        const rect = text.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+        
+        if (isVisible) {
+          const progress = (window.innerHeight - rect.top) / window.innerHeight;
+          const translateX = text.classList.contains('top-left') ? 
+            Math.min(0, -140 + (progress * 180)) : 
+            Math.max(0, 140 - (progress * 180));
+          
+          if (text.classList.contains('top-left')) {
+            text.style.left = `${translateX}px`;
+          } else {
+            text.style.right = `${Math.abs(translateX)}px`;
+          }
+        }
       });
     });
 
@@ -1240,6 +1755,16 @@
     document.body.style.transform = 'translateY(20px)';
     document.body.style.transition = 'all 0.8s ease-out';
   </script>
+          border-radius: 50%;
+          pointer-events: none;
+          animation: particleExplode 2s ease-out forwards;
+          top: 50%;
+          left: 50%;
+          z-index: 10;
+        `;
+        
+        const angle = (i / 15) * 360;
+        const distance = 100 + Math.random() * 50;
 
 </body>
 </html>
