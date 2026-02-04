@@ -197,61 +197,81 @@
 
     /* ===== HERO SECTION ===== */
     .hero {
-      height: 90vh;
-      background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+      height: 100vh;
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      position: relative;
       overflow: hidden;
     }
 
-    .hero::before {
-      content: '';
+    .hero-video {
       position: absolute;
       top: 0;
       left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.02"/%3E%3C/svg%3E');
-      pointer-events: none;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .hero-video video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.9);
+    }
+
+    .hero-video img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.9);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.2) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
     }
 
     .hero-content {
-      position: relative;
-      z-index: 2;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.8);
       max-width: 900px;
       padding: 0 2rem;
     }
 
     .hero-title {
       font-family: 'Bebas Neue', cursive;
-      font-size: clamp(4rem, 12vw, 7rem);
+      font-size: clamp(4rem, 12vw, 8rem);
       font-weight: 400;
-      color: #1a1a1a;
       letter-spacing: 0.05em;
-      margin-bottom: 2rem;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 1rem;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
     }
 
     .hero-subtitle {
-      font-size: clamp(1.2rem, 3vw, 1.6rem);
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
       color: #d4a574;
       font-weight: 600;
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
       text-transform: uppercase;
       letter-spacing: 0.1em;
     }
 
     .hero-description {
       font-size: 1.3rem;
-      color: #4a4a4a;
+      color: rgba(255,255,255,0.9);
       line-height: 1.8;
-      margin-bottom: 3rem;
       max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 0 auto;
     }
 
     /* ===== STORY SHOWCASE ===== */
@@ -275,6 +295,9 @@
       text-align: center;
       margin-bottom: 4rem;
       letter-spacing: 0.05em;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 1s ease-out 0.5s forwards;
     }
 
     /* Hero Story Image */
@@ -284,6 +307,9 @@
       border-radius: 20px;
       overflow: hidden;
       margin-bottom: 3rem;
+      opacity: 0;
+      transform: scale(0.9);
+      animation: scaleIn 1s ease-out 1s forwards;
     }
 
     .story-hero img {
@@ -318,6 +344,9 @@
       color: white;
       margin-bottom: 2rem;
       letter-spacing: 0.05em;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease-out 1.5s forwards;
     }
 
     .story-hero-content p {
@@ -325,11 +354,15 @@
       color: rgba(255,255,255,0.9);
       line-height: 1.8;
       max-width: 700px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease-out 1.8s forwards;
     }
 
     .story-highlight {
       color: #d4a574;
       font-weight: 700;
+      text-shadow: 0 0 10px rgba(212, 165, 116, 0.3);
     }
 
     /* Story Grid */
@@ -339,12 +372,17 @@
       gap: 3rem;
       margin-bottom: 4rem;
       height: 70vh;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 1s ease-out 2.5s forwards;
     }
 
     .story-large {
       position: relative;
       border-radius: 20px;
       overflow: hidden;
+      transform: translateX(-50px);
+      animation: slideInLeft 1s ease-out 3s forwards;
     }
 
     .story-large img {
@@ -367,6 +405,8 @@
       background: #f8f9fa;
       border-radius: 20px;
       position: relative;
+      transform: translateX(50px);
+      animation: slideInRight 1s ease-out 3.2s forwards;
     }
 
     .story-content::before {
@@ -395,49 +435,6 @@
       margin-bottom: 1.5rem;
     }
 
-    /* Floating Text Elements */
-    .story-floating-text {
-      position: absolute;
-      background: rgba(255, 255, 255, 0.98);
-      backdrop-filter: blur(15px);
-      padding: 2rem;
-      border-radius: 15px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.12);
-      max-width: 280px;
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      border: 1px solid rgba(212, 165, 116, 0.2);
-      z-index: 10;
-    }
-
-    .story-floating-text.top-left {
-      top: 20%;
-      left: -140px;
-    }
-
-    .story-floating-text.bottom-right {
-      bottom: 20%;
-      right: -140px;
-    }
-
-    .story-floating-text:hover {
-      transform: scale(1.05) rotate(-1deg);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.18);
-    }
-
-    .story-floating-text h4 {
-      font-family: 'Bebas Neue', cursive;
-      font-size: 1.5rem;
-      color: #1a1a1a;
-      margin-bottom: 0.5rem;
-      letter-spacing: 0.05em;
-    }
-
-    .story-floating-text p {
-      font-size: 0.95rem;
-      color: #4a4a4a;
-      line-height: 1.5;
-    }
-
     /* Wide Bottom Story */
     .story-wide {
       position: relative;
@@ -445,6 +442,9 @@
       border-radius: 20px;
       overflow: hidden;
       margin-bottom: 4rem;
+      opacity: 0;
+      transform: scale(0.95);
+      animation: scaleIn 1s ease-out 4s forwards;
     }
 
     .story-wide img {
@@ -483,13 +483,45 @@
       font-size: clamp(3rem, 8vw, 5rem);
       margin-bottom: 2rem;
       letter-spacing: 0.05em;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease-out 4.5s forwards;
     }
 
     .story-wide-content p {
       font-size: 1.4rem;
       margin-bottom: 2rem;
-      opacity: 0.9;
+      opacity: 0;
       line-height: 1.7;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease-out 4.8s forwards;
+    }
+
+    /* Keyframe Animations */
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes scaleIn {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes slideInLeft {
+      to {
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideInRight {
+      to {
+        transform: translateX(0);
+      }
     }
 
 
@@ -655,16 +687,9 @@
       color: #1a1a1a;
       margin-bottom: 3rem;
       letter-spacing: 0.05em;
-    }
-
-    .team-description {
-      font-size: 1.3rem;
-      color: #4a4a4a;
-      line-height: 1.8;
-      margin-bottom: 4rem;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 1s ease-out 0.5s forwards;
     }
 
     .team-image {
@@ -672,19 +697,34 @@
       max-width: 600px;
       height: 400px;
       background: #f8f9fa;
-      border-radius: 12px;
+      border-radius: 20px;
       margin: 0 auto 3rem auto;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
+      opacity: 0;
+      transform: scale(0.9) rotate(-2deg);
+      animation: teamImageAppear 1.2s ease-out 1s forwards;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+      transition: all 0.4s ease;
+    }
+
+    .team-image:hover {
+      transform: scale(1.02) rotate(0deg);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.15);
     }
 
     .team-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 12px;
+      border-radius: 20px;
+      transition: transform 0.4s ease;
+    }
+
+    .team-image:hover img {
+      transform: scale(1.05);
     }
 
     .team-quote {
@@ -696,12 +736,25 @@
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease-out 2s forwards;
     }
 
     .team-signature {
       font-size: 1.1rem;
       color: #d4a574;
       font-weight: 600;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s ease-out 2.3s forwards;
+    }
+
+    @keyframes teamImageAppear {
+      to {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+      }
     }
 
     /* ===== CTA SECTION ===== */
@@ -710,11 +763,31 @@
       background: #1a1a1a;
       color: white;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
+      animation: gradientShift 8s ease-in-out infinite;
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
     }
 
     .cta-container {
       max-width: 800px;
       margin: 0 auto;
+      position: relative;
+      z-index: 2;
     }
 
     .cta-title {
@@ -722,6 +795,9 @@
       font-size: clamp(3rem, 8vw, 5rem);
       margin-bottom: 2rem;
       letter-spacing: 0.05em;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 1s ease-out 0.5s forwards;
     }
 
     .cta-description {
@@ -729,25 +805,40 @@
       color: #cccccc;
       line-height: 1.8;
       margin-bottom: 3rem;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease-out 1s forwards;
     }
 
     .cta-btn {
       background: #d4a574;
       color: #1a1a1a;
-      padding: 1.2rem 3rem;
-      border-radius: 6px;
+      padding: 1.5rem 4rem;
+      border-radius: 50px;
       text-decoration: none;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      transition: all 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       display: inline-block;
+      font-size: 1.2rem;
+      opacity: 0;
+      transform: translateY(30px) scale(0.9);
+      animation: ctaButtonAppear 1s ease-out 1.5s forwards;
+      box-shadow: 0 10px 30px rgba(212, 165, 116, 0.3);
     }
 
     .cta-btn:hover {
       background: #c19660;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(212, 165, 116, 0.3);
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 20px 50px rgba(212, 165, 116, 0.5);
+    }
+
+    @keyframes ctaButtonAppear {
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
     }
 
     /* ===== FOOTER ===== */
@@ -881,148 +972,98 @@
 
   <!-- ===== HERO SECTION ===== -->
   <section class="hero">
-    <div class="hero-content">
-      <h1 class="hero-title">About Vero</h1>
-      <p class="hero-subtitle">The Story Behind the Perfect Bar</p>
-      <p class="hero-description">
-        We're not just another energy bar company. We're two friends from Sweden who got tired of choosing between taste and performance, between clean ingredients and actual results.
-      </p>
+    <div class="hero-video">
+      <!-- Using Times Square image as hero background -->
+      <img src="ChatGPT Image 14 dec. 2025 16_43_50.png" alt="Times Square Dreams" />
+    </div>
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <h1 class="hero-title">Three Guys. Big Dreams.</h1>
+        <p class="hero-subtitle">Stockholm → Times Square</p>
+        <p class="hero-description">
+          We hate energy crashes. So we made something better.
+        </p>
+      </div>
     </div>
   </section>
 
   <!-- ===== STORY SECTION ===== -->
   <section class="story-showcase">
     <div class="story-showcase-container">
-      <h2 class="story-showcase-title">Our Story</h2>
+      <h2 class="story-showcase-title">The Problem</h2>
       
-      <!-- Large Hero Story Image -->
+      <!-- Problem Hero -->
       <div class="story-hero">
-        <img src="Peanut butter studio pic.jpg" alt="The Problem We Faced" />
+        <img src="Peanut butter studio pic.jpg" alt="The Energy Problem" />
         <div class="story-hero-overlay">
           <div class="story-hero-content">
-            <h3>The Problem We Faced</h3>
+            <h3>We're Always Moving</h3>
             <p>
-              Picture this: It's 2 AM, you're deep in a study session or working on that project that could change everything. You need energy, but <span class="story-highlight">coffee makes you jittery</span>, energy drinks crash you harder than they lift you, and protein bars taste like cardboard.
+              Math test → Tennis finals → Ski park → Side hustle. <span class="story-highlight">Energy crashes kill momentum.</span>
             </p>
           </div>
         </div>
       </div>
 
-      <!-- Story Grid with Floating Text -->
+      <!-- Split Story Grid -->
       <div class="story-grid">
-        
-        <!-- Large Left Image -->
         <div class="story-large">
-          <img src="Peanut butter studio pic.jpg" alt="Our Solution" />
-          <div class="story-floating-text top-left">
-            <h4>Two Years of Testing</h4>
-            <p>Hundreds of combinations, working with nutritionists, refusing to compromise</p>
-          </div>
+          <img src="../IMG_8401.JPG" alt="Three Ambitious Guys" />
         </div>
-
-        <!-- Content Section -->
         <div class="story-content">
-          <h3>Our Solution</h3>
+          <h3>Three Guys From Stockholm</h3>
           <p>
-            So we did what any obsessive perfectionists would do: we spent <span class="story-highlight">two years in the kitchen</span>, testing hundreds of combinations, working with nutritionists, and refusing to compromise.
+            <span class="story-highlight">Always grinding.</span> School, sports, startups. We live at full speed.
           </p>
           <p>
-            We discovered that <span class="story-highlight">salted caramel wasn't just delicious</span> – when done right, it was the perfect vehicle for clean caffeine, plant protein, and zero added sugar. One flavor, perfected.
+            Coffee = jitters. Energy drinks = chemicals. Protein bars = cardboard. <span class="story-highlight">Everything sucks.</span>
           </p>
         </div>
       </div>
 
-      <!-- Full Width Mission Image -->
+      <!-- Solution Wide Image -->
       <div class="story-wide">
-        <img src="Peanut butter studio pic.jpg" alt="Why We Do This" />
+        <img src="Peanut butter studio pic.jpg" alt="The Perfect Solution" />
         <div class="story-wide-overlay">
           <div class="story-wide-content">
-            <h3>Why We Do This</h3>
+            <h3>700+ Experiments Later</h3>
             <p>
-              We believe that <span class="story-highlight">focus is a superpower</span>. In a world designed to scatter your attention, the ability to concentrate deeply is what separates dreamers from achievers.
+              We cracked the code. <span class="story-highlight">Clean energy that actually works.</span>
             </p>
             <p>
-              Every Vero bar is crafted for the ambitious minds who refuse to settle. Students, entrepreneurs, creators – anyone who knows that <span class="story-highlight">great work requires great fuel</span>.
+              No crash. No compromise. Just pure focus when you need it most.
             </p>
           </div>
         </div>
       </div>
 
-    </div>
-  </section>
-
-  <!-- ===== VALUES SECTION ===== -->
-  <section class="values-section">
-    <div class="values-container">
-      <h2 class="values-title">What We Stand For</h2>
-      
-      <div class="values-grid">
-        <div class="value-card">
-          <div class="value-card-content">
-            <div class="value-image">
-              <img src="Peanut butter studio pic.jpg" alt="Plant-Based Ingredients" />
-            </div>
-            <h3 class="value-card-title">Clean Ingredients</h3>
-            <p class="value-card-description">
-              100% plant-based, zero added sugar, no artificial nonsense. We believe your body deserves real ingredients that work in harmony with your natural energy systems.
-            </p>
-          </div>
-        </div>
-
-        <div class="value-card">
-          <div class="value-card-content">
-            <div class="value-image">
-              <img src="Peanut butter studio pic.jpg" alt="Performance Testing" />
-            </div>
-            <h3 class="value-card-title">Functional Performance</h3>
-            <p class="value-card-description">
-              Every ingredient has a purpose. Green tea caffeine for clean energy, L-theanine for calm focus, plant protein for sustained performance. No fillers, no shortcuts.
-            </p>
-          </div>
-        </div>
-
-        <div class="value-card">
-          <div class="value-card-content">
-            <div class="value-image">
-              <img src="Peanut butter studio pic.jpg" alt="Quality Control" />
-            </div>
-            <h3 class="value-card-title">Relentless Quality</h3>
-            <p class="value-card-description">
-              We could have launched with "good enough." Instead, we spent two years perfecting one flavor because we believe excellence isn't negotiable.
-            </p>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
   <!-- ===== TEAM SECTION ===== -->
   <section class="team-section">
     <div class="team-container">
-      <h2 class="team-title">Meet the Team</h2>
-      <p class="team-description">
-        We're two friends from Stockholm who turned our frustration with mediocre energy products into a mission to create something better.
-      </p>
+      <h2 class="team-title">Meet The Guys</h2>
       
       <div class="team-image">
-        <img src="IMG_8401.JPG" alt="Vero Co-founders" />
+        <img src="../IMG_8401.JPG" alt="The Three Founders" />
       </div>
       
       <blockquote class="team-quote">
-        "We built Vero because we needed it ourselves. Every late-night study session, every early morning workout, every moment when focus matters – we wanted fuel that enhanced our performance without compromising our health."
+        "We built this because we needed it. Every late-night grind, every early workout, every moment when focus matters most."
       </blockquote>
-      <p class="team-signature">– The Vero Team, Stockholm 2025</p>
+      <p class="team-signature">– Stockholm, 2025</p>
     </div>
   </section>
 
   <!-- ===== CTA SECTION ===== -->
   <section class="cta-section">
     <div class="cta-container">
-      <h2 class="cta-title">Ready to Experience the Difference?</h2>
+      <h2 class="cta-title">Join The Movement</h2>
       <p class="cta-description">
-        Join thousands of ambitious minds who've discovered what clean, functional energy feels like. No crash, no compromise, just pure focus.
+        For people who refuse to slow down. Ready to feel the difference?
       </p>
-      <a href="Shop.html" class="cta-btn">Try Vero Today</a>
+      <a href="Shop.html" class="cta-btn">Get Yours</a>
     </div>
   </section>
 
@@ -1091,57 +1132,86 @@
       }, 1000);
     });
 
-    // Parallax effects for images
+    // Enhanced scroll-triggered animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+          
+          // Add staggered animations for child elements
+          const children = entry.target.querySelectorAll('.story-content h3, .story-content p, .team-quote, .team-signature');
+          children.forEach((child, index) => {
+            setTimeout(() => {
+              child.style.opacity = '1';
+              child.style.transform = 'translateY(0)';
+            }, index * 200);
+          });
+        }
+      });
+    }, observerOptions);
+
+    // Observe elements for scroll animations
+    document.querySelectorAll('.story-grid, .team-section, .cta-section').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Parallax effect for images
     window.addEventListener('scroll', () => {
       const scrolled = window.pageYOffset;
+      const parallaxElements = document.querySelectorAll('.story-hero img, .story-large img, .story-wide img');
       
-      // Parallax for story images - subtle movement
-      const storyImages = document.querySelectorAll('.story-hero img, .story-large img, .story-wide img');
-      storyImages.forEach((img, index) => {
-        const speed = 0.1; // Very subtle parallax
+      parallaxElements.forEach((img, index) => {
+        const speed = 0.05 + (index * 0.02); // Varying speeds
         const yPos = -(scrolled * speed);
         img.style.transform = `translateY(calc(-15% + ${yPos}px))`;
       });
-      
-      // Floating text animation on scroll for About page
-      const floatingTexts = document.querySelectorAll('.story-floating-text');
-      floatingTexts.forEach((text, index) => {
-        const rect = text.getBoundingClientRect();
-        const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-        
-        if (isVisible) {
-          const progress = (window.innerHeight - rect.top) / window.innerHeight;
-          const translateX = text.classList.contains('top-left') ? 
-            Math.min(0, -140 + (progress * 180)) : 
-            Math.max(0, 140 - (progress * 180));
-          
-          if (text.classList.contains('top-left')) {
-            text.style.left = `${translateX}px`;
-          } else {
-            text.style.right = `${Math.abs(translateX)}px`;
-          }
-        }
-      });
     });
 
-    // 3D card tilt effect
-    document.querySelectorAll('.value-card').forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        
-        const rotateX = (y - centerY) / 10;
-        const rotateY = (centerX - x) / 10;
-        
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px)`;
+    // Dynamic text highlighting on scroll
+    const highlights = document.querySelectorAll('.story-highlight');
+    const highlightObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animation = 'highlightGlow 2s ease-in-out infinite alternate';
+        }
+      });
+    }, { threshold: 0.5 });
+
+    highlights.forEach(highlight => {
+      highlightObserver.observe(highlight);
+    });
+
+    // Add glow animation for highlights
+    const glowStyles = `
+      @keyframes highlightGlow {
+        0% { text-shadow: 0 0 5px rgba(212, 165, 116, 0.3); }
+        100% { text-shadow: 0 0 20px rgba(212, 165, 116, 0.8), 0 0 30px rgba(212, 165, 116, 0.4); }
+      }
+    `;
+    
+    const styleSheet = document.createElement('style');
+    styleSheet.textContent = glowStyles;
+    document.head.appendChild(styleSheet);
+
+    // Interactive hover effects for images
+    document.querySelectorAll('.story-hero, .story-large, .story-wide, .team-image').forEach(container => {
+      container.addEventListener('mouseenter', () => {
+        const img = container.querySelector('img');
+        if (img) {
+          img.style.filter = 'brightness(1.1) contrast(1.1) saturate(1.2)';
+        }
       });
       
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+      container.addEventListener('mouseleave', () => {
+        const img = container.querySelector('img');
+        if (img) {
+          img.style.filter = 'brightness(1) contrast(1) saturate(1)';
+        }
       });
     });
 
@@ -1158,6 +1228,17 @@
         }
       });
     });
+
+    // Add loading animation
+    window.addEventListener('load', () => {
+      document.body.style.opacity = '1';
+      document.body.style.transform = 'translateY(0)';
+    });
+
+    // Initial page load animation
+    document.body.style.opacity = '0';
+    document.body.style.transform = 'translateY(20px)';
+    document.body.style.transition = 'all 0.8s ease-out';
   </script>
 
 </body>
