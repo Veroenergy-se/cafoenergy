@@ -194,6 +194,14 @@
       }
     }
 
+    /* ===== ENSURE NAVBAR TEXT STAYS WHITE ===== */
+    .vero-navbar,
+    .vero-navbar *,
+    .vero-navbar__brand,
+    .vero-navbar__link {
+      color: #ffffff !important;
+    }
+
     /* ===== HERO SECTION ===== */
     .hero {
       height: 70vh;
@@ -655,6 +663,28 @@
         justify-content: center;
       }
     }
+
+    /* ===== FADE IN ANIMATIONS ===== */
+    .fade-in {
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+    }
+
+    /* Special fade-in with slide up for elements that don't have transforms */
+    .fade-in-slide {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in-slide.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body>
@@ -686,20 +716,20 @@
   </nav>
 
   <!-- ===== HERO SECTION ===== -->
-  <section class="hero" id="home">
-    <h1 class="hero-title">The Perfect Bar</h1>
+  <section class="hero fade-in-slide" id="home">
+    <h1 class="hero-title fade-in-slide">The Perfect Bar</h1>
   </section>
 
   <!-- ===== PRODUCT SHOWCASE ===== -->
-  <section class="product-showcase">
+  <section class="product-showcase fade-in-slide">
     <img src="Peanut butter studio pic.jpg" alt="Vero Energy Bar - Salted Caramel" class="product-image" />
   </section>
 
   <!-- ===== FLAVOR STORY ===== -->
   <section class="flavor-story">
     <div class="flavor-container">
-      <h2 class="flavor-title">One Flavor. Perfected.</h2>
-      <p class="flavor-description">
+      <h2 class="flavor-title fade-in-slide">One Flavor. Perfected.</h2>
+      <p class="flavor-description fade-in-slide">
         After <span class="highlight-word">countless iterations</span>, taste tests, and late-night kitchen sessions, we discovered something remarkable: when you get <span class="highlight-word">salted caramel exactly right</span>, you don't need anything else.
       </p>
       <p class="flavor-highlight">
@@ -714,11 +744,11 @@
   <!-- ===== PRODUCTS SECTION ===== -->
   <section class="products" id="products">
     <div class="products-container">
-      <h2 class="products-title">Taste The Perfect</h2>
+      <h2 class="products-title fade-in-slide">Taste The Perfect</h2>
       
       <div class="products-grid">
         <!-- Starter Pack -->
-        <div class="product-card">
+        <div class="product-card fade-in-slide">
           <div class="product-quantity">12</div>
           <h3 class="product-name">Try It</h3>
           <p class="product-subtitle">Perfect for first-timers</p>
@@ -727,7 +757,7 @@
         </div>
 
         <!-- Most Popular -->
-        <div class="product-card featured">
+        <div class="product-card featured fade-in-slide">
           <div class="featured-badge">Most Popular</div>
           <div class="product-quantity">24</div>
           <h3 class="product-name">Stock Up</h3>
@@ -737,7 +767,7 @@
         </div>
 
         <!-- Family Pack -->
-        <div class="product-card">
+        <div class="product-card fade-in-slide">
           <div class="product-quantity">36</div>
           <h3 class="product-name">Family Pack</h3>
           <p class="product-subtitle">Share the perfection</p>
@@ -751,28 +781,28 @@
   <!-- ===== INGREDIENTS SECTION ===== -->
   <section class="ingredients" id="ingredients">
     <div class="ingredients-container">
-      <h2 class="ingredients-title">What Makes It Perfect</h2>
+      <h2 class="ingredients-title fade-in-slide">What Makes It Perfect</h2>
       
       <div class="ingredients-grid">
-        <div class="ingredient-item">
+        <div class="ingredient-item fade-in-slide">
           <div class="ingredient-amount">90mg</div>
           <div class="ingredient-name">Natural Caffeine</div>
           <div class="ingredient-benefit">Smooth energy without the crash</div>
         </div>
 
-        <div class="ingredient-item">
+        <div class="ingredient-item fade-in-slide">
           <div class="ingredient-amount">10g</div>
           <div class="ingredient-name">Plant Protein</div>
           <div class="ingredient-benefit">Sustained performance & fullness</div>
         </div>
 
-        <div class="ingredient-item">
+        <div class="ingredient-item fade-in-slide">
           <div class="ingredient-amount">0g</div>
           <div class="ingredient-name">Added Sugar</div>
           <div class="ingredient-benefit">Clean sweetness, no guilt</div>
         </div>
 
-        <div class="ingredient-item">
+        <div class="ingredient-item fade-in-slide">
           <div class="ingredient-amount">L</div>
           <div class="ingredient-name">L-Theanine</div>
           <div class="ingredient-benefit">Calm focus, no jitters</div>
@@ -884,6 +914,14 @@
         }, 1000);
       }
     }
+
+    // Fade-in animation on page load - trigger all at once
+    window.addEventListener('load', () => {
+      // Add visible class to all fade-in elements immediately
+      document.querySelectorAll('.fade-in, .fade-in-slide').forEach(el => {
+        el.classList.add('visible');
+      });
+    });
   </script>
 
   <!-- ===== FOOTER ===== -->
