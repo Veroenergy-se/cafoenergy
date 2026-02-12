@@ -19,7 +19,10 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=54" />
+  <link rel="stylesheet" href="deux-style.css?v=33" />
+  <link rel="stylesheet" href="our-story-override.css?v=102" />
   
   <style>
     * {
@@ -37,25 +40,18 @@
       padding-top: 0;
     }
 
-    /* ===== NAVBAR (fully transparent over video) ===== */
+    /* ===== COMPLETE NAVBAR STYLING TO MATCH SHOP.HTML ===== */
     .vero-navbar {
-      position: fixed;
+      position: sticky;
       top: 0;
       z-index: 999;
       width: 100%;
-      background: transparent;
-      backdrop-filter: none;
-      border-bottom: none;
-      transition: all 0.3s ease;
-      transform: translateY(0);
-    }
-    .vero-navbar.hidden {
-      transform: translateY(-100%);
+      background: #000000 !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      transition: box-shadow 0.2s ease, border-color 0.2s ease;
     }
     .vero-navbar--scrolled {
-      background: rgba(0, 0, 0, 0.9);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-color: transparent;
     }
     .vero-navbar__inner {
       max-width: 1120px;
@@ -103,6 +99,7 @@
       width: 0%;
       height: 2px;
       background: #ffffff !important;
+      background: #000000 !important;
       transition: width 0.2s ease;
     }
     .vero-navbar__link:hover::after {
@@ -169,7 +166,7 @@
         left: 0;
         width: 100%;
         background: #000000;
-        border-bottom: 1px solid #333;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         flex-direction: column;
         gap: 1rem;
         padding: 1.25rem;
@@ -193,6 +190,107 @@
         width: 100%;
         text-align: center;
       }
+    }
+
+    /* ===== ABOUT PAGE SPECIFIC OVERRIDES ===== */
+    /* Override external stylesheets for About page content only (not navbar) */
+    
+    /* Force black navbar background - override our-story-override.css */
+    .vero-navbar {
+      background: #000000 !important;
+      backdrop-filter: none !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+    }
+    
+    .vero-navbar__brand,
+    .vero-navbar__link {
+      color: #ffffff !important;
+      text-shadow: none !important;
+    }
+    
+    .vero-navbar__link:hover {
+      color: #ffffff !important;
+      text-shadow: none !important;
+    }
+    
+    .vero-navbar__link::after {
+      background: #ffffff !important;
+    }
+    
+    .vero-navbar__toggle span {
+      background: #ffffff !important;
+    }
+    
+    @media (max-width: 768px) {
+      .vero-navbar__center {
+        background: #000000 !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+      }
+    }
+    
+    /* Reset body */
+    body {
+      padding-top: 0 !important;
+      background: white !important;
+    }
+
+    /* Reset hero section to About page original styles */
+    .hero {
+      height: 100vh !important;
+      position: relative !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      overflow: hidden !important;
+      min-height: 100vh !important;
+      background: none !important;
+      padding: 0 !important;
+    }
+
+    .hero-container {
+      display: block !important;
+      grid-template-columns: none !important;
+      position: static !important;
+      z-index: auto !important;
+      max-width: none !important;
+      padding: 0 !important;
+      gap: 0 !important;
+    }
+
+    .hero-content {
+      text-align: center !important;
+      color: white !important;
+      max-width: 900px !important;
+      padding: 0 2rem !important;
+      flex: none !important;
+    }
+
+    .hero-title {
+      font-size: 4rem !important;
+      font-weight: 900 !important;
+      line-height: 1.1 !important;
+      margin: 0 !important;
+      color: white !important;
+      background: none !important;
+      -webkit-background-clip: unset !important;
+      -webkit-text-fill-color: unset !important;
+    }
+
+    .hero-subtitle {
+      font-size: 1.5rem !important;
+      color: rgba(255, 255, 255, 0.9) !important;
+      margin: 0 !important;
+      max-width: none !important;
+      opacity: 1 !important;
+    }
+
+    .hero-badge,
+    .hero-actions,
+    .hero-stats,
+    .hero-visual,
+    .hero-trust,
+    .hero-product-card {
+      display: none !important;
     }
 
     /* ===== HERO SECTION ===== */
@@ -297,9 +395,9 @@
     .story-hero-fullscreen {
       position: relative;
       height: 100vh;
-      width: 100vw;
-      margin-left: calc(-50vw + 50%);
-      margin-bottom: 4rem;
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto 4rem auto;
       overflow: hidden;
       opacity: 0;
       transform: scale(0.95);
@@ -307,16 +405,18 @@
     }
 
     .story-hero-fullscreen img {
-      width: 105%;
+      width: 130%;
       height: 100%;
       object-fit: cover;
       animation: panLeftToRight 20s ease-in-out infinite alternate;
       filter: brightness(0.7);
+      position: relative;
+      left: -15%;
     }
 
     @keyframes panLeftToRight {
-      0% { transform: translateX(-2.5%); }
-      100% { transform: translateX(2.5%); }
+      0% { left: -30%; }
+      100% { left: 0%; }
     }
 
     .story-hero-fullscreen .story-hero-overlay {
@@ -1441,12 +1541,19 @@
         height: 300px;
       }
     }
+    
+    /* ===== FINAL ABSOLUTE OVERRIDE - BLACK NAVBAR ===== */
+    html body .vero-navbar,
+    html body nav.vero-navbar {
+      background: #000000 !important;
+      background-color: #000000 !important;
+    }
   </style>
 </head>
 <body>
 
   <!-- ===== NAVBAR ===== -->
-  <nav class="vero-navbar" id="veroNavbar">
+  <nav class="vero-navbar" id="veroNavbar" style="background: #000000 !important; background-color: #000000 !important;">
     <div class="vero-navbar__inner">
       <a class="vero-navbar__brand" href="index.html">Vero</a>
       
@@ -1626,66 +1733,38 @@
       menu.classList.toggle("vero-navbar__center--open");
     });
 
-    // Auto-hide navbar on scroll down, show on scroll up
-    let lastScrollTop = 0;
-    let scrollTimeout;
-
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      
-      clearTimeout(scrollTimeout);
-      
-      if (scrollTop > 50) {
-        navbar.classList.add('vero-navbar--scrolled');
-      } else {
-        navbar.classList.remove('vero-navbar--scrolled');
-      }
-      
-      if (scrollTop > lastScrollTop && scrollTop > 100) {
-        navbar.classList.add('hidden');
-      } else if (scrollTop < lastScrollTop) {
-        navbar.classList.remove('hidden');
-      }
-      
-      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-      
-      scrollTimeout = setTimeout(() => {
-        navbar.classList.remove('hidden');
-      }, 1000);
-    });
-
-    // Parallax effects for images
-    window.addEventListener('scroll', () => {
-      const scrolled = window.pageYOffset;
-      
-      // Parallax for story images - subtle movement
-      const storyImages = document.querySelectorAll('.story-hero img, .story-large img, .story-wide img');
-      storyImages.forEach((img, index) => {
-        const speed = 0.1; // Very subtle parallax
-        const yPos = -(scrolled * speed);
-        img.style.transform = `translateY(calc(-15% + ${yPos}px))`;
-      });
-      
-      // Floating text animation on scroll
-      const floatingTexts = document.querySelectorAll('.story-floating-text');
-      floatingTexts.forEach((text, index) => {
-        const rect = text.getBoundingClientRect();
-        const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-        
-        if (isVisible) {
-          const progress = (window.innerHeight - rect.top) / window.innerHeight;
-          const translateX = text.classList.contains('top-left') ? 
-            Math.min(0, -140 + (progress * 180)) : 
-            Math.max(0, 140 - (progress * 180));
-          
-          if (text.classList.contains('top-left')) {
-            text.style.left = `${translateX}px`;
-          } else {
-            text.style.right = `${Math.abs(translateX)}px`;
-          }
-        }
-      });
-    });
+    // Parallax effects disabled to prevent glitching
+    // window.addEventListener('scroll', () => {
+    //   const scrolled = window.pageYOffset;
+    //   
+    //   // Parallax for story images - subtle movement
+    //   const storyImages = document.querySelectorAll('.story-hero img, .story-large img, .story-wide img');
+    //   storyImages.forEach((img, index) => {
+    //     const speed = 0.1; // Very subtle parallax
+    //     const yPos = -(scrolled * speed);
+    //     img.style.transform = `translateY(calc(-15% + ${yPos}px))`;
+    //   });
+    //   
+    //   // Floating text animation on scroll
+    //   const floatingTexts = document.querySelectorAll('.story-floating-text');
+    //   floatingTexts.forEach((text, index) => {
+    //     const rect = text.getBoundingClientRect();
+    //     const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+    //     
+    //     if (isVisible) {
+    //       const progress = (window.innerHeight - rect.top) / window.innerHeight;
+    //       const translateX = text.classList.contains('top-left') ? 
+    //         Math.min(0, -140 + (progress * 180)) : 
+    //         Math.max(0, 140 - (progress * 180));
+    //       
+    //       if (text.classList.contains('top-left')) {
+    //         text.style.left = `${translateX}px`;
+    //       } else {
+    //         text.style.right = `${Math.abs(translateX)}px`;
+    //       }
+    //     }
+    //   });
+    // });
 
     // Dynamic text highlighting on scroll
     const highlights = document.querySelectorAll('.story-highlight');
