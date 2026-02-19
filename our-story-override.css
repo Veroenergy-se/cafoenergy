@@ -2047,26 +2047,26 @@ nav.vero-navbar,
 .vero-navbar .vero-navbar__brand,
 .vero-navbar__brand,
 a.vero-navbar__brand {
-  color: #0B0C10 !important;
+  color: #ffffff !important;
 }
 
 .vero-navbar .vero-navbar__link,
 .vero-navbar__link,
 a.vero-navbar__link {
-  color: #0B0C10 !important;
+  color: #ffffff !important;
 }
 
 .vero-navbar__link::after {
-  background: #0B0C10 !important;
+  background: #ffffff !important;
 }
 
 .vero-navbar .vero-navbar__link:hover,
 .vero-navbar__link:hover {
-  color: #0B0C10 !important;
+  color: #ffffff !important;
 }
 
 .vero-navbar__toggle span {
-  background: #0B0C10 !important;
+  background: #ffffff !important;
 }
 /* ===== END EXPERIMENTAL TRANSPARENT NAVBAR ===== */
 

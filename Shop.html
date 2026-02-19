@@ -31,7 +31,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=54" />
   <link rel="stylesheet" href="deux-style.css?v=33" />
-  <link rel="stylesheet" href="our-story-override.css?v=21" />
+  <link rel="stylesheet" href="our-story-override.css?v=102" />
   
   <style>
     * {
@@ -203,6 +203,14 @@
     /* ===== FORCE ALL TEXT TO BE BLACK EXCEPT NAVBAR ===== */
     *:not(.vero-navbar):not(.vero-navbar *) {
       color: #000000 !important;
+    }
+
+    /* ===== ENSURE NAVBAR TEXT STAYS WHITE ===== */
+    .vero-navbar,
+    .vero-navbar *,
+    .vero-navbar__brand,
+    .vero-navbar__link {
+      color: #ffffff !important;
     }
 
     /* ===== HERO SECTION WHITE BACKGROUND ===== */
@@ -580,6 +588,28 @@
         justify-content: center;
       }
     }
+
+    /* ===== FADE IN ANIMATIONS ===== */
+    .fade-in {
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+    }
+
+    /* Special fade-in with slide up for elements that don't have transforms */
+    .fade-in-slide {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in-slide.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body>
@@ -613,11 +643,11 @@
   </nav>
 
   <!-- ===== HERO SECTION ===== -->
-  <section class="hero" id="home" style="padding: 2rem 0 0 0; display: block !important; text-align: center; min-height: auto !important; height: auto !important; flex-direction: column !important; background: #F8F8F8 !important;">
-    <h1 class="hero-title" style="display: block !important; width: 100%; padding: 3rem 0; margin: 0; position: relative !important;">The Perfect Bar.</h1>
+  <section class="hero fade-in-slide" id="home" style="padding: 2rem 0 0 0; display: block !important; text-align: center; min-height: auto !important; height: auto !important; flex-direction: column !important; background: #F8F8F8 !important;">
+    <h1 class="hero-title fade-in-slide" style="display: block !important; width: 100%; padding: 3rem 0; margin: 0; position: relative !important;">The Perfect Bar.</h1>
     
     <!-- Image moved here to middle -->
-    <div class="flavor-image" style="position: relative; width: 100vw; left: 50%; transform: translateX(-50%); overflow: hidden; height: 400px; margin-top: 0; margin-bottom: 0;">
+    <div class="flavor-image fade-in" style="position: relative; width: 100vw; left: 50%; transform: translateX(-50%) !important; overflow: hidden; height: 400px; margin-top: 0; margin-bottom: 0;">
       <img src="IMG_3060.JPG" alt="Vero Energy Bar - Salted Caramel" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" />
     </div>
   </section>
@@ -627,10 +657,10 @@
     <div class="flavor-container" style="overflow: visible;">
       
       <!-- Title -->
-      <h2 class="flavor-title" style="padding-top: 3rem;">One Flavor. Perfected.</h2>
+      <h2 class="flavor-title fade-in-slide" style="padding-top: 3rem;">One Flavor. Perfected.</h2>
       
       <!-- All text in one normal box -->
-      <div style="max-width: 800px; margin: 2rem auto; text-align: center;">
+      <div class="fade-in-slide" style="max-width: 800px; margin: 2rem auto; text-align: center;">
         <p class="flavor-description" style="margin-bottom: 1.5rem;">
           After <span class="highlight-word">countless iterations</span>, taste tests, and late-night kitchen sessions, we discovered something remarkable: when you get <span class="highlight-word">salted caramel exactly right</span>, you don't need anything else.
         </p>
@@ -651,7 +681,7 @@
     <div style="max-width: 1400px; margin: 0 auto; padding: 6rem 2rem 8rem 2rem;">
       
       <!-- Section Header -->
-      <div style="text-align: center; margin-bottom: 80px;">
+      <div class="fade-in-slide" style="text-align: center; margin-bottom: 80px;">
         <h2 style="font-family: 'Poppins', sans-serif !important; font-size: 6rem !important; font-weight: 900 !important; color: #000000 !important; margin-bottom: 16px; letter-spacing: -0.02em !important;">TASTE THE PERFECT</h2>
       </div>
 
@@ -659,7 +689,7 @@
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; margin-bottom: 60px;">
         
         <!-- Product 1: Try It Pack -->
-        <div class="product-card" style="background: #ffffff; overflow: hidden; transition: all 0.3s ease; cursor: pointer; position: relative; border: none !important; box-shadow: none !important;">
+        <div class="product-card fade-in-slide" style="background: #ffffff; overflow: hidden; transition: all 0.3s ease; cursor: pointer; position: relative; border: none !important; box-shadow: none !important;">
           <div style="aspect-ratio: 1; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); display: flex; align-items: center; justify-content: center; position: relative;">
             <div style="width: 180px; height: 240px; background: #1a4d2e; border-radius: 8px; display: flex; align-items: center; justify-content: center; box-shadow: 0 20px 40px rgba(26, 77, 46, 0.2);">
               <span style="color: #ffffff; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1.5rem;">VERO</span>
@@ -677,7 +707,7 @@
         </div>
 
         <!-- Product 2: Stock Up Pack - Most Popular -->
-        <div class="product-card" style="background: #ffffff; overflow: hidden; transition: all 0.3s ease; cursor: pointer; position: relative; border: none !important; box-shadow: none !important;">
+        <div class="product-card fade-in-slide" style="background: #ffffff; overflow: hidden; transition: all 0.3s ease; cursor: pointer; position: relative; border: none !important; box-shadow: none !important;">
           <div style="position: absolute; top: 12px; right: 12px; background: #dc2626; color: #ffffff; padding: 4px 12px; border-radius: 20px; font-family: 'Bebas Neue', sans-serif !important; font-size: 0.9rem; font-weight: 400 !important; z-index: 10;">MOST POPULAR</div>
           <div style="aspect-ratio: 1; background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); display: flex; align-items: center; justify-content: center; position: relative;">
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
@@ -703,7 +733,7 @@
         </div>
 
         <!-- Product 3: Family Pack -->
-        <div class="product-card" style="background: #ffffff; overflow: hidden; transition: all 0.3s ease; cursor: pointer; position: relative; border: none !important; box-shadow: none !important;">
+        <div class="product-card fade-in-slide" style="background: #ffffff; overflow: hidden; transition: all 0.3s ease; cursor: pointer; position: relative; border: none !important; box-shadow: none !important;">
           <div style="aspect-ratio: 1; background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); display: flex; align-items: center; justify-content: center; position: relative;">
             <div style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 8px;">
               <div style="width: 70px; height: 95px; background: #1a4d2e; border-radius: 5px; display: flex; align-items: center; justify-content: center; box-shadow: 0 12px 25px rgba(26, 77, 46, 0.2);">
@@ -748,28 +778,28 @@
   <!-- ===== INGREDIENTS SECTION ===== -->
   <section class="ingredients" id="ingredients">
     <div class="ingredients-container">
-      <h2 class="ingredients-title">What Makes It Perfect</h2>
+      <h2 class="ingredients-title fade-in-slide">What Makes It Perfect</h2>
       
       <div class="ingredients-grid">
-        <div class="ingredient-item">
+        <div class="ingredient-item fade-in-slide">
           <div class="ingredient-amount">90mg</div>
           <div class="ingredient-name">Natural Caffeine</div>
           <div class="ingredient-benefit">Smooth energy without the crash</div>
         </div>
 
-        <div class="ingredient-item">
+        <div class="ingredient-item fade-in-slide">
           <div class="ingredient-amount">10g</div>
           <div class="ingredient-name">Plant Protein</div>
           <div class="ingredient-benefit">Sustained performance & fullness</div>
         </div>
 
-        <div class="ingredient-item">
+        <div class="ingredient-item fade-in-slide">
           <div class="ingredient-amount">0g</div>
           <div class="ingredient-name">Added Sugar</div>
           <div class="ingredient-benefit">Clean sweetness, no guilt</div>
         </div>
 
-        <div class="ingredient-item">
+        <div class="ingredient-item fade-in-slide">
           <div class="ingredient-amount">L</div>
           <div class="ingredient-name">L-Theanine</div>
           <div class="ingredient-benefit">Calm focus, no jitters</div>
@@ -849,6 +879,14 @@
         }, 1000);
       }
     }
+
+    // Fade-in animation on page load - trigger all at once
+    window.addEventListener('load', () => {
+      // Add visible class to all fade-in elements immediately
+      document.querySelectorAll('.fade-in, .fade-in-slide').forEach(el => {
+        el.classList.add('visible');
+      });
+    });
   </script>
 
   <!-- ===== FOOTER ===== -->

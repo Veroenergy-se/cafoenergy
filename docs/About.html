@@ -19,7 +19,10 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=54" />
+  <link rel="stylesheet" href="deux-style.css?v=33" />
+  <link rel="stylesheet" href="our-story-override.css?v=102" />
   
   <style>
     * {
@@ -37,25 +40,22 @@
       padding-top: 0;
     }
 
+<<<<<<< HEAD
     /* ===== NAVBAR (transparent over video) ===== */
+=======
+    /* ===== COMPLETE NAVBAR STYLING TO MATCH SHOP.HTML ===== */
+>>>>>>> 02549fdbe0af3e84cbec9715d03eee1e4021c443
     .vero-navbar {
-      position: fixed;
+      position: sticky;
       top: 0;
       z-index: 999;
       width: 100%;
-      background: transparent;
-      backdrop-filter: none;
-      border-bottom: none;
-      transition: all 0.3s ease;
-      transform: translateY(0);
-    }
-    .vero-navbar.hidden {
-      transform: translateY(-100%);
+      background: #000000 !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      transition: box-shadow 0.2s ease, border-color 0.2s ease;
     }
     .vero-navbar--scrolled {
-      background: rgba(0, 0, 0, 0.9);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-color: transparent;
     }
     .vero-navbar__inner {
       max-width: 1120px;
@@ -103,6 +103,7 @@
       width: 0%;
       height: 2px;
       background: #ffffff !important;
+      background: #000000 !important;
       transition: width 0.2s ease;
     }
     .vero-navbar__link:hover::after {
@@ -151,8 +152,149 @@
     .vero-navbar__toggle--open span:nth-child(3) {
       transform: translateY(-9px) rotate(-45deg);
     }
+<<<<<<< HEAD
 
     /* ===== VIDEO HERO SECTION ===== */
+=======
+    @media (max-width: 768px) {
+      .vero-navbar__toggle {
+        display: flex;
+      }
+      .vero-navbar__center {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #000000;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.25rem;
+        opacity: 0;
+        transform: translateY(-10px);
+        pointer-events: none;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+      }
+      .vero-navbar__center--open {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+      .vero-navbar__links {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      .vero-navbar__cta {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    /* ===== ABOUT PAGE SPECIFIC OVERRIDES ===== */
+    /* Override external stylesheets for About page content only (not navbar) */
+    
+    /* Force black navbar background - override our-story-override.css */
+    .vero-navbar {
+      background: #000000 !important;
+      backdrop-filter: none !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+    }
+    
+    .vero-navbar__brand,
+    .vero-navbar__link {
+      color: #ffffff !important;
+      text-shadow: none !important;
+    }
+    
+    .vero-navbar__link:hover {
+      color: #ffffff !important;
+      text-shadow: none !important;
+    }
+    
+    .vero-navbar__link::after {
+      background: #ffffff !important;
+    }
+    
+    .vero-navbar__toggle span {
+      background: #ffffff !important;
+    }
+    
+    @media (max-width: 768px) {
+      .vero-navbar__center {
+        background: #000000 !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+      }
+    }
+    
+    /* Reset body */
+    body {
+      padding-top: 0 !important;
+      background: white !important;
+    }
+
+    /* Reset hero section to About page original styles */
+    .hero {
+      height: 100vh !important;
+      position: relative !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      overflow: hidden !important;
+      min-height: 100vh !important;
+      background: none !important;
+      padding: 0 !important;
+    }
+
+    .hero-container {
+      display: block !important;
+      grid-template-columns: none !important;
+      position: static !important;
+      z-index: auto !important;
+      max-width: none !important;
+      padding: 0 !important;
+      gap: 0 !important;
+    }
+
+    .hero-content {
+      text-align: center !important;
+      color: white !important;
+      max-width: 900px !important;
+      padding: 0 2rem !important;
+      flex: none !important;
+    }
+
+    .hero-title {
+      font-size: 4rem !important;
+      font-weight: 900 !important;
+      line-height: 1.1 !important;
+      margin: 0 !important;
+      color: white !important;
+      background: none !important;
+      -webkit-background-clip: unset !important;
+      -webkit-text-fill-color: unset !important;
+    }
+
+    .hero-subtitle {
+      font-size: 1.5rem !important;
+      color: rgba(255, 255, 255, 0.9) !important;
+      margin: 0 !important;
+      max-width: none !important;
+      opacity: 1 !important;
+    }
+
+    .hero-badge,
+    .hero-actions,
+    .hero-stats,
+    .hero-visual,
+    .hero-trust,
+    .hero-product-card {
+      display: none !important;
+    }
+
+    /* ===== HERO SECTION ===== */
+>>>>>>> 02549fdbe0af3e84cbec9715d03eee1e4021c443
     .hero {
       height: 100vh;
       position: relative;
@@ -245,7 +387,83 @@
       transform: translateY(0);
     }
 
+<<<<<<< HEAD
     .story-grid {
+=======
+    /* Hero Story Image - Full Screen Panning */
+    .story-hero-fullscreen {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto 4rem auto;
+      overflow: hidden;
+      opacity: 0;
+      transform: scale(0.95);
+      animation: scaleIn 1.2s ease-out 1s forwards;
+    }
+
+    .story-hero-fullscreen img {
+      width: 130%;
+      height: 100%;
+      object-fit: cover;
+      animation: panLeftToRight 20s ease-in-out infinite alternate;
+      filter: brightness(0.7);
+      position: relative;
+      left: -15%;
+    }
+
+    @keyframes panLeftToRight {
+      0% { left: -30%; }
+      100% { left: 0%; }
+    }
+
+    .story-hero-fullscreen .story-hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem;
+      text-align: center;
+    }
+
+    .story-hero-fullscreen .story-hero-content h3 {
+      font-family: 'Bebas Neue', cursive;
+      font-size: clamp(4rem, 10vw, 7rem);
+      color: white;
+      margin-bottom: 0;
+      letter-spacing: 0.05em;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 1s ease-out 1.8s forwards;
+    }
+
+    .story-highlight {
+      color: #d4a574;
+      font-weight: 700;
+      text-shadow: 0 0 10px rgba(212, 165, 116, 0.3);
+    }
+
+    /* Enhanced Story Grid */
+    .story-grid-enhanced {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 4rem;
+      margin-bottom: 4rem;
+      min-height: 80vh;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 1s ease-out 3s forwards;
+    }
+
+    .story-team-section {
+      position: relative;
+>>>>>>> 02549fdbe0af3e84cbec9715d03eee1e4021c443
       display: flex;
       flex-direction: column;
       gap: 0;
@@ -838,12 +1056,19 @@
         align-items: center;
       }
     }
+    
+    /* ===== FINAL ABSOLUTE OVERRIDE - BLACK NAVBAR ===== */
+    html body .vero-navbar,
+    html body nav.vero-navbar {
+      background: #000000 !important;
+      background-color: #000000 !important;
+    }
   </style>
 </head>
 <body>
 
   <!-- ===== NAVBAR ===== -->
-  <nav class="vero-navbar" id="veroNavbar">
+  <nav class="vero-navbar" id="veroNavbar" style="background: #000000 !important; background-color: #000000 !important;">
     <div class="vero-navbar__inner">
       <a class="vero-navbar__brand" href="index.html">Vero</a>
       
@@ -1028,6 +1253,7 @@
       menu.classList.toggle("vero-navbar__center--open");
     });
 
+<<<<<<< HEAD
     // Auto-hide navbar on scroll
     let lastScrollTop = 0;
     let scrollTimeout;
@@ -1061,6 +1287,40 @@
       threshold: 0.1,
       rootMargin: '0px 0px -100px 0px'
     };
+=======
+    // Parallax effects disabled to prevent glitching
+    // window.addEventListener('scroll', () => {
+    //   const scrolled = window.pageYOffset;
+    //   
+    //   // Parallax for story images - subtle movement
+    //   const storyImages = document.querySelectorAll('.story-hero img, .story-large img, .story-wide img');
+    //   storyImages.forEach((img, index) => {
+    //     const speed = 0.1; // Very subtle parallax
+    //     const yPos = -(scrolled * speed);
+    //     img.style.transform = `translateY(calc(-15% + ${yPos}px))`;
+    //   });
+    //   
+    //   // Floating text animation on scroll
+    //   const floatingTexts = document.querySelectorAll('.story-floating-text');
+    //   floatingTexts.forEach((text, index) => {
+    //     const rect = text.getBoundingClientRect();
+    //     const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+    //     
+    //     if (isVisible) {
+    //       const progress = (window.innerHeight - rect.top) / window.innerHeight;
+    //       const translateX = text.classList.contains('top-left') ? 
+    //         Math.min(0, -140 + (progress * 180)) : 
+    //         Math.max(0, 140 - (progress * 180));
+    //       
+    //       if (text.classList.contains('top-left')) {
+    //         text.style.left = `${translateX}px`;
+    //       } else {
+    //         text.style.right = `${Math.abs(translateX)}px`;
+    //       }
+    //     }
+    //   });
+    // });
+>>>>>>> 02549fdbe0af3e84cbec9715d03eee1e4021c443
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
