@@ -259,7 +259,7 @@
       align-items: center;
       opacity: 0;
       transform: translateX(-100px);
-      transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
     }
 
@@ -279,15 +279,15 @@
 
     /* Staggered entrance animations */
     .story-block:nth-child(1) {
-      transition-delay: 0.1s;
+      transition-delay: 0s;
     }
 
     .story-block:nth-child(2) {
-      transition-delay: 0.2s;
+      transition-delay: 0s;
     }
 
     .story-block:nth-child(3) {
-      transition-delay: 0.3s;
+      transition-delay: 0s;
     }
 
     /* Parallax effect classes */
@@ -1091,8 +1091,8 @@
 
     // 3D Scroll Animations
     const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -100px 0px'
+      threshold: 0.25,
+      rootMargin: '100px 0px 0px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -1108,9 +1108,9 @@
       observer.observe(el);
     });
 
-    // Stagger story block animations
+    // Stagger story block animations - removed for instant scroll-based appearance
     document.querySelectorAll('.story-block').forEach((block, index) => {
-      block.style.transitionDelay = `${index * 0.2}s`;
+      block.style.transitionDelay = '0s';
     });
 
     // Stagger contact method animations
