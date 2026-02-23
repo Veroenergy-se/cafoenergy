@@ -37,25 +37,22 @@
       padding-top: 0;
     }
 
-    /* ===== NAVBAR (transparent over video) ===== */
+    /* ===== NAVBAR ===== */
     .vero-navbar {
-      position: fixed;
+      position: sticky;
       top: 0;
       z-index: 999;
       width: 100%;
-      background: transparent;
-      backdrop-filter: none;
-      border-bottom: none;
-      transition: all 0.3s ease;
+      background: #1A1A1A !important;
+      border-bottom: 2px solid #000000 !important;
+      transition: box-shadow 0.2s ease, border-color 0.2s ease;
       transform: translateY(0);
     }
     .vero-navbar.hidden {
       transform: translateY(-100%);
     }
     .vero-navbar--scrolled {
-      background: rgba(0, 0, 0, 0.9);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-color: #000000 !important;
     }
     .vero-navbar__inner {
       max-width: 1120px;
@@ -67,7 +64,7 @@
     }
     .vero-navbar__brand {
       text-decoration: none;
-      color: #ffffff !important;
+      color: #F5F1E8 !important;
       font-size: 1.8rem;
       font-weight: 600;
       letter-spacing: 0.06em;
@@ -87,13 +84,16 @@
     }
     .vero-navbar__link {
       text-decoration: none;
-      color: #ffffff !important;
+      color: #F5F1E8 !important;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       font-size: 1.05rem;
       padding-bottom: 2px;
       position: relative;
       opacity: 1 !important;
+      will-change: auto;
+      transform: translateZ(0);
+      backface-visibility: hidden;
     }
     .vero-navbar__link::after {
       content: "";
@@ -102,19 +102,21 @@
       left: 0;
       width: 0%;
       height: 2px;
-      background: #ffffff !important;
-      transition: width 0.2s ease;
+      background: #F5F1E8 !important;
+      transition: width 0.3s ease;
+      will-change: width;
+      transform: translateZ(0);
     }
     .vero-navbar__link:hover::after {
       width: 100%;
     }
     .vero-navbar__link:hover {
-      color: #ffffff !important;
+      color: #F5F1E8 !important;
       opacity: 1 !important;
     }
     .vero-navbar__cta {
-      background-color: rgba(255, 208, 116);
-      color: #1d1d1f;
+      background-color: #0B0C10;
+      color: #F5F1E8;
       border-radius: 12px;
       font-size: 17px;
       font-weight: 600;
@@ -146,7 +148,7 @@
     .vero-navbar__toggle span {
       height: 3px;
       width: 100%;
-      background: #ffffff;
+      background: #F5F1E8 !important;
       border-radius: 5px;
       transition: 0.3s ease;
     }
@@ -168,8 +170,8 @@
         top: 100%;
         left: 0;
         width: 100%;
-        background: #000000;
-        border-bottom: 1px solid #333;
+        background: #1A1A1A;
+        border-bottom: 1px solid #e5e7eb;
         flex-direction: column;
         gap: 1rem;
         padding: 1.25rem;
@@ -1034,7 +1036,7 @@
       </div>
       
       <div class="vero-navbar__right">
-        <a href="Shop.html#products" class="vero-navbar__cta">Get Energized</a>
+        <a href="Shop.html#products" class="vero-navbar__cta" style="background: #0B0C10 !important; background-color: #0B0C10 !important; color: #F5F1E8 !important;">Get Energized</a>
       </div>
     </div>
   </nav>
