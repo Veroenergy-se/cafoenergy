@@ -22,6 +22,42 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <style>
+    /* ===== FREE SHIPPING BANNER ===== */
+    .free-shipping-banner {
+      background: #0B0C10;
+      border-bottom: 1px solid #0B0C10;
+      padding: 8px 0;
+      position: relative;
+      z-index: 1000;
+      width: 100%;
+    }
+
+    .free-shipping-content {
+      max-width: 400px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .shipping-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #F5F1E8;
+      letter-spacing: 0.025em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 768px) {
+      .free-shipping-banner {
+        padding: 6px 0;
+      }
+      
+      .shipping-text {
+        font-size: 0.8rem;
+      }
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -906,6 +942,13 @@
 </head>
 <body>
 
+  <!-- Free Shipping Banner -->
+  <div class="free-shipping-banner">
+    <div class="free-shipping-content">
+      <span class="shipping-text">🚚 Free shipping on orders over $50</span>
+    </div>
+  </div>
+
   <!-- ===== NAVBAR ===== -->
   <nav class="vero-navbar" id="veroNavbar">
     <div class="vero-navbar__inner">
@@ -1064,7 +1107,6 @@
         <img src="White logo transperent .png" alt="CAFO" style="height: 180px; width: auto; margin-bottom: 1rem;" />
         <p class="footer-text">The perfect bar. Clean energy that feels good.</p>
         <p class="footer-text">Made with care in the EU. 100% plant-based, zero added sugar, real ingredients.</p>
-        <p style="color: #d4a574; font-weight: 600; font-size: 1.1rem; margin-top: 1rem;">Free shipping on orders over €50 • 30-day satisfaction guarantee</p>
       </div>
       
       <div class="footer-links">
