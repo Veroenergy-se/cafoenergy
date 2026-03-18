@@ -325,15 +325,15 @@ button.cta-primary,
 a.cta-primary,
 .hero-cta-group .cta-primary,
 .quantity-cta.cta-primary {
-  background: #2d5016 !important;
-  background-color: #2d5016 !important;
+  background: #000000 !important;
+  background-color: #000000 !important;
   color: white !important;
   border: 2px solid black !important;
   font-weight: 700 !important;
   font-size: 1.1em !important;
   text-transform: uppercase !important;
   letter-spacing: 0.5px !important;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.3) !important;
+  text-shadow: none !important;
 }
 
 .cta-primary:hover,
@@ -341,11 +341,14 @@ button.cta-primary:hover,
 a.cta-primary:hover,
 .hero-cta-group .cta-primary:hover,
 .quantity-cta.cta-primary:hover {
-  background: #3d6b1e !important;
-  background-color: #3d6b1e !important;
-  color: white !important;
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  transform: none !important;
+  box-shadow: none !important;
   font-weight: 700 !important;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.4) !important;
+  text-shadow: none !important;
 }
 
 .cta-primary::before,
@@ -1053,12 +1056,12 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
 }
 
-/* ===== WHITE CTA BUTTONS WITH HARD CORNERS ===== */
+/* ===== BLACK CTA BUTTONS WITH HARD CORNERS ===== */
 .hero-cta-group .cta-primary,
 .hero-cta-group .cta-secondary {
-  background: transparent !important;
+  background: #000000 !important;
   color: #ffffff !important;
-  border: 2px solid #ffffff !important;
+  border: 2px solid #000000 !important;
   border-radius: 0 !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
@@ -1071,9 +1074,9 @@ body {
 .hero-cta-group .cta-secondary:hover {
   background: #ffffff !important;
   color: #000000 !important;
-  border: 2px solid #ffffff !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+  border: 2px solid #000000 !important;
+  transform: none !important;
+  box-shadow: none !important;
 }
 
 /* Hide hero description text */
@@ -1923,13 +1926,14 @@ section#our-story.our-story-new .our-story-image-wrapper,
 
 /* ===== STYLE @VERO.ENERGY BUTTON TO MATCH HERO CTA BUTTONS ===== */
 .social-link-btn {
-  background: #000000 !important;
-  color: #ffffff !important;
-  border: 2px solid #000000 !important;
+  background: #F8F8F8 !important;
+  color: #0B0C10 !important;
+  border: 2px solid #0B0C10 !important;
   border-radius: 0 !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.05em !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  letter-spacing: 0.02em !important;
   padding: 1rem 2rem !important;
   transition: all 0.3s ease !important;
   text-shadow: none !important;
@@ -1937,9 +1941,9 @@ section#our-story.our-story-new .our-story-image-wrapper,
 }
 
 .social-link-btn:hover {
-  background: #ffffff !important;
-  color: #000000 !important;
-  border: 2px solid #000000 !important;
+  background: #0B0C10 !important;
+  color: #F8F8F8 !important;
+  border: 2px solid #0B0C10 !important;
   transform: translateY(-2px) !important;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
   text-shadow: none !important;
@@ -2031,6 +2035,44 @@ h1, h2, h3, h4, h5, h6,
   font-size: 1.2rem !important;
 }
 
+
+/* ===== EXPERIMENTAL: TRANSPARENT NAVBAR - EASY TO REVERT ===== */
+/* Remove this section to restore the dark navbar */
+nav.vero-navbar,
+.vero-navbar,
+#veroNavbar {
+  background: transparent !important;
+  background-color: transparent !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+.vero-navbar .vero-navbar__brand,
+.vero-navbar__brand,
+a.vero-navbar__brand {
+  color: #ffffff !important;
+}
+
+.vero-navbar .vero-navbar__link,
+.vero-navbar__link,
+a.vero-navbar__link {
+  color: #ffffff !important;
+}
+
+.vero-navbar__link::after {
+  background: #ffffff !important;
+}
+
+.vero-navbar .vero-navbar__link:hover,
+.vero-navbar__link:hover {
+  color: #ffffff !important;
+}
+
+.vero-navbar__toggle span {
+  background: #ffffff !important;
+}
+/* ===== END EXPERIMENTAL TRANSPARENT NAVBAR ===== */
+
 /* ===== FINAL OVERRIDE: GET ENERGIZED BUTTON OBSIDIAN BLACK ===== */
 .vero-navbar__cta,
 a.vero-navbar__cta,
@@ -2048,6 +2090,8 @@ a.vero-navbar__cta:hover,
 nav .vero-navbar__cta:hover {
   background: #FFFFFF !important;
   background-color: #FFFFFF !important;
-  color: #0B0C10 !important;
-  border: 2px solid #0B0C10 !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  transform: none !important;
+  box-shadow: none !important;
 }

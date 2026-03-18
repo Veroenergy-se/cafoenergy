@@ -522,8 +522,11 @@ header.site-header {
 }
 
 .cta-primary:hover {
-    transform: translateY(-4px) translateX(-2px) !important;
-    box-shadow: 2px 5px 0 0 black !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    border: 2px solid #000000 !important;
+    transform: none !important;
+    box-shadow: none !important;
 }
 
 .cta-primary:active {
@@ -7639,10 +7642,12 @@ footer {
 .hero .cta-primary:hover,
 .hero-actions .cta-primary:hover,
 .hero-container .cta-primary:hover {
-    transform: translateY(-4px) translateX(-2px) !important;
-    box-shadow: 2px 5px 0 0 black !important;
-    background-color: rgba(255, 208, 116) !important;
-    color: #1d1d1f !important;
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border: 2px solid #000000 !important;
+    transform: none !important;
+    box-shadow: none !important;
 }
 
 .hero .cta-secondary,
