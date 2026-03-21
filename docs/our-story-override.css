@@ -2107,3 +2107,18 @@ button[onclick="addProductToCart('family')"] {
 .product-card [style*="position: absolute"][style*="top: 12px"] {
   color: #ffffff !important;
 }
+
+/* ===== DISCOUNTED PRICES - RED ===== */
+.product-card span[style*="color: #dc2626"]:not([style*="line-through"]) {
+  color: #dc2626 !important;
+}
+
+/* ===== DISCOUNTED PRICES - RED ===== */
+#products .product-card div[style*="text-align: right"] span:first-child {
+  color: #dc2626 !important;
+}
+
+/* ===== PRICE RED CLASS ===== */
+.price-red {
+  color: #dc2626 !important;
+}
