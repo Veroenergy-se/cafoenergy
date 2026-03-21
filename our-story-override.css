@@ -2122,3 +2122,8 @@ button[onclick="addProductToCart('family')"] {
 .price-red {
   color: #dc2626 !important;
 }
+
+/* ===== SHOP NOW BUTTON - MATCH NAVBAR FONT ===== */
+.hero-cta-group .cta-primary {
+  font-family: 'Bebas Neue', 'Oswald', 'Anton', 'Inter', sans-serif !important;
+}
