@@ -2102,7 +2102,8 @@ button[onclick="addProductToCart('duo')"],
 button[onclick="addProductToCart('family')"],
 button[onclick="orderProduct('starter')"],
 button[onclick="orderProduct('duo')"],
-button[onclick="orderProduct('family')"] {
+button[onclick="orderProduct('family')"],
+.product-card button {
   color: #ffffff !important;
 }
 
