@@ -698,19 +698,19 @@
   </nav>
 
   <!-- ===== PRODUCTS SECTION ===== -->
-  <section class="products" id="products" style="background: #ffffff;">
-    <div style="max-width: 1300px; margin: 0 auto; padding: 5rem 2rem 6rem 2rem;">
-      
+  <section class="products" id="products" style="background: #F8F8F8; padding: 120px 20px;">
+    <div style="max-width: 1400px; margin: 0 auto;">
+
       <!-- Section Header -->
       <div class="fade-in-slide" style="text-align: center; margin-bottom: 60px;">
         <h2 style="font-family: 'League Gothic', sans-serif !important; font-size: clamp(2.5rem, 7vw, 5rem) !important; font-weight: 400 !important; color: #000000 !important; margin-bottom: 16px; letter-spacing: 0.05em !important; text-transform: uppercase !important;">One Flavour. Perfected.</h2>
       </div>
 
       <!-- Product Grid -->
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 36px; margin-bottom: 50px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; margin-bottom: 60px;">
         
-        <!-- Product 1: Try It Pack -->
-        <div class="product-card fade-in-slide" style="background: #ffffff; overflow: hidden; transition: all 0.3s ease; cursor: pointer; position: relative; border: none !important; box-shadow: none !important;">
+        <!-- Product 1: Single Box - Original -->
+        <div class="product-card animate-fade-scale delay-700" style="background: #ffffff; overflow: hidden; transition: all 0.3s ease; cursor: pointer; position: relative; border: none !important; box-shadow: none !important;">
           <div style="aspect-ratio: 1; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); display: flex; align-items: center; justify-content: center; position: relative;">
             <div style="width: 180px; height: 240px; background: #1a4d2e; border-radius: 8px; display: flex; align-items: center; justify-content: center; box-shadow: 0 20px 40px rgba(26, 77, 46, 0.2);">
               <span style="color: #ffffff; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1.5rem;">CAFO</span>
@@ -718,18 +718,18 @@
           </div>
           <div style="padding: 24px;">
             <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px;">
-              <h3 style="font-family: 'Bebas Neue', sans-serif !important; font-size: 2.5rem; font-weight: 400 !important; color: #000000; margin: 0; line-height: 1.1;">Try It <span style="font-family: 'Bebas Neue', sans-serif !important; font-size: 1.2rem; color: #6b7280; font-weight: 400; margin-left: 6px;">- 12 bars</span></h3>
+              <h3 style="font-family: 'Bebas Neue', sans-serif !important; font-size: 2.5rem; font-weight: 400 !important; color: #000000; margin: 0; line-height: 1.1;">Original Energy <span style="font-family: 'Bebas Neue', sans-serif !important; font-size: 1.2rem; color: #6b7280; font-weight: 400; margin-left: 6px;">- 12 bars</span></h3>
               <p style="font-family: 'Bebas Neue', sans-serif !important; font-size: 2.5rem; font-weight: 400 !important; color: #000000 !important; margin: 0;">$29</p>
             </div>
             <div style="display: flex; align-items: center; justify-content: center;">
-              <button onclick="orderProduct('starter')" style="background: #000000; color: #ffffff; border: none; padding: 16px 32px; border-radius: 0; font-family: 'Bebas Neue', sans-serif !important; font-size: 1.2rem; font-weight: 400 !important; cursor: pointer; transition: all 0.2s ease; width: 100%;">Order Now</button>
+              <button onclick="orderProduct('starter')" style="background: #000000; color: #ffffff; border: none; padding: 16px 32px; border-radius: 0; font-family: 'Bebas Neue', sans-serif !important; font-size: 1.2rem; font-weight: 400 !important; cursor: pointer; transition: all 0.2s ease; width: 100%;">Add to Cart</button>
             </div>
           </div>
         </div>
 
-        <!-- Product 2: Stock Up Pack - Most Popular -->
-        <div class="product-card fade-in-slide" style="background: #ffffff; overflow: hidden; transition: all 0.3s ease; cursor: pointer; position: relative; border: none !important; box-shadow: none !important;">
-          <div style="position: absolute; top: 12px; right: 12px; background: #dc2626; color: #ffffff; padding: 4px 12px; border-radius: 20px; font-family: 'Bebas Neue', sans-serif !important; font-size: 0.9rem; font-weight: 400 !important; z-index: 10;">MOST POPULAR</div>
+        <!-- Product 2: Twin Pack - Most Popular -->
+        <div class="product-card animate-fade-scale delay-800" style="background: #ffffff; overflow: hidden; transition: all 0.3s ease; cursor: pointer; position: relative; border: none !important; box-shadow: none !important;">
+          <div style="position: absolute; top: 12px; right: 12px; background: #dc2626; color: #ffffff; padding: 4px 12px; border-radius: 20px; font-family: 'Bebas Neue', sans-serif !important; font-size: 0.9rem; font-weight: 400 !important; z-index: 10;">BESTSELLER</div>
           <div style="aspect-ratio: 1; background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); display: flex; align-items: center; justify-content: center; position: relative;">
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
               <div style="width: 85px; height: 120px; background: #1a4d2e; border-radius: 6px; display: flex; align-items: center; justify-content: center; box-shadow: 0 15px 30px rgba(26, 77, 46, 0.2);">
@@ -742,19 +742,21 @@
           </div>
           <div style="padding: 24px;">
             <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px;">
-              <h3 style="font-family: 'Bebas Neue', sans-serif !important; font-size: 2.5rem; font-weight: 400 !important; color: #000000; margin: 0; line-height: 1.1;">Stock Up <span style="font-family: 'Bebas Neue', sans-serif !important; font-size: 1.2rem; color: #6b7280; font-weight: 400; margin-left: 6px;">- 24 bars</span></h3>
+              <h3 style="font-family: 'Bebas Neue', sans-serif !important; font-size: 2.5rem; font-weight: 400 !important; color: #000000; margin: 0; line-height: 1.1;">Twin Pack <span style="font-family: 'Bebas Neue', sans-serif !important; font-size: 1.2rem; color: #6b7280; font-weight: 400; margin-left: 6px;">- 24 bars</span></h3>
               <div style="text-align: right;">
-                <span style="font-family: 'Bebas Neue', sans-serif !important; font-size: 2.5rem; font-weight: 400 !important; color: #000000;">$54</span>
+                <span class="price-red" style="font-family: 'Bebas Neue', sans-serif !important; font-size: 2.5rem; font-weight: 400 !important; color: #dc2626;">$54</span>
+                <span style="font-family: 'Bebas Neue', sans-serif !important; font-size: 1.8rem; color: #dc2626; text-decoration: line-through; margin-left: 8px;">$58</span>
               </div>
             </div>
             <div style="display: flex; align-items: center; justify-content: center;">
-              <button onclick="orderProduct('duo')" style="background: #000000; color: #ffffff; border: none; padding: 16px 32px; border-radius: 0; font-family: 'Bebas Neue', sans-serif !important; font-size: 1.2rem; font-weight: 400 !important; cursor: pointer; transition: all 0.2s ease; width: 100%;">Order Now</button>
+              <button onclick="orderProduct('duo')" style="background: #000000; color: #ffffff; border: none; padding: 16px 32px; border-radius: 0; font-family: 'Bebas Neue', sans-serif !important; font-size: 1.2rem; font-weight: 400 !important; cursor: pointer; transition: all 0.2s ease; width: 100%;">Add to Cart</button>
             </div>
           </div>
         </div>
 
         <!-- Product 3: Family Pack -->
-        <div class="product-card fade-in-slide" style="background: #ffffff; overflow: hidden; transition: all 0.3s ease; cursor: pointer; position: relative; border: none !important; box-shadow: none !important;">
+        <div class="product-card animate-fade-scale delay-900" style="background: #ffffff; overflow: hidden; transition: all 0.3s ease; cursor: pointer; position: relative; border: none !important; box-shadow: none !important;">
+          <div style="position: absolute; top: 12px; right: 12px; background: #dc2626; color: #ffffff; padding: 4px 12px; border-radius: 20px; font-family: 'Bebas Neue', sans-serif !important; font-size: 0.9rem; font-weight: 400 !important; z-index: 10;">-20%</div>
           <div style="aspect-ratio: 1; background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); display: flex; align-items: center; justify-content: center; position: relative;">
             <div style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 8px;">
               <div style="width: 70px; height: 95px; background: #1a4d2e; border-radius: 5px; display: flex; align-items: center; justify-content: center; box-shadow: 0 12px 25px rgba(26, 77, 46, 0.2);">
@@ -775,11 +777,12 @@
             <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px;">
               <h3 style="font-family: 'Bebas Neue', sans-serif !important; font-size: 2.5rem; font-weight: 400 !important; color: #000000; margin: 0; line-height: 1.1;">Family Pack <span style="font-family: 'Bebas Neue', sans-serif !important; font-size: 1.2rem; color: #6b7280; font-weight: 400; margin-left: 6px;">- 36 bars</span></h3>
               <div style="text-align: right;">
-                <span style="font-family: 'Bebas Neue', sans-serif !important; font-size: 2.5rem; font-weight: 400 !important; color: #000000;">$75</span>
+                <span class="price-red" style="font-family: 'Bebas Neue', sans-serif !important; font-size: 2.5rem; font-weight: 400 !important; color: #dc2626;">$75</span>
+                <span style="font-family: 'Bebas Neue', sans-serif !important; font-size: 1.8rem; color: #dc2626; text-decoration: line-through; margin-left: 8px;">$87</span>
               </div>
             </div>
             <div style="display: flex; align-items: center; justify-content: center;">
-              <button onclick="orderProduct('family')" style="background: #000000; color: #ffffff; border: none; padding: 16px 32px; border-radius: 0; font-family: 'Bebas Neue', sans-serif !important; font-size: 1.2rem; font-weight: 400 !important; cursor: pointer; transition: all 0.2s ease; width: 100%;">Order Now</button>
+              <button onclick="orderProduct('family')" style="background: #000000; color: #ffffff; border: none; padding: 16px 32px; border-radius: 0; font-family: 'Bebas Neue', sans-serif !important; font-size: 1.2rem; font-weight: 400 !important; cursor: pointer; transition: all 0.2s ease; width: 100%;">Add to Cart</button>
             </div>
           </div>
         </div>
