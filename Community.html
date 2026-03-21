@@ -74,7 +74,7 @@
     }
 
     /* ===== NAVBAR ===== */
-    .vero-navbar {
+    .cafo-navbar {
       position: fixed;
       top: 0;
       z-index: 999;
@@ -84,15 +84,15 @@
       transition: all 0.3s ease;
       transform: translateY(0);
     }
-    .vero-navbar.hidden {
+    .cafo-navbar.hidden {
       transform: translateY(-100%);
     }
-    .vero-navbar--scrolled {
+    .cafo-navbar--scrolled {
       background: #1A1A1A !important;
       border-bottom: 2px solid #000000 !important;
       backdrop-filter: blur(10px);
     }
-    .vero-navbar__inner {
+    .cafo-navbar__inner {
       max-width: 1120px;
       margin: auto;
       padding: 0.5rem 1.5rem;
@@ -100,7 +100,7 @@
       align-items: center;
       justify-content: space-between;
     }
-    .vero-navbar__brand {
+    .cafo-navbar__brand {
       text-decoration: none;
       color: #F5F1E8 !important;
       font-family: 'Bebas Neue', cursive;
@@ -112,23 +112,23 @@
       display: flex;
       align-items: center;
     }
-    .vero-navbar__brand img {
+    .cafo-navbar__brand img {
       height: 140px;
       width: auto;
       display: block;
     }
-    .vero-navbar__center {
+    .cafo-navbar__center {
       display: flex;
       align-items: center;
       gap: 2rem;
     }
-    .vero-navbar__links {
+    .cafo-navbar__links {
       list-style: none;
       display: flex;
       align-items: center;
       gap: 1.75rem;
     }
-    .vero-navbar__link {
+    .cafo-navbar__link {
       text-decoration: none;
       color: #F5F1E8 !important;
       font-family: 'Bebas Neue', cursive;
@@ -142,7 +142,7 @@
       transform: translateZ(0);
       backface-visibility: hidden;
     }
-    .vero-navbar__link::after {
+    .cafo-navbar__link::after {
       content: "";
       position: absolute;
       bottom: 0;
@@ -154,14 +154,14 @@
       will-change: width;
       transform: translateZ(0);
     }
-    .vero-navbar__link:hover::after {
+    .cafo-navbar__link:hover::after {
       width: 100%;
     }
-    .vero-navbar__link:hover {
+    .cafo-navbar__link:hover {
       color: #F5F1E8 !important;
       opacity: 1 !important;
     }
-    .vero-navbar__cta {
+    .cafo-navbar__cta {
       background-color: #0B0C10;
       color: #F5F1E8;
       border-radius: 0;
@@ -175,15 +175,15 @@
       text-decoration: none;
       display: inline-block;
     }
-    .vero-navbar__cta:hover {
+    .cafo-navbar__cta:hover {
       transform: translateY(-4px) translateX(-2px);
       box-shadow: 2px 5px 0 0 black;
     }
-    .vero-navbar__cta:active {
+    .cafo-navbar__cta:active {
       transform: translateY(2px) translateX(1px);
       box-shadow: 0 0 0 0 black;
     }
-    .vero-navbar__toggle {
+    .cafo-navbar__toggle {
       display: none;
       cursor: pointer;
       width: 32px;
@@ -192,27 +192,27 @@
       justify-content: center;
       gap: 6px;
     }
-    .vero-navbar__toggle span {
+    .cafo-navbar__toggle span {
       height: 3px;
       width: 100%;
       background: #F5F1E8 !important;
       border-radius: 5px;
       transition: 0.3s ease;
     }
-    .vero-navbar__toggle--open span:nth-child(1) {
+    .cafo-navbar__toggle--open span:nth-child(1) {
       transform: translateY(9px) rotate(45deg);
     }
-    .vero-navbar__toggle--open span:nth-child(2) {
+    .cafo-navbar__toggle--open span:nth-child(2) {
       opacity: 0;
     }
-    .vero-navbar__toggle--open span:nth-child(3) {
+    .cafo-navbar__toggle--open span:nth-child(3) {
       transform: translateY(-9px) rotate(-45deg);
     }
     @media (max-width: 768px) {
-      .vero-navbar__toggle {
+      .cafo-navbar__toggle {
         display: flex;
       }
-      .vero-navbar__center {
+      .cafo-navbar__center {
         position: absolute;
         top: 100%;
         left: 0;
@@ -228,18 +228,18 @@
         pointer-events: none;
         transition: opacity 0.2s ease, transform 0.2s ease;
       }
-      .vero-navbar__center--open {
+      .cafo-navbar__center--open {
         opacity: 1;
         transform: translateY(0);
         pointer-events: auto;
       }
-      .vero-navbar__links {
+      .cafo-navbar__links {
         flex-direction: column;
         width: 100%;
         align-items: flex-start;
         gap: 1rem;
       }
-      .vero-navbar__cta {
+      .cafo-navbar__cta {
         width: 100%;
         text-align: center;
       }
@@ -1071,29 +1071,29 @@
   </div>
 
   <!-- ===== NAVBAR ===== -->
-  <nav class="vero-navbar" id="veroNavbar">
-    <div class="vero-navbar__inner">
-      <a class="vero-navbar__brand" href="index.html">
+  <nav class="cafo-navbar" id="cafoNavbar">
+    <div class="cafo-navbar__inner">
+      <a class="cafo-navbar__brand" href="index.html">
         <img src="White logo transperent .png" alt="CAFO - Caffeinated Focus" />
       </a>
       
-      <div class="vero-navbar__toggle" id="veroToggle">
+      <div class="cafo-navbar__toggle" id="cafoToggle">
         <span></span>
         <span></span>
         <span></span>
       </div>
       
-      <div class="vero-navbar__center">
-        <ul class="vero-navbar__links">
-          <li><a class="vero-navbar__link" href="index.html">Home</a></li>
-          <li><a class="vero-navbar__link" href="Shop.html">Shop</a></li>
-          <li><a class="vero-navbar__link" href="Community.html">Community</a></li>
-          <li><a class="vero-navbar__link" href="About.html">About Us</a></li>
+      <div class="cafo-navbar__center">
+        <ul class="cafo-navbar__links">
+          <li><a class="cafo-navbar__link" href="index.html">Home</a></li>
+          <li><a class="cafo-navbar__link" href="Shop.html">Shop</a></li>
+          <li><a class="cafo-navbar__link" href="Community.html">Community</a></li>
+          <li><a class="cafo-navbar__link" href="About.html">About Us</a></li>
         </ul>
       </div>
       
-      <div class="vero-navbar__right">
-        <a href="Shop.html#products" class="vero-navbar__cta" style="background: #0B0C10 !important; background-color: #0B0C10 !important; color: #F5F1E8 !important;">Get Energized</a>
+      <div class="cafo-navbar__right">
+        <a href="Shop.html#products" class="cafo-navbar__cta" style="background: #0B0C10 !important; background-color: #0B0C10 !important; color: #F5F1E8 !important;">Get Energized</a>
       </div>
     </div>
   </nav>
@@ -1233,13 +1233,13 @@
 
   <!-- ===== JAVASCRIPT ===== -->
   <script>
-    const toggle = document.getElementById("veroToggle");
-    const menu = document.querySelector(".vero-navbar__center");
-    const navbar = document.getElementById("veroNavbar");
+    const toggle = document.getElementById("cafoToggle");
+    const menu = document.querySelector(".cafo-navbar__center");
+    const navbar = document.getElementById("cafoNavbar");
     
     toggle.addEventListener("click", () => {
-      toggle.classList.toggle("vero-navbar__toggle--open");
-      menu.classList.toggle("vero-navbar__center--open");
+      toggle.classList.toggle("cafo-navbar__toggle--open");
+      menu.classList.toggle("cafo-navbar__center--open");
     });
 
     // Auto-hide navbar on scroll down, show on scroll up
@@ -1252,9 +1252,9 @@
       clearTimeout(scrollTimeout);
       
       if (scrollTop > 50) {
-        navbar.classList.add('vero-navbar--scrolled');
+        navbar.classList.add('cafo-navbar--scrolled');
       } else {
-        navbar.classList.remove('vero-navbar--scrolled');
+        navbar.classList.remove('cafo-navbar--scrolled');
       }
       
       if (scrollTop > lastScrollTop && scrollTop > 100) {

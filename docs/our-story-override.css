@@ -358,7 +358,7 @@ a.cta-primary::before {
 }
 
 /* ===== NAVBAR GET ENERGIZED BUTTON ===== */
-.vero-navbar__cta {
+.cafo-navbar__cta {
   background-color: #0B0C10 !important;
   color: #F5F1E8 !important;
   font-weight: 700 !important;
@@ -370,8 +370,8 @@ a.cta-primary::before {
 }
 
 /* Lightning bolts on hover */
-.vero-navbar__cta::before,
-.vero-navbar__cta::after {
+.cafo-navbar__cta::before,
+.cafo-navbar__cta::after {
   content: '' !important;
   position: absolute !important;
   top: 50% !important;
@@ -386,15 +386,15 @@ a.cta-primary::before {
   filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.8)) !important;
 }
 
-.vero-navbar__cta::before {
+.cafo-navbar__cta::before {
   left: 8px !important;
 }
 
-.vero-navbar__cta::after {
+.cafo-navbar__cta::after {
   right: 8px !important;
 }
 
-.vero-navbar__cta:hover {
+.cafo-navbar__cta:hover {
   background-color: #FFFFFF !important;
   color: #0B0C10 !important;
   border: 2px solid #0B0C10 !important;
@@ -402,8 +402,8 @@ a.cta-primary::before {
   text-shadow: none !important;
 }
 
-.vero-navbar__cta:hover::before,
-.vero-navbar__cta:hover::after {
+.cafo-navbar__cta:hover::before,
+.cafo-navbar__cta:hover::after {
   transform: translateY(-50%) scale(1) !important;
   opacity: 1 !important;
 }
@@ -750,7 +750,7 @@ button[onclick="addToCart('duo')"].quantity-cta.cta-primary:hover {
   background: transparent !important;
 }
 /* REMOVE LINE BETWEEN NAVBAR AND HERO SECTION */
-.vero-navbar {
+.cafo-navbar {
   border-bottom: none !important;
   background: rgba(255, 255, 255, 0.95) !important;
   backdrop-filter: blur(10px) !important;
@@ -951,7 +951,7 @@ body {
   display: none !important;
 }
 
-.vero-navbar {
+.cafo-navbar {
   background: transparent !important;
   backdrop-filter: none !important;
 }
@@ -1020,38 +1020,38 @@ body {
 }
 
 /* ===== FLOATING NAVBAR WITH TRANSPARENT BACKGROUND ===== */
-.vero-navbar {
+.cafo-navbar {
   background: transparent !important;
   border-bottom: none !important;
   backdrop-filter: none !important;
 }
 
-.vero-navbar--scrolled {
+.cafo-navbar--scrolled {
   /* No changes on scroll */
   background: transparent !important;
   border-bottom: none !important;
 }
 
-.vero-navbar__brand,
-.vero-navbar__link {
+.cafo-navbar__brand,
+.cafo-navbar__link {
   color: #ffffff !important;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5) !important;
   font-weight: 600 !important;
   transition: all 0.3s ease !important;
 }
 
-.vero-navbar__brand {
+.cafo-navbar__brand {
   font-weight: 800 !important;
   text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6) !important;
 }
 
-.vero-navbar__link:hover {
+.cafo-navbar__link:hover {
   color: #ffffff !important;
   text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7) !important;
   transform: translateY(-1px) !important;
 }
 
-.vero-navbar__link::after {
+.cafo-navbar__link::after {
   background: #ffffff !important;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
 }
@@ -1292,7 +1292,7 @@ body {
   letter-spacing: 0.05em !important;
 }
 /* ===== NAVBAR LAYOUT RESTRUCTURE ===== */
-.vero-navbar__inner {
+.cafo-navbar__inner {
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
@@ -1302,20 +1302,20 @@ body {
   max-width: none !important;
 }
 
-.vero-navbar__brand {
+.cafo-navbar__brand {
   flex: 1 !important;
   display: flex !important;
   justify-content: flex-start !important;
   padding-left: 0.5rem !important;
 }
 
-.vero-navbar__center {
+.cafo-navbar__center {
   flex: 1 !important;
   display: flex !important;
   justify-content: center !important;
 }
 
-.vero-navbar__links {
+.cafo-navbar__links {
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
@@ -1325,11 +1325,11 @@ body {
   white-space: nowrap !important;
 }
 
-.vero-navbar__link {
+.cafo-navbar__link {
   white-space: nowrap !important;
 }
 
-.vero-navbar__right {
+.cafo-navbar__right {
   flex: 1 !important;
   display: flex !important;
   justify-content: flex-end !important;
@@ -1338,25 +1338,25 @@ body {
 
 /* Mobile adjustments */
 @media (max-width: 768px) {
-  .vero-navbar__inner {
+  .cafo-navbar__inner {
     grid-template-columns: 1fr auto !important;
     grid-template-rows: auto auto !important;
   }
   
-  .vero-navbar__center {
+  .cafo-navbar__center {
     grid-column: 1 / -1 !important;
     grid-row: 2 !important;
     justify-self: center !important;
   }
   
-  .vero-navbar__right {
+  .cafo-navbar__right {
     grid-column: 1 / -1 !important;
     grid-row: 3 !important;
     justify-self: center !important;
   }
 }
 /* Style navbar CTA button to match hero buttons */
-.vero-navbar__cta {
+.cafo-navbar__cta {
   background: #0B0C10 !important;
   color: #F5F1E8 !important;
   border: 2px solid #0B0C10 !important;
@@ -1369,7 +1369,7 @@ body {
   text-shadow: none !important;
 }
 
-.vero-navbar__cta:hover {
+.cafo-navbar__cta:hover {
   background: #FFFFFF !important;
   color: #0B0C10 !important;
   border: 2px solid #0B0C10 !important;
@@ -1690,9 +1690,9 @@ footer::after,
 .hero-description,
 .hero .cta-primary,
 .hero .cta-secondary,
-.vero-navbar__brand,
-.vero-navbar__link,
-.vero-navbar__cta {
+.cafo-navbar__brand,
+.cafo-navbar__link,
+.cafo-navbar__cta {
   font-family: "Londrina Solid", "Anton", "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif !important;
   font-weight: 400 !important;
   text-transform: uppercase !important;
@@ -1708,19 +1708,19 @@ footer::after,
 }
 
 /* Adjust navbar text sizes and opacity */
-.vero-navbar__brand {
+.cafo-navbar__brand {
   font-size: 1.4rem !important;
   font-weight: 400 !important;
   opacity: 1 !important;
 }
 
-.vero-navbar__link {
+.cafo-navbar__link {
   font-size: 0.85rem !important;
   font-weight: 400 !important;
   opacity: 1 !important;
 }
 
-.vero-navbar__cta {
+.cafo-navbar__cta {
   font-size: 0.85rem !important;
   font-weight: 400 !important;
   opacity: 1 !important;
@@ -1782,7 +1782,7 @@ a.cta-secondary {
 }
 
 /* ===== MAKE GET ENERGIZED NAVBAR BUTTON WIDER ===== */
-.vero-navbar__cta {
+.cafo-navbar__cta {
   padding: 0.8rem 2.5rem !important;
   min-width: 180px !important;
   text-align: center !important;
@@ -2004,9 +2004,9 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* ===== APPLY BEBAS NEUE FONT TO NAVBAR TEXT ===== */
-.vero-navbar__brand,
-.vero-navbar__link,
-.vero-navbar__cta {
+.cafo-navbar__brand,
+.cafo-navbar__link,
+.cafo-navbar__cta {
   font-family: 'Bebas Neue', 'Oswald', 'Passion One', 'Anton', 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif !important;
 }
 
@@ -2023,71 +2023,71 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* ===== MAKE NAVBAR TEXT BIGGER ===== */
-.vero-navbar__brand {
+.cafo-navbar__brand {
   font-size: 2.2rem !important;
 }
 
-.vero-navbar__link {
+.cafo-navbar__link {
   font-size: 1.3rem !important;
 }
 
-.vero-navbar__cta {
+.cafo-navbar__cta {
   font-size: 1.2rem !important;
 }
 
 
 /* ===== EXPERIMENTAL: TRANSPARENT NAVBAR - EASY TO REVERT ===== */
 /* Remove this section to restore the dark navbar */
-nav.vero-navbar,
-.vero-navbar,
-#veroNavbar {
+nav.cafo-navbar,
+.cafo-navbar,
+#cafoNavbar {
   background: transparent !important;
   background-color: transparent !important;
   border-bottom: none !important;
   box-shadow: none !important;
 }
 
-.vero-navbar .vero-navbar__brand,
-.vero-navbar__brand,
-a.vero-navbar__brand {
+.cafo-navbar .cafo-navbar__brand,
+.cafo-navbar__brand,
+a.cafo-navbar__brand {
   color: #ffffff !important;
 }
 
-.vero-navbar .vero-navbar__link,
-.vero-navbar__link,
-a.vero-navbar__link {
+.cafo-navbar .cafo-navbar__link,
+.cafo-navbar__link,
+a.cafo-navbar__link {
   color: #ffffff !important;
 }
 
-.vero-navbar__link::after {
+.cafo-navbar__link::after {
   background: #ffffff !important;
 }
 
-.vero-navbar .vero-navbar__link:hover,
-.vero-navbar__link:hover {
+.cafo-navbar .cafo-navbar__link:hover,
+.cafo-navbar__link:hover {
   color: #ffffff !important;
 }
 
-.vero-navbar__toggle span {
+.cafo-navbar__toggle span {
   background: #ffffff !important;
 }
 /* ===== END EXPERIMENTAL TRANSPARENT NAVBAR ===== */
 
 /* ===== FINAL OVERRIDE: GET ENERGIZED BUTTON OBSIDIAN BLACK ===== */
-.vero-navbar__cta,
-a.vero-navbar__cta,
-.vero-navbar .vero-navbar__cta,
-nav .vero-navbar__cta {
+.cafo-navbar__cta,
+a.cafo-navbar__cta,
+.cafo-navbar .cafo-navbar__cta,
+nav .cafo-navbar__cta {
   background: #0B0C10 !important;
   background-color: #0B0C10 !important;
   color: #F5F1E8 !important;
   border: 2px solid #0B0C10 !important;
 }
 
-.vero-navbar__cta:hover,
-a.vero-navbar__cta:hover,
-.vero-navbar .vero-navbar__cta:hover,
-nav .vero-navbar__cta:hover {
+.cafo-navbar__cta:hover,
+a.cafo-navbar__cta:hover,
+.cafo-navbar .cafo-navbar__cta:hover,
+nav .cafo-navbar__cta:hover {
   background: #FFFFFF !important;
   background-color: #FFFFFF !important;
   color: #000000 !important;
