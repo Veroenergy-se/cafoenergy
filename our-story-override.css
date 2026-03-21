@@ -2095,3 +2095,10 @@ nav .vero-navbar__cta:hover {
   transform: none !important;
   box-shadow: none !important;
 }
+
+/* ===== ADD TO CART BUTTONS - WHITE TEXT ===== */
+button[onclick="addProductToCart('starter')"],
+button[onclick="addProductToCart('duo')"],
+button[onclick="addProductToCart('family')"] {
+  color: #ffffff !important;
+}
