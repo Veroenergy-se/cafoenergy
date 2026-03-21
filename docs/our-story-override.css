@@ -2102,3 +2102,8 @@ button[onclick="addProductToCart('duo')"],
 button[onclick="addProductToCart('family')"] {
   color: #ffffff !important;
 }
+
+/* ===== PRODUCT BADGE TEXT - WHITE ===== */
+.product-card [style*="position: absolute"][style*="top: 12px"] {
+  color: #ffffff !important;
+}
