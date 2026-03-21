@@ -41,6 +41,12 @@ body {
     overflow-x: hidden;
 }
 
+/* Prevent body color from overriding product buttons */
+.product-card button {
+    color: #ffffff !important;
+    background: #000000 !important;
+}
+
 /* Hero - Minimal, product-focused */
 .hero,
 .hero--colorblock {
