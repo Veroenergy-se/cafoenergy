@@ -29,7 +29,7 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&family=Anton&family=Gloock&family=Fredericka+the+Great&family=Playfair+Display:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&family=Nunito:wght@400;500;600;700;800;900&family=Comfortaa:wght@300;400;500;600;700&family=Yellowtail&family=Belanosima:wght@400;600;700&family=Caveat:wght@400;500;600;700&family=Merriweather:wght@300;400;700&family=Passion+One:wght@400;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Londrina+Solid:wght@100;300;400;900&family=Anton&family=Gloock&family=Fredericka+the+Great&family=Playfair+Display:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&family=Nunito:wght@400;500;600;700;800;900&family=Comfortaa:wght@300;400;500;600;700&family=Yellowtail&family=Belanosima:wght@400;600;700&family=Caveat:wght@400;500;600;700&family=Merriweather:wght@300;400;700&family=Passion+One:wght@400;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=54" />
   <link rel="stylesheet" href="deux-style.css?v=33" />
   <link rel="stylesheet" href="our-story-override.css?v=101" />
@@ -698,7 +698,7 @@
     .vero-navbar__cta,
     a.vero-navbar__cta,
     .vero-navbar__right .vero-navbar__cta,
-    nav .vero-navbar__cta {
+    nav .vero-navbar__cta { font-family: 'League Gothic', sans-serif !important; font-size: 1.8rem !important; padding: 10px 28px !important;
       background: #0B0C10 !important;
       background-color: #0B0C10 !important;
       color: #F5F1E8 !important;
@@ -1015,13 +1015,6 @@
     }
   </style>
 
-  <!-- Free Shipping Banner -->
-  <div class="free-shipping-banner">
-    <div class="free-shipping-content">
-      <span class="shipping-text">🚚 Free shipping on orders over $50</span>
-    </div>
-  </div>
-
   <!-- Soft purple band behind transparent header -->
   <div class="page-top-gradient"></div>
 
@@ -1032,33 +1025,42 @@
       top: 0;
       z-index: 999;
       width: 100%;
-      background: #1A1A1A !important;
+      background: #0B0C10 !important;
       border-bottom: 2px solid #000000 !important;
       transition: box-shadow 0.2s ease, border-color 0.2s ease;
+      overflow: visible;
     }
     .vero-navbar--scrolled {
       border-color: #000000 !important;
     }
     .vero-navbar__inner {
-      max-width: 1120px;
+      max-width: 100%;
       margin: auto;
-      padding: 1.2rem 1.5rem;
+      padding: 0 4rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      height: 100px;
+      overflow: visible;
+      position: relative;
     }
     .vero-navbar__brand {
       text-decoration: none;
       color: #F5F1E8 !important;
-      font-size: 1.8rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
+      font-family: 'League Gothic', sans-serif !important;
+      font-size: 3rem;
+      font-weight: 400 !important;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
       opacity: 1 !important;
     }
     .vero-navbar__center {
+      position: absolute !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 2rem;
     }
     .vero-navbar__links {
@@ -1070,9 +1072,10 @@
     .vero-navbar__link {
       text-decoration: none;
       color: #F5F1E8 !important;
+      font-family: 'League Gothic', sans-serif !important;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      font-size: 1.05rem;
+      font-size: 1.6rem;
       padding-bottom: 2px;
       position: relative;
       opacity: 1 !important;
@@ -1099,17 +1102,16 @@
       color: #F5F1E8 !important;
       opacity: 1 !important;
     }
-    .vero-navbar__cta {
+    .vero-navbar__cta { font-family: 'League Gothic', sans-serif !important; font-size: 1.8rem !important; padding: 10px 28px !important;
       background-color: #0B0C10;
-      color: #F5F1E8;
-      border-radius: 12px;
-      font-size: 17px;
+      color: #ffffff;
+      border-radius: 0;
+      
       font-weight: 600;
       padding: 1em 2em;
       cursor: pointer;
       transition: all 0.3s ease-in-out;
-      border: 1px solid black;
-      box-shadow: 0 0 0 0 black;
+      border: 2px solid #ffffff;
       text-decoration: none;
       display: inline-block;
     }
@@ -1176,12 +1178,55 @@
         align-items: flex-start;
         gap: 1rem;
       }
-      .vero-navbar__cta {
+      .vero-navbar__cta { font-family: 'League Gothic', sans-serif !important; font-size: 1.8rem !important; padding: 10px 28px !important;
         width: 100%;
         text-align: center;
       }
     }
+
+    /* ===== FORCE MATCH SHOP NAVBAR ===== */
+    .vero-navbar,
+    .vero-navbar.hidden,
+    .vero-navbar--scrolled {
+      background: #0B0C10 !important;
+      backdrop-filter: none !important;
+      border-bottom: 2px solid #000000 !important;
+      position: sticky !important;
+      transform: none !important;
+    }
+    .vero-navbar__inner {
+      height: 100px !important;
+      max-width: 100% !important;
+      padding: 0 4rem !important;
+    }
+    .vero-navbar__brand {
+      font-family: 'League Gothic', sans-serif !important;
+      font-size: 3rem !important;
+      font-weight: 400 !important;
+      color: #F5F1E8 !important;
+    }
+    .vero-navbar__center {
+      position: absolute !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+    }
+    .vero-navbar__link {
+      font-family: 'League Gothic', sans-serif !important;
+      font-size: 1.6rem !important;
+      color: #F5F1E8 !important;
+    }
+    .vero-navbar__cta { font-family: 'League Gothic', sans-serif !important; font-size: 1.8rem !important; padding: 10px 28px !important;
+      background: #0B0C10 !important;
+      color: #ffffff !important;
+      border: 2px solid #ffffff !important;
+      border-radius: 0 !important;
+    }
   </style>
+
+  <!-- Free Shipping Banner -->
+  <div style="background: #0B0C10; width: 100%; padding: 8px 0; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1);">
+    <span style="font-family: 'Bebas Neue', 'Oswald', 'Anton', sans-serif !important; font-size: 1rem; font-weight: 400; color: #ffffff !important; letter-spacing: 0.1em; text-transform: uppercase;">🚚 Free shipping on orders over $50</span>
+  </div>
 
   <nav class="vero-navbar" id="veroNavbar">
     <div class="vero-navbar__inner">
@@ -1198,7 +1243,7 @@
           <li><a class="vero-navbar__link" href="index.html">Home</a></li>
           <li><a class="vero-navbar__link" href="Shop.html">Shop</a></li>
           <li><a class="vero-navbar__link" href="Community.html">Community</a></li>
-          <li><a class="vero-navbar__link" href="About.html">About Us</a></li>
+          <li><a class="vero-navbar__link" href="About.html">Our Story</a></li>
         </ul>
       </div>
       
