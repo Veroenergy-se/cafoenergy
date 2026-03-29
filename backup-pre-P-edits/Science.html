@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Science – Vero Natural Energy</title>
+  <meta name="description" content="How Vero works: green tea caffeine + L-theanine for smooth, sustained energy. No crash, no jitters. Learn the science behind our caffeinated protein bars." />
+  <meta property="og:title" content="The Science – Vero Natural Energy" />
+  <meta property="og:description" content="Green tea caffeine + L-theanine for smooth, sustained energy. No crash, no jitters." />
+  
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWFPL9ZW9R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JWFPL9ZW9R', {
+      'send_page_view': true,
+      'anonymize_ip': true
+    });
+  </script>
+  
+  <link rel="stylesheet" href="style.css?v=16" />
+  <link rel="stylesheet" href="deux-style.css" />
+</head>
+<body>
+
+  <!-- Soft purple band behind transparent header -->
+  <div class="page-top-gradient"></div>
+
+
+  <!-- ===== NAVBAR (matching index.html exactly) ===== -->
+  <style>
+    .vero-navbar {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      width: 100%;
+      background: transparent;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .vero-navbar--scrolled {
+      border-color: transparent;
+    }
+    .vero-navbar__inner {
+      max-width: 1120px;
+      margin: auto;
+      padding: 1.2rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .vero-navbar__brand {
+      text-decoration: none;
+      color: #ffffff !important;
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      opacity: 1 !important;
+    }
+    .vero-navbar__center {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .vero-navbar__links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+    }
+    .vero-navbar__link {
+      text-decoration: none;
+      color: #ffffff !important;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 1.05rem;
+      padding-bottom: 2px;
+      position: relative;
+      opacity: 1 !important;
+    }
+    .vero-navbar__link::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: #ffffff !important;
+      transition: width 0.2s ease;
+    }
+    .vero-navbar__link:hover::after {
+      width: 100%;
+    }
+    .vero-navbar__link:hover {
+      color: #ffffff !important;
+      opacity: 1 !important;
+    }
+    .vero-navbar__cta {
+      background-color: rgba(255, 208, 116);
+      color: #1d1d1f;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: 600;
+      padding: 1em 2em;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      border: 1px solid black;
+      box-shadow: 0 0 0 0 black;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .vero-navbar__cta:hover {
+      transform: translateY(-4px) translateX(-2px);
+      box-shadow: 2px 5px 0 0 black;
+    }
+    .vero-navbar__cta:active {
+      transform: translateY(2px) translateX(1px);
+      box-shadow: 0 0 0 0 black;
+    }
+    .vero-navbar__toggle {
+      display: none;
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+      flex-direction: column;
+      justify-content: center;
+      gap: 6px;
+    }
+    .vero-navbar__toggle span {
+      height: 3px;
+      width: 100%;
+      background: #111827;
+      border-radius: 5px;
+      transition: 0.3s ease;
+    }
+    .vero-navbar__toggle--open span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+    .vero-navbar__toggle--open span:nth-child(2) {
+      opacity: 0;
+    }
+    .vero-navbar__toggle--open span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+    @media (max-width: 768px) {
+      .vero-navbar__toggle {
+        display: flex;
+      }
+      .vero-navbar__center {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #ffffff;
+        border-bottom: 1px solid #e5e7eb;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.25rem;
+        opacity: 0;
+        transform: translateY(-10px);
+        pointer-events: none;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+      }
+      .vero-navbar__center--open {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+      .vero-navbar__links {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      .vero-navbar__cta {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+
+  <nav class="vero-navbar" id="veroNavbar">
+    <div class="vero-navbar__inner">
+      <a class="vero-navbar__brand" href="index.html">Vero</a>
+      
+      <div class="vero-navbar__toggle" id="veroToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      
+      <div class="vero-navbar__center">
+        <ul class="vero-navbar__links">
+          <li><a class="vero-navbar__link" href="index.html">Home</a></li>
+          <li><a class="vero-navbar__link" href="Shop.html">Shop</a></li>
+          <li><a class="vero-navbar__link" href="Community.html">Community</a></li>
+          <li><a class="vero-navbar__link" href="About.html">About Us</a></li>
+        </ul>
+      </div>
+      
+      <div class="vero-navbar__right">
+        <a href="Shop.html#products" class="vero-navbar__cta">Get Energized</a>
+      </div>
+    </div>
+  </nav>
+
+  <script>
+    const toggle = document.getElementById("veroToggle");
+    const menu = document.querySelector(".vero-navbar__center");
+    const navbar = document.getElementById("veroNavbar");
+    
+    toggle.addEventListener("click", () => {
+      toggle.classList.toggle("vero-navbar__toggle--open");
+      menu.classList.toggle("vero-navbar__center--open");
+    });
+    
+    // Scroll event listener removed to prevent navbar changes
+  </script>
+
+  <main>
+
+    <!-- ===== HERO: TEXT + PRODUCT CARD ===== -->
+    <section class="page-hero science-hero" id="top">
+      <div class="page-hero-inner science-hero-grid" data-reveal>
+
+        <!-- Left: science copy -->
+        <div class="science-hero-copy">
+          <div class="page-hero-eyebrow">
+            <span class="dot"></span>
+            <span>Science backed</span>
+            <span>not buzzworded</span>
+          </div>
+
+          <h1 class="page-hero-title">
+            How Vero fuels <span class="highlight">steady focus</span>
+          </h1>
+
+          <p class="page-hero-sub">
+            Vero is built around a simple idea: keep the <strong>good</strong> parts of caffeine
+            (alertness, motivation) and smooth out the spike, jitters and crash – using
+            green-tea caffeine, L-theanine, electrolytes and adaptogens.
+          </p>
+
+          <div class="page-hero-meta">
+            <span class="tag-pill">
+              <span class="tag-pill-dot"></span> Green-tea caffeine + L-theanine
+            </span>
+            <span class="tag-pill">
+              <span class="tag-pill-dot"></span> Gradual curve, fewer jitters
+            </span>
+            <span class="tag-pill">
+              <span class="tag-pill-dot"></span> Electrolytes &amp; adaptogens
+            </span>
+          </div>
+
+          <!-- Hero mini-nav -->
+          <nav class="pill-nav" aria-label="Science page sections">
+            <a href="#curve" class="is-active">Curve</a>
+            <a href="#ingredients">Ingredients</a>
+            <a href="#feels">How it feels</a>
+            <a href="#real-life">In real life</a>
+            <a href="#faq">FAQ</a>
+          </nav>
+        </div>
+
+        <!-- Right: product hero card (same vibe as homepage) -->
+        <aside class="science-hero-product">
+          <article class="product-card hero-product-card science-hero-card active">
+            <div class="product-visual">
+              <span class="product-badge">Prototype</span>
+              <!-- same “bar” look as your main hero -->
+              <div class="bar-3d bar-energy-3d"></div>
+            </div>
+            <div class="product-info">
+              <h3>Vero</h3>
+              <p class="product-tagline">Energy that feels good.</p>
+              <p class="product-description">
+                A caffeinated energy bar that combines green-tea caffeine, L-theanine,
+                electrolytes and real nutrition for a smoother focus window.
+              </p>
+              <div class="product-specs">
+                <span class="spec">≈ 80 mg caffeine*</span>
+                <span class="spec">Protein &amp; fiber</span>
+                <span class="spec">0 g added sugar*</span>
+              </div>
+              <p class="product-footnote">
+                *Targets during development. Final values may shift as we finish R&amp;D.
+              </p>
+            </div>
+          </article>
+          <p class="science-hero-caption">
+            Visual prototype of Vero – artwork only. Exact packaging and macros will be finalised before launch.
+          </p>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- ===== CURVE ===== -->
+    <section id="curve" class="page-section page-section--on-white">
+      <div class="section-inner split-layout">
+        <div class="section-intro" data-reveal>
+          <h2>The curve, not just the caffeine</h2>
+          <p>
+            Coffee and energy drinks hit hard, then dip. Vero uses a lower, smoother
+            caffeine dose plus L-theanine to stretch the focus window and make the
+            experience feel more controlled.
+          </p>
+          <ul class="info-list" style="margin-top:16px;">
+            <li>Fast ramp so you actually feel it.</li>
+            <li>Flattened peak to reduce anxiety and jitteriness.</li>
+            <li>Slower decline, so you don’t crash mid-afternoon.</li>
+          </ul>
+        </div>
+
+        <div class="science-curve-card" data-reveal>
+          <p style="font-size:0.85rem;color:#64748b;">
+            Illustrative only – curves show the <em>idea</em>, not lab data.
+          </p>
+          <figure>
+            <svg viewBox="0 0 640 220" role="img"
+                 aria-label="Energy over time: coffee spike vs Vero smoother curve">
+              <!-- Axes -->
+              <path d="M48 20 V190 M48 190 H610"
+                    stroke="rgba(15,23,42,0.18)" stroke-width="1" />
+              <text x="10" y="28" fill="#64748b" font-size="12">Energy</text>
+              <text x="560" y="210" fill="#64748b" font-size="12">Time →</text>
+
+              <!-- Coffee spike -->
+              <path d="M48 185 C 140 70, 210 45, 270 40
+                       S 380 115, 610 185"
+                    fill="none" stroke="#ef4444" stroke-width="3" />
+              <text x="260" y="50" fill="#ef4444" font-size="12">coffee spike</text>
+
+              <!-- Vero curve -->
+              <path d="M48 185 C 130 110, 220 70, 310 60
+                       S 470 80, 610 185"
+                    fill="none" stroke="#22c55e" stroke-width="3" />
+              <text x="340" y="80" fill="#22c55e" font-size="12">
+                Vero target curve
+              </text>
+            </svg>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== INGREDIENTS ===== -->
+    <section id="ingredients" class="page-section page-section--soft">
+      <div class="section-inner">
+        <div class="section-intro" data-reveal>
+          <h2>The stack behind the bar</h2>
+          <p>
+            We didn’t invent new molecules. We combined ingredients with decades of
+            research behind focus, mood and performance – in a format you can throw
+            in a bag and eat anywhere.
+          </p>
+        </div>
+
+        <div class="card-grid">
+          <article class="info-card" data-reveal>
+            <span class="info-eyebrow">Lift</span>
+            <h3>Green-tea caffeine</h3>
+            <p>Natural caffeine from green tea for a cleaner, less edgy lift.</p>
+            <ul class="info-list">
+              <li>Moderate dose around ~80&nbsp;mg per bar.*</li>
+              <li>Pairs with L-theanine for calmer alertness.</li>
+            </ul>
+          </article>
+
+          <article class="info-card" data-reveal>
+            <span class="info-eyebrow">Smooth</span>
+            <h3>L-theanine</h3>
+            <p>
+              Tea-derived amino acid that helps blunt jitters and supports
+              clear, steady focus.
+            </p>
+            <ul class="info-list">
+              <li>Helps reduce the “wired but tired” feeling.</li>
+              <li>Works best alongside a sensible caffeine dose.</li>
+            </ul>
+          </article>
+
+          <article class="info-card" data-reveal>
+            <span class="info-eyebrow">Hydrate</span>
+            <h3>Electrolytes</h3>
+            <p>
+              Mild dehydration wrecks concentration. A small electrolyte blend
+              helps you keep up.
+            </p>
+            <ul class="info-list">
+              <li>Sodium, potassium and magnesium.</li>
+              <li>Everyday levels – not a salty sports drink.</li>
+            </ul>
+          </article>
+
+          <article class="info-card" data-reveal>
+            <span class="info-eyebrow">Resilience</span>
+            <h3>Adaptogen support</h3>
+            <p>
+              Carefully selected adaptogens (e.g. rhodiola / ashwagandha –
+              exact stack depends on testing) to help you handle stressy days.
+            </p>
+            <ul class="info-list">
+              <li>Targets perceived fatigue more than “hype”.</li>
+              <li>Supports balance, not stimulation.</li>
+            </ul>
+          </article>
+        </div>
+
+        <p style="font-size:0.78rem;color:#6b7280;margin-top:18px;">
+          *All values are pre-launch targets and may change as we finalise the recipe.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== HOW IT FEELS ===== -->
+    <section id="feels" class="page-section page-section--on-white">
+      <div class="section-inner split-layout">
+        <div class="section-intro" data-reveal>
+          <h2>How it should feel in real life</h2>
+          <p>
+            Science is cool, but Vero has one job: help you stay dialled in on the
+            stuff that matters, without feeling cracked out or destroyed afterwards.
+          </p>
+        </div>
+
+        <div class="card-grid" data-reveal>
+          <article class="info-card">
+            <span class="info-eyebrow">0–30 min</span>
+            <h3>Wake up without whiplash</h3>
+            <p>Smooth lift; you notice you’re more “on”, not suddenly buzzing.</p>
+            <ul class="info-list">
+              <li>Good for morning classes or pre-work boost.</li>
+              <li>No shaky hands while you type.</li>
+            </ul>
+          </article>
+
+          <article class="info-card">
+            <span class="info-eyebrow">30–120 min</span>
+            <h3>Deep-work window</h3>
+            <p>
+              Energy stays steady; pairing caffeine with real nutrition means your
+              brain has something to run on.
+            </p>
+            <ul class="info-list">
+              <li>Great for exams, projects and long focus blocks.</li>
+              <li>Less tempted to snack every 20 minutes.</li>
+            </ul>
+          </article>
+
+          <article class="info-card">
+            <span class="info-eyebrow">Afterwards</span>
+            <h3>Less post-caffeine regret</h3>
+            <p>
+              The goal is to close your laptop and still feel like a human, not a
+              zombie with a sugar crash.
+            </p>
+            <ul class="info-list">
+              <li>Milder comedown vs heavy coffees or energy drinks.</li>
+              <li>Protein &amp; fiber help bridge the gap between meals.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== REAL-LIFE PHOTO STRIP ===== -->
+    <section id="real-life" class="page-section page-section--soft">
+      <div class="section-inner">
+        <div class="section-intro" data-reveal>
+          <h2>Science in real life</h2>
+          <p>
+            Vero isn’t a lab experiment. It’s meant for actual messy days – libraries,
+            gyms, late trains and group projects that go on way too long.
+          </p>
+        </div>
+
+        <div class="science-photo-grid">
+          <figure class="science-photo-card" data-reveal>
+            <img src="science-study.jpg" alt="Student studying with Vero and laptop on the desk" />
+            <figcaption>Library focus blocks without a triple-shot latte crash.</figcaption>
+          </figure>
+
+          <figure class="science-photo-card" data-reveal>
+            <img src="science-training.jpg" alt="Vero next to training shoes and a water bottle" />
+            <figcaption>Pre- or post-training when you still have things to do afterwards.</figcaption>
+          </figure>
+
+          <figure class="science-photo-card" data-reveal>
+            <img src="science-desk.jpg" alt="Vero on a cluttered work desk" />
+            <figcaption>A small upgrade from random snacks between meetings.</figcaption>
+          </figure>
+        </div>
+
+        <p style="font-size:0.78rem;color:#6b7280;margin-top:14px;">
+          Upload your own images to replace these placeholders – see the filenames in the code:
+          <code>science-study.jpg</code>, <code>science-training.jpg</code>, <code>science-desk.jpg</code>.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section id="faq" class="page-section page-section--on-white">
+      <div class="section-inner">
+        <div class="section-intro" data-reveal>
+          <h2>Quick questions</h2>
+          <p>If we were sitting with you in the kitchen, this is what we’d expect you to ask.</p>
+        </div>
+
+        <div class="card-grid">
+          <article class="info-card" data-reveal>
+            <h3>Is this meant to replace coffee?</h3>
+            <p>
+              Not necessarily. For some people Vero is the main caffeine source; others
+              use it to avoid an extra coffee or a sugary drink.
+            </p>
+          </article>
+
+          <article class="info-card" data-reveal>
+            <h3>Will you share more data?</h3>
+            <p>
+              As we finalise the recipe, we’ll share more about exact doses and internal
+              testing so you can see how we made those decisions.
+            </p>
+          </article>
+
+          <article class="info-card" data-reveal>
+            <h3>What about tolerance?</h3>
+            <p>
+              If you’re very caffeine-sensitive, start with half a bar. If you drink a lot
+              of coffee, you’ll still feel it – but in a calmer way.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER (same as homepage) ===== -->
+  <footer id="footer" class="footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3 class="footer-title">Vero</h3>
+        <p>Clean energy, smarter nutrition.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn">Instagram</a>
+          <a href="#" class="social-btn">TikTok</a>
+          <a href="#" class="social-btn">LinkedIn</a>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:tomwiseman@Vero.se">tomwiseman@Vero.se</a></li>
+          <li><a href="mailto:oliverwiseman@Vero.se">oliverwiseman@Vero.se</a></li>
+          <li><a href="mailto:charliewiseman@Vero.se">charliewiseman@Vero.se</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Info</h4>
+        <ul>
+          <li>Plant-based. No artificial sweeteners.</li>
+          <li>Made with care in the EU.</li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Join our newsletter</h4>
+        <p>No spam, just smarter energy.</p>
+        <form class="newsletter-form" id="science-newsletter-form" action="#" method="post">
+          <input type="email" id="science-newsletter-email" name="email" placeholder="your@email.com" required aria-label="Email address" />
+          <button type="submit" aria-label="Subscribe to newsletter">→</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 Vero. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ===== JS: header hide/show + scroll reveal ===== -->
+  <script>
+    // Hide/show header on scroll
+    (function () {
+      const header = document.querySelector('.site-header');
+      if (!header) return;
+      let lastY = window.scrollY;
+      window.addEventListener('scroll', () => {
+        const y = window.scrollY;
+        if (y > 80 && y > lastY) header.classList.add('hide');
+        else header.classList.remove('hide');
+        lastY = y;
+      }, { passive: true });
+    })();
+
+    // Simple scroll reveal
+    (function () {
+      const els = document.querySelectorAll('[data-reveal]');
+      if (!('IntersectionObserver' in window) || !els.length) {
+        els.forEach(el => el.classList.add('is-visible'));
+        return;
+      }
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      els.forEach(el => io.observe(el));
+    })();
+
+    // Hamburger Menu Script
+    (function() {
+      const hamburger = document.querySelector('.hamburger-menu');
+      const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+      if (!hamburger || !mobileMenuOverlay) return;
+
+      // Reset menu state on page load
+      hamburger.classList.remove('active');
+      mobileMenuOverlay.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+
+      // Toggle menu
+      hamburger.addEventListener('click', function() {
+        const isActive = this.classList.toggle('active');
+        mobileMenuOverlay.classList.toggle('active');
+        this.setAttribute('aria-expanded', isActive);
+        
+        // Prevent body scroll when menu is open
+        document.body.style.overflow = isActive ? 'hidden' : '';
+      });
+
+      // Close menu when clicking on a link
+      mobileNavLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          hamburger.classList.remove('active');
+          mobileMenuOverlay.classList.remove('active');
+          hamburger.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        });
+      });
+
+      // Close menu when clicking outside
+      mobileMenuOverlay.addEventListener('click', function(e) {
+        if (e.target === this) {
+          hamburger.classList.remove('active');
+          this.classList.remove('active');
+          hamburger.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>

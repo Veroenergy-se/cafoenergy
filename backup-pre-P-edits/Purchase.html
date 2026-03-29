@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Complete Your Purchase – Vero</title>
+  <meta name="description" content="Complete your Vero energy bar purchase. Secure checkout, free shipping over $50, 30-day satisfaction guarantee." />
+  <meta property="og:title" content="Complete Your Purchase – Vero" />
+  <meta property="og:description" content="Secure checkout for Vero caffeinated protein bars. Free shipping over $50." />
+  
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWFPL9ZW9R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JWFPL9ZW9R', {
+      'send_page_view': true,
+      'anonymize_ip': true
+    });
+  </script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&family=Yellowtail&family=Belanosima:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="deux-style.css" />
+  <style>
+    /* ===== NAVBAR (matching index.html exactly) ===== */
+    .vero-navbar {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      width: 100%;
+      background: transparent;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .vero-navbar--scrolled {
+      border-color: transparent;
+    }
+    .vero-navbar__inner {
+      max-width: 1120px;
+      margin: auto;
+      padding: 1.2rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .vero-navbar__brand {
+      text-decoration: none;
+      color: #ffffff !important;
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      opacity: 1 !important;
+    }
+    .vero-navbar__center {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .vero-navbar__links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+    }
+    .vero-navbar__link {
+      text-decoration: none;
+      color: #ffffff !important;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 1.05rem;
+      padding-bottom: 2px;
+      position: relative;
+      opacity: 1 !important;
+    }
+    .vero-navbar__link::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: #ffffff !important;
+      transition: width 0.2s ease;
+    }
+    .vero-navbar__link:hover::after {
+      width: 100%;
+    }
+    .vero-navbar__link:hover {
+      color: #ffffff !important;
+      opacity: 1 !important;
+    }
+    .vero-navbar__cta {
+      background-color: rgba(255, 208, 116);
+      color: #1d1d1f;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: 600;
+      padding: 1em 2em;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      border: 1px solid black;
+      box-shadow: 0 0 0 0 black;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .vero-navbar__cta:hover {
+      transform: translateY(-4px) translateX(-2px);
+      box-shadow: 2px 5px 0 0 black;
+    }
+    .vero-navbar__cta:active {
+      transform: translateY(2px) translateX(1px);
+      box-shadow: 0 0 0 0 black;
+    }
+    .vero-navbar__toggle {
+      display: none;
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+      flex-direction: column;
+      justify-content: center;
+      gap: 6px;
+    }
+    .vero-navbar__toggle span {
+      height: 3px;
+      width: 100%;
+      background: #111827;
+      border-radius: 5px;
+      transition: 0.3s ease;
+    }
+    .vero-navbar__toggle--open span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+    .vero-navbar__toggle--open span:nth-child(2) {
+      opacity: 0;
+    }
+    .vero-navbar__toggle--open span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+    @media (max-width: 768px) {
+      .vero-navbar__toggle {
+        display: flex;
+      }
+      .vero-navbar__center {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #ffffff;
+        border-bottom: 1px solid #e5e7eb;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.25rem;
+        opacity: 0;
+        transform: translateY(-10px);
+        pointer-events: none;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+      }
+      .vero-navbar__center--open {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+      .vero-navbar__links {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      .vero-navbar__cta {
+        width: 100%;
+        text-align: center;
+      }
+    }
+    
+    /* Purchase Page Adjustments */
+    .purchase-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      background: white;
+      padding: 60px 20px 200px;
+    }
+
+    .purchase-container {
+      max-width: 1000px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 350px 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    
+    .purchase-left {
+      position: sticky;
+      top: 100px;
+    }
+
+
+
+    .purchase-left {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .purchase-product-image {
+      width: 100%;
+      height: 320px;
+      background: var(--cream);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 100px;
+      box-shadow: 0 4px 24px rgba(44, 24, 16, 0.08);
+    }
+
+    .purchase-right {
+      display: flex;
+      flex-direction: column;
+      padding-left: 40px;
+    }
+
+    .purchase-product-name {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--espresso);
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .purchase-product-description {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    #productQuantityDisplay {
+      font-weight: 700;
+      color: var(--espresso);
+    }
+
+    .purchase-price {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--espresso);
+      margin-bottom: 32px;
+    }
+
+    .purchase-price-unit {
+      font-size: 1rem;
+      color: #999;
+      font-weight: 400;
+    }
+
+
+
+    .purchase-options {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .purchase-option {
+      padding: 20px 24px;
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      background: white;
+    }
+
+    .purchase-option:hover {
+      border-color: #bbb;
+      transform: translateY(-2px);
+    }
+
+    .purchase-option.selected {
+      border-color: #999;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .purchase-option[data-type="subscription"] {
+      background: white;
+      border: 2px solid #4CAF50;
+    }
+
+    .purchase-option[data-type="subscription"]:hover {
+      border-color: #45a049;
+      transform: translateY(-2px);
+    }
+
+    .purchase-option[data-type="subscription"].selected {
+      border-color: #45a049;
+      background: white;
+      box-shadow: 0 4px 12px rgba(76, 175, 80, 0.2);
+    }
+
+    .purchase-option-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .purchase-option-radio {
+      width: 20px;
+      height: 20px;
+      border: 2px solid #ccc;
+      border-radius: 50%;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .purchase-option.selected .purchase-option-radio {
+      border-color: var(--espresso);
+    }
+
+    .purchase-option.selected .purchase-option-radio::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 10px;
+      height: 10px;
+      background: var(--espresso);
+      border-radius: 50%;
+    }
+
+    .purchase-option-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--espresso);
+      flex: 1;
+      text-align: left;
+      margin-left: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .purchase-option-price {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--espresso);
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .purchase-option-price-original {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #999;
+      text-decoration: line-through;
+    }
+
+    .purchase-option-price-discounted {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--espresso);
+    }
+
+    .purchase-option-description {
+      text-align: left;
+      font-size: 0.9rem;
+      color: #666;
+      margin-left: 32px;
+    }
+
+    .subscription-benefits {
+      list-style: none;
+      padding: 0;
+      margin: 12px 0 0 32px;
+    }
+
+    .subscription-benefits li {
+      font-size: 0.9rem;
+      color: #2e7d32;
+      font-weight: 600;
+      padding: 4px 0;
+    }
+
+    .purchase-checkout-btn {
+      width: 100%;
+      padding: 18px 32px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: block;
+      background: linear-gradient(135deg, #FF6B35, #FF8C42);
+      color: white !important;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(255, 107, 53, 0.3);
+    }
+
+    .purchase-checkout-btn:hover {
+      background: linear-gradient(135deg, #FF5722, #FF7A2E);
+      color: white !important;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(255, 107, 53, 0.4);
+    }
+
+    .purchase-save-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #2e7d32;
+      color: white;
+      font-size: 0.85rem;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      box-shadow: 0 2px 8px rgba(46, 125, 50, 0.4);
+      text-transform: uppercase;
+      z-index: 1;
+    }
+
+    .subscription-option {
+      margin-top: 12px;
+    }
+
+    .purchase-features {
+      text-align: left;
+      margin-top: 32px;
+      padding-top: 32px;
+      border-top: 1px solid #eee;
+    }
+
+    .purchase-feature {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+      color: #666;
+    }
+
+    .purchase-feature-icon {
+      width: 24px;
+      height: 24px;
+      background: var(--cream);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--espresso);
+      font-weight: 700;
+    }
+
+    @media (max-width: 900px) {
+      .purchase-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding-top: 60px;
+      }
+
+      .purchase-product-image {
+        height: 280px;
+        font-size: 100px;
+      }
+
+      .purchase-product-name {
+        font-size: 1.5rem;
+      }
+
+      .purchase-price {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVBAR (matching index.html exactly) ===== -->
+  <nav class="vero-navbar" id="veroNavbar">
+    <div class="vero-navbar__inner">
+      <a class="vero-navbar__brand" href="index.html">Vero</a>
+      
+      <div class="vero-navbar__toggle" id="veroToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      
+      <div class="vero-navbar__center">
+        <ul class="vero-navbar__links">
+          <li><a class="vero-navbar__link" href="index.html">Home</a></li>
+          <li><a class="vero-navbar__link" href="Shop.html">Shop</a></li>
+          <li><a class="vero-navbar__link" href="Community.html">Community</a></li>
+          <li><a class="vero-navbar__link" href="About.html">About Us</a></li>
+        </ul>
+      </div>
+      
+      <div class="vero-navbar__right">
+        <a href="Shop.html#products" class="vero-navbar__cta">Get Energized</a>
+      </div>
+    </div>
+  </nav>
+
+  <script>
+    const toggle = document.getElementById("veroToggle");
+    const menu = document.querySelector(".vero-navbar__center");
+    const navbar = document.getElementById("veroNavbar");
+    
+    toggle.addEventListener("click", () => {
+      toggle.classList.toggle("vero-navbar__toggle--open");
+      menu.classList.toggle("vero-navbar__center--open");
+    });
+    
+    // Scroll event listener removed to prevent navbar changes
+  </script>
+
+  <div class="purchase-page">
+    <div class="purchase-container">
+      
+      <!-- Left Side - Product Image -->
+      <div class="purchase-left">
+        <div class="purchase-product-image">
+          🍫
+        </div>
+      </div>
+
+      <!-- Right Side - Purchase Options -->
+      <div class="purchase-right">
+        <h1 class="purchase-product-name">Vero Energy Bar</h1>
+      
+      <p class="purchase-product-description">
+        <span id="productQuantityDisplay">12 bars</span> • Natural energy with real ingredients
+      </p>
+
+      <div class="purchase-price">
+        $24.99
+        <span class="purchase-price-unit">/ box</span>
+      </div>
+
+      <div class="purchase-options">
+        <div class="purchase-option subscription-option" data-type="subscription">
+          <span class="purchase-save-badge">Save 15%</span>
+          <div class="purchase-option-header">
+            <div class="purchase-option-radio"></div>
+            <div class="purchase-option-title">
+              Subscribe & Save
+              <span class="purchase-option-price">
+                <span class="purchase-option-price-original" id="subscriptionOriginalPrice">$24.99</span>
+                <span class="purchase-option-price-discounted" id="subscriptionPrice">$21.24</span>
+              </span>
+            </div>
+          </div>
+          <div class="purchase-option-description">
+            Delivered monthly, cancel anytime
+          </div>
+          <ul class="subscription-benefits">
+            <li>✓ Save 15% off every delivery</li>
+            <li>✓ No commitment, cancel or skip anytime</li>
+            <li>✓ Cash back on every order</li>
+          </ul>
+        </div>
+        
+        <div class="purchase-option selected" data-type="onetime">
+          <div class="purchase-option-header">
+            <div class="purchase-option-radio"></div>
+            <div class="purchase-option-title">
+              One Time Purchase
+              <span class="purchase-option-price" id="onetimePrice">$24.99</span>
+            </div>
+          </div>
+          <div class="purchase-option-description">
+            Pay once, no commitment
+          </div>
+        </div>
+      </div>
+
+      <a href="checkout.html?type=onetime" class="purchase-checkout-btn" id="checkoutBtn">
+        Continue to Checkout
+      </a>
+
+      <div class="purchase-features">
+        <div class="purchase-feature">
+          <div class="purchase-feature-icon">✓</div>
+          <span>Free shipping on orders over $50</span>
+        </div>
+        <div class="purchase-feature">
+          <div class="purchase-feature-icon">✓</div>
+          <span>Cancel subscription anytime</span>
+        </div>
+        <div class="purchase-feature">
+          <div class="purchase-feature-icon">✓</div>
+          <span>100% satisfaction guarantee</span>
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Get product details from URL parameters if available
+    const urlParams = new URLSearchParams(window.location.search);
+    const productName = urlParams.get('product') || 'Vero Energy Bar';
+    const totalPrice = parseFloat(urlParams.get('price') || '24.99');
+    const productQuantity = parseInt(urlParams.get('quantity') || '12');
+    
+    // Calculate price per box (12 bars per box)
+    const numBoxes = productQuantity / 12;
+    const pricePerBox = (totalPrice / numBoxes).toFixed(2);
+    
+    // Calculate subscription price per box (15% off)
+    const subscriptionPricePerBox = (pricePerBox * 0.85).toFixed(2);
+    
+    // Update page content
+    if (urlParams.get('product')) {
+      document.querySelector('.purchase-product-name').textContent = productName;
+    }
+    
+    // Update price display
+    document.querySelector('.purchase-price').innerHTML = `$${pricePerBox} <span class="purchase-price-unit">/ box</span>`;
+
+    // Update quantity display
+    document.getElementById('productQuantityDisplay').textContent = `${productQuantity} bars (${numBoxes} ${numBoxes === 1 ? 'box' : 'boxes'})`;
+
+    // Update prices in options
+    document.getElementById('onetimePrice').textContent = `$${pricePerBox} / box`;
+    document.getElementById('subscriptionOriginalPrice').textContent = `$${pricePerBox}`;
+    document.getElementById('subscriptionPrice').textContent = `$${subscriptionPricePerBox} / box`;
+
+    // Handle purchase option selection
+    const purchaseOptions = document.querySelectorAll('.purchase-option');
+    const checkoutBtn = document.getElementById('checkoutBtn');
+    let selectedType = 'onetime';
+
+    purchaseOptions.forEach(option => {
+      option.addEventListener('click', () => {
+        // Remove selected class from all options
+        purchaseOptions.forEach(opt => opt.classList.remove('selected'));
+        
+        // Add selected class to clicked option
+        option.classList.add('selected');
+        
+        // Update selected type
+        selectedType = option.getAttribute('data-type');
+        
+        // Update checkout button link
+        checkoutBtn.setAttribute('href', `checkout.html?type=${selectedType}&product=${encodeURIComponent(productName)}&price=${productPrice}&quantity=${productQuantity}`);
+      });
+    });
+
+    // Initialize checkout button with default selection
+    checkoutBtn.setAttribute('href', `checkout.html?type=${selectedType}&product=${encodeURIComponent(productName)}&price=${productPrice}&quantity=${productQuantity}`);
+  </script>
+
+</body>
+</html>
