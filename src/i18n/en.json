@@ -1,0 +1,194 @@
+{
+  "nav": {
+    "home": "Home",
+    "shop": "Shop",
+    "community": "Community",
+    "about": "Our Story",
+    "contact": "Contact",
+    "getEnergized": "Get Energized",
+    "freeShipping": "Free shipping on orders over {{amount}}"
+  },
+  "hero": {
+    "title": "FOCUS. FOR HOURS.",
+    "subtitle": "The clean caffeinated protein bar. Real energy that lasts, with green tea caffeine, protein, and zero added sugar.",
+    "cta": "Shop Now",
+    "learnMore": "Learn More"
+  },
+  "socialProof": {
+    "tagline": "NO SUGAR. NO CRASH. NO NONSENSE.",
+    "caffeine": "90mg Natural Caffeine",
+    "protein": "10g Plant Protein",
+    "sugar": "0g Added Sugar",
+    "ltheanine": "L-Theanine"
+  },
+  "products": {
+    "title": "PRODUCTS",
+    "subtitle": "One Flavour. Perfected.",
+    "addToCart": "Add to Cart",
+    "starter": {
+      "name": "Original Energy",
+      "description": "12 bars"
+    },
+    "duo": {
+      "name": "Twin Pack",
+      "description": "24 bars"
+    },
+    "family": {
+      "name": "Family Pack",
+      "description": "36 bars"
+    },
+    "bestseller": "BESTSELLER",
+    "discount": "-20%"
+  },
+  "nutrition": {
+    "title": "What Makes It Perfect",
+    "caffeineTitle": "Natural Caffeine",
+    "caffeineDesc": "90mg from green tea extract for clean, sustained energy without the jitters.",
+    "proteinTitle": "Plant Protein",
+    "proteinDesc": "10g of plant-based protein to keep you fueled and focused.",
+    "sugarTitle": "Zero Added Sugar",
+    "sugarDesc": "No sugar crashes. No artificial sweeteners. Just clean energy.",
+    "ltheanineTitle": "L-Theanine",
+    "ltheanineDesc": "Promotes calm focus and enhanced concentration, paired perfectly with caffeine.",
+    "comparisonTitle": "How CAFO Compares",
+    "vsCoffee": "Coffee",
+    "vsEnergy": "Energy Drinks",
+    "vsCafo": "CAFO Bar"
+  },
+  "testimonials": {
+    "title": "For The Days That Matter",
+    "study": {
+      "title": "Study Sessions",
+      "description": "Hours of focus without the crash. Perfect for exam prep and deep work."
+    },
+    "work": {
+      "title": "Desk Days",
+      "description": "Sustained energy through meetings, deadlines, and everything in between."
+    },
+    "travel": {
+      "title": "Travel & Exams",
+      "description": "Clean energy on the go. No spills, no prep, no compromise."
+    },
+    "firstImpressions": {
+      "title": "First Impressions",
+      "description": "Show up sharp and focused when it matters most."
+    }
+  },
+  "story": {
+    "title": "Three Brothers. One Mission.",
+    "subtitle": "We built CAFO because we needed it ourselves. As students, we were tired of choosing between junk food energy and overpriced coffee.",
+    "cta": "Read Our Story"
+  },
+  "community": {
+    "title": "COMMUNITY",
+    "subtitle": "Join the movement",
+    "stats": {
+      "universities": "50+ Universities",
+      "countries": "25 Countries",
+      "focus": "Deep Focus Sessions",
+      "compromise": "Zero Compromise"
+    },
+    "joinTitle": "Ready to Join?",
+    "joinDesc": "Be part of a community that values clean energy and real focus.",
+    "joinCta": "Join the Movement"
+  },
+  "about": {
+    "heroTitle": "OUR STORY",
+    "foundersTitle": "Three Brothers. Building A Movement.",
+    "foundersText": "What started as a frustration with the energy options available to us as students turned into a mission to create something better. No more sugar crashes. No more jittery coffee runs. Just clean, sustained energy in your pocket.",
+    "journeyTitle": "The Journey Begins",
+    "journeyText": "We spent over a year perfecting our formula — balancing green tea caffeine with L-theanine, combining plant protein with fiber, and eliminating every ingredient we didn't believe in. The result is CAFO: one flavour, perfected.",
+    "teamTitle": "Meet The Team",
+    "missionTitle": "Built For Ambitious Minds",
+    "missionText": "CAFO is designed for anyone who refuses to compromise on what they put in their body. For students cramming for exams. For professionals pushing through deadlines. For anyone who needs real energy that lasts."
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "subtitle": "Questions, ideas, or just want to say hi? We'd love to hear from you.",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send Message",
+    "directEmail": "Or email us directly at",
+    "followUs": "Follow Us"
+  },
+  "howItWorks": {
+    "title": "HOW IT WORKS",
+    "subtitle": "The science behind sustained focus",
+    "caffeineTitle": "Green Tea Caffeine",
+    "caffeineText": "Unlike synthetic caffeine in energy drinks, our 90mg comes from green tea extract. It's absorbed more gradually, providing a smooth energy curve instead of a spike-and-crash.",
+    "ltheanineTitle": "L-Theanine Synergy",
+    "ltheanineText": "L-theanine works with caffeine to promote focused alertness without anxiety. This combination has been studied extensively — it enhances attention and reduces the negative side effects of caffeine alone.",
+    "proteinTitle": "Sustained Fuel",
+    "proteinText": "10g of plant protein and 5g of fiber slow digestion, creating a steady release of energy. No blood sugar spikes, no crashes — just hours of sustained focus.",
+    "lowGiTitle": "Low Glycemic Design",
+    "lowGiText": "Our formula is designed with a low glycemic index, meaning it won't spike your blood sugar. This keeps your energy stable and your mind sharp."
+  },
+  "footer": {
+    "tagline": "The clean caffeinated protein bar.",
+    "pages": "Pages",
+    "legal": "Legal",
+    "social": "Social",
+    "privacy": "Privacy Policy",
+    "copyright": "© {{year}} CAFO Energy. All rights reserved."
+  },
+  "cart": {
+    "title": "Your Cart",
+    "empty": "Your cart is empty",
+    "subtotal": "Subtotal",
+    "checkout": "Checkout",
+    "checkoutComingSoon": "Checkout Coming Soon",
+    "processing": "Processing...",
+    "noPrices": "Stripe products not configured yet. See .env.example",
+    "freeShipping": "Free shipping on orders over {{amount}}!",
+    "remove": "Remove"
+  },
+  "checkout": {
+    "title": "CHECKOUT",
+    "emptyTitle": "Cart is Empty",
+    "emptyText": "Add some CAFO bars to your cart first!",
+    "shopNow": "Shop Now",
+    "orderSummary": "ORDER SUMMARY",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "free": "Free",
+    "calculated": "Calculated at next step",
+    "total": "Total",
+    "continue": "Continue to Shipping",
+    "continueShopping": "Continue Shopping",
+    "backToCart": "Back to cart",
+    "shippingDetails": "SHIPPING DETAILS",
+    "address": "Address",
+    "city": "City",
+    "zip": "Postal Code",
+    "instructions": "Your order will be sent via email. We'll reply with payment details.",
+    "placeOrder": "Place Order",
+    "confirmedTitle": "ORDER SENT!",
+    "confirmedText": "Your order has been sent to our team. We'll get back to you shortly with payment details. Check your email!",
+    "backHome": "Back to Home"
+  },
+  "cookie": {
+    "message": "We use cookies to improve your experience and analyze site traffic.",
+    "accept": "Accept",
+    "decline": "Decline"
+  },
+  "faq": {
+    "title": "FREQUENTLY ASKED",
+    "subtitle": "Everything you need to know about CAFO Energy",
+    "ctaTitle": "STILL HAVE QUESTIONS?",
+    "ctaText": "We're happy to help. Reach out and we'll get back to you.",
+    "ctaButton": "Contact Us",
+    "q1": "How much caffeine is in a CAFO bar?",
+    "a1": "Each CAFO bar contains 90mg of natural caffeine from green tea extract — roughly the same as a cup of coffee, but with a smoother, longer-lasting energy curve thanks to L-theanine.",
+    "q2": "Will I get jitters or crash?",
+    "a2": "No. The combination of green tea caffeine and L-theanine provides calm, focused energy without the jitters or crash you get from coffee or energy drinks. The protein and fiber also slow absorption for a steady release.",
+    "q3": "Is CAFO vegan?",
+    "a3": "Yes! CAFO is 100% plant-based. We use plant protein, natural caffeine from green tea, and no animal-derived ingredients.",
+    "q4": "When should I eat a CAFO bar?",
+    "a4": "Whenever you need sustained focus — before studying, during a long work session, on the go, or as a clean afternoon pick-me-up. We recommend eating it 15-30 minutes before you need the energy to kick in.",
+    "q5": "How does CAFO compare to energy drinks?",
+    "a5": "Energy drinks are loaded with sugar, artificial ingredients, and synthetic caffeine that spikes and crashes. CAFO gives you 90mg natural caffeine, 10g protein, 0g added sugar, and L-theanine for smooth focus. It's real food, not chemicals.",
+    "q6": "Do you ship internationally?",
+    "a6": "We're expanding! Currently we ship within Sweden and select European countries. Check our shop page for the latest shipping availability or contact us for specific regions."
+  }
+}
