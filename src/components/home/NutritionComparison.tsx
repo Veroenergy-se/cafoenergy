@@ -30,7 +30,7 @@ export default function NutritionComparison() {
         </AnimatedSection>
 
         <AnimatedSection delay={0.15}>
-          <div className="grid grid-cols-3">
+          <div className="grid grid-cols-3 max-w-4xl mx-auto">
 
             {/* Left column */}
             <div className={`flex flex-col bg-white border-2 border-black border-r-0 mt-[80px] mb-[80px]`}>
@@ -48,7 +48,7 @@ export default function NutritionComparison() {
             <div className="flex flex-col bg-near-black">
               <div className={EXTEND_H} />
               <div className={`${ROW_H} flex items-center justify-center px-4 border-b border-white/10`}>
-                <span className="text-4xl sm:text-5xl font-heading font-black text-white tracking-widest">VERO</span>
+                <span className="text-4xl sm:text-5xl font-heading font-black text-white tracking-widest">CAFO</span>
               </div>
               {rows.map((row) => (
                 <div key={row.label} className={`${ROW_H} flex items-center justify-center px-4 border-b last:border-b-0 border-white/10`}>
