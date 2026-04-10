@@ -60,15 +60,15 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-near-black/95 backdrop-blur-md shadow-lg' : 'bg-near-black'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-near-black/10 ${
+        scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-white'
       }`}
     >
       <nav className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-20">
         {/* Logo */}
         <Link
           to="/"
-          className="text-3xl font-heading bg-gradient-to-r from-gold to-gold-light bg-clip-text text-transparent tracking-wide"
+          className="text-3xl font-heading text-near-black tracking-wide"
         >
           CAFO
         </Link>
@@ -79,10 +79,10 @@ export default function Navbar() {
             <Link
               key={link.path}
               to={link.path}
-              className={`relative text-sm font-medium tracking-wide uppercase transition-colors after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-gold after:transition-all after:duration-300 ${
+              className={`relative text-sm font-medium tracking-wide uppercase transition-colors after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-near-black after:transition-all after:duration-300 ${
                 pathname === link.path
-                  ? 'text-white after:w-full'
-                  : 'text-white/70 hover:text-white after:w-0 hover:after:w-full'
+                  ? 'text-near-black after:w-full'
+                  : 'text-near-black/60 hover:text-near-black after:w-0 hover:after:w-full'
               }`}
             >
               {t(link.key)}
@@ -96,13 +96,13 @@ export default function Navbar() {
 
           <button
             onClick={toggleCart}
-            className="relative p-2 text-white/70 hover:text-white transition-colors"
+            className="relative p-2 text-near-black/60 hover:text-near-black transition-colors"
             aria-label="Open cart"
           >
             <ShoppingBag className="w-5 h-5" />
             {cartCount > 0 && (
               <motion.span
-                className="absolute -top-1 -right-1 w-5 h-5 bg-gold text-near-black text-xs font-bold rounded-full flex items-center justify-center"
+                className="absolute -top-1 -right-1 w-5 h-5 bg-near-black text-white text-xs font-bold rounded-full flex items-center justify-center"
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 key={cartCount}
@@ -115,7 +115,7 @@ export default function Navbar() {
 
           <Link
             to="/shop"
-            className="hidden md:inline-flex px-6 py-2.5 bg-gradient-to-r from-gold to-gold-light text-near-black font-semibold text-sm rounded-full hover:-translate-y-0.5 hover:shadow-lg hover:shadow-gold/25 transition-all duration-200"
+            className="hidden md:inline-flex px-6 py-2.5 bg-near-black text-white font-semibold text-sm hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200"
           >
             {t('nav.getEnergized')}
           </Link>
@@ -123,7 +123,7 @@ export default function Navbar() {
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 text-white/70 hover:text-white transition-colors"
+            className="md:hidden p-2 text-near-black/60 hover:text-near-black transition-colors"
             aria-label="Toggle menu"
           >
             <MenuIcon open={mobileOpen} />
@@ -147,7 +147,7 @@ export default function Navbar() {
 
             {/* Panel */}
             <motion.div
-              className="md:hidden absolute top-20 left-0 right-0 bg-near-black border-t border-white/5 z-50 overflow-hidden"
+              className="md:hidden absolute top-20 left-0 right-0 bg-white border-t border-near-black/10 z-50 overflow-hidden"
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
@@ -165,7 +165,7 @@ export default function Navbar() {
                     <Link
                       to={link.path}
                       className={`block py-3 text-2xl font-heading tracking-wide ${
-                        pathname === link.path ? 'text-gold' : 'text-white/70'
+                        pathname === link.path ? 'text-near-black' : 'text-near-black/60'
                       }`}
                     >
                       {t(link.key)}
@@ -180,7 +180,7 @@ export default function Navbar() {
                 >
                   <Link
                     to="/shop"
-                    className="block w-full text-center py-4 bg-gradient-to-r from-gold to-gold-light text-near-black font-semibold font-accent rounded-full mt-4 text-lg"
+                    className="block w-full text-center py-4 bg-near-black text-white font-semibold font-accent mt-4 text-lg"
                   >
                     {t('nav.getEnergized')}
                   </Link>
