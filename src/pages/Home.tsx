@@ -3,6 +3,8 @@ import Hero from '@/components/home/Hero'
 import SocialProof from '@/components/home/SocialProof'
 import ProductCards from '@/components/home/ProductCards'
 import NutritionComparison from '@/components/home/NutritionComparison'
+import Testimonials from '@/components/home/Testimonials'
+import StoryTeaser from '@/components/home/StoryTeaser'
 
 export default function Home() {
   return (
@@ -15,6 +17,8 @@ export default function Home() {
       <SocialProof />
       <ProductCards />
       <NutritionComparison />
+      <Testimonials />
+      <StoryTeaser />
     </>
   )
 }
