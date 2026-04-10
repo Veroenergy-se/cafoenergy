@@ -24,8 +24,8 @@ export default function NutritionComparison() {
         <AnimatedSection delay={0.15}>
           <div className="grid grid-cols-3">
 
-            {/* Left column — white, pushed down by EXTEND_H */}
-            <div className={`flex flex-col bg-white border border-near-black/20 border-r-0 mt-[72px]`}>
+            {/* Left column — white, inset top & bottom */}
+            <div className={`flex flex-col bg-white border border-near-black/20 border-r-0 mt-[72px] mb-[72px]`}>
               <div className={`${ROW_H} flex items-center justify-center px-6 border-b border-near-black/15`}>
                 <span className="text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-near-black/50 text-center">What's Inside</span>
               </div>
@@ -55,10 +55,12 @@ export default function NutritionComparison() {
                   )}
                 </div>
               ))}
+              {/* Extension below table */}
+              <div className={EXTEND_H} />
             </div>
 
-            {/* Right column — white, pushed down by EXTEND_H */}
-            <div className={`flex flex-col bg-white border border-near-black/20 border-l-0 mt-[72px]`}>
+            {/* Right column — white, inset top & bottom */}
+            <div className={`flex flex-col bg-white border border-near-black/20 border-l-0 mt-[72px] mb-[72px]`}>
               <div className={`${ROW_H} flex items-center justify-center px-6 border-b border-near-black/15`}>
                 <span className="text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-near-black/50 text-center">Energy Drinks</span>
               </div>
