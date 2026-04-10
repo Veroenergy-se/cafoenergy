@@ -1,106 +1,70 @@
-import { useTranslation } from 'react-i18next'
 import AnimatedSection from '@/components/shared/AnimatedSection'
-import { Check, X as XIcon, Minus } from 'lucide-react'
+
+const rows = [
+  { label: 'PROTEIN',    cafo: '10g',   energy: '3g',   },
+  { label: 'SUGAR',      cafo: '0g',    energy: '12g',  },
+  { label: 'NET CARBS',  cafo: '8g',    energy: '15g',  },
+  { label: 'CAFFEINE',   cafo: '90mg',  energy: '160mg' },
+  { label: 'GRAIN FREE', cafo: 'check', energy: 'cross' },
+]
 
 export default function NutritionComparison() {
-  const { t } = useTranslation()
-
-  const ingredients = [
-    {
-      titleKey: 'nutrition.caffeineTitle',
-      descKey: 'nutrition.caffeineDesc',
-      value: '90mg',
-      icon: '⚡',
-    },
-    {
-      titleKey: 'nutrition.proteinTitle',
-      descKey: 'nutrition.proteinDesc',
-      value: '10g',
-      icon: '💪',
-    },
-    {
-      titleKey: 'nutrition.sugarTitle',
-      descKey: 'nutrition.sugarDesc',
-      value: '0g',
-      icon: '🚫',
-    },
-    {
-      titleKey: 'nutrition.ltheanineTitle',
-      descKey: 'nutrition.ltheanineDesc',
-      value: '✔',
-      icon: '🧠',
-    },
-  ]
-
-  const comparison = [
-    { label: 'Sustained Energy', cafo: true, coffee: false, energy: false },
-    { label: 'No Sugar Crash', cafo: true, coffee: true, energy: false },
-    { label: 'Plant Protein', cafo: true, coffee: false, energy: false },
-    { label: 'L-Theanine', cafo: true, coffee: false, energy: false },
-    { label: 'Portable', cafo: true, coffee: false, energy: true },
-    { label: 'No Jitters', cafo: true, coffee: false, energy: false },
-  ]
-
   return (
-    <section className="py-24 bg-cream">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <AnimatedSection className="text-center mb-16">
-          <h2 className="text-6xl sm:text-7xl lg:text-8xl font-heading text-near-black">{t('nutrition.title')}</h2>
+    <section className="bg-forest py-20 lg:py-28">
+      <div className="max-w-5xl mx-auto px-6 lg:px-12">
+        <AnimatedSection>
+          <h2 className="text-center text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-heading text-white leading-[0.9] tracking-tight mb-16 lg:mb-20">
+            WHY VERO WINS. EVERY TIME.
+          </h2>
         </AnimatedSection>
 
-        {/* Ingredient cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-          {ingredients.map((item, i) => (
-            <AnimatedSection key={item.titleKey} delay={i * 0.1} className="h-full">
-              <div className="bg-white rounded-3xl p-8 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-near-black/5 h-full flex flex-col items-center justify-start">
-                <span className="text-4xl mb-4 block">{item.icon}</span>
-                <span className="text-3xl font-heading text-forest block mb-2">{item.value}</span>
-                <h3 className="font-semibold font-accent text-near-black mb-2">{t(item.titleKey)}</h3>
-                <p className="text-sm text-near-black/50 leading-relaxed">{t(item.descKey)}</p>
+        <AnimatedSection delay={0.15}>
+          {/* Table */}
+          <div className="w-full border border-white/10 overflow-hidden">
+            {/* Header row */}
+            <div className="grid grid-cols-3">
+              <div className="bg-white py-5 px-6 flex items-center">
+                <span className="text-xs font-semibold tracking-[0.2em] uppercase text-near-black/50">What's Inside</span>
               </div>
-            </AnimatedSection>
-          ))}
-        </div>
-
-        {/* Comparison table */}
-        <AnimatedSection>
-          <div className="bg-white rounded-3xl p-8 lg:p-12 border border-near-black/5">
-            <h3 className="text-3xl font-heading text-near-black text-center mb-8">{t('nutrition.comparisonTitle')}</h3>
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead>
-                  <tr className="border-b border-near-black/5">
-                    <th className="text-left py-4 px-4 text-sm font-accent text-near-black/40 uppercase tracking-wider" />
-                    <th className="py-4 px-4 text-center">
-                      <span className="text-sm font-bold font-accent text-forest bg-forest/10 px-4 py-2 rounded-full">{t('nutrition.vsCafo')}</span>
-                    </th>
-                    <th className="py-4 px-4 text-center">
-                      <span className="text-sm font-accent text-near-black/50">{t('nutrition.vsCoffee')}</span>
-                    </th>
-                    <th className="py-4 px-4 text-center">
-                      <span className="text-sm font-accent text-near-black/50">{t('nutrition.vsEnergy')}</span>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {comparison.map((row) => (
-                    <tr key={row.label} className="border-b border-near-black/5 last:border-0">
-                      <td className="py-4 px-4 text-sm font-medium text-near-black/70">{row.label}</td>
-                      <td className="py-4 px-4 text-center">
-                        {row.cafo ? <Check className="w-5 h-5 text-forest mx-auto" /> : <Minus className="w-5 h-5 text-near-black/20 mx-auto" />}
-                      </td>
-                      <td className="py-4 px-4 text-center">
-                        {row.coffee ? <Check className="w-5 h-5 text-near-black/30 mx-auto" /> : <XIcon className="w-5 h-5 text-near-black/15 mx-auto" />}
-                      </td>
-                      <td className="py-4 px-4 text-center">
-                        {row.energy ? <Check className="w-5 h-5 text-near-black/30 mx-auto" /> : <XIcon className="w-5 h-5 text-near-black/15 mx-auto" />}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+              <div className="bg-near-black py-5 px-6 flex items-center justify-center">
+                <span className="text-2xl lg:text-3xl font-heading text-white tracking-widest">VERO</span>
+              </div>
+              <div className="bg-white py-5 px-6 flex items-center justify-center">
+                <span className="text-xs font-semibold tracking-[0.2em] uppercase text-near-black/50">Energy Drinks</span>
+              </div>
             </div>
+
+            {/* Data rows */}
+            {rows.map((row) => (
+              <div key={row.label} className="grid grid-cols-3 border-t border-near-black/10">
+                <div className="bg-white py-6 px-6 flex items-center">
+                  <span className="text-xs font-semibold tracking-[0.18em] uppercase text-near-black/70">{row.label}</span>
+                </div>
+                <div className="bg-near-black py-6 px-6 flex items-center justify-center">
+                  {row.cafo === 'check' ? (
+                    <svg viewBox="0 0 24 24" className="w-8 h-8 text-forest fill-none stroke-[#4ade80] stroke-[2.5]" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                  ) : (
+                    <span className="text-2xl lg:text-3xl font-heading font-bold text-white">{row.cafo}</span>
+                  )}
+                </div>
+                <div className="bg-white py-6 px-6 flex items-center justify-center">
+                  {row.energy === 'cross' ? (
+                    <svg viewBox="0 0 24 24" className="w-7 h-7 fill-none stroke-red-500 stroke-[2.5]" strokeLinecap="round">
+                      <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                  ) : (
+                    <span className="text-xl lg:text-2xl font-semibold text-near-black/70">{row.energy}</span>
+                  )}
+                </div>
+              </div>
+            ))}
           </div>
+
+          <p className="mt-6 text-center text-xs text-white/40 italic">
+            *Nutritional values are targets and may vary. Energy drink values are typical averages.
+          </p>
         </AnimatedSection>
       </div>
     </section>
