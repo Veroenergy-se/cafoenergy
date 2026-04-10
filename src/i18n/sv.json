@@ -1,0 +1,194 @@
+{
+  "nav": {
+    "home": "Hem",
+    "shop": "Handla",
+    "community": "Community",
+    "about": "Vår Berättelse",
+    "contact": "Kontakt",
+    "getEnergized": "Kom igång",
+    "freeShipping": "Fri frakt på beställningar över {{amount}}"
+  },
+  "hero": {
+    "title": "FOKUS. I TIMMAR.",
+    "subtitle": "Den rena koffeinproteinbaren. Riktig energi som varar, med grönt te-koffein, protein och noll tillsatt socker.",
+    "cta": "Handla Nu",
+    "learnMore": "Läs Mer"
+  },
+  "socialProof": {
+    "tagline": "INGET SOCKER. INGEN KRASCH. INGET NONSENS.",
+    "caffeine": "90mg Naturligt Koffein",
+    "protein": "10g Växtprotein",
+    "sugar": "0g Tillsatt Socker",
+    "ltheanine": "L-Teanin"
+  },
+  "products": {
+    "title": "PRODUKTER",
+    "subtitle": "En Smak. Perfekt.",
+    "addToCart": "Lägg i Varukorg",
+    "starter": {
+      "name": "Original Energy",
+      "description": "12 barer"
+    },
+    "duo": {
+      "name": "Dubbelpack",
+      "description": "24 barer"
+    },
+    "family": {
+      "name": "Familjepack",
+      "description": "36 barer"
+    },
+    "bestseller": "BÄSTSÄLJARE",
+    "discount": "-20%"
+  },
+  "nutrition": {
+    "title": "Vad Som Gör Den Perfekt",
+    "caffeineTitle": "Naturligt Koffein",
+    "caffeineDesc": "90mg från grönt te-extrakt för ren, ihållande energi utan nervositet.",
+    "proteinTitle": "Växtprotein",
+    "proteinDesc": "10g växtbaserat protein för att hålla dig påfylld och fokuserad.",
+    "sugarTitle": "Noll Tillsatt Socker",
+    "sugarDesc": "Inga sockerkrascher. Inga artificiella sötningsmedel. Bara ren energi.",
+    "ltheanineTitle": "L-Teanin",
+    "ltheanineDesc": "Främjar lugnt fokus och förbättrad koncentration, perfekt kombinerat med koffein.",
+    "comparisonTitle": "Hur CAFO Jämför Sig",
+    "vsCoffee": "Kaffe",
+    "vsEnergy": "Energidrycker",
+    "vsCafo": "CAFO Bar"
+  },
+  "testimonials": {
+    "title": "För Dagarna Som Räknas",
+    "study": {
+      "title": "Pluggpass",
+      "description": "Timmar av fokus utan krasch. Perfekt för tentaplugg och djuparbete."
+    },
+    "work": {
+      "title": "Kontorsdagar",
+      "description": "Ihållande energi genom möten, deadlines och allt däremellan."
+    },
+    "travel": {
+      "title": "Resor & Tentor",
+      "description": "Ren energi på språng. Inga spill, ingen förberedelse, ingen kompromiss."
+    },
+    "firstImpressions": {
+      "title": "Första Intryck",
+      "description": "Var skärpt och fokuserad när det gäller som mest."
+    }
+  },
+  "story": {
+    "title": "Tre Bröder. Ett Uppdrag.",
+    "subtitle": "Vi byggde CAFO för att vi behövde det själva. Som studenter var vi trötta på att välja mellan skräpmat-energi och överprissatt kaffe.",
+    "cta": "Läs Vår Berättelse"
+  },
+  "community": {
+    "title": "COMMUNITY",
+    "subtitle": "Gå med i rörelsen",
+    "stats": {
+      "universities": "50+ Universitet",
+      "countries": "25 Länder",
+      "focus": "Djupt Fokus-pass",
+      "compromise": "Noll Kompromisser"
+    },
+    "joinTitle": "Redo att Gå Med?",
+    "joinDesc": "Bli en del av en community som värdesätter ren energi och äkta fokus.",
+    "joinCta": "Gå Med i Rörelsen"
+  },
+  "about": {
+    "heroTitle": "VÅR BERÄTTELSE",
+    "foundersTitle": "Tre Bröder. Bygger En Rörelse.",
+    "foundersText": "Det som började som en frustration över energialternativen som fanns tillgängliga för oss som studenter blev ett uppdrag att skapa något bättre. Inga fler sockerkrascher. Inga fler nervösa kafferundor. Bara ren, ihållande energi i fickan.",
+    "journeyTitle": "Resan Börjar",
+    "journeyText": "Vi spenderade över ett år på att perfektionera vår formel — balanserade grönt te-koffein med L-teanin, kombinerade växtprotein med fiber och eliminerade varje ingrediens vi inte trodde på. Resultatet är CAFO: en smak, perfektionerad.",
+    "teamTitle": "Möt Teamet",
+    "missionTitle": "Byggt För Ambitiösa Sinnen",
+    "missionText": "CAFO är designat för alla som vägrar kompromissa med vad de stoppar i kroppen. För studenter som pluggar inför tentor. För yrkesverksamma som pressar genom deadlines. För alla som behöver riktig energi som varar."
+  },
+  "contact": {
+    "title": "Hör Av Dig",
+    "subtitle": "Frågor, idéer eller bara vill säga hej? Vi vill gärna höra från dig.",
+    "name": "Namn",
+    "email": "E-post",
+    "message": "Meddelande",
+    "send": "Skicka Meddelande",
+    "directEmail": "Eller maila oss direkt på",
+    "followUs": "Följ Oss"
+  },
+  "howItWorks": {
+    "title": "SÅ FUNGERAR DET",
+    "subtitle": "Vetenskapen bakom ihållande fokus",
+    "caffeineTitle": "Grönt Te-Koffein",
+    "caffeineText": "Till skillnad från syntetiskt koffein i energidrycker kommer våra 90mg från grönt te-extrakt. Det absorberas mer gradvis och ger en jämn energikurva istället för en topp-och-krasch.",
+    "ltheanineTitle": "L-Teanin Synergi",
+    "ltheanineText": "L-teanin arbetar med koffein för att främja fokuserad vakenhet utan ångest. Denna kombination har studerats utförligt — den förbättrar uppmärksamhet och minskar de negativa biverkningarna av enbart koffein.",
+    "proteinTitle": "Ihållande Bränsle",
+    "proteinText": "10g växtprotein och 5g fiber saktar ner matsmältningen och skapar en stadig frisättning av energi. Inga blodsockertoppar, inga krascher — bara timmar av ihållande fokus.",
+    "lowGiTitle": "Lågt Glykemiskt Index",
+    "lowGiText": "Vår formel är designad med ett lågt glykemiskt index, vilket innebär att den inte höjer ditt blodsocker. Det håller din energi stabil och ditt sinne skarpt."
+  },
+  "footer": {
+    "tagline": "Den rena koffeinproteinbaren.",
+    "pages": "Sidor",
+    "legal": "Juridik",
+    "social": "Socialt",
+    "privacy": "Integritetspolicy",
+    "copyright": "© {{year}} CAFO Energy. Alla rättigheter förbehållna."
+  },
+  "cart": {
+    "title": "Din Varukorg",
+    "empty": "Din varukorg är tom",
+    "subtotal": "Delsumma",
+    "checkout": "Till Kassan",
+    "checkoutComingSoon": "Kassan Kommer Snart",
+    "processing": "Bearbetar...",
+    "noPrices": "Stripe-produkter inte konfigurerade ännu. Se .env.example",
+    "freeShipping": "Fri frakt på beställningar över {{amount}}!",
+    "remove": "Ta bort"
+  },
+  "checkout": {
+    "title": "KASSA",
+    "emptyTitle": "Varukorgen Är Tom",
+    "emptyText": "Lägg till några CAFO-barer i varukorgen först!",
+    "shopNow": "Handla Nu",
+    "orderSummary": "ORDERSAMMANFATTNING",
+    "subtotal": "Delsumma",
+    "shipping": "Frakt",
+    "free": "Gratis",
+    "calculated": "Beräknas i nästa steg",
+    "total": "Totalt",
+    "continue": "Fortsätt till Leverans",
+    "continueShopping": "Fortsätt Handla",
+    "backToCart": "Tillbaka till varukorgen",
+    "shippingDetails": "LEVERANSUPPGIFTER",
+    "address": "Adress",
+    "city": "Stad",
+    "zip": "Postnummer",
+    "instructions": "Din beställning skickas via e-post. Vi svarar med betalningsuppgifter.",
+    "placeOrder": "Lägg Beställning",
+    "confirmedTitle": "BESTÄLLNING SKICKAD!",
+    "confirmedText": "Din beställning har skickats till vårt team. Vi återkommer snart med betalningsuppgifter. Kolla din e-post!",
+    "backHome": "Tillbaka till Startsidan"
+  },
+  "cookie": {
+    "message": "Vi använder cookies för att förbättra din upplevelse och analysera webbplatstrafik.",
+    "accept": "Acceptera",
+    "decline": "Avböj"
+  },
+  "faq": {
+    "title": "VANLIGA FRÅGOR",
+    "subtitle": "Allt du behöver veta om CAFO Energy",
+    "ctaTitle": "HAR DU FLER FRÅGOR?",
+    "ctaText": "Vi hjälper gärna till. Hör av dig så återkommer vi.",
+    "ctaButton": "Kontakta Oss",
+    "q1": "Hur mycket koffein innehåller en CAFO-bar?",
+    "a1": "Varje CAFO-bar innehåller 90mg naturligt koffein från grönt te-extrakt — ungefär lika mycket som en kopp kaffe, men med en jämnare och mer långvarig energikurva tack vare L-teanin.",
+    "q2": "Kommer jag bli nervös eller få en krasch?",
+    "a2": "Nej. Kombinationen av grönt te-koffein och L-teanin ger lugn, fokuserad energi utan nervositet eller krasch. Proteinet och fibern bromsar också absorptionen för en stadig frisättning.",
+    "q3": "Är CAFO veganskt?",
+    "a3": "Ja! CAFO är 100% växtbaserat. Vi använder växtprotein, naturligt koffein från grönt te och inga animaliska ingredienser.",
+    "q4": "När ska jag äta en CAFO-bar?",
+    "a4": "Närhelst du behöver ihållande fokus — före pluggandet, under en lång arbetssession, på språng, eller som en ren eftermiddagshöjare. Vi rekommenderar att äta den 15-30 minuter innan du behöver energin.",
+    "q5": "Hur jämförs CAFO med energidrycker?",
+    "a5": "Energidrycker är fyllda med socker, konstgjorda ingredienser och syntetiskt koffein som ger toppar och krascher. CAFO ger dig 90mg naturligt koffein, 10g protein, 0g tillsatt socker och L-teanin för jämnt fokus. Det är riktig mat, inte kemikalier.",
+    "q6": "Levererar ni internationellt?",
+    "a6": "Vi expanderar! Just nu levererar vi inom Sverige och utvalda europeiska länder. Kolla vår shop-sida för senaste fraktmöjligheter eller kontakta oss för specifika regioner."
+  }
+}
