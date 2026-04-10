@@ -23,8 +23,8 @@ export default function NutritionComparison() {
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
-        <AnimatedSection>
-          <h2 className="text-center text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-heading text-white leading-[0.9] tracking-tight mb-16 lg:mb-20">
+        <AnimatedSection className="w-full">
+          <h2 className="w-full text-center text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-heading text-white leading-[0.9] tracking-tight mb-16 lg:mb-20">
             WHY CAFO WINS. EVERY TIME.
           </h2>
         </AnimatedSection>
