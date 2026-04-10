@@ -566,6 +566,47 @@
       background: #0B0C10 !important;
       position: relative;
     }
+
+    /* HERO BUTTONS */
+    .hero-shop-now-btn {
+      display: inline-block;
+      background: #0B0C10 !important;
+      color: #ffffff !important;
+      font-family: 'League Gothic', sans-serif !important;
+      font-size: 1.6rem !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.1em !important;
+      text-transform: uppercase !important;
+      text-decoration: none !important;
+      padding: 18px 56px !important;
+      border: none !important;
+      border-radius: 0 !important;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .hero-shop-now-btn:hover {
+      background: #333333 !important;
+    }
+    .hero-learn-more-btn {
+      display: inline-block;
+      background: transparent !important;
+      color: #0B0C10 !important;
+      font-family: 'League Gothic', sans-serif !important;
+      font-size: 1.6rem !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.1em !important;
+      text-transform: uppercase !important;
+      text-decoration: none !important;
+      padding: 18px 56px !important;
+      border: 2px solid #0B0C10 !important;
+      border-radius: 0 !important;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .hero-learn-more-btn:hover {
+      background: #0B0C10 !important;
+      color: #ffffff !important;
+    }
     
     .vero-navbar {
       background: #0B0C10 !important;
@@ -1025,13 +1066,13 @@
       top: 0;
       z-index: 999;
       width: 100%;
-      background: #0B0C10 !important;
-      border-bottom: 2px solid #000000 !important;
+      background: #ffffff !important;
+      border-bottom: 1px solid rgba(0,0,0,0.08) !important;
       transition: box-shadow 0.2s ease, border-color 0.2s ease;
       overflow: visible;
     }
     .vero-navbar--scrolled {
-      border-color: #000000 !important;
+      border-color: rgba(0,0,0,0.12) !important;
     }
     .vero-navbar__inner {
       max-width: 100%;
@@ -1046,7 +1087,7 @@
     }
     .vero-navbar__brand {
       text-decoration: none;
-      color: #F5F1E8 !important;
+      color: #0B0C10 !important;
       font-family: 'League Gothic', sans-serif !important;
       font-size: 3rem;
       font-weight: 400 !important;
@@ -1071,7 +1112,7 @@
     }
     .vero-navbar__link {
       text-decoration: none;
-      color: #F5F1E8 !important;
+      color: #0B0C10 !important;
       font-family: 'League Gothic', sans-serif !important;
       text-transform: uppercase;
       letter-spacing: 0.05em;
@@ -1090,7 +1131,7 @@
       left: 0;
       width: 0%;
       height: 2px;
-      background: #F5F1E8 !important;
+      background: #0B0C10 !important;
       transition: width 0.3s ease;
       will-change: width;
       transform: translateZ(0);
@@ -1099,29 +1140,27 @@
       width: 100%;
     }
     .vero-navbar__link:hover {
-      color: #F5F1E8 !important;
+      color: #0B0C10 !important;
       opacity: 1 !important;
     }
     .vero-navbar__cta { font-family: 'League Gothic', sans-serif !important; font-size: 1.8rem !important; padding: 10px 28px !important;
       background-color: #0B0C10;
       color: #ffffff;
       border-radius: 0;
-      
       font-weight: 600;
-      padding: 1em 2em;
       cursor: pointer;
       transition: all 0.3s ease-in-out;
-      border: 2px solid #ffffff;
+      border: 2px solid #0B0C10;
       text-decoration: none;
       display: inline-block;
     }
     .vero-navbar__cta:hover {
-      transform: translateY(-4px) translateX(-2px);
-      box-shadow: 2px 5px 0 0 black;
+      background-color: #ffffff;
+      color: #0B0C10;
+      transform: translateY(-2px);
     }
     .vero-navbar__cta:active {
-      transform: translateY(2px) translateX(1px);
-      box-shadow: 0 0 0 0 black;
+      transform: translateY(1px);
     }
     .vero-navbar__toggle {
       display: none;
@@ -1135,7 +1174,7 @@
     .vero-navbar__toggle span {
       height: 3px;
       width: 100%;
-      background: #F5F1E8 !important;
+      background: #0B0C10 !important;
       border-radius: 5px;
       transition: 0.3s ease;
     }
@@ -1157,7 +1196,7 @@
         top: 100%;
         left: 0;
         width: 100%;
-        background: #1A1A1A;
+        background: #ffffff;
         border-bottom: 1px solid #e5e7eb;
         flex-direction: column;
         gap: 1rem;
@@ -1184,13 +1223,13 @@
       }
     }
 
-    /* ===== FORCE MATCH SHOP NAVBAR ===== */
+    /* ===== WHITE NAVBAR ===== */
     .vero-navbar,
     .vero-navbar.hidden,
     .vero-navbar--scrolled {
-      background: #0B0C10 !important;
+      background: #ffffff !important;
       backdrop-filter: none !important;
-      border-bottom: 2px solid #000000 !important;
+      border-bottom: 1px solid rgba(0,0,0,0.08) !important;
       position: sticky !important;
       transform: none !important;
     }
@@ -1203,7 +1242,7 @@
       font-family: 'League Gothic', sans-serif !important;
       font-size: 3rem !important;
       font-weight: 400 !important;
-      color: #F5F1E8 !important;
+      color: #0B0C10 !important;
     }
     .vero-navbar__center {
       position: absolute !important;
@@ -1213,13 +1252,39 @@
     .vero-navbar__link {
       font-family: 'League Gothic', sans-serif !important;
       font-size: 1.6rem !important;
-      color: #F5F1E8 !important;
+      color: #0B0C10 !important;
     }
     .vero-navbar__cta { font-family: 'League Gothic', sans-serif !important; font-size: 1.8rem !important; padding: 10px 28px !important;
       background: #0B0C10 !important;
       color: #ffffff !important;
-      border: 2px solid #ffffff !important;
+      border: 2px solid #0B0C10 !important;
       border-radius: 0 !important;
+    }
+    .navbar-cart-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0B0C10;
+      position: relative;
+    }
+    .navbar-cart-btn:hover { opacity: 0.7; }
+    .navbar-cart-count {
+      position: absolute;
+      top: 0; right: 0;
+      background: #0B0C10;
+      color: #ffffff;
+      border-radius: 50%;
+      width: 18px; height: 18px;
+      font-size: 11px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
     }
   </style>
 
@@ -1247,8 +1312,16 @@
         </ul>
       </div>
       
-      <div class="vero-navbar__right">
-        <a href="Shop.html#products" class="vero-navbar__cta" style="background: #0B0C10 !important; background-color: #0B0C10 !important; color: #F5F1E8 !important;">Get Energized</a>
+      <div class="vero-navbar__right" style="display: flex; align-items: center; gap: 1rem;">
+        <button class="navbar-cart-btn" onclick="openCart()" aria-label="Open cart">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0B0C10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 01-8 0"/>
+          </svg>
+          <span class="navbar-cart-count" id="navbarCartCount">0</span>
+        </button>
+        <a href="Shop.html#products" class="vero-navbar__cta">Get Energized</a>
       </div>
     </div>
   </nav>
@@ -1268,47 +1341,33 @@
 
 
 <!-- ===== HERO SECTION ===== -->
-<section class="hero" id="home" style="position: relative; background: #F8F8F8 !important;">
-  <div style="position: absolute; inset: 0; background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.05%22/%3E%3C/svg%3E'); pointer-events: none; z-index: 1;"></div>
+<section class="hero" id="home" style="position: relative; background: #F5F5F3 !important;">
   <div class="hero-container" style="position: relative; z-index: 2;">
-    
+
     <!-- Hero Text Side -->
-    <div class="hero-text-side" style="align-items: flex-start !important;">
-      <h1 class="hero-headline animate-fade-in">
-        <span class="headline-main" style="font-family: 'Poppins', sans-serif !important; font-weight: 900 !important; color: #0B0C10 !important; font-size: 5rem !important;">FOCUS.<br><span style="font-family: inherit !important; font-weight: inherit !important; color: inherit !important; font-size: inherit !important; word-spacing: 0.3em;">FOR HOURS.</span></span>
+    <div class="hero-text-side" style="align-items: flex-start !important; max-width: 750px;">
+      <h1 class="hero-headline animate-fade-in" style="margin-bottom: 2.5rem;">
+        <span class="headline-main" style="font-family: 'Poppins', sans-serif !important; font-weight: 900 !important; color: #0B0C10 !important; font-size: 8rem !important; line-height: 0.95 !important; letter-spacing: -0.02em !important;">FOCUS.<br><span style="font-family: inherit !important; font-weight: inherit !important; color: inherit !important; font-size: inherit !important; word-spacing: 0.25em;">FOR HOURS.</span></span>
       </h1>
-      
-      <p class="hero-description animate-fade-in delay-200" style="color: #CFCAC2 !important;">
-        The clean caffeinated protein bar. Real energy that lasts, with green tea caffeine, protein, and zero added sugar. No crash, no nonsense.
-      </p>
-      
-      <div class="hero-cta-group animate-fade-in delay-400" style="justify-content: flex-start !important; align-items: flex-start !important;">
-        <a href="#products" class="cta-primary">Shop Now</a>
-        <a href="How-It-Works.html" class="cta-secondary">Learn More</a>
+
+      <div class="hero-cta-group animate-fade-in delay-400" style="display: flex !important; flex-direction: column !important; align-items: flex-start !important; gap: 16px !important;">
+        <a href="#products" class="hero-shop-now-btn">SHOP NOW</a>
+        <a href="How-It-Works.html" class="hero-learn-more-btn">LEARN MORE</a>
       </div>
     </div>
 
-    <!-- Hero Product Side -->
-    <div class="hero-product-showcase animate-fade-right delay-300">
-      <div class="hero-product-card">
-        <div class="product-visual">
-          <div class="bar-3d bar-energy-3d"></div>
-        </div>
-      </div>
-    </div>
-    
   </div>
 </section>
 
 <!-- ===== MINIMALIST SOCIAL PROOF BAND ===== -->
-<section id="social-proof" style="background: #0B0C10 !important; padding: 100px 0; text-align: center; position: relative; z-index: 10;">
+<section id="social-proof" style="background: #141414 !important; padding: 110px 0; text-align: center; position: relative; z-index: 10;">
   <div style="max-width: 1600px; margin: 0 auto; padding: 0 40px;">
-    
+
     <!-- Bold Statement -->
-    <h2 class="animate-fade-in delay-600" style="font-family: 'Poppins', sans-serif !important; font-size: 5rem !important; font-weight: 900 !important; color: #F5F1E8 !important; margin: 0; letter-spacing: -0.02em !important; line-height: 1.1 !important; text-align: center !important; text-transform: uppercase !important;">
+    <h2 class="animate-fade-in delay-600" style="font-family: 'Poppins', sans-serif !important; font-size: 5.5rem !important; font-weight: 900 !important; color: #F2EDE6 !important; margin: 0; letter-spacing: -0.02em !important; line-height: 1.08 !important; text-align: center !important; text-transform: uppercase !important;">
       NO SUGAR. NO CRASH.<br>NO NONSENSE.
     </h2>
-    
+
   </div>
 </section>
 
@@ -2220,6 +2279,14 @@
 
     // Update cart display
     function updateCartDisplay() {
+      // Update navbar cart count badge
+      const totalQty = cart.reduce((sum, item) => sum + item.quantity, 0);
+      const badge = document.getElementById('navbarCartCount');
+      if (badge) {
+        badge.textContent = totalQty;
+        badge.style.display = totalQty > 0 ? 'flex' : 'none';
+      }
+
       if (cart.length === 0) {
         emptyCart.style.display = 'block';
         cartFooter.style.display = 'none';
