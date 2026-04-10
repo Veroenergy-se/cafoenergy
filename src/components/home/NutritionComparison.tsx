@@ -29,7 +29,7 @@ export default function NutritionComparison() {
           </h2>
         </AnimatedSection>
 
-        <AnimatedSection delay={0.15}>
+        <AnimatedSection delay={0.15} className="w-full">
           <div className="grid grid-cols-3 max-w-4xl mx-auto">
 
             {/* Left column */}
