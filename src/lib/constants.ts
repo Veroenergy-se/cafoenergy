@@ -4,9 +4,8 @@ export const SITE = {
   email: 'hello@cafoenergy.se',
   ga4Id: 'G-JWFPL9ZW9R',
   social: {
-    instagram: 'https://instagram.com/cafoenergy',
-    tiktok: 'https://tiktok.com/@cafoenergy',
-    linkedin: 'https://linkedin.com/company/cafoenergy',
+    instagram: 'https://www.instagram.com/cafobar',
+    tiktok: 'https://www.tiktok.com/@cafobars',
   },
   freeShippingThreshold: { usd: 50, sek: 499 },
 }
