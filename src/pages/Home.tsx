@@ -5,7 +5,6 @@ import ProductCards from '@/components/home/ProductCards'
 import NutritionComparison from '@/components/home/NutritionComparison'
 import Testimonials from '@/components/home/Testimonials'
 import StoryTeaser from '@/components/home/StoryTeaser'
-import Waitlist from '@/components/home/Waitlist'
 
 export default function Home() {
   return (
@@ -20,7 +19,6 @@ export default function Home() {
       <NutritionComparison />
       <Testimonials />
       <StoryTeaser />
-      <Waitlist />
     </>
   )
 }

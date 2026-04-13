@@ -3,6 +3,7 @@ import Navbar from './Navbar'
 import Footer from './Footer'
 import CartDrawer from '@/components/shared/CartDrawer'
 import CookieConsent from '@/components/shared/CookieConsent'
+import Waitlist from '@/components/home/Waitlist'
 
 export default function Layout() {
   return (
@@ -11,6 +12,7 @@ export default function Layout() {
       <main className="flex-1 pt-20">
         <Outlet />
       </main>
+      <Waitlist />
       <Footer />
       <CartDrawer />
       <CookieConsent />

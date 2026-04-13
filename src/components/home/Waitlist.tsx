@@ -29,7 +29,7 @@ export default function Waitlist() {
   }
 
   return (
-    <section className="bg-near-black py-24 lg:py-32">
+    <section id="waitlist" className="bg-near-black py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 text-center">
         <AnimatedSection className="w-full">
           <h2 className="text-6xl sm:text-7xl lg:text-9xl font-heading text-white leading-[0.9] tracking-tight mb-4">

@@ -39,6 +39,12 @@ export default function Hero() {
             >
               {t('hero.learnMore')}
             </Link>
+            <a
+              href="#waitlist"
+              className="inline-flex items-center px-14 py-4 text-near-black/50 font-heading tracking-widest text-xl uppercase border-2 border-near-black/20 hover:border-near-black/50 hover:text-near-black/70 hover:-translate-y-0.5 transition-all duration-300"
+            >
+              JOIN WAITLIST
+            </a>
           </motion.div>
         </motion.div>
       </div>
