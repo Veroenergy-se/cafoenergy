@@ -11,13 +11,10 @@ export default function Waitlist() {
     setStatus('loading')
 
     try {
-      const res = await fetch('https://app.loops.so/api/v1/contacts/create', {
+      const res = await fetch('https://app.loops.so/api/newsletter-form/cmnxezmsk03cm0iymzrn4dore', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${import.meta.env.VITE_LOOPS_API_KEY}`,
-        },
-        body: JSON.stringify({ email, source: 'website', userGroup: 'Waitlist' }),
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `userGroup=&mailingLists=&email=${encodeURIComponent(email)}`,
       })
 
       if (res.ok) {
