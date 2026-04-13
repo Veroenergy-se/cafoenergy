@@ -34,7 +34,7 @@ export default function Shop() {
 
       {/* Products */}
       <section className="py-24 bg-warm-white">
-        <div className="w-full max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="grid md:grid-cols-3 gap-8">
             {products.map((product, i) => (
               <AnimatedSection key={product.id} delay={i * 0.15} direction="scale">
@@ -83,7 +83,7 @@ export default function Shop() {
 
       {/* Ingredients */}
       <section className="py-24 bg-cream">
-        <div className="w-full max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-12">
           <AnimatedSection className="text-center mb-16">
             <h2 className="text-6xl sm:text-7xl lg:text-8xl font-heading text-near-black">{t('nutrition.title')}</h2>
           </AnimatedSection>

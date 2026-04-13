@@ -14,7 +14,16 @@
     "titleLine2": "FOR HOURS.",
     "subtitle": "The clean caffeinated protein bar. Real energy that lasts, with green tea caffeine, protein, and zero added sugar.",
     "cta": "Shop Now",
+    "joinWaitlist": "JOIN WAITLIST",
     "learnMore": "Learn More"
+  },
+  "waitlist": {
+    "title": "BE THE FIRST.",
+    "subtitle": "Join the waitlist — we'll let you know the moment CAFO drops.",
+    "cta": "JOIN",
+    "success": "YOU'RE ON THE LIST.",
+    "successSub": "We'll be in touch soon.",
+    "error": "Something went wrong — please try again."
   },
   "socialProof": {
     "tagline": "NO SUGAR. NO CRASH. NO NONSENSE.",

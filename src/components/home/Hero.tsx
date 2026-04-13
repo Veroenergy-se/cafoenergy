@@ -7,7 +7,7 @@ export default function Hero() {
 
   return (
     <section className="relative flex items-start pt-16 sm:pt-20 lg:pt-24 pb-20 min-h-[85svh] bg-warm-white overflow-hidden">
-      <div className="w-full max-w-7xl mx-auto px-6 lg:px-12">
+      <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -36,7 +36,7 @@ export default function Hero() {
               href="#waitlist"
               className="inline-flex items-center px-14 py-4 bg-near-black text-white font-heading tracking-widest text-xl uppercase hover:-translate-y-0.5 hover:shadow-xl transition-all duration-300"
             >
-              JOIN WAITLIST
+              {t('hero.joinWaitlist')}
             </a>
             <Link
               to="/how-it-works"

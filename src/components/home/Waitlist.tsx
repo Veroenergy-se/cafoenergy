@@ -1,7 +1,9 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import AnimatedSection from '@/components/shared/AnimatedSection'
 
 export default function Waitlist() {
+  const { t } = useTranslation()
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
 
@@ -30,19 +32,19 @@ export default function Waitlist() {
 
   return (
     <section id="waitlist" className="bg-near-black py-24 lg:py-32">
-      <div className="w-full max-w-7xl mx-auto px-6 lg:px-12 text-center">
+      <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-12 text-center">
         <AnimatedSection className="w-full">
           <h2 className="text-6xl sm:text-7xl lg:text-9xl font-heading text-white leading-[0.9] tracking-tight mb-4">
-            BE THE FIRST.
+            {t('waitlist.title')}
           </h2>
           <p className="text-white/50 font-accent text-lg mb-12">
-            Join the waitlist — we'll let you know the moment CAFO drops.
+            {t('waitlist.subtitle')}
           </p>
 
           {status === 'success' ? (
             <div className="inline-block border-2 border-white/20 px-10 py-5">
-              <p className="text-white font-heading text-3xl tracking-wide">YOU'RE ON THE LIST.</p>
-              <p className="text-white/50 font-accent text-sm mt-1">We'll be in touch soon.</p>
+              <p className="text-white font-heading text-3xl tracking-wide">{t('waitlist.success')}</p>
+              <p className="text-white/50 font-accent text-sm mt-1">{t('waitlist.successSub')}</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center justify-center gap-0 max-w-xl mx-auto">
@@ -59,13 +61,13 @@ export default function Waitlist() {
                 disabled={status === 'loading'}
                 className="w-full sm:w-auto px-10 py-4 bg-white text-near-black font-heading text-xl tracking-widest uppercase hover:bg-white/90 transition-colors disabled:opacity-50 border-2 border-white"
               >
-                {status === 'loading' ? '...' : 'JOIN'}
+                {status === 'loading' ? '...' : t('waitlist.cta')}
               </button>
             </form>
           )}
 
           {status === 'error' && (
-            <p className="mt-4 text-red-400 font-accent text-sm">Something went wrong — please try again.</p>
+            <p className="mt-4 text-red-400 font-accent text-sm">{t('waitlist.error')}</p>
           )}
         </AnimatedSection>
       </div>

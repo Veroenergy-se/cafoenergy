@@ -14,7 +14,16 @@
     "titleLine2": "I TIMMAR.",
     "subtitle": "Den rena koffeinproteinbaren. Riktig energi som varar, med grönt te-koffein, protein och noll tillsatt socker.",
     "cta": "Handla Nu",
+    "joinWaitlist": "GÅ MED I VÄNTELISTAN",
     "learnMore": "Läs Mer"
+  },
+  "waitlist": {
+    "title": "BLI FÖRST.",
+    "subtitle": "Gå med i väntelistan — vi meddelar dig när CAFO lanseras.",
+    "cta": "GÅ MED",
+    "success": "DU ÄR MED PÅ LISTAN.",
+    "successSub": "Vi hör av oss snart.",
+    "error": "Något gick fel — försök igen."
   },
   "socialProof": {
     "tagline": "INGET SOCKER. INGEN KRASCH. INGET NONSENS.",
