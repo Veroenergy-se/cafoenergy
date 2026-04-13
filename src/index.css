@@ -40,19 +40,21 @@ body {
   min-height: 100vh;
 }
 
-/* Centering container — uses 100vw on both sides so padding is always
-   symmetric regardless of scrollbar width or body/viewport differences.
-   Target content width: 1304px (≈ 1400px layout – 96px padding at lg). */
+/* Centering container — classic max-width + margin: auto approach.
+   Works consistently across all browsers and screen sizes. */
 .page-container {
   width: 100%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
 
 @media (min-width: 1024px) {
   .page-container {
-    padding-left: max(3rem, calc((100vw - 1304px) / 2));
-    padding-right: max(3rem, calc((100vw - 1304px) / 2));
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
 }
 
