@@ -80,7 +80,7 @@ export default function FAQ() {
       </section>
 
       <section className="py-24 bg-warm-white">
-        <div className="max-w-3xl mx-auto px-6 lg:px-12">
+        <div className="w-full max-w-3xl mx-auto px-6 lg:px-12">
           <AnimatedSection>
             <div className="bg-white rounded-3xl p-8 lg:p-10 border border-near-black/5">
               {faqKeys.map((qKey) => (
@@ -94,7 +94,7 @@ export default function FAQ() {
       {/* CTA */}
       <section className="py-24 bg-cream text-center">
         <AnimatedSection>
-          <div className="max-w-2xl mx-auto px-6">
+          <div className="w-full max-w-2xl mx-auto px-6">
             <h2 className="text-4xl sm:text-5xl font-heading text-near-black">{t('faq.ctaTitle')}</h2>
             <p className="mt-4 text-near-black/50 text-lg">{t('faq.ctaText')}</p>
             <a

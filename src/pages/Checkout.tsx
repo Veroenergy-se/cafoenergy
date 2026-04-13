@@ -96,7 +96,7 @@ export default function Checkout() {
       </section>
 
       <section className="py-12 bg-warm-white">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="w-full max-w-4xl mx-auto px-6">
           <AnimatePresence mode="wait">
             {step === 'confirmed' ? (
               <motion.div

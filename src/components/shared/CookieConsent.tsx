@@ -63,7 +63,7 @@ export default function CookieConsent() {
             exit={{ y: 100, opacity: 0 }}
             transition={{ type: 'spring', damping: 25, stiffness: 250 }}
           >
-            <div className="max-w-2xl mx-auto bg-near-black text-white rounded-2xl p-6 shadow-2xl flex flex-col sm:flex-row items-center gap-4">
+            <div className="w-full max-w-2xl mx-auto bg-near-black text-white rounded-2xl p-6 shadow-2xl flex flex-col sm:flex-row items-center gap-4">
               <span className="text-2xl flex-shrink-0">🍪</span>
               <p className="text-sm text-white/70 flex-1">{t('cookie.message')}</p>
               <div className="flex gap-3 flex-shrink-0">

@@ -28,7 +28,7 @@ export default function HowItWorks() {
       </section>
 
       <section className="py-24 bg-warm-white">
-        <div className="max-w-4xl mx-auto px-6 lg:px-12 space-y-16">
+        <div className="w-full max-w-4xl mx-auto px-6 lg:px-12 space-y-16">
           {sections.map((section, i) => {
             const Icon = section.icon
             const isEven = i % 2 === 0
@@ -58,7 +58,7 @@ export default function HowItWorks() {
       {/* CTA */}
       <section className="py-24 bg-forest text-white text-center">
         <AnimatedSection>
-          <div className="max-w-2xl mx-auto px-6">
+          <div className="w-full max-w-2xl mx-auto px-6">
             <h2 className="text-5xl font-heading">Ready to Focus?</h2>
             <p className="mt-4 text-white/60 text-lg">Experience clean, sustained energy with CAFO.</p>
             <a

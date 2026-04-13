@@ -8,7 +8,7 @@ export default function StoryTeaser() {
 
   return (
     <section className="py-24 bg-near-black text-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <div className="w-full max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <AnimatedSection direction="left">
             <h2 className="text-6xl sm:text-7xl lg:text-8xl font-heading text-white leading-tight">

@@ -6,8 +6,8 @@ export default function Hero() {
   const { t } = useTranslation()
 
   return (
-    <section className="relative min-h-[100svh] flex items-center bg-warm-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full">
+    <section className="relative flex items-start pt-16 sm:pt-20 lg:pt-24 pb-20 min-h-[85svh] bg-warm-white overflow-hidden">
+      <div className="w-full max-w-7xl mx-auto px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -32,24 +32,18 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <Link
-              to="/shop"
+            <a
+              href="#waitlist"
               className="inline-flex items-center px-14 py-4 bg-near-black text-white font-heading tracking-widest text-xl uppercase hover:-translate-y-0.5 hover:shadow-xl transition-all duration-300"
             >
-              {t('hero.cta')}
-            </Link>
+              JOIN WAITLIST
+            </a>
             <Link
               to="/how-it-works"
               className="inline-flex items-center px-14 py-4 text-near-black font-heading tracking-widest text-xl uppercase border-2 border-near-black hover:-translate-y-0.5 transition-all duration-300"
             >
               {t('hero.learnMore')}
             </Link>
-            <a
-              href="#waitlist"
-              className="inline-flex items-center px-14 py-4 text-near-black font-heading tracking-widest text-xl uppercase border-2 border-near-black hover:-translate-y-0.5 hover:bg-near-black hover:text-white transition-all duration-300"
-            >
-              JOIN WAITLIST
-            </a>
           </motion.div>
         </motion.div>
       </div>

@@ -30,7 +30,7 @@ export default function Community() {
 
       {/* Stats */}
       <section className="py-24 bg-warm-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="w-full max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, i) => {
               const Icon = stat.icon
@@ -52,9 +52,9 @@ export default function Community() {
 
       {/* Community showcase */}
       <section className="py-24 bg-cream">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="w-full max-w-7xl mx-auto px-6 lg:px-12">
           <AnimatedSection className="text-center">
-            <div className="max-w-3xl mx-auto">
+            <div className="w-full max-w-3xl mx-auto">
               <div className="grid grid-cols-3 gap-4 mb-12">
                 {[1, 2, 3].map((i) => (
                   <div key={i} className="aspect-square bg-gradient-to-br from-near-black/5 to-near-black/10 rounded-3xl flex items-center justify-center">
@@ -70,7 +70,7 @@ export default function Community() {
       {/* Join CTA */}
       <section className="py-24 bg-near-black text-white text-center">
         <AnimatedSection>
-          <div className="max-w-2xl mx-auto px-6">
+          <div className="w-full max-w-2xl mx-auto px-6">
             <h2 className="text-6xl sm:text-7xl lg:text-8xl font-heading">{t('community.joinTitle')}</h2>
             <p className="mt-6 text-white/50 text-lg leading-relaxed">{t('community.joinDesc')}</p>
             <a

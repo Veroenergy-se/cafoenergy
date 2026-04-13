@@ -15,7 +15,7 @@ export default function PrivacyPolicy() {
       </section>
 
       <section className="py-24 bg-warm-white">
-        <div className="max-w-3xl mx-auto px-6 lg:px-12 prose prose-lg">
+        <div className="w-full max-w-3xl mx-auto px-6 lg:px-12 prose prose-lg">
           <AnimatedSection>
             <div className="space-y-8 text-near-black/70 leading-relaxed">
               <div>

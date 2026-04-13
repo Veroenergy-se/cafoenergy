@@ -11,7 +11,7 @@ export default function ProductCards() {
 
   return (
     <section className="py-24 bg-warm-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <div className="w-full max-w-7xl mx-auto px-6 lg:px-12">
         <AnimatedSection className="text-center mb-16">
           <h2 className="text-6xl sm:text-7xl lg:text-8xl font-heading text-near-black">{t('products.title')}</h2>
           <p className="mt-3 text-near-black/50 font-accent">{t('products.subtitle')}</p>
