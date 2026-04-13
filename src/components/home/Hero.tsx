@@ -14,12 +14,17 @@ export default function Hero() {
           transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
           <motion.h1
-            className="text-[4.5rem] sm:text-8xl lg:text-[10rem] xl:text-[12rem] font-heading text-near-black leading-[0.9] tracking-tight"
+            className="font-heading text-near-black leading-[0.88] tracking-tight"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
           >
-            {t('hero.title')}
+            <span className="block text-[4.5rem] sm:text-8xl lg:text-[10rem] xl:text-[12rem]">
+              {t('hero.titleLine1')}
+            </span>
+            <span className="block text-[4.5rem] sm:text-8xl lg:text-[10rem] xl:text-[12rem]">
+              {t('hero.titleLine2')}
+            </span>
           </motion.h1>
           <motion.div
             className="mt-8 lg:mt-10 flex flex-col items-start gap-4"
