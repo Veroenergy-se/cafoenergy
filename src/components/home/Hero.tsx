@@ -41,7 +41,7 @@ export default function Hero() {
             </Link>
             <a
               href="#waitlist"
-              className="inline-flex items-center px-14 py-4 text-near-black/50 font-heading tracking-widest text-xl uppercase border-2 border-near-black/20 hover:border-near-black/50 hover:text-near-black/70 hover:-translate-y-0.5 transition-all duration-300"
+              className="inline-flex items-center px-14 py-4 text-near-black font-heading tracking-widest text-xl uppercase border-2 border-near-black hover:-translate-y-0.5 hover:bg-near-black hover:text-white transition-all duration-300"
             >
               JOIN WAITLIST
             </a>
