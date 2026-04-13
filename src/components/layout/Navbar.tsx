@@ -64,7 +64,7 @@ export default function Navbar() {
         scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-white'
       }`}
     >
-      <nav className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-20">
+      <nav className="w-full max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-20">
         {/* Logo */}
         <Link
           to="/"
