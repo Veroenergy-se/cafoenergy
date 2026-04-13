@@ -30,7 +30,7 @@ export default function Community() {
 
       {/* Stats */}
       <section className="py-24 bg-warm-white">
-        <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-12">
+        <div className="page-container">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, i) => {
               const Icon = stat.icon
@@ -52,7 +52,7 @@ export default function Community() {
 
       {/* Community showcase */}
       <section className="py-24 bg-cream">
-        <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-12">
+        <div className="page-container">
           <AnimatedSection className="text-center">
             <div className="w-full max-w-3xl mx-auto">
               <div className="grid grid-cols-3 gap-4 mb-12">

@@ -22,7 +22,7 @@ export default function About() {
 
       {/* Founders story */}
       <section className="py-24 bg-warm-white">
-        <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-12">
+        <div className="page-container">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection direction="left">
               <h2 className="text-4xl sm:text-5xl font-heading text-near-black leading-tight">
@@ -47,7 +47,7 @@ export default function About() {
 
       {/* Journey */}
       <section className="py-24 bg-cream">
-        <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-12">
+        <div className="page-container">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection direction="left" className="order-2 lg:order-1">
               <div className="aspect-[4/3] rounded-3xl overflow-hidden bg-warm-white">

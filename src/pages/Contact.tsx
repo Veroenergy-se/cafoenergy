@@ -34,7 +34,7 @@ export default function Contact() {
       </section>
 
       <section className="py-24 bg-warm-white">
-        <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-12">
+        <div className="page-container">
           <div className="grid lg:grid-cols-2 gap-16">
             <AnimatedSection direction="left">
               {submitted ? (

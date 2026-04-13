@@ -7,7 +7,7 @@ export default function Hero() {
 
   return (
     <section className="relative flex items-start pt-16 sm:pt-20 lg:pt-24 pb-20 min-h-[85svh] bg-warm-white overflow-hidden">
-      <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-12">
+      <div className="page-container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

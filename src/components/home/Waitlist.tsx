@@ -32,7 +32,7 @@ export default function Waitlist() {
 
   return (
     <section id="waitlist" className="bg-near-black py-24 lg:py-32">
-      <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-12 text-center">
+      <div className="page-container text-center">
         <AnimatedSection className="w-full">
           <h2 className="text-6xl sm:text-7xl lg:text-9xl font-heading text-white leading-[0.9] tracking-tight mb-4">
             {t('waitlist.title')}

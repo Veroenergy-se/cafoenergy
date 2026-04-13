@@ -40,6 +40,22 @@ body {
   min-height: 100vh;
 }
 
+/* Centering container — uses 100vw on both sides so padding is always
+   symmetric regardless of scrollbar width or body/viewport differences.
+   Target content width: 1304px (≈ 1400px layout – 96px padding at lg). */
+.page-container {
+  width: 100%;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .page-container {
+    padding-left: max(3rem, calc((100vw - 1304px) / 2));
+    padding-right: max(3rem, calc((100vw - 1304px) / 2));
+  }
+}
+
 ::selection {
   background-color: var(--color-gold);
   color: var(--color-near-black);
