@@ -30,6 +30,8 @@ jobs:
       - run: npm ci
 
       - run: npm run build
+        env:
+          VITE_LOOPS_API_KEY: ${{ secrets.VITE_LOOPS_API_KEY }}
 
       # Copy index.html to 404.html for SPA routing
       - run: cp dist/index.html dist/404.html
