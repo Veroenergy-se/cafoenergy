@@ -80,7 +80,8 @@ export default function FAQ() {
       </section>
 
       <section className="py-24 bg-warm-white">
-        <div className="w-full max-w-3xl mx-auto px-6 lg:px-12">
+        <div className="page-container">
+          <div className="max-w-3xl mx-auto">
           <AnimatedSection>
             <div className="bg-white rounded-3xl p-8 lg:p-10 border border-near-black/5">
               {faqKeys.map((qKey) => (
@@ -88,23 +89,26 @@ export default function FAQ() {
               ))}
             </div>
           </AnimatedSection>
+          </div>
         </div>
       </section>
 
       {/* CTA */}
       <section className="py-24 bg-cream text-center">
-        <AnimatedSection>
-          <div className="w-full max-w-2xl mx-auto px-6">
-            <h2 className="text-4xl sm:text-5xl font-heading text-near-black">{t('faq.ctaTitle')}</h2>
-            <p className="mt-4 text-near-black/50 text-lg">{t('faq.ctaText')}</p>
-            <a
-              href="/contact"
-              className="mt-8 inline-flex px-8 py-4 bg-gradient-to-r from-gold to-gold-light text-near-black font-bold font-accent rounded-full hover:-translate-y-1 hover:shadow-xl hover:shadow-gold/20 transition-all duration-300"
-            >
-              {t('faq.ctaButton')}
-            </a>
-          </div>
-        </AnimatedSection>
+        <div className="page-container">
+          <AnimatedSection>
+            <div className="max-w-2xl mx-auto">
+              <h2 className="text-4xl sm:text-5xl font-heading text-near-black">{t('faq.ctaTitle')}</h2>
+              <p className="mt-4 text-near-black/50 text-lg">{t('faq.ctaText')}</p>
+              <a
+                href="/contact"
+                className="mt-8 inline-flex px-8 py-4 bg-gradient-to-r from-gold to-gold-light text-near-black font-bold font-accent rounded-full hover:-translate-y-1 hover:shadow-xl hover:shadow-gold/20 transition-all duration-300"
+              >
+                {t('faq.ctaButton')}
+              </a>
+            </div>
+          </AnimatedSection>
+        </div>
       </section>
     </>
   )

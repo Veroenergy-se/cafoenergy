@@ -72,14 +72,16 @@ export default function About() {
 
       {/* Mission */}
       <section className="py-24 bg-near-black text-white text-center">
-        <AnimatedSection>
-          <div className="w-full max-w-3xl mx-auto px-6">
-            <h2 className="text-6xl sm:text-7xl lg:text-8xl font-heading">{t('about.missionTitle')}</h2>
-            <p className="mt-8 text-white/60 text-lg leading-relaxed">
-              {t('about.missionText')}
-            </p>
-          </div>
-        </AnimatedSection>
+        <div className="page-container">
+          <AnimatedSection>
+            <div className="max-w-3xl mx-auto">
+              <h2 className="text-6xl sm:text-7xl lg:text-8xl font-heading">{t('about.missionTitle')}</h2>
+              <p className="mt-8 text-white/60 text-lg leading-relaxed">
+                {t('about.missionText')}
+              </p>
+            </div>
+          </AnimatedSection>
+        </div>
       </section>
     </>
   )

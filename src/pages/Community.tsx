@@ -69,18 +69,20 @@ export default function Community() {
 
       {/* Join CTA */}
       <section className="py-24 bg-near-black text-white text-center">
-        <AnimatedSection>
-          <div className="w-full max-w-2xl mx-auto px-6">
-            <h2 className="text-6xl sm:text-7xl lg:text-8xl font-heading">{t('community.joinTitle')}</h2>
-            <p className="mt-6 text-white/50 text-lg leading-relaxed">{t('community.joinDesc')}</p>
-            <a
-              href={`mailto:hello@cafoenergy.se?subject=Join the Movement`}
-              className="mt-8 inline-flex px-8 py-4 bg-gradient-to-r from-gold to-gold-light text-near-black font-semibold font-accent rounded-full hover:-translate-y-1 hover:shadow-xl hover:shadow-gold/20 transition-all duration-300"
-            >
-              {t('community.joinCta')}
-            </a>
-          </div>
-        </AnimatedSection>
+        <div className="page-container">
+          <AnimatedSection>
+            <div className="max-w-2xl mx-auto">
+              <h2 className="text-6xl sm:text-7xl lg:text-8xl font-heading">{t('community.joinTitle')}</h2>
+              <p className="mt-6 text-white/50 text-lg leading-relaxed">{t('community.joinDesc')}</p>
+              <a
+                href={`mailto:hello@cafoenergy.se?subject=Join the Movement`}
+                className="mt-8 inline-flex px-8 py-4 bg-gradient-to-r from-gold to-gold-light text-near-black font-semibold font-accent rounded-full hover:-translate-y-1 hover:shadow-xl hover:shadow-gold/20 transition-all duration-300"
+              >
+                {t('community.joinCta')}
+              </a>
+            </div>
+          </AnimatedSection>
+        </div>
       </section>
     </>
   )

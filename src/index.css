@@ -20,6 +20,10 @@ html {
   scroll-behavior: smooth;
   overflow-x: hidden;
   width: 100%;
+  /* Reserve scrollbar gutter symmetrically so 100vw equals the layout
+     viewport on every platform — prevents the ~17px left/right misalignment
+     between position:fixed elements (navbar) and normal-flow sections. */
+  scrollbar-gutter: stable both-edges;
 }
 
 body {

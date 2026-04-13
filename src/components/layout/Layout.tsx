@@ -9,7 +9,7 @@ export default function Layout() {
   return (
     <div className="min-h-screen flex flex-col w-full">
       <Navbar />
-      <main className="flex-1 pt-20">
+      <main className="flex-1 pt-20 w-full">
         <Outlet />
       </main>
       <Waitlist />

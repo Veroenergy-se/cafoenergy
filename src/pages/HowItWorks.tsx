@@ -28,7 +28,8 @@ export default function HowItWorks() {
       </section>
 
       <section className="py-24 bg-warm-white">
-        <div className="w-full max-w-4xl mx-auto px-6 lg:px-12 space-y-16">
+        <div className="page-container">
+          <div className="max-w-4xl mx-auto space-y-16">
           {sections.map((section, i) => {
             const Icon = section.icon
             const isEven = i % 2 === 0
@@ -52,23 +53,26 @@ export default function HowItWorks() {
               </AnimatedSection>
             )
           })}
+          </div>
         </div>
       </section>
 
       {/* CTA */}
       <section className="py-24 bg-forest text-white text-center">
-        <AnimatedSection>
-          <div className="w-full max-w-2xl mx-auto px-6">
-            <h2 className="text-5xl font-heading">Ready to Focus?</h2>
-            <p className="mt-4 text-white/60 text-lg">Experience clean, sustained energy with CAFO.</p>
-            <a
-              href="/shop"
-              className="mt-8 inline-flex px-8 py-4 bg-white text-forest font-semibold font-accent rounded-full hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
-            >
-              Shop Now
-            </a>
-          </div>
-        </AnimatedSection>
+        <div className="page-container">
+          <AnimatedSection>
+            <div className="max-w-2xl mx-auto">
+              <h2 className="text-5xl font-heading">Ready to Focus?</h2>
+              <p className="mt-4 text-white/60 text-lg">Experience clean, sustained energy with CAFO.</p>
+              <a
+                href="/shop"
+                className="mt-8 inline-flex px-8 py-4 bg-white text-forest font-semibold font-accent rounded-full hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
+              >
+                Shop Now
+              </a>
+            </div>
+          </AnimatedSection>
+        </div>
       </section>
     </>
   )

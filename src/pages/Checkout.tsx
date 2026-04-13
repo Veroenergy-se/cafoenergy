@@ -96,7 +96,8 @@ export default function Checkout() {
       </section>
 
       <section className="py-12 bg-warm-white">
-        <div className="w-full max-w-4xl mx-auto px-6">
+        <div className="page-container">
+          <div className="max-w-4xl mx-auto">
           <AnimatePresence mode="wait">
             {step === 'confirmed' ? (
               <motion.div
@@ -327,6 +328,7 @@ export default function Checkout() {
               </motion.div>
             )}
           </AnimatePresence>
+          </div>
         </div>
       </section>
     </>
