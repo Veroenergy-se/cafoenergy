@@ -5,7 +5,7 @@ const rows = [
   { label: 'SUGAR',      cafo: '0g',    energy: '12g'   },
   { label: 'NET CARBS',  cafo: '8g',    energy: '15g'   },
   { label: 'CAFFEINE',   cafo: '90mg',  energy: '160mg' },
-  { label: 'GRAIN FREE', cafo: 'check', energy: 'cross' },
+  { label: 'L-THEANINE', cafo: 'check', energy: 'cross' },
 ]
 
 const ROW_H = 'h-[108px]'

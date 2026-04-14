@@ -76,13 +76,13 @@
       "title": "Desk Days",
       "description": "Sustained energy through meetings, deadlines, and everything in between."
     },
-    "travel": {
-      "title": "Travel & Exams",
-      "description": "Clean energy on the go. No spills, no prep, no compromise."
+    "lateNights": {
+      "title": "Late Nights",
+      "description": "Beat the 2am wall. Clean caffeine keeps you locked in without the jitters or crash."
     },
-    "firstImpressions": {
-      "title": "First Impressions",
-      "description": "Show up sharp and focused when it matters most."
+    "sports": {
+      "title": "Sports",
+      "description": "Protein and caffeine before you train. Real fuel, real performance."
     }
   },
   "story": {

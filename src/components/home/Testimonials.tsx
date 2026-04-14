@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import AnimatedSection from '@/components/shared/AnimatedSection'
-import { BookOpen, Briefcase, Plane, Star } from 'lucide-react'
+import { BookOpen, Briefcase, Moon, Dumbbell } from 'lucide-react'
 
 export default function Testimonials() {
   const { t } = useTranslation()
@@ -8,8 +8,8 @@ export default function Testimonials() {
   const cards = [
     { key: 'study', icon: BookOpen, gradient: 'from-blue-500/10 to-blue-600/5' },
     { key: 'work', icon: Briefcase, gradient: 'from-gold/10 to-amber-500/5' },
-    { key: 'travel', icon: Plane, gradient: 'from-forest/10 to-green-500/5' },
-    { key: 'firstImpressions', icon: Star, gradient: 'from-purple-500/10 to-purple-600/5' },
+    { key: 'lateNights', icon: Moon, gradient: 'from-indigo-500/10 to-indigo-600/5' },
+    { key: 'sports', icon: Dumbbell, gradient: 'from-orange-500/10 to-red-500/5' },
   ]
 
   return (

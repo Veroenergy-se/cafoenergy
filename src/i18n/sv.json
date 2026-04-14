@@ -76,13 +76,13 @@
       "title": "Kontorsdagar",
       "description": "Ihållande energi genom möten, deadlines och allt däremellan."
     },
-    "travel": {
-      "title": "Resor & Tentor",
-      "description": "Ren energi på språng. Inga spill, ingen förberedelse, ingen kompromiss."
+    "lateNights": {
+      "title": "Sena Kvällar",
+      "description": "Slå 02:00-muren. Ren koffein håller dig fokuserad utan skakningar eller krasch."
     },
-    "firstImpressions": {
-      "title": "Första Intryck",
-      "description": "Var skärpt och fokuserad när det gäller som mest."
+    "sports": {
+      "title": "Sport",
+      "description": "Protein och koffein innan du tränar. Riktigt bränsle, riktiga prestationer."
     }
   },
   "story": {
