@@ -12,7 +12,7 @@ export default function Shop() {
 
   const ingredients = [
     { titleKey: 'nutrition.caffeineTitle', descKey: 'nutrition.caffeineDesc', value: '90mg', icon: '⚡' },
-    { titleKey: 'nutrition.proteinTitle', descKey: 'nutrition.proteinDesc', value: '10g', icon: '💪' },
+    { titleKey: 'nutrition.proteinTitle', descKey: 'nutrition.proteinDesc', value: '14g', icon: '💪' },
     { titleKey: 'nutrition.sugarTitle', descKey: 'nutrition.sugarDesc', value: '0g', icon: '🚫' },
     { titleKey: 'nutrition.ltheanineTitle', descKey: 'nutrition.ltheanineDesc', value: '✔', icon: '🧠' },
   ]

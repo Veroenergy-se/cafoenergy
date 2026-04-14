@@ -1,11 +1,11 @@
 import AnimatedSection from '@/components/shared/AnimatedSection'
 
 const rows = [
-  { label: 'PROTEIN',    cafo: '10g',   energy: '3g'    },
-  { label: 'SUGAR',      cafo: '0g',    energy: '12g'   },
-  { label: 'NET CARBS',  cafo: '8g',    energy: '15g'   },
-  { label: 'CAFFEINE',   cafo: '90mg',  energy: '160mg' },
-  { label: 'L-THEANINE', cafo: 'check', energy: 'cross' },
+  { label: 'PROTEIN',   cafo: '14g',   energy: '3g'    },
+  { label: 'SUGAR',     cafo: '0g',    energy: '12g'   },
+  { label: 'NET CARBS', cafo: '8g',    energy: '15g'   },
+  { label: 'CAFFEINE',  cafo: '90mg',  energy: '160mg' },
+  { label: 'FIBER',     cafo: '5g',    energy: '0g'    },
 ]
 
 const ROW_H = 'h-[108px]'

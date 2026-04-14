@@ -28,7 +28,7 @@
   "socialProof": {
     "tagline": "INGET SOCKER. INGEN KRASCH. INGET NONSENS.",
     "caffeine": "90mg Naturligt Koffein",
-    "protein": "10g Växtprotein",
+    "protein": "14g Växtprotein",
     "sugar": "0g Tillsatt Socker",
     "ltheanine": "L-Teanin"
   },
@@ -56,7 +56,7 @@
     "caffeineTitle": "Naturligt Koffein",
     "caffeineDesc": "90mg från grönt te-extrakt för ren, ihållande energi utan nervositet.",
     "proteinTitle": "Växtprotein",
-    "proteinDesc": "10g växtbaserat protein för att hålla dig påfylld och fokuserad.",
+    "proteinDesc": "14g växtbaserat protein för att hålla dig påfylld och fokuserad.",
     "sugarTitle": "Noll Tillsatt Socker",
     "sugarDesc": "Inga sockerkrascher. Inga artificiella sötningsmedel. Bara ren energi.",
     "ltheanineTitle": "L-Teanin",
@@ -131,7 +131,7 @@
     "ltheanineTitle": "L-Teanin Synergi",
     "ltheanineText": "L-teanin arbetar med koffein för att främja fokuserad vakenhet utan ångest. Denna kombination har studerats utförligt — den förbättrar uppmärksamhet och minskar de negativa biverkningarna av enbart koffein.",
     "proteinTitle": "Ihållande Bränsle",
-    "proteinText": "10g växtprotein och 5g fiber saktar ner matsmältningen och skapar en stadig frisättning av energi. Inga blodsockertoppar, inga krascher — bara timmar av ihållande fokus.",
+    "proteinText": "14g växtprotein och 5g fiber saktar ner matsmältningen och skapar en stadig frisättning av energi. Inga blodsockertoppar, inga krascher — bara timmar av ihållande fokus.",
     "lowGiTitle": "Lågt Glykemiskt Index",
     "lowGiText": "Vår formel är designad med ett lågt glykemiskt index, vilket innebär att den inte höjer ditt blodsocker. Det håller din energi stabil och ditt sinne skarpt."
   },
@@ -198,7 +198,7 @@
     "q4": "När ska jag äta en CAFO-bar?",
     "a4": "Närhelst du behöver ihållande fokus — före pluggandet, under en lång arbetssession, på språng, eller som en ren eftermiddagshöjare. Vi rekommenderar att äta den 15-30 minuter innan du behöver energin.",
     "q5": "Hur jämförs CAFO med energidrycker?",
-    "a5": "Energidrycker är fyllda med socker, konstgjorda ingredienser och syntetiskt koffein som ger toppar och krascher. CAFO ger dig 90mg naturligt koffein, 10g protein, 0g tillsatt socker och L-teanin för jämnt fokus. Det är riktig mat, inte kemikalier.",
+    "a5": "Energidrycker är fyllda med socker, konstgjorda ingredienser och syntetiskt koffein som ger toppar och krascher. CAFO ger dig 90mg naturligt koffein, 14g protein, 0g tillsatt socker och L-teanin för jämnt fokus. Det är riktig mat, inte kemikalier.",
     "q6": "Levererar ni internationellt?",
     "a6": "Vi expanderar! Just nu levererar vi inom Sverige och utvalda europeiska länder. Kolla vår shop-sida för senaste fraktmöjligheter eller kontakta oss för specifika regioner."
   }

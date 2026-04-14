@@ -28,7 +28,7 @@
   "socialProof": {
     "tagline": "NO SUGAR. NO CRASH. NO NONSENSE.",
     "caffeine": "90mg Natural Caffeine",
-    "protein": "10g Plant Protein",
+    "protein": "14g Plant Protein",
     "sugar": "0g Added Sugar",
     "ltheanine": "L-Theanine"
   },
@@ -56,7 +56,7 @@
     "caffeineTitle": "Natural Caffeine",
     "caffeineDesc": "90mg from green tea extract for clean, sustained energy without the jitters.",
     "proteinTitle": "Plant Protein",
-    "proteinDesc": "10g of plant-based protein to keep you fueled and focused.",
+    "proteinDesc": "14g of plant-based protein to keep you fueled and focused.",
     "sugarTitle": "Zero Added Sugar",
     "sugarDesc": "No sugar crashes. No artificial sweeteners. Just clean energy.",
     "ltheanineTitle": "L-Theanine",
@@ -131,7 +131,7 @@
     "ltheanineTitle": "L-Theanine Synergy",
     "ltheanineText": "L-theanine works with caffeine to promote focused alertness without anxiety. This combination has been studied extensively — it enhances attention and reduces the negative side effects of caffeine alone.",
     "proteinTitle": "Sustained Fuel",
-    "proteinText": "10g of plant protein and 5g of fiber slow digestion, creating a steady release of energy. No blood sugar spikes, no crashes — just hours of sustained focus.",
+    "proteinText": "14g of plant protein and 5g of fiber slow digestion, creating a steady release of energy. No blood sugar spikes, no crashes — just hours of sustained focus.",
     "lowGiTitle": "Low Glycemic Design",
     "lowGiText": "Our formula is designed with a low glycemic index, meaning it won't spike your blood sugar. This keeps your energy stable and your mind sharp."
   },
@@ -198,7 +198,7 @@
     "q4": "When should I eat a CAFO bar?",
     "a4": "Whenever you need sustained focus — before studying, during a long work session, on the go, or as a clean afternoon pick-me-up. We recommend eating it 15-30 minutes before you need the energy to kick in.",
     "q5": "How does CAFO compare to energy drinks?",
-    "a5": "Energy drinks are loaded with sugar, artificial ingredients, and synthetic caffeine that spikes and crashes. CAFO gives you 90mg natural caffeine, 10g protein, 0g added sugar, and L-theanine for smooth focus. It's real food, not chemicals.",
+    "a5": "Energy drinks are loaded with sugar, artificial ingredients, and synthetic caffeine that spikes and crashes. CAFO gives you 90mg natural caffeine, 14g protein, 0g added sugar, and L-theanine for smooth focus. It's real food, not chemicals.",
     "q6": "Do you ship internationally?",
     "a6": "We're expanding! Currently we ship within Sweden and select European countries. Check our shop page for the latest shipping availability or contact us for specific regions."
   }
