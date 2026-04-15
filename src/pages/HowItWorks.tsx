@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
 import AnimatedSection from '@/components/shared/AnimatedSection'
+import CaffeineMyths from '@/components/home/CaffeineMyths'
 import { Leaf, Brain, Dumbbell, BarChart3 } from 'lucide-react'
 
 export default function HowItWorks() {
@@ -56,6 +57,9 @@ export default function HowItWorks() {
           </div>
         </div>
       </section>
+
+      {/* Caffeine myths + dose calculator */}
+      <CaffeineMyths />
 
       {/* CTA */}
       <section className="py-24 bg-forest text-white text-center">
