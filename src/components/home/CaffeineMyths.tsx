@@ -92,15 +92,6 @@ const myths: MythData[] = [
   },
 ]
 
-const caffeineSources = [
-  { name: 'Espresso', mg: 63, per: '30ml shot' },
-  { name: 'Filter coffee', mg: 95, per: '200ml cup' },
-  { name: 'CAFO bar', mg: 90, per: '1 bar', highlight: true },
-  { name: 'Red Bull', mg: 80, per: '250ml can' },
-  { name: 'Green tea', mg: 30, per: '200ml cup' },
-  { name: 'Pre-workout', mg: 300, per: '1 serving' },
-]
-
 const verdictStyles: Record<Verdict, string> = {
   myth: 'bg-red-50 text-red-700 border border-red-200',
   fact: 'bg-green-50 text-green-700 border border-green-200',
@@ -193,27 +184,59 @@ function MythCard({ m }: { m: MythData }) {
   )
 }
 
+type BarZone = 'effective' | 'optimal' | 'safe-max'
+
+const zoneConfig: Record<BarZone, { card: string; badge: string; dot: string; label: string; hint: string }> = {
+  effective: {
+    card: 'bg-near-black/[0.03] border-near-black/8',
+    badge: 'bg-near-black/8 text-near-black/50',
+    dot: 'bg-near-black/25',
+    label: 'Effective',
+    hint: 'below your personal optimal zone — still works, just not peak',
+  },
+  optimal: {
+    card: 'bg-forest/[0.07] border-forest/20',
+    badge: 'bg-forest/15 text-forest',
+    dot: 'bg-forest',
+    label: 'In your zone',
+    hint: 'within your optimal range for focus and performance',
+  },
+  'safe-max': {
+    card: 'bg-amber-50 border-amber-200',
+    badge: 'bg-amber-100 text-amber-700',
+    dot: 'bg-amber-400',
+    label: 'Safe max',
+    hint: 'effective, but approaching your daily limit — fine occasionally',
+  },
+}
+
 function DoseCalculator() {
   const [weight, setWeight] = useState(75)
 
-  const low = Math.round(weight * 3)
-  const opt = Math.round(weight * 4.5)
-  // FDA limit 400mg / 90mg per bar = 4 bars max (360mg, safely under 400mg)
-  const maxBars = Math.min(4, Math.floor(400 / 90))
-  const optimalBars = Math.min(maxBars, Math.max(1, Math.round(opt / 90)))
+  // EFSA 3–6 mg/kg range; hard cap at 400 mg/day (FDA)
+  const low  = Math.round(weight * 3)
+  const high = Math.min(Math.round(weight * 6), 400)
+
+  const barOptions = [1, 2, 3, 4].map((n) => {
+    const mg = n * 90
+    const zone: BarZone = mg >= low && mg <= high ? 'optimal' : mg < low ? 'effective' : 'safe-max'
+    return { n, mg, zone }
+  })
 
   return (
     <div className="rounded-2xl border border-near-black/10 overflow-hidden">
       <div className="bg-cream px-6 py-5 border-b border-near-black/10">
-        <h3 className="text-lg font-semibold font-accent text-near-black">Find your optimal dose</h3>
+        <h3 className="text-lg font-semibold font-accent text-near-black">
+          How many bars is right for you?
+        </h3>
         <p className="text-sm text-near-black/50 mt-0.5">
-          Based on body weight — the most accurate predictor of caffeine tolerance
+          At 90mg per bar, several a day is safe — adjust by weight to see your personal range
         </p>
       </div>
 
       <div className="bg-white px-6 py-5">
         {/* Weight slider */}
-        <div className="flex items-center gap-4 mb-6">
+        <div className="flex items-center gap-4 mb-7">
           <span className="text-[11px] font-accent text-near-black/40 whitespace-nowrap uppercase tracking-wider">
             Your weight
           </span>
@@ -230,45 +253,44 @@ function DoseCalculator() {
           </span>
         </div>
 
-        {/* Caffeine source reference grid */}
-        <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 mb-5">
-          {caffeineSources.map((s) => (
-            <div
-              key={s.name}
-              className={`rounded-xl p-2.5 text-center border ${
-                s.highlight
-                  ? 'bg-gold/10 border-gold/30'
-                  : 'bg-cream border-near-black/5'
-              }`}
-            >
+        {/* Bar count scale — 4 cards, zones update with weight */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-5">
+          {barOptions.map(({ n, mg, zone }) => {
+            const cfg = zoneConfig[zone]
+            return (
               <div
-                className={`text-[11px] font-semibold font-accent mb-0.5 ${
-                  s.highlight ? 'text-gold' : 'text-near-black'
-                }`}
+                key={n}
+                className={`rounded-xl border p-4 text-center transition-all duration-300 ${cfg.card}`}
               >
-                {s.name}
+                <div className="text-3xl font-heading text-near-black mb-0.5">{n}</div>
+                <div className="text-[11px] font-accent text-near-black/40 mb-3">
+                  {n === 1 ? 'bar' : 'bars'} · {mg}mg
+                </div>
+                <div className={`text-[10px] font-bold font-accent uppercase tracking-wider px-2.5 py-1 rounded-full inline-block ${cfg.badge}`}>
+                  {cfg.label}
+                </div>
               </div>
-              <div className="text-[10px] text-near-black/40 font-accent">{s.mg}mg</div>
+            )
+          })}
+        </div>
+
+        {/* Legend */}
+        <div className="flex flex-col gap-1.5 mb-5 p-4 bg-cream rounded-xl">
+          <p className="text-[10px] font-bold font-accent text-near-black/30 uppercase tracking-widest mb-1">
+            Your range at {weight}kg — {low}mg to {high}mg
+          </p>
+          {(Object.entries(zoneConfig) as [BarZone, typeof zoneConfig[BarZone]][]).map(([key, cfg]) => (
+            <div key={key} className="flex items-start gap-2">
+              <div className={`w-2 h-2 rounded-full mt-1 shrink-0 ${cfg.dot}`} />
+              <span className="text-[11px] text-near-black/50 font-accent leading-relaxed">
+                <span className="font-semibold text-near-black/70">{cfg.label}</span>
+                {' — '}{cfg.hint}
+              </span>
             </div>
           ))}
         </div>
 
-        {/* Result zone */}
-        <div className="rounded-xl p-4 bg-gold/10 border border-gold/25">
-          <div className="font-semibold font-accent text-sm text-gold mb-1">
-            {optimalBars === 1
-              ? 'One bar is your sweet spot'
-              : `${optimalBars} bars is your optimal daily dose`}
-          </div>
-          <div className="text-sm text-near-black/60 leading-relaxed">
-            At {weight}kg your optimal range is {low}–{opt}mg. One CAFO bar (90mg) gives you
-            a clean, focused lift equivalent to a strong coffee. Since each bar stays well under
-            the daily limit, you can safely enjoy up to {maxBars} bars across the day —
-            perfect for early mornings, afternoon focus, and pre-workout, all in one.
-          </div>
-        </div>
-
-        <p className="text-[10px] text-near-black/30 font-accent mt-3">
+        <p className="text-[10px] text-near-black/30 font-accent">
           Based on 3–6mg/kg optimal range per European Food Safety Authority guidelines.
           Individual sensitivity varies. FDA recommended maximum is 400mg/day.
         </p>
