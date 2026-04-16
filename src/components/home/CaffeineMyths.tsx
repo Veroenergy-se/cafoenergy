@@ -301,58 +301,65 @@ function DoseCalculator() {
 
 export default function CaffeineMyths() {
   return (
-    <section className="py-24 bg-warm-white">
-      <div className="page-container">
-        {/* Dark hero banner */}
-        <AnimatedSection>
-          <div className="bg-near-black rounded-3xl p-8 sm:p-10 lg:p-12 text-center mb-12">
-            <span className="inline-block text-[10px] font-accent font-bold text-white/40 tracking-widest uppercase border border-white/10 rounded-full px-4 py-1.5 mb-6">
-              Backed by science
-            </span>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading text-white mb-3 leading-tight">
-              Caffeine isn't the villain.
-              <br />
-              <span className="text-gold">Misinformation is.</span>
-            </h2>
-            <p className="text-white/40 text-sm leading-relaxed max-w-sm mx-auto mb-8">
-              Most people have been told the wrong things about caffeine for years. Here's what the
-              research actually says.
+    <>
+      {/* Full-bleed dark banner */}
+      <section className="bg-near-black py-16 sm:py-20 lg:py-24">
+        <div className="page-container">
+          <AnimatedSection>
+            <div className="text-center">
+              <span className="inline-block text-[10px] font-accent font-bold text-white/40 tracking-widest uppercase border border-white/10 rounded-full px-4 py-1.5 mb-6">
+                Backed by science
+              </span>
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading text-white mb-3 leading-tight">
+                Caffeine isn't the villain.
+                <br />
+                <span className="text-gold">Misinformation is.</span>
+              </h2>
+              <p className="text-white/40 text-sm leading-relaxed max-w-sm mx-auto mb-10">
+                Most people have been told the wrong things about caffeine for years. Here's what the
+                research actually says.
+              </p>
+              <div className="flex justify-center gap-8 sm:gap-14">
+                {[
+                  { n: '70+', l: 'peer-reviewed studies' },
+                  { n: '400mg', l: 'safe daily limit (FDA)' },
+                  { n: '90mg', l: 'per CAFO bar' },
+                ].map((s) => (
+                  <div key={s.l} className="text-center">
+                    <div className="text-2xl font-heading text-gold">{s.n}</div>
+                    <div className="text-[10px] text-white/30 mt-1 font-accent tracking-wide">{s.l}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Myth cards + dose calculator */}
+      <section className="py-20 bg-warm-white">
+        <div className="page-container">
+          {/* Myth accordion */}
+          <AnimatedSection>
+            <p className="text-[10px] font-accent font-bold text-near-black/30 tracking-[0.16em] uppercase mb-3">
+              Tap each myth to see the science
             </p>
-            <div className="flex justify-center gap-8 sm:gap-14">
-              {[
-                { n: '70+', l: 'peer-reviewed studies' },
-                { n: '400mg', l: 'safe daily limit (FDA)' },
-                { n: '90mg', l: 'per CAFO bar' },
-              ].map((s) => (
-                <div key={s.l} className="text-center">
-                  <div className="text-2xl font-heading text-gold">{s.n}</div>
-                  <div className="text-[10px] text-white/30 mt-1 font-accent tracking-wide">{s.l}</div>
-                </div>
+            <div className="flex flex-col gap-2 mb-12">
+              {myths.map((m) => (
+                <MythCard key={m.claim} m={m} />
               ))}
             </div>
-          </div>
-        </AnimatedSection>
+          </AnimatedSection>
 
-        {/* Myth accordion */}
-        <AnimatedSection delay={0.1}>
-          <p className="text-[10px] font-accent font-bold text-near-black/30 tracking-[0.16em] uppercase mb-3">
-            Tap each myth to see the science
-          </p>
-          <div className="flex flex-col gap-2 mb-12">
-            {myths.map((m) => (
-              <MythCard key={m.claim} m={m} />
-            ))}
-          </div>
-        </AnimatedSection>
-
-        {/* Dose calculator */}
-        <AnimatedSection delay={0.15}>
-          <p className="text-[10px] font-accent font-bold text-near-black/30 tracking-[0.16em] uppercase mb-3">
-            Your personal dose
-          </p>
-          <DoseCalculator />
-        </AnimatedSection>
-      </div>
-    </section>
+          {/* Dose calculator */}
+          <AnimatedSection delay={0.1}>
+            <p className="text-[10px] font-accent font-bold text-near-black/30 tracking-[0.16em] uppercase mb-3">
+              Your personal dose
+            </p>
+            <DoseCalculator />
+          </AnimatedSection>
+        </div>
+      </section>
+    </>
   )
 }
