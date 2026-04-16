@@ -160,7 +160,7 @@ function MythCard({ m }: { m: MythData }) {
             <div className="space-y-3 mb-4">
               {m.bars.map((b) => (
                 <div key={b.label}>
-                  <div className="flex justify-between text-[11px] font-accent text-near-black/40 mb-1.5">
+                  <div className="flex justify-between text-[11px] font-accent text-near-black/40 mb-1.5 text-left">
                     <span>{b.label}</span>
                     <span style={{ color: b.color }} className="font-bold">{b.val}%</span>
                   </div>
@@ -178,7 +178,7 @@ function MythCard({ m }: { m: MythData }) {
             </div>
           )}
 
-          <p className="text-[11px] text-near-black/30 font-accent">Source: {m.source}</p>
+          <p className="text-[11px] text-near-black/30 font-accent text-center">Source: {m.source}</p>
         </div>
       )}
     </div>

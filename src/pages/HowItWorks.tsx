@@ -30,29 +30,45 @@ export default function HowItWorks() {
 
       <section className="py-24 bg-warm-white">
         <div className="page-container">
-          <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="max-w-4xl mx-auto space-y-6">
             {cards.map((card, i) => {
               const Icon = card.icon
+              const isEven = i % 2 === 0
+              const isForest = card.color === 'forest'
               return (
-                <AnimatedSection key={card.titleKey} delay={i * 0.1} direction="scale">
-                  <div className="bg-white rounded-3xl p-8 border border-near-black/5 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 h-full flex flex-col">
-                    <div className="flex items-start justify-between mb-6">
-                      <div className={`w-12 h-12 rounded-2xl flex items-center justify-center ${
-                        card.color === 'forest' ? 'bg-forest/10' : 'bg-gold/10'
+                <AnimatedSection key={card.titleKey} direction={isEven ? 'left' : 'right'}>
+                  <div className={`flex flex-col sm:flex-row gap-0 rounded-3xl overflow-hidden border border-near-black/5 bg-white hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 ${!isEven ? 'sm:flex-row-reverse' : ''}`}>
+                    {/* Accent panel */}
+                    <div className={`flex-shrink-0 sm:w-52 flex flex-col items-center justify-center gap-3 px-8 py-8 sm:py-10 ${
+                      isForest ? 'bg-forest/[0.06]' : 'bg-gold/[0.06]'
+                    }`}>
+                      <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${
+                        isForest ? 'bg-forest/15' : 'bg-gold/15'
                       }`}>
-                        <Icon className={`w-5 h-5 ${card.color === 'forest' ? 'text-forest' : 'text-gold'}`} />
+                        <Icon className={`w-6 h-6 ${isForest ? 'text-forest' : 'text-gold'}`} />
                       </div>
-                      <div className="text-right">
-                        <div className={`text-2xl font-heading ${card.color === 'forest' ? 'text-forest' : 'text-gold'}`}>{card.stat}</div>
-                        <div className="text-[10px] font-accent text-near-black/30 uppercase tracking-wider">{card.statLabel}</div>
+                      <div className="text-center">
+                        <div className={`text-4xl font-heading leading-none ${isForest ? 'text-forest' : 'text-gold'}`}>
+                          {card.stat}
+                        </div>
+                        <div className="text-[10px] font-accent text-near-black/35 uppercase tracking-wider mt-1.5">
+                          {card.statLabel}
+                        </div>
                       </div>
                     </div>
-                    <h2 className="text-xl font-heading text-near-black mb-3">
-                      {t(card.titleKey)}
-                    </h2>
-                    <p className="text-near-black/55 text-sm leading-relaxed flex-1">
-                      {t(card.textKey)}
-                    </p>
+
+                    {/* Text panel */}
+                    <div className="flex-1 px-8 py-8 sm:py-10 flex flex-col justify-center">
+                      <div className="text-[10px] font-accent text-near-black/20 uppercase tracking-widest mb-2">
+                        0{i + 1}
+                      </div>
+                      <h2 className="text-2xl sm:text-3xl font-heading text-near-black mb-3">
+                        {t(card.titleKey)}
+                      </h2>
+                      <p className="text-near-black/55 leading-relaxed">
+                        {t(card.textKey)}
+                      </p>
+                    </div>
                   </div>
                 </AnimatedSection>
               )
