@@ -7,11 +7,11 @@ import { Leaf, Brain, Dumbbell, BarChart3 } from 'lucide-react'
 export default function HowItWorks() {
   const { t } = useTranslation()
 
-  const sections = [
-    { titleKey: 'howItWorks.caffeineTitle', textKey: 'howItWorks.caffeineText', icon: Leaf, color: 'forest' },
-    { titleKey: 'howItWorks.ltheanineTitle', textKey: 'howItWorks.ltheanineText', icon: Brain, color: 'gold' },
-    { titleKey: 'howItWorks.proteinTitle', textKey: 'howItWorks.proteinText', icon: Dumbbell, color: 'forest' },
-    { titleKey: 'howItWorks.lowGiTitle', textKey: 'howItWorks.lowGiText', icon: BarChart3, color: 'gold' },
+  const cards = [
+    { titleKey: 'howItWorks.caffeineTitle', textKey: 'howItWorks.caffeineText', icon: Leaf, color: 'forest', stat: '90mg', statLabel: 'Green Tea Caffeine' },
+    { titleKey: 'howItWorks.ltheanineTitle', textKey: 'howItWorks.ltheanineText', icon: Brain, color: 'gold', stat: 'Calm', statLabel: 'Focused Alertness' },
+    { titleKey: 'howItWorks.proteinTitle', textKey: 'howItWorks.proteinText', icon: Dumbbell, color: 'forest', stat: '14g', statLabel: 'Plant Protein' },
+    { titleKey: 'howItWorks.lowGiTitle', textKey: 'howItWorks.lowGiText', icon: BarChart3, color: 'gold', stat: 'Low', statLabel: 'Glycemic Index' },
   ]
 
   return (
@@ -30,30 +30,33 @@ export default function HowItWorks() {
 
       <section className="py-24 bg-warm-white">
         <div className="page-container">
-          <div className="max-w-4xl mx-auto space-y-16">
-          {sections.map((section, i) => {
-            const Icon = section.icon
-            const isEven = i % 2 === 0
-            return (
-              <AnimatedSection key={section.titleKey} direction={isEven ? 'left' : 'right'}>
-                <div className="flex gap-8 items-start">
-                  <div className={`flex-shrink-0 w-16 h-16 rounded-2xl flex items-center justify-center ${
-                    section.color === 'forest' ? 'bg-forest/10' : 'bg-gold/10'
-                  }`}>
-                    <Icon className={`w-7 h-7 ${section.color === 'forest' ? 'text-forest' : 'text-gold'}`} />
-                  </div>
-                  <div>
-                    <h2 className="text-2xl sm:text-3xl font-heading text-near-black mb-4">
-                      {t(section.titleKey)}
+          <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {cards.map((card, i) => {
+              const Icon = card.icon
+              return (
+                <AnimatedSection key={card.titleKey} delay={i * 0.1} direction="scale">
+                  <div className="bg-white rounded-3xl p-8 border border-near-black/5 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 h-full flex flex-col">
+                    <div className="flex items-start justify-between mb-6">
+                      <div className={`w-12 h-12 rounded-2xl flex items-center justify-center ${
+                        card.color === 'forest' ? 'bg-forest/10' : 'bg-gold/10'
+                      }`}>
+                        <Icon className={`w-5 h-5 ${card.color === 'forest' ? 'text-forest' : 'text-gold'}`} />
+                      </div>
+                      <div className="text-right">
+                        <div className={`text-2xl font-heading ${card.color === 'forest' ? 'text-forest' : 'text-gold'}`}>{card.stat}</div>
+                        <div className="text-[10px] font-accent text-near-black/30 uppercase tracking-wider">{card.statLabel}</div>
+                      </div>
+                    </div>
+                    <h2 className="text-xl font-heading text-near-black mb-3">
+                      {t(card.titleKey)}
                     </h2>
-                    <p className="text-near-black/60 text-lg leading-relaxed">
-                      {t(section.textKey)}
+                    <p className="text-near-black/55 text-sm leading-relaxed flex-1">
+                      {t(card.textKey)}
                     </p>
                   </div>
-                </div>
-              </AnimatedSection>
-            )
-          })}
+                </AnimatedSection>
+              )
+            })}
           </div>
         </div>
       </section>

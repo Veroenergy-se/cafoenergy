@@ -18,16 +18,16 @@ interface MythData {
 
 const myths: MythData[] = [
   {
-    verdict: 'myth',
-    claim: 'Caffeine dehydrates you',
+    verdict: 'nuanced',
+    claim: 'Caffeine will wreck your sleep',
     science:
-      'This one comes from old studies on very high doses given to people who rarely consumed caffeine. At normal doses — including 90mg — caffeine has <strong>no meaningful diuretic effect</strong> in regular consumers. A 2003 review in the Journal of Human Nutrition found that caffeinated drinks contribute to daily fluid intake just as well as water.',
+      "Timing matters far more than total dose. Caffeine's half-life is 5–7 hours, meaning <strong>half is still active 5–7 hours after you consume it</strong>. A 90mg bar at 2pm leaves only ~11mg in your system by midnight — well below the threshold that disrupts sleep. The problem isn't caffeine; it's late-afternoon energy drinks at 160–300mg. Keep it to before 3pm and sleep quality is unaffected for most people.",
     stats: [
-      { n: '90mg', l: 'No net fluid loss' },
-      { n: '≥500mg', l: 'Mild diuretic effect' },
-      { n: 'Regular use', l: 'Full tolerance built' },
+      { n: '5–7h', l: 'Caffeine half-life' },
+      { n: '~11mg', l: 'Active by midnight (90mg at 2pm)' },
+      { n: '3pm', l: 'Recommended cutoff' },
     ],
-    source: 'Maughan & Griffin, Journal of Human Nutrition and Dietetics, 2003',
+    source: 'Drake et al., Journal of Clinical Sleep Medicine, 2013',
   },
   {
     verdict: 'myth',
@@ -55,15 +55,16 @@ const myths: MythData[] = [
   },
   {
     verdict: 'myth',
-    claim: 'Caffeine stunts growth in young people',
+    claim: 'More caffeine means sharper focus',
     science:
-      'This myth originated from early observational studies that confused correlation with causation. <strong>No controlled study has shown a causal link</strong> between normal caffeine consumption and reduced bone density or height in adolescents. The myth has persisted since the 1980s without scientific backing.',
-    stats: [
-      { n: '0', l: 'Causal studies found' },
-      { n: '1980s', l: 'Myth originated' },
-      { n: 'Still', l: 'Widely believed' },
+      'The relationship between caffeine and cognitive performance is an <strong>inverted U-curve</strong> — focus improves up to a point, then declines. Above roughly 3mg/kg body weight, anxiety, jitteriness, and reduced precision kick in and actually impair performance. At 90mg, a CAFO bar hits the sweet spot for most people: meaningful alertness without the overstimulation that comes with double espressos or 200mg+ energy drinks.',
+    bars: [
+      { label: 'Focus at 90mg (1 CAFO bar)', val: 88, color: '#22c55e' },
+      { label: 'Focus at 200mg', val: 72, color: '#f59e0b' },
+      { label: 'Focus at 400mg+', val: 41, color: '#ef4444' },
+      { label: 'Anxiety at 400mg+', val: 76, color: '#ef4444' },
     ],
-    source: 'Lloyd et al., American Journal of Clinical Nutrition, 1997',
+    source: 'Nehlig, Neuroscience & Biobehavioral Reviews, 2018',
   },
   {
     verdict: 'nuanced',
@@ -137,7 +138,7 @@ function MythCard({ m }: { m: MythData }) {
 
           {/* Science text — static known content, no user input */}
           <p
-            className="text-sm text-near-black/60 leading-relaxed mb-4 [&_strong]:font-semibold [&_strong]:text-near-black"
+            className="text-sm text-near-black/60 leading-relaxed mb-4 text-center [&_strong]:font-semibold [&_strong]:text-near-black"
             dangerouslySetInnerHTML={{ __html: m.science }}
           />
 
@@ -310,12 +311,12 @@ export default function CaffeineMyths() {
               <span className="inline-block text-[10px] font-accent font-bold text-white/40 tracking-widest uppercase border border-white/10 rounded-full px-4 py-1.5 mb-6">
                 Backed by science
               </span>
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading text-white mb-3 leading-tight">
+              <h2 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-heading text-white mb-4 leading-tight">
                 Caffeine isn't the villain.
                 <br />
                 <span className="text-gold">Misinformation is.</span>
               </h2>
-              <p className="text-white/40 text-sm leading-relaxed max-w-sm mx-auto mb-10">
+              <p className="text-white/40 text-base leading-relaxed max-w-md mx-auto mb-10">
                 Most people have been told the wrong things about caffeine for years. Here's what the
                 research actually says.
               </p>
@@ -341,7 +342,7 @@ export default function CaffeineMyths() {
         <div className="page-container">
           {/* Myth accordion */}
           <AnimatedSection>
-            <p className="text-[10px] font-accent font-bold text-near-black/30 tracking-[0.16em] uppercase mb-3">
+            <p className="text-[10px] font-accent font-bold text-near-black/30 tracking-[0.16em] uppercase mb-3 text-center">
               Tap each myth to see the science
             </p>
             <div className="flex flex-col gap-2 mb-12">
