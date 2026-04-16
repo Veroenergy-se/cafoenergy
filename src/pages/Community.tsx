@@ -62,10 +62,10 @@ export default function Community() {
           <AnimatedSection delay={0.1}>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 text-center border-t border-near-black/[0.07] pt-14">
               {[
-                { n: '50+', l: 'Universities' },
-                { n: '25', l: 'Countries' },
-                { n: '90mg', l: 'Per bar, every time' },
-                { n: '0g', l: 'Added sugar' },
+                { n: '3', l: 'Founders' },
+                { n: 'Sweden', l: 'Where it started' },
+                { n: '1', l: 'Flavour — perfected' },
+                { n: 'Day 1', l: 'Join the founding community' },
               ].map((s) => (
                 <div key={s.l}>
                   <div className="text-4xl sm:text-5xl font-heading text-near-black leading-none">{s.n}</div>
@@ -107,6 +107,34 @@ export default function Community() {
               </AnimatedSection>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* What we stand for */}
+      <section className="py-24 bg-near-black">
+        <div className="page-container">
+          <AnimatedSection>
+            <div className="max-w-4xl mx-auto">
+              <p className="text-[10px] font-accent font-bold text-white/25 tracking-[0.18em] uppercase mb-8">
+                What we stand for
+              </p>
+              <h2 className="text-5xl sm:text-6xl lg:text-7xl font-heading text-white leading-[0.95] mb-10">
+                Always go for it.
+              </h2>
+              <div className="grid sm:grid-cols-3 gap-px bg-white/[0.06] rounded-2xl overflow-hidden">
+                {[
+                  { title: 'Show up.', body: 'Whatever the day asks — be ready for it. That starts with what you put in your body.' },
+                  { title: 'Go all in.', body: 'Half-effort gets half-results. CAFO is for people who commit.' },
+                  { title: 'No shortcuts.', body: 'Clean ingredients, real fuel. We didn\'t cut corners on the formula — and neither should you.' },
+                ].map((v) => (
+                  <div key={v.title} className="bg-near-black px-7 py-8">
+                    <h3 className="text-xl font-heading text-white mb-3">{v.title}</h3>
+                    <p className="text-sm text-white/35 font-accent leading-relaxed">{v.body}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
