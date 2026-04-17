@@ -8,9 +8,9 @@ import { ShoppingBag, Zap, Leaf, Shield, Minus, Plus, RefreshCw, Package, Settin
 
 type PurchaseMode = 'onetime' | 'subscription'
 
-// Boxes of 12 → product mapping
-const BOX_PRODUCT: Record<number, string> = { 1: 'starter', 2: 'duo', 3: 'family' }
-const BOX_BARS: Record<number, number> = { 1: 12, 2: 24, 3: 36 }
+// Boxes of 12 — no upper limit
+const BOX_BARS = (boxes: number) => boxes * 12
+const BOX_PRICE_SEK = 279 // per box (starter unit price)
 
 const perBar: Record<string, { usd: number; sek: number }> = {
   starter: { usd: 2.42, sek: 23.25 },
@@ -46,14 +46,12 @@ export default function Shop() {
   const discountPct = Math.round(SUBSCRIPTION_DISCOUNT * 100)
 
   const updatePlan = (month: number, boxes: number) => {
-    const clamped = Math.min(3, Math.max(1, boxes))
+    const clamped = Math.max(1, boxes)
     setPlan(prev => prev.map((b, i) => (i === month ? clamped : b)))
   }
 
-  const month1ProductId = BOX_PRODUCT[plan[0]]
-
   const handleSubscribe = () => {
-    addItem(month1ProductId, true, plan)
+    addItem('starter', true, plan)
   }
 
   return (
@@ -232,18 +230,17 @@ export default function Shop() {
                         <Minus className="w-4 h-4" />
                       </button>
                       <div className="flex-1 text-center">
-                        <p className="text-5xl font-heading text-near-black leading-none">{BOX_BARS[plan[0]]}</p>
+                        <p className="text-5xl font-heading text-near-black leading-none">{BOX_BARS(plan[0])}</p>
                         <p className="text-sm font-accent text-near-black/40 mt-1">bars per month</p>
                       </div>
                       <button
                         onClick={() => updatePlan(0, plan[0] + 1)}
-                        disabled={plan[0] >= 3}
-                        className="w-10 h-10 flex items-center justify-center rounded-full border border-near-black/15 text-near-black/40 hover:border-near-black/40 hover:text-near-black disabled:opacity-20 transition-all"
+                        className="w-10 h-10 flex items-center justify-center rounded-full border border-near-black/15 text-near-black/40 hover:border-near-black/40 hover:text-near-black transition-all"
                       >
                         <Plus className="w-4 h-4" />
                       </button>
                     </div>
-                    {/* Box options hint */}
+                    {/* Quick-pick shortcuts */}
                     <div className="flex gap-2">
                       {[1, 2, 3].map(b => (
                         <button
@@ -255,7 +252,7 @@ export default function Shop() {
                               : 'bg-near-black/[0.05] text-near-black/40 hover:bg-near-black/10'
                           }`}
                         >
-                          {BOX_BARS[b]} bars
+                          {BOX_BARS(b)} bars
                         </button>
                       ))}
                     </div>
@@ -267,8 +264,7 @@ export default function Shop() {
                       What you get
                     </p>
                     {(() => {
-                      const product = products.find(p => p.id === BOX_PRODUCT[plan[0]])!
-                      const full = product.price[currency]
+                      const full = BOX_PRICE_SEK * plan[0]
                       const sub  = getSubscriptionPrice(full)
                       const saving = full - sub
                       return (
@@ -307,8 +303,7 @@ export default function Shop() {
                   <div className="grid sm:grid-cols-2 gap-3">
                     {[1, 2].map((month) => {
                       const boxes = plan[month]
-                      const product = products.find(p => p.id === BOX_PRODUCT[boxes])!
-                      const price = getSubscriptionPrice(product.price[currency])
+                      const price = getSubscriptionPrice(BOX_PRICE_SEK * boxes)
                       return (
                         <div key={month} className="flex items-center justify-between gap-4 bg-near-black/[0.03] rounded-2xl px-5 py-4">
                           <p className="text-sm font-accent text-near-black/50 w-16 shrink-0">Month {month + 1}</p>
@@ -320,10 +315,9 @@ export default function Shop() {
                             >
                               <Minus className="w-3 h-3" />
                             </button>
-                            <span className="text-sm font-heading text-near-black flex-1 text-center">{BOX_BARS[boxes]} bars</span>
+                            <span className="text-sm font-heading text-near-black flex-1 text-center">{BOX_BARS(boxes)} bars</span>
                             <button
                               onClick={() => updatePlan(month, boxes + 1)}
-                              disabled={boxes >= 3}
                               className="w-7 h-7 flex items-center justify-center rounded-full bg-white border border-near-black/10 text-near-black/40 hover:text-near-black disabled:opacity-20 transition-all"
                             >
                               <Plus className="w-3 h-3" />
@@ -344,10 +338,10 @@ export default function Shop() {
                   <div>
                     <p className="text-[10px] font-accent text-white/30 uppercase tracking-widest mb-1">First payment</p>
                     <p className="text-3xl font-heading text-white leading-none">
-                      {formatPrice(getSubscriptionPrice(products.find(p => p.id === month1ProductId)!.price[currency]), currency)}
+                      {formatPrice(getSubscriptionPrice(BOX_PRICE_SEK * plan[0]), currency)}
                     </p>
                     <p className="text-[11px] font-accent text-white/30 mt-1">
-                      {BOX_BARS[plan[0]]} bars · then auto-renewed monthly
+                      {BOX_BARS(plan[0])} bars · then auto-renewed monthly
                     </p>
                   </div>
                   <button
