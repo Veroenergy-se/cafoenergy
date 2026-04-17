@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
 import { useCart } from '@/providers/CartProvider'
-import { products, getCurrency, formatPrice, getSubscriptionPrice, SUBSCRIPTION_DISCOUNT } from '@/lib/products'
+import { products, getCurrency, formatPrice, getSubscriptionPrice, getSubscriptionDiscount } from '@/lib/products'
 import AnimatedSection from '@/components/shared/AnimatedSection'
 import { ShoppingBag, Zap, Leaf, Shield, Minus, Plus, RefreshCw, Package, Settings } from 'lucide-react'
 
@@ -43,7 +43,7 @@ export default function Shop() {
   const [mode, setMode] = useState<PurchaseMode>('onetime')
   const [plan, setPlan] = useState<number[]>([1, 1, 1]) // boxes per month (1–3)
 
-  const discountPct = Math.round(SUBSCRIPTION_DISCOUNT * 100)
+  const discountPct = Math.round(getSubscriptionDiscount(plan[0]) * 100)
 
   const updatePlan = (month: number, boxes: number) => {
     const clamped = Math.max(1, boxes)
@@ -117,7 +117,7 @@ export default function Shop() {
                   <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full transition-colors ${
                     mode === 'subscription' ? 'bg-gold text-near-black' : 'bg-near-black/10 text-near-black/50'
                   }`}>
-                    Save {discountPct}%
+                    Save 10–20%
                   </span>
                 </button>
               </div>
@@ -265,17 +265,25 @@ export default function Shop() {
                     </p>
                     {(() => {
                       const full = BOX_PRICE_SEK * plan[0]
-                      const sub  = getSubscriptionPrice(full)
+                      const sub  = getSubscriptionPrice(full, plan[0])
                       const saving = full - sub
+                      const nextTierBoxes = plan[0] < 2 ? 2 : plan[0] < 3 ? 3 : null
+                      const nextDiscount = nextTierBoxes ? Math.round(getSubscriptionDiscount(nextTierBoxes) * 100) : null
                       return (
                         <>
                           <div className="flex items-baseline gap-3 mb-1">
                             <span className="text-4xl font-heading text-near-black">{formatPrice(sub, currency)}</span>
                             <span className="text-base font-accent text-near-black/30 line-through">{formatPrice(full, currency)}</span>
                           </div>
-                          <p className="text-sm font-accent text-forest font-semibold mb-6">
-                            You save {formatPrice(saving, currency)} every month
+                          <p className="text-sm font-accent text-forest font-semibold mb-1">
+                            You save {formatPrice(saving, currency)} every month — {discountPct}% off
                           </p>
+                          {nextTierBoxes && (
+                            <p className="text-xs font-accent text-near-black/35 mb-6">
+                              Add {nextTierBoxes - plan[0]} more box{nextTierBoxes - plan[0] > 1 ? 'es' : ''} to save {nextDiscount}%
+                            </p>
+                          )}
+                          {!nextTierBoxes && <div className="mb-6" />}
                         </>
                       )
                     })()}
@@ -303,7 +311,7 @@ export default function Shop() {
                   <div className="grid sm:grid-cols-2 gap-3">
                     {[1, 2].map((month) => {
                       const boxes = plan[month]
-                      const price = getSubscriptionPrice(BOX_PRICE_SEK * boxes)
+                      const price = getSubscriptionPrice(BOX_PRICE_SEK * boxes, boxes)
                       return (
                         <div key={month} className="flex items-center justify-between gap-4 bg-near-black/[0.03] rounded-2xl px-5 py-4">
                           <p className="text-sm font-accent text-near-black/50 w-16 shrink-0">Month {month + 1}</p>
@@ -338,7 +346,7 @@ export default function Shop() {
                   <div>
                     <p className="text-[10px] font-accent text-white/30 uppercase tracking-widest mb-1">First payment</p>
                     <p className="text-3xl font-heading text-white leading-none">
-                      {formatPrice(getSubscriptionPrice(BOX_PRICE_SEK * plan[0]), currency)}
+                      {formatPrice(getSubscriptionPrice(BOX_PRICE_SEK * plan[0], plan[0]), currency)}
                     </p>
                     <p className="text-[11px] font-accent text-white/30 mt-1">
                       {BOX_BARS(plan[0])} bars · then auto-renewed monthly
