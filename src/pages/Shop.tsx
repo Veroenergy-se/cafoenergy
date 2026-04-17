@@ -210,111 +210,155 @@ export default function Shop() {
             </div>
           )}
 
-          {/* SUBSCRIPTION: 3-month planner */}
+          {/* SUBSCRIPTION: planner */}
           {mode === 'subscription' && (
             <AnimatedSection direction="scale">
-              <div className="max-w-2xl mx-auto">
-                <div className="bg-white rounded-3xl border border-near-black/[0.06] overflow-hidden shadow-lg">
-                  {/* Planner header */}
-                  <div className="px-8 py-6 border-b border-near-black/[0.06] bg-cream">
-                    <p className="text-[10px] font-accent font-bold text-near-black/30 uppercase tracking-widest mb-1">
-                      Plan your delivery
+              <div className="bg-white rounded-3xl border border-near-black/[0.06] overflow-hidden shadow-lg">
+
+                {/* Top: month 1 + savings side by side */}
+                <div className="grid sm:grid-cols-2 gap-0 divide-y sm:divide-y-0 sm:divide-x divide-near-black/[0.06]">
+
+                  {/* Month 1 — primary selector */}
+                  <div className="p-8 sm:p-10">
+                    <p className="text-[10px] font-accent font-bold text-near-black/30 uppercase tracking-widest mb-5">
+                      Your monthly box
                     </p>
-                    <h2 className="text-2xl font-heading text-near-black">
-                      Choose your boxes per month
-                    </h2>
-                    <p className="text-sm text-near-black/45 font-accent mt-1">
-                      1 box = 12 bars · {discountPct}% off every delivery
-                    </p>
-                  </div>
-
-                  {/* Month rows */}
-                  <div className="px-8 divide-y divide-near-black/[0.05]">
-                    {[0, 1, 2].map((month) => {
-                      const boxes = plan[month]
-                      const product = products.find(p => p.id === BOX_PRODUCT[boxes])!
-                      const price = getSubscriptionPrice(product.price[currency])
-                      const isFirst = month === 0
-
-                      return (
-                        <div key={month} className="py-5 flex items-center justify-between gap-4">
-                          {/* Month label */}
-                          <div className="w-20 shrink-0">
-                            <p className="text-sm font-heading text-near-black">
-                              Month {month + 1}
-                            </p>
-                            {isFirst && (
-                              <p className="text-[10px] font-accent text-gold uppercase tracking-wider">
-                                First delivery
-                              </p>
-                            )}
-                          </div>
-
-                          {/* Box selector */}
-                          <div className="flex items-center gap-2 bg-near-black/[0.04] rounded-full px-2 py-1.5">
-                            <button
-                              onClick={() => updatePlan(month, boxes - 1)}
-                              disabled={boxes <= 1}
-                              className="w-7 h-7 flex items-center justify-center rounded-full text-near-black/40 hover:bg-white hover:text-near-black disabled:opacity-20 transition-all"
-                            >
-                              <Minus className="w-3 h-3" />
-                            </button>
-                            <span className="text-sm font-heading text-near-black w-20 text-center">
-                              {BOX_BARS[boxes]} bars
-                            </span>
-                            <button
-                              onClick={() => updatePlan(month, boxes + 1)}
-                              disabled={boxes >= 3}
-                              className="w-7 h-7 flex items-center justify-center rounded-full text-near-black/40 hover:bg-white hover:text-near-black disabled:opacity-20 transition-all"
-                            >
-                              <Plus className="w-3 h-3" />
-                            </button>
-                          </div>
-
-                          {/* Price + bars */}
-                          <div className="text-right shrink-0">
-                            <p className="text-base font-heading text-near-black">{formatPrice(price, currency)}</p>
-                            <p className="text-[11px] font-accent text-near-black/30">
-                              {boxes} box{boxes > 1 ? 'es' : ''}
-                            </p>
-                          </div>
-                        </div>
-                      )
-                    })}
-                  </div>
-
-                  {/* Summary + CTA */}
-                  <div className="px-8 py-6 bg-near-black">
-                    <div className="flex items-center justify-between mb-4">
-                      <div>
-                        <p className="text-[10px] font-accent text-white/30 uppercase tracking-widest mb-0.5">
-                          First payment
-                        </p>
-                        <p className="text-3xl font-heading text-white">
-                          {formatPrice(getSubscriptionPrice(products.find(p => p.id === month1ProductId)!.price[currency]), currency)}
-                        </p>
-                        <p className="text-[11px] font-accent text-white/30 mt-0.5">
-                          {BOX_BARS[plan[0]]} bars · then auto-renewed monthly
-                        </p>
+                    <div className="flex items-center gap-4 mb-6">
+                      <button
+                        onClick={() => updatePlan(0, plan[0] - 1)}
+                        disabled={plan[0] <= 1}
+                        className="w-10 h-10 flex items-center justify-center rounded-full border border-near-black/15 text-near-black/40 hover:border-near-black/40 hover:text-near-black disabled:opacity-20 transition-all"
+                      >
+                        <Minus className="w-4 h-4" />
+                      </button>
+                      <div className="flex-1 text-center">
+                        <p className="text-5xl font-heading text-near-black leading-none">{BOX_BARS[plan[0]]}</p>
+                        <p className="text-sm font-accent text-near-black/40 mt-1">bars per month</p>
                       </div>
                       <button
-                        onClick={handleSubscribe}
-                        className="flex items-center gap-2 px-7 py-3.5 bg-gradient-to-r from-gold to-gold-light text-near-black font-semibold font-accent rounded-full hover:-translate-y-0.5 hover:shadow-lg hover:shadow-gold/25 transition-all duration-200"
+                        onClick={() => updatePlan(0, plan[0] + 1)}
+                        disabled={plan[0] >= 3}
+                        className="w-10 h-10 flex items-center justify-center rounded-full border border-near-black/15 text-near-black/40 hover:border-near-black/40 hover:text-near-black disabled:opacity-20 transition-all"
                       >
-                        <ShoppingBag className="w-4 h-4" />
-                        Subscribe
+                        <Plus className="w-4 h-4" />
                       </button>
                     </div>
-                    <div className="flex flex-wrap gap-x-6 gap-y-1.5">
-                      {['Cancel anytime', 'Skip any month', 'Change quantities before each delivery', 'Free shipping included'].map(f => (
-                        <span key={f} className="text-[11px] font-accent text-white/25 flex items-center gap-1.5">
-                          <span className="w-1 h-1 rounded-full bg-gold/60 inline-block" />
-                          {f}
-                        </span>
+                    {/* Box options hint */}
+                    <div className="flex gap-2">
+                      {[1, 2, 3].map(b => (
+                        <button
+                          key={b}
+                          onClick={() => updatePlan(0, b)}
+                          className={`flex-1 py-2 rounded-xl text-xs font-accent font-semibold transition-all ${
+                            plan[0] === b
+                              ? 'bg-near-black text-white'
+                              : 'bg-near-black/[0.05] text-near-black/40 hover:bg-near-black/10'
+                          }`}
+                        >
+                          {BOX_BARS[b]} bars
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Savings + why */}
+                  <div className="p-8 sm:p-10 bg-cream">
+                    <p className="text-[10px] font-accent font-bold text-near-black/30 uppercase tracking-widest mb-5">
+                      What you get
+                    </p>
+                    {(() => {
+                      const product = products.find(p => p.id === BOX_PRODUCT[plan[0]])!
+                      const full = product.price[currency]
+                      const sub  = getSubscriptionPrice(full)
+                      const saving = full - sub
+                      return (
+                        <>
+                          <div className="flex items-baseline gap-3 mb-1">
+                            <span className="text-4xl font-heading text-near-black">{formatPrice(sub, currency)}</span>
+                            <span className="text-base font-accent text-near-black/30 line-through">{formatPrice(full, currency)}</span>
+                          </div>
+                          <p className="text-sm font-accent text-forest font-semibold mb-6">
+                            You save {formatPrice(saving, currency)} every month
+                          </p>
+                        </>
+                      )
+                    })()}
+                    <div className="space-y-2.5">
+                      {[
+                        'Delivered on the same date each month',
+                        'Skip, swap, or cancel before any delivery',
+                        'Locked-in price — no surprise increases',
+                        'Free shipping on every order',
+                      ].map(b => (
+                        <div key={b} className="flex items-start gap-2.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-forest mt-1.5 shrink-0" />
+                          <span className="text-sm font-accent text-near-black/55 leading-snug">{b}</span>
+                        </div>
                       ))}
                     </div>
                   </div>
                 </div>
+
+                {/* Plan ahead — months 2 & 3 */}
+                <div className="px-8 sm:px-10 py-6 border-t border-near-black/[0.06]">
+                  <p className="text-[10px] font-accent font-bold text-near-black/25 uppercase tracking-widest mb-4">
+                    Plan ahead — optional
+                  </p>
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    {[1, 2].map((month) => {
+                      const boxes = plan[month]
+                      const product = products.find(p => p.id === BOX_PRODUCT[boxes])!
+                      const price = getSubscriptionPrice(product.price[currency])
+                      return (
+                        <div key={month} className="flex items-center justify-between gap-4 bg-near-black/[0.03] rounded-2xl px-5 py-4">
+                          <p className="text-sm font-accent text-near-black/50 w-16 shrink-0">Month {month + 1}</p>
+                          <div className="flex items-center gap-2 flex-1">
+                            <button
+                              onClick={() => updatePlan(month, boxes - 1)}
+                              disabled={boxes <= 1}
+                              className="w-7 h-7 flex items-center justify-center rounded-full bg-white border border-near-black/10 text-near-black/40 hover:text-near-black disabled:opacity-20 transition-all"
+                            >
+                              <Minus className="w-3 h-3" />
+                            </button>
+                            <span className="text-sm font-heading text-near-black flex-1 text-center">{BOX_BARS[boxes]} bars</span>
+                            <button
+                              onClick={() => updatePlan(month, boxes + 1)}
+                              disabled={boxes >= 3}
+                              className="w-7 h-7 flex items-center justify-center rounded-full bg-white border border-near-black/10 text-near-black/40 hover:text-near-black disabled:opacity-20 transition-all"
+                            >
+                              <Plus className="w-3 h-3" />
+                            </button>
+                          </div>
+                          <span className="text-sm font-heading text-near-black/50 shrink-0">{formatPrice(price, currency)}</span>
+                        </div>
+                      )
+                    })}
+                  </div>
+                  <p className="text-[11px] font-accent text-near-black/25 mt-3">
+                    These are your preferences — you can change quantities before each delivery date.
+                  </p>
+                </div>
+
+                {/* CTA footer */}
+                <div className="px-8 sm:px-10 py-6 bg-near-black flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                  <div>
+                    <p className="text-[10px] font-accent text-white/30 uppercase tracking-widest mb-1">First payment</p>
+                    <p className="text-3xl font-heading text-white leading-none">
+                      {formatPrice(getSubscriptionPrice(products.find(p => p.id === month1ProductId)!.price[currency]), currency)}
+                    </p>
+                    <p className="text-[11px] font-accent text-white/30 mt-1">
+                      {BOX_BARS[plan[0]]} bars · then auto-renewed monthly
+                    </p>
+                  </div>
+                  <button
+                    onClick={handleSubscribe}
+                    className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-gold to-gold-light text-near-black font-semibold font-accent rounded-full hover:-translate-y-0.5 hover:shadow-lg hover:shadow-gold/25 transition-all duration-200"
+                  >
+                    <ShoppingBag className="w-4 h-4" />
+                    Subscribe & save {discountPct}%
+                  </button>
+                </div>
+
               </div>
             </AnimatedSection>
           )}

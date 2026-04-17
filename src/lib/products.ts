@@ -42,8 +42,8 @@ export function getSubscriptionPrice(amount: number): number {
   return Math.round(amount * (1 - SUBSCRIPTION_DISCOUNT))
 }
 
-export function getCurrency(lang: string): 'usd' | 'sek' {
-  return lang === 'sv' ? 'sek' : 'usd'
+export function getCurrency(_lang: string): 'usd' | 'sek' {
+  return 'sek'
 }
 
 export function formatPrice(amount: number, currency: 'usd' | 'sek'): string {
