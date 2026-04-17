@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useCart } from '@/providers/CartProvider'
-import { getCurrency, formatPrice } from '@/lib/products'
+import { getCurrency, formatPrice, getSubscriptionPrice } from '@/lib/products'
 import { SITE } from '@/lib/constants'
 import AnimatedSection from '@/components/shared/AnimatedSection'
 import { ShoppingBag, ArrowLeft, Check, Minus, Plus, Trash2 } from 'lucide-react'
@@ -53,17 +53,30 @@ export default function Checkout() {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
 
+    const hasSubscription = items.some(i => i.subscription)
+
     const orderLines = items
       .map((item) => {
         const product = getProduct(item.productId)
         if (!product) return null
-        return `${item.quantity}x ${t(product.nameKey)} — ${formatPrice(product.price[currency] * item.quantity, currency)}`
+        const unitPrice = item.subscription
+          ? getSubscriptionPrice(product.price[currency])
+          : product.price[currency]
+        const tag = item.subscription ? ' [MONTHLY SUBSCRIPTION]' : ''
+        return `${item.quantity}x ${t(product.nameKey)}${tag} — ${formatPrice(unitPrice * item.quantity, currency)}`
       })
       .filter(Boolean)
       .join('\n')
 
-    const emailBody = `New order from ${form.name}\n\n${orderLines}\n\nTotal: ${formatPrice(total, currency)}\n\nShipping to:\n${form.name}\n${form.address}\n${form.zip} ${form.city}\n\nContact: ${form.email}`
-    const mailtoLink = `mailto:${SITE.email}?subject=${encodeURIComponent(`CAFO Order from ${form.name}`)}&body=${encodeURIComponent(emailBody)}`
+    const subscriptionNote = hasSubscription
+      ? '\n\n⚡ SUBSCRIPTION ORDER — please set up recurring monthly delivery for the items marked above.'
+      : ''
+
+    const emailBody = `New order from ${form.name}\n\n${orderLines}\n\nTotal: ${formatPrice(total, currency)}${subscriptionNote}\n\nShipping to:\n${form.name}\n${form.address}\n${form.zip} ${form.city}\n\nContact: ${form.email}`
+    const subject = hasSubscription
+      ? `CAFO Subscription Order from ${form.name}`
+      : `CAFO Order from ${form.name}`
+    const mailtoLink = `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`
 
     window.location.href = mailtoLink
     clearCart()
@@ -140,7 +153,14 @@ export default function Checkout() {
                               <span className="text-forest font-heading text-sm">CAFO</span>
                             </div>
                             <div className="flex-1 min-w-0">
-                              <h3 className="font-semibold text-sm font-accent">{t(product.nameKey)}</h3>
+                              <div className="flex items-center gap-2 flex-wrap">
+                                <h3 className="font-semibold text-sm font-accent">{t(product.nameKey)}</h3>
+                                {item.subscription && (
+                                  <span className="text-[9px] font-bold font-accent uppercase tracking-wider bg-gold/15 text-gold px-2 py-0.5 rounded-full">
+                                    Monthly
+                                  </span>
+                                )}
+                              </div>
                               <p className="text-sm text-near-black/40">{t(product.descriptionKey)}</p>
                             </div>
                             <div className="flex items-center gap-3">
@@ -160,7 +180,12 @@ export default function Checkout() {
                                 </button>
                               </div>
                               <span className="font-semibold text-sm w-20 text-right">
-                                {formatPrice(product.price[currency] * item.quantity, currency)}
+                                {formatPrice(
+                                  (item.subscription
+                                    ? getSubscriptionPrice(product.price[currency])
+                                    : product.price[currency]) * item.quantity,
+                                  currency
+                                )}
                               </span>
                               <button
                                 onClick={() => removeItem(item.productId)}

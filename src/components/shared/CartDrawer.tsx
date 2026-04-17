@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useCart } from '@/providers/CartProvider'
-import { getCurrency, formatPrice } from '@/lib/products'
+import { getCurrency, formatPrice, getSubscriptionPrice } from '@/lib/products'
 import { SITE } from '@/lib/constants'
 import { isStripeConfigured, redirectToCheckout } from '@/lib/stripe'
 import { X, Minus, Plus, ShoppingBag, Loader2 } from 'lucide-react'
@@ -84,9 +84,23 @@ export default function CartDrawer() {
                             <span className="text-forest font-heading text-lg">CAFO</span>
                           </div>
                           <div className="flex-1 min-w-0">
-                            <h3 className="font-semibold text-sm">{t(product.nameKey)}</h3>
+                            <div className="flex items-center gap-2 flex-wrap">
+                              <h3 className="font-semibold text-sm">{t(product.nameKey)}</h3>
+                              {item.subscription && (
+                                <span className="text-[9px] font-bold font-accent uppercase tracking-wider bg-gold/15 text-gold px-2 py-0.5 rounded-full">
+                                  Monthly
+                                </span>
+                              )}
+                            </div>
                             <p className="text-sm text-gray-500">{t(product.descriptionKey)}</p>
-                            <p className="font-semibold mt-1">{formatPrice(product.price[currency], currency)}</p>
+                            <p className="font-semibold mt-1">
+                              {formatPrice(
+                                item.subscription
+                                  ? getSubscriptionPrice(product.price[currency])
+                                  : product.price[currency],
+                                currency
+                              )}
+                            </p>
                           </div>
                           <div className="flex flex-col items-end gap-2">
                             <button

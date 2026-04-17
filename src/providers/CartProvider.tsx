@@ -1,9 +1,10 @@
 import { createContext, useContext, useReducer, useEffect, type ReactNode } from 'react'
-import { products, type Product } from '@/lib/products'
+import { products, getSubscriptionPrice, type Product } from '@/lib/products'
 
 export interface CartItem {
   productId: string
   quantity: number
+  subscription: boolean
 }
 
 interface CartState {
@@ -12,7 +13,7 @@ interface CartState {
 }
 
 type CartAction =
-  | { type: 'ADD_ITEM'; productId: string }
+  | { type: 'ADD_ITEM'; productId: string; subscription: boolean }
   | { type: 'REMOVE_ITEM'; productId: string }
   | { type: 'UPDATE_QUANTITY'; productId: string; quantity: number }
   | { type: 'CLEAR' }
@@ -30,7 +31,7 @@ function cartReducer(state: CartState, action: CartAction): CartState {
           isOpen: true,
           items: state.items.map(i =>
             i.productId === action.productId
-              ? { ...i, quantity: i.quantity + 1 }
+              ? { ...i, quantity: i.quantity + 1, subscription: action.subscription }
               : i
           ),
         }
@@ -38,27 +39,19 @@ function cartReducer(state: CartState, action: CartAction): CartState {
       return {
         ...state,
         isOpen: true,
-        items: [...state.items, { productId: action.productId, quantity: 1 }],
+        items: [...state.items, { productId: action.productId, quantity: 1, subscription: action.subscription }],
       }
     }
     case 'REMOVE_ITEM':
-      return {
-        ...state,
-        items: state.items.filter(i => i.productId !== action.productId),
-      }
+      return { ...state, items: state.items.filter(i => i.productId !== action.productId) }
     case 'UPDATE_QUANTITY':
       if (action.quantity <= 0) {
-        return {
-          ...state,
-          items: state.items.filter(i => i.productId !== action.productId),
-        }
+        return { ...state, items: state.items.filter(i => i.productId !== action.productId) }
       }
       return {
         ...state,
         items: state.items.map(i =>
-          i.productId === action.productId
-            ? { ...i, quantity: action.quantity }
-            : i
+          i.productId === action.productId ? { ...i, quantity: action.quantity } : i
         ),
       }
     case 'CLEAR':
@@ -68,7 +61,7 @@ function cartReducer(state: CartState, action: CartAction): CartState {
     case 'SET_OPEN':
       return { ...state, isOpen: action.isOpen }
     case 'HYDRATE':
-      return { ...state, items: action.items }
+      return { ...state, items: action.items.map(i => ({ subscription: false, ...i })) }
     default:
       return state
   }
@@ -77,7 +70,7 @@ function cartReducer(state: CartState, action: CartAction): CartState {
 interface CartContextValue {
   items: CartItem[]
   isOpen: boolean
-  addItem: (productId: string) => void
+  addItem: (productId: string, subscription?: boolean) => void
   removeItem: (productId: string) => void
   updateQuantity: (productId: string, quantity: number) => void
   clearCart: () => void
@@ -96,9 +89,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     try {
       const saved = localStorage.getItem('cafo-cart')
-      if (saved) {
-        dispatch({ type: 'HYDRATE', items: JSON.parse(saved) })
-      }
+      if (saved) dispatch({ type: 'HYDRATE', items: JSON.parse(saved) })
     } catch {}
   }, [])
 
@@ -112,7 +103,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
     state.items.reduce((sum, item) => {
       const product = products.find(p => p.id === item.productId)
       if (!product) return sum
-      return sum + product.price[currency] * item.quantity
+      const unitPrice = item.subscription
+        ? getSubscriptionPrice(product.price[currency])
+        : product.price[currency]
+      return sum + unitPrice * item.quantity
     }, 0)
 
   const getProduct = (id: string) => products.find(p => p.id === id)
@@ -122,7 +116,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
       value={{
         items: state.items,
         isOpen: state.isOpen,
-        addItem: (productId) => dispatch({ type: 'ADD_ITEM', productId }),
+        addItem: (productId, subscription = false) =>
+          dispatch({ type: 'ADD_ITEM', productId, subscription }),
         removeItem: (productId) => dispatch({ type: 'REMOVE_ITEM', productId }),
         updateQuantity: (productId, quantity) =>
           dispatch({ type: 'UPDATE_QUANTITY', productId, quantity }),

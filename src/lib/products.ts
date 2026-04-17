@@ -36,6 +36,12 @@ export const products: Product[] = [
   },
 ]
 
+export const SUBSCRIPTION_DISCOUNT = 0.15
+
+export function getSubscriptionPrice(amount: number): number {
+  return Math.round(amount * (1 - SUBSCRIPTION_DISCOUNT))
+}
+
 export function getCurrency(lang: string): 'usd' | 'sek' {
   return lang === 'sv' ? 'sek' : 'usd'
 }
