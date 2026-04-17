@@ -60,7 +60,11 @@ body {
   }
 }
 
-::selection {
-  background-color: var(--color-gold);
-  color: var(--color-near-black);
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 22s linear infinite;
 }
