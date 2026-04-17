@@ -4,9 +4,13 @@ import { useTranslation } from 'react-i18next'
 import { useCart } from '@/providers/CartProvider'
 import { products, getCurrency, formatPrice, getSubscriptionPrice, SUBSCRIPTION_DISCOUNT } from '@/lib/products'
 import AnimatedSection from '@/components/shared/AnimatedSection'
-import { ShoppingBag, Zap, Leaf, Shield, RefreshCw, Package, Settings } from 'lucide-react'
+import { ShoppingBag, Zap, Leaf, Shield, Minus, Plus, RefreshCw, Package, Settings } from 'lucide-react'
 
 type PurchaseMode = 'onetime' | 'subscription'
+
+// Boxes of 12 → product mapping
+const BOX_PRODUCT: Record<number, string> = { 1: 'starter', 2: 'duo', 3: 'family' }
+const BOX_BARS: Record<number, number> = { 1: 12, 2: 24, 3: 36 }
 
 const perBar: Record<string, { usd: number; sek: number }> = {
   starter: { usd: 2.42, sek: 23.25 },
@@ -20,43 +24,16 @@ const benefitsStrip = [
   { icon: Shield, text: '0g added sugar' },
 ]
 
-const productCopy: Record<string, { eyebrow: string; pitch: string; subPitch: string }> = {
-  starter: {
-    eyebrow: 'Try it',
-    pitch: 'First time with CAFO? This is where you start.',
-    subPitch: '12 bars delivered every month. Never run out.',
-  },
-  duo: {
-    eyebrow: 'Most popular',
-    pitch: 'The one most people stick with. Two weeks of clean focus.',
-    subPitch: '24 bars a month — enough for every long day.',
-  },
-  family: {
-    eyebrow: 'Best value',
-    pitch: 'A month of bars, priced at the lowest cost per bar we offer.',
-    subPitch: '36 bars monthly. For the ones who never take a day off.',
-  },
+const productCopy: Record<string, { eyebrow: string; pitch: string }> = {
+  starter: { eyebrow: 'Try it',       pitch: 'First time with CAFO? This is where you start.' },
+  duo:     { eyebrow: 'Most popular', pitch: 'The one most people stick with. Two weeks of clean focus.' },
+  family:  { eyebrow: 'Best value',   pitch: 'A full month of bars, lowest cost per bar we offer.' },
 }
 
 const howItWorks = [
-  {
-    icon: Package,
-    step: '01',
-    title: 'Pick your plan.',
-    desc: 'Choose how many bars you want each month — 12, 24, or 36. Switch anytime.',
-  },
-  {
-    icon: RefreshCw,
-    step: '02',
-    title: 'Auto-delivered monthly.',
-    desc: 'We send your order on the same date every month. No thinking required.',
-  },
-  {
-    icon: Settings,
-    step: '03',
-    title: 'Full control, always.',
-    desc: 'Skip a month, swap your plan, or cancel before each delivery date. No fees, no questions.',
-  },
+  { icon: Package,    step: '01', title: 'Pick your plan.',          desc: 'Set how many bars you want each month. Mix it up — different quantities per month.' },
+  { icon: RefreshCw,  step: '02', title: 'Auto-delivered monthly.',   desc: 'We send your order on the same date every month. No thinking required.' },
+  { icon: Settings,   step: '03', title: 'Full control, always.',     desc: 'Skip a month, swap quantities, or cancel before each delivery. No fees.' },
 ]
 
 export default function Shop() {
@@ -64,14 +41,26 @@ export default function Shop() {
   const { addItem } = useCart()
   const currency = getCurrency(i18n.language)
   const [mode, setMode] = useState<PurchaseMode>('onetime')
+  const [plan, setPlan] = useState<number[]>([1, 1, 1]) // boxes per month (1–3)
 
   const discountPct = Math.round(SUBSCRIPTION_DISCOUNT * 100)
+
+  const updatePlan = (month: number, boxes: number) => {
+    const clamped = Math.min(3, Math.max(1, boxes))
+    setPlan(prev => prev.map((b, i) => (i === month ? clamped : b)))
+  }
+
+  const month1ProductId = BOX_PRODUCT[plan[0]]
+
+  const handleSubscribe = () => {
+    addItem(month1ProductId, true, plan)
+  }
 
   return (
     <>
       <Helmet>
         <title>Shop — CAFO Energy</title>
-        <meta name="description" content="Shop CAFO caffeinated protein bars. One-time or monthly subscription. Free shipping on orders over $50." />
+        <meta name="description" content="Shop CAFO caffeinated protein bars. One-time or monthly subscription. Free shipping on orders over 499 kr." />
       </Helmet>
 
       {/* Hero */}
@@ -94,19 +83,19 @@ export default function Shop() {
             ))}
             <div className="hidden sm:block w-px h-4 bg-near-black/15" />
             <span className="text-[11px] font-accent font-bold text-near-black/70 uppercase tracking-wider">
-              {t('nav.freeShipping', { amount: currency === 'sek' ? '499 kr' : '$50' })}
+              Fri frakt över 499 kr
             </span>
           </div>
         </div>
       </section>
 
-      {/* Products */}
+      {/* Products / Subscription planner */}
       <section className="py-20 bg-warm-white">
         <div className="page-container">
 
           {/* Purchase mode toggle */}
           <AnimatedSection>
-            <div className="flex justify-center mb-10">
+            <div className="flex justify-center mb-12">
               <div className="flex bg-near-black/[0.06] rounded-full p-1 gap-1">
                 <button
                   onClick={() => setMode('onetime')}
@@ -137,119 +126,203 @@ export default function Shop() {
             </div>
           </AnimatedSection>
 
-          {/* Product cards */}
-          <div className="grid lg:grid-cols-3 gap-5 items-stretch">
-            {products.map((product, i) => {
-              const copy = productCopy[product.id]
-              const pbar = perBar[product.id]
-              const isFeatured = product.badge === 'products.bestseller'
-              const displayPrice = mode === 'subscription'
-                ? getSubscriptionPrice(product.price[currency])
-                : product.price[currency]
-              const subPbar = currency === 'sek'
-                ? (getSubscriptionPrice(product.price.sek) / product.barCount).toFixed(2)
-                : (getSubscriptionPrice(product.price.usd) / product.barCount).toFixed(2)
+          {/* ONE-TIME: product cards */}
+          {mode === 'onetime' && (
+            <div className="grid lg:grid-cols-3 gap-5 items-stretch">
+              {products.map((product, i) => {
+                const copy = productCopy[product.id]
+                const pbar = perBar[product.id]
+                const isFeatured = product.badge === 'products.bestseller'
 
-              return (
-                <AnimatedSection key={product.id} delay={i * 0.1} direction="scale">
-                  <div className={`relative rounded-3xl overflow-hidden border h-full flex flex-col transition-all duration-300 hover:-translate-y-1 ${
-                    isFeatured
-                      ? 'bg-near-black border-near-black shadow-2xl shadow-near-black/20'
-                      : 'bg-white border-near-black/[0.06] hover:shadow-xl hover:shadow-near-black/8'
-                  }`}>
-                    <div className="px-8 pt-8 pb-0">
-                      <span className={`inline-block text-[10px] font-accent font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-5 ${
-                        isFeatured ? 'bg-gold/20 text-gold' : 'bg-near-black/[0.05] text-near-black/40'
-                      }`}>
-                        {copy.eyebrow}
-                      </span>
-                    </div>
-
-                    <div className={`mx-8 rounded-2xl aspect-[4/3] flex items-center justify-center mb-6 ${
-                      isFeatured ? 'bg-white/[0.06]' : 'bg-gradient-to-br from-cream to-dark-cream'
+                return (
+                  <AnimatedSection key={product.id} delay={i * 0.1} direction="scale">
+                    <div className={`relative rounded-3xl overflow-hidden border h-full flex flex-col transition-all duration-300 hover:-translate-y-1 ${
+                      isFeatured
+                        ? 'bg-near-black border-near-black shadow-2xl shadow-near-black/20'
+                        : 'bg-white border-near-black/[0.06] hover:shadow-xl'
                     }`}>
-                      <div className="text-center">
-                        <span className={`text-4xl font-heading ${isFeatured ? 'text-white' : 'text-forest'}`}>CAFO</span>
-                        <p className={`text-xs font-accent mt-1 ${isFeatured ? 'text-white/30' : 'text-forest/40'}`}>
-                          {t(product.descriptionKey)}
-                        </p>
+                      <div className="px-8 pt-8">
+                        <span className={`inline-block text-[10px] font-accent font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-5 ${
+                          isFeatured ? 'bg-gold/20 text-gold' : 'bg-near-black/[0.05] text-near-black/40'
+                        }`}>
+                          {copy.eyebrow}
+                        </span>
                       </div>
-                    </div>
 
-                    <div className="px-8 pb-8 flex flex-col flex-1">
-                      <h3 className={`text-xl font-heading mb-1 ${isFeatured ? 'text-white' : 'text-near-black'}`}>
-                        {t(product.nameKey)}
-                      </h3>
-                      <p className={`text-sm font-accent leading-relaxed mb-6 flex-1 ${isFeatured ? 'text-white/45' : 'text-near-black/45'}`}>
-                        {mode === 'subscription' ? copy.subPitch : copy.pitch}
-                      </p>
-
-                      {/* Price */}
-                      <div className="flex items-end justify-between mb-4">
-                        <div>
-                          <div className="flex items-baseline gap-2">
-                            <span className={`text-3xl font-heading ${isFeatured ? 'text-white' : 'text-near-black'}`}>
-                              {formatPrice(displayPrice, currency)}
-                            </span>
-                            {mode === 'onetime' && product.originalPrice && (
-                              <span className={`text-sm line-through ${isFeatured ? 'text-white/25' : 'text-near-black/25'}`}>
-                                {formatPrice(product.originalPrice[currency], currency)}
-                              </span>
-                            )}
-                            {mode === 'subscription' && (
-                              <span className={`text-sm line-through ${isFeatured ? 'text-white/25' : 'text-near-black/25'}`}>
-                                {formatPrice(product.price[currency], currency)}
-                              </span>
-                            )}
-                          </div>
-                          <p className={`text-[11px] font-accent mt-0.5 ${isFeatured ? 'text-white/30' : 'text-near-black/30'}`}>
-                            {mode === 'subscription'
-                              ? `${currency === 'sek' ? `${subPbar} kr` : `$${subPbar}`} / bar · billed monthly`
-                              : currency === 'sek'
-                                ? `${pbar.sek.toFixed(2)} kr / bar`
-                                : `$${pbar.usd.toFixed(2)} / bar`}
+                      <div className={`mx-8 rounded-2xl aspect-[4/3] flex items-center justify-center mb-6 ${
+                        isFeatured ? 'bg-white/[0.06]' : 'bg-gradient-to-br from-cream to-dark-cream'
+                      }`}>
+                        <div className="text-center">
+                          <span className={`text-4xl font-heading ${isFeatured ? 'text-white' : 'text-forest'}`}>CAFO</span>
+                          <p className={`text-xs font-accent mt-1 ${isFeatured ? 'text-white/30' : 'text-forest/40'}`}>
+                            {t(product.descriptionKey)}
                           </p>
                         </div>
-                        {mode === 'onetime' && product.originalPrice && (
-                          <span className="text-xs font-bold font-accent bg-gold text-near-black px-2.5 py-1 rounded-full">
-                            Save {Math.round((1 - product.price[currency] / product.originalPrice[currency]) * 100)}%
-                          </span>
-                        )}
-                        {mode === 'subscription' && (
-                          <span className="text-xs font-bold font-accent bg-gold text-near-black px-2.5 py-1 rounded-full">
-                            -{discountPct}%
-                          </span>
-                        )}
                       </div>
 
+                      <div className="px-8 pb-8 flex flex-col flex-1">
+                        <h3 className={`text-xl font-heading mb-1 ${isFeatured ? 'text-white' : 'text-near-black'}`}>
+                          {t(product.nameKey)}
+                        </h3>
+                        <p className={`text-sm font-accent leading-relaxed mb-6 flex-1 ${isFeatured ? 'text-white/45' : 'text-near-black/45'}`}>
+                          {copy.pitch}
+                        </p>
+
+                        <div className="flex items-end justify-between mb-4">
+                          <div>
+                            <div className="flex items-baseline gap-2">
+                              <span className={`text-3xl font-heading ${isFeatured ? 'text-white' : 'text-near-black'}`}>
+                                {formatPrice(product.price[currency], currency)}
+                              </span>
+                              {product.originalPrice && (
+                                <span className={`text-sm line-through ${isFeatured ? 'text-white/25' : 'text-near-black/25'}`}>
+                                  {formatPrice(product.originalPrice[currency], currency)}
+                                </span>
+                              )}
+                            </div>
+                            <p className={`text-[11px] font-accent mt-0.5 ${isFeatured ? 'text-white/30' : 'text-near-black/30'}`}>
+                              {currency === 'sek' ? `${pbar.sek.toFixed(2)} kr / bar` : `$${pbar.usd.toFixed(2)} / bar`}
+                            </p>
+                          </div>
+                          {product.originalPrice && (
+                            <span className="text-xs font-bold font-accent bg-gold text-near-black px-2.5 py-1 rounded-full">
+                              Save {Math.round((1 - product.price[currency] / product.originalPrice[currency]) * 100)}%
+                            </span>
+                          )}
+                        </div>
+
+                        <button
+                          onClick={() => addItem(product.id)}
+                          className={`w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 font-semibold font-accent rounded-full transition-all duration-200 hover:-translate-y-0.5 ${
+                            isFeatured
+                              ? 'bg-gradient-to-r from-gold to-gold-light text-near-black hover:shadow-lg hover:shadow-gold/30'
+                              : 'bg-near-black text-white hover:shadow-lg'
+                          }`}
+                        >
+                          <ShoppingBag className="w-4 h-4" />
+                          {t('products.addToCart')}
+                        </button>
+                      </div>
+                    </div>
+                  </AnimatedSection>
+                )
+              })}
+            </div>
+          )}
+
+          {/* SUBSCRIPTION: 3-month planner */}
+          {mode === 'subscription' && (
+            <AnimatedSection direction="scale">
+              <div className="max-w-2xl mx-auto">
+                <div className="bg-white rounded-3xl border border-near-black/[0.06] overflow-hidden shadow-lg">
+                  {/* Planner header */}
+                  <div className="px-8 py-6 border-b border-near-black/[0.06] bg-cream">
+                    <p className="text-[10px] font-accent font-bold text-near-black/30 uppercase tracking-widest mb-1">
+                      Plan your delivery
+                    </p>
+                    <h2 className="text-2xl font-heading text-near-black">
+                      Choose your boxes per month
+                    </h2>
+                    <p className="text-sm text-near-black/45 font-accent mt-1">
+                      1 box = 12 bars · {discountPct}% off every delivery
+                    </p>
+                  </div>
+
+                  {/* Month rows */}
+                  <div className="px-8 divide-y divide-near-black/[0.05]">
+                    {[0, 1, 2].map((month) => {
+                      const boxes = plan[month]
+                      const product = products.find(p => p.id === BOX_PRODUCT[boxes])!
+                      const price = getSubscriptionPrice(product.price[currency])
+                      const isFirst = month === 0
+
+                      return (
+                        <div key={month} className="py-5 flex items-center justify-between gap-4">
+                          {/* Month label */}
+                          <div className="w-20 shrink-0">
+                            <p className="text-sm font-heading text-near-black">
+                              Month {month + 1}
+                            </p>
+                            {isFirst && (
+                              <p className="text-[10px] font-accent text-gold uppercase tracking-wider">
+                                First delivery
+                              </p>
+                            )}
+                          </div>
+
+                          {/* Box selector */}
+                          <div className="flex items-center gap-2 bg-near-black/[0.04] rounded-full px-2 py-1.5">
+                            <button
+                              onClick={() => updatePlan(month, boxes - 1)}
+                              disabled={boxes <= 1}
+                              className="w-7 h-7 flex items-center justify-center rounded-full text-near-black/40 hover:bg-white hover:text-near-black disabled:opacity-20 transition-all"
+                            >
+                              <Minus className="w-3 h-3" />
+                            </button>
+                            <span className="text-sm font-heading text-near-black w-20 text-center">
+                              {BOX_BARS[boxes]} bars
+                            </span>
+                            <button
+                              onClick={() => updatePlan(month, boxes + 1)}
+                              disabled={boxes >= 3}
+                              className="w-7 h-7 flex items-center justify-center rounded-full text-near-black/40 hover:bg-white hover:text-near-black disabled:opacity-20 transition-all"
+                            >
+                              <Plus className="w-3 h-3" />
+                            </button>
+                          </div>
+
+                          {/* Price + bars */}
+                          <div className="text-right shrink-0">
+                            <p className="text-base font-heading text-near-black">{formatPrice(price, currency)}</p>
+                            <p className="text-[11px] font-accent text-near-black/30">
+                              {boxes} box{boxes > 1 ? 'es' : ''}
+                            </p>
+                          </div>
+                        </div>
+                      )
+                    })}
+                  </div>
+
+                  {/* Summary + CTA */}
+                  <div className="px-8 py-6 bg-near-black">
+                    <div className="flex items-center justify-between mb-4">
+                      <div>
+                        <p className="text-[10px] font-accent text-white/30 uppercase tracking-widest mb-0.5">
+                          First payment
+                        </p>
+                        <p className="text-3xl font-heading text-white">
+                          {formatPrice(getSubscriptionPrice(products.find(p => p.id === month1ProductId)!.price[currency]), currency)}
+                        </p>
+                        <p className="text-[11px] font-accent text-white/30 mt-0.5">
+                          {BOX_BARS[plan[0]]} bars · then auto-renewed monthly
+                        </p>
+                      </div>
                       <button
-                        onClick={() => addItem(product.id, mode === 'subscription')}
-                        className={`w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 font-semibold font-accent rounded-full transition-all duration-200 hover:-translate-y-0.5 ${
-                          isFeatured
-                            ? 'bg-gradient-to-r from-gold to-gold-light text-near-black hover:shadow-lg hover:shadow-gold/30'
-                            : 'bg-near-black text-white hover:shadow-lg hover:shadow-near-black/20'
-                        }`}
+                        onClick={handleSubscribe}
+                        className="flex items-center gap-2 px-7 py-3.5 bg-gradient-to-r from-gold to-gold-light text-near-black font-semibold font-accent rounded-full hover:-translate-y-0.5 hover:shadow-lg hover:shadow-gold/25 transition-all duration-200"
                       >
                         <ShoppingBag className="w-4 h-4" />
-                        {mode === 'subscription' ? 'Subscribe & save' : t('products.addToCart')}
+                        Subscribe
                       </button>
-
-                      {mode === 'subscription' && (
-                        <p className={`text-[11px] font-accent text-center mt-2 ${isFeatured ? 'text-white/25' : 'text-near-black/30'}`}>
-                          Skip, swap, or cancel anytime
-                        </p>
-                      )}
+                    </div>
+                    <div className="flex flex-wrap gap-x-6 gap-y-1.5">
+                      {['Cancel anytime', 'Skip any month', 'Change quantities before each delivery', 'Free shipping included'].map(f => (
+                        <span key={f} className="text-[11px] font-accent text-white/25 flex items-center gap-1.5">
+                          <span className="w-1 h-1 rounded-full bg-gold/60 inline-block" />
+                          {f}
+                        </span>
+                      ))}
                     </div>
                   </div>
-                </AnimatedSection>
-              )
-            })}
-          </div>
+                </div>
+              </div>
+            </AnimatedSection>
+          )}
 
           {/* Trust line */}
           <AnimatedSection delay={0.3}>
             <p className="text-center text-[11px] font-accent text-near-black/30 mt-8 tracking-wide">
-              Ships within 2–3 business days · {currency === 'sek' ? 'Fri frakt över 499 kr' : 'Free shipping over $50'}
+              Ships within 2–3 business days · Fri frakt över 499 kr
             </p>
           </AnimatedSection>
         </div>
@@ -284,7 +357,7 @@ export default function Shop() {
 
               <div className="flex flex-col sm:flex-row items-center justify-between gap-4 px-7 py-5 rounded-2xl bg-white/[0.04] border border-white/[0.07]">
                 <div className="flex flex-wrap gap-x-8 gap-y-2">
-                  {['15% off every order', 'Free shipping included', 'Pause or cancel anytime', 'Same delivery date monthly'].map(f => (
+                  {[`${discountPct}% off every order`, 'Free shipping included', 'Pause or cancel anytime', 'Adjust quantities monthly'].map(f => (
                     <span key={f} className="text-[11px] font-accent text-white/40 flex items-center gap-1.5">
                       <span className="w-1 h-1 rounded-full bg-gold inline-block" />
                       {f}
@@ -328,10 +401,7 @@ export default function Shop() {
                   { label: t('nutrition.sugarTitle'),    value: '0g',   desc: t('nutrition.sugarDesc'),    accent: 'forest' },
                   { label: t('nutrition.ltheanineTitle'),value: '✓',    desc: t('nutrition.ltheanineDesc'),accent: 'gold' },
                 ].map((item) => (
-                  <div
-                    key={item.label}
-                    className="bg-white rounded-3xl p-7 border border-near-black/[0.06] flex gap-5 items-start hover:shadow-md transition-all duration-200"
-                  >
+                  <div key={item.label} className="bg-white rounded-3xl p-7 border border-near-black/[0.06] flex gap-5 items-start hover:shadow-md transition-all duration-200">
                     <div className={`text-3xl font-heading shrink-0 leading-none mt-0.5 ${item.accent === 'forest' ? 'text-forest' : 'text-gold'}`}>
                       {item.value}
                     </div>

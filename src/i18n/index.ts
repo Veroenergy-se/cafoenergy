@@ -4,8 +4,8 @@ import en from './en.json'
 import sv from './sv.json'
 
 const savedLang = typeof window !== 'undefined'
-  ? localStorage.getItem('cafo-lang') || 'en'
-  : 'en'
+  ? localStorage.getItem('cafo-lang') || 'sv'
+  : 'sv'
 
 i18n.use(initReactI18next).init({
   resources: {

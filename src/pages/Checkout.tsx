@@ -68,8 +68,20 @@ export default function Checkout() {
       .filter(Boolean)
       .join('\n')
 
+    const planNote = items
+      .filter(i => i.subscription && i.monthlyPlan)
+      .map((item) => {
+        const product = getProduct(item.productId)
+        if (!product) return null
+        const BOX_BARS: Record<number, number> = { 1: 12, 2: 24, 3: 36 }
+        const months = item.monthlyPlan!.map((boxes, i) => `Month ${i + 1}: ${BOX_BARS[boxes] ?? boxes * 12} bars`).join(', ')
+        return `Plan for ${t(product.nameKey)}: ${months}`
+      })
+      .filter(Boolean)
+      .join('\n')
+
     const subscriptionNote = hasSubscription
-      ? '\n\n⚡ SUBSCRIPTION ORDER — please set up recurring monthly delivery for the items marked above.'
+      ? `\n\n⚡ SUBSCRIPTION ORDER — please set up recurring monthly delivery for the items marked above.${planNote ? `\n\nMonthly plan:\n${planNote}` : ''}`
       : ''
 
     const emailBody = `New order from ${form.name}\n\n${orderLines}\n\nTotal: ${formatPrice(total, currency)}${subscriptionNote}\n\nShipping to:\n${form.name}\n${form.address}\n${form.zip} ${form.city}\n\nContact: ${form.email}`

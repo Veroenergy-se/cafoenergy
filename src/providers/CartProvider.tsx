@@ -5,6 +5,7 @@ export interface CartItem {
   productId: string
   quantity: number
   subscription: boolean
+  monthlyPlan?: number[] // [month1_boxes, month2_boxes, month3_boxes]
 }
 
 interface CartState {
@@ -13,7 +14,7 @@ interface CartState {
 }
 
 type CartAction =
-  | { type: 'ADD_ITEM'; productId: string; subscription: boolean }
+  | { type: 'ADD_ITEM'; productId: string; subscription: boolean; monthlyPlan?: number[] }
   | { type: 'REMOVE_ITEM'; productId: string }
   | { type: 'UPDATE_QUANTITY'; productId: string; quantity: number }
   | { type: 'CLEAR' }
@@ -31,7 +32,7 @@ function cartReducer(state: CartState, action: CartAction): CartState {
           isOpen: true,
           items: state.items.map(i =>
             i.productId === action.productId
-              ? { ...i, quantity: i.quantity + 1, subscription: action.subscription }
+              ? { ...i, quantity: i.quantity + 1, subscription: action.subscription, monthlyPlan: action.monthlyPlan }
               : i
           ),
         }
@@ -39,7 +40,7 @@ function cartReducer(state: CartState, action: CartAction): CartState {
       return {
         ...state,
         isOpen: true,
-        items: [...state.items, { productId: action.productId, quantity: 1, subscription: action.subscription }],
+        items: [...state.items, { productId: action.productId, quantity: 1, subscription: action.subscription, monthlyPlan: action.monthlyPlan }],
       }
     }
     case 'REMOVE_ITEM':
@@ -70,7 +71,7 @@ function cartReducer(state: CartState, action: CartAction): CartState {
 interface CartContextValue {
   items: CartItem[]
   isOpen: boolean
-  addItem: (productId: string, subscription?: boolean) => void
+  addItem: (productId: string, subscription?: boolean, monthlyPlan?: number[]) => void
   removeItem: (productId: string) => void
   updateQuantity: (productId: string, quantity: number) => void
   clearCart: () => void
@@ -116,8 +117,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
       value={{
         items: state.items,
         isOpen: state.isOpen,
-        addItem: (productId, subscription = false) =>
-          dispatch({ type: 'ADD_ITEM', productId, subscription }),
+        addItem: (productId, subscription = false, monthlyPlan) =>
+          dispatch({ type: 'ADD_ITEM', productId, subscription, monthlyPlan }),
         removeItem: (productId) => dispatch({ type: 'REMOVE_ITEM', productId }),
         updateQuantity: (productId, quantity) =>
           dispatch({ type: 'UPDATE_QUANTITY', productId, quantity }),
