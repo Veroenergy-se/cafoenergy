@@ -1,8 +1,32 @@
+import { useRef } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
+import { motion, useInView } from 'framer-motion'
 import AnimatedSection from '@/components/shared/AnimatedSection'
 
 const ticker = 'SHOW UP\u00a0·\u00a0GO ALL IN\u00a0·\u00a0NO SHORTCUTS\u00a0·\u00a0CAFO ENERGY\u00a0·\u00a0'
+
+function SlidePanel({ children, className, from }: { children: React.ReactNode; className: string; from: 'left' | 'right' }) {
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, margin: '-60px' })
+  return (
+    <motion.div
+      ref={ref}
+      className={className}
+      initial={{ opacity: 0, x: from === 'left' ? -60 : 60 }}
+      animate={inView ? { opacity: 1, x: 0 } : {}}
+      transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+    >
+      {children}
+    </motion.div>
+  )
+}
+
+const values = [
+  { title: 'Show up.', body: 'Whatever the day asks — be ready for it. That starts with what you put in your body.' },
+  { title: 'Go all in.', body: "Half-effort gets half-results. CAFO is for people who don't do things halfway." },
+  { title: 'No shortcuts.', body: "Clean ingredients, real fuel. We didn't cut corners on the formula — and neither should you." },
+]
 
 export default function Community() {
   const { t } = useTranslation()
@@ -14,7 +38,7 @@ export default function Community() {
         <meta name="description" content="Join the CAFO Energy community. Built for students, athletes, and professionals who refuse to settle." />
       </Helmet>
 
-      {/* Hero — consistent dark header */}
+      {/* Hero */}
       <section className="bg-near-black py-32 text-center">
         <AnimatedSection>
           <h1 className="text-8xl sm:text-9xl lg:text-[10rem] font-heading text-white">{t('community.title')}</h1>
@@ -22,7 +46,7 @@ export default function Community() {
         </AnimatedSection>
       </section>
 
-      {/* Split 1 — brand story: text left, colour panel right */}
+      {/* Split 1 — brand story */}
       <section className="bg-cream">
         <div className="grid sm:grid-cols-2">
 
@@ -43,33 +67,39 @@ export default function Community() {
             </AnimatedSection>
           </div>
 
-          <div className="bg-near-black min-h-[50vh] sm:min-h-0 flex items-center justify-center overflow-hidden">
+          <SlidePanel
+            from="right"
+            className="bg-near-black min-h-[50vh] sm:min-h-0 flex items-center justify-center overflow-hidden"
+          >
             <span className="font-heading text-white/[0.04] select-none leading-none" style={{ fontSize: 'clamp(8rem, 18vw, 22rem)' }}>
               CAFO
             </span>
-          </div>
+          </SlidePanel>
 
         </div>
       </section>
 
-      {/* Breakout quote — full-width centred moment */}
-      <section className="bg-cream py-36 sm:py-48 px-8 text-center">
-        <AnimatedSection direction="scale">
-          <p className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-heading text-near-black max-w-4xl mx-auto leading-tight">
-            The alarm goes off.<br />You go anyway.
+      {/* Breakout quote */}
+      <section className="bg-cream py-36 sm:py-52 px-8 text-center">
+        <AnimatedSection direction="up">
+          <p className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-heading text-near-black max-w-3xl mx-auto leading-tight">
+            Built for the ones<br />who go all in.
           </p>
         </AnimatedSection>
       </section>
 
-      {/* Split 2 — values: gold panel left, text right */}
+      {/* Split 2 — values */}
       <section className="bg-cream">
         <div className="grid sm:grid-cols-2">
 
-          <div className="bg-gold min-h-[50vh] sm:min-h-0 flex items-center justify-center overflow-hidden order-last sm:order-first">
+          <SlidePanel
+            from="left"
+            className="bg-gold min-h-[50vh] sm:min-h-0 flex items-center justify-center overflow-hidden order-last sm:order-first"
+          >
             <span className="font-heading text-near-black/[0.06] select-none leading-none" style={{ fontSize: 'clamp(8rem, 18vw, 22rem)' }}>
               GO
             </span>
-          </div>
+          </SlidePanel>
 
           <div className="flex flex-col justify-center px-10 py-20 sm:px-14 lg:px-20 xl:px-28 min-h-[55vh]">
             <AnimatedSection direction="right">
@@ -79,25 +109,21 @@ export default function Community() {
               <h2 className="text-3xl sm:text-4xl font-heading text-near-black mb-10 leading-tight">
                 Always go for it.
               </h2>
-              <div className="space-y-8">
-                {[
-                  { title: 'Show up.', body: 'Whatever the day asks — be ready for it. That starts with what you put in your body.' },
-                  { title: 'Go all in.', body: 'Half-effort gets half-results. CAFO is for people who commit.' },
-                  { title: 'No shortcuts.', body: "Clean ingredients, real fuel. We didn't cut corners on the formula — and neither should you." },
-                ].map(v => (
-                  <div key={v.title}>
-                    <h3 className="text-lg font-heading text-near-black mb-1">{v.title}</h3>
-                    <p className="text-sm text-near-black/45 font-accent leading-relaxed max-w-xs">{v.body}</p>
-                  </div>
-                ))}
-              </div>
             </AnimatedSection>
+            <div className="space-y-8">
+              {values.map((v, i) => (
+                <AnimatedSection key={v.title} delay={0.1 + i * 0.12} direction="up">
+                  <h3 className="text-lg font-heading text-near-black mb-1">{v.title}</h3>
+                  <p className="text-sm text-near-black/45 font-accent leading-relaxed max-w-xs">{v.body}</p>
+                </AnimatedSection>
+              ))}
+            </div>
           </div>
 
         </div>
       </section>
 
-      {/* Marquee ticker */}
+      {/* Marquee */}
       <div className="bg-near-black py-4 overflow-hidden">
         <div className="flex whitespace-nowrap animate-marquee">
           {Array.from({ length: 6 }).map((_, i) => (
@@ -108,36 +134,37 @@ export default function Community() {
         </div>
       </div>
 
-      {/* Stats — clean horizontal strip */}
+      {/* Stats */}
       <section className="bg-cream py-28">
         <div className="page-container">
-          <AnimatedSection>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-12 text-center">
-              {[
-                { n: '3', l: 'Founders' },
-                { n: 'Sweden', l: 'Where it started' },
-                { n: '1', l: 'Flavour — perfected' },
-                { n: 'Day\u00a01', l: 'Founding community' },
-              ].map(s => (
-                <div key={s.l}>
-                  <div className="text-4xl sm:text-5xl font-heading text-near-black leading-none">{s.n}</div>
-                  <div className="text-[10px] font-accent text-near-black/30 uppercase tracking-widest mt-3">{s.l}</div>
-                </div>
-              ))}
-            </div>
-          </AnimatedSection>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-12 text-center">
+            {[
+              { n: '3', l: 'Founders' },
+              { n: 'Sweden', l: 'Where it started' },
+              { n: '1', l: 'Flavour — perfected' },
+              { n: 'Day\u00a01', l: 'Founding community' },
+            ].map((s, i) => (
+              <AnimatedSection key={s.l} delay={i * 0.1}>
+                <div className="text-4xl sm:text-5xl font-heading text-near-black leading-none">{s.n}</div>
+                <div className="text-[10px] font-accent text-near-black/30 uppercase tracking-widest mt-3">{s.l}</div>
+              </AnimatedSection>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Split 3 — CTA: forest panel left, text right */}
+      {/* Split 3 — CTA */}
       <section className="bg-cream">
         <div className="grid sm:grid-cols-2">
 
-          <div className="bg-forest min-h-[50vh] sm:min-h-0 flex items-center justify-center overflow-hidden">
+          <SlidePanel
+            from="left"
+            className="bg-forest min-h-[50vh] sm:min-h-0 flex items-center justify-center overflow-hidden"
+          >
             <span className="font-heading text-white/[0.05] select-none leading-none" style={{ fontSize: 'clamp(6rem, 15vw, 18rem)' }}>
               CAFO
             </span>
-          </div>
+          </SlidePanel>
 
           <div className="flex flex-col justify-center px-10 py-20 sm:px-14 lg:px-20 xl:px-28 min-h-[55vh]">
             <AnimatedSection direction="right">
