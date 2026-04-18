@@ -93,7 +93,10 @@ export default function Shop() {
 
           {/* Purchase mode toggle */}
           <AnimatedSection>
-            <div className="flex justify-center mb-12">
+            <div className="flex flex-col items-center mb-12 gap-4">
+              <p className="text-[11px] font-accent text-near-black/35 tracking-wide">
+                Each box contains <span className="font-semibold text-near-black/55">12 bars</span> — about one week of daily focus.
+              </p>
               <div className="flex bg-near-black/[0.06] rounded-full p-1 gap-1">
                 <button
                   onClick={() => setMode('onetime')}
@@ -151,9 +154,15 @@ export default function Shop() {
                         isFeatured ? 'bg-white/[0.06]' : 'bg-gradient-to-br from-cream to-dark-cream'
                       }`}>
                         <div className="text-center">
-                          <span className={`text-4xl font-heading ${isFeatured ? 'text-white' : 'text-forest'}`}>CAFO</span>
-                          <p className={`text-xs font-accent mt-1 ${isFeatured ? 'text-white/30' : 'text-forest/40'}`}>
-                            {t(product.descriptionKey)}
+                          <p className={`text-[10px] font-accent font-bold uppercase tracking-widest mb-1 ${isFeatured ? 'text-white/25' : 'text-near-black/25'}`}>CAFO Energy Bar</p>
+                          <span className={`text-6xl font-heading leading-none ${isFeatured ? 'text-white' : 'text-near-black'}`}>
+                            {product.barCount / 12}
+                          </span>
+                          <p className={`text-base font-heading mt-0.5 ${isFeatured ? 'text-white/50' : 'text-near-black/40'}`}>
+                            {product.barCount / 12 === 1 ? 'box' : 'boxes'}
+                          </p>
+                          <p className={`text-[11px] font-accent mt-2 ${isFeatured ? 'text-white/25' : 'text-near-black/25'}`}>
+                            {product.barCount} bars total
                           </p>
                         </div>
                       </div>
@@ -230,8 +239,9 @@ export default function Shop() {
                         <Minus className="w-4 h-4" />
                       </button>
                       <div className="flex-1 text-center">
-                        <p className="text-5xl font-heading text-near-black leading-none">{BOX_BARS(plan[0])}</p>
-                        <p className="text-sm font-accent text-near-black/40 mt-1">bars per month</p>
+                        <p className="text-5xl font-heading text-near-black leading-none">{plan[0]}</p>
+                        <p className="text-sm font-heading text-near-black/40 mt-0.5">{plan[0] === 1 ? 'box' : 'boxes'}</p>
+                        <p className="text-[11px] font-accent text-near-black/25 mt-1">{BOX_BARS(plan[0])} bars</p>
                       </div>
                       <button
                         onClick={() => updatePlan(0, plan[0] + 1)}
@@ -252,7 +262,7 @@ export default function Shop() {
                               : 'bg-near-black/[0.05] text-near-black/40 hover:bg-near-black/10'
                           }`}
                         >
-                          {BOX_BARS(b)} bars
+                          {b} {b === 1 ? 'box' : 'boxes'}
                         </button>
                       ))}
                     </div>
@@ -323,7 +333,7 @@ export default function Shop() {
                             >
                               <Minus className="w-3 h-3" />
                             </button>
-                            <span className="text-sm font-heading text-near-black flex-1 text-center">{BOX_BARS(boxes)} bars</span>
+                            <span className="text-sm font-heading text-near-black flex-1 text-center">{boxes} {boxes === 1 ? 'box' : 'boxes'}</span>
                             <button
                               onClick={() => updatePlan(month, boxes + 1)}
                               className="w-7 h-7 flex items-center justify-center rounded-full bg-white border border-near-black/10 text-near-black/40 hover:text-near-black disabled:opacity-20 transition-all"
@@ -349,7 +359,7 @@ export default function Shop() {
                       {formatPrice(getSubscriptionPrice(BOX_PRICE_SEK * plan[0], plan[0]), currency)}
                     </p>
                     <p className="text-[11px] font-accent text-white/30 mt-1">
-                      {BOX_BARS(plan[0])} bars · then auto-renewed monthly
+                      {plan[0]} {plan[0] === 1 ? 'box' : 'boxes'} · {BOX_BARS(plan[0])} bars · auto-renewed monthly
                     </p>
                   </div>
                   <button
