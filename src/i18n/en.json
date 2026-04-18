@@ -101,7 +101,43 @@
     },
     "joinTitle": "Ready to Join?",
     "joinDesc": "Be part of a community that values clean energy and real focus.",
-    "joinCta": "Join the Movement"
+    "joinCta": "Join the Movement",
+    "story": {
+      "eyebrow": "Our story",
+      "heading": "Built to go further.",
+      "p1": "CAFO started with one question: why does performance food taste like chalk? Three founders, one kitchen, one flavour we refused to compromise on.",
+      "p2": "90mg caffeine. 14g plant protein. Zero added sugar. Everything there for a reason — nothing that isn't."
+    },
+    "quote": "Built for the ones who go all in.",
+    "values": {
+      "eyebrow": "What we stand for",
+      "heading": "Always go for it.",
+      "v1": {
+        "title": "Show up.",
+        "body": "Whatever the day asks — be ready for it. That starts with what you put in your body."
+      },
+      "v2": {
+        "title": "Go all in.",
+        "body": "Half-effort gets half-results. CAFO is for people who don't do things halfway."
+      },
+      "v3": {
+        "title": "No shortcuts.",
+        "body": "Clean ingredients, real fuel. We didn't cut corners on the formula — and neither should you."
+      }
+    },
+    "statsNew": {
+      "founders": "Founders",
+      "origin": "Where it started",
+      "flavour": "Flavour — perfected",
+      "founding": "Founding community"
+    },
+    "cta": {
+      "eyebrow": "Ready?",
+      "heading": "Join the people who don't wait.",
+      "body": "Follow us on Instagram or grab your first box. Either way — you already made the first move.",
+      "instagram": "Follow @cafoenergy",
+      "shop": "Shop the bar"
+    }
   },
   "about": {
     "heroTitle": "OUR STORY",

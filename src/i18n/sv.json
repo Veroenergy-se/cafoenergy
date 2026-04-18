@@ -101,7 +101,43 @@
     },
     "joinTitle": "Redo att Gå Med?",
     "joinDesc": "Bli en del av en community som värdesätter ren energi och äkta fokus.",
-    "joinCta": "Gå Med i Rörelsen"
+    "joinCta": "Gå Med i Rörelsen",
+    "story": {
+      "eyebrow": "Vår historia",
+      "heading": "Byggt för att gå längre.",
+      "p1": "CAFO startade med en fråga: varför smakar prestationsmat som krita? Tre grundare, ett kök, en smak vi vägrade kompromissa med.",
+      "p2": "90mg koffein. 14g växtprotein. Noll tillsatt socker. Allt är där av en anledning — inget som inte är det."
+    },
+    "quote": "Byggt för dem som ger allt.",
+    "values": {
+      "eyebrow": "Vad vi står för",
+      "heading": "Ge alltid allt.",
+      "v1": {
+        "title": "Visa upp.",
+        "body": "Vad dagen än kräver — var redo för det. Det börjar med vad du stoppar i kroppen."
+      },
+      "v2": {
+        "title": "Ge allt.",
+        "body": "Halvhjärtat ger halvhjärtade resultat. CAFO är för dem som inte gör saker halvvägs."
+      },
+      "v3": {
+        "title": "Inga genvägar.",
+        "body": "Rena ingredienser, riktigt bränsle. Vi tog inga genvägar med formeln — och det borde inte du heller."
+      }
+    },
+    "statsNew": {
+      "founders": "Grundare",
+      "origin": "Där det startade",
+      "flavour": "En smak — perfektionerad",
+      "founding": "Grundande community"
+    },
+    "cta": {
+      "eyebrow": "Redo?",
+      "heading": "Gå med de som inte väntar.",
+      "body": "Följ oss på Instagram eller ta din första box. Hur som helst — du har redan tagit det första steget.",
+      "instagram": "Följ @cafoenergy",
+      "shop": "Handla baren"
+    }
   },
   "about": {
     "heroTitle": "VÅR BERÄTTELSE",
