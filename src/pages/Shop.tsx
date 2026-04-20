@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { useCart } from '@/providers/CartProvider'
 import { products, getCurrency, formatPrice, getSubscriptionPrice, getSubscriptionDiscount } from '@/lib/products'
 import AnimatedSection from '@/components/shared/AnimatedSection'
-import { ShoppingBag, Zap, Leaf, Shield, Minus, Plus, RefreshCw, Package, Settings } from 'lucide-react'
+import { ShoppingBag, Zap, Leaf, Shield, RefreshCw, Package, Settings } from 'lucide-react'
 import CafoLogo from '@/components/shared/CafoLogo'
 
 type PurchaseMode = 'onetime' | 'subscription'
@@ -206,159 +206,72 @@ export default function Shop() {
             </div>
           )}
 
-          {/* SUBSCRIPTION: planner */}
+          {/* SUBSCRIPTION: simple planner */}
           {mode === 'subscription' && (
             <AnimatedSection direction="scale">
-              <div className="bg-white rounded-3xl border border-near-black/[0.06] overflow-hidden shadow-lg">
+              <div className="max-w-2xl mx-auto">
 
-                {/* Top: month 1 + savings side by side */}
-                <div className="grid sm:grid-cols-2 gap-0 divide-y sm:divide-y-0 sm:divide-x divide-near-black/[0.06]">
-
-                  {/* Month 1 — primary selector */}
-                  <div className="p-8 sm:p-10">
-                    <p className="text-[10px] font-accent font-bold text-near-black/30 uppercase tracking-widest mb-5">
-                      Your monthly box
-                    </p>
-                    <div className="flex items-center gap-4 mb-6">
+                {/* Option cards */}
+                <div className="grid grid-cols-3 gap-4 mb-8">
+                  {[
+                    { boxes: 1, label: '1 box',   bars: 12,  discount: 10, tag: null },
+                    { boxes: 2, label: '2 boxes',  bars: 24,  discount: 15, tag: 'Most popular' },
+                    { boxes: 3, label: '3 boxes',  bars: 36,  discount: 20, tag: 'Best value' },
+                  ].map(({ boxes, label, bars, discount, tag }) => {
+                    const price = getSubscriptionPrice(BOX_PRICE_SEK * boxes, boxes)
+                    const selected = plan[0] === boxes
+                    return (
                       <button
-                        onClick={() => updatePlan(0, plan[0] - 1)}
-                        disabled={plan[0] <= 1}
-                        className="w-10 h-10 flex items-center justify-center rounded-full border border-near-black/15 text-near-black/40 hover:border-near-black/40 hover:text-near-black disabled:opacity-20 transition-all"
+                        key={boxes}
+                        onClick={() => updatePlan(0, boxes)}
+                        className={`relative flex flex-col items-center text-center p-6 border-2 transition-all duration-200 ${
+                          selected
+                            ? 'border-near-black bg-near-black text-white'
+                            : 'border-near-black/10 bg-white text-near-black hover:border-near-black/30'
+                        }`}
                       >
-                        <Minus className="w-4 h-4" />
+                        {tag && (
+                          <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-[10px] font-accent font-bold uppercase tracking-wider px-3 py-1 bg-gold text-near-black whitespace-nowrap">
+                            {tag}
+                          </span>
+                        )}
+                        <span className="text-3xl font-heading leading-none mb-1">{label}</span>
+                        <span className={`text-xs font-accent mb-3 ${selected ? 'text-white/50' : 'text-near-black/40'}`}>{bars} bars / month</span>
+                        <span className="text-2xl font-heading">{formatPrice(price, currency)}</span>
+                        <span className={`text-xs font-accent font-bold mt-1 ${selected ? 'text-gold' : 'text-forest'}`}>Save {discount}%</span>
                       </button>
-                      <div className="flex-1 text-center">
-                        <p className="text-5xl font-heading text-near-black leading-none">{plan[0]}</p>
-                        <p className="text-sm font-heading text-near-black/40 mt-0.5">{plan[0] === 1 ? 'box' : 'boxes'}</p>
-                        <p className="text-[11px] font-accent text-near-black/25 mt-1">{BOX_BARS(plan[0])} bars</p>
+                    )
+                  })}
+                </div>
+
+                {/* What's included */}
+                <div className="bg-cream p-6 mb-6">
+                  <div className="grid grid-cols-2 gap-3">
+                    {[
+                      'Delivered monthly, same date',
+                      'Cancel anytime before delivery',
+                      'Locked-in price',
+                      'Free shipping on every order',
+                    ].map(b => (
+                      <div key={b} className="flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-forest shrink-0" />
+                        <span className="text-sm font-accent text-near-black/60">{b}</span>
                       </div>
-                      <button
-                        onClick={() => updatePlan(0, plan[0] + 1)}
-                        className="w-10 h-10 flex items-center justify-center rounded-full border border-near-black/15 text-near-black/40 hover:border-near-black/40 hover:text-near-black transition-all"
-                      >
-                        <Plus className="w-4 h-4" />
-                      </button>
-                    </div>
-                    {/* Quick-pick shortcuts */}
-                    <div className="flex gap-2">
-                      {[1, 2, 3].map(b => (
-                        <button
-                          key={b}
-                          onClick={() => updatePlan(0, b)}
-                          className={`flex-1 py-2 rounded-xl text-xs font-accent font-semibold transition-all ${
-                            plan[0] === b
-                              ? 'bg-near-black text-white'
-                              : 'bg-near-black/[0.05] text-near-black/40 hover:bg-near-black/10'
-                          }`}
-                        >
-                          {b} {b === 1 ? 'box' : 'boxes'}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Savings + why */}
-                  <div className="p-8 sm:p-10 bg-cream">
-                    <p className="text-[10px] font-accent font-bold text-near-black/30 uppercase tracking-widest mb-5">
-                      What you get
-                    </p>
-                    {(() => {
-                      const full = BOX_PRICE_SEK * plan[0]
-                      const sub  = getSubscriptionPrice(full, plan[0])
-                      const saving = full - sub
-                      const nextTierBoxes = plan[0] < 2 ? 2 : plan[0] < 3 ? 3 : null
-                      const nextDiscount = nextTierBoxes ? Math.round(getSubscriptionDiscount(nextTierBoxes) * 100) : null
-                      return (
-                        <>
-                          <div className="flex items-baseline gap-3 mb-1">
-                            <span className="text-4xl font-heading text-near-black">{formatPrice(sub, currency)}</span>
-                            <span className="text-base font-accent text-near-black/30 line-through">{formatPrice(full, currency)}</span>
-                          </div>
-                          <p className="text-sm font-accent text-forest font-semibold mb-1">
-                            You save {formatPrice(saving, currency)} every month — {discountPct}% off
-                          </p>
-                          {nextTierBoxes && (
-                            <p className="text-xs font-accent text-near-black/35 mb-6">
-                              Add {nextTierBoxes - plan[0]} more box{nextTierBoxes - plan[0] > 1 ? 'es' : ''} to save {nextDiscount}%
-                            </p>
-                          )}
-                          {!nextTierBoxes && <div className="mb-6" />}
-                        </>
-                      )
-                    })()}
-                    <div className="space-y-2.5">
-                      {[
-                        'Delivered on the same date each month',
-                        'Skip, swap, or cancel before any delivery',
-                        'Locked-in price — no surprise increases',
-                        'Free shipping on every order',
-                      ].map(b => (
-                        <div key={b} className="flex items-start gap-2.5">
-                          <span className="w-1.5 h-1.5 rounded-full bg-forest mt-1.5 shrink-0" />
-                          <span className="text-sm font-accent text-near-black/55 leading-snug">{b}</span>
-                        </div>
-                      ))}
-                    </div>
+                    ))}
                   </div>
                 </div>
 
-                {/* Plan ahead — months 2 & 3 */}
-                <div className="px-8 sm:px-10 py-6 border-t border-near-black/[0.06]">
-                  <p className="text-[10px] font-accent font-bold text-near-black/25 uppercase tracking-widest mb-4">
-                    Plan ahead — optional
-                  </p>
-                  <div className="grid sm:grid-cols-2 gap-3">
-                    {[1, 2].map((month) => {
-                      const boxes = plan[month]
-                      const price = getSubscriptionPrice(BOX_PRICE_SEK * boxes, boxes)
-                      return (
-                        <div key={month} className="flex items-center justify-between gap-4 bg-near-black/[0.03] rounded-2xl px-5 py-4">
-                          <p className="text-sm font-accent text-near-black/50 w-16 shrink-0">Month {month + 1}</p>
-                          <div className="flex items-center gap-2 flex-1">
-                            <button
-                              onClick={() => updatePlan(month, boxes - 1)}
-                              disabled={boxes <= 1}
-                              className="w-7 h-7 flex items-center justify-center rounded-full bg-white border border-near-black/10 text-near-black/40 hover:text-near-black disabled:opacity-20 transition-all"
-                            >
-                              <Minus className="w-3 h-3" />
-                            </button>
-                            <span className="text-sm font-heading text-near-black flex-1 text-center">{boxes} {boxes === 1 ? 'box' : 'boxes'}</span>
-                            <button
-                              onClick={() => updatePlan(month, boxes + 1)}
-                              className="w-7 h-7 flex items-center justify-center rounded-full bg-white border border-near-black/10 text-near-black/40 hover:text-near-black disabled:opacity-20 transition-all"
-                            >
-                              <Plus className="w-3 h-3" />
-                            </button>
-                          </div>
-                          <span className="text-sm font-heading text-near-black/50 shrink-0">{formatPrice(price, currency)}</span>
-                        </div>
-                      )
-                    })}
-                  </div>
-                  <p className="text-[11px] font-accent text-near-black/25 mt-3">
-                    These are your preferences — you can change quantities before each delivery date.
-                  </p>
-                </div>
-
-                {/* CTA footer */}
-                <div className="px-8 sm:px-10 py-6 bg-near-black flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                  <div>
-                    <p className="text-[10px] font-accent text-white/30 uppercase tracking-widest mb-1">First payment</p>
-                    <p className="text-3xl font-heading text-white leading-none">
-                      {formatPrice(getSubscriptionPrice(BOX_PRICE_SEK * plan[0], plan[0]), currency)}
-                    </p>
-                    <p className="text-[11px] font-accent text-white/30 mt-1">
-                      {plan[0]} {plan[0] === 1 ? 'box' : 'boxes'} · {BOX_BARS(plan[0])} bars · auto-renewed monthly
-                    </p>
-                  </div>
-                  <button
-                    onClick={handleSubscribe}
-                    className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-gold to-gold-light text-near-black font-semibold font-accent rounded-full hover:-translate-y-0.5 hover:shadow-lg hover:shadow-gold/25 transition-all duration-200"
-                  >
-                    <ShoppingBag className="w-4 h-4" />
-                    Subscribe & save {discountPct}%
-                  </button>
-                </div>
+                {/* CTA */}
+                <button
+                  onClick={handleSubscribe}
+                  className="w-full flex items-center justify-center gap-2 px-8 py-5 bg-near-black text-white font-heading text-2xl tracking-wide hover:-translate-y-0.5 hover:shadow-xl transition-all duration-200"
+                >
+                  <ShoppingBag className="w-5 h-5" />
+                  Subscribe & save {discountPct}% — {formatPrice(getSubscriptionPrice(BOX_PRICE_SEK * plan[0], plan[0]), currency)}/month
+                </button>
+                <p className="text-center text-[11px] font-accent text-near-black/30 mt-3">
+                  {plan[0]} {plan[0] === 1 ? 'box' : 'boxes'} · {BOX_BARS(plan[0])} bars · cancel anytime
+                </p>
 
               </div>
             </AnimatedSection>
