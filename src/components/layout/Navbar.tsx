@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -41,11 +41,19 @@ export default function Navbar() {
   const { pathname } = useLocation()
   const { toggleCart, cartCount } = useCart()
   const [scrolled, setScrolled] = useState(false)
+  const [hidden, setHidden] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const lastY = useRef(0)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
-    window.addEventListener('scroll', onScroll)
+    const onScroll = () => {
+      const y = window.scrollY
+      setScrolled(y > 20)
+      if (y > 80) setHidden(y > lastY.current)
+      else setHidden(false)
+      lastY.current = y
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
@@ -63,7 +71,7 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-near-black/10 ${
         scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-white'
-      }`}
+      } ${hidden && !mobileOpen ? '-translate-y-full' : 'translate-y-0'}`}
     >
       <nav className="page-container flex items-center justify-between h-20">
         {/* Logo */}

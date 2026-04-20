@@ -12,7 +12,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
           <div className="md:col-span-1">
-            <CafoLogo className="w-48" invert />
+            <CafoLogo className="w-64" invert />
           </div>
 
           {/* Pages */}
