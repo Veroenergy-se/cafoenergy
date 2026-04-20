@@ -194,6 +194,14 @@ export default function Shop() {
             <AnimatedSection direction="scale">
               <div className="max-w-4xl mx-auto">
 
+                {/* Product visual */}
+                <div className="flex items-center justify-center mb-10">
+                  <div className="w-48 h-48 bg-gradient-to-br from-cream to-dark-cream flex flex-col items-center justify-center">
+                    <CafoLogo className="w-32 h-auto" />
+                    <p className="text-xs font-accent text-near-black/40 mt-2">12 bars per box</p>
+                  </div>
+                </div>
+
                 {/* Option cards */}
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
                   {[
