@@ -60,16 +60,13 @@ export default function Community() {
 
           <div className="flex flex-col justify-end px-10 py-20 sm:px-14 lg:px-20 xl:px-28 min-h-[55vh]">
             <AnimatedSection direction="left">
-              <p className="text-[10px] font-accent font-bold text-near-black/30 uppercase tracking-widest mb-5">
-                {t('community.story.eyebrow')}
-              </p>
-              <h2 className="text-3xl sm:text-4xl font-heading text-near-black mb-5 leading-tight">
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading text-near-black mb-6 leading-tight">
                 {t('community.story.heading')}
               </h2>
-              <p className="text-near-black/55 font-accent leading-relaxed mb-4 max-w-sm text-sm">
+              <p className="text-near-black font-accent leading-relaxed mb-4 max-w-sm text-base">
                 {t('community.story.p1')}
               </p>
-              <p className="text-near-black/55 font-accent leading-relaxed max-w-sm text-sm">
+              <p className="text-near-black font-accent leading-relaxed max-w-sm text-base">
                 {t('community.story.p2')}
               </p>
             </AnimatedSection>
