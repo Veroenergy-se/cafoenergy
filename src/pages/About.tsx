@@ -46,7 +46,7 @@ export default function About() {
       </section>
 
       {/* Journey */}
-      <section className="py-24 bg-cream">
+      <section className="py-24 bg-warm-white">
         <div className="page-container">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection direction="left" className="order-2 lg:order-1">
