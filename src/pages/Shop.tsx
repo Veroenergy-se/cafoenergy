@@ -138,57 +138,49 @@ export default function Shop() {
 
                 return (
                   <AnimatedSection key={product.id} delay={i * 0.1} direction="scale">
-                    <div className={`relative overflow-hidden border h-full flex flex-col transition-all duration-300 hover:-translate-y-1 ${
-                      isFeatured
-                        ? 'bg-near-black border-near-black shadow-2xl shadow-near-black/20'
-                        : 'bg-white border-near-black/[0.06] hover:shadow-xl'
-                    }`}>
+                    <div className="relative overflow-hidden border h-full flex flex-col transition-all duration-300 hover:-translate-y-1 bg-white border-near-black/[0.06] hover:shadow-xl">
                       <div className="px-8 pt-8">
-                        <span className={`inline-block text-[10px] font-accent font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-5 ${
-                          isFeatured ? 'bg-gold/20 text-gold' : 'bg-near-black/[0.05] text-near-black/40'
-                        }`}>
+                        <span className="inline-block text-[10px] font-accent font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-5 bg-near-black/[0.05] text-near-black/40">
                           {copy.eyebrow}
                         </span>
                       </div>
 
-                      <div className={`mx-8 aspect-[4/3] flex flex-col items-center justify-center gap-3 mb-6 ${
-                        isFeatured ? 'bg-white/[0.06]' : 'bg-gradient-to-br from-cream to-dark-cream'
-                      }`}>
-                        <CafoLogo className={`w-28 h-auto ${isFeatured ? 'text-white' : 'text-near-black'}`} />
+                      <div className="mx-8 aspect-[4/3] flex flex-col items-center justify-center gap-3 mb-6 bg-gradient-to-br from-cream to-dark-cream">
+                        <CafoLogo className="w-28 h-auto" />
                         <div className="text-center">
-                          <span className={`text-4xl font-heading leading-none ${isFeatured ? 'text-white' : 'text-near-black'}`}>
+                          <span className="text-4xl font-heading leading-none text-near-black">
                             {product.barCount / 12}
                           </span>
-                          <span className={`text-xl font-heading ml-1.5 ${isFeatured ? 'text-white/60' : 'text-near-black/50'}`}>
+                          <span className="text-xl font-heading ml-1.5 text-near-black/50">
                             {product.barCount / 12 === 1 ? 'box' : 'boxes'}
                           </span>
-                          <p className={`text-[11px] font-accent mt-1 ${isFeatured ? 'text-white/25' : 'text-near-black/25'}`}>
+                          <p className="text-[11px] font-accent mt-1 text-near-black/25">
                             {product.barCount} bars total
                           </p>
                         </div>
                       </div>
 
                       <div className="px-8 pb-8 flex flex-col flex-1">
-                        <h3 className={`text-xl font-heading mb-1 ${isFeatured ? 'text-white' : 'text-near-black'}`}>
+                        <h3 className="text-xl font-heading mb-1 text-near-black">
                           {t(product.nameKey)}
                         </h3>
-                        <p className={`text-sm font-accent leading-relaxed mb-6 flex-1 ${isFeatured ? 'text-white/45' : 'text-near-black/45'}`}>
+                        <p className="text-sm font-accent leading-relaxed mb-6 flex-1 text-near-black/45">
                           {copy.pitch}
                         </p>
 
                         <div className="flex items-end justify-between mb-4">
                           <div>
                             <div className="flex items-baseline gap-2">
-                              <span className={`text-3xl font-heading ${isFeatured ? 'text-white' : 'text-near-black'}`}>
+                              <span className="text-3xl font-heading text-near-black">
                                 {formatPrice(product.price[currency], currency)}
                               </span>
                               {product.originalPrice && (
-                                <span className={`text-sm line-through ${isFeatured ? 'text-white/25' : 'text-near-black/25'}`}>
+                                <span className="text-sm line-through text-near-black/25">
                                   {formatPrice(product.originalPrice[currency], currency)}
                                 </span>
                               )}
                             </div>
-                            <p className={`text-[11px] font-accent mt-0.5 ${isFeatured ? 'text-white/30' : 'text-near-black/30'}`}>
+                            <p className="text-[11px] font-accent mt-0.5 text-near-black/30">
                               {currency === 'sek' ? `${pbar.sek.toFixed(2)} kr / bar` : `$${pbar.usd.toFixed(2)} / bar`}
                             </p>
                           </div>
@@ -201,11 +193,7 @@ export default function Shop() {
 
                         <button
                           onClick={() => addItem(product.id)}
-                          className={`w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 font-semibold font-accent transition-all duration-200 hover:-translate-y-0.5 ${
-                            isFeatured
-                              ? 'bg-gradient-to-r from-gold to-gold-light text-near-black hover:shadow-lg hover:shadow-gold/30'
-                              : 'bg-near-black text-white hover:shadow-lg'
-                          }`}
+                          className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 font-semibold font-accent transition-all duration-200 hover:-translate-y-0.5 bg-near-black text-white hover:shadow-lg"
                         >
                           <ShoppingBag className="w-4 h-4" />
                           {t('products.addToCart')}
