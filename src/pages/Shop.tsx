@@ -7,8 +7,6 @@ import AnimatedSection from '@/components/shared/AnimatedSection'
 import { ShoppingBag, Zap, Leaf, Shield, Minus, Plus, RefreshCw, Package, Settings } from 'lucide-react'
 import CafoLogo from '@/components/shared/CafoLogo'
 
-type PurchaseMode = 'onetime' | 'subscription'
-
 // Boxes of 12 — no upper limit
 const BOX_BARS = (boxes: number) => boxes * 12
 const BOX_PRICE_SEK = 279 // per box (starter unit price)
@@ -41,7 +39,6 @@ export default function Shop() {
   const { t, i18n } = useTranslation()
   const { addItem } = useCart()
   const currency = getCurrency(i18n.language)
-  const [mode, setMode] = useState<PurchaseMode>('onetime')
   const [plan, setPlan] = useState<number[]>([1, 1, 1]) // boxes per month (1–3)
 
   const discountPct = Math.round(getSubscriptionDiscount(plan[0]) * 100)
@@ -88,127 +85,21 @@ export default function Shop() {
         </div>
       </section>
 
-      {/* Products / Subscription planner */}
+      {/* Subscription planner — primary */}
       <section className="py-20 bg-warm-white">
         <div className="page-container">
-
-          {/* Purchase mode toggle */}
-          <AnimatedSection>
-            <div className="flex flex-col items-center mb-12 gap-4">
-              <p className="text-[11px] font-accent text-near-black/35 tracking-wide">
-                Each box contains <span className="font-semibold text-near-black/55">12 bars</span> — about one week of daily focus.
-              </p>
-              <div className="flex bg-near-black/[0.06] rounded-full p-1 gap-1">
-                <button
-                  onClick={() => setMode('onetime')}
-                  className={`px-6 py-2.5 rounded-full text-sm font-accent font-semibold transition-all duration-200 ${
-                    mode === 'onetime'
-                      ? 'bg-white shadow-sm text-near-black'
-                      : 'text-near-black/40 hover:text-near-black/60'
-                  }`}
-                >
-                  One-time
-                </button>
-                <button
-                  onClick={() => setMode('subscription')}
-                  className={`flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-accent font-semibold transition-all duration-200 ${
-                    mode === 'subscription'
-                      ? 'bg-near-black shadow-sm text-white'
-                      : 'text-near-black/40 hover:text-near-black/60'
-                  }`}
-                >
-                  Monthly subscription
-                  <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full transition-colors ${
-                    mode === 'subscription' ? 'bg-gold text-near-black' : 'bg-near-black/10 text-near-black/50'
-                  }`}>
-                    Save 10–20%
-                  </span>
-                </button>
-              </div>
+          <AnimatedSection className="mb-10">
+            <p className="text-[11px] font-accent text-near-black/35 tracking-wide text-center">
+              Each box contains <span className="font-semibold text-near-black/55">12 bars</span> — about one week of daily focus.
+            </p>
+            <div className="mt-4 text-center">
+              <h2 className="text-4xl sm:text-5xl font-heading text-near-black">Build your monthly box.</h2>
+              <p className="mt-2 text-near-black/45 font-accent text-base">Choose how many boxes you want delivered each month. Save 10–20%.</p>
             </div>
           </AnimatedSection>
 
-          {/* ONE-TIME: product cards */}
-          {mode === 'onetime' && (
-            <div className="grid lg:grid-cols-3 gap-5 items-stretch">
-              {products.map((product, i) => {
-                const copy = productCopy[product.id]
-                const pbar = perBar[product.id]
-                const isFeatured = product.badge === 'products.bestseller'
-
-                return (
-                  <AnimatedSection key={product.id} delay={i * 0.1} direction="scale">
-                    <div className="relative overflow-hidden border h-full flex flex-col transition-all duration-300 hover:-translate-y-1 bg-white border-near-black/[0.06] hover:shadow-xl">
-                      <div className="px-8 pt-8">
-                        <span className="inline-block text-[10px] font-accent font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-5 bg-near-black/[0.05] text-near-black/40">
-                          {copy.eyebrow}
-                        </span>
-                      </div>
-
-                      <div className="mx-8 aspect-[4/3] flex flex-col items-center justify-center gap-3 mb-6 bg-gradient-to-br from-cream to-dark-cream">
-                        <CafoLogo className="w-28 h-auto" />
-                        <div className="text-center">
-                          <span className="text-4xl font-heading leading-none text-near-black">
-                            {product.barCount / 12}
-                          </span>
-                          <span className="text-xl font-heading ml-1.5 text-near-black/50">
-                            {product.barCount / 12 === 1 ? 'box' : 'boxes'}
-                          </span>
-                          <p className="text-[11px] font-accent mt-1 text-near-black/25">
-                            {product.barCount} bars total
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className="px-8 pb-8 flex flex-col flex-1">
-                        <h3 className="text-3xl font-heading mb-1 text-near-black">
-                          {t(product.nameKey)}
-                        </h3>
-                        <p className="text-sm font-accent leading-relaxed mb-6 flex-1 text-near-black/45">
-                          {copy.pitch}
-                        </p>
-
-                        <div className="flex items-end justify-between mb-4">
-                          <div>
-                            <div className="flex items-baseline gap-2">
-                              <span className="text-3xl font-heading text-near-black">
-                                {formatPrice(product.price[currency], currency)}
-                              </span>
-                              {product.originalPrice && (
-                                <span className="text-sm line-through text-near-black/25">
-                                  {formatPrice(product.originalPrice[currency], currency)}
-                                </span>
-                              )}
-                            </div>
-                            <p className="text-[11px] font-accent mt-0.5 text-near-black/30">
-                              {currency === 'sek' ? `${pbar.sek.toFixed(2)} kr / bar` : `$${pbar.usd.toFixed(2)} / bar`}
-                            </p>
-                          </div>
-                          {product.originalPrice && (
-                            <span className="text-xs font-bold font-accent bg-gold text-near-black px-2.5 py-1 rounded-full">
-                              Save {Math.round((1 - product.price[currency] / product.originalPrice[currency]) * 100)}%
-                            </span>
-                          )}
-                        </div>
-
-                        <button
-                          onClick={() => addItem(product.id)}
-                          className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 font-semibold font-accent transition-all duration-200 hover:-translate-y-0.5 bg-near-black text-white hover:shadow-lg"
-                        >
-                          <ShoppingBag className="w-4 h-4" />
-                          {t('products.addToCart')}
-                        </button>
-                      </div>
-                    </div>
-                  </AnimatedSection>
-                )
-              })}
-            </div>
-          )}
-
           {/* SUBSCRIPTION: planner */}
-          {mode === 'subscription' && (
-            <AnimatedSection direction="scale">
+          <AnimatedSection id="subscription" direction="scale">
               <div className="bg-white rounded-3xl border border-near-black/[0.06] overflow-hidden shadow-lg">
 
                 {/* Top: month 1 + savings side by side */}
@@ -361,15 +252,97 @@ export default function Shop() {
                 </div>
 
               </div>
-            </AnimatedSection>
-          )}
+          </AnimatedSection>
 
-          {/* Trust line */}
           <AnimatedSection delay={0.3}>
             <p className="text-center text-[11px] font-accent text-near-black/30 mt-8 tracking-wide">
               Ships within 2–3 business days · Fri frakt över 499 kr
             </p>
           </AnimatedSection>
+        </div>
+      </section>
+
+      {/* ONE-TIME: product cards */}
+      <section className="py-20 bg-warm-white border-t border-near-black/[0.06]">
+        <div className="page-container">
+          <AnimatedSection className="mb-10 text-center">
+            <p className="text-[11px] font-accent font-bold text-near-black/30 uppercase tracking-widest mb-2">Just want to try it first?</p>
+            <h2 className="text-4xl sm:text-5xl font-heading text-near-black">One-time orders.</h2>
+            <p className="mt-2 text-near-black/45 font-accent text-base">No commitment. Pay once, shipped right away.</p>
+          </AnimatedSection>
+          <div className="grid lg:grid-cols-3 gap-5 items-stretch">
+            {products.map((product, i) => {
+              const copy = productCopy[product.id]
+              const pbar = perBar[product.id]
+
+              return (
+                <AnimatedSection key={product.id} delay={i * 0.1} direction="scale">
+                  <div className="relative overflow-hidden border h-full flex flex-col transition-all duration-300 hover:-translate-y-1 bg-white border-near-black/[0.06] hover:shadow-xl">
+                    <div className="px-8 pt-8">
+                      <span className="inline-block text-[10px] font-accent font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-5 bg-near-black/[0.05] text-near-black/40">
+                        {copy.eyebrow}
+                      </span>
+                    </div>
+
+                    <div className="mx-8 aspect-[4/3] flex flex-col items-center justify-center gap-3 mb-6 bg-gradient-to-br from-cream to-dark-cream">
+                      <CafoLogo className="w-28 h-auto" />
+                      <div className="text-center">
+                        <span className="text-4xl font-heading leading-none text-near-black">
+                          {product.barCount / 12}
+                        </span>
+                        <span className="text-xl font-heading ml-1.5 text-near-black/50">
+                          {product.barCount / 12 === 1 ? 'box' : 'boxes'}
+                        </span>
+                        <p className="text-[11px] font-accent mt-1 text-near-black/25">
+                          {product.barCount} bars total
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="px-8 pb-8 flex flex-col flex-1">
+                      <h3 className="text-3xl font-heading mb-1 text-near-black">
+                        {t(product.nameKey)}
+                      </h3>
+                      <p className="text-sm font-accent leading-relaxed mb-6 flex-1 text-near-black/45">
+                        {copy.pitch}
+                      </p>
+
+                      <div className="flex items-end justify-between mb-4">
+                        <div>
+                          <div className="flex items-baseline gap-2">
+                            <span className="text-3xl font-heading text-near-black">
+                              {formatPrice(product.price[currency], currency)}
+                            </span>
+                            {product.originalPrice && (
+                              <span className="text-sm line-through text-near-black/25">
+                                {formatPrice(product.originalPrice[currency], currency)}
+                              </span>
+                            )}
+                          </div>
+                          <p className="text-[11px] font-accent mt-0.5 text-near-black/30">
+                            {currency === 'sek' ? `${pbar.sek.toFixed(2)} kr / bar` : `$${pbar.usd.toFixed(2)} / bar`}
+                          </p>
+                        </div>
+                        {product.originalPrice && (
+                          <span className="text-xs font-bold font-accent bg-gold text-near-black px-2.5 py-1 rounded-full">
+                            Save {Math.round((1 - product.price[currency] / product.originalPrice[currency]) * 100)}%
+                          </span>
+                        )}
+                      </div>
+
+                      <button
+                        onClick={() => addItem(product.id)}
+                        className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 font-semibold font-accent transition-all duration-200 hover:-translate-y-0.5 bg-near-black text-white hover:shadow-lg"
+                      >
+                        <ShoppingBag className="w-4 h-4" />
+                        {t('products.addToCart')}
+                      </button>
+                    </div>
+                  </div>
+                </AnimatedSection>
+              )
+            })}
+          </div>
         </div>
       </section>
 
@@ -409,15 +382,12 @@ export default function Shop() {
                     </span>
                   ))}
                 </div>
-                <button
-                  onClick={() => {
-                    setMode('subscription')
-                    window.scrollTo({ top: 0, behavior: 'smooth' })
-                  }}
+                <a
+                  href="#subscription"
                   className="shrink-0 px-6 py-3 bg-gold text-near-black font-semibold font-accent rounded-full text-sm hover:-translate-y-0.5 hover:shadow-lg hover:shadow-gold/20 transition-all duration-200"
                 >
                   Start subscription
-                </button>
+                </a>
               </div>
             </div>
           </AnimatedSection>
