@@ -139,7 +139,7 @@ export default function Community() {
       </section>
 
       {/* Split 3 — CTA */}
-      <section className="bg-cream">
+      <section className="bg-cream mb-24 sm:mb-32">
         <div className="grid sm:grid-cols-2">
 
           <SlidePanel
