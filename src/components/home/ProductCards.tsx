@@ -20,7 +20,7 @@ export default function ProductCards() {
         <div className="grid md:grid-cols-3 gap-8">
           {products.map((product, i) => (
             <AnimatedSection key={product.id} delay={i * 0.15} direction="scale">
-              <div className="group relative bg-white p-20 border border-near-black/5 hover:border-gold/20 hover:shadow-xl hover:shadow-gold/5 hover:-translate-y-1 transition-all duration-300">
+              <div className="group relative bg-white p-16 border border-near-black/5 hover:border-gold/20 hover:shadow-xl hover:shadow-gold/5 hover:-translate-y-1 transition-all duration-300">
                 {product.badge && (
                   <span className="absolute top-8 right-8 z-10 px-3 py-1 bg-gold text-near-black text-xs font-bold font-accent rounded-full uppercase">
                     {t(product.badge)}
@@ -28,7 +28,7 @@ export default function ProductCards() {
                 )}
 
                 {/* Product visual */}
-                <div className="h-96 bg-gradient-to-br from-cream to-dark-cream flex items-center justify-center mb-10 group-hover:scale-[1.02] transition-transform duration-300">
+                <div className="h-80 bg-gradient-to-br from-cream to-dark-cream flex items-center justify-center mb-10 group-hover:scale-[1.02] transition-transform duration-300">
                   <div className="text-center">
                     <span className="text-4xl font-heading text-forest">CAFO</span>
                     <p className="text-sm text-forest/50 font-accent mt-1">{t(product.descriptionKey)}</p>
