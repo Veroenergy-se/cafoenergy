@@ -66,7 +66,7 @@ export default function Shop() {
       <section className="bg-near-black py-32 text-center">
         <AnimatedSection>
           <h1 className="text-8xl sm:text-9xl lg:text-[10rem] font-heading text-white">{t('products.title')}</h1>
-          <p className="mt-4 text-white/40 font-accent text-lg">{t('products.subtitle')}</p>
+          <p className="mt-4 text-white font-accent text-lg">{t('products.subtitle')}</p>
         </AnimatedSection>
       </section>
 
