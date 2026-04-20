@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
 import { motion, useInView } from 'framer-motion'
 import AnimatedSection from '@/components/shared/AnimatedSection'
+import CafoLogo from '@/components/shared/CafoLogo'
 
 const ticker = 'SHOW UP\u00a0·\u00a0GO ALL IN\u00a0·\u00a0NO SHORTCUTS\u00a0·\u00a0CAFO ENERGY\u00a0·\u00a0'
 
@@ -76,11 +77,9 @@ export default function Community() {
 
           <SlidePanel
             from="right"
-            className="bg-near-black min-h-[50vh] sm:min-h-0 flex items-center justify-center overflow-hidden"
+            className="bg-near-black min-h-[50vh] sm:min-h-0 flex items-center justify-center overflow-hidden p-12"
           >
-            <span className="font-heading text-white/[0.04] select-none leading-none" style={{ fontSize: 'clamp(8rem, 18vw, 22rem)' }}>
-              CAFO
-            </span>
+            <CafoLogo className="w-full max-w-xs text-white/10 select-none" />
           </SlidePanel>
 
         </div>
@@ -161,11 +160,9 @@ export default function Community() {
 
           <SlidePanel
             from="left"
-            className="bg-forest min-h-[50vh] sm:min-h-0 flex items-center justify-center overflow-hidden"
+            className="bg-forest min-h-[50vh] sm:min-h-0 flex items-center justify-center overflow-hidden p-12"
           >
-            <span className="font-heading text-white/[0.05] select-none leading-none" style={{ fontSize: 'clamp(6rem, 15vw, 18rem)' }}>
-              CAFO
-            </span>
+            <CafoLogo className="w-full max-w-xs text-white/10 select-none" />
           </SlidePanel>
 
           <div className="flex flex-col justify-center px-10 py-20 sm:px-14 lg:px-20 xl:px-28 min-h-[55vh]">

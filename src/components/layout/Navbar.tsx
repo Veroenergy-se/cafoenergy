@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ShoppingBag } from 'lucide-react'
 import { useCart } from '@/providers/CartProvider'
 import LanguageSwitcher from '@/components/shared/LanguageSwitcher'
+import CafoLogo from '@/components/shared/CafoLogo'
 
 const navLinks = [
   { key: 'nav.home', path: '/' },
@@ -66,11 +67,8 @@ export default function Navbar() {
     >
       <nav className="page-container flex items-center justify-between h-20">
         {/* Logo */}
-        <Link
-          to="/"
-          className="text-3xl font-heading text-near-black tracking-wide"
-        >
-          CAFO
+        <Link to="/" className="text-near-black" aria-label="CAFO Home">
+          <CafoLogo className="h-10 w-auto" />
         </Link>
 
         {/* Desktop Links */}

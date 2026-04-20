@@ -5,6 +5,7 @@ import { useCart } from '@/providers/CartProvider'
 import { products, getCurrency, formatPrice, getSubscriptionPrice, getSubscriptionDiscount } from '@/lib/products'
 import AnimatedSection from '@/components/shared/AnimatedSection'
 import { ShoppingBag, Zap, Leaf, Shield, Minus, Plus, RefreshCw, Package, Settings } from 'lucide-react'
+import CafoLogo from '@/components/shared/CafoLogo'
 
 type PurchaseMode = 'onetime' | 'subscription'
 
@@ -150,18 +151,18 @@ export default function Shop() {
                         </span>
                       </div>
 
-                      <div className={`mx-8 rounded-2xl aspect-[4/3] flex items-center justify-center mb-6 ${
+                      <div className={`mx-8 rounded-2xl aspect-[4/3] flex flex-col items-center justify-center gap-3 mb-6 ${
                         isFeatured ? 'bg-white/[0.06]' : 'bg-gradient-to-br from-cream to-dark-cream'
                       }`}>
+                        <CafoLogo className={`w-28 h-auto ${isFeatured ? 'text-white' : 'text-near-black'}`} />
                         <div className="text-center">
-                          <p className={`text-[10px] font-accent font-bold uppercase tracking-widest mb-1 ${isFeatured ? 'text-white/25' : 'text-near-black/25'}`}>CAFO Energy Bar</p>
-                          <span className={`text-6xl font-heading leading-none ${isFeatured ? 'text-white' : 'text-near-black'}`}>
+                          <span className={`text-4xl font-heading leading-none ${isFeatured ? 'text-white' : 'text-near-black'}`}>
                             {product.barCount / 12}
                           </span>
-                          <p className={`text-base font-heading mt-0.5 ${isFeatured ? 'text-white/50' : 'text-near-black/40'}`}>
+                          <span className={`text-xl font-heading ml-1.5 ${isFeatured ? 'text-white/60' : 'text-near-black/50'}`}>
                             {product.barCount / 12 === 1 ? 'box' : 'boxes'}
-                          </p>
-                          <p className={`text-[11px] font-accent mt-2 ${isFeatured ? 'text-white/25' : 'text-near-black/25'}`}>
+                          </span>
+                          <p className={`text-[11px] font-accent mt-1 ${isFeatured ? 'text-white/25' : 'text-near-black/25'}`}>
                             {product.barCount} bars total
                           </p>
                         </div>
