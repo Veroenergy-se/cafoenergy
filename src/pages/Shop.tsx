@@ -291,8 +291,8 @@ export default function Shop() {
                   <div className="grid grid-cols-2 gap-3">
                     {[
                       'Delivered monthly, same date',
-                      'Cancel anytime before delivery',
-                      'Locked-in price',
+                      'Change your quantity before any delivery',
+                      'Cancel anytime — no fees',
                       'Free shipping on every order',
                     ].map(b => (
                       <div key={b} className="flex items-center gap-2">
