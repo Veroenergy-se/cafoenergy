@@ -151,13 +151,10 @@ export default function Community() {
 
           <div className="flex flex-col justify-center px-10 py-20 sm:px-14 lg:px-20 xl:px-28 min-h-[55vh]">
             <AnimatedSection direction="right">
-              <p className="text-[10px] font-accent font-bold text-near-black/30 uppercase tracking-widest mb-5">
-                {t('community.cta.eyebrow')}
-              </p>
-              <h2 className="text-3xl sm:text-4xl font-heading text-near-black mb-4 leading-tight">
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading text-near-black mb-4 leading-tight">
                 {t('community.cta.heading')}
               </h2>
-              <p className="text-near-black/45 font-accent leading-relaxed mb-8 max-w-xs text-sm">
+              <p className="text-near-black font-accent leading-relaxed mb-8 max-w-xs text-base">
                 {t('community.cta.body')}
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
