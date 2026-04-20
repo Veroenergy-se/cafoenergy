@@ -68,7 +68,7 @@ export default function Navbar() {
       <nav className="page-container flex items-center justify-between h-20">
         {/* Logo */}
         <Link to="/" className="text-near-black" aria-label="CAFO Home">
-          <CafoLogo className="h-10 w-auto" />
+          <CafoLogo className="h-14 w-auto" />
         </Link>
 
         {/* Desktop Links */}
