@@ -41,7 +41,7 @@ export default function Shop() {
   const { t, i18n } = useTranslation()
   const { addItem } = useCart()
   const currency = getCurrency(i18n.language)
-  const [mode, setMode] = useState<PurchaseMode>('onetime')
+  const [mode, setMode] = useState<PurchaseMode>('subscription')
   const [plan, setPlan] = useState<number[]>([1, 1, 1]) // boxes per month (1–3)
 
   const discountPct = Math.round(getSubscriptionDiscount(plan[0]) * 100)
@@ -98,31 +98,31 @@ export default function Shop() {
               <p className="text-[11px] font-accent text-near-black/35 tracking-wide">
                 Each box contains <span className="font-semibold text-near-black/55">12 bars</span> — about one week of daily focus.
               </p>
-              <div className="flex bg-near-black/[0.06] rounded-full p-1 gap-1">
-                <button
-                  onClick={() => setMode('onetime')}
-                  className={`px-6 py-2.5 rounded-full text-sm font-accent font-semibold transition-all duration-200 ${
-                    mode === 'onetime'
-                      ? 'bg-white shadow-sm text-near-black'
-                      : 'text-near-black/40 hover:text-near-black/60'
-                  }`}
-                >
-                  One-time
-                </button>
+              <div className="flex bg-near-black/[0.06] rounded-full p-1.5 gap-1.5">
                 <button
                   onClick={() => setMode('subscription')}
-                  className={`flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-accent font-semibold transition-all duration-200 ${
+                  className={`flex items-center gap-2 px-8 py-4 rounded-full text-base font-accent font-semibold transition-all duration-200 ${
                     mode === 'subscription'
                       ? 'bg-near-black shadow-sm text-white'
                       : 'text-near-black/40 hover:text-near-black/60'
                   }`}
                 >
                   Monthly subscription
-                  <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full transition-colors ${
+                  <span className={`text-xs font-bold px-2.5 py-1 rounded-full transition-colors ${
                     mode === 'subscription' ? 'bg-gold text-near-black' : 'bg-near-black/10 text-near-black/50'
                   }`}>
                     Save 10–20%
                   </span>
+                </button>
+                <button
+                  onClick={() => setMode('onetime')}
+                  className={`px-8 py-4 rounded-full text-base font-accent font-semibold transition-all duration-200 ${
+                    mode === 'onetime'
+                      ? 'bg-white shadow-sm text-near-black'
+                      : 'text-near-black/40 hover:text-near-black/60'
+                  }`}
+                >
+                  One-time
                 </button>
               </div>
             </div>
