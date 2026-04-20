@@ -7,17 +7,17 @@ export default function Footer() {
   const { t } = useTranslation()
 
   return (
-    <footer className="bg-near-black text-white">
+    <footer className="bg-near-black text-white border-t-2 border-gold/30">
       <div className="page-container pt-20 pb-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
           <div className="md:col-span-1">
-            <CafoLogo className="w-64" invert />
+            <CafoLogo className="w-80" invert />
           </div>
 
           {/* Pages */}
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-white/30 mb-4">
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-gold mb-4">
               {t('footer.pages')}
             </h4>
             <div className="space-y-3">
@@ -32,7 +32,7 @@ export default function Footer() {
 
           {/* Legal */}
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-white/30 mb-4">
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-gold mb-4">
               {t('footer.legal')}
             </h4>
             <div className="space-y-3">
@@ -42,7 +42,7 @@ export default function Footer() {
 
           {/* Social */}
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-white/30 mb-4">
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-gold mb-4">
               {t('footer.social')}
             </h4>
             <div className="flex gap-4">
