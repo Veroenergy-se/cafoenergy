@@ -55,7 +55,7 @@ export default function Community() {
       </section>
 
       {/* Split 1 — brand story */}
-      <section className="bg-cream">
+      <section className="bg-cream pt-24 sm:pt-32">
         <div className="grid sm:grid-cols-2">
 
           <div className="flex flex-col justify-end px-10 py-20 sm:px-14 lg:px-20 xl:px-28 min-h-[55vh]">
