@@ -70,23 +70,6 @@ export default function Shop() {
         </AnimatedSection>
       </section>
 
-      {/* Benefits strip */}
-      <section className="bg-gold py-4">
-        <div className="page-container">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-12">
-            {benefitsStrip.map(({ icon: Icon, text }) => (
-              <div key={text} className="flex items-center gap-2">
-                <Icon className="w-4 h-4 text-near-black/60 shrink-0" />
-                <span className="text-[11px] font-accent font-bold text-near-black/70 uppercase tracking-wider">{text}</span>
-              </div>
-            ))}
-            <div className="hidden sm:block w-px h-4 bg-near-black/15" />
-            <span className="text-[11px] font-accent font-bold text-near-black/70 uppercase tracking-wider">
-              Fri frakt över 499 kr
-            </span>
-          </div>
-        </div>
-      </section>
 
       {/* Products / Subscription planner */}
       <section className="py-20 bg-warm-white">
