@@ -193,17 +193,19 @@ export default function Shop() {
           {mode === 'subscription' && (
             <AnimatedSection direction="scale">
               <div className="max-w-4xl mx-auto">
+                <div className="grid lg:grid-cols-[1fr_2fr] gap-8 items-start">
 
                 {/* Product visual */}
-                <div className="flex items-center justify-center mb-10">
-                  <div className="w-48 h-48 bg-gradient-to-br from-cream to-dark-cream flex flex-col items-center justify-center">
-                    <CafoLogo className="w-32 h-auto" />
-                    <p className="text-xs font-accent text-near-black/40 mt-2">12 bars per box</p>
-                  </div>
+                <div className="bg-gradient-to-br from-cream to-dark-cream aspect-square flex flex-col items-center justify-center p-8">
+                  <CafoLogo className="w-full max-w-[160px] h-auto" />
+                  <p className="text-xs font-accent text-near-black/40 mt-4 text-center">12 bars per box</p>
                 </div>
 
+                {/* Right: options + CTA */}
+                <div>
+
                 {/* Option cards */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
                   {[
                     { boxes: 1, label: '1 box',  bars: 12, discount: 10, tag: null },
                     { boxes: 2, label: '2 boxes', bars: 24, discount: 15, tag: 'Most popular' },
@@ -278,7 +280,7 @@ export default function Shop() {
                 </div>
 
                 {/* What's included */}
-                <div className="bg-cream p-6 mb-6">
+                <div className="bg-cream p-5 mb-5">
                   <div className="grid grid-cols-2 gap-3">
                     {[
                       'Delivered monthly, same date',
@@ -306,6 +308,8 @@ export default function Shop() {
                   {plan[0]} {plan[0] === 1 ? 'box' : 'boxes'} · {BOX_BARS(plan[0])} bars · cancel anytime
                 </p>
 
+                </div>{/* end right col */}
+                </div>{/* end grid */}
               </div>
             </AnimatedSection>
           )}
