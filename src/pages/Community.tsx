@@ -106,18 +106,15 @@ export default function Community() {
 
           <div className="flex flex-col justify-center px-10 py-20 sm:px-14 lg:px-20 xl:px-28 min-h-[55vh]">
             <AnimatedSection direction="right">
-              <p className="text-[10px] font-accent font-bold text-near-black/30 uppercase tracking-widest mb-5">
-                {t('community.values.eyebrow')}
-              </p>
-              <h2 className="text-3xl sm:text-4xl font-heading text-near-black mb-10 leading-tight">
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading text-near-black mb-10 leading-tight">
                 {t('community.values.heading')}
               </h2>
             </AnimatedSection>
             <div className="space-y-8">
               {values.map((v, i) => (
                 <AnimatedSection key={v.title} delay={0.1 + i * 0.12} direction="up">
-                  <h3 className="text-lg font-heading text-near-black mb-1">{v.title}</h3>
-                  <p className="text-sm text-near-black/45 font-accent leading-relaxed max-w-xs">{v.body}</p>
+                  <h3 className="text-2xl sm:text-3xl font-heading text-near-black mb-2">{v.title}</h3>
+                  <p className="text-base text-near-black font-accent leading-relaxed max-w-sm">{v.body}</p>
                 </AnimatedSection>
               ))}
             </div>
