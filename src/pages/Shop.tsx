@@ -161,7 +161,7 @@ export default function Shop() {
                       </div>
 
                       <div className="px-8 pb-8 flex flex-col flex-1">
-                        <h3 className="text-xl font-heading mb-1 text-near-black">
+                        <h3 className="text-3xl font-heading mb-1 text-near-black">
                           {t(product.nameKey)}
                         </h3>
                         <p className="text-sm font-accent leading-relaxed mb-6 flex-1 text-near-black/45">
