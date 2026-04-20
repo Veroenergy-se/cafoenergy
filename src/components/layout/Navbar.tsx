@@ -85,7 +85,8 @@ export default function Navbar() {
             <Link
               key={link.path}
               to={link.path}
-              className={`relative text-base font-medium tracking-wide uppercase transition-colors after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-near-black after:transition-all after:duration-300 ${
+              style={{ fontFamily: "'Oswald', sans-serif", fontWeight: 700 }}
+              className={`relative text-base tracking-widest uppercase transition-colors after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-near-black after:transition-all after:duration-300 ${
                 pathname === link.path
                   ? 'text-near-black after:w-full'
                   : 'text-near-black/60 hover:text-near-black after:w-0 hover:after:w-full'
@@ -121,7 +122,8 @@ export default function Navbar() {
 
           <Link
             to="/shop"
-            className="hidden md:inline-flex px-8 py-3.5 bg-near-black text-white font-semibold text-base border-2 border-near-black hover:bg-white hover:text-near-black hover:-translate-y-0.5 hover:shadow-lg transition-all duration-500 ease-in-out"
+            style={{ fontFamily: "'Oswald', sans-serif", fontWeight: 700 }}
+            className="hidden md:inline-flex px-8 py-3.5 bg-near-black text-white text-base tracking-widest uppercase border-2 border-near-black hover:bg-white hover:text-near-black hover:-translate-y-0.5 hover:shadow-lg transition-all duration-500 ease-in-out"
           >
             {t('nav.getEnergized')}
           </Link>
