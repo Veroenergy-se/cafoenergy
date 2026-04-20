@@ -62,7 +62,7 @@ export default function About() {
               <h2 className="text-4xl sm:text-5xl font-heading text-near-black leading-tight">
                 {t('about.journeyTitle')}
               </h2>
-              <p className="mt-6 text-near-black/60 text-lg leading-relaxed">
+              <p className="mt-6 text-near-black text-lg leading-relaxed">
                 {t('about.journeyText')}
               </p>
             </AnimatedSection>
