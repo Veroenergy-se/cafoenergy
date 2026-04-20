@@ -79,7 +79,7 @@ export default function Community() {
             from="right"
             className="bg-near-black min-h-[50vh] sm:min-h-0 flex items-center justify-center overflow-hidden p-12"
           >
-            <CafoLogo className="w-full max-w-xs text-white/10 select-none" />
+            <CafoLogo className="w-full max-w-xs opacity-10 select-none" invert />
           </SlidePanel>
 
         </div>
@@ -162,7 +162,7 @@ export default function Community() {
             from="left"
             className="bg-forest min-h-[50vh] sm:min-h-0 flex items-center justify-center overflow-hidden p-12"
           >
-            <CafoLogo className="w-full max-w-xs text-white/10 select-none" />
+            <CafoLogo className="w-full max-w-xs opacity-10 select-none" invert />
           </SlidePanel>
 
           <div className="flex flex-col justify-center px-10 py-20 sm:px-14 lg:px-20 xl:px-28 min-h-[55vh]">

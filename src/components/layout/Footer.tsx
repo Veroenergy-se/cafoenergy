@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { SITE } from '@/lib/constants'
+import CafoLogo from '@/components/shared/CafoLogo'
 
 export default function Footer() {
   const { t } = useTranslation()
@@ -11,9 +12,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
           <div className="md:col-span-1">
-            <h3 className="text-3xl font-heading bg-gradient-to-r from-gold to-gold-light bg-clip-text text-transparent mb-4">
-              CAFO
-            </h3>
+            <CafoLogo className="w-32 mb-4" invert />
             <p className="text-white/50 text-sm leading-relaxed">
               {t('footer.tagline')}
             </p>
