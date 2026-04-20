@@ -85,7 +85,7 @@ export default function Navbar() {
             <Link
               key={link.path}
               to={link.path}
-              style={{ fontFamily: "'Oswald', sans-serif", fontWeight: 700 }}
+              style={{ fontFamily: "'Bebas Neue', sans-serif" }}
               className={`relative text-lg tracking-widest uppercase transition-colors after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-near-black after:transition-all after:duration-300 ${
                 pathname === link.path
                   ? 'text-near-black after:w-full'
@@ -122,7 +122,7 @@ export default function Navbar() {
 
           <Link
             to="/shop"
-            style={{ fontFamily: "'Oswald', sans-serif", fontWeight: 700 }}
+            style={{ fontFamily: "'Bebas Neue', sans-serif" }}
             className="hidden md:inline-flex px-8 py-3.5 bg-near-black text-white text-lg tracking-widest uppercase border-2 border-near-black hover:bg-white hover:text-near-black hover:-translate-y-0.5 hover:shadow-lg transition-all duration-500 ease-in-out"
           >
             {t('nav.getEnergized')}
