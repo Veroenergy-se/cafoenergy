@@ -212,11 +212,11 @@ export default function Shop() {
               <div className="max-w-2xl mx-auto">
 
                 {/* Option cards */}
-                <div className="grid grid-cols-3 gap-4 mb-8">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
                   {[
-                    { boxes: 1, label: '1 box',   bars: 12,  discount: 10, tag: null },
-                    { boxes: 2, label: '2 boxes',  bars: 24,  discount: 15, tag: 'Most popular' },
-                    { boxes: 3, label: '3 boxes',  bars: 36,  discount: 20, tag: 'Best value' },
+                    { boxes: 1, label: '1 box',  bars: 12, discount: 10, tag: null },
+                    { boxes: 2, label: '2 boxes', bars: 24, discount: 15, tag: 'Most popular' },
+                    { boxes: 3, label: '3 boxes', bars: 36, discount: 20, tag: 'Best value' },
                   ].map(({ boxes, label, bars, discount, tag }) => {
                     const price = getSubscriptionPrice(BOX_PRICE_SEK * boxes, boxes)
                     const selected = plan[0] === boxes
@@ -242,6 +242,48 @@ export default function Shop() {
                       </button>
                     )
                   })}
+
+                  {/* Custom option */}
+                  {(() => {
+                    const isCustom = plan[0] > 3
+                    const customPrice = getSubscriptionPrice(BOX_PRICE_SEK * plan[0], plan[0])
+                    return (
+                      <button
+                        onClick={() => { if (!isCustom) updatePlan(0, 4) }}
+                        className={`relative flex flex-col items-center text-center p-6 border-2 transition-all duration-200 ${
+                          isCustom
+                            ? 'border-near-black bg-near-black text-white'
+                            : 'border-near-black/10 bg-white text-near-black hover:border-near-black/30'
+                        }`}
+                      >
+                        <span className="text-3xl font-heading leading-none mb-1">Custom</span>
+                        {isCustom ? (
+                          <>
+                            <div className="flex items-center gap-2 my-2" onClick={e => e.stopPropagation()}>
+                              <button
+                                onClick={() => updatePlan(0, Math.max(4, plan[0] - 1))}
+                                className="w-6 h-6 flex items-center justify-center border border-white/30 text-white/70 hover:text-white transition-colors text-lg leading-none"
+                              >−</button>
+                              <span className="text-2xl font-heading w-8 text-center">{plan[0]}</span>
+                              <button
+                                onClick={() => updatePlan(0, plan[0] + 1)}
+                                className="w-6 h-6 flex items-center justify-center border border-white/30 text-white/70 hover:text-white transition-colors text-lg leading-none"
+                              >+</button>
+                            </div>
+                            <span className="text-xs font-accent text-white/50 mb-1">{BOX_BARS(plan[0])} bars / month</span>
+                            <span className="text-2xl font-heading">{formatPrice(customPrice, currency)}</span>
+                            <span className="text-xs font-accent font-bold mt-1 text-gold">Save 20%</span>
+                          </>
+                        ) : (
+                          <>
+                            <span className="text-xs font-accent mb-3 text-near-black/40">4+ boxes</span>
+                            <span className="text-sm font-accent text-near-black/40">Pick amount</span>
+                            <span className="text-xs font-accent font-bold mt-1 text-forest">Save 20%</span>
+                          </>
+                        )}
+                      </button>
+                    )
+                  })()}
                 </div>
 
                 {/* What's included */}
