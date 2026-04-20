@@ -14,7 +14,7 @@ export default function StoryTeaser() {
             <h2 className="text-6xl sm:text-7xl lg:text-8xl font-heading text-white leading-tight">
               {t('story.title')}
             </h2>
-            <p className="mt-6 text-lg text-white/60 leading-relaxed max-w-lg">
+            <p className="mt-6 text-lg text-white leading-relaxed max-w-lg">
               {t('story.subtitle')}
             </p>
             <Link
