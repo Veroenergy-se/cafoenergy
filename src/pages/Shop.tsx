@@ -201,7 +201,7 @@ export default function Shop() {
 
                         <button
                           onClick={() => addItem(product.id)}
-                          className={`w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 font-semibold font-accent rounded-full transition-all duration-200 hover:-translate-y-0.5 ${
+                          className={`w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 font-semibold font-accent transition-all duration-200 hover:-translate-y-0.5 ${
                             isFeatured
                               ? 'bg-gradient-to-r from-gold to-gold-light text-near-black hover:shadow-lg hover:shadow-gold/30'
                               : 'bg-near-black text-white hover:shadow-lg'
