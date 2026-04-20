@@ -129,16 +129,6 @@ export default function Community() {
         </div>
       </section>
 
-      {/* Marquee */}
-      <div className="bg-near-black py-4 overflow-hidden">
-        <div className="flex whitespace-nowrap animate-marquee">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <span key={i} className="text-[11px] font-accent font-bold text-white/25 uppercase tracking-[0.2em] shrink-0 px-1">
-              {ticker}
-            </span>
-          ))}
-        </div>
-      </div>
 
       {/* Stats */}
       <section className="bg-cream py-28">
