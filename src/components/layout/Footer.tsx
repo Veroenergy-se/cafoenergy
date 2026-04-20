@@ -11,7 +11,7 @@ export default function Footer() {
       <div className="page-container pt-20 pb-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
-          <div className="md:col-span-1">
+          <div className="md:col-span-1 flex items-start justify-center">
             <CafoLogo className="w-80" invert />
           </div>
 
