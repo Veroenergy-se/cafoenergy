@@ -9,8 +9,6 @@ import HowItWorks from './pages/HowItWorks'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import Checkout from './pages/Checkout'
 import FAQ from './pages/FAQ'
-import FontPreview from './pages/FontPreview'
-
 export default function App() {
   return (
     <Routes>
@@ -24,7 +22,6 @@ export default function App() {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/faq" element={<FAQ />} />
-        <Route path="/font-preview" element={<FontPreview />} />
       </Route>
     </Routes>
   )
