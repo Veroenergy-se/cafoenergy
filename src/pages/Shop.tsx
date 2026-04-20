@@ -205,7 +205,7 @@ export default function Shop() {
                 <div>
 
                 {/* Option cards */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+                <div className="grid grid-cols-2 gap-3 mb-6">
                   {[
                     { boxes: 1, label: '1 box',  bars: 12, discount: 10, tag: null },
                     { boxes: 2, label: '2 boxes', bars: 24, discount: 15, tag: 'Most popular' },
