@@ -138,7 +138,7 @@ export default function Shop() {
 
                 return (
                   <AnimatedSection key={product.id} delay={i * 0.1} direction="scale">
-                    <div className={`relative rounded-3xl overflow-hidden border h-full flex flex-col transition-all duration-300 hover:-translate-y-1 ${
+                    <div className={`relative overflow-hidden border h-full flex flex-col transition-all duration-300 hover:-translate-y-1 ${
                       isFeatured
                         ? 'bg-near-black border-near-black shadow-2xl shadow-near-black/20'
                         : 'bg-white border-near-black/[0.06] hover:shadow-xl'
@@ -151,7 +151,7 @@ export default function Shop() {
                         </span>
                       </div>
 
-                      <div className={`mx-8 rounded-2xl aspect-[4/3] flex flex-col items-center justify-center gap-3 mb-6 ${
+                      <div className={`mx-8 aspect-[4/3] flex flex-col items-center justify-center gap-3 mb-6 ${
                         isFeatured ? 'bg-white/[0.06]' : 'bg-gradient-to-br from-cream to-dark-cream'
                       }`}>
                         <CafoLogo className={`w-28 h-auto ${isFeatured ? 'text-white' : 'text-near-black'}`} />
