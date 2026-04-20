@@ -37,7 +37,7 @@ export default function Waitlist() {
           <h2 className="text-6xl sm:text-7xl lg:text-9xl font-heading text-white leading-[0.9] tracking-tight mb-4">
             {t('waitlist.title')}
           </h2>
-          <p className="text-white/50 font-accent text-lg mb-12">
+          <p className="text-white font-accent text-lg mb-12">
             {t('waitlist.subtitle')}
           </p>
 
