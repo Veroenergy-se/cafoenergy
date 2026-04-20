@@ -217,7 +217,7 @@ export default function Shop() {
                       <button
                         key={boxes}
                         onClick={() => updatePlan(0, boxes)}
-                        className={`relative flex flex-col items-center text-center p-6 border-2 transition-all duration-200 ${
+                        className={`relative flex flex-col items-center text-center p-8 border-2 transition-all duration-200 ${
                           selected
                             ? 'border-near-black bg-near-black text-white'
                             : 'border-near-black/10 bg-white text-near-black hover:border-near-black/30'
@@ -228,10 +228,10 @@ export default function Shop() {
                             {tag}
                           </span>
                         )}
-                        <span className="text-3xl font-heading leading-none mb-1">{label}</span>
-                        <span className={`text-xs font-accent mb-3 ${selected ? 'text-white/50' : 'text-near-black/40'}`}>{bars} bars / month</span>
-                        <span className="text-2xl font-heading">{formatPrice(price, currency)}</span>
-                        <span className={`text-xs font-accent font-bold mt-1 ${selected ? 'text-gold' : 'text-forest'}`}>Save {discount}%</span>
+                        <span className="text-4xl font-heading leading-none mb-1">{label}</span>
+                        <span className={`text-sm font-accent mb-4 ${selected ? 'text-white/50' : 'text-near-black/40'}`}>{bars} bars / month</span>
+                        <span className="text-3xl font-heading">{formatPrice(price, currency)}</span>
+                        <span className={`text-sm font-accent font-bold mt-1 ${selected ? 'text-gold' : 'text-forest'}`}>Save {discount}%</span>
                       </button>
                     )
                   })}
@@ -243,13 +243,13 @@ export default function Shop() {
                     return (
                       <button
                         onClick={() => { if (!isCustom) updatePlan(0, 4) }}
-                        className={`relative flex flex-col items-center text-center p-6 border-2 transition-all duration-200 ${
+                        className={`relative flex flex-col items-center text-center p-8 border-2 transition-all duration-200 ${
                           isCustom
                             ? 'border-near-black bg-near-black text-white'
                             : 'border-near-black/10 bg-white text-near-black hover:border-near-black/30'
                         }`}
                       >
-                        <span className="text-3xl font-heading leading-none mb-1">Custom</span>
+                        <span className="text-4xl font-heading leading-none mb-1">Custom</span>
                         {isCustom ? (
                           <>
                             <div className="flex items-center gap-2 my-2" onClick={e => e.stopPropagation()}>
@@ -269,9 +269,9 @@ export default function Shop() {
                           </>
                         ) : (
                           <>
-                            <span className="text-xs font-accent mb-3 text-near-black/40">4+ boxes</span>
-                            <span className="text-sm font-accent text-near-black/40">Pick amount</span>
-                            <span className="text-xs font-accent font-bold mt-1 text-forest">Save 20%</span>
+                            <span className="text-sm font-accent mb-4 text-near-black/40">4+ boxes</span>
+                            <span className="text-base font-accent text-near-black/40">Pick amount</span>
+                            <span className="text-sm font-accent font-bold mt-1 text-forest">Save 20%</span>
                           </>
                         )}
                       </button>
