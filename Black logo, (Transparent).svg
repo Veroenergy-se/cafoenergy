@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 369.81 213.4">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 40.88px;
+      }
+
+      .cls-1, .cls-2 {
+        font-family: Prohibition-Regular, Prohibition;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        fill: #231f20;
+      }
+
+      .cls-2 {
+        font-size: 180px;
+      }
+
+      .cls-4 {
+        letter-spacing: 0em;
+      }
+
+      .cls-5 {
+        letter-spacing: .08em;
+      }
+
+      .cls-6 {
+        letter-spacing: .06em;
+      }
+    </style>
+  </defs>
+  <text class="cls-2" transform="translate(11.57 158.75)"><tspan x="0" y="0">C</tspan></text>
+  <rect class="cls-3" x="60.69" y="105.62" width="31.54" height="22.87" transform="translate(193.51 40.59) rotate(90)"/>
+  <rect class="cls-3" x="60.69" y="51.7" width="31.54" height="22.87" transform="translate(139.6 -13.32) rotate(90)"/>
+  <text class="cls-2" transform="translate(95.68 158.4)"><tspan x="0" y="0">A</tspan></text>
+  <rect class="cls-3" x="153.09" y="139.56" width="35.88" height="18.84"/>
+  <rect class="cls-3" x="199.33" y="139.56" width="35.88" height="18.84"/>
+  <rect class="cls-3" x="94.42" y="139.56" width="35.88" height="18.84"/>
+  <rect class="cls-3" x="119.11" y="21.52" width="32.69" height="22.06"/>
+  <rect class="cls-3" x="199.33" y="21.52" width="35.88" height="21.9"/>
+  <text class="cls-2" transform="translate(197.66 158.4)"><tspan x="0" y="0">F</tspan></text>
+  <rect class="cls-3" x="249.02" y="21.6" width="22.32" height="26"/>
+  <text class="cls-2" transform="translate(273.68 158.4)"><tspan x="0" y="0">O</tspan></text>
+  <text class="cls-1" transform="translate(0 206.74) scale(1.13 1)"><tspan class="cls-6" x="0" y="0">C</tspan><tspan class="cls-5" x="21.26" y="0">affin</tspan><tspan class="cls-4" x="123.45" y="0">a</tspan><tspan class="cls-5" x="144.17" y="0">ted Focus</tspan></text>
+</svg>
