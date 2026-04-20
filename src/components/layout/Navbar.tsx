@@ -73,14 +73,14 @@ export default function Navbar() {
         scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-white'
       } ${hidden && !mobileOpen ? '-translate-y-full' : 'translate-y-0'}`}
     >
-      <nav className="page-container flex items-center justify-between h-20">
+      <nav className="page-container relative flex items-center justify-between h-20">
         {/* Logo */}
         <Link to="/" className="text-near-black" aria-label="CAFO Home">
           <CafoLogo className="h-14 w-auto" />
         </Link>
 
-        {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-8">
+        {/* Desktop Links — absolutely centred so they're unaffected by logo/right widths */}
+        <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-8">
           {navLinks.map((link) => (
             <Link
               key={link.path}
