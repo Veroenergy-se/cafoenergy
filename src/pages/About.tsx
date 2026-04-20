@@ -76,7 +76,7 @@ export default function About() {
           <AnimatedSection>
             <div className="max-w-3xl mx-auto">
               <h2 className="text-6xl sm:text-7xl lg:text-8xl font-heading">{t('about.missionTitle')}</h2>
-              <p className="mt-8 text-white/60 text-lg leading-relaxed">
+              <p className="mt-8 text-white text-lg leading-relaxed">
                 {t('about.missionText')}
               </p>
             </div>
