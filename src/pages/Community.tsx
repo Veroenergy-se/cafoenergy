@@ -85,7 +85,7 @@ export default function Community() {
       {/* Breakout quote */}
       <section className="bg-cream py-36 sm:py-52 px-8 text-center">
         <AnimatedSection direction="up">
-          <p className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-heading text-near-black max-w-3xl mx-auto leading-tight">
+          <p className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-heading text-near-black mx-auto leading-tight whitespace-nowrap">
             {t('community.quote')}
           </p>
         </AnimatedSection>
