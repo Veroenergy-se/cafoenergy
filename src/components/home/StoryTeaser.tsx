@@ -27,7 +27,7 @@ export default function StoryTeaser() {
           </AnimatedSection>
 
           <AnimatedSection direction="right">
-            <div className="aspect-[4/3] rounded-3xl overflow-hidden bg-white/5">
+            <div className="aspect-[4/3] overflow-hidden bg-white/5">
               <img
                 src="/images/founders.jpg"
                 alt="CAFO Energy founders"
