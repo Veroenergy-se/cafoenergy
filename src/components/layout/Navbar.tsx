@@ -121,7 +121,7 @@ export default function Navbar() {
 
           <Link
             to="/shop"
-            className="hidden md:inline-flex px-8 py-3.5 bg-near-black text-white font-semibold text-base hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200"
+            className="hidden md:inline-flex px-8 py-3.5 bg-near-black text-white font-semibold text-base border-2 border-near-black hover:bg-white hover:text-near-black hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200"
           >
             {t('nav.getEnergized')}
           </Link>
