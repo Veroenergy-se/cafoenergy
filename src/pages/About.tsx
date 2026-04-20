@@ -33,7 +33,7 @@ export default function About() {
               </p>
             </AnimatedSection>
             <AnimatedSection direction="right">
-              <div className="aspect-[4/3] rounded-3xl overflow-hidden bg-cream">
+              <div className="aspect-[4/3] overflow-hidden bg-cream">
                 <img
                   src="/images/founders.jpg"
                   alt="CAFO Energy founders"
@@ -50,7 +50,7 @@ export default function About() {
         <div className="page-container">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection direction="left" className="order-2 lg:order-1">
-              <div className="aspect-[4/3] rounded-3xl overflow-hidden bg-warm-white">
+              <div className="aspect-[4/3] overflow-hidden bg-warm-white">
                 <img
                   src="/images/product-studio.jpg"
                   alt="CAFO Energy bar"
