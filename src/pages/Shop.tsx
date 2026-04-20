@@ -387,15 +387,15 @@ export default function Shop() {
 
               <div className="grid sm:grid-cols-3 gap-px bg-white/[0.06] rounded-2xl overflow-hidden mb-10">
                 {howItWorks.map(({ icon: Icon, step, title, desc }) => (
-                  <div key={step} className="bg-near-black px-7 py-8">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-8 h-8 rounded-xl bg-white/[0.06] flex items-center justify-center">
-                        <Icon className="w-4 h-4 text-white/50" />
+                  <div key={step} className="bg-near-black px-9 py-10">
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="w-10 h-10 rounded-xl bg-white/[0.06] flex items-center justify-center">
+                        <Icon className="w-5 h-5 text-white/50" />
                       </div>
-                      <span className="text-[10px] font-accent font-bold text-white/20 uppercase tracking-widest">{step}</span>
+                      <span className="text-sm font-accent font-bold text-white/20 uppercase tracking-widest">{step}</span>
                     </div>
-                    <h3 className="text-lg font-heading text-white mb-2">{title}</h3>
-                    <p className="text-sm text-white/35 font-accent leading-relaxed">{desc}</p>
+                    <h3 className="text-2xl font-heading text-white mb-3">{title}</h3>
+                    <p className="text-base text-white/35 font-accent leading-relaxed">{desc}</p>
                   </div>
                 ))}
               </div>
