@@ -64,7 +64,7 @@ export default function Navbar() {
         scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-white'
       }`}
     >
-      <nav className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-20">
+      <nav className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-[1fr_auto_1fr] items-center h-20">
         {/* Logo */}
         <Link
           to="/"
@@ -91,7 +91,7 @@ export default function Navbar() {
         </div>
 
         {/* Right section */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 justify-self-end">
           <LanguageSwitcher />
 
           <button
