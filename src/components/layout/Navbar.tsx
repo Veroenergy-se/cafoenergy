@@ -73,7 +73,7 @@ export default function Navbar() {
         scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-white'
       } ${hidden && !mobileOpen ? '-translate-y-full' : 'translate-y-0'}`}
     >
-      <nav className="page-container relative flex items-center justify-between h-20">
+      <nav className="w-full px-6 lg:px-12 xl:px-16 relative flex items-center justify-between h-20">
         {/* Logo */}
         <Link to="/" className="text-near-black" aria-label="CAFO Home">
           <CafoLogo className="h-14 w-auto" />
