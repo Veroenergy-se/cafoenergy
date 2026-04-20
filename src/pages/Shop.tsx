@@ -193,11 +193,11 @@ export default function Shop() {
           {mode === 'subscription' && (
             <AnimatedSection direction="scale">
               <div className="max-w-4xl mx-auto">
-                <div className="grid lg:grid-cols-[1fr_2fr] gap-8 items-start">
+                <div className="grid lg:grid-cols-[5fr_7fr] gap-8 items-start">
 
                 {/* Product visual */}
-                <div className="bg-gradient-to-br from-cream to-dark-cream aspect-square flex flex-col items-center justify-center p-8">
-                  <CafoLogo className="w-full max-w-[160px] h-auto" />
+                <div className="bg-gradient-to-br from-cream to-dark-cream aspect-square flex flex-col items-center justify-center p-6">
+                  <CafoLogo className="w-full max-w-[260px] h-auto" />
                   <p className="text-xs font-accent text-near-black/40 mt-4 text-center">12 bars per box</p>
                 </div>
 
