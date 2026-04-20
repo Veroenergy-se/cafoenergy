@@ -49,7 +49,7 @@ export default function Community() {
       {/* Hero */}
       <section className="bg-near-black py-32 text-center">
         <AnimatedSection>
-          <h1 className="text-8xl sm:text-9xl lg:text-[10rem] font-heading text-white">{t('community.title')}</h1>
+          <h1 className="text-9xl sm:text-[11rem] lg:text-[15rem] font-heading text-white">{t('community.title')}</h1>
           <p className="mt-4 text-white/50 font-accent text-lg max-w-xl mx-auto">{t('community.subtitle')}</p>
         </AnimatedSection>
       </section>
