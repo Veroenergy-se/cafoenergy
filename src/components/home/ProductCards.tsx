@@ -14,7 +14,7 @@ export default function ProductCards() {
       <div className="page-container">
         <AnimatedSection className="text-center mb-16">
           <h2 className="text-6xl sm:text-7xl lg:text-8xl font-heading text-near-black">{t('products.title')}</h2>
-          <p className="mt-3 text-near-black font-accent">{t('products.subtitle')}</p>
+          <p className="mt-3 text-near-black/50 font-accent">{t('products.subtitle')}</p>
         </AnimatedSection>
 
         <div className="grid md:grid-cols-3 gap-8">
