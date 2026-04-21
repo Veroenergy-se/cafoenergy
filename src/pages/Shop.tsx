@@ -128,8 +128,8 @@ export default function Shop() {
                         </span>
                       </div>
 
-                      <div className="mx-8 aspect-[4/3] mb-6 overflow-hidden bg-white">
-                        <img src={copy.image} alt={t(product.nameKey)} className="w-full h-full object-contain" />
+                      <div className="aspect-[4/3] mb-6 overflow-hidden">
+                        <img src={copy.image} alt={t(product.nameKey)} className="w-full h-full object-cover" />
                       </div>
 
                       <div className="px-8 pb-8 flex flex-col flex-1">
@@ -185,11 +185,11 @@ export default function Shop() {
                 <div className="grid lg:grid-cols-[5fr_7fr] gap-8 items-start">
 
                 {/* Product visual — updates with selected plan */}
-                <div className="bg-white aspect-square overflow-hidden border border-near-black/[0.06]">
+                <div className="aspect-square overflow-hidden">
                   <img
                     src={plan[0] === 1 ? '/images/product-1box.png' : plan[0] === 2 ? '/images/product-2box.png' : '/images/product-3box.png'}
                     alt="CAFO Energy bar"
-                    className="w-full h-full object-contain transition-all duration-300"
+                    className="w-full h-full object-cover transition-all duration-300"
                   />
                 </div>
 
@@ -220,8 +220,8 @@ export default function Shop() {
                             {tag}
                           </span>
                         )}
-                        <div className={`w-full aspect-[4/3] overflow-hidden ${selected ? 'bg-white/10' : 'bg-white'}`}>
-                          <img src={image} alt={label} className="w-full h-full object-contain" />
+                        <div className="w-full aspect-[4/3] overflow-hidden">
+                          <img src={image} alt={label} className="w-full h-full object-cover" />
                         </div>
                         <div className="p-4 w-full">
                           <span className="text-2xl font-heading leading-none block">{label}</span>
