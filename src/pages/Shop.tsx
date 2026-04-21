@@ -122,14 +122,14 @@ export default function Shop() {
                 return (
                   <AnimatedSection key={product.id} delay={i * 0.1} direction="scale">
                     <div className="relative overflow-hidden border h-full flex flex-col transition-all duration-300 hover:-translate-y-1 bg-white border-near-black/[0.06] hover:shadow-xl">
-                      <div className="px-8 pt-8">
-                        <span className="inline-block text-[10px] font-accent font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-5 bg-near-black/[0.05] text-near-black/40">
+                      {/* Image flush to all edges */}
+                      <div className="aspect-[4/3] overflow-hidden">
+                        <img src={copy.image} alt={t(product.nameKey)} className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-500" />
+                      </div>
+                      <div className="px-6 pt-5">
+                        <span className="inline-block text-[10px] font-accent font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-near-black/[0.05] text-near-black/40">
                           {copy.eyebrow}
                         </span>
-                      </div>
-
-                      <div className="aspect-[4/3] mb-6 overflow-hidden">
-                        <img src={copy.image} alt={t(product.nameKey)} className="w-full h-full object-cover" />
                       </div>
 
                       <div className="px-8 pb-8 flex flex-col flex-1">
@@ -182,18 +182,16 @@ export default function Shop() {
           {mode === 'subscription' && (
             <AnimatedSection direction="scale">
               <div className="max-w-4xl mx-auto">
-                <div className="grid lg:grid-cols-[5fr_7fr] gap-8 items-start">
 
-                {/* Product visual — updates with selected plan */}
-                <div className="aspect-square overflow-hidden">
+                {/* Full-width product image */}
+                <div className="w-full aspect-[16/7] overflow-hidden mb-8">
                   <img
                     src={plan[0] === 1 ? '/images/product-1box.png' : plan[0] === 2 ? '/images/product-2box.png' : '/images/product-3box.png'}
                     alt="CAFO Energy bar"
-                    className="w-full h-full object-cover transition-all duration-300"
+                    className="w-full h-full object-cover transition-all duration-500"
                   />
                 </div>
 
-                {/* Right: options + CTA */}
                 <div>
 
                 {/* Option cards */}
@@ -305,8 +303,7 @@ export default function Shop() {
                   {plan[0]} {plan[0] === 1 ? 'box' : 'boxes'} · {BOX_BARS(plan[0])} bars · cancel anytime
                 </p>
 
-                </div>{/* end right col */}
-                </div>{/* end grid */}
+                </div>
               </div>
             </AnimatedSection>
           )}
