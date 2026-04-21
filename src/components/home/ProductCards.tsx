@@ -28,8 +28,8 @@ export default function ProductCards() {
                 )}
 
                 {/* Product visual */}
-                <div className="h-80 flex items-center justify-center mb-10 overflow-hidden bg-cream group-hover:scale-[1.02] transition-transform duration-300">
-                  <img src="/images/product-box.png" alt="CAFO Energy bar" className="h-full w-full object-cover scale-110" />
+                <div className="h-80 flex items-center justify-center mb-10 overflow-hidden bg-white group-hover:scale-[1.02] transition-transform duration-300">
+                  <img src={product.image} alt={t(product.nameKey)} className="h-full w-full object-contain" />
                 </div>
 
                 <h3 className="text-xl font-semibold font-accent">{t(product.nameKey)}</h3>

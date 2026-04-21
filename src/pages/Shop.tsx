@@ -25,10 +25,10 @@ const benefitsStrip = [
   { icon: Shield, text: '0g added sugar' },
 ]
 
-const productCopy: Record<string, { eyebrow: string; pitch: string }> = {
-  starter: { eyebrow: 'Try it',       pitch: 'First time with CAFO? This is where you start.' },
-  duo:     { eyebrow: 'Most popular', pitch: 'The one most people stick with. Two weeks of clean focus.' },
-  family:  { eyebrow: 'Best value',   pitch: 'A full month of bars, lowest cost per bar we offer.' },
+const productCopy: Record<string, { eyebrow: string; pitch: string; image: string }> = {
+  starter: { eyebrow: 'Try it',       pitch: 'First time with CAFO? This is where you start.',            image: '/images/product-1box.png' },
+  duo:     { eyebrow: 'Most popular', pitch: 'The one most people stick with. Two weeks of clean focus.',  image: '/images/product-2box.png' },
+  family:  { eyebrow: 'Best value',   pitch: 'A full month of bars, lowest cost per bar we offer.',        image: '/images/product-3box.png' },
 }
 
 const howItWorks = [
@@ -128,8 +128,8 @@ export default function Shop() {
                         </span>
                       </div>
 
-                      <div className="mx-8 aspect-[4/3] mb-6 bg-cream overflow-hidden">
-                        <img src="/images/product-box.png" alt="CAFO Energy bar" className="w-full h-full object-cover scale-110" />
+                      <div className="mx-8 aspect-[4/3] mb-6 overflow-hidden bg-white">
+                        <img src={copy.image} alt={t(product.nameKey)} className="w-full h-full object-contain" />
                       </div>
 
                       <div className="px-8 pb-8 flex flex-col flex-1">
@@ -184,9 +184,13 @@ export default function Shop() {
               <div className="max-w-4xl mx-auto">
                 <div className="grid lg:grid-cols-[5fr_7fr] gap-8 items-start">
 
-                {/* Product visual */}
-                <div className="bg-cream aspect-square overflow-hidden">
-                  <img src="/images/product-box.png" alt="CAFO Energy bar" className="w-full h-full object-cover scale-110" />
+                {/* Product visual — updates with selected plan */}
+                <div className="bg-white aspect-square overflow-hidden border border-near-black/[0.06]">
+                  <img
+                    src={plan[0] === 1 ? '/images/product-1box.png' : plan[0] === 2 ? '/images/product-2box.png' : '/images/product-3box.png'}
+                    alt="CAFO Energy bar"
+                    className="w-full h-full object-contain transition-all duration-300"
+                  />
                 </div>
 
                 {/* Right: options + CTA */}
@@ -195,31 +199,36 @@ export default function Shop() {
                 {/* Option cards */}
                 <div className="grid grid-cols-2 gap-3 mb-6">
                   {[
-                    { boxes: 1, label: '1 box',  bars: 12, discount: 10, tag: null },
-                    { boxes: 2, label: '2 boxes', bars: 24, discount: 15, tag: 'Most popular' },
-                    { boxes: 3, label: '3 boxes', bars: 36, discount: 20, tag: 'Best value' },
-                  ].map(({ boxes, label, bars, discount, tag }) => {
+                    { boxes: 1, label: '1 box',  bars: 12, discount: 10, tag: null,           image: '/images/product-1box.png' },
+                    { boxes: 2, label: '2 boxes', bars: 24, discount: 15, tag: 'Most popular', image: '/images/product-2box.png' },
+                    { boxes: 3, label: '3 boxes', bars: 36, discount: 20, tag: 'Best value',   image: '/images/product-3box.png' },
+                  ].map(({ boxes, label, bars, discount, tag, image }) => {
                     const price = getSubscriptionPrice(BOX_PRICE_SEK * boxes, boxes)
                     const selected = plan[0] === boxes
                     return (
                       <button
                         key={boxes}
                         onClick={() => updatePlan(0, boxes)}
-                        className={`relative flex flex-col items-center text-center p-8 border-2 transition-all duration-200 ${
+                        className={`relative flex flex-col items-center text-center border-2 transition-all duration-200 overflow-hidden ${
                           selected
                             ? 'border-near-black bg-near-black text-white'
                             : 'border-near-black/10 bg-white text-near-black hover:border-near-black/30'
                         }`}
                       >
                         {tag && (
-                          <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-[10px] font-accent font-bold uppercase tracking-wider px-3 py-1 bg-gold text-near-black whitespace-nowrap">
+                          <span className="absolute top-3 left-1/2 -translate-x-1/2 text-[10px] font-accent font-bold uppercase tracking-wider px-3 py-1 bg-gold text-near-black whitespace-nowrap z-10">
                             {tag}
                           </span>
                         )}
-                        <span className="text-4xl font-heading leading-none mb-1">{label}</span>
-                        <span className={`text-sm font-accent mb-4 ${selected ? 'text-white/50' : 'text-near-black/40'}`}>{bars} bars / month</span>
-                        <span className="text-3xl font-heading">{formatPrice(price, currency)}</span>
-                        <span className={`text-sm font-accent font-bold mt-1 ${selected ? 'text-gold' : 'text-forest'}`}>Save {discount}%</span>
+                        <div className={`w-full aspect-[4/3] overflow-hidden ${selected ? 'bg-white/10' : 'bg-white'}`}>
+                          <img src={image} alt={label} className="w-full h-full object-contain" />
+                        </div>
+                        <div className="p-4 w-full">
+                          <span className="text-2xl font-heading leading-none block">{label}</span>
+                          <span className={`text-xs font-accent block mt-0.5 mb-2 ${selected ? 'text-white/50' : 'text-near-black/40'}`}>{bars} bars / month</span>
+                          <span className="text-2xl font-heading block">{formatPrice(price, currency)}</span>
+                          <span className={`text-xs font-accent font-bold mt-0.5 block ${selected ? 'text-gold' : 'text-forest'}`}>Save {discount}%</span>
+                        </div>
                       </button>
                     )
                   })}
