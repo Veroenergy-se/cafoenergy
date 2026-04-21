@@ -128,8 +128,8 @@ export default function Shop() {
                         </span>
                       </div>
 
-                      <div className="mx-8 aspect-[4/3] flex items-center justify-center mb-6 bg-cream overflow-hidden">
-                        <img src="/images/product-box.png" alt="CAFO Energy bar" className="w-full h-full object-contain p-6" />
+                      <div className="mx-8 aspect-[4/3] mb-6 bg-cream overflow-hidden">
+                        <img src="/images/product-box.png" alt="CAFO Energy bar" className="w-full h-full object-cover scale-110" />
                       </div>
 
                       <div className="px-8 pb-8 flex flex-col flex-1">
@@ -185,8 +185,8 @@ export default function Shop() {
                 <div className="grid lg:grid-cols-[5fr_7fr] gap-8 items-start">
 
                 {/* Product visual */}
-                <div className="bg-cream aspect-square flex items-center justify-center overflow-hidden">
-                  <img src="/images/product-box.png" alt="CAFO Energy bar" className="w-full h-full object-contain p-8" />
+                <div className="bg-cream aspect-square overflow-hidden">
+                  <img src="/images/product-box.png" alt="CAFO Energy bar" className="w-full h-full object-cover scale-110" />
                 </div>
 
                 {/* Right: options + CTA */}
