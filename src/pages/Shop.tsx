@@ -181,128 +181,138 @@ export default function Shop() {
           {/* SUBSCRIPTION: simple planner */}
           {mode === 'subscription' && (
             <AnimatedSection direction="scale">
-              <div className="max-w-4xl mx-auto">
+              <div className="max-w-5xl mx-auto">
+                <div className="grid lg:grid-cols-[1fr_1.3fr] gap-10 items-start">
 
-                {/* Full-width product image */}
-                <div className="w-full aspect-[16/7] overflow-hidden mb-8">
-                  <img
-                    src={plan[0] === 1 ? '/images/product-1box.png' : plan[0] === 2 ? '/images/product-2box.png' : '/images/product-3box.png'}
-                    alt="CAFO Energy bar"
-                    className="w-full h-full object-cover transition-all duration-500"
-                  />
-                </div>
-
-                <div>
-
-                {/* Option cards */}
-                <div className="grid grid-cols-2 gap-3 mb-6">
-                  {[
-                    { boxes: 1, label: '1 box',  bars: 12, discount: 10, tag: null,           image: '/images/product-1box.png' },
-                    { boxes: 2, label: '2 boxes', bars: 24, discount: 15, tag: 'Most popular', image: '/images/product-2box.png' },
-                    { boxes: 3, label: '3 boxes', bars: 36, discount: 20, tag: 'Best value',   image: '/images/product-3box.png' },
-                  ].map(({ boxes, label, bars, discount, tag, image }) => {
-                    const price = getSubscriptionPrice(BOX_PRICE_SEK * boxes, boxes)
-                    const selected = plan[0] === boxes
-                    return (
-                      <button
-                        key={boxes}
-                        onClick={() => updatePlan(0, boxes)}
-                        className={`relative flex flex-col items-center text-center border-2 transition-all duration-200 overflow-hidden ${
-                          selected
-                            ? 'border-near-black bg-near-black text-white'
-                            : 'border-near-black/10 bg-white text-near-black hover:border-near-black/30'
-                        }`}
-                      >
-                        {tag && (
-                          <span className="absolute top-3 left-1/2 -translate-x-1/2 text-[10px] font-accent font-bold uppercase tracking-wider px-3 py-1 bg-gold text-near-black whitespace-nowrap z-10">
-                            {tag}
-                          </span>
-                        )}
-                        <div className="w-full aspect-[4/3] overflow-hidden">
-                          <img src={image} alt={label} className="w-full h-full object-cover" />
-                        </div>
-                        <div className="p-4 w-full">
-                          <span className="text-2xl font-heading leading-none block">{label}</span>
-                          <span className={`text-xs font-accent block mt-0.5 mb-2 ${selected ? 'text-white/50' : 'text-near-black/40'}`}>{bars} bars / month</span>
-                          <span className="text-2xl font-heading block">{formatPrice(price, currency)}</span>
-                          <span className={`text-xs font-accent font-bold mt-0.5 block ${selected ? 'text-gold' : 'text-forest'}`}>Save {discount}%</span>
-                        </div>
-                      </button>
-                    )
-                  })}
-
-                  {/* Custom option */}
-                  {(() => {
-                    const isCustom = plan[0] > 3
-                    const customPrice = getSubscriptionPrice(BOX_PRICE_SEK * plan[0], plan[0])
-                    return (
-                      <button
-                        onClick={() => { if (!isCustom) updatePlan(0, 4) }}
-                        className={`relative flex flex-col items-center text-center p-8 border-2 transition-all duration-200 ${
-                          isCustom
-                            ? 'border-near-black bg-near-black text-white'
-                            : 'border-near-black/10 bg-white text-near-black hover:border-near-black/30'
-                        }`}
-                      >
-                        <span className="text-4xl font-heading leading-none mb-1">Custom</span>
-                        {isCustom ? (
-                          <>
-                            <div className="flex items-center gap-2 my-2" onClick={e => e.stopPropagation()}>
-                              <button
-                                onClick={() => updatePlan(0, Math.max(4, plan[0] - 1))}
-                                className="w-6 h-6 flex items-center justify-center border border-white/30 text-white/70 hover:text-white transition-colors text-lg leading-none"
-                              >−</button>
-                              <span className="text-2xl font-heading w-8 text-center">{plan[0]}</span>
-                              <button
-                                onClick={() => updatePlan(0, plan[0] + 1)}
-                                className="w-6 h-6 flex items-center justify-center border border-white/30 text-white/70 hover:text-white transition-colors text-lg leading-none"
-                              >+</button>
-                            </div>
-                            <span className="text-xs font-accent text-white/50 mb-1">{BOX_BARS(plan[0])} bars / month</span>
-                            <span className="text-2xl font-heading">{formatPrice(customPrice, currency)}</span>
-                            <span className="text-xs font-accent font-bold mt-1 text-gold">Save 20%</span>
-                          </>
-                        ) : (
-                          <>
-                            <span className="text-sm font-accent mb-4 text-near-black/40">4+ boxes</span>
-                            <span className="text-base font-accent text-near-black/40">Pick amount</span>
-                            <span className="text-sm font-accent font-bold mt-1 text-forest">Save 20%</span>
-                          </>
-                        )}
-                      </button>
-                    )
-                  })()}
-                </div>
-
-                {/* What's included */}
-                <div className="bg-cream p-5 mb-5">
-                  <div className="grid grid-cols-2 gap-3">
-                    {[
-                      'Delivered monthly, same date',
-                      'Change your quantity before any delivery',
-                      'Cancel anytime — no fees',
-                      'Free shipping on every order',
-                    ].map(b => (
-                      <div key={b} className="flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-forest shrink-0" />
-                        <span className="text-sm font-accent text-near-black/60">{b}</span>
-                      </div>
-                    ))}
+                  {/* Left: product image */}
+                  <div className="aspect-square overflow-hidden bg-cream hidden lg:block">
+                    <img
+                      src={plan[0] >= 3 ? '/images/product-3box.png' : plan[0] === 2 ? '/images/product-2box.png' : '/images/product-1box.png'}
+                      alt="CAFO Energy"
+                      className="w-full h-full object-cover transition-all duration-500"
+                    />
                   </div>
-                </div>
 
-                {/* CTA */}
-                <button
-                  onClick={handleSubscribe}
-                  className="w-full flex items-center justify-center gap-2 px-8 py-5 bg-near-black text-white font-heading text-2xl tracking-wide hover:-translate-y-0.5 hover:shadow-xl transition-all duration-200"
-                >
-                  <ShoppingBag className="w-5 h-5" />
-                  Subscribe & save {discountPct}% — {formatPrice(getSubscriptionPrice(BOX_PRICE_SEK * plan[0], plan[0]), currency)}/month
-                </button>
-                <p className="text-center text-[11px] font-accent text-near-black/30 mt-3">
-                  {plan[0]} {plan[0] === 1 ? 'box' : 'boxes'} · {BOX_BARS(plan[0])} bars · cancel anytime
-                </p>
+                  {/* Right: options */}
+                  <div>
+                    <h2 className="text-3xl font-heading text-near-black mb-6 leading-tight">
+                      How many bars per month?
+                    </h2>
 
+                    {/* Option rows */}
+                    <div className="flex flex-col gap-3 mb-6">
+                      {[
+                        { boxes: 1, label: '1 box',   bars: 12, discount: 10, tag: null },
+                        { boxes: 2, label: '2 boxes',  bars: 24, discount: 15, tag: 'Most popular' },
+                        { boxes: 3, label: '3 boxes',  bars: 36, discount: 20, tag: 'Best value' },
+                      ].map(({ boxes, label, bars, discount, tag }) => {
+                        const price = getSubscriptionPrice(BOX_PRICE_SEK * boxes, boxes)
+                        const selected = plan[0] === boxes
+                        return (
+                          <button
+                            key={boxes}
+                            onClick={() => updatePlan(0, boxes)}
+                            className={`flex items-center justify-between px-6 py-5 border-2 text-left transition-all duration-200 ${
+                              selected
+                                ? 'border-near-black bg-near-black text-white'
+                                : 'border-near-black/10 bg-white text-near-black hover:border-near-black/30'
+                            }`}
+                          >
+                            <div>
+                              <div className="flex items-center gap-3">
+                                <span className="text-xl font-heading leading-none">{label}</span>
+                                {tag && (
+                                  <span className="text-[10px] font-accent font-bold uppercase tracking-wider px-2.5 py-1 bg-gold text-near-black">
+                                    {tag}
+                                  </span>
+                                )}
+                              </div>
+                              <span className={`text-xs font-accent mt-1 block ${selected ? 'text-white/50' : 'text-near-black/40'}`}>
+                                {bars} bars / month
+                              </span>
+                            </div>
+                            <div className="text-right shrink-0 ml-4">
+                              <span className="text-2xl font-heading block">{formatPrice(price, currency)}</span>
+                              <span className={`text-xs font-accent font-bold ${selected ? 'text-gold' : 'text-forest'}`}>Save {discount}%</span>
+                            </div>
+                          </button>
+                        )
+                      })}
+
+                      {/* Custom option */}
+                      {(() => {
+                        const isCustom = plan[0] > 3
+                        const customPrice = getSubscriptionPrice(BOX_PRICE_SEK * plan[0], plan[0])
+                        return (
+                          <button
+                            onClick={() => { if (!isCustom) updatePlan(0, 4) }}
+                            className={`flex items-center justify-between px-6 py-5 border-2 text-left transition-all duration-200 ${
+                              isCustom
+                                ? 'border-near-black bg-near-black text-white'
+                                : 'border-near-black/10 bg-white text-near-black hover:border-near-black/30'
+                            }`}
+                          >
+                            <div>
+                              <span className="text-xl font-heading leading-none block">Custom</span>
+                              {isCustom ? (
+                                <div className="flex items-center gap-2 mt-2" onClick={e => e.stopPropagation()}>
+                                  <button
+                                    onClick={() => updatePlan(0, Math.max(4, plan[0] - 1))}
+                                    className="w-7 h-7 flex items-center justify-center border border-white/30 text-white/70 hover:text-white transition-colors"
+                                  >−</button>
+                                  <span className="text-base font-heading w-6 text-center">{plan[0]}</span>
+                                  <button
+                                    onClick={() => updatePlan(0, plan[0] + 1)}
+                                    className="w-7 h-7 flex items-center justify-center border border-white/30 text-white/70 hover:text-white transition-colors"
+                                  >+</button>
+                                  <span className="text-xs font-accent ml-1 text-white/50">{BOX_BARS(plan[0])} bars / month</span>
+                                </div>
+                              ) : (
+                                <span className="text-xs font-accent mt-1 block text-near-black/40">4+ boxes · pick any amount</span>
+                              )}
+                            </div>
+                            <div className="text-right shrink-0 ml-4">
+                              {isCustom ? (
+                                <>
+                                  <span className="text-2xl font-heading block">{formatPrice(customPrice, currency)}</span>
+                                  <span className="text-xs font-accent font-bold text-gold">Save 20%</span>
+                                </>
+                              ) : (
+                                <span className="text-sm font-accent font-bold text-forest">Save 20%</span>
+                              )}
+                            </div>
+                          </button>
+                        )
+                      })()}
+                    </div>
+
+                    {/* Benefits */}
+                    <div className="grid grid-cols-2 gap-2 mb-6">
+                      {[
+                        'Delivered monthly, same date',
+                        'Change your quantity before any delivery',
+                        'Cancel anytime — no fees',
+                        'Free shipping on every order',
+                      ].map(b => (
+                        <div key={b} className="flex items-center gap-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-forest shrink-0" />
+                          <span className="text-sm font-accent text-near-black/60">{b}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* CTA */}
+                    <button
+                      onClick={handleSubscribe}
+                      className="w-full flex items-center justify-center gap-2 px-8 py-5 bg-near-black text-white font-heading text-2xl tracking-wide hover:-translate-y-0.5 hover:shadow-xl transition-all duration-200"
+                    >
+                      <ShoppingBag className="w-5 h-5" />
+                      Subscribe & save {discountPct}% — {formatPrice(getSubscriptionPrice(BOX_PRICE_SEK * plan[0], plan[0]), currency)}/month
+                    </button>
+                    <p className="text-center text-[11px] font-accent text-near-black/30 mt-3">
+                      {plan[0]} {plan[0] === 1 ? 'box' : 'boxes'} · {BOX_BARS(plan[0])} bars · cancel anytime
+                    </p>
+                  </div>
                 </div>
               </div>
             </AnimatedSection>

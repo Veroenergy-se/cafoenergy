@@ -7,7 +7,22 @@ export default function Hero() {
 
   return (
     <section className="relative flex items-start pt-16 sm:pt-20 lg:pt-24 pb-20 min-h-[85svh] bg-warm-white overflow-hidden">
-      <div className="page-container">
+
+      {/* Bar image — right side, tilted */}
+      <motion.div
+        className="absolute right-[-6%] top-[5%] w-[38vw] max-w-[520px] hidden lg:block pointer-events-none"
+        initial={{ opacity: 0, x: 60, rotate: 12 }}
+        animate={{ opacity: 1, x: 0, rotate: 8 }}
+        transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+      >
+        <img
+          src="/images/product-bar.png"
+          alt="CAFO Energy bar"
+          className="w-full h-auto drop-shadow-2xl"
+        />
+      </motion.div>
+
+      <div className="page-container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
