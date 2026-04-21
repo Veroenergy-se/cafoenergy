@@ -81,8 +81,8 @@ export default function Hero() {
               </div>
               <div className="w-px h-8 bg-near-black/15" />
               <div>
-                <span className="block text-2xl font-heading text-near-black leading-none">0g</span>
-                <span className="block text-[10px] font-accent text-near-black/40 uppercase tracking-widest mt-0.5">Added sugar</span>
+                <span className="block text-2xl font-heading text-near-black leading-none">Zero</span>
+                <span className="block text-[10px] font-accent text-near-black/40 uppercase tracking-widest mt-0.5">Nonsense</span>
               </div>
             </div>
           </motion.div>
