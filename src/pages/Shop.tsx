@@ -182,15 +182,17 @@ export default function Shop() {
           {mode === 'subscription' && (
             <AnimatedSection direction="scale">
               <div className="max-w-6xl mx-auto">
-                <div className="grid lg:grid-cols-[2fr_1fr] gap-10 items-start">
+                <div className="grid lg:grid-cols-[2fr_1fr] gap-10 items-stretch">
 
-                  {/* Left: product image */}
-                  <div className="aspect-[4/3] overflow-hidden bg-cream hidden lg:block">
-                    <img
-                      src={plan[0] >= 3 ? '/images/product-3box.png' : plan[0] === 2 ? '/images/product-2box.png' : '/images/product-1box.png'}
-                      alt="CAFO Energy"
-                      className="w-full h-full object-cover transition-all duration-500"
-                    />
+                  {/* Left: product image — absolutely fills grid cell so right column drives row height */}
+                  <div className="hidden lg:block relative">
+                    <div className="absolute inset-0 overflow-hidden bg-cream">
+                      <img
+                        src={plan[0] >= 3 ? '/images/product-3box.png' : plan[0] === 2 ? '/images/product-2box.png' : '/images/product-1box.png'}
+                        alt="CAFO Energy"
+                        className="w-full h-full object-cover transition-all duration-500"
+                      />
+                    </div>
                   </div>
 
                   {/* Right: options */}
