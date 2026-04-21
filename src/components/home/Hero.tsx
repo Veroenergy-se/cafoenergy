@@ -8,18 +8,28 @@ export default function Hero() {
   return (
     <section className="relative flex items-start pt-16 sm:pt-20 lg:pt-24 pb-20 min-h-[85svh] bg-warm-white overflow-hidden">
 
-      {/* Bar image — right side, tilted */}
+      {/* Bar image — right side, full height, floating */}
       <motion.div
-        className="absolute right-[-6%] top-[5%] w-[38vw] max-w-[520px] hidden lg:block pointer-events-none"
-        initial={{ opacity: 0, x: 60, rotate: 12 }}
-        animate={{ opacity: 1, x: 0, rotate: 8 }}
+        className="absolute right-0 top-0 w-[42vw] max-w-[580px] h-[calc(100%+40px)] hidden lg:block pointer-events-none"
+        initial={{ opacity: 0, x: 60 }}
+        animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+        style={{
+          WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 30%)',
+          maskImage: 'linear-gradient(to right, transparent 0%, black 30%)',
+        }}
       >
-        <img
-          src="/images/product-bar.png"
-          alt="CAFO Energy bar"
-          className="w-full h-auto drop-shadow-2xl"
-        />
+        <motion.div
+          className="w-full h-full"
+          animate={{ y: [0, -20, 0] }}
+          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 1.5 }}
+        >
+          <img
+            src="/images/product-bar.png"
+            alt="CAFO Energy bar"
+            className="w-full h-full object-cover object-center"
+          />
+        </motion.div>
       </motion.div>
 
       <div className="page-container relative z-10">

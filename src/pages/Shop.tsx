@@ -309,9 +309,6 @@ export default function Shop() {
                       <ShoppingBag className="w-5 h-5" />
                       Subscribe & save {discountPct}% — {formatPrice(getSubscriptionPrice(BOX_PRICE_SEK * plan[0], plan[0]), currency)}/month
                     </button>
-                    <p className="text-center text-[11px] font-accent text-near-black/30 mt-3">
-                      {plan[0]} {plan[0] === 1 ? 'box' : 'boxes'} · {BOX_BARS(plan[0])} bars · cancel anytime
-                    </p>
                   </div>
                 </div>
               </div>
