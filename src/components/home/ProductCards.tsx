@@ -28,11 +28,8 @@ export default function ProductCards() {
                 )}
 
                 {/* Product visual */}
-                <div className="h-80 bg-gradient-to-br from-cream to-dark-cream flex items-center justify-center mb-10 group-hover:scale-[1.02] transition-transform duration-300">
-                  <div className="text-center">
-                    <span className="text-4xl font-heading text-forest">CAFO</span>
-                    <p className="text-sm text-forest/50 font-accent mt-1">{t(product.descriptionKey)}</p>
-                  </div>
+                <div className="h-80 flex items-center justify-center mb-10 overflow-hidden bg-cream group-hover:scale-[1.02] transition-transform duration-300">
+                  <img src="/images/product-box.png" alt="CAFO Energy bar" className="h-full w-full object-contain p-6" />
                 </div>
 
                 <h3 className="text-xl font-semibold font-accent">{t(product.nameKey)}</h3>

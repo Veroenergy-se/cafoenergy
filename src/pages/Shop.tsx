@@ -128,19 +128,8 @@ export default function Shop() {
                         </span>
                       </div>
 
-                      <div className="mx-8 aspect-[4/3] flex flex-col items-center justify-center gap-3 mb-6 bg-gradient-to-br from-cream to-dark-cream">
-                        <CafoLogo className="w-28 h-auto" />
-                        <div className="text-center">
-                          <span className="text-4xl font-heading leading-none text-near-black">
-                            {product.barCount / 12}
-                          </span>
-                          <span className="text-xl font-heading ml-1.5 text-near-black/50">
-                            {product.barCount / 12 === 1 ? 'box' : 'boxes'}
-                          </span>
-                          <p className="text-[11px] font-accent mt-1 text-near-black/25">
-                            {product.barCount} bars total
-                          </p>
-                        </div>
+                      <div className="mx-8 aspect-[4/3] flex items-center justify-center mb-6 bg-cream overflow-hidden">
+                        <img src="/images/product-box.png" alt="CAFO Energy bar" className="w-full h-full object-contain p-6" />
                       </div>
 
                       <div className="px-8 pb-8 flex flex-col flex-1">
@@ -196,9 +185,8 @@ export default function Shop() {
                 <div className="grid lg:grid-cols-[5fr_7fr] gap-8 items-start">
 
                 {/* Product visual */}
-                <div className="bg-gradient-to-br from-cream to-dark-cream aspect-square flex flex-col items-center justify-center p-6">
-                  <CafoLogo className="w-full max-w-[260px] h-auto" />
-                  <p className="text-xs font-accent text-near-black/40 mt-4 text-center">12 bars per box</p>
+                <div className="bg-cream aspect-square flex items-center justify-center overflow-hidden">
+                  <img src="/images/product-box.png" alt="CAFO Energy bar" className="w-full h-full object-contain p-8" />
                 </div>
 
                 {/* Right: options + CTA */}
