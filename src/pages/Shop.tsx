@@ -181,11 +181,11 @@ export default function Shop() {
           {/* SUBSCRIPTION: simple planner */}
           {mode === 'subscription' && (
             <AnimatedSection direction="scale">
-              <div className="max-w-5xl mx-auto">
-                <div className="grid lg:grid-cols-[1fr_1.3fr] gap-10 items-start">
+              <div className="max-w-6xl mx-auto">
+                <div className="grid lg:grid-cols-[1.4fr_1fr] gap-10 items-start">
 
                   {/* Left: product image */}
-                  <div className="aspect-square overflow-hidden bg-cream hidden lg:block">
+                  <div className="aspect-[4/5] overflow-hidden bg-cream hidden lg:block">
                     <img
                       src={plan[0] >= 3 ? '/images/product-3box.png' : plan[0] === 2 ? '/images/product-2box.png' : '/images/product-1box.png'}
                       alt="CAFO Energy"
