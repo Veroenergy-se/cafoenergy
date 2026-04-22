@@ -96,9 +96,9 @@ export default function Community() {
 
           <SlidePanel
             from="left"
-            className="relative min-h-[50vh] sm:min-h-0 overflow-hidden order-last sm:order-first"
+            className="relative min-h-[50vh] sm:min-h-0 overflow-hidden bg-cream order-last sm:order-first"
           >
-            <img src="/images/community-padel.jpg" alt="Padel" className="absolute inset-0 w-full h-full object-cover object-center" />
+            <img src="/images/community-padel.jpg" alt="Padel" className="absolute inset-0 w-full h-full object-cover object-center scale-[0.85] origin-center" />
           </SlidePanel>
 
           <div className="flex flex-col justify-center px-10 py-20 sm:px-14 lg:px-20 xl:px-28 min-h-[55vh]">
@@ -141,9 +141,9 @@ export default function Community() {
 
           <SlidePanel
             from="left"
-            className="relative min-h-[50vh] sm:min-h-0 overflow-hidden"
+            className="relative min-h-[50vh] sm:min-h-0 overflow-hidden bg-cream"
           >
-            <img src="/images/community-frontflip.jpg" alt="Frontflip" className="absolute inset-0 w-full h-full object-cover object-center" />
+            <img src="/images/community-frontflip.jpg" alt="Frontflip" className="absolute inset-0 w-full h-full object-cover object-center scale-[0.85] origin-center" />
           </SlidePanel>
 
           <div className="flex flex-col justify-center px-10 py-20 sm:px-14 lg:px-20 xl:px-28 min-h-[55vh]">
