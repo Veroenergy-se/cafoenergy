@@ -96,9 +96,17 @@ export default function Community() {
 
           <SlidePanel
             from="left"
-            className="min-h-[55vh] overflow-hidden order-last sm:order-first"
+            className="min-h-[55vh] overflow-hidden bg-cream order-last sm:order-first"
           >
-            <img src="/images/community-padel.jpg" alt="Padel" className="w-full h-full object-cover object-top" />
+            <img
+              src="/images/community-padel.jpg"
+              alt="Padel"
+              className="w-full h-full object-cover object-top"
+              style={{
+                WebkitMaskImage: 'linear-gradient(to bottom, black 55%, transparent 82%)',
+                maskImage: 'linear-gradient(to bottom, black 55%, transparent 82%)',
+              }}
+            />
           </SlidePanel>
 
           <div className="flex flex-col justify-center px-10 py-20 sm:px-14 lg:px-20 xl:px-28 min-h-[55vh]">
