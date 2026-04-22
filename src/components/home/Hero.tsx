@@ -19,17 +19,11 @@ export default function Hero() {
           maskImage: 'linear-gradient(to right, transparent 0%, black 30%)',
         }}
       >
-        <motion.div
-          className="w-full h-full"
-          animate={{ y: [0, -20, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 1.5 }}
-        >
-          <img
-            src="/images/product-bar.png"
-            alt="CAFO Energy bar"
-            className="w-full h-full object-cover object-center"
-          />
-        </motion.div>
+        <img
+          src="/images/product-bar.png"
+          alt="CAFO Energy bar"
+          className="w-full h-full object-cover object-center"
+        />
       </motion.div>
 
       <div className="page-container relative z-10">
