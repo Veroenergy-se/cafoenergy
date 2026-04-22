@@ -52,9 +52,9 @@ export default function About() {
             <AnimatedSection direction="left" className="order-2 lg:order-1">
               <div className="aspect-[4/3] overflow-hidden bg-warm-white">
                 <img
-                  src="/images/product-studio.jpg"
-                  alt="CAFO Energy bar"
-                  className="w-full h-full object-cover"
+                  src="/images/about-nyc.jpg"
+                  alt="NYC Times Square"
+                  className="w-full h-full object-cover object-center"
                 />
               </div>
             </AnimatedSection>
