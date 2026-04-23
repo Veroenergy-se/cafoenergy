@@ -54,18 +54,18 @@ export default function Community() {
       </section>
 
       {/* Split 1 — brand story */}
-      <section className="bg-cream pt-40 sm:pt-56">
-        <div className="grid sm:grid-cols-2">
+      <section className="bg-cream">
+        <div className="grid lg:grid-cols-[1fr_1.4fr] min-h-[80vh]">
 
-          <div className="flex flex-col justify-end px-10 py-20 sm:px-14 lg:px-20 xl:px-28 min-h-[55vh]">
+          <div className="flex flex-col justify-center px-10 py-20 sm:px-14 lg:px-20 xl:px-28">
             <AnimatedSection direction="left">
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading text-near-black mb-6 leading-tight">
+              <h2 className="text-5xl sm:text-6xl lg:text-7xl font-heading text-near-black mb-8 leading-tight">
                 {t('community.story.heading')}
               </h2>
-              <p className="text-near-black font-accent leading-relaxed mb-4 max-w-sm text-base">
+              <p className="text-near-black font-accent leading-relaxed mb-5 max-w-sm text-lg">
                 {t('community.story.p1')}
               </p>
-              <p className="text-near-black font-accent leading-relaxed max-w-sm text-base">
+              <p className="text-near-black font-accent leading-relaxed max-w-sm text-lg">
                 {t('community.story.p2')}
               </p>
             </AnimatedSection>
@@ -73,9 +73,17 @@ export default function Community() {
 
           <SlidePanel
             from="right"
-            className="min-h-[55vh] overflow-hidden"
+            className="relative min-h-[60vh] lg:min-h-0 overflow-hidden"
           >
-            <img src="/images/community-triple360.jpg" alt="Triple 360" className="w-full h-full object-cover object-top" />
+            <motion.img
+              src="/images/community-triple360.jpg"
+              alt="Triple 360"
+              className="absolute inset-0 w-full h-full object-cover object-center"
+              initial={{ scale: 1.1 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+            />
           </SlidePanel>
 
         </div>
