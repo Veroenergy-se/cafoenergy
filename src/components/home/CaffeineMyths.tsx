@@ -14,45 +14,45 @@ interface MythData {
 const myths: MythData[] = [
   {
     verdict: 'myth',
-    claim: 'Caffeine dehydrates you',
+    claim: 'Caffeine is bad for you',
     science:
-      "This one's been scaring people away from their morning coffee for decades — and it's wrong. Yes, caffeine is a mild diuretic, but the water in your drink more than compensates. <strong>Studies show coffee hydrates you just as well as water.</strong> You'd need to consume roughly 500mg in one sitting to see any meaningful fluid loss. At 90mg, you're fine. Drink your bar, drink your water, move on.",
-    source: 'Killer et al., PLOS ONE, 2014',
+      "This is the big one. Decades of research point the other way: moderate caffeine consumption is associated with <strong>reduced risk of type 2 diabetes, Parkinson's disease, and liver conditions</strong>. The FDA considers up to 400mg per day safe for healthy adults. The issue has never been caffeine itself — it's high-sugar, high-dose drinks that package it in the worst possible way. Clean caffeine, sensible dose, real food: that's the formula.",
+    source: 'Poole et al., BMJ, 2017',
+  },
+  {
+    verdict: 'fact',
+    claim: 'It makes hard workouts feel easier',
+    science:
+      "Caffeine works by blocking adenosine receptors — adenosine is the chemical that builds up in your brain and signals fatigue. <strong>Blocking it reduces your perceived rate of exertion (RPE)</strong>, which means the same effort genuinely feels easier. High-intensity intervals, long runs, heavy sets — all of them feel more manageable. This isn't a placebo. It's one of the most replicated findings in sports science.",
+    source: 'Grgic et al., British Journal of Sports Medicine, 2020',
+  },
+  {
+    verdict: 'fact',
+    claim: 'It boosts fat burning during exercise',
+    science:
+      "Caffeine increases the release of free fatty acids into the bloodstream, encouraging your body to use fat for fuel. This <strong>spares muscle glycogen stores for later in your session</strong>, which translates directly to better endurance. It's one of the reasons endurance athletes have used caffeine as a legal performance tool for decades.",
+    source: 'Spriet, Sports Medicine, 2014',
+  },
+  {
+    verdict: 'fact',
+    claim: 'It can speed up post-workout recovery',
+    science:
+      "When caffeine is consumed alongside carbohydrates after intense training, research shows it can <strong>accelerate muscle glycogen replenishment by up to 66%</strong> compared to carbohydrates alone. Glycogen is your muscle's primary fuel — refilling it faster means recovering faster. Pair that with the 14g of protein in a CAFO bar and you've got a serious recovery window covered.",
+    source: 'Pedersen et al., Journal of Applied Physiology, 2008',
   },
   {
     verdict: 'myth',
-    claim: 'Caffeine makes you shorter (your parents lied)',
+    claim: 'Caffeine dehydrates you',
     science:
-      "A rumour so persistent it traumatised an entire generation of kids who just wanted a Coke. There is <strong>zero scientific evidence</strong> that caffeine affects height or bone growth. The myth likely started because parents needed a reason to keep kids away from coffee — reasonable parenting, terrible science. Height is almost entirely genetic. Caffeine had nothing to do with it.",
-    source: 'Hallström et al., Osteoporosis International, 2006',
+      "A myth that's scared people away from their morning coffee for years — and it's wrong. Yes, caffeine is a mild diuretic, but <strong>the fluid in your drink more than offsets any water loss</strong>. Studies show caffeinated drinks hydrate just as effectively as water. You'd need to consume roughly 500mg in a single sitting to see meaningful fluid loss. At 90mg, you're fine.",
+    source: 'Killer et al., PLOS ONE, 2014',
   },
   {
     verdict: 'nuanced',
     claim: 'Caffeine ruins your sleep',
     science:
-      "Timing is everything. Caffeine has a half-life of 5–7 hours, meaning <strong>half is still active 5–7 hours after you consume it.</strong> A 90mg bar at 2pm leaves roughly 11mg circulating at midnight — well below sleep-disrupting levels. The real issue is high-dose drinks consumed late in the day. Stick to before 3pm, keep the dose sensible, and most people sleep just fine.",
+      "Timing is everything here. Caffeine has a half-life of 5–7 hours — meaning <strong>half of it is still active in your system 5–7 hours after you consume it</strong>. A 90mg bar at 2pm leaves roughly 11mg circulating at midnight, which is well below the threshold that disrupts sleep for most people. The real culprits are high-dose drinks taken in the late afternoon or evening. Keep it to before 3pm and most people sleep just fine.",
     source: 'Drake et al., Journal of Clinical Sleep Medicine, 2013',
-  },
-  {
-    verdict: 'myth',
-    claim: 'Caffeine is as addictive as hard drugs',
-    science:
-      "Caffeine does produce physical dependence — skip it for a day and you might get a headache. But addiction is a clinical term with a high bar: compulsive use despite serious harm, loss of control, ruined relationships. <strong>Caffeine doesn't come close.</strong> The American Psychiatric Association classifies it as producing dependence, not addiction. Needing your morning coffee is a habit. Blaming it on addiction is drama.",
-    source: 'American Psychiatric Association DSM-5, 2013',
-  },
-  {
-    verdict: 'fact',
-    claim: 'Caffeine is one of the best legal performance enhancers',
-    science:
-      "This isn't marketing — it's one of the most replicated findings in sports science. Caffeine blocks adenosine receptors, which reduces perceived effort during exercise. <strong>Meta-analyses across dozens of studies show a 3–4% average improvement in endurance and measurable gains in strength and power.</strong> It's the reason elite athletes use it before competition. It's also the reason we built CAFO around it.",
-    source: 'Grgic et al., British Journal of Sports Medicine, 2020',
-  },
-  {
-    verdict: 'nuanced',
-    claim: 'More caffeine = sharper focus',
-    science:
-      "Up to a point, yes. After that, it actively works against you. The relationship follows an <strong>inverted U-curve</strong> — performance peaks at moderate doses and then drops as anxiety and jitteriness set in. At roughly 90mg most people hit the sweet spot: real alertness, no edge. Push past 300–400mg and you're shakier, not sharper. The goal isn't maximum caffeine — it's optimal caffeine.",
-    source: 'Nehlig, Neuroscience & Biobehavioral Reviews, 2018',
   },
 ]
 
@@ -115,9 +115,9 @@ function DoseSection() {
 
           <div className="grid grid-cols-3 gap-px bg-white/10">
             {[
-              { time: 'Morning', mg: '90mg', note: 'Wake up sharp' },
-              { time: 'Midday',  mg: '180mg', note: 'Stay in it' },
-              { time: 'Pre-workout', mg: '270mg', note: '130mg to spare' },
+              { time: 'Morning',      mg: '90mg',  note: 'Wake up sharp' },
+              { time: 'Midday',       mg: '180mg', note: 'Stay in it' },
+              { time: 'Pre-workout',  mg: '270mg', note: '130mg to spare' },
             ].map((s, i) => (
               <AnimatedSection key={s.time} delay={i * 0.1}>
                 <div className="bg-near-black px-6 py-10 flex flex-col items-center">
