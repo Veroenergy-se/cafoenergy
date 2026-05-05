@@ -41,18 +41,18 @@ const myths: MythData[] = [
     source: 'Pedersen et al., Journal of Applied Physiology, 2008',
   },
   {
-    verdict: 'myth',
-    claim: 'Caffeine dehydrates you',
+    verdict: 'fact',
+    claim: 'It sharpens focus during study sessions',
     science:
-      "A myth that's scared people away from their morning coffee for years — and it's wrong. Yes, caffeine is a mild diuretic, but <strong>the fluid in your drink more than offsets any water loss</strong>. Studies show caffeinated drinks hydrate just as effectively as water. You'd need to consume roughly 500mg in a single sitting to see meaningful fluid loss. At 90mg, you're fine.",
-    source: 'Killer et al., PLOS ONE, 2014',
+      "Caffeine improves the three things that matter most when you're studying: <strong>sustained attention, processing speed, and working memory</strong>. Research shows it reduces errors on tasks requiring concentration and improves recall speed — not by making you smarter, but by letting you perform closer to your actual ceiling. The sweet spot for most people is 80–100mg: enough to sharpen focus without the restless overthinking that higher doses cause. One CAFO bar lands right there.",
+    source: 'Einöther & Giesbrecht, Psychopharmacology, 2013',
   },
   {
-    verdict: 'nuanced',
-    claim: 'Caffeine ruins your sleep',
+    verdict: 'fact',
+    claim: 'It fights the afternoon energy dip — properly',
     science:
-      "Timing is everything here. Caffeine has a half-life of 5–7 hours — meaning <strong>half of it is still active in your system 5–7 hours after you consume it</strong>. A 90mg bar at 2pm leaves roughly 11mg circulating at midnight, which is well below the threshold that disrupts sleep for most people. The real culprits are high-dose drinks taken in the late afternoon or evening. Keep it to before 3pm and most people sleep just fine.",
-    source: 'Drake et al., Journal of Clinical Sleep Medicine, 2013',
+      "The post-lunch slump is real: adenosine levels rise, core body temperature dips slightly, and <strong>cognitive performance measurably drops between 1pm and 3pm</strong> for most people. Caffeine works by blocking the adenosine that causes that dip — which is why a mid-afternoon bar is one of the most effective uses of it. At 90mg you extend your productive work window by 2–3 hours without disrupting sleep, as long as you take it before 3pm.",
+    source: 'Hilditch & McHill, Sleep Medicine Reviews, 2018',
   },
 ]
 
