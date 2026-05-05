@@ -1,18 +1,16 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 import AnimatedSection from '@/components/shared/AnimatedSection'
 import { ChevronDown } from 'lucide-react'
 
 type Verdict = 'myth' | 'fact' | 'nuanced'
 
-interface Stat { n: string; l: string }
-interface Bar { label: string; val: number; color: string }
-
 interface MythData {
   verdict: Verdict
   claim: string
   science: string
-  stats?: Stat[]
-  bars?: Bar[]
+  stats?: { n: string; l: string }[]
+  bars?: { label: string; val: number; color: string }[]
   source: string
 }
 
@@ -93,15 +91,16 @@ const myths: MythData[] = [
   },
 ]
 
-const verdictStyles: Record<Verdict, string> = {
-  myth: 'bg-red-50 text-red-700 border border-red-200',
-  fact: 'bg-green-50 text-green-700 border border-green-200',
-  nuanced: 'bg-amber-50 text-amber-700 border border-amber-200',
+const verdictConfig: Record<Verdict, { border: string; badge: string; label: string }> = {
+  myth:    { border: 'border-l-red-400',   badge: 'bg-red-50 text-red-600 border border-red-200',     label: 'Myth' },
+  fact:    { border: 'border-l-forest',    badge: 'bg-green-50 text-green-700 border border-green-200', label: 'Fact' },
+  nuanced: { border: 'border-l-gold',      badge: 'bg-amber-50 text-amber-700 border border-amber-200', label: 'Nuanced' },
 }
 
-function MythCard({ m }: { m: MythData }) {
+function MythCard({ m, index }: { m: MythData; index: number }) {
   const [open, setOpen] = useState(false)
   const [barsLive, setBarsLive] = useState(false)
+  const cfg = verdictConfig[m.verdict]
 
   useEffect(() => {
     if (open && m.bars) {
@@ -112,220 +111,224 @@ function MythCard({ m }: { m: MythData }) {
   }, [open, m.bars])
 
   return (
-    <div
-      className={`rounded-2xl border overflow-hidden bg-white transition-colors duration-200 ${
-        open ? 'border-gold/40' : 'border-near-black/8 hover:border-near-black/20'
-      }`}
-    >
-      <button
-        className="w-full flex items-center gap-3 px-5 py-4 text-left"
-        onClick={() => setOpen(!open)}
-      >
-        <span
-          className={`shrink-0 px-2.5 py-0.5 rounded-full text-[10px] font-bold font-accent uppercase tracking-wider ${verdictStyles[m.verdict]}`}
+    <AnimatedSection delay={index * 0.07}>
+      <div className={`border-l-4 ${cfg.border} bg-white border border-near-black/[0.06] overflow-hidden transition-all duration-200 ${open ? 'shadow-md' : 'hover:shadow-sm'}`}>
+        <button
+          className="w-full flex items-center gap-4 px-6 py-5 text-left"
+          onClick={() => setOpen(!open)}
         >
-          {m.verdict === 'nuanced' ? 'Nuanced' : m.verdict.charAt(0).toUpperCase() + m.verdict.slice(1)}
-        </span>
-        <span className="flex-1 text-sm font-medium font-accent text-near-black">{m.claim}</span>
-        <ChevronDown
-          className={`w-4 h-4 text-near-black/30 transition-transform duration-300 shrink-0 ${open ? 'rotate-180' : ''}`}
-        />
-      </button>
+          <span className={`shrink-0 px-3 py-1 text-[10px] font-bold font-accent uppercase tracking-widest ${cfg.badge}`}>
+            {cfg.label}
+          </span>
+          <span className="flex-1 text-base sm:text-lg font-heading text-near-black leading-snug">{m.claim}</span>
+          <ChevronDown className={`w-5 h-5 text-near-black/25 transition-transform duration-300 shrink-0 ${open ? 'rotate-180' : ''}`} />
+        </button>
 
-      {open && (
-        <div className="px-5 pb-5">
-          <div className="h-px bg-near-black/5 mb-4" />
-
-          {/* Science text — static known content, no user input */}
-          <p
-            className="text-sm text-near-black/60 leading-relaxed mb-4 text-center [&_strong]:font-semibold [&_strong]:text-near-black"
-            dangerouslySetInnerHTML={{ __html: m.science }}
-          />
-
-          {m.stats && (
-            <div className="grid grid-cols-3 gap-2 mb-4">
-              {m.stats.map((s) => (
-                <div
-                  key={s.l}
-                  className="bg-cream rounded-xl p-3 text-center border border-near-black/5"
-                >
-                  <div className="text-sm font-black font-accent text-gold">{s.n}</div>
-                  <div className="text-[10px] text-near-black/40 mt-0.5 font-accent leading-tight">{s.l}</div>
-                </div>
-              ))}
-            </div>
-          )}
-
-          {m.bars && (
-            <div className="space-y-3 mb-4">
-              {m.bars.map((b) => (
-                <div key={b.label}>
-                  <div className="flex justify-between text-[11px] font-accent text-near-black/40 mb-1.5 text-left">
-                    <span>{b.label}</span>
-                    <span style={{ color: b.color }} className="font-bold">{b.val}%</span>
+        {open && (
+          <div className="px-6 pb-6">
+            <div className="h-px bg-near-black/5 mb-5" />
+            <p
+              className="text-sm text-near-black/60 leading-relaxed mb-5 [&_strong]:font-semibold [&_strong]:text-near-black"
+              dangerouslySetInnerHTML={{ __html: m.science }}
+            />
+            {m.stats && (
+              <div className="grid grid-cols-3 gap-3 mb-5">
+                {m.stats.map(s => (
+                  <div key={s.l} className="bg-cream p-4 text-center border border-near-black/5">
+                    <div className="text-lg font-heading text-near-black">{s.n}</div>
+                    <div className="text-[10px] text-near-black/40 mt-1 font-accent leading-tight">{s.l}</div>
                   </div>
-                  <div className="h-1.5 bg-cream rounded-full overflow-hidden">
-                    <div
-                      className="h-full rounded-full transition-all duration-700 ease-out"
-                      style={{
-                        width: barsLive ? `${b.val}%` : '0%',
-                        backgroundColor: b.color,
-                      }}
-                    />
+                ))}
+              </div>
+            )}
+            {m.bars && (
+              <div className="space-y-3 mb-5">
+                {m.bars.map(b => (
+                  <div key={b.label}>
+                    <div className="flex justify-between text-[11px] font-accent text-near-black/40 mb-1.5">
+                      <span>{b.label}</span>
+                      <span style={{ color: b.color }} className="font-bold">{b.val}%</span>
+                    </div>
+                    <div className="h-1.5 bg-cream overflow-hidden">
+                      <div
+                        className="h-full transition-all duration-700 ease-out"
+                        style={{ width: barsLive ? `${b.val}%` : '0%', backgroundColor: b.color }}
+                      />
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
-          )}
+                ))}
+              </div>
+            )}
+            <p className="text-[10px] text-near-black/25 font-accent">Source: {m.source}</p>
+          </div>
+        )}
+      </div>
+    </AnimatedSection>
+  )
+}
 
-          <p className="text-[11px] text-near-black/30 font-accent text-center">Source: {m.source}</p>
-        </div>
-      )}
+const drinks = [
+  { name: 'CAFO bar',        mg: 90,  natural: true,  cafo: true,  note: '90mg natural green tea caffeine' },
+  { name: 'Espresso',        mg: 65,  natural: true,  cafo: false, note: 'No protein — no sustained energy' },
+  { name: 'NOCCO (330ml)',   mg: 180, natural: false, cafo: false, note: '2× the dose, synthetic caffeine' },
+  { name: 'Celsius (355ml)', mg: 200, natural: false, cafo: false, note: 'Half your daily limit in one can' },
+]
+
+const DAILY_LIMIT = 400
+
+const daySteps = [
+  { time: '7–9am',  label: 'Morning',    bar: 1, total: 90,  note: 'Wake up focused, not wired' },
+  { time: '12pm',   label: 'Midday',     bar: 2, total: 180, note: 'Sustain through the afternoon' },
+  { time: '3–5pm',  label: 'Pre-workout',bar: 3, total: 270, note: '130mg under the daily limit' },
+]
+
+function AnimatedBar({ pct, color, delay = 0 }: { pct: number; color: string; delay?: number }) {
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, margin: '-40px' })
+  return (
+    <div ref={ref} className="h-full rounded-sm overflow-hidden" style={{ backgroundColor: `${color}20` }}>
+      <motion.div
+        className="h-full rounded-sm"
+        style={{ backgroundColor: color }}
+        initial={{ width: 0 }}
+        animate={inView ? { width: `${pct}%` } : { width: 0 }}
+        transition={{ duration: 0.9, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
+      />
     </div>
   )
 }
 
-type BarZone = 'effective' | 'optimal' | 'safe-max'
-
-const zoneConfig: Record<BarZone, { card: string; badge: string; dot: string; label: string; hint: string }> = {
-  effective: {
-    card: 'bg-near-black/[0.03] border-near-black/8',
-    badge: 'bg-near-black/8 text-near-black/50',
-    dot: 'bg-near-black/25',
-    label: 'Effective',
-    hint: 'below your personal optimal zone — still works, just not peak',
-  },
-  optimal: {
-    card: 'bg-forest/[0.07] border-forest/20',
-    badge: 'bg-forest/15 text-forest',
-    dot: 'bg-forest',
-    label: 'In your zone',
-    hint: 'within your optimal range for focus and performance',
-  },
-  'safe-max': {
-    card: 'bg-amber-50 border-amber-200',
-    badge: 'bg-amber-100 text-amber-700',
-    dot: 'bg-amber-400',
-    label: 'Safe max',
-    hint: 'effective, but approaching your daily limit — fine occasionally',
-  },
-}
-
-function DoseCalculator() {
-  const [weight, setWeight] = useState(75)
-
-  // EFSA 3–6 mg/kg range; hard cap at 400 mg/day (FDA)
-  const low  = Math.round(weight * 3)
-  const high = Math.min(Math.round(weight * 6), 400)
-
-  const barOptions = [1, 2, 3, 4].map((n) => {
-    const mg = n * 90
-    const zone: BarZone = mg >= low && mg <= high ? 'optimal' : mg < low ? 'effective' : 'safe-max'
-    return { n, mg, zone }
-  })
-
+function SmartDoseSection() {
   return (
-    <div className="rounded-2xl border border-near-black/10 overflow-hidden">
-      <div className="bg-cream px-6 py-5 border-b border-near-black/10">
-        <h3 className="text-lg font-semibold font-accent text-near-black">
-          How many bars is right for you?
-        </h3>
-        <p className="text-sm text-near-black/50 mt-0.5">
-          At 90mg per bar, several a day is safe — adjust by weight to see your personal range
-        </p>
-      </div>
+    <section className="bg-near-black py-20 sm:py-28">
+      <div className="page-container">
+        <AnimatedSection>
+          <div className="max-w-5xl mx-auto">
 
-      <div className="bg-white px-6 py-5">
-        {/* Weight slider */}
-        <div className="flex items-center gap-4 mb-7">
-          <span className="text-[11px] font-accent text-near-black/40 whitespace-nowrap uppercase tracking-wider">
-            Your weight
-          </span>
-          <input
-            type="range"
-            min={45}
-            max={120}
-            value={weight}
-            onChange={(e) => setWeight(Number(e.target.value))}
-            className="flex-1 h-1 rounded-full accent-gold cursor-pointer"
-          />
-          <span className="text-sm font-bold font-accent text-gold min-w-[52px] text-right">
-            {weight} kg
-          </span>
-        </div>
+            {/* Header */}
+            <div className="mb-14">
+              <p className="text-[10px] font-accent font-bold text-white/25 tracking-[0.18em] uppercase mb-4">
+                The 90mg advantage
+              </p>
+              <h2 className="text-5xl sm:text-6xl lg:text-7xl font-heading text-white leading-tight mb-4">
+                Not just less caffeine.<br />
+                <span className="text-gold">Smarter caffeine.</span>
+              </h2>
+              <p className="text-white/45 font-accent text-lg max-w-xl leading-relaxed">
+                At 90mg per bar you can stack multiple CAFO bars across your day and stay well within safe limits — something that's impossible with a Celsius or NOCCO.
+              </p>
+            </div>
 
-        {/* Bar count scale — 4 cards, zones update with weight */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-5">
-          {barOptions.map(({ n, mg, zone }) => {
-            const cfg = zoneConfig[zone]
-            return (
-              <div
-                key={n}
-                className={`rounded-xl border p-4 text-center transition-all duration-300 ${cfg.card}`}
-              >
-                <div className="text-3xl font-heading text-near-black mb-0.5">{n}</div>
-                <div className="text-[11px] font-accent text-near-black/40 mb-3">
-                  {n === 1 ? 'bar' : 'bars'} · {mg}mg
-                </div>
-                <div className={`text-[10px] font-bold font-accent uppercase tracking-wider px-2.5 py-1 rounded-full inline-block ${cfg.badge}`}>
-                  {cfg.label}
+            {/* Comparison bars */}
+            <div className="mb-14">
+              <p className="text-[10px] font-accent font-bold text-white/25 tracking-[0.18em] uppercase mb-6">
+                Caffeine per serving — vs 400mg daily limit
+              </p>
+              <div className="space-y-4">
+                {drinks.map((d, i) => {
+                  const pct = (d.mg / DAILY_LIMIT) * 100
+                  const color = d.cafo ? '#f59e0b' : d.mg > 150 ? '#ef4444' : '#6b7280'
+                  return (
+                    <div key={d.name} className="grid grid-cols-[160px_1fr_60px] sm:grid-cols-[200px_1fr_70px] items-center gap-4">
+                      <div>
+                        <span className={`text-sm font-heading ${d.cafo ? 'text-gold' : 'text-white/50'}`}>{d.name}</span>
+                        {d.cafo && <span className="ml-2 text-[9px] font-accent font-bold text-gold/60 uppercase tracking-wider">Natural</span>}
+                      </div>
+                      <div className="h-7">
+                        <AnimatedBar pct={pct} color={color} delay={i * 0.1} />
+                      </div>
+                      <span className={`text-sm font-heading text-right ${d.cafo ? 'text-gold' : 'text-white/40'}`}>{d.mg}mg</span>
+                    </div>
+                  )
+                })}
+                {/* 400mg limit line */}
+                <div className="grid grid-cols-[160px_1fr_60px] sm:grid-cols-[200px_1fr_70px] items-center gap-4 pt-2">
+                  <span className="text-[10px] font-accent text-white/20 uppercase tracking-wider">FDA daily limit</span>
+                  <div className="border-t border-dashed border-white/20 relative">
+                    <span className="absolute -top-3 right-0 text-[10px] font-accent text-white/20">400mg</span>
+                  </div>
+                  <span className="text-sm font-heading text-white/20 text-right">400mg</span>
                 </div>
               </div>
-            )
-          })}
-        </div>
-
-        {/* Legend */}
-        <div className="flex flex-col gap-1.5 mb-5 p-4 bg-cream rounded-xl">
-          <p className="text-[10px] font-bold font-accent text-near-black/30 uppercase tracking-widest mb-1">
-            Your range at {weight}kg — {low}mg to {high}mg
-          </p>
-          {(Object.entries(zoneConfig) as [BarZone, typeof zoneConfig[BarZone]][]).map(([key, cfg]) => (
-            <div key={key} className="flex items-start gap-2">
-              <div className={`w-2 h-2 rounded-full mt-1 shrink-0 ${cfg.dot}`} />
-              <span className="text-[11px] text-near-black/50 font-accent leading-relaxed">
-                <span className="font-semibold text-near-black/70">{cfg.label}</span>
-                {' — '}{cfg.hint}
-              </span>
             </div>
-          ))}
-        </div>
 
-        <p className="text-[10px] text-near-black/30 font-accent">
-          Based on 3–6mg/kg optimal range per European Food Safety Authority guidelines.
-          Individual sensitivity varies. FDA recommended maximum is 400mg/day.
-        </p>
+            {/* Stack your day */}
+            <div className="mb-10">
+              <p className="text-[10px] font-accent font-bold text-white/25 tracking-[0.18em] uppercase mb-6">
+                Stack your day — one bar at a time
+              </p>
+              <div className="grid sm:grid-cols-3 gap-4">
+                {daySteps.map((s, i) => (
+                  <AnimatedSection key={s.label} delay={i * 0.1}>
+                    <div className="border border-white/10 p-6 hover:border-gold/30 transition-colors duration-300">
+                      <div className="text-[10px] font-accent text-white/25 uppercase tracking-widest mb-3">{s.time}</div>
+                      <div className="text-4xl font-heading text-gold mb-1">{s.total}mg</div>
+                      <div className="text-sm font-heading text-white mb-3">{s.label} — bar {s.bar}</div>
+                      <div className="h-px bg-white/10 mb-3" />
+                      <p className="text-xs font-accent text-white/35 leading-relaxed">{s.note}</p>
+                      {/* Progress toward 400mg limit */}
+                      <div className="mt-4 h-1 bg-white/10 overflow-hidden">
+                        <motion.div
+                          className="h-full bg-gold"
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${(s.total / DAILY_LIMIT) * 100}%` }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.8, delay: i * 0.15 + 0.3 }}
+                        />
+                      </div>
+                      <p className="text-[9px] font-accent text-white/20 mt-1">{s.total}mg of 400mg daily limit</p>
+                    </div>
+                  </AnimatedSection>
+                ))}
+              </div>
+            </div>
+
+            {/* vs Celsius callout */}
+            <div className="border border-white/10 bg-white/[0.03] p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center gap-6 justify-between">
+              <div>
+                <p className="text-white/30 text-xs font-accent uppercase tracking-widest mb-2">Compare that to</p>
+                <p className="text-white font-heading text-2xl sm:text-3xl leading-tight">
+                  2 Celsius = <span className="text-red-400">400mg</span><br />
+                  <span className="text-white/50 text-xl">Your entire daily limit. Before lunch.</span>
+                </p>
+              </div>
+              <div className="shrink-0 text-right">
+                <p className="text-gold font-heading text-4xl">3 bars</p>
+                <p className="text-white/40 font-accent text-sm">= 270mg, still 130mg to spare</p>
+              </div>
+            </div>
+
+          </div>
+        </AnimatedSection>
       </div>
-    </div>
+    </section>
   )
 }
 
 export default function CaffeineMyths() {
   return (
     <>
-      {/* Full-bleed dark banner */}
+      {/* Dark header */}
       <section className="bg-near-black py-16 sm:py-20 lg:py-24">
         <div className="page-container">
           <AnimatedSection>
             <div className="text-center">
-              <span className="inline-block text-[10px] font-accent font-bold text-white/40 tracking-widest uppercase border border-white/10 rounded-full px-4 py-1.5 mb-6">
+              <span className="inline-block text-[10px] font-accent font-bold text-white/40 tracking-widest uppercase border border-white/10 px-4 py-1.5 mb-6">
                 Backed by science
               </span>
               <h2 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-heading text-white mb-4 leading-tight">
-                Caffeine isn't the villain.
-                <br />
+                Caffeine isn't the villain.<br />
                 <span className="text-gold">Misinformation is.</span>
               </h2>
               <p className="text-white/40 text-base leading-relaxed max-w-md mx-auto mb-10">
-                Most people have been told the wrong things about caffeine for years. Here's what the
-                research actually says.
+                Most people have been told the wrong things about caffeine for years. Here's what the research actually says.
               </p>
               <div className="flex justify-center gap-8 sm:gap-14">
                 {[
                   { n: '70+', l: 'peer-reviewed studies' },
                   { n: '400mg', l: 'safe daily limit (FDA)' },
                   { n: '90mg', l: 'per CAFO bar' },
-                ].map((s) => (
+                ].map(s => (
                   <div key={s.l} className="text-center">
                     <div className="text-2xl font-heading text-gold">{s.n}</div>
                     <div className="text-[10px] text-white/30 mt-1 font-accent tracking-wide">{s.l}</div>
@@ -337,30 +340,22 @@ export default function CaffeineMyths() {
         </div>
       </section>
 
-      {/* Myth cards + dose calculator */}
+      {/* Myth cards */}
       <section className="py-20 bg-warm-white">
-        <div className="page-container">
-          {/* Myth accordion */}
-          <AnimatedSection>
-            <p className="text-[10px] font-accent font-bold text-near-black/30 tracking-[0.16em] uppercase mb-3 text-center">
-              Tap each myth to see the science
-            </p>
-            <div className="flex flex-col gap-2 mb-12">
-              {myths.map((m) => (
-                <MythCard key={m.claim} m={m} />
-              ))}
-            </div>
-          </AnimatedSection>
-
-          {/* Dose calculator */}
-          <AnimatedSection delay={0.1}>
-            <p className="text-[10px] font-accent font-bold text-near-black/30 tracking-[0.16em] uppercase mb-3">
-              Your personal dose
-            </p>
-            <DoseCalculator />
-          </AnimatedSection>
+        <div className="page-container max-w-4xl mx-auto">
+          <p className="text-[10px] font-accent font-bold text-near-black/30 tracking-[0.16em] uppercase mb-6 text-center">
+            Click each myth to see the science
+          </p>
+          <div className="flex flex-col gap-3">
+            {myths.map((m, i) => (
+              <MythCard key={m.claim} m={m} index={i} />
+            ))}
+          </div>
         </div>
       </section>
+
+      {/* Smart dose — replaces slider */}
+      <SmartDoseSection />
     </>
   )
 }
