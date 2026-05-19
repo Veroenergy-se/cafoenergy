@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Buzzbar – Natural Energy</title>
+  <link rel="stylesheet" href="style.css?v=5" />
+</head>
+<body>
+
+  <!-- Soft purple band behind transparent header -->
+  <div class="page-top-gradient"></div>
+
+  <!-- ===== NAVBAR (only once) ===== -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <!-- Brand (clicks to top) -->
+      <a href="#home" class="brand" aria-label="Buzzbar — Home">
+        <span class="brand-line">
+          <span class="brand-word buzz">Buzz</span>
+          <span class="brand-word bar">bar</span>
+        </span>
+        <span class="brand-sub">CLEAN ENERGY, SMARTER NUTRITION</span>
+      </a>
+
+      <!-- Main nav -->
+      <nav class="main-nav" role="navigation" aria-label="Primary navigation">
+        <a href="#Products.html" class="nav-link">Products</a>
+        <a href="#Science.html" class="nav-link">Science</a>
+        <a href="#Nutrition.html" class="nav-link">Nutrition</a>
+        <a href="#Our-Story.html" class="nav-link">Our Story</a>
+        <a href="#Contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- CTA -->
+      <a href="#products" class="cta-contact">Buy Now</a>
+    </div>
+  </header>
+
+
+  <!-- ===== HERO ===== -->
+  <section class="hero hero--photo" id="home">
+    <div class="hero-container container">
+      <div class="hero-content">
+        <span class="hero-badge">New</span>
+        <h1 class="hero-title">
+          <span class="title-line">Clean, steady energy</span>
+          <span class="title-line highlight">without the crash</span>
+        </h1>
+        <p class="hero-subtitle">
+          Functional bars with green tea caffeine, L-theanine, electrolytes and adaptogens.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#products" class="cta-primary">See Products</a>
+          <a href="#science" class="cta-secondary">How it works</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number">80mg</span>
+            <span class="stat-label">Clean Caffiene</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">20g</span>
+            <span class="stat-label">Protein</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">Vegan</span>
+            <span class="stat-label">Friendly</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nice inline CTA to show .cta-primary styles outside hero -->
+  <section class="container" style="padding:40px 0;text-align:center;">
+    <button class="cta-primary" style="border:none;">Join the launch list</button>
+  </section>
+
+  <!-- ===== PRODUCTS ===== -->
+  <section id="products" class="products-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Products</span>
+        <h2>Pick your boost</h2>
+        <p class="section-subtitle">Energy, Focus and Recovery blends.</p>
+      </div>
+
+      <div class="products-carousel">
+        <!-- Energy -->
+        <article class="product-card active">
+          <div class="product-visual">
+            <span class="product-badge">Popular</span>
+            <div class="bar-3d bar-energy-3d"></div>
+          </div>
+          <div class="product-info">
+            <h3>Energy</h3>
+            <p class="product-tagline">Bright, uplifting, sustained.</p>
+            <p class="product-description">Green tea caffeine + B-vitamins.</p>
+            <div class="product-specs">
+              <span class="spec">Electrolytes</span>
+              <span class="spec">No Crash</span>
+              <span class="spec">Gluten-free</span>
+            </div>
+            <div class="flavors">
+              <span class="flavor-dot lemon" title="Lemon"></span>
+              <span class="flavor-dot espresso" title="Espresso"></span>
+              <span class="flavor-dot citrus" title="Citrus"></span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Focus -->
+        <article class="product-card">
+          <div class="product-visual">
+            <div class="bar-3d bar-focus-3d"></div>
+          </div>
+          <div class="product-info">
+            <h3>Focus</h3>
+            <p class="product-tagline">Calm, clear concentration.</p>
+            <p class="product-description">L-theanine + lion’s mane + magnesium.</p>
+            <div class="product-specs">
+              <span class="spec">No Jitters</span>
+              <span class="spec">Smooth</span>
+              <span class="spec">Vegan</span>
+            </div>
+            <div class="flavors">
+              <span class="flavor-dot matcha" title="Matcha"></span>
+              <span class="flavor-dot blueberry" title="Blueberry"></span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Recovery -->
+        <article class="product-card">
+          <div class="product-visual">
+            <div class="bar-3d bar-recovery-3d"></div>
+          </div>
+          <div class="product-info">
+            <h3>Recovery</h3>
+            <p class="product-tagline">Rebuild and recharge.</p>
+            <p class="product-description">10g plant protein + antioxidants.</p>
+            <div class="product-specs">
+              <span class="spec">Vitamin C&E</span>
+              <span class="spec">Electrolytes</span>
+              <span class="spec">Non-GMO</span>
+            </div>
+            <div class="flavors">
+              <span class="flavor-dot peanut" title="Peanut"></span>
+              <span class="flavor-dot chocolate" title="Chocolate"></span>
+              <span class="flavor-dot cinnamon" title="Cinnamon"></span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="carousel-controls">
+        <button class="carousel-btn" aria-label="Prev">‹</button>
+        <button class="carousel-btn" aria-label="Next">›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SCIENCE ===== -->
+  <section id="science" class="science-section">
+    <div class="container">
+  
+      <!-- Header -->
+      <div class="sc-header">
+        <span class="sc-badge">Science</span>
+        <h2 class="sc-title">
+          Backed by ingredients that <span class="gold">work</span>
+        </h2>
+        <p class="sc-sub">
+          Clean stimulation, steady focus, fewer jitters. Here’s the “why” behind Buzzbar — and how it’s different
+          from quick spikes and sugary fixes.
+        </p>
+      </div>
+  
+      <!-- Caffeine curve (illustrative) -->
+      <figure class="curve">
+        <svg viewBox="0 0 640 200" role="img" aria-label="Caffeine curves: coffee spike vs Buzzbar smooth">
+          <!-- grid -->
+          <path d="M48 20 V180 M48 180 H610" stroke="rgba(2,6,23,.12)" stroke-width="1"/>
+          <!-- labels -->
+          <text x="8" y="26" fill="#64748b" font-size="12">Energy</text>
+          <text x="560" y="196" fill="#64748b" font-size="12">Time →</text>
+  
+          <!-- Coffee spike -->
+          <path d="M48 175 C 140 70, 210 45, 270 40 S 380 120, 610 175"
+                fill="none" stroke="#ef4444" stroke-width="3" opacity=".9"/>
+          <circle cx="270" cy="40" r="3.5" fill="#ef4444"/>
+          <text x="278" y="38" fill="#ef4444" font-size="11">coffee spike</text>
+  
+          <!-- Buzzbar smooth -->
+          <defs>
+            <linearGradient id="buzzgrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#8b5cf6"/>
+              <stop offset="1" stop-color="#22c55e"/>
+            </linearGradient>
+          </defs>
+          <path d="M48 175 C 150 150, 260 90, 320 40 S 500 40, 610 150"
+                fill="none" stroke="url(#buzzgrad)" stroke-width="4"/>
+          <text x="505" y="130" fill="#6d28d9" font-size="11">Buzzbar target curve</text>
+        </svg>
+        <figcaption>Illustrative curves: coffee can peak fast, then dip; Buzzbar aims for a steadier lift.</figcaption>
+      </figure>
+  
+      <!-- Ingredient cards -->
+      <div class="ing-grid">
+  
+        <article class="ing-card ing-lift" tabindex="0">
+          <div class="ing-eyebrow">Lift</div>
+          <h3>Green-tea Caffeine</h3>
+          <p>Steady focus from natural caffeine, without the sharp edge.</p>
+          <ul class="ing-facts">
+            <li><strong>Target per bar:</strong> ~<span class="mono">80 mg</span>*</li>
+            <li><strong>Source:</strong> green tea extract</li>
+            <li><strong>Reason:</strong> pairs well with L-theanine for calmer alertness</li>
+          </ul>
+          <details class="ing-evidence">
+            <summary>Evidence snapshot</summary>
+            <p>Moderate caffeine improves alertness and reaction time; when paired with L-theanine, studies report
+               better task accuracy and fewer jitters (varies by dose and individual).<span class="note">†</span></p>
+          </details>
+        </article>
+  
+        <article class="ing-card ing-smooth" tabindex="0">
+          <div class="ing-eyebrow">Smooth</div>
+          <h3>L-theanine</h3>
+          <p>Promotes calm alertness and smooths caffeine’s lift.</p>
+          <ul class="ing-facts">
+            <li><strong>Typical range:</strong> <span class="mono">100–200 mg</span></li>
+            <li><strong>Effect:</strong> supports attention with relaxed focus</li>
+          </ul>
+          <details class="ing-evidence">
+            <summary>Evidence snapshot</summary>
+            <p>Reviews note L-theanine increases alpha-wave activity (relaxed alertness). Combined with caffeine,
+               it may reduce perceived stress and improve attention switching.</p>
+          </details>
+        </article>
+  
+        <article class="ing-card ing-hydrate" tabindex="0">
+          <div class="ing-eyebrow">Hydrate</div>
+          <h3>Electrolytes</h3>
+          <p>Hydration supports cognition and endurance during long sessions.</p>
+          <ul class="ing-facts">
+            <li>Sodium • Potassium • Magnesium</li>
+            <li>Helps maintain fluid balance for mental stamina</li>
+          </ul>
+          <details class="ing-evidence">
+            <summary>Evidence snapshot</summary>
+            <p>Even mild dehydration can impair mood and focus; electrolyte balance helps prevent those dips.</p>
+          </details>
+        </article>
+  
+        <article class="ing-card ing-adapt" tabindex="0">
+          <div class="ing-eyebrow">Resilience</div>
+          <h3>Adaptogens</h3>
+          <p>Stress-support so focus actually sticks (e.g., rhodiola, ashwagandha).</p>
+          <ul class="ing-facts">
+            <li>Targets perceived fatigue and stress reactivity</li>
+            <li>Complements caffeine’s alertness with composure</li>
+          </ul>
+          <details class="ing-evidence">
+            <summary>Evidence snapshot</summary>
+            <p>Emerging research suggests some adaptogens reduce fatigue and support stress adaptation in healthy
+               adults; effects vary with dose and personal response.</p>
+          </details>
+        </article>
+  
+      </div>
+  
+      <!-- How it works -->
+      <div class="hiw">
+        <h3 class="hiw-title">How it works — the quick version</h3>
+        <ol class="hiw-steps">
+          <li><span>1</span><strong>Lift</strong>: natural caffeine wakes up adenosine-fog — no harsh spike.</li>
+          <li><span>2</span><strong>Smooth</strong>: L-theanine modulates the lift → calm focus, fewer jitters.</li>
+          <li><span>3</span><strong>Hydrate</strong>: electrolytes keep the system balanced while you think.</li>
+          <li><span>4</span><strong>Resilience</strong>: adaptogens help your brain stay in “get-stuff-done” mode.</li>
+        </ol>
+      </div>
+  
+      <!-- More Qs (fun + human) -->
+      <div class="sc-faq">
+        <details>
+          <summary>Why green tea instead of coffee?</summary>
+          <p>Green tea has a gentler curve and plays nicely with L-theanine. Coffee’s great — we just wanted a
+             carry-anywhere option with fewer spikes and no brewing.</p>
+        </details>
+        <details>
+          <summary>When should I use Buzzbar?</summary>
+          <p>Morning classes, deep-work blocks, pre-meeting boosts, travel days. If caffeine-sensitive, start with half.</p>
+        </details>
+        <details>
+          <summary>Medical advice?</summary>
+          <p>No — this is food, not medicine. If pregnant, nursing, or managing a condition, talk to your clinician
+             before using caffeine or adaptogens.</p>
+        </details>
+      </div>
+  
+      <p class="sc-foot">
+        *Targets shown during pre-release and may change as we finalize the formula.
+        <span class="note">† Evidence snapshots are summary notes of published research; individual responses vary.</span>
+      </p>
+  
+    </div>
+  </section>
+<!-- ===== NUTRITION ===== -->
+<section id="nutrition" class="nt-section">
+  <div class="container">
+
+    <!-- Header -->
+    <div class="nt-head">
+      <span class="nt-badge">Nutrition</span>
+      <h2 class="nt-title">
+        <span class="nt-gold">Smart fuel</span>, <span class="nt-gold">simple label</span>
+      </h2>
+      <p class="nt-sub">
+        Built around balanced macros, steady energy, and ingredients you can pronounce — no artificial sweeteners,
+        no weird aftertaste.
+      </p>
+    </div>
+
+    <!-- Macro snapshot -->
+    <div class="nt-macros">
+      <div class="nt-macro">
+        <div class="nt-circle nt-protein"><span>10g</span></div>
+        <div class="nt-m-label">Protein</div>
+        <p class="nt-m-copy">Satiating base for steady energy.</p>
+      </div>
+      <div class="nt-macro">
+        <div class="nt-circle nt-fiber"><span>5g</span></div>
+        <div class="nt-m-label">Fiber</div>
+        <p class="nt-m-copy">Helps fullness & gut friendliness.</p>
+      </div>
+      <div class="nt-macro">
+        <div class="nt-circle nt-sugar"><span>0g</span></div>
+        <div class="nt-m-label">Added Sugar</div>
+        <p class="nt-m-copy">Sweetness without crashes.</p>
+      </div>
+      <div class="nt-macro">
+        <div class="nt-circle nt-vegan"><span>100%</span></div>
+        <div class="nt-m-label">Plant-Based</div>
+        <p class="nt-m-copy">No dairy. No compromise.</p>
+      </div>
+    </div>
+
+    <!-- Benefits grid (interactive) -->
+    <div class="nt-grid">
+      <article class="nt-card">
+        <div class="nt-eyebrow">Steady</div>
+        <h3>Low glycemic design</h3>
+        <p class="nt-card-summary">Balanced carbs, protein and fats for slow-burn energy.</p>
+        <button class="nt-more-btn" type="button"
+          data-nt-title="Low glycemic design"
+          data-nt-detail="We balance complex carbs with fiber and good fats so release feels smooth, not spiky.|Protein keeps you satisfied while the carb profile avoids the sugar whiplash of syrupy snacks."
+        >Tap for breakdown</button>
+      </article>
+
+      <article class="nt-card">
+        <div class="nt-eyebrow">Clean</div>
+        <h3>No artificial sweeteners</h3>
+        <p class="nt-card-summary">Naturally sweet without the chemical aftertaste.</p>
+        <button class="nt-more-btn" type="button"
+          data-nt-title="No artificial sweeteners"
+          data-nt-detail="We skip sucralose, acesulfame K and aspartame so the flavor stays real.|Instead, we blend low-glycemic sweetness with spices and a hint of sea salt to keep your palate happy without a crash."
+        >Tap for breakdown</button>
+      </article>
+
+      <article class="nt-card">
+        <div class="nt-eyebrow">Functional</div>
+        <h3>Electrolytes + adaptogens</h3>
+        <p class="nt-card-summary">Hydration support plus calm focus ingredients.</p>
+        <button class="nt-more-btn" type="button"
+          data-nt-title="Electrolytes + adaptogens"
+          data-nt-detail="Sodium, potassium and magnesium help keep fluid balance in check when you are on the move.|A thoughtful adaptogen stack supports perceived stress so focus sticks through busy days."
+        >Tap for breakdown</button>
+        </details>
+      </article>
+
+      <article class="nt-card">
+        <div class="nt-eyebrow">Digestible</div>
+        <h3>Gut-friendly blend</h3>
+        <p class="nt-card-summary">Fiber is kept moderate so your stomach stays happy.</p>
+        <button class="nt-more-btn" type="button"
+          data-nt-title="Gut-friendly blend"
+          data-nt-detail="We steer clear of heavy sugar alcohol loads that can upset routines.|Moderate fiber plus simple ingredients keep Buzzbar easy to enjoy before meetings or workouts."
+        >Tap for breakdown</button>
+      </article>
+    </div>
+
+    <!-- Ingredient highlights -->
+    <div class="nt-highlights">
+      <div class="nt-hi-card">
+        <h4>Protein sources</h4>
+        <p class="nt-hi-summary">Plant-based blend for a complete amino profile.</p>
+        <button class="nt-more-btn" type="button"
+          data-nt-title="Protein sources"
+          data-nt-detail="Pea, rice and fava proteins combine for complementary amino acids.|We build the texture to feel soft, not chalky, so you will actually finish the bar."
+        >See sources</button>
+      </div>
+      <div class="nt-hi-card">
+        <h4>Fats that work</h4>
+        <p class="nt-hi-summary">Nut and seed fats for flavor and satiety.</p>
+        <button class="nt-more-btn" type="button"
+          data-nt-title="Fats that work"
+          data-nt-detail="Almond, sunflower and flax support mouthfeel while slowing digestion.|The mix keeps you feeling fueled without the waxy coating common in protein bars."
+        >See sources</button>
+      </div>
+      <div class="nt-hi-card">
+        <h4>Smart carbs</h4>
+        <p class="nt-hi-summary">Complex carbs with zero added sugar.</p>
+        <button class="nt-more-btn" type="button"
+          data-nt-title="Smart carbs"
+          data-nt-detail="We lean on oats, chicory root and fruit fibers so you get steady energy.|No corn syrup, no added sugar—just enough natural sweetness to balance the protein."
+        >See sources</button>
+      </div>
+    </div>
+
+    <!-- Nutrition label preview (stylized) -->
+    <div class="nt-facts-wrap">
+      <div class="nt-facts">
+        <header>Nutrition Facts (preview)</header>
+        <div class="nt-row"><span>Calories</span><strong>~210</strong></div>
+        <hr/>
+        <div class="nt-row"><span>Total Fat</span><strong>8g</strong></div>
+        <div class="nt-subrow"><span>— Saturated Fat</span><strong>1g</strong></div>
+        <div class="nt-row"><span>Sodium</span><strong>180mg</strong></div>
+        <div class="nt-row"><span>Total Carbohydrate</span><strong>22g</strong></div>
+        <div class="nt-subrow"><span>— Dietary Fiber</span><strong>5g</strong></div>
+        <div class="nt-subrow"><span>— Total Sugars</span><strong>5g</strong></div>
+        <div class="nt-row"><span>Protein</span><strong>10g</strong></div>
+        <div class="nt-row"><span>Caffeine</span><strong>~80mg</strong></div>
+        <div class="nt-row"><span>L-theanine</span><strong>100–200mg</strong></div>
+        <footer>*Pre-release targets; values may change.</footer>
+      </div>
+    <div class="nt-notes">
+      <div class="nt-note">
+        <h4>Why this mix?</h4>
+        <p class="nt-note-summary">Balanced macros + clean caffeine to keep energy steady.</p>
+        <button class="nt-more-btn" type="button"
+          data-nt-title="Why this mix?"
+          data-nt-detail="Protein, fiber and complex carbs work together so you feel fueled, not sleepy.|Electrolytes and adaptogens layer on top for focus you can feel without brewing a drink."
+        >Dive deeper</button>
+      </div>
+      <div class="nt-note">
+        <h4>When to use</h4>
+        <p class="nt-note-summary">Morning classes, deep work, travel days and quick pre-gym fuel.</p>
+        <button class="nt-more-btn" type="button"
+          data-nt-title="When to use"
+          data-nt-detail="Grab Buzzbar before meetings, during study sessions or when you need a calm boost on the road.|If you are caffeine sensitive, start with half and build from there."
+        >Dive deeper</button>
+      </div>
+      <div class="nt-note">
+        <h4>Made without</h4>
+        <p class="nt-note-summary">No artificial sweeteners, no dairy, no added sugar.</p>
+        <button class="nt-more-btn" type="button"
+          data-nt-title="Made without"
+          data-nt-detail="We skip sucralose, acesulfame K, aspartame and excess sugar alcohols.|Every bar stays 100% plant-based so it fits more routines."
+        >Dive deeper</button>
+      </div>
+      <div class="nt-note">
+        <h4>Smart nutrition, fast fuel</h4>
+        <p class="nt-note-summary">Ready-to-go energy in seconds—no blender or fridge.</p>
+        <button class="nt-more-btn" type="button"
+          data-nt-title="Smart nutrition, fast fuel"
+          data-nt-detail="Healthy food should be easy. Buzzbar is built for backpacks, bike commutes and busy studios.|You get balanced macros and clean caffeine without hauling a shaker bottle."
+        >Dive deeper</button>
+      </div>
+    </div>
+  </div>
+    
+  <!-- Quick Compare -->
+  <div class="nt-compare">
+    <h3 class="nt-compare-title">Quick compare</h3>
+    
+    <div class="nt-compare-grid">
+      <!-- Coffee -->
+      <div class="nt-compare-card">
+        <div class="nt-co-eyebrow">☕️ Coffee</div>
+        <ul class="nt-list">
+          <li><span class="bad">✖</span> Fast peak → dip</li>
+          <li><span class="neutral">–</span> No protein / fiber</li>
+          <li><span class="neutral">–</span> Needs brewing</li>
+        </ul>
+      </div>
+    
+      <!-- Candy bar -->
+      <div class="nt-compare-card">
+        <div class="nt-co-eyebrow">🍫 Candy bar</div>
+        <ul class="nt-list">
+          <li><span class="bad">✖</span> High added sugar</li>
+          <li><span class="bad">✖</span> Crashy energy</li>
+          <li><span class="neutral">–</span> Low protein / fiber</li>
+        </ul>
+      </div>
+    
+      <!-- Buzzbar -->
+      <div class="nt-compare-card good">
+        <div class="nt-co-eyebrow">🟣 Buzzbar</div>
+        <ul class="nt-list">
+          <li><span class="good">✓</span> ~80 mg green-tea caffeine + theanine</li>
+          <li><span class="good">✓</span> 10 g protein • 5 g fiber • 0 g added sugar*</li>
+          <li><span class="good">✓</span> Electrolytes + adaptogens</li>
+        </ul>
+      </div>
+    </div>
+    
+    <p class="nt-compare-note">
+      *Pre-release targets; may change. Comparisons are generalized and for illustration.
+    </p>
+  </div>
+
+  <!-- FAQ (short) -->
+  <div class="nt-faq">
+    <details>
+      <summary>Allergens?</summary>
+      <p>Formulas are in development. We’ll clearly label any nuts, soy, or gluten exposure before launch.</p>
+    </details>
+    <details>
+      <summary>Vegan?</summary>
+      <p>Yes — all bars are planned to be 100% plant-based.</p>
+    </details>
+    <details>
+      <summary>When is nutrition finalized?</summary>
+      <p>We’re testing now. This page updates as we lock the recipe; sign up to get the final label at launch.</p>
+    </details>
+  </div>
+  <!-- Nutrition modal for deeper dives -->
+  <div class="nt-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="nt-modal__overlay" data-nt-close></div>
+    <div class="nt-modal__panel" role="document">
+      <button class="nt-modal__close" type="button" aria-label="Close nutrition details" data-nt-close>×</button>
+      <div class="nt-modal__body">
+        <h3 class="nt-modal__title"></h3>
+        <div class="nt-modal__content"></div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+
+
+<!-- ===== SOCIAL PROOF (clean) ===== -->
+<section id="proof" class="sp-section">
+  <div class="container">
+
+    <div class="sp-head">
+      <span class="sp-badge">What people say</span>
+      <h2>Real reactions from early tasters</h2>
+      <p class="sp-sub">Light, honest quotes while we’re still in pre-release.</p>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="sp-grid">
+      <article class="sp-card">
+        <div class="sp-stars" aria-label="5 stars">★★★★★</div>
+        <blockquote>“Best on-the-go snack, especially when dealing with tiring children, without the crash.”</blockquote>
+        <footer class="sp-who">
+          <span class="sp-avatar">HW</span>
+          <div><strong>Helena W</strong><small>Mother</small></div>
+        </footer>
+      </article>
+
+      <article class="sp-card">
+        <div class="sp-stars" aria-label="5 stars">★★★★★</div>
+        <blockquote>“The Buzzbar actually helps me study and lock in for my difficult exams.”</blockquote>
+        <footer class="sp-who">
+          <span class="sp-avatar">GL</span>
+          <div><strong>Gustaf L</strong><small>Student</small></div>
+        </footer>
+      </article>
+    </div>
+
+    <!-- Stats band (safe, factual) -->
+    <div class="sp-band">
+      <div class="sp-stat">
+        <div class="sp-num">Pre-release</div>
+        <div class="sp-label">In development</div>
+      </div>
+      <div class="sp-stat">
+        <div class="sp-num">0</div>
+        <div class="sp-label">Artificial sweeteners</div>
+      </div>
+      <div class="sp-stat">
+        <div class="sp-num">100%</div>
+        <div class="sp-label">Plant-based</div>
+      </div>
+      <div class="sp-stat">
+        <div class="sp-num">EU</div>
+        <div class="sp-label">Made in Europe</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+  
+<!-- ===== OUR STORY (polished) ===== -->
+<section id="our-story" class="our-story"> 
+  <div class="container story-grid">
+
+    <!-- LEFT: copy -->
+    <div class="story-copy">
+      <span class="section-eyebrow">Our Story</span>
+      <h2 class="story-title">
+        Built for busy days.<br>
+        Designed for clean, steady energy.
+      </h2>
+
+      <div class="story-lede">
+        We are three brothers who wanted a clean, nutritious energy source
+        that fits into our fast-paced lives—without brewing coffee, chugging energy drinks, or cooking a full meal.
+      </div>
+
+      <div class="story-columns">
+        <p><strong>The problem:</strong> we needed focus that lasts, not jitters or a crash. Most options were either sugary,
+          inconvenient, or just didn’t feel good.</p>
+        <p><strong>Our answer:</strong> Buzzbar—real ingredients, natural caffeine, L-theanine, and electrolytes.
+          A bar you can grab on the run that delivers smooth focus and steady energy.</p>
+      </div>
+
+      <ul class="story-highlights">
+        <li><span>⚡</span> No brewing. No crash. No nonsense.</li>
+        <li><span>🌿</span> Plant-based, thoughtful ingredients.</li>
+        <li><span>🎓</span> Built for study sessions, meetings, and late-night ideas.</li>
+      </ul>
+    </div>
+
+    <!-- RIGHT: image placeholder (drop your team photo later) -->
+    <aside class="story-visual">
+      <!-- Replace src when you have your real team photo -->
+      <img src="IMG_8401.JPG" alt="Buzzbar founders" class="story-image" />
+    </aside>
+  </div>
+
+  <!-- Founders row (3 cards) -->
+  <div class="container founders-row">
+    <article class="founder-card" data-founder-name="Tom Wiseman" data-founder-role="Co-Founder" data-founder-story="Tom is the product tinkerer, constantly iterating on taste and nutrition profiles. From testing early batches in the family kitchen to partnering with European co-packers, he focuses on building bars that feel as good as they taste.">
+      <div class="founder-avatar"><span>TW</span></div>
+      <h3>Tom Wiseman</h3>
+      <p class="role">Co-Founder</p>
+      <blockquote>“Build something we want to use daily.”</blockquote>
+    </article>
+
+    <article class="founder-card" data-founder-name="Charlie Wiseman" data-founder-role="Co-Founder" data-founder-story="Charlie spent a decade leading high-intensity teams before co-founding Buzzbar. He obsesses over workflow-friendly nutrition and turned his commute cravings into the blueprint for our Focus blend.">
+      <div class="founder-avatar"><span>CW</span></div>
+      <h3>Charlie Wiseman</h3>
+      <p class="role">Co-Founder</p>
+      <blockquote>“No jitters. No crash. Great taste.”</blockquote>
+    </article>
+
+    <article class="founder-card" data-founder-name="Oliver Wiseman" data-founder-role="Co-Founder" data-founder-story="Oliver is the storyteller and community builder. He guides the Buzzbar brand, connecting with early adopters, nutritionists, and sleep scientists to make sure every bar feels like a smarter choice.">
+      <div class="founder-avatar"><span>OW</span></div>
+      <h3>Oliver Wiseman</h3>
+      <p class="role">Co-Founder</p>
+      <blockquote>“Good energy should feel effortless.”</blockquote>
+    </article>
+  </div>
+</section>
+  <!-- Founder detail modal -->
+  <div class="founder-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="founder-modal__overlay" data-founder-close></div>
+    <div class="founder-modal__dialog" role="document">
+      <button class="founder-modal__close" type="button" aria-label="Close founder story" data-founder-close>×</button>
+      <div class="founder-modal__content">
+        <h3 class="founder-modal__name"></h3>
+        <p class="founder-modal__role"></p>
+        <p class="founder-modal__story"></p>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="footer" class="footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3 class="footer-title">Buzzbar</h3>
+        <p>Clean energy, smarter nutrition.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn">Instagram</a>
+          <a href="#" class="social-btn">TikTok</a>
+          <a href="#" class="social-btn">LinkedIn</a>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:tomwiseman@buzzbar.se">tomwiseman@buzzbar.se</a></li>
+          <li><a href="mailto:oliverwiseman@buzzbar.se">oliverwiseman@buzzbar.se</a></li>
+          <li><a href="mailto:charliewiseman@buzzbar.se">charliewiseman@buzzbar.se</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-column">
+        <h4>Info</h4>
+        <ul>
+          <li>Plant-based. No artificial sweeteners.</li>
+          <li>Made with care in the EU.</li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Join our newsletter</h4>
+        <p>No spam, just smarter energy.</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="your@email.com" />
+          <button type="submit">→</button>
+        </form>
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+      <p>© 2025 Buzzbar. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Auto-hide header on scroll down, show on scroll up -->
+  <script>
+    (function() {
+      const header = document.querySelector('.site-header');
+      let lastY = window.scrollY;
+      window.addEventListener('scroll', () => {
+        const y = window.scrollY;
+        if (y > 80 && y > lastY) {
+          header.classList.add('hide');     // scrolling down -> hide
+        } else {
+          header.classList.remove('hide');  // scrolling up -> show
+        }
+        lastY = y;
+      }, { passive: true });
+    })();
+
+       (function() {
+      const modal = document.querySelector('.nt-modal');
+      if (!modal) return;
+
+      const body = document.body;
+      const titleEl = modal.querySelector('.nt-modal__title');
+      const contentEl = modal.querySelector('.nt-modal__content');
+      const closeBtn = modal.querySelector('.nt-modal__close');
+      const triggers = document.querySelectorAll('.nt-more-btn');
+      let lastTrigger = null;
+
+      const renderContent = (btn) => {
+        contentEl.innerHTML = '';
+        const detail = btn.dataset.ntDetail || '';
+        detail.split('|').forEach(segment => {
+          const text = segment.trim();
+          if (!text) return;
+          const p = document.createElement('p');
+          p.textContent = text;
+          contentEl.appendChild(p);
+        });
+
+        const points = btn.dataset.ntPoints || '';
+        const items = points.split('|').map(item => item.trim()).filter(Boolean);
+        if (items.length) {
+          const list = document.createElement('ul');
+          list.className = 'nt-modal__list';
+          items.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = item;
+            list.appendChild(li);
+          });
+          contentEl.appendChild(list);
+        }
+      };
+
+      const openModal = (btn) => {
+        lastTrigger = btn;
+        const title = btn.dataset.ntTitle || btn.closest('.nt-card, .nt-hi-card, .nt-note')?.querySelector('h3, h4')?.textContent || 'Details';
+        titleEl.textContent = title;
+        renderContent(btn);
+        modal.setAttribute('aria-hidden', 'false');
+        modal.classList.add('is-visible');
+        body.classList.add('no-scroll');
+        requestAnimationFrame(() => closeBtn.focus());
+      };
+
+      const closeModal = () => {
+        modal.setAttribute('aria-hidden', 'true');
+        modal.classList.remove('is-visible');
+        body.classList.remove('no-scroll');
+        if (lastTrigger) {
+          lastTrigger.focus();
+        }
+      };
+
+      triggers.forEach(btn => {
+        btn.addEventListener('click', () => openModal(btn));
+      });
+
+      modal.addEventListener('click', (event) => {
+        if ('ntClose' in event.target.dataset) {
+          closeModal();
+        }
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && modal.classList.contains('is-visible')) {
+          closeModal();
+        }
+      });
+    })();
+
+    (function() {
+      const modal = document.querySelector('.founder-modal');
+      const nameEl = modal.querySelector('.founder-modal__name');
+      const roleEl = modal.querySelector('.founder-modal__role');
+      const storyEl = modal.querySelector('.founder-modal__story');
+      const founders = document.querySelectorAll('.founder-card');
+
+      const openModal = (card) => {
+        nameEl.textContent = card.dataset.founderName;
+        roleEl.textContent = card.dataset.founderRole;
+        storyEl.textContent = card.dataset.founderStory;
+        modal.setAttribute('aria-hidden', 'false');
+        modal.classList.add('is-visible');
+        document.body.classList.add('no-scroll');
+      };
+
+      const closeModal = () => {
+        modal.setAttribute('aria-hidden', 'true');
+        modal.classList.remove('is-visible');
+        document.body.classList.remove('no-scroll');
+      };
+
+      founders.forEach(card => {
+        card.addEventListener('click', () => openModal(card));
+        card.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            openModal(card);
+          }
+        });
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'button');
+        card.setAttribute('aria-haspopup', 'dialog');
+        card.setAttribute('aria-label', `${card.dataset.founderName} story`);
+      });
+
+      modal.addEventListener('click', (event) => {
+        if (event.target.matches('[data-founder-close]')) {
+          closeModal();
+        }
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && modal.classList.contains('is-visible')) {
+          closeModal();
+        }
+      });
+    })();
+  </script>
+  
+</body>
+</html>
