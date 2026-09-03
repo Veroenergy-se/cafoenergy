@@ -15,17 +15,13 @@ export default function Hero() {
           transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
           <motion.h1
-            className="font-monument font-black text-off-white leading-[0.95] tracking-tight"
+            className="font-monument font-black text-off-white leading-none tracking-tight whitespace-nowrap text-2xl sm:text-4xl lg:text-5xl"
+            style={{ textShadow: '0 0 40px rgba(255,94,30,0.55)' }}
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
           >
-            <span className="block text-3xl sm:text-4xl lg:text-5xl">
-              {t('hero.titleLine1')}
-            </span>
-            <span className="block text-3xl sm:text-4xl lg:text-5xl">
-              {t('hero.titleLine2')}
-            </span>
+            {t('hero.titleLine1')} <span className="text-caforange">{t('hero.titleLine2')}</span>
           </motion.h1>
           <motion.div
             className="mt-8 lg:mt-10 flex flex-col items-center gap-4"
