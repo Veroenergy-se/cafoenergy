@@ -6,7 +6,7 @@ export default function Hero() {
   const { t } = useTranslation()
 
   return (
-    <section className="relative flex items-center justify-center -mt-20 pt-36 sm:pt-40 lg:pt-44 pb-20 min-h-[85svh] bg-brown overflow-hidden">
+    <section className="relative flex items-center justify-center -mt-20 pt-36 sm:pt-40 lg:pt-44 pb-20 min-h-[100svh] bg-brown overflow-hidden">
 
       <div className="relative z-10 w-full max-w-2xl mx-auto px-6 text-center">
         <motion.div
