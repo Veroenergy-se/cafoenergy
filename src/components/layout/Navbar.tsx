@@ -69,14 +69,18 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-near-black/10 ${
-        scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-white'
-      } ${hidden && !mobileOpen ? '-translate-y-full' : 'translate-y-0'}`}
+      className={`fixed top-4 inset-x-4 sm:top-6 sm:inset-x-6 z-50 transition-all duration-300 ${
+        hidden && !mobileOpen ? '-translate-y-[150%]' : 'translate-y-0'
+      }`}
     >
-      <nav className="w-full px-6 lg:px-12 xl:px-16 relative flex items-center justify-between h-24">
+      <nav
+        className={`relative mx-auto max-w-[1400px] w-full px-6 lg:px-10 flex items-center justify-between h-20 rounded-full border border-near-black/10 transition-all duration-300 ${
+          scrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-white shadow-md'
+        }`}
+      >
         {/* Logo */}
         <Link to="/" className="text-near-black" aria-label="CAFO Home">
-          <CafoLogo className="h-14 w-auto" />
+          <CafoLogo className="h-10 w-auto" />
         </Link>
 
         {/* Desktop Links — absolutely centred so they're unaffected by logo/right widths */}
@@ -145,7 +149,7 @@ export default function Navbar() {
           <>
             {/* Backdrop */}
             <motion.div
-              className="fixed inset-0 top-20 bg-black/50 md:hidden z-40"
+              className="fixed inset-0 top-24 sm:top-28 bg-black/50 md:hidden z-40"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -155,7 +159,7 @@ export default function Navbar() {
 
             {/* Panel */}
             <motion.div
-              className="md:hidden absolute top-20 left-0 right-0 bg-white border-t border-near-black/10 z-50 overflow-hidden"
+              className="md:hidden absolute top-[calc(100%+0.75rem)] left-0 right-0 bg-white rounded-3xl border border-near-black/10 shadow-xl z-50 overflow-hidden"
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
