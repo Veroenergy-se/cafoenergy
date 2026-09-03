@@ -6,7 +6,7 @@ export default function Hero() {
   const { t } = useTranslation()
 
   return (
-    <section className="relative flex items-start pt-16 sm:pt-20 lg:pt-24 pb-20 min-h-[85svh] bg-brown overflow-hidden">
+    <section className="relative flex items-start -mt-20 pt-36 sm:pt-40 lg:pt-44 pb-20 min-h-[85svh] bg-brown overflow-hidden">
 
       <div className="page-container relative z-10">
         <motion.div
