@@ -6,7 +6,7 @@ export default function Hero() {
   const { t } = useTranslation()
 
   return (
-    <section className="relative flex items-start pt-16 sm:pt-20 lg:pt-24 pb-20 min-h-[85svh] bg-warm-white overflow-hidden">
+    <section className="relative flex items-start pt-16 sm:pt-20 lg:pt-24 pb-20 min-h-[85svh] bg-brown overflow-hidden">
 
       {/* Bar image — right side, full height, floating */}
       <motion.div
@@ -33,7 +33,7 @@ export default function Hero() {
           transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
           <motion.h1
-            className="font-heading text-near-black leading-[0.88] tracking-tight"
+            className="font-heading text-off-white leading-[0.88] tracking-tight"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
@@ -59,24 +59,24 @@ export default function Hero() {
             </a>
             <Link
               to="/how-it-works"
-              className="inline-flex items-center px-14 py-4 text-near-black font-heading tracking-widest text-xl uppercase border-2 border-near-black hover:-translate-y-0.5 transition-all duration-300"
+              className="inline-flex items-center px-14 py-4 text-off-white font-heading tracking-widest text-xl uppercase border-2 border-off-white hover:-translate-y-0.5 transition-all duration-300"
             >
               {t('hero.learnMore')}
             </Link>
             <div className="flex items-center gap-6 mt-2">
               <div>
-                <span className="block text-2xl font-heading text-near-black leading-none">90mg</span>
-                <span className="block text-[10px] font-accent text-near-black/40 uppercase tracking-widest mt-0.5">Caffeine</span>
+                <span className="block text-2xl font-heading text-off-white leading-none">90mg</span>
+                <span className="block text-[10px] font-accent text-off-white/50 uppercase tracking-widest mt-0.5">Caffeine</span>
               </div>
-              <div className="w-px h-8 bg-near-black/15" />
+              <div className="w-px h-8 bg-off-white/15" />
               <div>
-                <span className="block text-2xl font-heading text-near-black leading-none">14g</span>
-                <span className="block text-[10px] font-accent text-near-black/40 uppercase tracking-widest mt-0.5">Protein</span>
+                <span className="block text-2xl font-heading text-off-white leading-none">14g</span>
+                <span className="block text-[10px] font-accent text-off-white/50 uppercase tracking-widest mt-0.5">Protein</span>
               </div>
-              <div className="w-px h-8 bg-near-black/15" />
+              <div className="w-px h-8 bg-off-white/15" />
               <div>
-                <span className="block text-2xl font-heading text-near-black leading-none">Zero</span>
-                <span className="block text-[10px] font-accent text-near-black/40 uppercase tracking-widest mt-0.5">Nonsense</span>
+                <span className="block text-2xl font-heading text-off-white leading-none">Zero</span>
+                <span className="block text-[10px] font-accent text-off-white/50 uppercase tracking-widest mt-0.5">Nonsense</span>
               </div>
             </div>
           </motion.div>
