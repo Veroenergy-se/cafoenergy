@@ -23,7 +23,7 @@ export default function Hero() {
             {t('hero.titleLine1')} {t('hero.titleLine2')}
           </motion.h1>
           <motion.div
-            className="mt-20 lg:mt-28 flex flex-col items-center gap-6"
+            className="mt-32 lg:mt-48 flex flex-col items-center gap-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
