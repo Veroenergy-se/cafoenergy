@@ -23,7 +23,7 @@ export default function Hero() {
             {t('hero.titleLine1')} {t('hero.titleLine2')}
           </motion.h1>
           <motion.div
-            className="mt-8 lg:mt-10 flex flex-col items-center gap-4"
+            className="mt-10 lg:mt-14 flex flex-col items-center gap-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -40,7 +40,7 @@ export default function Hero() {
             >
               {t('hero.learnMore')}
             </Link>
-            <div className="flex items-center gap-6 mt-2">
+            <div className="flex items-center gap-10 mt-4">
               <div>
                 <span className="block text-2xl font-heading text-off-white leading-none">90mg</span>
                 <span className="block text-[10px] font-accent text-off-white/50 uppercase tracking-widest mt-0.5">Caffeine</span>
