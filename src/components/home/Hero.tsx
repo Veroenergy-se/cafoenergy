@@ -6,29 +6,29 @@ export default function Hero() {
   const { t } = useTranslation()
 
   return (
-    <section className="relative flex items-start -mt-20 pt-36 sm:pt-40 lg:pt-44 pb-20 min-h-[85svh] bg-brown overflow-hidden">
+    <section className="relative flex items-center justify-center -mt-20 pt-36 sm:pt-40 lg:pt-44 pb-20 min-h-[85svh] bg-brown overflow-hidden">
 
-      <div className="page-container relative z-10">
+      <div className="relative z-10 w-full max-w-2xl mx-auto px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
           <motion.h1
-            className="font-monument font-black text-off-white leading-[0.88] tracking-tight"
+            className="font-monument font-black text-off-white leading-[0.95] tracking-tight"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
           >
-            <span className="block text-[4.5rem] sm:text-8xl lg:text-[10rem] xl:text-[12rem]">
+            <span className="block text-3xl sm:text-4xl lg:text-5xl">
               {t('hero.titleLine1')}
             </span>
-            <span className="block text-[4.5rem] sm:text-8xl lg:text-[10rem] xl:text-[12rem]">
+            <span className="block text-3xl sm:text-4xl lg:text-5xl">
               {t('hero.titleLine2')}
             </span>
           </motion.h1>
           <motion.div
-            className="mt-8 lg:mt-10 flex flex-col items-start gap-4"
+            className="mt-8 lg:mt-10 flex flex-col items-center gap-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
