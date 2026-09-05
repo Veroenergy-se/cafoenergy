@@ -23,37 +23,37 @@ export default function Hero() {
             {t('hero.titleLine1')} {t('hero.titleLine2')}
           </motion.h1>
           <motion.div
-            className="mt-32 lg:mt-48 flex flex-col items-center gap-6"
+            className="mt-40 lg:mt-56 flex flex-col items-center gap-7"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <a
               href="#waitlist"
-              className="inline-flex items-center px-14 py-4 bg-caforange text-off-white font-heading tracking-widest text-xl uppercase border-2 border-caforange hover:bg-off-white hover:text-caforange hover:-translate-y-0.5 hover:shadow-xl transition-all duration-500 ease-in-out"
+              className="inline-flex items-center px-16 py-5 bg-caforange text-off-white font-heading tracking-widest text-2xl uppercase border-2 border-caforange hover:bg-off-white hover:text-caforange hover:-translate-y-0.5 hover:shadow-xl transition-all duration-500 ease-in-out"
             >
               {t('hero.joinWaitlist')}
             </a>
             <Link
               to="/how-it-works"
-              className="inline-flex items-center px-14 py-4 text-off-white font-heading tracking-widest text-xl uppercase border-2 border-off-white hover:-translate-y-0.5 transition-all duration-300"
+              className="inline-flex items-center px-16 py-5 text-off-white font-heading tracking-widest text-2xl uppercase border-2 border-off-white hover:-translate-y-0.5 transition-all duration-300"
             >
               {t('hero.learnMore')}
             </Link>
-            <div className="flex items-center gap-10 mt-4">
+            <div className="flex items-center gap-6 sm:gap-12 mt-6">
               <div>
-                <span className="block text-2xl font-heading text-off-white leading-none">90mg</span>
-                <span className="block text-[10px] font-accent text-off-white/50 uppercase tracking-widest mt-0.5">Caffeine</span>
+                <span className="block text-2xl sm:text-3xl font-heading text-off-white leading-none">90mg</span>
+                <span className="block text-[10px] sm:text-xs font-accent text-off-white/50 uppercase tracking-widest mt-1">Caffeine</span>
               </div>
-              <div className="w-px h-8 bg-off-white/15" />
+              <div className="w-px h-8 sm:h-10 bg-off-white/15" />
               <div>
-                <span className="block text-2xl font-heading text-off-white leading-none">14g</span>
-                <span className="block text-[10px] font-accent text-off-white/50 uppercase tracking-widest mt-0.5">Protein</span>
+                <span className="block text-2xl sm:text-3xl font-heading text-off-white leading-none">14g</span>
+                <span className="block text-[10px] sm:text-xs font-accent text-off-white/50 uppercase tracking-widest mt-1">Protein</span>
               </div>
-              <div className="w-px h-8 bg-off-white/15" />
+              <div className="w-px h-8 sm:h-10 bg-off-white/15" />
               <div>
-                <span className="block text-2xl font-heading text-off-white leading-none">Zero</span>
-                <span className="block text-[10px] font-accent text-off-white/50 uppercase tracking-widest mt-0.5">Nonsense</span>
+                <span className="block text-2xl sm:text-3xl font-heading text-off-white leading-none">Zero</span>
+                <span className="block text-[10px] sm:text-xs font-accent text-off-white/50 uppercase tracking-widest mt-1">Nonsense</span>
               </div>
             </div>
           </motion.div>
