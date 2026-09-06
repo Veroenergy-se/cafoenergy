@@ -11,7 +11,7 @@ export default function Home() {
     <>
       <Helmet>
         <title>CAFO Energy — Focus. For Hours.</title>
-        <meta name="description" content="The clean caffeinated protein bar. Real energy that lasts, with green tea caffeine, protein, and zero added sugar. No crash, no nonsense." />
+        <meta name="description" content="The clean caffeinated protein bar. Real energy that lasts, with natural guarana caffeine, protein, and zero added sugar. No crash, no nonsense." />
       </Helmet>
       <Hero />
       <SocialProof />

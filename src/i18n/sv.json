@@ -12,7 +12,7 @@
     "title": "FOKUS. I TIMMAR.",
     "titleLine1": "FOKUS.",
     "titleLine2": "I TIMMAR.",
-    "subtitle": "Den rena koffeinproteinbaren. Riktig energi som varar, med grönt te-koffein, protein och noll tillsatt socker.",
+    "subtitle": "Den rena koffeinproteinbaren. Riktig energi som varar, med naturligt guarana-koffein, protein och noll tillsatt socker.",
     "cta": "Handla Nu",
     "joinWaitlist": "GÅ MED I VÄNTELISTAN",
     "learnMore": "Läs Mer"
@@ -27,10 +27,9 @@
   },
   "socialProof": {
     "tagline": "KOFFEINERAD. PROTEINRIK. PERFEKTIONERAD.",
-    "caffeine": "90mg Naturligt Koffein",
-    "protein": "14g Växtprotein",
-    "sugar": "0g Tillsatt Socker",
-    "ltheanine": "L-Teanin"
+    "caffeine": "80mg Naturligt Koffein",
+    "protein": "14g Protein",
+    "sugar": "0g Tillsatt Socker"
   },
   "products": {
     "title": "PRODUKTER",
@@ -54,13 +53,11 @@
   "nutrition": {
     "title": "Vad Som Gör Den Perfekt",
     "caffeineTitle": "Naturligt Koffein",
-    "caffeineDesc": "90mg från grönt te-extrakt för ren, ihållande energi utan nervositet.",
-    "proteinTitle": "Växtprotein",
-    "proteinDesc": "14g växtbaserat protein för att hålla dig påfylld och fokuserad.",
+    "caffeineDesc": "80mg från guarana-extrakt för ren, ihållande energi utan nervositet.",
+    "proteinTitle": "Proteinblandning",
+    "proteinDesc": "14g protein för att hålla dig påfylld och fokuserad.",
     "sugarTitle": "Noll Tillsatt Socker",
-    "sugarDesc": "Inga sockerkrascher. Inga artificiella sötningsmedel. Bara ren energi.",
-    "ltheanineTitle": "L-Teanin",
-    "ltheanineDesc": "Främjar lugnt fokus och förbättrad koncentration, perfekt kombinerat med koffein.",
+    "sugarDesc": "Inget tillsatt socker, inga artificiella sötningsmedel. Bara ren energi.",
     "comparisonTitle": "Hur CAFO Jämför Sig",
     "vsCoffee": "Kaffe",
     "vsEnergy": "Energidrycker",
@@ -106,7 +103,7 @@
       "eyebrow": "Vår historia",
       "heading": "Byggt för att gå längre.",
       "p1": "CAFO startade med en fråga: varför smakar prestationsmat som krita? Tre grundare, ett kök, en smak vi vägrade kompromissa med.",
-      "p2": "90mg koffein. 14g växtprotein. Noll tillsatt socker. Allt är där av en anledning — inget som inte är det."
+      "p2": "80mg koffein. 14g protein. Noll tillsatt socker. Allt är där av en anledning — inget som inte är det."
     },
     "quote": "Byggt för dem som ger allt.",
     "values": {
@@ -144,7 +141,7 @@
     "foundersTitle": "Tre Bröder. Bygger En Rörelse.",
     "foundersText": "Det som började som en frustration över energialternativen som fanns tillgängliga för oss som studenter blev ett uppdrag att skapa något bättre. Inga fler sockerkrascher. Inga fler nervösa kafferundor. Bara ren, ihållande energi i fickan.",
     "journeyTitle": "Resan Börjar",
-    "journeyText": "Vi spenderade över ett år på att perfektionera vår formel — balanserade grönt te-koffein med L-teanin, kombinerade växtprotein med fiber och eliminerade varje ingrediens vi inte trodde på. Resultatet är CAFO: en smak, perfektionerad.",
+    "journeyText": "Vi spenderade över ett år på att perfektionera vår formel — finjusterade naturligt guarana-koffein, kombinerade en proteinblandning med fiber och eliminerade varje ingrediens vi inte trodde på. Resultatet är CAFO: en smak, perfektionerad.",
     "teamTitle": "Möt Teamet",
     "missionTitle": "Byggt För Ambitiösa Sinnen",
     "missionText": "CAFO är designat för alla som vägrar kompromissa med vad de stoppar i kroppen. För studenter som pluggar inför tentor. För yrkesverksamma som pressar genom deadlines. För alla som behöver riktig energi som varar."
@@ -162,12 +159,10 @@
   "howItWorks": {
     "title": "SÅ FUNGERAR DET",
     "subtitle": "Vetenskapen bakom ihållande fokus",
-    "caffeineTitle": "Grönt Te-Koffein",
-    "caffeineText": "Till skillnad från syntetiskt koffein i energidrycker kommer våra 90mg från grönt te-extrakt. Det absorberas mer gradvis och ger en jämn energikurva istället för en topp-och-krasch.",
-    "ltheanineTitle": "L-Teanin Synergi",
-    "ltheanineText": "L-teanin arbetar med koffein för att främja fokuserad vakenhet utan ångest. Denna kombination har studerats utförligt — den förbättrar uppmärksamhet och minskar de negativa biverkningarna av enbart koffein.",
+    "caffeineTitle": "Guarana-Koffein",
+    "caffeineText": "Till skillnad från syntetiskt koffein i energidrycker kommer våra 80mg från guarana-extrakt — en naturlig källa, inte ett labbtillverkat stimulantia.",
     "proteinTitle": "Ihållande Bränsle",
-    "proteinText": "14g växtprotein och 5g fiber saktar ner matsmältningen och skapar en stadig frisättning av energi. Inga blodsockertoppar, inga krascher — bara timmar av ihållande fokus.",
+    "proteinText": "14g protein och fiber saktar ner matsmältningen och skapar en stadig frisättning av energi. Inga blodsockertoppar, inga krascher — bara timmar av ihållande fokus.",
     "lowGiTitle": "Lågt Glykemiskt Index",
     "lowGiText": "Vår formel är designad med ett lågt glykemiskt index, vilket innebär att den inte höjer ditt blodsocker. Det håller din energi stabil och ditt sinne skarpt."
   },
@@ -226,15 +221,15 @@
     "ctaText": "Vi hjälper gärna till. Hör av dig så återkommer vi.",
     "ctaButton": "Kontakta Oss",
     "q1": "Hur mycket koffein innehåller en CAFO-bar?",
-    "a1": "Varje bar innehåller 90 mg naturligt koffein från grönt te-extrakt — ungefär lika mycket som en kopp kaffe, men mjukare. Koffeinet kombineras med L-teanin, vilket ger ett lugnt och fokuserat energipåslag utan skarp topp. Inga nerver. Ingen krasch.",
+    "a1": "Varje bar innehåller 80 mg naturligt koffein från guarana-extrakt — lite mindre än en kopp kaffe. Det är en naturlig källa, inte en syntetisk stimulantia, vilket ger ett stadigt energipåslag utan skarp topp. Inga nerver. Ingen krasch.",
     "q2": "Kan jag äta mer än en bar per dag?",
-    "a2": "Ja — det är lite poängen. Med 90 mg per bar kan du äta tre under dagen och landa på 270 mg totalt, vilket är väl inom FDAs rekommenderade gräns på 400 mg. Morgon, middag, träning: varje bar passar in i din rutin utan att du går över.",
+    "a2": "Ja — det är lite poängen. Med 80 mg per bar kan du äta tre under dagen och landa på 240 mg totalt, vilket är väl inom FDAs rekommenderade gräns på 400 mg. Morgon, middag, träning: varje bar passar in i din rutin utan att du går över.",
     "q3": "Hur länge håller energin i sig?",
-    "a3": "De flesta känner effekten inom 20–30 minuter och håller den i 3–5 timmar. Eftersom koffeinet kommer från grönt te och kombineras med protein och fiber sker absorptionen jämnare än kaffe eller energidrycker — energin avtar gradvis istället för att klippas av plötsligt.",
+    "a3": "De flesta känner effekten inom 20–30 minuter och håller den i 3–5 timmar. Eftersom koffeinet är en naturlig källa som kombineras med protein och fiber sker absorptionen jämnare än en sockrig energidryck — energin avtar gradvis istället för att klippas av plötsligt.",
     "q4": "När är det bäst att äta en CAFO-bar?",
     "a4": "15–30 minuter innan du behöver vara i gång. Det kan vara före ett pluggpass, inför träning, under en lång bilresa eller som en eftermiddagshöjare. En regel: försök att inte äta den efter klockan 15 om du är känslig för koffein — halveringstiden innebär att det fortfarande är delvis aktivt vid sänggåendet.",
     "q5": "Hur jämförs den med energidrycker?",
-    "a5": "Energidrycker ger dig koffein plus mycket du inte behöver — socker, konstgjorda sötningsmedel, syntetiska stimulantia, färgämnen. En CAFO-bar ger dig 90 mg naturligt koffein, 14 g protein och 5 g fiber. Det är mat som fungerar, inte en dryck konstruerad för att smaka som ett science experiment.",
+    "a5": "Energidrycker ger dig koffein plus mycket du inte behöver — socker, konstgjorda sötningsmedel, syntetiska stimulantia, färgämnen. En CAFO-bar ger dig 80 mg naturligt koffein, 14 g protein och 3 g fiber. Det är mat som fungerar, inte en dryck konstruerad för att smaka som ett science experiment.",
     "q6": "När får jag min beställning?",
     "a6": "Vi är för närvarande i pre-lansering och tar emot intresseanmälningar. När vi lanserar levereras beställningar inom Sverige på 2–4 vardagar. Europeisk frakt följer strax efter lansering — anmäl dig för att vara först att veta när ditt land går live."
   }

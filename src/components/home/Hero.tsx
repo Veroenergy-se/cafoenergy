@@ -65,7 +65,7 @@ export default function Hero() {
             </Link>
             <div className="flex items-center gap-6 mt-2">
               <div>
-                <span className="block text-2xl font-heading text-near-black leading-none">90mg</span>
+                <span className="block text-2xl font-heading text-near-black leading-none">80mg</span>
                 <span className="block text-[10px] font-accent text-near-black/40 uppercase tracking-widest mt-0.5">Caffeine</span>
               </div>
               <div className="w-px h-8 bg-near-black/15" />

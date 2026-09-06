@@ -12,7 +12,7 @@
     "title": "FOCUS. FOR HOURS.",
     "titleLine1": "FOCUS.",
     "titleLine2": "FOR HOURS.",
-    "subtitle": "The clean caffeinated protein bar. Real energy that lasts, with green tea caffeine, protein, and zero added sugar.",
+    "subtitle": "The clean caffeinated protein bar. Real energy that lasts, with natural guarana caffeine, protein, and zero added sugar.",
     "cta": "Shop Now",
     "joinWaitlist": "JOIN WAITLIST",
     "learnMore": "Learn More"
@@ -27,10 +27,9 @@
   },
   "socialProof": {
     "tagline": "CAFFEINATED. PROTEINATED. PERFECTED.",
-    "caffeine": "90mg Natural Caffeine",
-    "protein": "14g Plant Protein",
-    "sugar": "0g Added Sugar",
-    "ltheanine": "L-Theanine"
+    "caffeine": "80mg Natural Caffeine",
+    "protein": "14g Protein",
+    "sugar": "0g Added Sugar"
   },
   "products": {
     "title": "PRODUCTS",
@@ -54,13 +53,11 @@
   "nutrition": {
     "title": "What Makes It Perfect",
     "caffeineTitle": "Natural Caffeine",
-    "caffeineDesc": "90mg from green tea extract for clean, sustained energy without the jitters.",
-    "proteinTitle": "Plant Protein",
-    "proteinDesc": "14g of plant-based protein to keep you fueled and focused.",
+    "caffeineDesc": "80mg from guarana extract for clean, sustained energy without the jitters.",
+    "proteinTitle": "Protein Blend",
+    "proteinDesc": "14g of protein to keep you fueled and focused.",
     "sugarTitle": "Zero Added Sugar",
-    "sugarDesc": "No sugar crashes. No artificial sweeteners. Just clean energy.",
-    "ltheanineTitle": "L-Theanine",
-    "ltheanineDesc": "Promotes calm focus and enhanced concentration, paired perfectly with caffeine.",
+    "sugarDesc": "No added sugar, no artificial sweeteners. Just clean energy.",
     "comparisonTitle": "How CAFO Compares",
     "vsCoffee": "Coffee",
     "vsEnergy": "Energy Drinks",
@@ -106,7 +103,7 @@
       "eyebrow": "Our story",
       "heading": "Built to go further.",
       "p1": "CAFO started with one question: why does performance food taste like chalk? Three founders, one kitchen, one flavour we refused to compromise on.",
-      "p2": "90mg caffeine. 14g plant protein. Zero added sugar. Everything there for a reason — nothing that isn't."
+      "p2": "80mg caffeine. 14g protein. Zero added sugar. Everything there for a reason — nothing that isn't."
     },
     "quote": "Built for the ones who go all in.",
     "values": {
@@ -144,7 +141,7 @@
     "foundersTitle": "Three Brothers. Building A Movement.",
     "foundersText": "What started as a frustration with the energy options available to us as students turned into a mission to create something better. No more sugar crashes. No more jittery coffee runs. Just clean, sustained energy in your pocket.",
     "journeyTitle": "The Journey Begins",
-    "journeyText": "We spent over a year perfecting our formula — balancing green tea caffeine with L-theanine, combining plant protein with fiber, and eliminating every ingredient we didn't believe in. The result is CAFO: one flavour, perfected.",
+    "journeyText": "We spent over a year perfecting our formula — dialing in natural guarana caffeine, combining a protein blend with fiber, and eliminating every ingredient we didn't believe in. The result is CAFO: one flavour, perfected.",
     "teamTitle": "Meet The Team",
     "missionTitle": "Built For Ambitious Minds",
     "missionText": "CAFO is designed for anyone who refuses to compromise on what they put in their body. For students cramming for exams. For professionals pushing through deadlines. For anyone who needs real energy that lasts."
@@ -162,12 +159,10 @@
   "howItWorks": {
     "title": "HOW IT WORKS",
     "subtitle": "The science behind sustained focus",
-    "caffeineTitle": "Green Tea Caffeine",
-    "caffeineText": "Unlike synthetic caffeine in energy drinks, our 90mg comes from green tea extract. It's absorbed more gradually, providing a smooth energy curve instead of a spike-and-crash.",
-    "ltheanineTitle": "L-Theanine Synergy",
-    "ltheanineText": "L-theanine works with caffeine to promote focused alertness without anxiety. This combination has been studied extensively — it enhances attention and reduces the negative side effects of caffeine alone.",
+    "caffeineTitle": "Guarana Caffeine",
+    "caffeineText": "Unlike synthetic caffeine in energy drinks, our 80mg comes from guarana extract — a natural source, not a lab-made stimulant.",
     "proteinTitle": "Sustained Fuel",
-    "proteinText": "14g of plant protein and 5g of fiber slow digestion, creating a steady release of energy. No blood sugar spikes, no crashes — just hours of sustained focus.",
+    "proteinText": "14g of protein and fiber slow digestion, creating a steady release of energy. No blood sugar spikes, no crashes — just hours of sustained focus.",
     "lowGiTitle": "Low Glycemic Design",
     "lowGiText": "Our formula is designed with a low glycemic index, meaning it won't spike your blood sugar. This keeps your energy stable and your mind sharp."
   },
@@ -226,15 +221,15 @@
     "ctaText": "We're happy to help. Reach out and we'll get back to you.",
     "ctaButton": "Contact Us",
     "q1": "How much caffeine is in a CAFO bar?",
-    "a1": "Each bar contains 90mg of natural caffeine from green tea extract — roughly the same as a cup of coffee, but smoother. Green tea caffeine is paired with L-theanine, which takes the edge off and gives you calm, focused energy rather than a sharp spike. No jitters. No crash.",
+    "a1": "Each bar contains 80mg of natural caffeine from guarana extract — a little less than a cup of coffee. It's a natural source rather than a synthetic stimulant, giving you steady energy rather than a sharp spike. No jitters. No crash.",
     "q2": "Can I eat more than one bar a day?",
-    "a2": "Yes — that's kind of the point. At 90mg per bar, you can have three across the day and land at 270mg total, which is well within the FDA's recommended limit of 400mg. Morning, midday, pre-workout: each bar fits cleanly into your routine without pushing you over.",
+    "a2": "Yes — that's kind of the point. At 80mg per bar, you can have three across the day and land at 240mg total, which is well within the FDA's recommended limit of 400mg. Morning, midday, pre-workout: each bar fits cleanly into your routine without pushing you over.",
     "q3": "How long does the energy last?",
-    "a3": "Most people feel the effect within 20–30 minutes and sustain it for 3–5 hours. Because the caffeine comes from green tea and is paired with protein and fibre, absorption is steadier than coffee or energy drinks — so the energy tapers off gradually instead of cutting out suddenly.",
+    "a3": "Most people feel the effect within 20–30 minutes and sustain it for 3–5 hours. Because the caffeine is a natural source paired with protein and fibre, absorption is steadier than a sugary energy drink — so the energy tapers off gradually instead of cutting out suddenly.",
     "q4": "When's the best time to eat a CAFO bar?",
     "a4": "15–30 minutes before you need to be on. That means before a study session, before training, during a long drive, or as an afternoon pick-me-up. One rule: try not to eat it after 3pm if you're sensitive to caffeine — the half-life means it'll still be partly active at bedtime.",
     "q5": "How does it compare to energy drinks?",
-    "a5": "Energy drinks give you caffeine plus a lot of things you don't need — sugar, artificial sweeteners, synthetic stimulants, colours. A CAFO bar gives you 90mg natural caffeine, 14g protein, and 5g fibre. It's food that works, not a drink engineered to taste like a science experiment.",
+    "a5": "Energy drinks give you caffeine plus a lot of things you don't need — sugar, artificial sweeteners, synthetic stimulants, colours. A CAFO bar gives you 80mg natural caffeine, 14g protein, and 3g fibre. It's food that works, not a drink engineered to taste like a science experiment.",
     "q6": "When will I receive my order?",
     "a6": "We're currently in pre-launch and taking waitlist signups. Once we ship, orders within Sweden will arrive within 2–4 business days. European shipping will follow shortly after launch — sign up to be the first to know when your country goes live."
   }

@@ -20,8 +20,8 @@ const perBar: Record<string, { usd: number; sek: number }> = {
 }
 
 const benefitsStrip = [
-  { icon: Zap,    text: '90mg natural caffeine' },
-  { icon: Leaf,   text: '14g plant protein' },
+  { icon: Zap,    text: '80mg natural caffeine' },
+  { icon: Leaf,   text: '14g protein' },
   { icon: Shield, text: '0g added sugar' },
 ]
 
@@ -362,10 +362,9 @@ export default function Shop() {
 
               <div className="grid sm:grid-cols-2 gap-4">
                 {[
-                  { label: t('nutrition.caffeineTitle'), value: '90mg', desc: t('nutrition.caffeineDesc'), accent: 'forest' },
+                  { label: t('nutrition.caffeineTitle'), value: '80mg', desc: t('nutrition.caffeineDesc'), accent: 'forest' },
                   { label: t('nutrition.proteinTitle'),  value: '14g',  desc: t('nutrition.proteinDesc'),  accent: 'gold' },
                   { label: t('nutrition.sugarTitle'),    value: '0g',   desc: t('nutrition.sugarDesc'),    accent: 'forest' },
-                  { label: t('nutrition.ltheanineTitle'),value: '✓',    desc: t('nutrition.ltheanineDesc'),accent: 'gold' },
                 ].map((item) => (
                   <div key={item.label} className="bg-white rounded-3xl p-7 border border-near-black/[0.06] flex gap-5 items-start hover:shadow-md transition-all duration-200">
                     <div className={`text-3xl font-heading shrink-0 leading-none mt-0.5 ${item.accent === 'forest' ? 'text-forest' : 'text-gold'}`}>

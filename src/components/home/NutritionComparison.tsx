@@ -1,11 +1,11 @@
 import AnimatedSection from '@/components/shared/AnimatedSection'
 
 const rows = [
-  { label: 'PROTEIN',   cafo: '14g',   energy: '3g'    },
-  { label: 'SUGAR',     cafo: '0g',    energy: '12g'   },
-  { label: 'NET CARBS', cafo: '8g',    energy: '15g'   },
-  { label: 'CAFFEINE',  cafo: '90mg',  energy: '160mg' },
-  { label: 'FIBER',     cafo: '5g',    energy: '0g'    },
+  { label: 'PROTEIN',      cafo: '14g',   energy: '3g'    },
+  { label: 'ADDED SUGAR',  cafo: '0g',    energy: '12g'   },
+  { label: 'NET CARBS',    cafo: '18g',   energy: '15g'   },
+  { label: 'CAFFEINE',     cafo: '80mg',  energy: '160mg' },
+  { label: 'FIBER',        cafo: '3g',    energy: '0g'    },
 ]
 
 const ROW_H = 'h-[108px]'
@@ -85,7 +85,7 @@ export default function NutritionComparison() {
           </div>
 
           <p className="mt-8 text-center text-xs text-white/50 italic">
-            *Nutritional values are targets and may vary. Energy drink values are typical averages.
+            *Nutritional values are per bar per the current product spec. "Added sugar" excludes naturally occurring sugars from dairy ingredients. Energy drink values are typical averages.
           </p>
         </AnimatedSection>
       </div>

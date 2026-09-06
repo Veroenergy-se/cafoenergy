@@ -51,7 +51,7 @@ const myths: MythData[] = [
     verdict: 'fact',
     claim: 'It fights the afternoon energy dip — properly',
     science:
-      "The post-lunch slump is real: adenosine levels rise, core body temperature dips slightly, and <strong>cognitive performance measurably drops between 1pm and 3pm</strong> for most people. Caffeine works by blocking the adenosine that causes that dip — which is why a mid-afternoon bar is one of the most effective uses of it. At 90mg you extend your productive work window by 2–3 hours without disrupting sleep, as long as you take it before 3pm.",
+      "The post-lunch slump is real: adenosine levels rise, core body temperature dips slightly, and <strong>cognitive performance measurably drops between 1pm and 3pm</strong> for most people. Caffeine works by blocking the adenosine that causes that dip — which is why a mid-afternoon bar is one of the most effective uses of it. At 80mg you extend your productive work window by 2–3 hours without disrupting sleep, as long as you take it before 3pm.",
     source: 'Hilditch & McHill, Sleep Medicine Reviews, 2018',
   },
 ]
@@ -102,22 +102,22 @@ function DoseSection() {
         <div className="max-w-3xl mx-auto text-center">
           <AnimatedSection>
             <p className="text-[10px] font-accent font-bold text-white/25 tracking-[0.18em] uppercase mb-5">
-              The 90mg sweet spot
+              The 80mg sweet spot
             </p>
             <h2 className="text-5xl sm:text-6xl lg:text-7xl font-heading text-white leading-tight mb-6">
               Enough to perform.<br />
               <span className="text-gold">Safe enough to stack.</span>
             </h2>
             <p className="text-white/40 font-accent text-base leading-relaxed max-w-lg mx-auto mb-16">
-              The FDA recommends staying under 400mg per day. At 90mg per bar, you can have one in the morning, one at lunch, and one before your workout — and still have 130mg to spare.
+              The FDA recommends staying under 400mg per day. At 80mg per bar, you can have one in the morning, one at lunch, and one before your workout — and still have 160mg to spare.
             </p>
           </AnimatedSection>
 
           <div className="grid grid-cols-3 gap-px bg-white/10">
             {[
-              { time: 'Morning',      mg: '90mg',  note: 'Wake up sharp' },
-              { time: 'Midday',       mg: '180mg', note: 'Stay in it' },
-              { time: 'Pre-workout',  mg: '270mg', note: '130mg to spare' },
+              { time: 'Morning',      mg: '80mg',  note: 'Wake up sharp' },
+              { time: 'Midday',       mg: '160mg', note: 'Stay in it' },
+              { time: 'Pre-workout',  mg: '240mg', note: '160mg to spare' },
             ].map((s, i) => (
               <AnimatedSection key={s.time} delay={i * 0.1}>
                 <div className="bg-near-black px-6 py-10 flex flex-col items-center">
@@ -131,7 +131,7 @@ function DoseSection() {
 
           <AnimatedSection delay={0.3}>
             <p className="text-white/20 font-accent text-xs mt-8">
-              3 bars across the day · 270mg total · well within the 400mg daily limit
+              3 bars across the day · 240mg total · well within the 400mg daily limit
             </p>
           </AnimatedSection>
         </div>
@@ -162,7 +162,7 @@ export default function CaffeineMyths() {
                 {[
                   { n: '70+', l: 'peer-reviewed studies' },
                   { n: '400mg', l: 'safe daily limit (FDA)' },
-                  { n: '90mg', l: 'per CAFO bar' },
+                  { n: '80mg', l: 'per CAFO bar' },
                 ].map(s => (
                   <div key={s.l} className="text-center">
                     <div className="text-2xl font-heading text-gold">{s.n}</div>

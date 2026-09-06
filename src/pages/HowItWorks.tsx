@@ -2,15 +2,14 @@ import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
 import AnimatedSection from '@/components/shared/AnimatedSection'
 import CaffeineMyths from '@/components/home/CaffeineMyths'
-import { Leaf, Brain, Dumbbell, BarChart3 } from 'lucide-react'
+import { Leaf, Dumbbell, BarChart3 } from 'lucide-react'
 
 export default function HowItWorks() {
   const { t } = useTranslation()
 
   const cards = [
-    { titleKey: 'howItWorks.caffeineTitle', textKey: 'howItWorks.caffeineText', icon: Leaf, color: 'forest', stat: '90mg', statLabel: 'Green Tea Caffeine' },
-    { titleKey: 'howItWorks.ltheanineTitle', textKey: 'howItWorks.ltheanineText', icon: Brain, color: 'gold', stat: 'Calm', statLabel: 'Focused Alertness' },
-    { titleKey: 'howItWorks.proteinTitle', textKey: 'howItWorks.proteinText', icon: Dumbbell, color: 'forest', stat: '14g', statLabel: 'Plant Protein' },
+    { titleKey: 'howItWorks.caffeineTitle', textKey: 'howItWorks.caffeineText', icon: Leaf, color: 'forest', stat: '80mg', statLabel: 'Guarana Caffeine' },
+    { titleKey: 'howItWorks.proteinTitle', textKey: 'howItWorks.proteinText', icon: Dumbbell, color: 'forest', stat: '14g', statLabel: 'Protein Blend' },
     { titleKey: 'howItWorks.lowGiTitle', textKey: 'howItWorks.lowGiText', icon: BarChart3, color: 'gold', stat: 'Low', statLabel: 'Glycemic Index' },
   ]
 
@@ -18,7 +17,7 @@ export default function HowItWorks() {
     <>
       <Helmet>
         <title>How It Works — CAFO Energy</title>
-        <meta name="description" content="The science behind CAFO Energy. Green tea caffeine, L-theanine, plant protein — how they work together for sustained focus." />
+        <meta name="description" content="The science behind CAFO Energy. Natural guarana caffeine, a protein blend, and fibre — how they work together for sustained focus." />
       </Helmet>
 
       <section className="bg-near-black py-32 text-center">
