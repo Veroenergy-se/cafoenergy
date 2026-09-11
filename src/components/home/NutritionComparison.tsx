@@ -1,11 +1,11 @@
 import AnimatedSection from '@/components/shared/AnimatedSection'
 
 const rows = [
-  { label: 'PROTEIN',   cafo: '14g',   energy: '3g'    },
-  { label: 'SUGAR',     cafo: '0g',    energy: '12g'   },
-  { label: 'NET CARBS', cafo: '8g',    energy: '15g'   },
-  { label: 'CAFFEINE',  cafo: '90mg',  energy: '160mg' },
-  { label: 'FIBER',     cafo: '5g',    energy: '0g'    },
+  { label: 'PROTEIN',  cafo: '14g',  energy: '0g'   },
+  { label: 'SUGAR',    cafo: '2g',   energy: '27g'  },
+  { label: 'CARBS',    cafo: '21g',  energy: '28g'  },
+  { label: 'CAFFEINE', cafo: '80mg', energy: '80mg' },
+  { label: 'FIBER',    cafo: '3g',   energy: '0g'   },
 ]
 
 const ROW_H = 'h-[108px]'
@@ -85,7 +85,8 @@ export default function NutritionComparison() {
           </div>
 
           <p className="mt-8 text-center text-xs text-white/50 italic">
-            *Nutritional values are targets and may vary. Energy drink values are typical averages.
+            *CAFO values per 55g bar, from our current nutrition declaration. Energy drink values are for a
+            standard 250ml can (e.g. Red Bull), a typical single serving.
           </p>
         </AnimatedSection>
       </div>
