@@ -20,7 +20,7 @@ const perBar: Record<string, { usd: number; sek: number }> = {
 }
 
 const benefitsStrip = [
-  { icon: Zap,    text: '90mg natural caffeine' },
+  { icon: Zap,    text: '80mg natural caffeine' },
   { icon: Leaf,   text: '14g plant protein' },
   { icon: Shield, text: '0g added sugar' },
 ]
@@ -362,7 +362,7 @@ export default function Shop() {
 
               <div className="grid sm:grid-cols-2 gap-4">
                 {[
-                  { label: t('nutrition.caffeineTitle'), value: '90mg', desc: t('nutrition.caffeineDesc'), accent: 'forest' },
+                  { label: t('nutrition.caffeineTitle'), value: '80mg', desc: t('nutrition.caffeineDesc'), accent: 'forest' },
                   { label: t('nutrition.proteinTitle'),  value: '14g',  desc: t('nutrition.proteinDesc'),  accent: 'gold' },
                   { label: t('nutrition.sugarTitle'),    value: '0g',   desc: t('nutrition.sugarDesc'),    accent: 'forest' },
                   { label: t('nutrition.ltheanineTitle'),value: '✓',    desc: t('nutrition.ltheanineDesc'),accent: 'gold' },

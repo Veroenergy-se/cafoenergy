@@ -8,7 +8,7 @@ export default function HowItWorks() {
   const { t } = useTranslation()
 
   const cards = [
-    { titleKey: 'howItWorks.caffeineTitle', textKey: 'howItWorks.caffeineText', icon: Leaf, color: 'forest', stat: '90mg', statLabel: 'Green Tea Caffeine' },
+    { titleKey: 'howItWorks.caffeineTitle', textKey: 'howItWorks.caffeineText', icon: Leaf, color: 'forest', stat: '80mg', statLabel: 'Green Tea Caffeine' },
     { titleKey: 'howItWorks.ltheanineTitle', textKey: 'howItWorks.ltheanineText', icon: Brain, color: 'gold', stat: 'Calm', statLabel: 'Focused Alertness' },
     { titleKey: 'howItWorks.proteinTitle', textKey: 'howItWorks.proteinText', icon: Dumbbell, color: 'forest', stat: '14g', statLabel: 'Plant Protein' },
     { titleKey: 'howItWorks.lowGiTitle', textKey: 'howItWorks.lowGiText', icon: BarChart3, color: 'gold', stat: 'Low', statLabel: 'Glycemic Index' },
