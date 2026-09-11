@@ -4,7 +4,7 @@ const rows = [
   { label: 'PROTEIN',  cafo: '14g',  energy: '0g'   },
   { label: 'SUGAR',    cafo: '2g',   energy: '27g'  },
   { label: 'CARBS',    cafo: '21g',  energy: '28g'  },
-  { label: 'CAFFEINE', cafo: '80mg', energy: '80mg' },
+  { label: 'CAFFEINE', cafo: '80mg', energy: '180mg' },
   { label: 'FIBER',    cafo: '3g',   energy: '0g'   },
 ]
 
@@ -85,8 +85,9 @@ export default function NutritionComparison() {
           </div>
 
           <p className="mt-8 text-center text-xs text-white/50 italic">
-            *CAFO values per 55g bar, from our current nutrition declaration. Energy drink values are for a
-            standard 250ml can (e.g. Red Bull), a typical single serving.
+            *CAFO values per 55g bar, from our current nutrition declaration. Energy drink sugar/carbs are for a
+            standard 250ml can (e.g. Red Bull); caffeine is a rounded average across major brands
+            (Red Bull, Monster, Celsius, Reign, Bang).
           </p>
         </AnimatedSection>
       </div>
