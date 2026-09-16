@@ -11,7 +11,7 @@ type PurchaseMode = 'onetime' | 'subscription'
 
 // Boxes of 12 — no upper limit
 const BOX_BARS = (boxes: number) => boxes * 12
-const BOX_PRICE_SEK = 279 // per box (starter unit price)
+const BOX_PRICE_SEK = 299 // per box (starter unit price)
 
 const perBar: Record<string, { usd: number; sek: number }> = {
   starter: { usd: 2.42, sek: 23.25 },
