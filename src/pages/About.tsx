@@ -13,10 +13,9 @@ export default function About() {
       </Helmet>
 
       {/* Hero */}
-      <section className="relative bg-near-black py-32 text-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-near-black to-near-black/95" />
+      <section className="relative bg-off-white py-32 text-center overflow-hidden">
         <AnimatedSection className="relative z-10">
-          <h1 className="text-8xl sm:text-9xl lg:text-[10rem] font-heading text-white">{t('about.heroTitle')}</h1>
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-heading text-brown">{t('about.heroTitle')}</h1>
         </AnimatedSection>
       </section>
 
@@ -33,7 +32,7 @@ export default function About() {
               </p>
             </AnimatedSection>
             <AnimatedSection direction="right">
-              <div className="aspect-[4/3] overflow-hidden bg-cream">
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-cream">
                 <img
                   src="/images/founders.jpg"
                   alt="CAFO Energy founders"
@@ -50,7 +49,7 @@ export default function About() {
         <div className="page-container">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection direction="left" className="order-2 lg:order-1">
-              <div className="aspect-[4/3] overflow-hidden bg-warm-white">
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-warm-white">
                 <img
                   src="/images/about-nyc.jpg"
                   alt="NYC Times Square"
@@ -71,12 +70,12 @@ export default function About() {
       </section>
 
       {/* Mission */}
-      <section className="py-24 bg-near-black text-white text-center">
+      <section className="py-24 bg-brown text-off-white text-center">
         <div className="page-container">
           <AnimatedSection>
             <div className="max-w-3xl mx-auto">
-              <h2 className="text-6xl sm:text-7xl lg:text-8xl font-heading">{t('about.missionTitle')}</h2>
-              <p className="mt-8 text-white text-lg leading-relaxed">
+              <h2 className="text-4xl sm:text-6xl lg:text-8xl font-heading">{t('about.missionTitle')}</h2>
+              <p className="mt-8 text-off-white/80 text-lg leading-relaxed">
                 {t('about.missionText')}
               </p>
             </div>

@@ -13,14 +13,14 @@ export default function ProductCards() {
     <section className="py-24 bg-warm-white">
       <div className="page-container">
         <AnimatedSection className="text-center mb-16">
-          <h2 className="text-6xl sm:text-7xl lg:text-8xl font-heading text-near-black">{t('products.title')}</h2>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-near-black">{t('products.title')}</h2>
           <p className="mt-3 text-near-black font-accent">{t('products.subtitle')}</p>
         </AnimatedSection>
 
         <div className="grid md:grid-cols-3 gap-8">
           {products.map((product, i) => (
             <AnimatedSection key={product.id} delay={i * 0.15} direction="scale">
-              <div className="group relative bg-white border border-near-black/5 hover:border-gold/20 hover:shadow-xl hover:shadow-gold/5 hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+              <div className="group relative rounded-2xl bg-white border border-near-black/5 hover:border-gold/20 hover:shadow-xl hover:shadow-gold/5 hover:-translate-y-1 transition-all duration-300 overflow-hidden">
                 {product.badge && (
                   <span className="absolute top-4 right-4 z-10 px-3 py-1 bg-gold text-near-black text-xs font-bold font-accent rounded-full uppercase">
                     {t(product.badge)}
@@ -49,7 +49,7 @@ export default function ProductCards() {
                     </div>
                     <button
                       onClick={() => addItem(product.id)}
-                      className="inline-flex items-center gap-2 px-8 py-4 bg-near-black text-white text-base font-semibold font-accent hover:bg-near-black/80 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200"
+                      className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-caforange text-off-white text-base font-semibold font-accent hover:bg-brown hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200"
                     >
                       <ShoppingBag className="w-4 h-4" />
                       {t('products.addToCart')}

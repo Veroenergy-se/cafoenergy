@@ -89,8 +89,7 @@ export default function Navbar() {
             <Link
               key={link.path}
               to={link.path}
-              style={{ fontFamily: "'Bebas Neue', sans-serif" }}
-              className={`relative text-2xl tracking-widest uppercase transition-colors after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-near-black after:transition-all after:duration-300 ${
+              className={`relative font-accent font-semibold text-sm tracking-widest uppercase transition-colors after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-caforange after:transition-all after:duration-300 ${
                 pathname === link.path
                   ? 'text-near-black after:w-full'
                   : 'text-near-black/60 hover:text-near-black after:w-0 hover:after:w-full'
@@ -113,7 +112,7 @@ export default function Navbar() {
             <ShoppingBag className="w-5 h-5" />
             {cartCount > 0 && (
               <motion.span
-                className="absolute -top-1 -right-1 w-5 h-5 bg-near-black text-white text-xs font-bold rounded-full flex items-center justify-center"
+                className="absolute -top-1 -right-1 w-5 h-5 bg-caforange text-off-white text-xs font-bold rounded-full flex items-center justify-center"
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 key={cartCount}
@@ -126,8 +125,7 @@ export default function Navbar() {
 
           <Link
             to="/shop"
-            style={{ fontFamily: "'Bebas Neue', sans-serif" }}
-            className="hidden md:inline-flex px-8 py-3.5 bg-near-black text-white text-2xl tracking-widest uppercase border-2 border-near-black hover:bg-white hover:text-near-black hover:-translate-y-0.5 hover:shadow-lg transition-all duration-500 ease-in-out"
+            className="hidden md:inline-flex px-8 py-3.5 rounded-full bg-caforange text-off-white font-accent font-semibold text-sm tracking-widest uppercase border-2 border-caforange hover:bg-brown hover:text-off-white hover:border-brown hover:-translate-y-0.5 hover:shadow-lg transition-all duration-500 ease-in-out"
           >
             {t('nav.getEnergized')}
           </Link>
@@ -192,7 +190,7 @@ export default function Navbar() {
                 >
                   <Link
                     to="/shop"
-                    className="block w-full text-center py-4 bg-near-black text-white font-semibold font-accent mt-4 text-lg"
+                    className="block w-full text-center py-4 rounded-full bg-caforange text-off-white font-semibold font-accent mt-4 text-lg"
                   >
                     {t('nav.getEnergized')}
                   </Link>

@@ -21,10 +21,10 @@ export default function HowItWorks() {
         <meta name="description" content="The science behind CAFO Energy. Green tea caffeine, L-theanine, plant protein — how they work together for sustained focus." />
       </Helmet>
 
-      <section className="bg-near-black py-32 text-center">
+      <section className="bg-off-white py-32 text-center">
         <AnimatedSection>
-          <h1 className="text-8xl sm:text-9xl lg:text-[10rem] font-heading text-white">{t('howItWorks.title')}</h1>
-          <p className="mt-4 text-white/50 font-accent text-lg max-w-xl mx-auto">{t('howItWorks.subtitle')}</p>
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-heading text-brown">{t('howItWorks.title')}</h1>
+          <p className="mt-4 text-brown/50 font-accent text-lg max-w-xl mx-auto">{t('howItWorks.subtitle')}</p>
         </AnimatedSection>
       </section>
 
@@ -81,15 +81,15 @@ export default function HowItWorks() {
       <CaffeineMyths />
 
       {/* CTA */}
-      <section className="py-24 bg-forest text-white text-center">
+      <section className="py-24 bg-off-white text-brown text-center">
         <div className="page-container">
           <AnimatedSection>
             <div className="max-w-2xl mx-auto">
               <h2 className="text-5xl font-heading">Ready to Focus?</h2>
-              <p className="mt-4 text-white/60 text-lg">Experience clean, sustained energy with CAFO.</p>
+              <p className="mt-4 text-brown/60 text-lg">Experience clean, sustained energy with CAFO.</p>
               <a
                 href="/shop"
-                className="mt-8 inline-flex px-8 py-4 bg-white text-forest font-semibold font-accent rounded-full hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
+                className="mt-8 inline-flex px-8 py-4 bg-caforange text-off-white font-semibold font-accent rounded-full hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
               >
                 Shop Now
               </a>

@@ -39,13 +39,13 @@ export default function Hero() {
           >
             <a
               href="#waitlist"
-              className="inline-flex items-center px-16 py-5 bg-caforange text-off-white font-heading tracking-widest text-2xl uppercase border-2 border-caforange hover:bg-brown hover:text-off-white hover:border-brown hover:-translate-y-0.5 hover:shadow-xl transition-all duration-500 ease-in-out"
+              className="inline-flex items-center px-16 py-5 rounded-full bg-caforange text-off-white font-heading tracking-widest text-2xl uppercase border-2 border-caforange hover:bg-brown hover:text-off-white hover:border-brown hover:-translate-y-0.5 hover:shadow-xl transition-all duration-500 ease-in-out"
             >
               {t('hero.joinWaitlist')}
             </a>
             <Link
               to="/how-it-works"
-              className="inline-flex items-center px-16 py-5 text-caforange font-heading tracking-widest text-2xl uppercase border-2 border-caforange hover:bg-caforange hover:text-off-white hover:-translate-y-0.5 transition-all duration-300"
+              className="inline-flex items-center px-16 py-5 rounded-full text-caforange font-heading tracking-widest text-2xl uppercase border-2 border-caforange hover:bg-caforange hover:text-off-white hover:-translate-y-0.5 transition-all duration-300"
             >
               {t('hero.learnMore')}
             </Link>
