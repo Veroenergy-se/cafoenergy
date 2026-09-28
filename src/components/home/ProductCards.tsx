@@ -13,7 +13,7 @@ export default function ProductCards() {
     <section className="py-24 bg-warm-white">
       <div className="page-container">
         <AnimatedSection className="text-center mb-16">
-          <h2 className="text-4xl sm:text-6xl lg:text-8xl font-heading text-near-black">{t('products.title')}</h2>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-near-black">{t('products.title')}</h2>
           <p className="mt-3 text-near-black font-accent">{t('products.subtitle')}</p>
         </AnimatedSection>
 

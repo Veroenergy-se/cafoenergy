@@ -8,7 +8,7 @@ export default function SocialProof() {
     <section className="bg-off-white py-24">
       <div className="page-container">
         <AnimatedSection>
-          <p className="text-center text-2xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-heading text-brown tracking-wide leading-tight">
+          <p className="text-center text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-heading text-brown tracking-wide leading-tight">
             {t('socialProof.tagline')}
           </p>
         </AnimatedSection>

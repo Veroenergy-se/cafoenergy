@@ -34,7 +34,7 @@ export default function Waitlist() {
     <section id="waitlist" className="bg-caforange py-24 lg:py-32">
       <div className="page-container text-center">
         <AnimatedSection className="w-full">
-          <h2 className="text-6xl sm:text-7xl lg:text-9xl font-heading text-off-white leading-[0.9] tracking-tight mb-4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading text-off-white leading-tight tracking-tight mb-4">
             {t('waitlist.title')}
           </h2>
           <p className="text-off-white/90 font-accent text-lg mb-12">

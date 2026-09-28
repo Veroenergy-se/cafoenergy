@@ -11,7 +11,7 @@ export default function StoryTeaser() {
       <div className="page-container">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <AnimatedSection direction="left">
-            <h2 className="text-6xl sm:text-7xl lg:text-8xl font-heading text-brown leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-brown leading-tight">
               {t('story.title')}
             </h2>
             <p className="mt-6 text-lg text-brown/80 leading-relaxed max-w-lg">

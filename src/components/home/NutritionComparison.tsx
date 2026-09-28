@@ -24,7 +24,7 @@ export default function NutritionComparison() {
 
       <div className="relative z-10 page-container">
         <AnimatedSection className="w-full">
-          <h2 className="w-full text-center text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-heading text-white leading-[0.9] tracking-tight mb-16 lg:mb-20">
+          <h2 className="w-full text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading text-white leading-tight tracking-tight mb-16 lg:mb-20">
             WHY CAFO WINS. EVERY TIME.
           </h2>
         </AnimatedSection>
@@ -44,20 +44,20 @@ export default function NutritionComparison() {
               ))}
             </div>
 
-            {/* Center column — black, extends above & below */}
-            <div className="flex flex-col bg-near-black">
+            {/* Center column — orange, extends above & below */}
+            <div className="flex flex-col bg-caforange">
               <div className={EXTEND_H} />
-              <div className={`${ROW_H} flex items-center justify-center px-4 border-b border-white/10`}>
-                <span className="text-4xl sm:text-5xl font-heading font-black text-white tracking-widest">CAFO</span>
+              <div className={`${ROW_H} flex items-center justify-center px-4 border-b border-white/15`}>
+                <span className="text-4xl sm:text-5xl font-heading font-black text-off-white tracking-widest">CAFO</span>
               </div>
               {rows.map((row) => (
-                <div key={row.label} className={`${ROW_H} flex items-center justify-center px-4 border-b last:border-b-0 border-white/10`}>
+                <div key={row.label} className={`${ROW_H} flex items-center justify-center px-4 border-b last:border-b-0 border-white/15`}>
                   {row.cafo === 'check' ? (
-                    <svg viewBox="0 0 24 24" className="w-10 h-10 fill-none stroke-[#4ade80] stroke-[3]" strokeLinecap="round" strokeLinejoin="round">
+                    <svg viewBox="0 0 24 24" className="w-10 h-10 fill-none stroke-[#0a2e1a] stroke-[3]" strokeLinecap="round" strokeLinejoin="round">
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
                   ) : (
-                    <span className="text-3xl sm:text-4xl font-black text-white">{row.cafo}</span>
+                    <span className="text-3xl sm:text-4xl font-black text-off-white">{row.cafo}</span>
                   )}
                 </div>
               ))}

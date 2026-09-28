@@ -16,7 +16,7 @@ export default function Testimonials() {
     <section className="py-24 bg-warm-white">
       <div className="page-container">
         <AnimatedSection className="text-center mb-16">
-          <h2 className="text-6xl sm:text-7xl lg:text-8xl font-heading text-near-black">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-near-black">
             {t('testimonials.title')}
           </h2>
         </AnimatedSection>
