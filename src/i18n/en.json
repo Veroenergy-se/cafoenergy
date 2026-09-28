@@ -26,6 +26,18 @@
     "successSub": "We'll be in touch soon.",
     "error": "Something went wrong — please try again."
   },
+  "waitlistPopup": {
+    "eyebrow": "COMING SOON",
+    "title": "JOIN THE WAITLIST",
+    "subtitle": "Be the first to know when we launch — no spam, just the moment it drops.",
+    "placeholder": "your@email.com",
+    "cta": "JOIN WAITLIST",
+    "success": "YOU'RE ON THE LIST.",
+    "successSub": "We'll be in touch soon.",
+    "error": "Something went wrong — please try again.",
+    "dismiss": "No thanks",
+    "close": "Close"
+  },
   "socialProof": {
     "tagline": "CAFFEINATED. PROTEINATED. PERFECTED.",
     "caffeine": "80mg Natural Caffeine",
