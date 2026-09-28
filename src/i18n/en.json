@@ -26,13 +26,6 @@
     "successSub": "We'll be in touch soon.",
     "error": "Something went wrong — please try again."
   },
-  "socialProof": {
-    "tagline": "CAFFEINATED. PROTEINATED. PERFECTED.",
-    "caffeine": "80mg Natural Caffeine",
-    "protein": "14g Plant Protein",
-    "sugar": "0g Added Sugar",
-    "ltheanine": "L-Theanine"
-  },
   "products": {
     "title": "PRODUCTS",
     "subtitle": "One Flavour. Perfected.",
@@ -65,7 +58,17 @@
     "comparisonTitle": "How CAFO Compares",
     "vsCoffee": "Coffee",
     "vsEnergy": "Energy Drinks",
-    "vsCafo": "CAFO Bar"
+    "vsCafo": "CAFO Bar",
+    "winsTitle": "WHY CAFO WINS. EVERY TIME.",
+    "whatsInside": "What's Inside",
+    "rows": {
+      "protein": "PROTEIN",
+      "sugar": "SUGAR",
+      "carbs": "CARBS",
+      "caffeine": "CAFFEINE",
+      "fiber": "FIBER"
+    },
+    "footnote": "*CAFO values per 55g bar, from our current nutrition declaration. Energy drink sugar/carbs are for a standard 250ml can (e.g. Red Bull); caffeine is a rounded average across major brands (Red Bull, Monster, Celsius, Reign, Bang)."
   },
   "testimonials": {
     "title": "For The Days That Matter",
