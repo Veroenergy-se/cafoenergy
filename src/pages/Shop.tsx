@@ -65,7 +65,7 @@ export default function Shop() {
       {/* Hero */}
       <section className="bg-near-black py-32 text-center">
         <AnimatedSection>
-          <h1 className="text-8xl sm:text-9xl lg:text-[10rem] font-heading text-white">{t('products.title')}</h1>
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-heading text-white">{t('products.title')}</h1>
           <p className="mt-4 text-white font-accent text-lg">{t('products.subtitle')}</p>
         </AnimatedSection>
       </section>

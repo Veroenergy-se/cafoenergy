@@ -48,7 +48,7 @@ export default function Community() {
       {/* Hero */}
       <section className="bg-near-black py-32 text-center">
         <AnimatedSection>
-          <h1 className="text-9xl sm:text-[11rem] lg:text-[15rem] font-heading text-white">{t('community.title')}</h1>
+          <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-[9rem] xl:text-[12rem] font-heading text-white">{t('community.title')}</h1>
           <p className="mt-4 text-white font-accent text-lg max-w-xl mx-auto">{t('community.subtitle')}</p>
         </AnimatedSection>
       </section>
@@ -92,7 +92,7 @@ export default function Community() {
       {/* Breakout quote */}
       <section className="bg-cream py-36 sm:py-52 px-8 text-center">
         <AnimatedSection direction="up">
-          <p className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-heading text-near-black mx-auto leading-tight whitespace-nowrap">
+          <p className="text-3xl sm:text-5xl lg:text-7xl xl:text-8xl font-heading text-near-black mx-auto leading-tight sm:whitespace-nowrap">
             {t('community.quote')}
           </p>
         </AnimatedSection>

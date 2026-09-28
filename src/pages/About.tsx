@@ -16,7 +16,7 @@ export default function About() {
       <section className="relative bg-near-black py-32 text-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-near-black to-near-black/95" />
         <AnimatedSection className="relative z-10">
-          <h1 className="text-8xl sm:text-9xl lg:text-[10rem] font-heading text-white">{t('about.heroTitle')}</h1>
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-heading text-white">{t('about.heroTitle')}</h1>
         </AnimatedSection>
       </section>
 

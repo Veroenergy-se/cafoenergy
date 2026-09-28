@@ -151,7 +151,7 @@ export default function CaffeineMyths() {
               <span className="inline-block text-[10px] font-accent font-bold text-white/40 tracking-widest uppercase border border-white/10 px-4 py-1.5 mb-6">
                 Backed by science
               </span>
-              <h2 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-heading text-white mb-4 leading-tight">
+              <h2 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-heading text-white mb-4 leading-tight">
                 Caffeine isn't the villain.<br />
                 <span className="text-gold">Misinformation is.</span>
               </h2>

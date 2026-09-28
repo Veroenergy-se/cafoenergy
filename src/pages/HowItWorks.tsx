@@ -23,7 +23,7 @@ export default function HowItWorks() {
 
       <section className="bg-near-black py-32 text-center">
         <AnimatedSection>
-          <h1 className="text-8xl sm:text-9xl lg:text-[10rem] font-heading text-white">{t('howItWorks.title')}</h1>
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-heading text-white">{t('howItWorks.title')}</h1>
           <p className="mt-4 text-white/50 font-accent text-lg max-w-xl mx-auto">{t('howItWorks.subtitle')}</p>
         </AnimatedSection>
       </section>

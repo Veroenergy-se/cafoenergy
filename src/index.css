@@ -1,26 +1,38 @@
 @import "tailwindcss";
 
 @theme {
-  --color-espresso: #2C1810;
-  --color-cream: #F5F1E8;
-  --color-near-black: #0B0C10;
-  --color-gold: #f59e0b;
-  --color-gold-light: #fbbf24;
-  --color-forest: #1a4d2e;
-  --color-forest-light: #22c55e;
-  --color-warm-white: #FDFCFA;
-  --color-dark-cream: #E8E3D8;
-
-  /* New brand identity */
+  /* Brand palette — the only three colors the site is built from.
+     See: https://claude.ai/artifact/JtfxnUpbjUJQ286CS1pBPx */
   --color-caforange: #ff5e1e;
   --color-off-white: #ede6dc;
   --color-brown: #2d1e17;
 
-  --font-heading: "Bebas Neue", sans-serif;
-  --font-body: "Inter", sans-serif;
-  --font-accent: "Poppins", sans-serif;
-  /* Stand-in for Monument Extended (premium, unlicensed) — closest free match */
+  /* Legacy tokens — kept only so old class names (bg-near-black, text-gold, etc.)
+     keep working while components are migrated. Each aliases a brand color; none
+     of these should be used in new code. Remove once nothing references them. */
+  --color-espresso: #2d1e17;      /* -> brown */
+  --color-cream: #ede6dc;         /* -> off-white */
+  --color-near-black: #2d1e17;    /* -> brown */
+  --color-gold: #ff5e1e;          /* -> caforange */
+  --color-gold-light: #ff8a52;    /* -> caforange, lighter tint */
+  --color-forest: #2d1e17;        /* -> brown */
+  --color-forest-light: #ff5e1e;  /* -> caforange */
+  --color-warm-white: #ede6dc;    /* -> off-white */
+  --color-dark-cream: #ede6dc;    /* -> off-white */
+
+  /* Type — two faces. Display for headlines/CTAs/big numbers, DM Sans for
+     everything read at length or used as UI (nav, labels, body copy). */
+  --font-heading: "Montserrat", sans-serif;
   --font-monument: "Montserrat", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+  --font-accent: "DM Sans", sans-serif;
+}
+
+/* font-heading ships as Bebas Neue's replacement but Tailwind's font-* utility
+   only sets font-family — Montserrat needs its heaviest weight to read as the
+   intended display face. */
+.font-heading {
+  font-weight: 900;
 }
 
 html {
