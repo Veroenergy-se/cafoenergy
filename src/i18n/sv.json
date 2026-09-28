@@ -25,6 +25,18 @@
     "successSub": "Vi hör av oss snart.",
     "error": "Något gick fel — försök igen."
   },
+  "waitlistPopup": {
+    "eyebrow": "KOMMER SNART",
+    "title": "GÅ MED I VÄNTELISTAN",
+    "subtitle": "Var först att veta när vi lanserar — inget skräppost, bara beskedet när det händer.",
+    "placeholder": "din@mejl.se",
+    "cta": "GÅ MED",
+    "success": "DU ÄR MED PÅ LISTAN.",
+    "successSub": "Vi hör av oss snart.",
+    "error": "Något gick fel — försök igen.",
+    "dismiss": "Nej tack",
+    "close": "Stäng"
+  },
   "socialProof": {
     "tagline": "KOFFEINERAD. PROTEINRIK. PERFEKTIONERAD.",
     "caffeine": "80mg Naturligt Koffein",

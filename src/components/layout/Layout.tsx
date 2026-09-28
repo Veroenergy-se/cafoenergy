@@ -3,6 +3,7 @@ import Navbar from './Navbar'
 import Footer from './Footer'
 import CartDrawer from '@/components/shared/CartDrawer'
 import CookieConsent from '@/components/shared/CookieConsent'
+import WaitlistPopup from '@/components/shared/WaitlistPopup'
 import Waitlist from '@/components/home/Waitlist'
 
 export default function Layout() {
@@ -16,6 +17,7 @@ export default function Layout() {
       <Footer />
       <CartDrawer />
       <CookieConsent />
+      <WaitlistPopup />
     </div>
   )
 }
