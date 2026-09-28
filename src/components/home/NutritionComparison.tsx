@@ -33,13 +33,13 @@ export default function NutritionComparison() {
           <div className="grid grid-cols-3 w-full">
 
             {/* Left column */}
-            <div className={`flex flex-col bg-white border-2 border-black border-r-0 mt-[80px] mb-[80px]`}>
-              <div className={`${ROW_H} flex items-center justify-center px-6 border-b-2 border-black`}>
-                <span className="text-xs sm:text-sm font-black tracking-[0.18em] uppercase text-black text-center">What's Inside</span>
+            <div className={`flex flex-col bg-white border-2 border-brown border-r-0 rounded-tl-2xl rounded-bl-2xl overflow-hidden mt-[80px] mb-[80px]`}>
+              <div className={`${ROW_H} flex items-center justify-center px-6 border-b-2 border-brown`}>
+                <span className="text-xs sm:text-sm font-black tracking-[0.18em] uppercase text-brown text-center">What's Inside</span>
               </div>
               {rows.map((row) => (
-                <div key={row.label} className={`${ROW_H} flex items-center justify-center px-6 border-b-2 last:border-b-0 border-black/20`}>
-                  <span className="text-sm sm:text-base font-black tracking-[0.12em] uppercase text-black text-center">{row.label}</span>
+                <div key={row.label} className={`${ROW_H} flex items-center justify-center px-6 border-b-2 last:border-b-0 border-brown/20`}>
+                  <span className="text-sm sm:text-base font-black tracking-[0.12em] uppercase text-brown text-center">{row.label}</span>
                 </div>
               ))}
             </div>
@@ -65,18 +65,18 @@ export default function NutritionComparison() {
             </div>
 
             {/* Right column */}
-            <div className={`flex flex-col bg-white border-2 border-black border-l-0 mt-[80px] mb-[80px]`}>
-              <div className={`${ROW_H} flex items-center justify-center px-6 border-b-2 border-black`}>
-                <span className="text-xs sm:text-sm font-black tracking-[0.18em] uppercase text-black text-center">Energy Drinks</span>
+            <div className={`flex flex-col bg-white border-2 border-brown border-l-0 rounded-tr-2xl rounded-br-2xl overflow-hidden mt-[80px] mb-[80px]`}>
+              <div className={`${ROW_H} flex items-center justify-center px-6 border-b-2 border-brown`}>
+                <span className="text-xs sm:text-sm font-black tracking-[0.18em] uppercase text-brown text-center">Energy Drinks</span>
               </div>
               {rows.map((row) => (
-                <div key={row.label} className={`${ROW_H} flex items-center justify-center px-6 border-b-2 last:border-b-0 border-black/20`}>
+                <div key={row.label} className={`${ROW_H} flex items-center justify-center px-6 border-b-2 last:border-b-0 border-brown/20`}>
                   {row.energy === 'cross' ? (
                     <svg viewBox="0 0 24 24" className="w-9 h-9 fill-none stroke-red-500 stroke-[3]" strokeLinecap="round">
                       <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
                     </svg>
                   ) : (
-                    <span className="text-2xl sm:text-3xl font-black text-black">{row.energy}</span>
+                    <span className="text-2xl sm:text-3xl font-black text-brown">{row.energy}</span>
                   )}
                 </div>
               ))}

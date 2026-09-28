@@ -68,12 +68,12 @@ function MythCard({ m, index }: { m: MythData; index: number }) {
 
   return (
     <AnimatedSection delay={index * 0.07}>
-      <div className={`border-l-4 ${cfg.border} bg-white border border-near-black/[0.06] overflow-hidden transition-shadow duration-200 ${open ? 'shadow-md' : 'hover:shadow-sm'}`}>
+      <div className={`rounded-2xl border-l-4 ${cfg.border} bg-white border border-near-black/[0.06] overflow-hidden transition-shadow duration-200 ${open ? 'shadow-md' : 'hover:shadow-sm'}`}>
         <button
           className="w-full flex items-center gap-4 px-6 py-5 text-left"
           onClick={() => setOpen(!open)}
         >
-          <span className={`shrink-0 px-3 py-1 text-[10px] font-bold font-accent uppercase tracking-widest ${cfg.badge}`}>
+          <span className={`shrink-0 rounded-full px-3 py-1 text-[10px] font-bold font-accent uppercase tracking-widest ${cfg.badge}`}>
             {cfg.label}
           </span>
           <span className="flex-1 text-base sm:text-lg font-heading text-near-black leading-snug">{m.claim}</span>
@@ -113,7 +113,7 @@ function DoseSection() {
             </p>
           </AnimatedSection>
 
-          <div className="grid grid-cols-3 gap-px bg-white/10">
+          <div className="grid grid-cols-3 gap-px bg-white/10 rounded-2xl overflow-hidden">
             {[
               { time: 'Morning',      mg: '80mg',  note: 'Wake up sharp' },
               { time: 'Midday',       mg: '160mg', note: 'Stay in it' },
@@ -148,7 +148,7 @@ export default function CaffeineMyths() {
         <div className="page-container">
           <AnimatedSection>
             <div className="text-center">
-              <span className="inline-block text-[10px] font-accent font-bold text-white/40 tracking-widest uppercase border border-white/10 px-4 py-1.5 mb-6">
+              <span className="inline-block rounded-full text-[10px] font-accent font-bold text-white/40 tracking-widest uppercase border border-white/10 px-4 py-1.5 mb-6">
                 Backed by science
               </span>
               <h2 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-heading text-white mb-4 leading-tight">

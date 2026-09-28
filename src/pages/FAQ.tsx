@@ -74,7 +74,7 @@ export default function FAQ() {
 
       <section className="bg-near-black py-24 text-center">
         <AnimatedSection>
-          <h1 className="text-8xl sm:text-9xl lg:text-[10rem] font-heading text-white">{t('faq.title')}</h1>
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-heading text-white">{t('faq.title')}</h1>
           <p className="mt-4 text-white/50 font-accent text-lg">{t('faq.subtitle')}</p>
         </AnimatedSection>
       </section>

@@ -33,7 +33,7 @@ export default function About() {
               </p>
             </AnimatedSection>
             <AnimatedSection direction="right">
-              <div className="aspect-[4/3] overflow-hidden bg-cream">
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-cream">
                 <img
                   src="/images/founders.jpg"
                   alt="CAFO Energy founders"
@@ -50,7 +50,7 @@ export default function About() {
         <div className="page-container">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection direction="left" className="order-2 lg:order-1">
-              <div className="aspect-[4/3] overflow-hidden bg-warm-white">
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-warm-white">
                 <img
                   src="/images/about-nyc.jpg"
                   alt="NYC Times Square"
@@ -75,7 +75,7 @@ export default function About() {
         <div className="page-container">
           <AnimatedSection>
             <div className="max-w-3xl mx-auto">
-              <h2 className="text-6xl sm:text-7xl lg:text-8xl font-heading">{t('about.missionTitle')}</h2>
+              <h2 className="text-4xl sm:text-6xl lg:text-8xl font-heading">{t('about.missionTitle')}</h2>
               <p className="mt-8 text-white text-lg leading-relaxed">
                 {t('about.missionText')}
               </p>

@@ -280,7 +280,7 @@ export default function Checkout() {
                             required
                             value={form.name}
                             onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
-                            className="w-full px-4 py-3 bg-warm-white border border-near-black/10 rounded-xl text-near-black placeholder-near-black/25 focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all"
+                            className="w-full px-4 py-3 bg-warm-white border border-near-black/10 rounded-2xl text-near-black placeholder-near-black/25 focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all"
                             placeholder="Anna Svensson"
                           />
                         </div>
@@ -291,7 +291,7 @@ export default function Checkout() {
                             type="email"
                             value={form.email}
                             onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
-                            className="w-full px-4 py-3 bg-warm-white border border-near-black/10 rounded-xl text-near-black placeholder-near-black/25 focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all"
+                            className="w-full px-4 py-3 bg-warm-white border border-near-black/10 rounded-2xl text-near-black placeholder-near-black/25 focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all"
                             placeholder="anna@example.com"
                           />
                         </div>
@@ -302,7 +302,7 @@ export default function Checkout() {
                           required
                           value={form.address}
                           onChange={e => setForm(f => ({ ...f, address: e.target.value }))}
-                          className="w-full px-4 py-3 bg-warm-white border border-near-black/10 rounded-xl text-near-black placeholder-near-black/25 focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all"
+                          className="w-full px-4 py-3 bg-warm-white border border-near-black/10 rounded-2xl text-near-black placeholder-near-black/25 focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all"
                           placeholder="Storgatan 1"
                         />
                       </div>
@@ -313,7 +313,7 @@ export default function Checkout() {
                             required
                             value={form.city}
                             onChange={e => setForm(f => ({ ...f, city: e.target.value }))}
-                            className="w-full px-4 py-3 bg-warm-white border border-near-black/10 rounded-xl text-near-black placeholder-near-black/25 focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all"
+                            className="w-full px-4 py-3 bg-warm-white border border-near-black/10 rounded-2xl text-near-black placeholder-near-black/25 focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all"
                             placeholder="Stockholm"
                           />
                         </div>
@@ -323,7 +323,7 @@ export default function Checkout() {
                             required
                             value={form.zip}
                             onChange={e => setForm(f => ({ ...f, zip: e.target.value }))}
-                            className="w-full px-4 py-3 bg-warm-white border border-near-black/10 rounded-xl text-near-black placeholder-near-black/25 focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all"
+                            className="w-full px-4 py-3 bg-warm-white border border-near-black/10 rounded-2xl text-near-black placeholder-near-black/25 focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all"
                             placeholder="111 22"
                           />
                         </div>

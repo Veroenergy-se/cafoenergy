@@ -92,7 +92,7 @@ export default function Community() {
       {/* Breakout quote */}
       <section className="bg-cream py-36 sm:py-52 px-8 text-center">
         <AnimatedSection direction="up">
-          <p className="text-3xl sm:text-5xl lg:text-7xl xl:text-8xl font-heading text-near-black mx-auto leading-tight sm:whitespace-nowrap">
+          <p className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-heading text-near-black mx-auto leading-tight">
             {t('community.quote')}
           </p>
         </AnimatedSection>
@@ -143,7 +143,7 @@ export default function Community() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-12 text-center">
             {stats.map((s, i) => (
               <AnimatedSection key={s.l} delay={i * 0.1}>
-                <div className="text-5xl sm:text-7xl font-heading text-near-black leading-none">{s.n}</div>
+                <div className="text-3xl sm:text-5xl lg:text-6xl font-heading text-near-black leading-none">{s.n}</div>
                 <div className="text-base font-accent text-near-black uppercase tracking-widest mt-3">{s.l}</div>
               </AnimatedSection>
             ))}

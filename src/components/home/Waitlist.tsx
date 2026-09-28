@@ -42,7 +42,7 @@ export default function Waitlist() {
           </p>
 
           {status === 'success' ? (
-            <div className="inline-block border-2 border-white/20 px-10 py-5">
+            <div className="inline-block rounded-2xl border-2 border-white/20 px-10 py-5">
               <p className="text-white font-heading text-3xl tracking-wide">{t('waitlist.success')}</p>
               <p className="text-white/50 font-accent text-sm mt-1">{t('waitlist.successSub')}</p>
             </div>
@@ -54,12 +54,12 @@ export default function Waitlist() {
                 value={email}
                 onChange={e => setEmail(e.target.value)}
                 placeholder="your@email.com"
-                className="w-full sm:flex-1 px-6 py-4 bg-white/5 border-2 border-white/20 text-white placeholder-white/30 font-accent text-base focus:outline-none focus:border-white/60 transition-colors sm:border-r-0"
+                className="w-full sm:flex-1 rounded-full sm:rounded-r-none px-6 py-4 bg-white/5 border-2 border-white/20 text-white placeholder-white/30 font-accent text-base focus:outline-none focus:border-white/60 transition-colors sm:border-r-0"
               />
               <button
                 type="submit"
                 disabled={status === 'loading'}
-                className="w-full sm:w-auto px-10 py-4 bg-white text-near-black font-heading text-xl tracking-widest uppercase hover:bg-white/90 transition-colors disabled:opacity-50 border-2 border-white"
+                className="w-full sm:w-auto rounded-full sm:rounded-l-none px-10 py-4 bg-white text-near-black font-heading text-xl tracking-widest uppercase hover:bg-white/90 transition-colors disabled:opacity-50 border-2 border-white"
               >
                 {status === 'loading' ? '...' : t('waitlist.cta')}
               </button>

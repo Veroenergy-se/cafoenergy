@@ -89,8 +89,7 @@ export default function Navbar() {
             <Link
               key={link.path}
               to={link.path}
-              style={{ fontFamily: "'Bebas Neue', sans-serif" }}
-              className={`relative text-2xl tracking-widest uppercase transition-colors after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-near-black after:transition-all after:duration-300 ${
+              className={`relative font-accent font-semibold text-sm tracking-widest uppercase transition-colors after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-near-black after:transition-all after:duration-300 ${
                 pathname === link.path
                   ? 'text-near-black after:w-full'
                   : 'text-near-black/60 hover:text-near-black after:w-0 hover:after:w-full'
@@ -126,8 +125,7 @@ export default function Navbar() {
 
           <Link
             to="/shop"
-            style={{ fontFamily: "'Bebas Neue', sans-serif" }}
-            className="hidden md:inline-flex px-8 py-3.5 bg-near-black text-white text-2xl tracking-widest uppercase border-2 border-near-black hover:bg-white hover:text-near-black hover:-translate-y-0.5 hover:shadow-lg transition-all duration-500 ease-in-out"
+            className="hidden md:inline-flex px-8 py-3.5 rounded-full bg-near-black text-white font-accent font-semibold text-sm tracking-widest uppercase border-2 border-near-black hover:bg-white hover:text-near-black hover:-translate-y-0.5 hover:shadow-lg transition-all duration-500 ease-in-out"
           >
             {t('nav.getEnergized')}
           </Link>
@@ -192,7 +190,7 @@ export default function Navbar() {
                 >
                   <Link
                     to="/shop"
-                    className="block w-full text-center py-4 bg-near-black text-white font-semibold font-accent mt-4 text-lg"
+                    className="block w-full text-center py-4 rounded-full bg-near-black text-white font-semibold font-accent mt-4 text-lg"
                   >
                     {t('nav.getEnergized')}
                   </Link>
