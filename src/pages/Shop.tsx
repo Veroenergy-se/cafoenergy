@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { useCart } from '@/providers/CartProvider'
 import { products, getCurrency, formatPrice, getSubscriptionPrice, getSubscriptionDiscount } from '@/lib/products'
 import AnimatedSection from '@/components/shared/AnimatedSection'
-import { ShoppingBag, Zap, Leaf, Shield, RefreshCw, Package, Settings } from 'lucide-react'
+import { ShoppingBag, RefreshCw, Package, Settings } from 'lucide-react'
 import CafoLogo from '@/components/shared/CafoLogo'
 
 type PurchaseMode = 'onetime' | 'subscription'
@@ -19,30 +19,24 @@ const perBar: Record<string, { usd: number; sek: number }> = {
   family:  { usd: 2.08, sek: 19.97 },
 }
 
-const benefitsStrip = [
-  { icon: Zap,    text: '80mg natural caffeine' },
-  { icon: Leaf,   text: '14g plant protein' },
-  { icon: Shield, text: '0g added sugar' },
-]
-
-const productCopy: Record<string, { eyebrow: string; pitch: string; image: string }> = {
-  starter: { eyebrow: 'Try it',       pitch: 'First time with CAFO? This is where you start.',            image: '/images/product-1box.png' },
-  duo:     { eyebrow: 'Most popular', pitch: 'The one most people stick with. Two weeks of clean focus.',  image: '/images/product-2box.png' },
-  family:  { eyebrow: 'Best value',   pitch: 'A full month of bars, lowest cost per bar we offer.',        image: '/images/product-3box.png' },
-}
-
-const howItWorks = [
-  { icon: Package,    step: '01', title: 'Pick your plan.',          desc: 'Set how many bars you want each month. Mix it up — different quantities per month.' },
-  { icon: RefreshCw,  step: '02', title: 'Auto-delivered monthly.',   desc: 'We send your order on the same date every month. No thinking required.' },
-  { icon: Settings,   step: '03', title: 'Full control, always.',     desc: 'Skip a month, swap quantities, or cancel before each delivery. No fees.' },
-]
-
 export default function Shop() {
   const { t, i18n } = useTranslation()
   const { addItem } = useCart()
   const currency = getCurrency(i18n.language)
   const [mode, setMode] = useState<PurchaseMode>('subscription')
   const [plan, setPlan] = useState<number[]>([1, 1, 1]) // boxes per month (1–3)
+
+  const productCopy: Record<string, { eyebrow: string; pitch: string; image: string }> = {
+    starter: { eyebrow: t('shop.starterEyebrow'), pitch: t('shop.starterPitch'), image: '/images/product-1box.png' },
+    duo:     { eyebrow: t('shop.mostPopular'),     pitch: t('shop.duoPitch'),    image: '/images/product-2box.png' },
+    family:  { eyebrow: t('shop.bestValue'),       pitch: t('shop.familyPitch'), image: '/images/product-3box.png' },
+  }
+
+  const howItWorks = [
+    { icon: Package,    step: '01', title: t('shop.step1Title'), desc: t('shop.step1Desc') },
+    { icon: RefreshCw,  step: '02', title: t('shop.step2Title'), desc: t('shop.step2Desc') },
+    { icon: Settings,   step: '03', title: t('shop.step3Title'), desc: t('shop.step3Desc') },
+  ]
 
   const discountPct = Math.round(getSubscriptionDiscount(plan[0]) * 100)
 
@@ -58,8 +52,8 @@ export default function Shop() {
   return (
     <>
       <Helmet>
-        <title>Shop — CAFO Energy</title>
-        <meta name="description" content="Shop CAFO caffeinated protein bars. One-time or monthly subscription. Free shipping on orders over 499 kr." />
+        <title>{t('shop.metaTitle')}</title>
+        <meta name="description" content={t('shop.metaDescription')} />
       </Helmet>
 
       {/* Hero */}
@@ -78,28 +72,28 @@ export default function Shop() {
         <div className={`flex border-b transition-colors duration-500 ${mode === 'subscription' ? 'border-white/10' : 'border-near-black/10'}`}>
           <button
             onClick={() => setMode('subscription')}
-            className={`flex-1 py-7 font-heading text-xl lg:text-2xl uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-3 ${
+            className={`flex-1 py-7 px-1 font-heading text-xs sm:text-lg lg:text-2xl uppercase tracking-normal sm:tracking-widest transition-all duration-300 flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-3 ${
               mode === 'subscription'
                 ? 'text-white border-b-2 border-gold -mb-px'
                 : 'text-near-black/30 hover:text-near-black/60'
             }`}
           >
-            Monthly Subscription
-            <span className={`text-xs font-accent font-bold px-2.5 py-1 transition-colors ${
+            {t('shop.monthlySubscription')}
+            <span className={`text-[10px] sm:text-xs font-accent font-bold px-2 sm:px-2.5 py-1 transition-colors ${
               mode === 'subscription' ? 'bg-gold text-near-black' : 'bg-near-black/10 text-near-black/40'
             }`}>
-              Save 10–20%
+              {t('shop.saveRange')}
             </span>
           </button>
           <button
             onClick={() => setMode('onetime')}
-            className={`flex-1 py-7 font-heading text-xl lg:text-2xl uppercase tracking-widest transition-all duration-300 ${
+            className={`flex-1 py-7 px-1 font-heading text-xs sm:text-lg lg:text-2xl uppercase tracking-normal sm:tracking-widest transition-all duration-300 ${
               mode === 'onetime'
                 ? 'text-near-black border-b-2 border-near-black -mb-px'
                 : 'text-white/20 hover:text-white/40'
             }`}
           >
-            One-Time
+            {t('shop.oneTime')}
           </button>
         </div>
 
@@ -120,15 +114,15 @@ export default function Shop() {
               {/* Right: options on dark */}
               <div className="flex flex-col justify-center px-8 sm:px-12 lg:px-14 xl:px-16 py-16">
                 <h2 className="text-4xl sm:text-5xl font-heading text-white mb-8 leading-tight">
-                  How many bars<br />per month?
+                  {t('shop.howManyBarsLine1')}<br />{t('shop.howManyBarsLine2')}
                 </h2>
 
                 {/* Option rows */}
                 <div className="flex flex-col gap-3 mb-8">
                   {[
-                    { boxes: 1, label: '1 box',   bars: 12, discount: 10, tag: null },
-                    { boxes: 2, label: '2 boxes',  bars: 24, discount: 15, tag: 'Most popular' },
-                    { boxes: 3, label: '3 boxes',  bars: 36, discount: 20, tag: 'Best value' },
+                    { boxes: 1, label: t('shop.plan1Box'), bars: 12, discount: 10, tag: null },
+                    { boxes: 2, label: t('shop.plan2Boxes'), bars: 24, discount: 15, tag: t('shop.mostPopular') },
+                    { boxes: 3, label: t('shop.plan3Boxes'), bars: 36, discount: 20, tag: t('shop.bestValue') },
                   ].map(({ boxes, label, bars, discount, tag }) => {
                     const price = getSubscriptionPrice(BOX_PRICE_SEK * boxes, boxes)
                     const selected = plan[0] === boxes
@@ -152,12 +146,12 @@ export default function Shop() {
                             )}
                           </div>
                           <span className={`text-xs font-accent mt-1 block ${selected ? 'text-white/45' : 'text-white/25'}`}>
-                            {bars} bars / month
+                            {t('shop.barsPerMonth', { bars })}
                           </span>
                         </div>
                         <div className="text-right shrink-0 ml-4">
                           <span className="text-2xl font-heading block">{formatPrice(price, currency)}</span>
-                          <span className={`text-xs font-accent font-bold ${selected ? 'text-gold' : 'text-white/25'}`}>Save {discount}%</span>
+                          <span className={`text-xs font-accent font-bold ${selected ? 'text-gold' : 'text-white/25'}`}>{t('shop.save', { discount })}</span>
                         </div>
                       </button>
                     )
@@ -177,26 +171,26 @@ export default function Shop() {
                         }`}
                       >
                         <div>
-                          <span className="text-xl font-heading leading-none block">Custom</span>
+                          <span className="text-xl font-heading leading-none block">{t('shop.custom')}</span>
                           {isCustom ? (
                             <div className="flex items-center gap-2 mt-2" onClick={e => e.stopPropagation()}>
                               <button onClick={() => updatePlan(0, Math.max(4, plan[0] - 1))} className="w-7 h-7 rounded-full flex items-center justify-center border border-white/30 text-white/70 hover:text-white transition-colors">−</button>
                               <span className="text-base font-heading w-6 text-center">{plan[0]}</span>
                               <button onClick={() => updatePlan(0, plan[0] + 1)} className="w-7 h-7 rounded-full flex items-center justify-center border border-white/30 text-white/70 hover:text-white transition-colors">+</button>
-                              <span className="text-xs font-accent ml-1 text-white/40">{BOX_BARS(plan[0])} bars / month</span>
+                              <span className="text-xs font-accent ml-1 text-white/40">{t('shop.barsPerMonth', { bars: BOX_BARS(plan[0]) })}</span>
                             </div>
                           ) : (
-                            <span className="text-xs font-accent mt-1 block text-white/25">4+ boxes · pick any amount</span>
+                            <span className="text-xs font-accent mt-1 block text-white/25">{t('shop.customPickAmount')}</span>
                           )}
                         </div>
                         <div className="text-right shrink-0 ml-4">
                           {isCustom ? (
                             <>
                               <span className="text-2xl font-heading block">{formatPrice(customPrice, currency)}</span>
-                              <span className="text-xs font-accent font-bold text-gold">Save 20%</span>
+                              <span className="text-xs font-accent font-bold text-gold">{t('shop.save', { discount: 20 })}</span>
                             </>
                           ) : (
-                            <span className="text-sm font-accent font-bold text-white/25">Save 20%</span>
+                            <span className="text-sm font-accent font-bold text-white/25">{t('shop.save', { discount: 20 })}</span>
                           )}
                         </div>
                       </button>
@@ -207,10 +201,10 @@ export default function Shop() {
                 {/* Benefits */}
                 <div className="grid grid-cols-2 gap-2 mb-8">
                   {[
-                    'Delivered monthly, same date',
-                    'Change quantity before delivery',
-                    'Cancel anytime — no fees',
-                    'Free shipping on every order',
+                    t('shop.benefit1'),
+                    t('shop.benefit2'),
+                    t('shop.benefit3'),
+                    t('shop.benefit4'),
                   ].map(b => (
                     <div key={b} className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
@@ -225,7 +219,7 @@ export default function Shop() {
                   className="w-full flex items-center justify-center gap-2 px-8 py-5 rounded-full bg-gold text-near-black font-heading text-2xl tracking-wide hover:-translate-y-0.5 hover:shadow-xl hover:shadow-gold/20 transition-all duration-200"
                 >
                   <ShoppingBag className="w-5 h-5" />
-                  Subscribe & save {discountPct}% — {formatPrice(getSubscriptionPrice(BOX_PRICE_SEK * plan[0], plan[0]), currency)}/month
+                  {t('shop.subscribeCta', { discount: discountPct, price: formatPrice(getSubscriptionPrice(BOX_PRICE_SEK * plan[0], plan[0]), currency) })}
                 </button>
               </div>
             </div>
@@ -236,7 +230,7 @@ export default function Shop() {
         {mode === 'onetime' && (
           <div className="page-container py-16">
             <p className="text-[11px] font-accent text-near-black/35 tracking-wide text-center mb-10">
-              Each box contains <span className="font-semibold text-near-black/55">12 bars</span> — about one week of daily focus.
+              {t('shop.eachBoxContains')} <span className="font-semibold text-near-black/55">{t('shop.twelveBars')}</span> {t('shop.oneWeekFocus')}
             </p>
             <div className="grid lg:grid-cols-3 gap-5 items-stretch">
               {products.map((product, i) => {
@@ -270,7 +264,7 @@ export default function Shop() {
                           </div>
                           {product.originalPrice && (
                             <span className="text-xs font-bold font-accent bg-gold text-near-black px-2.5 py-1 rounded-full">
-                              Save {Math.round((1 - product.price[currency] / product.originalPrice[currency]) * 100)}%
+                              {t('shop.save', { discount: Math.round((1 - product.price[currency] / product.originalPrice[currency]) * 100) })}
                             </span>
                           )}
                         </div>
@@ -288,7 +282,7 @@ export default function Shop() {
               })}
             </div>
             <p className="text-center text-[11px] font-accent text-near-black/30 mt-10 tracking-wide">
-              Ships within 2–3 business days · Fri frakt över 499 kr
+              {t('shop.shipsNote')}
             </p>
           </div>
         )}
@@ -300,10 +294,10 @@ export default function Shop() {
           <AnimatedSection>
             <div className="max-w-4xl mx-auto">
               <p className="text-[10px] font-accent font-bold text-white/25 tracking-[0.18em] uppercase mb-3">
-                Monthly subscription
+                {t('shop.monthlySubscription')}
               </p>
               <h2 className="text-4xl sm:text-5xl font-heading text-white mb-14 leading-tight">
-                Never run out.<br /><span className="text-gold">Never think about it.</span>
+                {t('shop.neverRunOut')}<br /><span className="text-gold">{t('shop.neverThinkAboutIt')}</span>
               </h2>
 
               <div className="grid sm:grid-cols-3 gap-px bg-white/[0.06] rounded-2xl overflow-hidden mb-10">
@@ -323,7 +317,7 @@ export default function Shop() {
 
               <div className="flex flex-col sm:flex-row items-center justify-between gap-4 px-7 py-5 rounded-2xl bg-white/[0.04] border border-white/[0.07]">
                 <div className="flex flex-wrap gap-x-8 gap-y-2">
-                  {[`${discountPct}% off every order`, 'Free shipping included', 'Pause or cancel anytime', 'Adjust quantities monthly'].map(f => (
+                  {[t('shop.featureOffEveryOrder', { discount: discountPct }), t('shop.featureFreeShipping'), t('shop.featurePauseCancel'), t('shop.featureAdjustQty')].map(f => (
                     <span key={f} className="text-[11px] font-accent text-white/40 flex items-center gap-1.5">
                       <span className="w-1 h-1 rounded-full bg-gold inline-block" />
                       {f}
@@ -337,7 +331,7 @@ export default function Shop() {
                   }}
                   className="shrink-0 px-6 py-3 bg-gold text-near-black font-semibold font-accent rounded-full text-sm hover:-translate-y-0.5 hover:shadow-lg hover:shadow-gold/20 transition-all duration-200"
                 >
-                  Start subscription
+                  {t('shop.startSubscription')}
                 </button>
               </div>
             </div>
@@ -352,11 +346,11 @@ export default function Shop() {
             <div className="max-w-4xl mx-auto">
               <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-12 gap-4">
                 <div>
-                  <p className="text-[10px] font-accent font-bold text-near-black/25 tracking-[0.18em] uppercase mb-3">Per bar</p>
+                  <p className="text-[10px] font-accent font-bold text-near-black/25 tracking-[0.18em] uppercase mb-3">{t('shop.perBar')}</p>
                   <h2 className="text-4xl sm:text-5xl font-heading text-near-black leading-tight">{t('nutrition.title')}</h2>
                 </div>
                 <p className="text-sm text-near-black/40 font-accent max-w-xs leading-relaxed sm:text-right">
-                  Every ingredient is there for a reason. Nothing is there for optics.
+                  {t('shop.ingredientReason')}
                 </p>
               </div>
 
@@ -388,16 +382,16 @@ export default function Shop() {
         <div className="page-container">
           <AnimatedSection>
             <div className="max-w-xl mx-auto">
-              <h2 className="text-5xl sm:text-6xl font-heading text-brown mb-4">Still deciding?</h2>
+              <h2 className="text-5xl sm:text-6xl font-heading text-brown mb-4">{t('shop.stillDeciding')}</h2>
               <p className="text-brown/50 font-accent mb-8 leading-relaxed">
-                Start with the 12-bar pack. If it doesn't become your go-to, nothing will.
+                {t('shop.stillDecidingText')}
               </p>
               <button
                 onClick={() => addItem('starter')}
                 className="inline-flex items-center gap-2 px-8 py-4 bg-caforange text-off-white font-semibold font-accent rounded-full hover:-translate-y-0.5 hover:shadow-xl transition-all duration-300"
               >
                 <ShoppingBag className="w-4 h-4" />
-                Try the starter pack
+                {t('shop.tryStarterPack')}
               </button>
             </div>
           </AnimatedSection>
