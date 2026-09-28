@@ -72,10 +72,10 @@ export default function FAQ() {
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
 
-      <section className="bg-near-black py-24 text-center">
+      <section className="bg-off-white py-24 text-center">
         <AnimatedSection>
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-heading text-white">{t('faq.title')}</h1>
-          <p className="mt-4 text-white/50 font-accent text-lg">{t('faq.subtitle')}</p>
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-heading text-brown">{t('faq.title')}</h1>
+          <p className="mt-4 text-brown/50 font-accent text-lg">{t('faq.subtitle')}</p>
         </AnimatedSection>
       </section>
 

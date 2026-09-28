@@ -46,10 +46,10 @@ export default function Community() {
       </Helmet>
 
       {/* Hero */}
-      <section className="bg-near-black py-32 text-center">
+      <section className="bg-off-white py-32 text-center">
         <AnimatedSection>
-          <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-[9rem] xl:text-[12rem] font-heading text-white">{t('community.title')}</h1>
-          <p className="mt-4 text-white font-accent text-lg max-w-xl mx-auto">{t('community.subtitle')}</p>
+          <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-[9rem] xl:text-[12rem] font-heading text-brown">{t('community.title')}</h1>
+          <p className="mt-4 text-brown/70 font-accent text-lg max-w-xl mx-auto">{t('community.subtitle')}</p>
         </AnimatedSection>
       </section>
 
@@ -173,7 +173,7 @@ export default function Community() {
               <div className="flex flex-col sm:flex-row gap-3">
                 <a
                   href="https://instagram.com/cafoenergy"
-                  className="inline-flex items-center justify-center px-7 py-3.5 bg-near-black text-white font-semibold font-accent rounded-full hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 text-sm"
+                  className="inline-flex items-center justify-center px-7 py-3.5 bg-caforange text-off-white font-semibold font-accent rounded-full hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 text-sm"
                 >
                   {t('community.cta.instagram')}
                 </a>

@@ -31,20 +31,20 @@ export default function Waitlist() {
   }
 
   return (
-    <section id="waitlist" className="bg-near-black py-24 lg:py-32">
+    <section id="waitlist" className="bg-caforange py-24 lg:py-32">
       <div className="page-container text-center">
         <AnimatedSection className="w-full">
-          <h2 className="text-6xl sm:text-7xl lg:text-9xl font-heading text-white leading-[0.9] tracking-tight mb-4">
+          <h2 className="text-6xl sm:text-7xl lg:text-9xl font-heading text-off-white leading-[0.9] tracking-tight mb-4">
             {t('waitlist.title')}
           </h2>
-          <p className="text-white font-accent text-lg mb-12">
+          <p className="text-off-white/90 font-accent text-lg mb-12">
             {t('waitlist.subtitle')}
           </p>
 
           {status === 'success' ? (
-            <div className="inline-block rounded-2xl border-2 border-white/20 px-10 py-5">
-              <p className="text-white font-heading text-3xl tracking-wide">{t('waitlist.success')}</p>
-              <p className="text-white/50 font-accent text-sm mt-1">{t('waitlist.successSub')}</p>
+            <div className="inline-block rounded-2xl border-2 border-off-white/30 px-10 py-5">
+              <p className="text-off-white font-heading text-3xl tracking-wide">{t('waitlist.success')}</p>
+              <p className="text-off-white/60 font-accent text-sm mt-1">{t('waitlist.successSub')}</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center justify-center gap-0 max-w-xl mx-auto">
@@ -54,12 +54,12 @@ export default function Waitlist() {
                 value={email}
                 onChange={e => setEmail(e.target.value)}
                 placeholder="your@email.com"
-                className="w-full sm:flex-1 rounded-full sm:rounded-r-none px-6 py-4 bg-white/5 border-2 border-white/20 text-white placeholder-white/30 font-accent text-base focus:outline-none focus:border-white/60 transition-colors sm:border-r-0"
+                className="w-full sm:flex-1 rounded-full sm:rounded-r-none px-6 py-4 bg-off-white/10 border-2 border-off-white/30 text-off-white placeholder-off-white/50 font-accent text-base focus:outline-none focus:border-off-white/70 transition-colors sm:border-r-0"
               />
               <button
                 type="submit"
                 disabled={status === 'loading'}
-                className="w-full sm:w-auto rounded-full sm:rounded-l-none px-10 py-4 bg-white text-near-black font-heading text-xl tracking-widest uppercase hover:bg-white/90 transition-colors disabled:opacity-50 border-2 border-white"
+                className="w-full sm:w-auto rounded-full sm:rounded-l-none px-10 py-4 bg-brown text-off-white font-heading text-xl tracking-widest uppercase hover:bg-brown/90 transition-colors disabled:opacity-50 border-2 border-brown"
               >
                 {status === 'loading' ? '...' : t('waitlist.cta')}
               </button>

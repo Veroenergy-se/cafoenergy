@@ -13,10 +13,9 @@ export default function About() {
       </Helmet>
 
       {/* Hero */}
-      <section className="relative bg-near-black py-32 text-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-near-black to-near-black/95" />
+      <section className="relative bg-off-white py-32 text-center overflow-hidden">
         <AnimatedSection className="relative z-10">
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-heading text-white">{t('about.heroTitle')}</h1>
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-heading text-brown">{t('about.heroTitle')}</h1>
         </AnimatedSection>
       </section>
 
@@ -71,12 +70,12 @@ export default function About() {
       </section>
 
       {/* Mission */}
-      <section className="py-24 bg-near-black text-white text-center">
+      <section className="py-24 bg-brown text-off-white text-center">
         <div className="page-container">
           <AnimatedSection>
             <div className="max-w-3xl mx-auto">
               <h2 className="text-4xl sm:text-6xl lg:text-8xl font-heading">{t('about.missionTitle')}</h2>
-              <p className="mt-8 text-white text-lg leading-relaxed">
+              <p className="mt-8 text-off-white/80 text-lg leading-relaxed">
                 {t('about.missionText')}
               </p>
             </div>

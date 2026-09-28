@@ -63,10 +63,10 @@ export default function Shop() {
       </Helmet>
 
       {/* Hero */}
-      <section className="bg-near-black py-32 text-center">
+      <section className="bg-off-white py-32 text-center">
         <AnimatedSection>
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-heading text-white">{t('products.title')}</h1>
-          <p className="mt-4 text-white font-accent text-lg">{t('products.subtitle')}</p>
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-heading text-brown">{t('products.title')}</h1>
+          <p className="mt-4 text-brown/70 font-accent text-lg">{t('products.subtitle')}</p>
         </AnimatedSection>
       </section>
 
@@ -276,7 +276,7 @@ export default function Shop() {
                         </div>
                         <button
                           onClick={() => addItem(product.id)}
-                          className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-semibold font-accent transition-all duration-200 hover:-translate-y-0.5 bg-near-black text-white hover:shadow-lg"
+                          className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-semibold font-accent transition-all duration-200 hover:-translate-y-0.5 bg-caforange text-off-white hover:shadow-lg"
                         >
                           <ShoppingBag className="w-4 h-4" />
                           {t('products.addToCart')}
@@ -384,17 +384,17 @@ export default function Shop() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-20 bg-near-black text-center">
+      <section className="py-20 bg-off-white text-center">
         <div className="page-container">
           <AnimatedSection>
             <div className="max-w-xl mx-auto">
-              <h2 className="text-5xl sm:text-6xl font-heading text-white mb-4">Still deciding?</h2>
-              <p className="text-white/40 font-accent mb-8 leading-relaxed">
+              <h2 className="text-5xl sm:text-6xl font-heading text-brown mb-4">Still deciding?</h2>
+              <p className="text-brown/50 font-accent mb-8 leading-relaxed">
                 Start with the 12-bar pack. If it doesn't become your go-to, nothing will.
               </p>
               <button
                 onClick={() => addItem('starter')}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-gold to-gold-light text-near-black font-semibold font-accent rounded-full hover:-translate-y-0.5 hover:shadow-xl hover:shadow-gold/20 transition-all duration-300"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-caforange text-off-white font-semibold font-accent rounded-full hover:-translate-y-0.5 hover:shadow-xl transition-all duration-300"
               >
                 <ShoppingBag className="w-4 h-4" />
                 Try the starter pack

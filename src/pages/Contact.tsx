@@ -26,10 +26,10 @@ export default function Contact() {
         <meta name="description" content="Get in touch with CAFO Energy. Questions, ideas, or partnerships — we'd love to hear from you." />
       </Helmet>
 
-      <section className="bg-near-black py-32 text-center">
+      <section className="bg-off-white py-32 text-center">
         <AnimatedSection>
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-heading text-white">{t('contact.title')}</h1>
-          <p className="mt-4 text-white/50 font-accent text-lg max-w-xl mx-auto">{t('contact.subtitle')}</p>
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-heading text-brown">{t('contact.title')}</h1>
+          <p className="mt-4 text-brown/50 font-accent text-lg max-w-xl mx-auto">{t('contact.subtitle')}</p>
         </AnimatedSection>
       </section>
 

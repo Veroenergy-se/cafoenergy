@@ -7,19 +7,19 @@ export default function StoryTeaser() {
   const { t } = useTranslation()
 
   return (
-    <section className="py-24 bg-near-black text-white">
+    <section className="py-24 bg-off-white text-brown">
       <div className="page-container">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <AnimatedSection direction="left">
-            <h2 className="text-6xl sm:text-7xl lg:text-8xl font-heading text-white leading-tight">
+            <h2 className="text-6xl sm:text-7xl lg:text-8xl font-heading text-brown leading-tight">
               {t('story.title')}
             </h2>
-            <p className="mt-6 text-lg text-white leading-relaxed max-w-lg">
+            <p className="mt-6 text-lg text-brown/80 leading-relaxed max-w-lg">
               {t('story.subtitle')}
             </p>
             <Link
               to="/about"
-              className="mt-8 inline-flex items-center gap-2 text-gold font-semibold font-accent hover:gap-3 transition-all duration-300"
+              className="mt-8 inline-flex items-center gap-2 text-caforange font-semibold font-accent hover:gap-3 transition-all duration-300"
             >
               {t('story.cta')}
               <ArrowRight className="w-4 h-4" />
@@ -27,7 +27,7 @@ export default function StoryTeaser() {
           </AnimatedSection>
 
           <AnimatedSection direction="right">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-white/5">
+            <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-brown/5">
               <img
                 src="/images/founders.jpg"
                 alt="CAFO Energy founders"

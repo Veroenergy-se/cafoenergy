@@ -99,21 +99,21 @@ export default function Checkout() {
     <>
       <Helmet><title>{t('checkout.title')} — CAFO Energy</title></Helmet>
 
-      <section className="bg-near-black py-20 text-center">
+      <section className="bg-off-white py-20 text-center">
         <AnimatedSection>
-          <h1 className="text-6xl sm:text-7xl lg:text-8xl font-heading text-white">{t('checkout.title')}</h1>
+          <h1 className="text-6xl sm:text-7xl lg:text-8xl font-heading text-brown">{t('checkout.title')}</h1>
           {/* Step indicator */}
           <div className="flex items-center justify-center gap-3 mt-8">
             {['cart', 'details'].map((s, i) => (
               <div key={s} className="flex items-center gap-3">
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-colors ${
-                  step === s ? 'bg-gold text-near-black' :
-                  (s === 'cart' && step === 'details') ? 'bg-gold text-near-black' :
-                  'bg-white/10 text-white/40'
+                  step === s ? 'bg-caforange text-off-white' :
+                  (s === 'cart' && step === 'details') ? 'bg-caforange text-off-white' :
+                  'bg-brown/10 text-brown/40'
                 }`}>
                   {(s === 'cart' && step === 'details') ? <Check className="w-4 h-4" /> : i + 1}
                 </div>
-                {i < 1 && <div className={`w-12 h-0.5 ${step === 'details' ? 'bg-gold' : 'bg-white/10'}`} />}
+                {i < 1 && <div className={`w-12 h-0.5 ${step === 'details' ? 'bg-caforange' : 'bg-brown/10'}`} />}
               </div>
             ))}
           </div>
@@ -138,7 +138,7 @@ export default function Checkout() {
                 <p className="text-near-black/50 max-w-md mx-auto mb-8">{t('checkout.confirmedText')}</p>
                 <Link
                   to="/"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-near-black text-white font-semibold font-accent rounded-full hover:-translate-y-0.5 transition-all"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-caforange text-off-white font-semibold font-accent rounded-full hover:-translate-y-0.5 transition-all"
                 >
                   {t('checkout.backHome')}
                 </Link>
