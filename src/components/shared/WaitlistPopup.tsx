@@ -4,6 +4,9 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 const STORAGE_KEY = 'cafo-waitlist-popup'
 const SHOW_DELAY_MS = 4000
+const DISMISS_COOLDOWN_MS = 30 * 24 * 60 * 60 * 1000 // 30 days
+
+type StoredState = { status: 'dismissed' | 'submitted'; ts: number }
 
 export default function WaitlistPopup() {
   const { t } = useTranslation()
@@ -12,15 +15,24 @@ export default function WaitlistPopup() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
 
   useEffect(() => {
-    const seen = localStorage.getItem(STORAGE_KEY)
-    if (!seen) {
+    const raw = localStorage.getItem(STORAGE_KEY)
+    const stored: StoredState | null = raw ? JSON.parse(raw) : null
+
+    // Submitted visitors never see it again; dismissed visitors get asked
+    // again after the cooldown window in case they change their mind.
+    const shouldShow =
+      !stored ||
+      (stored.status === 'dismissed' && Date.now() - stored.ts > DISMISS_COOLDOWN_MS)
+
+    if (shouldShow) {
       const timer = setTimeout(() => setVisible(true), SHOW_DELAY_MS)
       return () => clearTimeout(timer)
     }
   }, [])
 
   function close(reason: 'dismissed' | 'submitted') {
-    localStorage.setItem(STORAGE_KEY, reason)
+    const state: StoredState = { status: reason, ts: Date.now() }
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state))
     setVisible(false)
   }
 
