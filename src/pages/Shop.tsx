@@ -130,7 +130,7 @@ export default function Shop() {
                       <button
                         key={boxes}
                         onClick={() => updatePlan(0, boxes)}
-                        className={`flex items-center justify-between px-6 py-5 rounded-2xl border text-left transition-all duration-200 ${
+                        className={`flex items-center justify-between px-6 py-5 border text-left transition-all duration-200 ${
                           selected
                             ? 'border-gold bg-white/[0.06] text-white'
                             : 'border-white/10 text-white/60 hover:border-white/25 hover:text-white/90'
@@ -164,7 +164,7 @@ export default function Shop() {
                     return (
                       <button
                         onClick={() => { if (!isCustom) updatePlan(0, 4) }}
-                        className={`flex items-center justify-between px-6 py-5 rounded-2xl border text-left transition-all duration-200 ${
+                        className={`flex items-center justify-between px-6 py-5 border text-left transition-all duration-200 ${
                           isCustom
                             ? 'border-gold bg-white/[0.06] text-white'
                             : 'border-white/10 text-white/60 hover:border-white/25 hover:text-white/90'
@@ -174,9 +174,9 @@ export default function Shop() {
                           <span className="text-xl font-heading leading-none block">{t('shop.custom')}</span>
                           {isCustom ? (
                             <div className="flex items-center gap-2 mt-2" onClick={e => e.stopPropagation()}>
-                              <button onClick={() => updatePlan(0, Math.max(4, plan[0] - 1))} className="w-7 h-7 rounded-full flex items-center justify-center border border-white/30 text-white/70 hover:text-white transition-colors">−</button>
+                              <button onClick={() => updatePlan(0, Math.max(4, plan[0] - 1))} className="w-7 h-7 flex items-center justify-center border border-white/30 text-white/70 hover:text-white transition-colors">−</button>
                               <span className="text-base font-heading w-6 text-center">{plan[0]}</span>
-                              <button onClick={() => updatePlan(0, plan[0] + 1)} className="w-7 h-7 rounded-full flex items-center justify-center border border-white/30 text-white/70 hover:text-white transition-colors">+</button>
+                              <button onClick={() => updatePlan(0, plan[0] + 1)} className="w-7 h-7 flex items-center justify-center border border-white/30 text-white/70 hover:text-white transition-colors">+</button>
                               <span className="text-xs font-accent ml-1 text-white/40">{t('shop.barsPerMonth', { bars: BOX_BARS(plan[0]) })}</span>
                             </div>
                           ) : (
@@ -216,7 +216,7 @@ export default function Shop() {
                 {/* CTA */}
                 <button
                   onClick={handleSubscribe}
-                  className="w-full flex items-center justify-center gap-2 px-8 py-5 rounded-full bg-gold text-near-black font-heading text-2xl tracking-wide hover:-translate-y-0.5 hover:shadow-xl hover:shadow-gold/20 transition-all duration-200"
+                  className="w-full flex items-center justify-center gap-2 px-8 py-5 bg-gold text-near-black font-heading text-2xl tracking-wide hover:-translate-y-0.5 hover:shadow-xl hover:shadow-gold/20 transition-all duration-200"
                 >
                   <ShoppingBag className="w-5 h-5" />
                   {t('shop.subscribeCta', { discount: discountPct, price: formatPrice(getSubscriptionPrice(BOX_PRICE_SEK * plan[0], plan[0]), currency) })}
@@ -238,7 +238,7 @@ export default function Shop() {
                 const pbar = perBar[product.id]
                 return (
                   <AnimatedSection key={product.id} delay={i * 0.1} direction="scale">
-                    <div className="relative rounded-2xl overflow-hidden border h-full flex flex-col transition-all duration-300 hover:-translate-y-1 bg-white border-near-black/[0.06] hover:shadow-xl">
+                    <div className="relative overflow-hidden border h-full flex flex-col transition-all duration-300 hover:-translate-y-1 bg-white border-near-black/[0.06] hover:shadow-xl">
                       <div className="aspect-[4/3] overflow-hidden">
                         <img src={copy.image} alt={t(product.nameKey)} className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-500" />
                       </div>
@@ -270,7 +270,7 @@ export default function Shop() {
                         </div>
                         <button
                           onClick={() => addItem(product.id)}
-                          className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-semibold font-accent transition-all duration-200 hover:-translate-y-0.5 bg-caforange text-off-white hover:shadow-lg"
+                          className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 font-semibold font-accent transition-all duration-200 hover:-translate-y-0.5 bg-caforange text-off-white hover:shadow-lg"
                         >
                           <ShoppingBag className="w-4 h-4" />
                           {t('products.addToCart')}
@@ -329,7 +329,7 @@ export default function Shop() {
                     setMode('subscription')
                     window.scrollTo({ top: 0, behavior: 'smooth' })
                   }}
-                  className="shrink-0 px-6 py-3 bg-gold text-near-black font-semibold font-accent rounded-full text-sm hover:-translate-y-0.5 hover:shadow-lg hover:shadow-gold/20 transition-all duration-200"
+                  className="shrink-0 px-6 py-3 bg-gold text-near-black font-semibold font-accent text-sm hover:-translate-y-0.5 hover:shadow-lg hover:shadow-gold/20 transition-all duration-200"
                 >
                   {t('shop.startSubscription')}
                 </button>
@@ -388,7 +388,7 @@ export default function Shop() {
               </p>
               <button
                 onClick={() => addItem('starter')}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-caforange text-off-white font-semibold font-accent rounded-full hover:-translate-y-0.5 hover:shadow-xl transition-all duration-300"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-caforange text-off-white font-semibold font-accent hover:-translate-y-0.5 hover:shadow-xl transition-all duration-300"
               >
                 <ShoppingBag className="w-4 h-4" />
                 {t('shop.tryStarterPack')}

@@ -40,7 +40,7 @@ export default function Checkout() {
             <p className="text-near-black/50 mb-8">{t('checkout.emptyText')}</p>
             <Link
               to="/shop"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-gold to-gold-light text-near-black font-bold font-accent rounded-full hover:-translate-y-1 hover:shadow-xl hover:shadow-gold/20 transition-all duration-300"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-gold to-gold-light text-near-black font-bold font-accent hover:-translate-y-1 hover:shadow-xl hover:shadow-gold/20 transition-all duration-300"
             >
               {t('checkout.shopNow')}
             </Link>
@@ -138,7 +138,7 @@ export default function Checkout() {
                 <p className="text-near-black/50 max-w-md mx-auto mb-8">{t('checkout.confirmedText')}</p>
                 <Link
                   to="/"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-caforange text-off-white font-semibold font-accent rounded-full hover:-translate-y-0.5 transition-all"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-caforange text-off-white font-semibold font-accent hover:-translate-y-0.5 transition-all"
                 >
                   {t('checkout.backHome')}
                 </Link>
@@ -176,17 +176,17 @@ export default function Checkout() {
                               <p className="text-sm text-near-black/40">{t(product.descriptionKey)}</p>
                             </div>
                             <div className="flex items-center gap-3">
-                              <div className="flex items-center gap-1.5 border border-near-black/10 rounded-full">
+                              <div className="flex items-center gap-1.5 border border-near-black/10">
                                 <button
                                   onClick={() => updateQuantity(item.productId, item.quantity - 1)}
-                                  className="p-1.5 hover:bg-near-black/5 rounded-full transition-colors"
+                                  className="p-1.5 hover:bg-near-black/5 transition-colors"
                                 >
                                   <Minus className="w-3 h-3" />
                                 </button>
                                 <span className="text-sm font-medium w-6 text-center">{item.quantity}</span>
                                 <button
                                   onClick={() => updateQuantity(item.productId, item.quantity + 1)}
-                                  className="p-1.5 hover:bg-near-black/5 rounded-full transition-colors"
+                                  className="p-1.5 hover:bg-near-black/5 transition-colors"
                                 >
                                   <Plus className="w-3 h-3" />
                                 </button>
@@ -238,7 +238,7 @@ export default function Checkout() {
                       </div>
                       <button
                         onClick={() => setStep('details')}
-                        className="w-full py-4 bg-gradient-to-r from-gold to-gold-light text-near-black rounded-2xl font-bold font-accent hover:-translate-y-0.5 hover:shadow-lg hover:shadow-gold/25 transition-all duration-200 text-lg"
+                        className="w-full py-4 bg-gradient-to-r from-gold to-gold-light text-near-black font-bold font-accent hover:-translate-y-0.5 hover:shadow-lg hover:shadow-gold/25 transition-all duration-200 text-lg"
                       >
                         {t('checkout.continue')}
                       </button>
@@ -354,7 +354,7 @@ export default function Checkout() {
                       <button
                         type="submit"
                         form="checkout-form"
-                        className="w-full py-4 bg-gradient-to-r from-gold to-gold-light text-near-black rounded-2xl font-bold font-accent hover:-translate-y-0.5 hover:shadow-lg hover:shadow-gold/25 transition-all duration-200 text-lg"
+                        className="w-full py-4 bg-gradient-to-r from-gold to-gold-light text-near-black font-bold font-accent hover:-translate-y-0.5 hover:shadow-lg hover:shadow-gold/25 transition-all duration-200 text-lg"
                       >
                         {t('checkout.placeOrder')}
                       </button>

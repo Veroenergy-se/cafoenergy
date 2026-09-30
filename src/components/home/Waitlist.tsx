@@ -54,12 +54,12 @@ export default function Waitlist() {
                 value={email}
                 onChange={e => setEmail(e.target.value)}
                 placeholder="your@email.com"
-                className="w-full sm:flex-1 rounded-full sm:rounded-r-none px-6 py-4 bg-off-white/10 border-2 border-off-white/30 text-off-white placeholder-off-white/50 font-accent text-base focus:outline-none focus:border-off-white/70 transition-colors sm:border-r-0"
+                className="w-full sm:flex-1 px-6 py-4 bg-off-white/10 border-2 border-off-white/30 text-off-white placeholder-off-white/50 font-accent text-base focus:outline-none focus:border-off-white/70 transition-colors sm:border-r-0"
               />
               <button
                 type="submit"
                 disabled={status === 'loading'}
-                className="w-full sm:w-auto rounded-full sm:rounded-l-none px-10 py-4 bg-brown text-off-white font-heading text-xl tracking-widest uppercase hover:bg-brown/90 transition-colors disabled:opacity-50 border-2 border-brown"
+                className="w-full sm:w-auto px-10 py-4 bg-brown text-off-white font-heading text-xl tracking-widest uppercase hover:bg-brown/90 transition-colors disabled:opacity-50 border-2 border-brown"
               >
                 {status === 'loading' ? '...' : t('waitlist.cta')}
               </button>

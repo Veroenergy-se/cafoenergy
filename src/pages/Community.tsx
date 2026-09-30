@@ -173,13 +173,13 @@ export default function Community() {
               <div className="flex flex-col sm:flex-row gap-3">
                 <a
                   href="https://instagram.com/cafoenergy"
-                  className="inline-flex items-center justify-center px-7 py-3.5 bg-caforange text-off-white font-semibold font-accent rounded-full hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 text-sm"
+                  className="inline-flex items-center justify-center px-7 py-3.5 bg-caforange text-off-white font-semibold font-accent hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 text-sm"
                 >
                   {t('community.cta.instagram')}
                 </a>
                 <a
                   href="/shop"
-                  className="inline-flex items-center justify-center px-7 py-3.5 border border-near-black/20 text-near-black font-semibold font-accent rounded-full hover:bg-near-black/5 transition-all duration-200 text-sm"
+                  className="inline-flex items-center justify-center px-7 py-3.5 border border-near-black/20 text-near-black font-semibold font-accent hover:bg-near-black/5 transition-all duration-200 text-sm"
                 >
                   {t('community.cta.shop')}
                 </a>

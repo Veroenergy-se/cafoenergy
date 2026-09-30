@@ -102,7 +102,7 @@ export default function FAQ() {
               <p className="mt-4 text-near-black/50 text-lg">{t('faq.ctaText')}</p>
               <a
                 href="/contact"
-                className="mt-8 inline-flex px-8 py-4 bg-gradient-to-r from-gold to-gold-light text-near-black font-bold font-accent rounded-full hover:-translate-y-1 hover:shadow-xl hover:shadow-gold/20 transition-all duration-300"
+                className="mt-8 inline-flex px-8 py-4 bg-gradient-to-r from-gold to-gold-light text-near-black font-bold font-accent hover:-translate-y-1 hover:shadow-xl hover:shadow-gold/20 transition-all duration-300"
               >
                 {t('faq.ctaButton')}
               </a>

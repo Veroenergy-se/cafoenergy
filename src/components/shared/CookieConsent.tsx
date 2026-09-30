@@ -45,7 +45,7 @@ export default function CookieConsent() {
             exit={{ opacity: 0, scale: 0.5 }}
             transition={{ type: 'spring', damping: 20, stiffness: 300 }}
             onClick={reopen}
-            className="fixed bottom-6 left-6 z-50 w-12 h-12 bg-near-black text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 hover:shadow-xl transition-all duration-200"
+            className="fixed bottom-6 left-6 z-50 w-12 h-12 bg-near-black text-white flex items-center justify-center shadow-lg hover:scale-110 hover:shadow-xl transition-all duration-200"
             aria-label="Cookie settings"
           >
             <span className="text-lg">🍪</span>
@@ -69,13 +69,13 @@ export default function CookieConsent() {
               <div className="flex gap-3 flex-shrink-0">
                 <button
                   onClick={decline}
-                  className="px-5 py-2 text-sm font-medium text-white/60 hover:text-white border border-white/10 rounded-full transition-colors"
+                  className="px-5 py-2 text-sm font-medium text-white/60 hover:text-white border border-white/10 transition-colors"
                 >
                   {t('cookie.decline')}
                 </button>
                 <button
                   onClick={accept}
-                  className="px-5 py-2 text-sm font-medium bg-gold text-near-black rounded-full hover:bg-gold-light transition-colors"
+                  className="px-5 py-2 text-sm font-medium bg-gold text-near-black hover:bg-gold-light transition-colors"
                 >
                   {t('cookie.accept')}
                 </button>

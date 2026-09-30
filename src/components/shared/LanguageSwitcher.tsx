@@ -8,7 +8,7 @@ export default function LanguageSwitcher() {
   return (
     <button
       onClick={() => i18n.changeLanguage(isEn ? 'sv' : 'en')}
-      className="relative flex items-center gap-1 p-2 rounded-full text-white/70 hover:text-white transition-colors"
+      className="relative flex items-center gap-1 p-2 text-white/70 hover:text-white transition-colors"
       aria-label={isEn ? 'Byt till svenska' : 'Switch to English'}
     >
       <motion.span

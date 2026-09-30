@@ -89,7 +89,7 @@ export default function HowItWorks() {
               <p className="mt-4 text-brown/60 text-lg">Experience clean, sustained energy with CAFO.</p>
               <a
                 href="/shop"
-                className="mt-8 inline-flex px-8 py-4 bg-caforange text-off-white font-semibold font-accent rounded-full hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
+                className="mt-8 inline-flex px-8 py-4 bg-caforange text-off-white font-semibold font-accent hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
               >
                 Shop Now
               </a>

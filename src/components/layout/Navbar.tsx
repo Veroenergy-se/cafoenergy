@@ -125,7 +125,7 @@ export default function Navbar() {
 
           <Link
             to="/shop"
-            className="hidden md:inline-flex px-8 py-3.5 rounded-full bg-caforange text-off-white font-accent font-semibold text-sm tracking-widest uppercase border-2 border-caforange hover:bg-brown hover:text-off-white hover:border-brown hover:-translate-y-0.5 hover:shadow-lg transition-all duration-500 ease-in-out"
+            className="hidden md:inline-flex px-8 py-3.5 bg-caforange text-off-white font-accent font-semibold text-sm tracking-widest uppercase border-2 border-caforange hover:bg-brown hover:text-off-white hover:border-brown hover:-translate-y-0.5 hover:shadow-lg transition-all duration-500 ease-in-out"
           >
             {t('nav.getEnergized')}
           </Link>
@@ -190,7 +190,7 @@ export default function Navbar() {
                 >
                   <Link
                     to="/shop"
-                    className="block w-full text-center py-4 rounded-full bg-caforange text-off-white font-semibold font-accent mt-4 text-lg"
+                    className="block w-full text-center py-4 bg-caforange text-off-white font-semibold font-accent mt-4 text-lg"
                   >
                     {t('nav.getEnergized')}
                   </Link>

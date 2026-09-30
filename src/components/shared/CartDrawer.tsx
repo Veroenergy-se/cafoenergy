@@ -47,7 +47,7 @@ export default function CartDrawer() {
               </h2>
               <button
                 onClick={() => setOpen(false)}
-                className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                className="p-2 hover:bg-gray-100 transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -109,17 +109,17 @@ export default function CartDrawer() {
                             >
                               {t('cart.remove')}
                             </button>
-                            <div className="flex items-center gap-2 border border-gray-200 rounded-full">
+                            <div className="flex items-center gap-2 border border-gray-200">
                               <button
                                 onClick={() => updateQuantity(item.productId, item.quantity - 1)}
-                                className="p-1.5 hover:bg-gray-100 rounded-full transition-colors"
+                                className="p-1.5 hover:bg-gray-100 transition-colors"
                               >
                                 <Minus className="w-3 h-3" />
                               </button>
                               <span className="text-sm font-medium w-6 text-center">{item.quantity}</span>
                               <button
                                 onClick={() => updateQuantity(item.productId, item.quantity + 1)}
-                                className="p-1.5 hover:bg-gray-100 rounded-full transition-colors"
+                                className="p-1.5 hover:bg-gray-100 transition-colors"
                               >
                                 <Plus className="w-3 h-3" />
                               </button>
@@ -170,7 +170,7 @@ export default function CartDrawer() {
                       }
                     }}
                     disabled={checkingOut}
-                    className="w-full py-4 bg-gradient-to-r from-gold to-gold-light text-near-black rounded-2xl font-bold font-accent hover:-translate-y-0.5 hover:shadow-lg hover:shadow-gold/25 transition-all duration-200 disabled:opacity-60 flex items-center justify-center gap-2"
+                    className="w-full py-4 bg-gradient-to-r from-gold to-gold-light text-near-black font-bold font-accent hover:-translate-y-0.5 hover:shadow-lg hover:shadow-gold/25 transition-all duration-200 disabled:opacity-60 flex items-center justify-center gap-2"
                   >
                     {checkingOut ? (
                       <>
@@ -187,7 +187,7 @@ export default function CartDrawer() {
                       setOpen(false)
                       navigate('/checkout')
                     }}
-                    className="w-full py-4 bg-gradient-to-r from-gold to-gold-light text-near-black rounded-2xl font-bold font-accent hover:-translate-y-0.5 hover:shadow-lg hover:shadow-gold/25 transition-all duration-200 flex items-center justify-center gap-2"
+                    className="w-full py-4 bg-gradient-to-r from-gold to-gold-light text-near-black font-bold font-accent hover:-translate-y-0.5 hover:shadow-lg hover:shadow-gold/25 transition-all duration-200 flex items-center justify-center gap-2"
                   >
                     {t('cart.checkout')}
                   </button>

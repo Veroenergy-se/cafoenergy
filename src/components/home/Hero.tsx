@@ -23,14 +23,6 @@ export default function Hero() {
             <span className="block">{t('hero.titleLine1')}</span>
             <span className="block">{t('hero.titleLine2')}</span>
           </motion.h1>
-          <motion.p
-            className="mt-5 font-accent font-semibold text-caforange uppercase tracking-[0.2em] text-sm sm:text-base"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            {t('hero.tagline')}
-          </motion.p>
           <motion.div
             className="mt-16 lg:mt-20 flex flex-col items-center gap-7"
             initial={{ opacity: 0, y: 20 }}
@@ -39,13 +31,13 @@ export default function Hero() {
           >
             <a
               href="#waitlist"
-              className="inline-flex items-center px-16 py-5 rounded-full bg-caforange text-off-white font-heading tracking-widest text-2xl uppercase border-2 border-caforange hover:bg-brown hover:text-off-white hover:border-brown hover:-translate-y-0.5 hover:shadow-xl transition-all duration-500 ease-in-out"
+              className="inline-flex items-center px-16 py-5 bg-caforange text-off-white font-heading tracking-widest text-2xl uppercase border-2 border-caforange hover:bg-brown hover:text-off-white hover:border-brown hover:-translate-y-0.5 hover:shadow-xl transition-all duration-500 ease-in-out"
             >
               {t('hero.joinWaitlist')}
             </a>
             <Link
               to="/how-it-works"
-              className="inline-flex items-center px-16 py-5 rounded-full text-caforange font-heading tracking-widest text-2xl uppercase border-2 border-caforange hover:bg-caforange hover:text-off-white hover:-translate-y-0.5 transition-all duration-300"
+              className="inline-flex items-center px-16 py-5 text-caforange font-heading tracking-widest text-2xl uppercase border-2 border-caforange hover:bg-caforange hover:text-off-white hover:-translate-y-0.5 transition-all duration-300"
             >
               {t('hero.learnMore')}
             </Link>
