@@ -15,7 +15,7 @@ export default function Hero() {
           transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
           <motion.h1
-            className="mt-8 sm:mt-12 font-monument font-black text-brown leading-[1.05] tracking-tight text-3xl sm:text-5xl md:text-6xl lg:text-7xl"
+            className="mt-8 sm:mt-12 font-monument font-black text-brown leading-[1.05] tracking-tight text-[1.6rem] sm:text-5xl md:text-6xl lg:text-7xl"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}

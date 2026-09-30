@@ -2,15 +2,15 @@ import { useTranslation } from 'react-i18next'
 import AnimatedSection from '@/components/shared/AnimatedSection'
 
 const rows = [
-  { key: 'protein',  cafo: '14g',  energy: '0g'   },
-  { key: 'sugar',    cafo: '2g',   energy: '27g'  },
-  { key: 'carbs',    cafo: '21g',  energy: '28g'  },
-  { key: 'caffeine', cafo: '80mg', energy: '180mg' },
-  { key: 'fiber',    cafo: '3g',   energy: '0g'   },
+  { key: 'protein',  cafo: '14g',  coffee: '0g',  energy: '0g'   },
+  { key: 'sugar',    cafo: '2g',   coffee: '0g',  energy: '27g'  },
+  { key: 'carbs',    cafo: '21g',  coffee: '0g',  energy: '28g'  },
+  { key: 'caffeine', cafo: '80mg', coffee: '95mg', energy: '180mg' },
+  { key: 'fiber',    cafo: '3g',   coffee: '0g',  energy: '0g'   },
 ]
 
-const ROW_H = 'h-[108px]'
-const EXTEND_H = 'h-[80px]'
+const ROW_H = 'h-[62px] sm:h-[64px]'
+const EXTEND_H = 'h-[31px] sm:h-[32px]'
 
 const noiseTexture = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E")`
 
@@ -27,67 +27,67 @@ export default function NutritionComparison() {
 
       <div className="relative z-10 page-container">
         <AnimatedSection className="w-full">
-          <h2 className="w-full text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading text-white leading-tight tracking-tight mb-16 lg:mb-20">
+          <h2 className="w-full text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading text-white leading-tight tracking-tight mb-10 lg:mb-12">
             {t('nutrition.winsTitle')}
           </h2>
         </AnimatedSection>
 
-        <AnimatedSection delay={0.15} className="w-full">
-          <div className="grid grid-cols-3 w-full">
+        <AnimatedSection delay={0.15} className="w-full max-w-2xl mx-auto">
+          <div className="grid grid-cols-4 w-full text-[0.6rem] sm:text-xs">
 
-            {/* Left column */}
-            <div className={`flex flex-col bg-white border-2 border-brown border-r-0 rounded-tl-2xl rounded-bl-2xl overflow-hidden mt-[80px] mb-[80px]`}>
-              <div className={`${ROW_H} flex items-center justify-center px-6 border-b-2 border-brown`}>
-                <span className="text-xs sm:text-sm font-black tracking-[0.18em] uppercase text-brown text-center">{t('nutrition.whatsInside')}</span>
+            {/* Labels column */}
+            <div className="flex flex-col bg-white border-2 border-brown border-r-0 rounded-tl-xl rounded-bl-xl overflow-hidden mt-[28px] mb-[28px] sm:mt-[32px] sm:mb-[32px]">
+              <div className={`${ROW_H} flex items-center justify-center px-2 border-b-2 border-brown`}>
+                <span className="font-black tracking-[0.1em] uppercase text-brown text-center leading-tight">{t('nutrition.whatsInside')}</span>
               </div>
               {rows.map((row) => (
-                <div key={row.key} className={`${ROW_H} flex items-center justify-center px-6 border-b-2 last:border-b-0 border-brown/20`}>
-                  <span className="text-sm sm:text-base font-black tracking-[0.12em] uppercase text-brown text-center">{t(`nutrition.rows.${row.key}`)}</span>
+                <div key={row.key} className={`${ROW_H} flex items-center justify-center px-1.5 border-b-2 last:border-b-0 border-brown/20`}>
+                  <span className="w-full min-w-0 font-black tracking-normal sm:tracking-[0.06em] uppercase text-brown text-center leading-tight break-words">{t(`nutrition.rows.${row.key}`)}</span>
                 </div>
               ))}
             </div>
 
-            {/* Center column — orange, extends above & below */}
+            {/* Coffee column */}
+            <div className="flex flex-col bg-white border-y-2 border-brown mt-[28px] mb-[28px] sm:mt-[32px] sm:mb-[32px]">
+              <div className={`${ROW_H} flex items-center justify-center px-1 border-b-2 border-brown`}>
+                <span className="font-black tracking-[0.06em] uppercase text-brown text-center leading-tight">{t('nutrition.vsCoffee')}</span>
+              </div>
+              {rows.map((row) => (
+                <div key={row.key} className={`${ROW_H} flex items-center justify-center px-1 border-b-2 last:border-b-0 border-brown/20`}>
+                  <span className="text-sm sm:text-base font-black text-brown">{row.coffee}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* CAFO column — orange, extends above & below */}
             <div className="flex flex-col bg-caforange">
               <div className={EXTEND_H} />
-              <div className={`${ROW_H} flex items-center justify-center px-4 border-b border-white/15`}>
-                <span className="text-4xl sm:text-5xl font-heading font-black text-off-white tracking-widest">CAFO</span>
+              <div className={`${ROW_H} flex items-center justify-center px-1 border-b border-white/15`}>
+                <span className="text-lg sm:text-xl font-heading font-black text-off-white tracking-widest">CAFO</span>
               </div>
               {rows.map((row) => (
-                <div key={row.key} className={`${ROW_H} flex items-center justify-center px-4 border-b last:border-b-0 border-white/15`}>
-                  {row.cafo === 'check' ? (
-                    <svg viewBox="0 0 24 24" className="w-10 h-10 fill-none stroke-[#0a2e1a] stroke-[3]" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                  ) : (
-                    <span className="text-3xl sm:text-4xl font-black text-off-white">{row.cafo}</span>
-                  )}
+                <div key={row.key} className={`${ROW_H} flex items-center justify-center px-1 border-b last:border-b-0 border-white/15`}>
+                  <span className="text-base sm:text-lg font-black text-off-white">{row.cafo}</span>
                 </div>
               ))}
               <div className={EXTEND_H} />
             </div>
 
-            {/* Right column */}
-            <div className={`flex flex-col bg-white border-2 border-brown border-l-0 rounded-tr-2xl rounded-br-2xl overflow-hidden mt-[80px] mb-[80px]`}>
-              <div className={`${ROW_H} flex items-center justify-center px-6 border-b-2 border-brown`}>
-                <span className="text-xs sm:text-sm font-black tracking-[0.18em] uppercase text-brown text-center">{t('nutrition.vsEnergy')}</span>
+            {/* Energy drinks column */}
+            <div className="flex flex-col bg-white border-2 border-brown border-l-0 rounded-tr-xl rounded-br-xl overflow-hidden mt-[28px] mb-[28px] sm:mt-[32px] sm:mb-[32px]">
+              <div className={`${ROW_H} flex items-center justify-center px-1.5 border-b-2 border-brown`}>
+                <span className="w-full min-w-0 font-black tracking-normal sm:tracking-[0.06em] uppercase text-brown text-center leading-tight break-words">{t('nutrition.vsEnergy')}</span>
               </div>
               {rows.map((row) => (
-                <div key={row.key} className={`${ROW_H} flex items-center justify-center px-6 border-b-2 last:border-b-0 border-brown/20`}>
-                  {row.energy === 'cross' ? (
-                    <svg viewBox="0 0 24 24" className="w-9 h-9 fill-none stroke-red-500 stroke-[3]" strokeLinecap="round">
-                      <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
-                    </svg>
-                  ) : (
-                    <span className="text-2xl sm:text-3xl font-black text-brown">{row.energy}</span>
-                  )}
+                <div key={row.key} className={`${ROW_H} flex items-center justify-center px-2 border-b-2 last:border-b-0 border-brown/20`}>
+                  <span className="text-sm sm:text-base font-black text-brown">{row.energy}</span>
                 </div>
               ))}
             </div>
 
           </div>
 
-          <p className="mt-8 text-center text-xs text-white/50 italic">
+          <p className="mt-6 text-center text-[11px] text-white/50 italic">
             {t('nutrition.footnote')}
           </p>
         </AnimatedSection>
