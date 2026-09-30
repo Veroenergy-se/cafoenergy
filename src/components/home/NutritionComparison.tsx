@@ -1,13 +1,25 @@
 import { useTranslation } from 'react-i18next'
 import AnimatedSection from '@/components/shared/AnimatedSection'
 
-const rows = [
-  { key: 'protein',  cafo: '14g',  coffee: '0g',  energy: '0g'   },
-  { key: 'sugar',    cafo: '2g',   coffee: '0g',  energy: '27g'  },
-  { key: 'carbs',    cafo: '21g',  coffee: '0g',  energy: '28g'  },
-  { key: 'caffeine', cafo: '80mg', coffee: '95mg', energy: '180mg' },
-  { key: 'fiber',    cafo: '3g',   coffee: '0g',  energy: '0g'   },
+type Verdict = 'good' | 'bad' | undefined
+
+const rows: { key: string; cafo: string; coffee: string; energy: string; v: { cafo?: Verdict; coffee?: Verdict; energy?: Verdict } }[] = [
+  { key: 'protein',  cafo: '14g',  coffee: '0g',   energy: '0g',    v: { cafo: 'good' } },
+  { key: 'sugar',    cafo: '2g',   coffee: '0g',   energy: '27g',   v: { cafo: 'good', coffee: 'good', energy: 'bad' } },
+  { key: 'carbs',    cafo: '21g',  coffee: '0g',   energy: '28g',   v: {} },
+  { key: 'caffeine', cafo: '80mg', coffee: '95mg', energy: '180mg', v: { cafo: 'good', energy: 'bad' } },
+  { key: 'fiber',    cafo: '3g',   coffee: '0g',   energy: '0g',    v: { cafo: 'good' } },
 ]
+
+function Dot({ v }: { v: Verdict }) {
+  if (!v) return null
+  return (
+    <span
+      className={`w-1.5 h-1.5 rounded-full shrink-0 ${v === 'good' ? 'bg-green-500' : 'bg-red-500'}`}
+      aria-hidden="true"
+    />
+  )
+}
 
 const ROW_H = 'h-[62px] sm:h-[64px]'
 const EXTEND_H = 'h-[31px] sm:h-[32px]'
@@ -47,30 +59,6 @@ export default function NutritionComparison() {
               ))}
             </div>
 
-            {/* Energy drinks column */}
-            <div className="flex flex-col bg-white border-y-2 border-brown mt-[28px] mb-[28px] sm:mt-[32px] sm:mb-[32px]">
-              <div className={`${ROW_H} flex items-center justify-center px-1.5 border-b-2 border-brown`}>
-                <span className="w-full min-w-0 font-black tracking-normal sm:tracking-[0.06em] uppercase text-brown text-center leading-tight break-words">{t('nutrition.vsEnergy')}</span>
-              </div>
-              {rows.map((row) => (
-                <div key={row.key} className={`${ROW_H} flex items-center justify-center px-2 border-b-2 last:border-b-0 border-brown/20`}>
-                  <span className="text-sm sm:text-base font-black text-brown">{row.energy}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Coffee column */}
-            <div className="flex flex-col bg-white border-y-2 border-brown mt-[28px] mb-[28px] sm:mt-[32px] sm:mb-[32px]">
-              <div className={`${ROW_H} flex items-center justify-center px-1 border-b-2 border-brown`}>
-                <span className="font-black tracking-[0.06em] uppercase text-brown text-center leading-tight">{t('nutrition.vsCoffee')}</span>
-              </div>
-              {rows.map((row) => (
-                <div key={row.key} className={`${ROW_H} flex items-center justify-center px-1 border-b-2 last:border-b-0 border-brown/20`}>
-                  <span className="text-sm sm:text-base font-black text-brown">{row.coffee}</span>
-                </div>
-              ))}
-            </div>
-
             {/* CAFO column — orange, extends above & below */}
             <div className="flex flex-col bg-caforange">
               <div className={EXTEND_H} />
@@ -78,11 +66,38 @@ export default function NutritionComparison() {
                 <span className="text-lg sm:text-xl font-heading font-black text-off-white tracking-widest">CAFO</span>
               </div>
               {rows.map((row) => (
-                <div key={row.key} className={`${ROW_H} flex items-center justify-center px-1 border-b last:border-b-0 border-white/15`}>
+                <div key={row.key} className={`${ROW_H} flex items-center justify-center gap-1 px-1 border-b last:border-b-0 border-white/15`}>
                   <span className="text-base sm:text-lg font-black text-off-white">{row.cafo}</span>
+                  <Dot v={row.v.cafo} />
                 </div>
               ))}
               <div className={EXTEND_H} />
+            </div>
+
+            {/* Energy drinks column */}
+            <div className="flex flex-col bg-white border-y-2 border-brown mt-[28px] mb-[28px] sm:mt-[32px] sm:mb-[32px]">
+              <div className={`${ROW_H} flex items-center justify-center px-1.5 border-b-2 border-brown`}>
+                <span className="w-full min-w-0 font-black tracking-normal sm:tracking-[0.06em] uppercase text-brown text-center leading-tight break-words">{t('nutrition.vsEnergy')}</span>
+              </div>
+              {rows.map((row) => (
+                <div key={row.key} className={`${ROW_H} flex items-center justify-center gap-1 px-2 border-b-2 last:border-b-0 border-brown/20`}>
+                  <span className="text-sm sm:text-base font-black text-brown">{row.energy}</span>
+                  <Dot v={row.v.energy} />
+                </div>
+              ))}
+            </div>
+
+            {/* Coffee column */}
+            <div className="flex flex-col bg-white border-2 border-brown border-l-0 rounded-tr-xl rounded-br-xl overflow-hidden mt-[28px] mb-[28px] sm:mt-[32px] sm:mb-[32px]">
+              <div className={`${ROW_H} flex items-center justify-center px-1 border-b-2 border-brown`}>
+                <span className="font-black tracking-[0.06em] uppercase text-brown text-center leading-tight">{t('nutrition.vsCoffee')}</span>
+              </div>
+              {rows.map((row) => (
+                <div key={row.key} className={`${ROW_H} flex items-center justify-center gap-1 px-1 border-b-2 last:border-b-0 border-brown/20`}>
+                  <span className="text-sm sm:text-base font-black text-brown">{row.coffee}</span>
+                  <Dot v={row.v.coffee} />
+                </div>
+              ))}
             </div>
 
           </div>
