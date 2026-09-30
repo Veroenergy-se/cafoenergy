@@ -47,20 +47,6 @@ export default function NutritionComparison() {
               ))}
             </div>
 
-            {/* CAFO column — orange, extends above & below */}
-            <div className="flex flex-col bg-caforange">
-              <div className={EXTEND_H} />
-              <div className={`${ROW_H} flex items-center justify-center px-1 border-b border-white/15`}>
-                <span className="text-lg sm:text-xl font-heading font-black text-off-white tracking-widest">CAFO</span>
-              </div>
-              {rows.map((row) => (
-                <div key={row.key} className={`${ROW_H} flex items-center justify-center px-1 border-b last:border-b-0 border-white/15`}>
-                  <span className="text-base sm:text-lg font-black text-off-white">{row.cafo}</span>
-                </div>
-              ))}
-              <div className={EXTEND_H} />
-            </div>
-
             {/* Energy drinks column */}
             <div className="flex flex-col bg-white border-y-2 border-brown mt-[28px] mb-[28px] sm:mt-[32px] sm:mb-[32px]">
               <div className={`${ROW_H} flex items-center justify-center px-1.5 border-b-2 border-brown`}>
@@ -74,7 +60,7 @@ export default function NutritionComparison() {
             </div>
 
             {/* Coffee column */}
-            <div className="flex flex-col bg-white border-2 border-brown border-l-0 rounded-tr-xl rounded-br-xl overflow-hidden mt-[28px] mb-[28px] sm:mt-[32px] sm:mb-[32px]">
+            <div className="flex flex-col bg-white border-y-2 border-brown mt-[28px] mb-[28px] sm:mt-[32px] sm:mb-[32px]">
               <div className={`${ROW_H} flex items-center justify-center px-1 border-b-2 border-brown`}>
                 <span className="font-black tracking-[0.06em] uppercase text-brown text-center leading-tight">{t('nutrition.vsCoffee')}</span>
               </div>
@@ -83,6 +69,20 @@ export default function NutritionComparison() {
                   <span className="text-sm sm:text-base font-black text-brown">{row.coffee}</span>
                 </div>
               ))}
+            </div>
+
+            {/* CAFO column — orange, extends above & below */}
+            <div className="flex flex-col bg-caforange">
+              <div className={EXTEND_H} />
+              <div className={`${ROW_H} flex items-center justify-center px-1 border-b border-white/15`}>
+                <span className="text-lg sm:text-xl font-heading font-black text-off-white tracking-widest">CAFO</span>
+              </div>
+              {rows.map((row) => (
+                <div key={row.key} className={`${ROW_H} flex items-center justify-center px-1 border-b last:border-b-0 border-white/15`}>
+                  <span className="text-base sm:text-lg font-black text-off-white">{row.cafo}</span>
+                </div>
+              ))}
+              <div className={EXTEND_H} />
             </div>
 
           </div>
