@@ -134,19 +134,19 @@
     "title": "For The Days That Matter",
     "study": {
       "title": "Study Sessions",
-      "description": "Hours of focus without the crash. Perfect for exam prep and deep work."
+      "description": "Eat one 30 minutes before you sit down. 80mg of caffeine holds your focus for 3–5 hours — no crash mid-exam."
     },
     "work": {
       "title": "Desk Days",
-      "description": "Sustained energy through meetings, deadlines, and everything in between."
+      "description": "Eat one at lunch to beat the 1–3pm slump. Have it before 3pm and it won't touch your sleep."
     },
     "lateNights": {
       "title": "Late Nights",
-      "description": "Beat the 2am wall. Clean caffeine keeps you locked in without the jitters or crash."
+      "description": "Beat the 2am wall without the jitters. L-theanine cancels out what straight caffeine gives you."
     },
     "sports": {
       "title": "Sports",
-      "description": "Protein and caffeine before you train. Real fuel, real performance."
+      "description": "Eat 30–45 minutes pre-workout. Caffeine lowers perceived effort, and 14g of protein kicks off recovery the moment you're done."
     }
   },
   "story": {
