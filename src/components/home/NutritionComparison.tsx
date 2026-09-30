@@ -11,14 +11,16 @@ const rows: { key: string; cafo: string; coffee: string; energy: string; v: { ca
   { key: 'fiber',    cafo: '3g',   coffee: '0g',   energy: '0g',    v: { cafo: 'good' } },
 ]
 
-function Dot({ v }: { v: Verdict }) {
-  if (!v) return null
-  return (
-    <span
-      className={`w-1.5 h-1.5 rounded-full shrink-0 ${v === 'good' ? 'bg-green-500' : 'bg-red-500'}`}
-      aria-hidden="true"
-    />
-  )
+function valueClass(v: Verdict, onOrange: boolean) {
+  if (v === 'good') {
+    return onOrange
+      ? 'text-lime-300 drop-shadow-[0_0_6px_rgba(255,255,255,0.55)]'
+      : 'text-green-600 drop-shadow-[0_0_4px_rgba(34,197,94,0.4)]'
+  }
+  if (v === 'bad') {
+    return 'text-red-500'
+  }
+  return onOrange ? 'text-off-white' : 'text-brown'
 }
 
 const ROW_H = 'h-[62px] sm:h-[64px]'
@@ -66,9 +68,8 @@ export default function NutritionComparison() {
                 <span className="text-lg sm:text-xl font-heading font-black text-off-white tracking-widest">CAFO</span>
               </div>
               {rows.map((row) => (
-                <div key={row.key} className={`${ROW_H} flex items-center justify-center gap-1 px-1 border-b last:border-b-0 border-white/15`}>
-                  <span className="text-base sm:text-lg font-black text-off-white">{row.cafo}</span>
-                  <Dot v={row.v.cafo} />
+                <div key={row.key} className={`${ROW_H} flex items-center justify-center px-1 border-b last:border-b-0 border-white/15`}>
+                  <span className={`text-base sm:text-lg font-black ${valueClass(row.v.cafo, true)}`}>{row.cafo}</span>
                 </div>
               ))}
               <div className={EXTEND_H} />
@@ -80,9 +81,8 @@ export default function NutritionComparison() {
                 <span className="w-full min-w-0 font-black tracking-normal sm:tracking-[0.06em] uppercase text-brown text-center leading-tight break-words">{t('nutrition.vsEnergy')}</span>
               </div>
               {rows.map((row) => (
-                <div key={row.key} className={`${ROW_H} flex items-center justify-center gap-1 px-2 border-b-2 last:border-b-0 border-brown/20`}>
-                  <span className="text-sm sm:text-base font-black text-brown">{row.energy}</span>
-                  <Dot v={row.v.energy} />
+                <div key={row.key} className={`${ROW_H} flex items-center justify-center px-2 border-b-2 last:border-b-0 border-brown/20`}>
+                  <span className={`text-sm sm:text-base font-black ${valueClass(row.v.energy, false)}`}>{row.energy}</span>
                 </div>
               ))}
             </div>
@@ -93,9 +93,8 @@ export default function NutritionComparison() {
                 <span className="font-black tracking-[0.06em] uppercase text-brown text-center leading-tight">{t('nutrition.vsCoffee')}</span>
               </div>
               {rows.map((row) => (
-                <div key={row.key} className={`${ROW_H} flex items-center justify-center gap-1 px-1 border-b-2 last:border-b-0 border-brown/20`}>
-                  <span className="text-sm sm:text-base font-black text-brown">{row.coffee}</span>
-                  <Dot v={row.v.coffee} />
+                <div key={row.key} className={`${ROW_H} flex items-center justify-center px-1 border-b-2 last:border-b-0 border-brown/20`}>
+                  <span className={`text-sm sm:text-base font-black ${valueClass(row.v.coffee, false)}`}>{row.coffee}</span>
                 </div>
               ))}
             </div>
