@@ -14,8 +14,8 @@ const rows: { key: string; cafo: string; coffee: string; energy: string; v: { ca
 function valueClass(v: Verdict, onOrange: boolean) {
   if (v === 'good') {
     return onOrange
-      ? 'text-lime-300 drop-shadow-[0_0_6px_rgba(255,255,255,0.55)]'
-      : 'text-green-600 drop-shadow-[0_0_4px_rgba(34,197,94,0.4)]'
+      ? 'text-green-600 drop-shadow-[0_1px_3px_rgba(0,0,0,0.35)]'
+      : 'text-green-600'
   }
   if (v === 'bad') {
     return 'text-red-500'
