@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://cafoenergy.se/sitemap.xml
+Sitemap: https://moarbar.se/sitemap.xml

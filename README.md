@@ -2,7 +2,7 @@
 
 The official website for CAFO Energy — the clean caffeinated protein bar.
 
-**Live site:** [cafoenergy.se](https://cafoenergy.se)
+**Live site:** [moarbar.se](https://moarbar.se)
 
 ## Tech Stack
 
@@ -63,7 +63,7 @@ src/
   lib/               — Product data, constants, helpers
 public/
   images/            — Hero image, founder photos, product shots
-  CNAME              — Custom domain (cafoenergy.se)
+  CNAME              — Custom domain (moarbar.se)
   404.html           — SPA redirect for GitHub Pages
 ```
 
@@ -97,7 +97,7 @@ npm run build
 1. Go to repo Settings > Pages
 2. Set Source to **GitHub Actions**
 3. Push to `main` — the workflow handles the rest
-4. Custom domain: `cafoenergy.se` (configured via `public/CNAME`)
+4. Custom domain: `moarbar.se` (configured via `public/CNAME`)
 
 ## Pages
 
