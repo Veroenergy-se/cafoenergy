@@ -69,12 +69,12 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-4 inset-x-4 sm:top-6 sm:inset-x-6 z-50 transition-all duration-300 ${
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
         hidden && !mobileOpen ? '-translate-y-[150%]' : 'translate-y-0'
       }`}
     >
       <nav
-        className={`relative mx-auto max-w-[1400px] w-full px-6 lg:px-10 flex items-center justify-between h-20 rounded-full border border-near-black/10 transition-all duration-300 ${
+        className={`relative w-full px-6 lg:px-10 flex items-center justify-between h-20 border-b border-near-black/10 transition-all duration-300 ${
           scrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-white shadow-md'
         }`}
       >
@@ -147,7 +147,7 @@ export default function Navbar() {
           <>
             {/* Backdrop */}
             <motion.div
-              className="fixed inset-0 top-24 sm:top-28 bg-black/50 md:hidden z-40"
+              className="fixed inset-0 top-20 bg-black/50 md:hidden z-40"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -157,7 +157,7 @@ export default function Navbar() {
 
             {/* Panel */}
             <motion.div
-              className="md:hidden absolute top-[calc(100%+0.75rem)] left-0 right-0 bg-white rounded-3xl border border-near-black/10 shadow-xl z-50 overflow-hidden"
+              className="md:hidden absolute top-full left-0 right-0 bg-white border-b border-near-black/10 shadow-xl z-50 overflow-hidden"
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
