@@ -5,7 +5,6 @@ import { useCart } from '@/providers/CartProvider'
 import { products, getCurrency, formatPrice, getSubscriptionPrice, getSubscriptionDiscount } from '@/lib/products'
 import AnimatedSection from '@/components/shared/AnimatedSection'
 import { ShoppingBag, RefreshCw, Package, Settings } from 'lucide-react'
-import CafoLogo from '@/components/shared/CafoLogo'
 
 type PurchaseMode = 'onetime' | 'subscription'
 
@@ -106,7 +105,7 @@ export default function Shop() {
               <div className="relative hidden lg:block">
                 <img
                   src={plan[0] >= 3 ? '/images/product-3box.png' : plan[0] === 2 ? '/images/product-2box.png' : '/images/product-1box.png'}
-                  alt="CAFO Energy"
+                  alt="MOAR Bar"
                   className="absolute inset-0 w-full h-full object-cover transition-all duration-500"
                 />
               </div>

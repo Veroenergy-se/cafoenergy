@@ -1,11 +1,11 @@
 export const SITE = {
-  name: 'CAFO Energy',
+  name: 'MOAR Bar',
   domain: 'moarbar.se',
-  email: 'hello@cafoenergy.se',
+  email: 'thomaswiseman1@hotmail.com',
   ga4Id: 'G-JWFPL9ZW9R',
   social: {
-    instagram: 'https://www.instagram.com/cafobar',
-    tiktok: 'https://www.tiktok.com/@cafobars',
+    instagram: 'https://www.instagram.com/moarbars',
+    tiktok: 'https://www.tiktok.com/@moarbars',
   },
   freeShippingThreshold: { usd: 50, sek: 499 },
 }

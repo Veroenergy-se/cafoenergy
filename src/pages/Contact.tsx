@@ -13,7 +13,7 @@ export default function Contact() {
     e.preventDefault()
     const form = e.currentTarget
     const data = new FormData(form)
-    const subject = 'Contact from CAFO Energy website'
+    const subject = 'Contact from MOAR Bar website'
     const body = `Name: ${data.get('name')}\nEmail: ${data.get('email')}\n\n${data.get('message')}`
     window.location.href = `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
     setSubmitted(true)
@@ -22,8 +22,8 @@ export default function Contact() {
   return (
     <>
       <Helmet>
-        <title>Contact — CAFO Energy</title>
-        <meta name="description" content="Get in touch with CAFO Energy. Questions, ideas, or partnerships — we'd love to hear from you." />
+        <title>Contact — MOAR Bar</title>
+        <meta name="description" content="Get in touch with MOAR Bar. Questions, ideas, or partnerships — we'd love to hear from you." />
       </Helmet>
 
       <section className="bg-off-white py-32 text-center">

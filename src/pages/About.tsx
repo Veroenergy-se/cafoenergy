@@ -8,8 +8,8 @@ export default function About() {
   return (
     <>
       <Helmet>
-        <title>Our Story — CAFO Energy</title>
-        <meta name="description" content="Three brothers, one mission. Learn how CAFO Energy started and why we're building the clean energy movement." />
+        <title>Our Story — MOAR Bar</title>
+        <meta name="description" content="Three brothers, one mission. Learn how MOAR Bar started and why we're building the clean energy movement." />
       </Helmet>
 
       {/* Hero */}
@@ -35,7 +35,7 @@ export default function About() {
               <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-cream">
                 <img
                   src="/images/founders.jpg"
-                  alt="CAFO Energy founders"
+                  alt="MOAR Bar founders"
                   className="w-full h-full object-cover"
                 />
               </div>

@@ -81,7 +81,7 @@ export default function CartDrawer() {
                           className="flex gap-4"
                         >
                           <div className="w-20 h-20 bg-gradient-to-br from-forest/10 to-forest/5 rounded-2xl flex items-center justify-center flex-shrink-0">
-                            <span className="text-forest font-heading text-lg">CAFO</span>
+                            <span className="text-forest font-heading text-lg">MOAR</span>
                           </div>
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2 flex-wrap">

@@ -32,7 +32,7 @@ export default function Checkout() {
   if (items.length === 0 && step !== 'confirmed') {
     return (
       <>
-        <Helmet><title>{t('checkout.title')} — CAFO Energy</title></Helmet>
+        <Helmet><title>{t('checkout.title')} — MOAR Bar</title></Helmet>
         <section className="min-h-[70vh] flex items-center justify-center bg-warm-white">
           <AnimatedSection className="text-center px-6">
             <ShoppingBag className="w-16 h-16 text-near-black/20 mx-auto mb-6" />
@@ -86,8 +86,8 @@ export default function Checkout() {
 
     const emailBody = `New order from ${form.name}\n\n${orderLines}\n\nTotal: ${formatPrice(total, currency)}${subscriptionNote}\n\nShipping to:\n${form.name}\n${form.address}\n${form.zip} ${form.city}\n\nContact: ${form.email}`
     const subject = hasSubscription
-      ? `CAFO Subscription Order from ${form.name}`
-      : `CAFO Order from ${form.name}`
+      ? `MOAR Subscription Order from ${form.name}`
+      : `MOAR Order from ${form.name}`
     const mailtoLink = `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`
 
     window.location.href = mailtoLink
@@ -97,7 +97,7 @@ export default function Checkout() {
 
   return (
     <>
-      <Helmet><title>{t('checkout.title')} — CAFO Energy</title></Helmet>
+      <Helmet><title>{t('checkout.title')} — MOAR Bar</title></Helmet>
 
       <section className="bg-off-white py-20 text-center">
         <AnimatedSection>
@@ -162,7 +162,7 @@ export default function Checkout() {
                         return (
                           <div key={item.productId} className="flex items-center gap-4 py-4 border-b border-near-black/5 last:border-0">
                             <div className="w-16 h-16 bg-gradient-to-br from-forest/10 to-forest/5 rounded-2xl flex items-center justify-center flex-shrink-0">
-                              <span className="text-forest font-heading text-sm">CAFO</span>
+                              <span className="text-forest font-heading text-sm">MOAR</span>
                             </div>
                             <div className="flex-1 min-w-0">
                               <div className="flex items-center gap-2 flex-wrap">

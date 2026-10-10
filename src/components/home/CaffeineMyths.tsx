@@ -37,14 +37,14 @@ const myths: MythData[] = [
     verdict: 'fact',
     claim: 'It can speed up post-workout recovery',
     science:
-      "When caffeine is consumed alongside carbohydrates after intense training, research shows it can <strong>accelerate muscle glycogen replenishment by up to 66%</strong> compared to carbohydrates alone. Glycogen is your muscle's primary fuel — refilling it faster means recovering faster. Pair that with the 14g of protein in a CAFO bar and you've got a serious recovery window covered.",
+      "When caffeine is consumed alongside carbohydrates after intense training, research shows it can <strong>accelerate muscle glycogen replenishment by up to 66%</strong> compared to carbohydrates alone. Glycogen is your muscle's primary fuel — refilling it faster means recovering faster. Pair that with the 14g of protein in a MOAR bar and you've got a serious recovery window covered.",
     source: 'Pedersen et al., Journal of Applied Physiology, 2008',
   },
   {
     verdict: 'fact',
     claim: 'It sharpens focus during study sessions',
     science:
-      "Caffeine improves the three things that matter most when you're studying: <strong>sustained attention, processing speed, and working memory</strong>. Research shows it reduces errors on tasks requiring concentration and improves recall speed — not by making you smarter, but by letting you perform closer to your actual ceiling. The sweet spot for most people is 80–100mg: enough to sharpen focus without the restless overthinking that higher doses cause. One CAFO bar lands right there.",
+      "Caffeine improves the three things that matter most when you're studying: <strong>sustained attention, processing speed, and working memory</strong>. Research shows it reduces errors on tasks requiring concentration and improves recall speed — not by making you smarter, but by letting you perform closer to your actual ceiling. The sweet spot for most people is 80–100mg: enough to sharpen focus without the restless overthinking that higher doses cause. One MOAR bar lands right there.",
     source: 'Einöther & Giesbrecht, Psychopharmacology, 2013',
   },
   {

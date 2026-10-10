@@ -36,7 +36,7 @@
   },
   "waitlist": {
     "title": "BLI FÖRST.",
-    "subtitle": "Gå med i väntelistan — vi meddelar dig när CAFO lanseras.",
+    "subtitle": "Gå med i väntelistan — vi meddelar dig när MOAR lanseras.",
     "cta": "GÅ MED",
     "success": "DU ÄR MED PÅ LISTAN.",
     "successSub": "Vi hör av oss snart.",
@@ -77,8 +77,8 @@
     "subscribeLink": "Prenumerera och spara upp till 20%"
   },
   "shop": {
-    "metaTitle": "Handla — CAFO Energy",
-    "metaDescription": "Handla CAFO koffeinproteinbarer. Engångsköp eller månadsprenumeration. Fri frakt på beställningar över 499 kr.",
+    "metaTitle": "Handla — MOAR Bar",
+    "metaDescription": "Handla MOAR koffeinproteinbarer. Engångsköp eller månadsprenumeration. Fri frakt på beställningar över 499 kr.",
     "monthlySubscription": "Månadsprenumeration",
     "saveRange": "Spara 10–20%",
     "oneTime": "Engångsköp",
@@ -115,7 +115,7 @@
     "stillDecidingText": "Börja med 12-barspaketet. Om den inte blir din favorit blir ingenting det.",
     "tryStarterPack": "Prova startpaketet",
     "starterEyebrow": "Prova den",
-    "starterPitch": "Första gången med CAFO? Här börjar du.",
+    "starterPitch": "Första gången med MOAR? Här börjar du.",
     "duoPitch": "Den de flesta håller sig till. Två veckor av rent fokus.",
     "familyPitch": "En hel månads barer, lägsta pris per bar vi erbjuder.",
     "step1Title": "Välj din plan.",
@@ -133,10 +133,10 @@
     "proteinDesc": "14g växtbaserat protein för att hålla dig påfylld och fokuserad.",
     "sugarTitle": "Noll Tillsatt Socker",
     "sugarDesc": "Inga sockerkrascher. Inga artificiella sötningsmedel. Bara ren energi.",
-    "comparisonTitle": "Hur CAFO Jämför Sig",
+    "comparisonTitle": "Hur MOAR Jämför Sig",
     "vsCoffee": "Kaffe",
     "vsEnergy": "Energidrycker",
-    "vsCafo": "CAFO Bar",
+    "vsCafo": "MOAR",
     "winsTitle": "Därför vinner MOAR.",
     "whatsInside": "Vad Som Ingår",
     "rows": {
@@ -146,19 +146,25 @@
       "caffeine": "KOFFEIN",
       "fiber": "FIBER"
     },
-    "footnote": "MOAR-värden per 55 g bar enligt vår näringsdeklaration. Kaffe: en vanlig kopp svart kaffe (240 ml). Socker och kolhydrater för energidryck: en vanlig burk på 250 ml (t.ex. Red Bull); koffein är ett avrundat snitt för stora märken (Red Bull, Monster, Celsius, Reign, Bang).",
+    "footnote": "MOAR-värden per 55 g bar enligt vår näringsdeklaration. Proteinbar: Barebells Salty Peanut, 55 g (EU-etikett). Kaffe: en vanlig kopp svart kaffe (240 ml). Socker och kolhydrater för energidryck: en vanlig burk på 250 ml (t.ex. Red Bull); koffein är ett avrundat snitt för stora märken (Red Bull, Monster, Celsius, Reign, Bang).",
     "eyebrow": "Sida vid sida",
     "per": {
       "moar": "per 55 g bar",
       "energy": "per 250 ml burk",
-      "coffee": "per 240 ml kopp"
+      "coffee": "per 240 ml kopp",
+      "bar": "per 55 g bar"
     },
     "fiberTitle": "Fiber",
-    "fiberDesc": "3g fiber saktar ner matsmältningen, så energin kommer jämnt istället för på en gång."
+    "fiberDesc": "3g fiber saktar ner matsmältningen, så energin kommer jämnt istället för på en gång.",
+    "vs": {
+      "bar": "Proteinbar",
+      "energy": "Energidryck",
+      "coffee": "Kaffe"
+    }
   },
   "story": {
     "title": "Tre Bröder. Ett Uppdrag.",
-    "subtitle": "Vi byggde CAFO för att vi behövde det själva. Som studenter var vi trötta på att välja mellan skräpmat-energi och överprissatt kaffe.",
+    "subtitle": "Vi byggde MOAR för att vi behövde det själva. Som studenter var vi trötta på att välja mellan skräpmat-energi och överprissatt kaffe.",
     "cta": "Läs Vår Berättelse"
   },
   "community": {
@@ -176,7 +182,7 @@
     "story": {
       "eyebrow": "Vår historia",
       "heading": "Byggt för att gå längre.",
-      "p1": "CAFO startade med en fråga: varför smakar prestationsmat som krita? Tre grundare, ett kök, en smak vi vägrade kompromissa med.",
+      "p1": "MOAR startade med en fråga: varför smakar prestationsmat som krita? Tre grundare, ett kök, en smak vi vägrade kompromissa med.",
       "p2": "90mg koffein. 14g växtprotein. Noll tillsatt socker. Allt är där av en anledning — inget som inte är det."
     },
     "quote": "Byggt för dem som ger allt.",
@@ -189,7 +195,7 @@
       },
       "v2": {
         "title": "Ge allt.",
-        "body": "Halvhjärtat ger halvhjärtade resultat. CAFO är för dem som inte gör saker halvvägs."
+        "body": "Halvhjärtat ger halvhjärtade resultat. MOAR är för dem som inte gör saker halvvägs."
       },
       "v3": {
         "title": "Inga genvägar.",
@@ -206,7 +212,7 @@
       "eyebrow": "Redo?",
       "heading": "Gå med de som inte väntar.",
       "body": "Följ oss på Instagram eller ta din första box. Hur som helst — du har redan tagit det första steget.",
-      "instagram": "Följ @cafoenergy",
+      "instagram": "Följ @moarbars",
       "shop": "Handla baren"
     }
   },
@@ -218,7 +224,7 @@
     "journeyText": "Vi spenderade över ett år på att perfektionera vår formel — kombinerade naturligt koffein från guarana med riktigt protein och fiber, och eliminerade varje ingrediens vi inte trodde på. Resultatet är MOAR: en smak, perfektionerad.",
     "teamTitle": "Möt Teamet",
     "missionTitle": "Byggt För Ambitiösa Sinnen",
-    "missionText": "CAFO är designat för alla som vägrar kompromissa med vad de stoppar i kroppen. För studenter som pluggar inför tentor. För yrkesverksamma som pressar genom deadlines. För alla som behöver riktig energi som varar."
+    "missionText": "MOAR är designat för alla som vägrar kompromissa med vad de stoppar i kroppen. För studenter som pluggar inför tentor. För yrkesverksamma som pressar genom deadlines. För alla som behöver riktig energi som varar."
   },
   "contact": {
     "title": "Hör Av Dig",
@@ -248,7 +254,7 @@
     "legal": "Juridik",
     "social": "Socialt",
     "privacy": "Integritetspolicy",
-    "copyright": "© {{year}} CAFO Energy. Alla rättigheter förbehållna."
+    "copyright": "© {{year}} MOAR Bar. Alla rättigheter förbehållna."
   },
   "cart": {
     "title": "Din Varukorg",
@@ -264,7 +270,7 @@
   "checkout": {
     "title": "KASSA",
     "emptyTitle": "Varukorgen Är Tom",
-    "emptyText": "Lägg till några CAFO-barer i varukorgen först!",
+    "emptyText": "Lägg till några MOAR-barer i varukorgen först!",
     "shopNow": "Handla Nu",
     "orderSummary": "ORDERSAMMANFATTNING",
     "subtotal": "Delsumma",
@@ -292,17 +298,17 @@
   },
   "faq": {
     "title": "VANLIGA FRÅGOR",
-    "subtitle": "Allt du behöver veta om CAFO Energy",
+    "subtitle": "Allt du behöver veta om MOAR Bar",
     "ctaTitle": "HAR DU FLER FRÅGOR?",
     "ctaText": "Vi hjälper gärna till. Hör av dig så återkommer vi.",
     "ctaButton": "Kontakta Oss",
-    "q1": "Hur mycket koffein innehåller en CAFO-bar?",
+    "q1": "Hur mycket koffein innehåller en MOAR-bar?",
     "a1": "Varje bar innehåller 90 mg naturligt koffein från guarana — ungefär lika mycket som en kopp kaffe. Eftersom det kommer i en bar med protein och fiber tas det upp mer gradvis, så du får jämn, fokuserad energi istället för en skarp topp. Ingen krasch.",
     "q2": "Kan jag äta mer än en bar per dag?",
     "a2": "Ja — det är lite poängen. Med 90 mg per bar kan du äta tre under dagen och landa på 270 mg totalt, vilket är väl inom FDA:s rekommenderade gräns på 400 mg. Morgon, lunch, före träning: varje bar passar in i din rutin utan att du går över.",
     "q3": "Hur länge håller energin i sig?",
     "a3": "De flesta känner effekten inom 20–30 minuter och håller den i 3–5 timmar. Eftersom koffeinet kommer tillsammans med protein och fiber sker upptaget jämnare än med kaffe eller energidryck — så energin klingar av gradvis istället för att ta slut tvärt.",
-    "q4": "När är det bäst att äta en CAFO-bar?",
+    "q4": "När är det bäst att äta en MOAR-bar?",
     "a4": "15–30 minuter innan du behöver vara i gång. Det kan vara före ett pluggpass, inför träning, under en lång bilresa eller som en eftermiddagshöjare. En regel: försök att inte äta den efter klockan 15 om du är känslig för koffein — halveringstiden innebär att det fortfarande är delvis aktivt vid sänggåendet.",
     "q5": "Hur jämförs den med energidrycker?",
     "a5": "Energidrycker ger dig koffein plus mycket du inte behöver — socker, konstgjorda sötningsmedel, syntetiska stimulantia, färgämnen. En MOAR-bar ger dig 90 mg naturligt koffein, 14 g protein och 3 g fiber. Det är mat som fungerar, inte en dryck som smakar som ett vetenskapsexperiment.",
@@ -340,17 +346,18 @@
     }
   },
   "twoInOne": {
-    "eyebrow": "Lösningen klockan 15",
+    "eyebrow": "Eftermiddagsdippen",
     "a": "Kaffe",
     "b": "Snack",
-    "body": "En bar ersätter två köp. 90 mg naturligt koffein och 14 g protein: kaffet och mellanmålet, i fickan.",
-    "alt": "MOAR Bar-förpackning, salted caramel"
+    "body": "Runt klockan 15 sjunker fokus och du sträcker dig efter kaffe och något att äta. MOAR är båda i en bar: 90 mg naturligt koffein och 14 g protein.",
+    "alt": "MOAR Bar-förpackning, salted caramel",
+    "titleA": "Lösningen",
+    "titleB": "kl. 15.",
+    "titleC": ""
   },
   "day": {
     "eyebrow": "En bar, varje stund",
     "title": "Byggd för långa dagar.",
-    "prev": "Föregående",
-    "next": "Nästa",
     "moments": {
       "study": {
         "title": "Tentamorgon",

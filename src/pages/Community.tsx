@@ -41,8 +41,8 @@ export default function Community() {
   return (
     <>
       <Helmet>
-        <title>Community — CAFO Energy</title>
-        <meta name="description" content="Join the CAFO Energy community. Built for students, athletes, and professionals who refuse to settle." />
+        <title>Community — MOAR Bar</title>
+        <meta name="description" content="Join the MOAR Bar community. Built for students, athletes, and professionals who refuse to settle." />
       </Helmet>
 
       {/* Hero */}
@@ -172,7 +172,7 @@ export default function Community() {
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <a
-                  href="https://instagram.com/cafoenergy"
+                  href="https://www.instagram.com/moarbars"
                   className="inline-flex items-center justify-center px-7 py-3.5 bg-caforange text-off-white font-semibold font-accent hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 text-sm"
                 >
                   {t('community.cta.instagram')}

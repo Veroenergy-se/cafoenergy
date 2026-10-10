@@ -67,8 +67,8 @@ export default function FAQ() {
   return (
     <>
       <Helmet>
-        <title>FAQ — CAFO Energy</title>
-        <meta name="description" content="Frequently asked questions about CAFO Energy bars. Learn about caffeine content, ingredients, shipping, and more." />
+        <title>FAQ — MOAR Bar</title>
+        <meta name="description" content="Frequently asked questions about MOAR bars. Learn about caffeine content, ingredients, shipping, and more." />
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
 
