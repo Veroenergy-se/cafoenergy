@@ -17,8 +17,8 @@ export default function TradeOff() {
   const problems = ['nutrition', 'fades', 'taste'] as const
 
   return (
-    <section className="bg-off-white text-brown py-20 lg:py-28 overflow-hidden">
-      <div className="page-container">
+    <section className="bg-off-white text-brown pb-20 lg:pb-28 overflow-hidden">
+      <div className="page-container border-t border-brown/15 pt-20 lg:pt-28">
         <p className="font-accent text-xs uppercase tracking-[0.2em] font-semibold text-caforange">
           {t('tradeoff.eyebrow')}
         </p>

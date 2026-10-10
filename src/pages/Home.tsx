@@ -17,10 +17,10 @@ export default function Home() {
       </Helmet>
       <Hero />
       <BrandMarquee />
+      <ProductCards />
       <TradeOff />
       <NutritionComparison />
       <TwoInOne />
-      <ProductCards />
       <DayTimeline />
       <StoryTeaser />
     </>
