@@ -4,10 +4,10 @@ interface Props {
   full?: boolean
 }
 
-// The logo is a transparent PNG used as a mask, so it takes the current text colour
+// The logo is an SVG used as a mask, so it takes the current text colour
 // (orange on dark, cream on orange, brown on light) instead of shipping one file per colour.
 export default function MoarLogo({ className = '', full = false }: Props) {
-  const src = full ? '/images/moar-logo.png' : '/images/moar-wordmark.png'
+  const src = full ? '/images/moar-logo.svg' : '/images/moar-wordmark.svg'
   return (
     <span
       role="img"

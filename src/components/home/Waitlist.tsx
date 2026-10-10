@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import AnimatedSection from '@/components/shared/AnimatedSection'
+import { ArrowRight } from 'lucide-react'
 
 export default function Waitlist() {
   const { t } = useTranslation()
@@ -31,45 +31,53 @@ export default function Waitlist() {
   }
 
   return (
-    <section id="waitlist" className="bg-caforange py-24 lg:py-32">
-      <div className="page-container text-center">
-        <AnimatedSection className="w-full">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading text-off-white leading-tight tracking-tight mb-4">
-            {t('waitlist.title')}
+    <section id="waitlist" className="bg-caforange text-brown py-20 lg:py-28 scroll-mt-20">
+      <div className="page-container grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-end">
+        <div>
+          <p className="font-accent text-xs uppercase tracking-[0.2em] font-semibold">{t('waitlist.eyebrow')}</p>
+          <h2 className="mt-4 font-display uppercase leading-[0.85] text-[clamp(3.5rem,9vw,8rem)]">
+            {t('waitlist.titleA')} <span className="text-off-white">{t('waitlist.titleB')}</span>
           </h2>
-          <p className="text-off-white/90 font-accent text-lg mb-12">
-            {t('waitlist.subtitle')}
-          </p>
+        </div>
+
+        <div className="lg:pb-3">
+          <p className="max-w-md text-lg leading-relaxed">{t('waitlist.subtitle')}</p>
 
           {status === 'success' ? (
-            <div className="inline-block rounded-2xl border-2 border-off-white/30 px-10 py-5">
-              <p className="text-off-white font-heading text-3xl tracking-wide">{t('waitlist.success')}</p>
-              <p className="text-off-white/60 font-accent text-sm mt-1">{t('waitlist.successSub')}</p>
+            <div className="mt-8 border-t-2 border-brown pt-5">
+              <p className="font-display uppercase text-4xl leading-none">{t('waitlist.success')}</p>
+              <p className="mt-2 text-brown/70">{t('waitlist.successSub')}</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center justify-center gap-0 max-w-xl mx-auto">
+            <form onSubmit={handleSubmit} className="mt-8 flex items-stretch border-b-2 border-brown">
+              <label htmlFor="waitlist-email" className="sr-only">Email</label>
               <input
+                id="waitlist-email"
                 type="email"
                 required
+                autoComplete="email"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
                 placeholder="your@email.com"
-                className="w-full sm:flex-1 px-6 py-4 bg-off-white/10 border-2 border-off-white/30 text-off-white placeholder-off-white/50 font-accent text-base focus:outline-none focus:border-off-white/70 transition-colors sm:border-r-0"
+                className="min-w-0 flex-1 bg-transparent py-4 text-xl sm:text-2xl placeholder-brown/45 focus:outline-none"
               />
               <button
                 type="submit"
                 disabled={status === 'loading'}
-                className="w-full sm:w-auto px-10 py-4 bg-brown text-off-white font-heading text-xl tracking-widest uppercase hover:bg-brown/90 transition-colors disabled:opacity-50 border-2 border-brown"
+                className="shrink-0 inline-flex items-center gap-2 px-5 sm:px-7 my-2 bg-brown text-off-white font-accent font-semibold text-sm uppercase tracking-[0.14em] hover:bg-off-white hover:text-brown transition-colors disabled:opacity-50"
               >
-                {status === 'loading' ? '...' : t('waitlist.cta')}
+                {status === 'loading' ? '…' : t('waitlist.cta')}
+                <ArrowRight className="w-4 h-4" />
               </button>
             </form>
           )}
 
-          {status === 'error' && (
-            <p className="mt-4 text-red-400 font-accent text-sm">{t('waitlist.error')}</p>
+          {status === 'error' ? (
+            <p className="mt-3 text-sm font-semibold">{t('waitlist.error')}</p>
+          ) : (
+            status !== 'success' && <p className="mt-3 text-sm text-brown/65">{t('waitlist.fineprint')}</p>
           )}
-        </AnimatedSection>
+        </div>
       </div>
     </section>
   )

@@ -18,7 +18,11 @@
     "subtitle": "Den rena koffeinproteinbaren. Riktig energi som varar, med naturligt koffein från guarana, protein och noll tillsatt socker.",
     "cta": "Handla Nu",
     "joinWaitlist": "GÅ MED I VÄNTELISTAN",
-    "learnMore": "Läs Mer"
+    "learnMore": "Läs Mer",
+    "lede": "Mer energi. Mer fokus. Naturligt koffein och protein i en bar, så du slipper välja mellan kaffe och mellanmål.",
+    "caffeine": "Koffein",
+    "protein": "Protein",
+    "videoAlt": "MOAR Bar-film"
   },
   "marquee": {
     "top": [
@@ -35,12 +39,15 @@
     "body": "För att dagen alltid kräver lite mer. Ett kapitel till, ett set till, en timme till. MOAR ger dig det du behöver för att orka."
   },
   "waitlist": {
-    "title": "BLI FÖRST.",
-    "subtitle": "Gå med i väntelistan — vi meddelar dig när MOAR lanseras.",
-    "cta": "GÅ MED",
+    "subtitle": "Försäljningen startar 15 november. Gå med i väntelistan så mejlar vi dig när MOAR finns att köpa.",
+    "cta": "Gå med",
     "success": "DU ÄR MED PÅ LISTAN.",
     "successSub": "Vi hör av oss snart.",
-    "error": "Något gick fel — försök igen."
+    "error": "Något gick fel — försök igen.",
+    "eyebrow": "Gå med i väntelistan",
+    "titleA": "Bli först",
+    "titleB": "när den släpps.",
+    "fineprint": "Ingen spam. Avsluta när du vill."
   },
   "waitlistPopup": {
     "eyebrow": "KOMMER SNART",
@@ -249,12 +256,14 @@
     "releaseText": "Protein och guarana tillsammans ger en jämnare kick som håller längre. De flesta känner effekten inom 20–30 minuter och håller fokus i 3–5 timmar, sedan klingar den av gradvis."
   },
   "footer": {
-    "tagline": "Den rena koffeinproteinbaren.",
-    "pages": "Sidor",
-    "legal": "Juridik",
     "social": "Socialt",
     "privacy": "Integritetspolicy",
-    "copyright": "© {{year}} MOAR Bar. Alla rättigheter förbehållna."
+    "copyright": "© {{year}} MOAR Bar. Alla rättigheter förbehållna.",
+    "explore": "Utforska",
+    "help": "Hjälp",
+    "lineA": "Mer energi.",
+    "lineB": "Mer fokus.",
+    "backToTop": "Till toppen"
   },
   "cart": {
     "title": "Din Varukorg",
