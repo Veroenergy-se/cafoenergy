@@ -1,5 +1,5 @@
 export const SITE = {
-  name: 'CAFO Energy',
+  name: 'MOAR Bar',
   domain: 'moarbar.se',
   email: 'hello@cafoenergy.se',
   ga4Id: 'G-JWFPL9ZW9R',

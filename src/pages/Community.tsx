@@ -41,8 +41,8 @@ export default function Community() {
   return (
     <>
       <Helmet>
-        <title>Community — CAFO Energy</title>
-        <meta name="description" content="Join the CAFO Energy community. Built for students, athletes, and professionals who refuse to settle." />
+        <title>Community — MOAR Bar</title>
+        <meta name="description" content="Join the MOAR Bar community. Built for students, athletes, and professionals who refuse to settle." />
       </Helmet>
 
       {/* Hero */}

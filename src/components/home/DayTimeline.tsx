@@ -1,7 +1,15 @@
 import { useRef } from 'react'
 import { useTranslation } from 'react-i18next'
-import { motion } from 'framer-motion'
-import { ArrowLeft, ArrowRight } from 'lucide-react'
+import {
+  motion,
+  useAnimationFrame,
+  useMotionValue,
+  useReducedMotion,
+  useScroll,
+  useSpring,
+  useTransform,
+  useVelocity,
+} from 'framer-motion'
 
 type Moment = { key: string; time: string; img?: string; tone?: 'orange' | 'cream' }
 
@@ -14,88 +22,90 @@ const moments: Moment[] = [
   { key: 'late', time: '02:00', tone: 'cream' },
 ]
 
-const ease = [0.25, 0.46, 0.45, 0.94] as const
+// Wraps v into [min, max) so the duplicated track loops seamlessly.
+const wrap = (min: number, max: number, v: number) => {
+  const range = max - min
+  return ((((v - min) % range) + range) % range) + min
+}
 
 export default function DayTimeline() {
   const { t } = useTranslation()
-  const track = useRef<HTMLDivElement>(null)
-  const drag = useRef<{ x: number; left: number } | null>(null)
+  const reduce = useReducedMotion()
+  const trackRef = useRef<HTMLDivElement>(null)
+  const paused = useRef(false)
+  const drag = useRef<number | null>(null)
 
-  const scrollBy = (dir: 1 | -1) => {
-    const el = track.current
-    if (!el) return
-    const card = el.querySelector('article')
-    el.scrollBy({ left: dir * ((card?.clientWidth ?? 320) + 20), behavior: 'smooth' })
-  }
+  // Same feel as the brand marquee: a slow drift that speeds up with scroll velocity.
+  const baseX = useMotionValue(0)
+  const { scrollY } = useScroll()
+  const velocity = useSpring(useVelocity(scrollY), { damping: 50, stiffness: 400 })
+  const boost = useTransform(velocity, [0, 1000], [0, 4], { clamp: false })
+  const x = useTransform(baseX, (v) => `${wrap(-50, 0, v)}%`)
 
-  // Mouse drag-to-scroll; touch devices already swipe natively.
+  useAnimationFrame((_, delta) => {
+    if (reduce || drag.current !== null) return
+    const scrollBoost = Math.abs(boost.get())
+    // Hovering pauses the idle drift so a card can be read, but scrolling still moves it.
+    const speed = paused.current ? 0.6 * scrollBoost : 0.6 * (1 + scrollBoost)
+    baseX.set(baseX.get() - speed * (delta / 1000))
+  })
+
+  // Drag to move, converting pixels to % of the (doubled) track width.
   const onPointerDown = (e: React.PointerEvent) => {
-    if (e.pointerType !== 'mouse' || !track.current) return
-    drag.current = { x: e.clientX, left: track.current.scrollLeft }
-    track.current.style.scrollSnapType = 'none'
+    drag.current = e.clientX
+    ;(e.currentTarget as HTMLElement).setPointerCapture(e.pointerId)
   }
   const onPointerMove = (e: React.PointerEvent) => {
-    if (!drag.current || !track.current) return
-    track.current.scrollLeft = drag.current.left - (e.clientX - drag.current.x)
+    if (drag.current === null || !trackRef.current) return
+    const dx = e.clientX - drag.current
+    drag.current = e.clientX
+    baseX.set(baseX.get() + (dx / trackRef.current.scrollWidth) * 100)
   }
-  const endDrag = () => {
-    if (!drag.current || !track.current) return
-    drag.current = null
-    track.current.style.scrollSnapType = ''
-  }
+  const endDrag = () => { drag.current = null }
 
   return (
-    <section className="bg-brown text-off-white py-20 lg:py-28">
-      <div className="page-container flex flex-wrap items-end justify-between gap-6">
-        <div>
-          <p className="font-accent text-xs uppercase tracking-[0.2em] font-semibold text-caforange">{t('day.eyebrow')}</p>
-          <h2 className="mt-3 font-display uppercase text-5xl sm:text-6xl lg:text-7xl leading-[0.9]">{t('day.title')}</h2>
-        </div>
-        <div className="flex gap-2">
-          <button onClick={() => scrollBy(-1)} aria-label={t('day.prev')} className="w-12 h-12 grid place-items-center border border-off-white/30 hover:bg-caforange hover:border-caforange transition-colors">
-            <ArrowLeft className="w-5 h-5" />
-          </button>
-          <button onClick={() => scrollBy(1)} aria-label={t('day.next')} className="w-12 h-12 grid place-items-center border border-off-white/30 hover:bg-caforange hover:border-caforange transition-colors">
-            <ArrowRight className="w-5 h-5" />
-          </button>
-        </div>
+    <section className="bg-brown text-off-white py-20 lg:py-28 overflow-hidden">
+      <div className="page-container">
+        <p className="font-accent text-xs uppercase tracking-[0.2em] font-semibold text-caforange">{t('day.eyebrow')}</p>
+        <h2 className="mt-3 font-display uppercase text-5xl sm:text-6xl lg:text-7xl leading-[0.9]">{t('day.title')}</h2>
       </div>
 
       <div
-        ref={track}
+        className="mt-10 cursor-grab active:cursor-grabbing select-none touch-pan-y"
+        onPointerEnter={(e) => { if (e.pointerType === 'mouse') paused.current = true }}
+        onPointerLeave={() => { paused.current = false; endDrag() }}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={endDrag}
-        onPointerLeave={endDrag}
-        className="page-container mt-10 flex gap-5 overflow-x-auto snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden cursor-grab active:cursor-grabbing select-none"
+        onPointerCancel={endDrag}
       >
-        {moments.map((m, i) => {
-          const photo = Boolean(m.img)
-          const bg = m.tone === 'orange' ? 'bg-caforange text-brown' : m.tone === 'cream' ? 'bg-off-white text-brown' : 'text-off-white'
-          return (
-            <motion.article
-              key={m.key}
-              className={`relative shrink-0 snap-start w-[78vw] max-w-[360px] aspect-[3/4] overflow-hidden flex flex-col justify-end p-6 ${bg}`}
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.5, delay: Math.min(i, 3) * 0.08, ease }}
-            >
-              {photo && (
-                <>
-                  <img src={m.img} alt="" draggable={false} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-brown/90" />
-                </>
-              )}
-              <div className="relative">
-                <span className={`block font-display leading-none ${photo ? 'text-6xl' : 'text-8xl'}`}>{m.time}</span>
-                <h3 className="mt-2 font-display uppercase text-2xl leading-none">{t(`day.moments.${m.key}.title`)}</h3>
-                <p className={`mt-3 text-[15px] leading-relaxed ${photo ? 'text-off-white/85' : 'opacity-80'}`}>{t(`day.moments.${m.key}.body`)}</p>
-              </div>
-            </motion.article>
-          )
-        })}
-        <div className="shrink-0 w-px" aria-hidden="true" />
+        <motion.div ref={trackRef} style={{ x }} className="flex w-max">
+          {[0, 1].map((copy) =>
+            moments.map((m) => {
+              const photo = Boolean(m.img)
+              const bg = m.tone === 'orange' ? 'bg-caforange text-brown' : m.tone === 'cream' ? 'bg-off-white text-brown' : 'text-off-white'
+              return (
+                <article
+                  key={`${copy}-${m.key}`}
+                  aria-hidden={copy === 1 || undefined}
+                  className={`relative shrink-0 mr-5 w-[72vw] max-w-[340px] aspect-[3/4] overflow-hidden flex flex-col justify-end p-6 ${bg}`}
+                >
+                  {photo && (
+                    <>
+                      <img src={m.img} alt="" draggable={false} loading="lazy" className="absolute inset-0 w-full h-full object-cover pointer-events-none" />
+                      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-brown/90" />
+                    </>
+                  )}
+                  <div className="relative">
+                    <span className={`block font-display leading-none ${photo ? 'text-6xl' : 'text-8xl'}`}>{m.time}</span>
+                    <h3 className="mt-2 font-display uppercase text-2xl leading-none">{t(`day.moments.${m.key}.title`)}</h3>
+                    <p className={`mt-3 text-[15px] leading-relaxed ${photo ? 'text-off-white/85' : 'opacity-80'}`}>{t(`day.moments.${m.key}.body`)}</p>
+                  </div>
+                </article>
+              )
+            }),
+          )}
+        </motion.div>
       </div>
     </section>
   )

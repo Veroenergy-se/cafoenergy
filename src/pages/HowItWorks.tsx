@@ -17,7 +17,7 @@ export default function HowItWorks() {
   return (
     <>
       <Helmet>
-        <title>How It Works — CAFO Energy</title>
+        <title>How It Works — MOAR Bar</title>
         <meta name="description" content="The science behind MOAR Bar. Natural caffeine from guarana, protein and fibre: how they work together for sustained focus." />
       </Helmet>
 
@@ -86,7 +86,7 @@ export default function HowItWorks() {
           <AnimatedSection>
             <div className="max-w-2xl mx-auto">
               <h2 className="text-5xl font-heading">Ready to Focus?</h2>
-              <p className="mt-4 text-brown/60 text-lg">Experience clean, sustained energy with CAFO.</p>
+              <p className="mt-4 text-brown/60 text-lg">Experience clean, sustained energy with MOAR.</p>
               <a
                 href="/shop"
                 className="mt-8 inline-flex px-8 py-4 bg-caforange text-off-white font-semibold font-accent hover:-translate-y-1 hover:shadow-xl transition-all duration-300"

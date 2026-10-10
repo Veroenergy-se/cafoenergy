@@ -36,7 +36,7 @@
   },
   "waitlist": {
     "title": "BE THE FIRST.",
-    "subtitle": "Join the waitlist — we'll let you know the moment CAFO drops.",
+    "subtitle": "Join the waitlist — we'll let you know the moment MOAR drops.",
     "cta": "JOIN",
     "success": "YOU'RE ON THE LIST.",
     "successSub": "We'll be in touch soon.",
@@ -77,8 +77,8 @@
     "subscribeLink": "Subscribe and save up to 20%"
   },
   "shop": {
-    "metaTitle": "Shop — CAFO Energy",
-    "metaDescription": "Shop CAFO caffeinated protein bars. One-time or monthly subscription. Free shipping on orders over 499 kr.",
+    "metaTitle": "Shop — MOAR Bar",
+    "metaDescription": "Shop MOAR caffeinated protein bars. One-time or monthly subscription. Free shipping on orders over 499 kr.",
     "monthlySubscription": "Monthly Subscription",
     "saveRange": "Save 10–20%",
     "oneTime": "One-Time",
@@ -115,7 +115,7 @@
     "stillDecidingText": "Start with the 12-bar pack. If it doesn't become your go-to, nothing will.",
     "tryStarterPack": "Try the starter pack",
     "starterEyebrow": "Try it",
-    "starterPitch": "First time with CAFO? This is where you start.",
+    "starterPitch": "First time with MOAR? This is where you start.",
     "duoPitch": "The one most people stick with. Two weeks of clean focus.",
     "familyPitch": "A full month of bars, lowest cost per bar we offer.",
     "step1Title": "Pick your plan.",
@@ -133,10 +133,10 @@
     "proteinDesc": "14g of plant-based protein to keep you fueled and focused.",
     "sugarTitle": "Zero Added Sugar",
     "sugarDesc": "No sugar crashes. No artificial sweeteners. Just clean energy.",
-    "comparisonTitle": "How CAFO Compares",
+    "comparisonTitle": "How MOAR Compares",
     "vsCoffee": "Coffee",
     "vsEnergy": "Energy Drinks",
-    "vsCafo": "CAFO Bar",
+    "vsCafo": "MOAR",
     "winsTitle": "Why MOAR wins.",
     "whatsInside": "What's Inside",
     "rows": {
@@ -146,19 +146,25 @@
       "caffeine": "CAFFEINE",
       "fiber": "FIBER"
     },
-    "footnote": "MOAR values per 55 g bar from our nutrition declaration. Coffee: a standard 240 ml cup of black coffee. Energy drink sugar and carbs: a standard 250 ml can (e.g. Red Bull); caffeine is a rounded average across major brands (Red Bull, Monster, Celsius, Reign, Bang).",
+    "footnote": "MOAR values per 55 g bar from our nutrition declaration. Protein bar: Barebells Salty Peanut, 55 g bar (EU label). Coffee: a standard 240 ml cup of black coffee. Energy drink sugar and carbs: a standard 250 ml can (e.g. Red Bull); caffeine is a rounded average across major brands (Red Bull, Monster, Celsius, Reign, Bang).",
     "eyebrow": "Side by side",
     "per": {
       "moar": "per 55 g bar",
       "energy": "per 250 ml can",
-      "coffee": "per 240 ml cup"
+      "coffee": "per 240 ml cup",
+      "bar": "per 55 g bar"
     },
     "fiberTitle": "Fibre",
-    "fiberDesc": "3g of fibre slows digestion, so the energy comes on steadily instead of all at once."
+    "fiberDesc": "3g of fibre slows digestion, so the energy comes on steadily instead of all at once.",
+    "vs": {
+      "bar": "Protein bar",
+      "energy": "Energy drink",
+      "coffee": "Coffee"
+    }
   },
   "story": {
     "title": "Three Brothers. One Mission.",
-    "subtitle": "We built CAFO because we needed it ourselves. As students, we were tired of choosing between junk food energy and overpriced coffee.",
+    "subtitle": "We built MOAR because we needed it ourselves. As students, we were tired of choosing between junk food energy and overpriced coffee.",
     "cta": "Read Our Story"
   },
   "community": {
@@ -176,7 +182,7 @@
     "story": {
       "eyebrow": "Our story",
       "heading": "Built to go further.",
-      "p1": "CAFO started with one question: why does performance food taste like chalk? Three founders, one kitchen, one flavour we refused to compromise on.",
+      "p1": "MOAR started with one question: why does performance food taste like chalk? Three founders, one kitchen, one flavour we refused to compromise on.",
       "p2": "90mg caffeine. 14g plant protein. Zero added sugar. Everything there for a reason — nothing that isn't."
     },
     "quote": "Built for the ones who go all in.",
@@ -189,7 +195,7 @@
       },
       "v2": {
         "title": "Go all in.",
-        "body": "Half-effort gets half-results. CAFO is for people who don't do things halfway."
+        "body": "Half-effort gets half-results. MOAR is for people who don't do things halfway."
       },
       "v3": {
         "title": "No shortcuts.",
@@ -218,7 +224,7 @@
     "journeyText": "We spent over a year perfecting our formula — pairing natural caffeine from guarana with real protein and fibre, and eliminating every ingredient we didn't believe in. The result is MOAR: one flavour, perfected.",
     "teamTitle": "Meet The Team",
     "missionTitle": "Built For Ambitious Minds",
-    "missionText": "CAFO is designed for anyone who refuses to compromise on what they put in their body. For students cramming for exams. For professionals pushing through deadlines. For anyone who needs real energy that lasts."
+    "missionText": "MOAR is designed for anyone who refuses to compromise on what they put in their body. For students cramming for exams. For professionals pushing through deadlines. For anyone who needs real energy that lasts."
   },
   "contact": {
     "title": "Get In Touch",
@@ -248,7 +254,7 @@
     "legal": "Legal",
     "social": "Social",
     "privacy": "Privacy Policy",
-    "copyright": "© {{year}} CAFO Energy. All rights reserved."
+    "copyright": "© {{year}} MOAR Bar. All rights reserved."
   },
   "cart": {
     "title": "Your Cart",
@@ -264,7 +270,7 @@
   "checkout": {
     "title": "CHECKOUT",
     "emptyTitle": "Cart is Empty",
-    "emptyText": "Add some CAFO bars to your cart first!",
+    "emptyText": "Add some MOAR bars to your cart first!",
     "shopNow": "Shop Now",
     "orderSummary": "ORDER SUMMARY",
     "subtotal": "Subtotal",
@@ -292,17 +298,17 @@
   },
   "faq": {
     "title": "FREQUENTLY ASKED",
-    "subtitle": "Everything you need to know about CAFO Energy",
+    "subtitle": "Everything you need to know about MOAR Bar",
     "ctaTitle": "STILL HAVE QUESTIONS?",
     "ctaText": "We're happy to help. Reach out and we'll get back to you.",
     "ctaButton": "Contact Us",
-    "q1": "How much caffeine is in a CAFO bar?",
+    "q1": "How much caffeine is in a MOAR bar?",
     "a1": "Each bar contains 90mg of natural caffeine from guarana — roughly the same as a cup of coffee. Because it comes in a bar with protein and fibre, it's absorbed more gradually, so you get steady, focused energy rather than a sharp spike. No crash.",
     "q2": "Can I eat more than one bar a day?",
     "a2": "Yes — that's kind of the point. At 90mg per bar, you can have three across the day and land at 270mg total, which is well within the FDA's recommended limit of 400mg. Morning, midday, pre-workout: each bar fits cleanly into your routine without pushing you over.",
     "q3": "How long does the energy last?",
     "a3": "Most people feel the effect within 20–30 minutes and sustain it for 3–5 hours. Because the caffeine comes with protein and fibre, absorption is steadier than coffee or energy drinks — so the energy tapers off gradually instead of cutting out suddenly.",
-    "q4": "When's the best time to eat a CAFO bar?",
+    "q4": "When's the best time to eat a MOAR bar?",
     "a4": "15–30 minutes before you need to be on. That means before a study session, before training, during a long drive, or as an afternoon pick-me-up. One rule: try not to eat it after 3pm if you're sensitive to caffeine — the half-life means it'll still be partly active at bedtime.",
     "q5": "How does it compare to energy drinks?",
     "a5": "Energy drinks give you caffeine plus a lot of things you don't need — sugar, artificial sweeteners, synthetic stimulants, colours. A MOAR bar gives you 90mg natural caffeine, 14g protein, and 3g fibre. It's food that works, not a drink engineered to taste like a science experiment.",
@@ -340,17 +346,18 @@
     }
   },
   "twoInOne": {
-    "eyebrow": "The 3 pm fix",
+    "eyebrow": "The afternoon slump",
     "a": "Coffee",
     "b": "Snack",
-    "body": "One bar replaces two purchases. 90 mg of natural caffeine and 14 g of protein: the coffee and the snack, in your pocket.",
-    "alt": "MOAR Bar wrapper, salted caramel"
+    "body": "Around 3 pm your focus dips and you reach for a coffee and something to eat. MOAR is both in one bar: 90 mg of natural caffeine and 14 g of protein.",
+    "alt": "MOAR Bar wrapper, salted caramel",
+    "titleA": "The",
+    "titleB": "3 PM",
+    "titleC": "fix."
   },
   "day": {
     "eyebrow": "One bar, every moment",
     "title": "Built for long days.",
-    "prev": "Previous moment",
-    "next": "Next moment",
     "moments": {
       "study": {
         "title": "Exam mornings",

@@ -8,7 +8,7 @@ import LanguageSwitcher from '@/components/shared/LanguageSwitcher'
 import MoarLogo from '@/components/shared/MoarLogo'
 
 const navLinks = [
-  { key: 'nav.bar', path: '/shop' },
+  { key: 'nav.shop', path: '/shop' },
   { key: 'nav.science', path: '/how-it-works' },
   { key: 'nav.community', path: '/community' },
   { key: 'nav.about', path: '/about' },

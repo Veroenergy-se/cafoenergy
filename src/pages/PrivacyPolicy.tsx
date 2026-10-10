@@ -5,7 +5,7 @@ export default function PrivacyPolicy() {
   return (
     <>
       <Helmet>
-        <title>Privacy Policy — CAFO Energy</title>
+        <title>Privacy Policy — MOAR Bar</title>
       </Helmet>
 
       <section className="bg-off-white py-32 text-center">
@@ -21,7 +21,7 @@ export default function PrivacyPolicy() {
             <div className="space-y-8 text-near-black/70 leading-relaxed">
               <div>
                 <h2 className="text-2xl font-heading text-near-black mb-4">1. Introduction</h2>
-                <p>CAFO Energy ("we", "us", "our") respects your privacy and is committed to protecting your personal data. This privacy policy explains how we collect, use, and safeguard your information when you visit cafoenergy.se.</p>
+                <p>MOAR Bar ("we", "us", "our") respects your privacy and is committed to protecting your personal data. This privacy policy explains how we collect, use, and safeguard your information when you visit cafoenergy.se.</p>
               </div>
 
               <div>

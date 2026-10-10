@@ -30,7 +30,7 @@ export default function StoryTeaser() {
             <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-brown/5">
               <img
                 src="/images/founders.jpg"
-                alt="CAFO Energy founders"
+                alt="MOAR Bar founders"
                 className="w-full h-full object-cover opacity-90 hover:opacity-100 hover:scale-105 transition-all duration-500"
               />
             </div>
