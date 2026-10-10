@@ -6,7 +6,10 @@
     "about": "Our Story",
     "contact": "Contact",
     "getEnergized": "Get Energized",
-    "freeShipping": "Free shipping on orders over {{amount}}"
+    "freeShipping": "Free shipping on orders over {{amount}}",
+    "bar": "The bar",
+    "science": "The science",
+    "joinWaitlist": "Join waitlist"
   },
   "hero": {
     "title": "THE CAFFEINATED PROTEIN BAR",
@@ -133,7 +136,7 @@
     "vsCoffee": "Coffee",
     "vsEnergy": "Energy Drinks",
     "vsCafo": "CAFO Bar",
-    "winsTitle": "WHY CAFO WINS. EVERY TIME.",
+    "winsTitle": "Why MOAR wins.",
     "whatsInside": "What's Inside",
     "rows": {
       "protein": "PROTEIN",
@@ -142,7 +145,13 @@
       "caffeine": "CAFFEINE",
       "fiber": "FIBER"
     },
-    "footnote": "*CAFO values per 55g bar, from our current nutrition declaration. Coffee values are for a standard 240ml (8oz) black cup. Energy drink sugar/carbs are for a standard 250ml can (e.g. Red Bull); caffeine is a rounded average across major brands (Red Bull, Monster, Celsius, Reign, Bang)."
+    "footnote": "MOAR values per 55 g bar from our nutrition declaration. Coffee: a standard 240 ml cup of black coffee. Energy drink sugar and carbs: a standard 250 ml can (e.g. Red Bull); caffeine is a rounded average across major brands (Red Bull, Monster, Celsius, Reign, Bang).",
+    "eyebrow": "Side by side",
+    "per": {
+      "moar": "per 55 g bar",
+      "energy": "per 250 ml can",
+      "coffee": "per 240 ml cup"
+    }
   },
   "testimonials": {
     "title": "For The Days That Matter",
@@ -315,5 +324,74 @@
     "a5": "Energy drinks give you caffeine plus a lot of things you don't need — sugar, artificial sweeteners, synthetic stimulants, colours. A CAFO bar gives you 80mg natural caffeine, 14g protein, and 3g fibre. It's food that works, not a drink engineered to taste like a science experiment.",
     "q6": "When will I receive my order?",
     "a6": "We're currently in pre-launch and taking waitlist signups. Once we ship, orders within Sweden will arrive within 2–4 business days. European shipping will follow shortly after launch — sign up to be the first to know when your country goes live."
+  },
+  "tradeoff": {
+    "eyebrow": "The problem",
+    "title": "Every energy option makes you choose.",
+    "nutrition": {
+      "lead": "High energy",
+      "rest": "lacks nutrition",
+      "body": "Energy drinks give you caffeine but no food, so you're still hungry."
+    },
+    "fades": {
+      "lead": "Fast energy",
+      "rest": "fades fast",
+      "body": "Quick-acting caffeine gives you a short burst, then wears off."
+    },
+    "taste": {
+      "lead": "Functional food",
+      "rest": "tastes worse",
+      "body": "Products built for function ask you to accept a worse taste."
+    },
+    "mapTitle": "So we built the bar for the empty corner.",
+    "mapBody": "Energy, food and flavour in one. Protein and caffeine together give you a flatter lift that lasts longer, and enough food to keep you full.",
+    "axisX": "Energy (caffeine)",
+    "axisY": "Nutrition (protein)",
+    "corner": "High energy + high nutrition",
+    "items": {
+      "proteinBars": "Protein bars",
+      "candy": "Candy & snacks",
+      "coffee": "Coffee",
+      "energyDrinks": "Energy drinks"
+    }
+  },
+  "twoInOne": {
+    "eyebrow": "The 3 pm fix",
+    "a": "Coffee",
+    "b": "Snack",
+    "body": "One bar replaces two purchases. 90 mg of natural caffeine and 14 g of protein: the coffee and the snack, in your pocket.",
+    "alt": "MOAR Bar wrapper, salted caramel"
+  },
+  "day": {
+    "eyebrow": "One bar, every moment",
+    "title": "Built for long days.",
+    "prev": "Previous moment",
+    "next": "Next moment",
+    "moments": {
+      "study": {
+        "title": "Exam mornings",
+        "body": "Eat one 30 minutes before you sit down. Focus for the whole exam, no crash halfway through."
+      },
+      "mountain": {
+        "title": "Mountain days",
+        "body": "Fuel that fits in a jacket pocket, from the first lift to the last run."
+      },
+      "slump": {
+        "title": "The 3 pm slump",
+        "body": "Your coffee and your snack in one. Have it before 3 pm and it won't touch your sleep."
+      },
+      "pregame": {
+        "title": "Pre-game",
+        "body": "30–45 minutes before. Caffeine lowers perceived effort, and 14 g of protein starts recovery."
+      },
+      "going": {
+        "title": "Still going",
+        "body": "For the days that don't end when the office does."
+      },
+      "late": {
+        "title": "Late nights",
+        "body": "Get past the 2 am wall with real food in you, not just caffeine."
+      }
+    }
   }
 }

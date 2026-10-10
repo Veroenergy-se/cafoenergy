@@ -6,7 +6,10 @@
     "about": "Vår Berättelse",
     "contact": "Kontakt",
     "getEnergized": "Kom igång",
-    "freeShipping": "Fri frakt på beställningar över {{amount}}"
+    "freeShipping": "Fri frakt på beställningar över {{amount}}",
+    "bar": "Baren",
+    "science": "Vetenskapen",
+    "joinWaitlist": "Väntelistan"
   },
   "hero": {
     "title": "DEN KOFFEINBERIKADE PROTEINBAREN",
@@ -133,7 +136,7 @@
     "vsCoffee": "Kaffe",
     "vsEnergy": "Energidrycker",
     "vsCafo": "CAFO Bar",
-    "winsTitle": "VARFÖR CAFO VINNER. VARJE GÅNG.",
+    "winsTitle": "Därför vinner MOAR.",
     "whatsInside": "Vad Som Ingår",
     "rows": {
       "protein": "PROTEIN",
@@ -142,7 +145,13 @@
       "caffeine": "KOFFEIN",
       "fiber": "FIBER"
     },
-    "footnote": "*CAFO-värden per 55g bar, från vår nuvarande näringsdeklaration. Kaffevärden gäller en standard kopp (240 ml) svart kaffe. Socker/kolhydrater för energidrycker gäller en standard 250 ml burk (t.ex. Red Bull); koffeinhalten är ett avrundat genomsnitt över stora varumärken (Red Bull, Monster, Celsius, Reign, Bang)."
+    "footnote": "MOAR-värden per 55 g bar enligt vår näringsdeklaration. Kaffe: en vanlig kopp svart kaffe (240 ml). Socker och kolhydrater för energidryck: en vanlig burk på 250 ml (t.ex. Red Bull); koffein är ett avrundat snitt för stora märken (Red Bull, Monster, Celsius, Reign, Bang).",
+    "eyebrow": "Sida vid sida",
+    "per": {
+      "moar": "per 55 g bar",
+      "energy": "per 250 ml burk",
+      "coffee": "per 240 ml kopp"
+    }
   },
   "testimonials": {
     "title": "För Dagarna Som Räknas",
@@ -315,5 +324,74 @@
     "a5": "Energidrycker ger dig koffein plus mycket du inte behöver — socker, konstgjorda sötningsmedel, syntetiska stimulantia, färgämnen. En CAFO-bar ger dig 80 mg naturligt koffein, 14 g protein och 3 g fiber. Det är mat som fungerar, inte en dryck konstruerad för att smaka som ett science experiment.",
     "q6": "När får jag min beställning?",
     "a6": "Vi är för närvarande i pre-lansering och tar emot intresseanmälningar. När vi lanserar levereras beställningar inom Sverige på 2–4 vardagar. Europeisk frakt följer strax efter lansering — anmäl dig för att vara först att veta när ditt land går live."
+  },
+  "tradeoff": {
+    "eyebrow": "Problemet",
+    "title": "Varje energikälla tvingar dig att välja.",
+    "nutrition": {
+      "lead": "Mycket energi",
+      "rest": "saknar näring",
+      "body": "Energidrycker ger koffein men ingen mat, så du är fortfarande hungrig."
+    },
+    "fades": {
+      "lead": "Snabb energi",
+      "rest": "försvinner snabbt",
+      "body": "Snabbverkande koffein ger en kort kick som sedan klingar av."
+    },
+    "taste": {
+      "lead": "Funktionell mat",
+      "rest": "smakar sämre",
+      "body": "Produkter byggda för funktion ber dig acceptera sämre smak."
+    },
+    "mapTitle": "Så vi byggde baren för det tomma hörnet.",
+    "mapBody": "Energi, mat och smak i ett. Protein och koffein tillsammans ger en jämnare kick som håller längre, och tillräckligt med mat för att hålla dig mätt.",
+    "axisX": "Energi (koffein)",
+    "axisY": "Näring (protein)",
+    "corner": "Mycket energi + mycket näring",
+    "items": {
+      "proteinBars": "Proteinbars",
+      "candy": "Godis & snacks",
+      "coffee": "Kaffe",
+      "energyDrinks": "Energidrycker"
+    }
+  },
+  "twoInOne": {
+    "eyebrow": "Lösningen klockan 15",
+    "a": "Kaffe",
+    "b": "Snack",
+    "body": "En bar ersätter två köp. 90 mg naturligt koffein och 14 g protein: kaffet och mellanmålet, i fickan.",
+    "alt": "MOAR Bar-förpackning, salted caramel"
+  },
+  "day": {
+    "eyebrow": "En bar, varje stund",
+    "title": "Byggd för långa dagar.",
+    "prev": "Föregående",
+    "next": "Nästa",
+    "moments": {
+      "study": {
+        "title": "Tentamorgon",
+        "body": "Ät en 30 minuter innan du sätter dig. Fokus hela tentan, ingen krasch halvvägs."
+      },
+      "mountain": {
+        "title": "Dagar i backen",
+        "body": "Energi som får plats i jackfickan, från första liften till sista åket."
+      },
+      "slump": {
+        "title": "Dippen klockan 15",
+        "body": "Kaffet och mellanmålet i ett. Ät den före 15 så påverkar den inte sömnen."
+      },
+      "pregame": {
+        "title": "Före match",
+        "body": "30–45 minuter innan. Koffein sänker upplevd ansträngning och 14 g protein startar återhämtningen."
+      },
+      "going": {
+        "title": "Fortfarande igång",
+        "body": "För dagarna som inte tar slut när kontoret stänger."
+      },
+      "late": {
+        "title": "Sena kvällar",
+        "body": "Ta dig förbi 02-väggen med riktig mat i magen, inte bara koffein."
+      }
+    }
   }
 }
