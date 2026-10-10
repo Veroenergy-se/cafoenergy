@@ -15,7 +15,7 @@
     "title": "DEN KOFFEINBERIKADE PROTEINBAREN",
     "titleLine1": "DEN KOFFEINBERIKADE",
     "titleLine2": "PROTEINBAREN",
-    "subtitle": "Den rena koffeinproteinbaren. Riktig energi som varar, med grönt te-koffein, protein och noll tillsatt socker.",
+    "subtitle": "Den rena koffeinproteinbaren. Riktig energi som varar, med naturligt koffein från guarana, protein och noll tillsatt socker.",
     "cta": "Handla Nu",
     "joinWaitlist": "GÅ MED I VÄNTELISTAN",
     "learnMore": "Läs Mer"
@@ -128,13 +128,11 @@
   "nutrition": {
     "title": "Vad Som Gör Den Perfekt",
     "caffeineTitle": "Naturligt Koffein",
-    "caffeineDesc": "80mg från grönt te-extrakt för ren, ihållande energi utan nervositet.",
+    "caffeineDesc": "90mg naturligt koffein från guarana för jämn energi som håller.",
     "proteinTitle": "Växtprotein",
     "proteinDesc": "14g växtbaserat protein för att hålla dig påfylld och fokuserad.",
     "sugarTitle": "Noll Tillsatt Socker",
     "sugarDesc": "Inga sockerkrascher. Inga artificiella sötningsmedel. Bara ren energi.",
-    "ltheanineTitle": "L-Teanin",
-    "ltheanineDesc": "Främjar lugnt fokus och förbättrad koncentration, perfekt kombinerat med koffein.",
     "comparisonTitle": "Hur CAFO Jämför Sig",
     "vsCoffee": "Kaffe",
     "vsEnergy": "Energidrycker",
@@ -154,26 +152,9 @@
       "moar": "per 55 g bar",
       "energy": "per 250 ml burk",
       "coffee": "per 240 ml kopp"
-    }
-  },
-  "testimonials": {
-    "title": "För Dagarna Som Räknas",
-    "study": {
-      "title": "Pluggpass",
-      "description": "Ät en 30 minuter innan du sätter dig. 80mg koffein håller fokus i 3–5 timmar — ingen krasch mitt i tentan."
     },
-    "work": {
-      "title": "Kontorsdagar",
-      "description": "Ät en vid lunch för att slå eftermiddagsdippen mellan 13 och 15. Ät innan kl 15 så stör det inte nattsömnen."
-    },
-    "lateNights": {
-      "title": "Sena Kvällar",
-      "description": "Slå 02:00-muren utan skakningar. L-teanin tar bort nervositeten som ren koffein annars ger."
-    },
-    "sports": {
-      "title": "Sport",
-      "description": "Ät 30–45 minuter före pass. Koffeinet sänker upplevd ansträngning, 14g protein startar återhämtningen direkt."
-    }
+    "fiberTitle": "Fiber",
+    "fiberDesc": "3g fiber saktar ner matsmältningen, så energin kommer jämnt istället för på en gång."
   },
   "story": {
     "title": "Tre Bröder. Ett Uppdrag.",
@@ -196,7 +177,7 @@
       "eyebrow": "Vår historia",
       "heading": "Byggt för att gå längre.",
       "p1": "CAFO startade med en fråga: varför smakar prestationsmat som krita? Tre grundare, ett kök, en smak vi vägrade kompromissa med.",
-      "p2": "80mg koffein. 14g växtprotein. Noll tillsatt socker. Allt är där av en anledning — inget som inte är det."
+      "p2": "90mg koffein. 14g växtprotein. Noll tillsatt socker. Allt är där av en anledning — inget som inte är det."
     },
     "quote": "Byggt för dem som ger allt.",
     "values": {
@@ -234,7 +215,7 @@
     "foundersTitle": "Tre Bröder. Bygger En Rörelse.",
     "foundersText": "Det som började som en frustration över energialternativen som fanns tillgängliga för oss som studenter blev ett uppdrag att skapa något bättre. Inga fler sockerkrascher. Inga fler nervösa kafferundor. Bara ren, ihållande energi i fickan.",
     "journeyTitle": "Resan Börjar",
-    "journeyText": "Vi spenderade över ett år på att perfektionera vår formel — balanserade grönt te-koffein med L-teanin, kombinerade växtprotein med fiber och eliminerade varje ingrediens vi inte trodde på. Resultatet är CAFO: en smak, perfektionerad.",
+    "journeyText": "Vi spenderade över ett år på att perfektionera vår formel — kombinerade naturligt koffein från guarana med riktigt protein och fiber, och eliminerade varje ingrediens vi inte trodde på. Resultatet är MOAR: en smak, perfektionerad.",
     "teamTitle": "Möt Teamet",
     "missionTitle": "Byggt För Ambitiösa Sinnen",
     "missionText": "CAFO är designat för alla som vägrar kompromissa med vad de stoppar i kroppen. För studenter som pluggar inför tentor. För yrkesverksamma som pressar genom deadlines. För alla som behöver riktig energi som varar."
@@ -252,14 +233,14 @@
   "howItWorks": {
     "title": "SÅ FUNGERAR DET",
     "subtitle": "Vetenskapen bakom ihållande fokus",
-    "caffeineTitle": "Grönt Te-Koffein",
-    "caffeineText": "Till skillnad från syntetiskt koffein i energidrycker kommer våra 80mg från grönt te-extrakt. Det absorberas mer gradvis och ger en jämn energikurva istället för en topp-och-krasch.",
-    "ltheanineTitle": "L-Teanin Synergi",
-    "ltheanineText": "L-teanin arbetar med koffein för att främja fokuserad vakenhet utan ångest. Denna kombination har studerats utförligt — den förbättrar uppmärksamhet och minskar de negativa biverkningarna av enbart koffein.",
+    "caffeineTitle": "Koffein Från Guarana",
+    "caffeineText": "Våra 90mg koffein kommer från guarana, en naturlig källa. Eftersom du äter det tillsammans med protein och fiber istället för att dricka det tas det upp mer gradvis än kaffe eller energidryck, så du får en jämn kick istället för topp och krasch.",
     "proteinTitle": "Ihållande Bränsle",
     "proteinText": "14g växtprotein och 3g fiber saktar ner matsmältningen och skapar en stadig frisättning av energi. Inga blodsockertoppar, inga krascher — bara timmar av ihållande fokus.",
     "lowGiTitle": "Lågt Glykemiskt Index",
-    "lowGiText": "Vår formel är designad med ett lågt glykemiskt index, vilket innebär att den inte höjer ditt blodsocker. Det håller din energi stabil och ditt sinne skarpt."
+    "lowGiText": "Vår formel är designad med ett lågt glykemiskt index, vilket innebär att den inte höjer ditt blodsocker. Det håller din energi stabil och ditt sinne skarpt.",
+    "releaseTitle": "Långsammare Frisättning",
+    "releaseText": "Protein och guarana tillsammans ger en jämnare kick som håller längre. De flesta känner effekten inom 20–30 minuter och håller fokus i 3–5 timmar, sedan klingar den av gradvis."
   },
   "footer": {
     "tagline": "Den rena koffeinproteinbaren.",
@@ -316,15 +297,15 @@
     "ctaText": "Vi hjälper gärna till. Hör av dig så återkommer vi.",
     "ctaButton": "Kontakta Oss",
     "q1": "Hur mycket koffein innehåller en CAFO-bar?",
-    "a1": "Varje bar innehåller 80 mg naturligt koffein från grönt te-extrakt — ungefär lika mycket som en kopp kaffe, men mjukare. Koffeinet kombineras med L-teanin, vilket ger ett lugnt och fokuserat energipåslag utan skarp topp. Inga nerver. Ingen krasch.",
+    "a1": "Varje bar innehåller 90 mg naturligt koffein från guarana — ungefär lika mycket som en kopp kaffe. Eftersom det kommer i en bar med protein och fiber tas det upp mer gradvis, så du får jämn, fokuserad energi istället för en skarp topp. Ingen krasch.",
     "q2": "Kan jag äta mer än en bar per dag?",
-    "a2": "Ja — det är lite poängen. Med 80 mg per bar kan du äta tre under dagen och landa på 240 mg totalt, vilket är väl inom FDAs rekommenderade gräns på 400 mg. Morgon, middag, träning: varje bar passar in i din rutin utan att du går över.",
+    "a2": "Ja — det är lite poängen. Med 90 mg per bar kan du äta tre under dagen och landa på 270 mg totalt, vilket är väl inom FDA:s rekommenderade gräns på 400 mg. Morgon, lunch, före träning: varje bar passar in i din rutin utan att du går över.",
     "q3": "Hur länge håller energin i sig?",
-    "a3": "De flesta känner effekten inom 20–30 minuter och håller den i 3–5 timmar. Eftersom koffeinet kommer från grönt te och kombineras med protein och fiber sker absorptionen jämnare än kaffe eller energidrycker — energin avtar gradvis istället för att klippas av plötsligt.",
+    "a3": "De flesta känner effekten inom 20–30 minuter och håller den i 3–5 timmar. Eftersom koffeinet kommer tillsammans med protein och fiber sker upptaget jämnare än med kaffe eller energidryck — så energin klingar av gradvis istället för att ta slut tvärt.",
     "q4": "När är det bäst att äta en CAFO-bar?",
     "a4": "15–30 minuter innan du behöver vara i gång. Det kan vara före ett pluggpass, inför träning, under en lång bilresa eller som en eftermiddagshöjare. En regel: försök att inte äta den efter klockan 15 om du är känslig för koffein — halveringstiden innebär att det fortfarande är delvis aktivt vid sänggåendet.",
     "q5": "Hur jämförs den med energidrycker?",
-    "a5": "Energidrycker ger dig koffein plus mycket du inte behöver — socker, konstgjorda sötningsmedel, syntetiska stimulantia, färgämnen. En CAFO-bar ger dig 80 mg naturligt koffein, 14 g protein och 3 g fiber. Det är mat som fungerar, inte en dryck konstruerad för att smaka som ett science experiment.",
+    "a5": "Energidrycker ger dig koffein plus mycket du inte behöver — socker, konstgjorda sötningsmedel, syntetiska stimulantia, färgämnen. En MOAR-bar ger dig 90 mg naturligt koffein, 14 g protein och 3 g fiber. Det är mat som fungerar, inte en dryck som smakar som ett vetenskapsexperiment.",
     "q6": "När får jag min beställning?",
     "a6": "Vi är för närvarande i pre-lansering och tar emot intresseanmälningar. När vi lanserar levereras beställningar inom Sverige på 2–4 vardagar. Europeisk frakt följer strax efter lansering — anmäl dig för att vara först att veta när ditt land går live."
   },
