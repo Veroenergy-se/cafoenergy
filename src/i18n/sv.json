@@ -17,6 +17,20 @@
     "joinWaitlist": "GÅ MED I VÄNTELISTAN",
     "learnMore": "Läs Mer"
   },
+  "marquee": {
+    "top": [
+      "MOAR fokus",
+      "MOAR timmar",
+      "MOAR energi"
+    ],
+    "bottom": [
+      "Ingen krasch",
+      "Inga skakningar",
+      "Inget trams"
+    ],
+    "eyebrow": "Varför MOAR",
+    "body": "För att dagen alltid kräver lite mer. Ett kapitel till, ett set till, en timme till. MOAR ger dig det du behöver för att orka."
+  },
   "waitlist": {
     "title": "BLI FÖRST.",
     "subtitle": "Gå med i väntelistan — vi meddelar dig när CAFO lanseras.",
