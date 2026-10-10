@@ -8,8 +8,8 @@ export default function HowItWorks() {
   const { t } = useTranslation()
 
   const cards = [
-    { titleKey: 'howItWorks.caffeineTitle', textKey: 'howItWorks.caffeineText', icon: Leaf, color: 'forest', stat: '80mg', statLabel: 'Green Tea Caffeine' },
-    { titleKey: 'howItWorks.ltheanineTitle', textKey: 'howItWorks.ltheanineText', icon: Brain, color: 'gold', stat: 'Calm', statLabel: 'Focused Alertness' },
+    { titleKey: 'howItWorks.caffeineTitle', textKey: 'howItWorks.caffeineText', icon: Leaf, color: 'forest', stat: '90mg', statLabel: 'Natural Caffeine' },
+    { titleKey: 'howItWorks.releaseTitle', textKey: 'howItWorks.releaseText', icon: Brain, color: 'gold', stat: '3–5h', statLabel: 'Steady Lift' },
     { titleKey: 'howItWorks.proteinTitle', textKey: 'howItWorks.proteinText', icon: Dumbbell, color: 'forest', stat: '14g', statLabel: 'Plant Protein' },
     { titleKey: 'howItWorks.lowGiTitle', textKey: 'howItWorks.lowGiText', icon: BarChart3, color: 'gold', stat: 'Low', statLabel: 'Glycemic Index' },
   ]
@@ -18,7 +18,7 @@ export default function HowItWorks() {
     <>
       <Helmet>
         <title>How It Works — CAFO Energy</title>
-        <meta name="description" content="The science behind CAFO Energy. Green tea caffeine, L-theanine, plant protein — how they work together for sustained focus." />
+        <meta name="description" content="The science behind MOAR Bar. Natural caffeine from guarana, protein and fibre: how they work together for sustained focus." />
       </Helmet>
 
       <section className="bg-off-white py-32 text-center">
