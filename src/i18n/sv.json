@@ -55,8 +55,8 @@
     "close": "Stäng"
   },
   "products": {
-    "title": "PRODUKTER",
-    "subtitle": "En Smak. Perfekt.",
+    "title": "Välj din låda.",
+    "subtitle": "En smak, perfekt: salted caramel. 12 barer per låda.",
     "addToCart": "Lägg i Varukorg",
     "starter": {
       "name": "Original Energy",
@@ -71,7 +71,10 @@
       "description": "36 barer"
     },
     "bestseller": "BÄSTSÄLJARE",
-    "discount": "-20%"
+    "discount": "-20%",
+    "eyebrow": "Förbeställ",
+    "perBar": "{{price}} kr per bar",
+    "subscribeLink": "Prenumerera och spara upp till 20%"
   },
   "shop": {
     "metaTitle": "Handla — CAFO Energy",

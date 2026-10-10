@@ -55,8 +55,8 @@
     "close": "Close"
   },
   "products": {
-    "title": "PRODUCTS",
-    "subtitle": "One Flavour. Perfected.",
+    "title": "Pick your box.",
+    "subtitle": "One flavour, perfected: salted caramel. 12 bars per box.",
     "addToCart": "Add to Cart",
     "starter": {
       "name": "Original Energy",
@@ -71,7 +71,10 @@
       "description": "36 bars"
     },
     "bestseller": "BESTSELLER",
-    "discount": "-20%"
+    "discount": "-20%",
+    "eyebrow": "Pre-order",
+    "perBar": "{{price}} kr per bar",
+    "subscribeLink": "Subscribe and save up to 20%"
   },
   "shop": {
     "metaTitle": "Shop — CAFO Energy",
