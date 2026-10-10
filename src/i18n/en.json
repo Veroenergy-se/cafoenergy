@@ -17,6 +17,20 @@
     "joinWaitlist": "JOIN WAITLIST",
     "learnMore": "Learn More"
   },
+  "marquee": {
+    "top": [
+      "MOAR focus",
+      "MOAR hours",
+      "MOAR game"
+    ],
+    "bottom": [
+      "More energy",
+      "More focus",
+      "More ambition"
+    ],
+    "eyebrow": "Why MOAR",
+    "body": "Because the day always asks for a bit more. One more chapter, one more set, one more hour. MOAR is how you have it to give."
+  },
   "waitlist": {
     "title": "BE THE FIRST.",
     "subtitle": "Join the waitlist — we'll let you know the moment CAFO drops.",

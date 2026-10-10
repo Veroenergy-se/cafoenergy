@@ -26,12 +26,18 @@
   --font-monument: "Montserrat", sans-serif;
   --font-body: "DM Sans", sans-serif;
   --font-accent: "DM Sans", sans-serif;
+  /* Condensed display face, used only for the MOAR brand marquee. */
+  --font-display: "Big Shoulders Display", "Oswald", Impact, sans-serif;
 }
 
 /* font-heading ships as Bebas Neue's replacement but Tailwind's font-* utility
    only sets font-family — Montserrat needs its heaviest weight to read as the
    intended display face. */
 .font-heading {
+  font-weight: 900;
+}
+
+.font-display {
   font-weight: 900;
 }
 
