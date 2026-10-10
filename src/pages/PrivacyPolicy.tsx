@@ -21,7 +21,7 @@ export default function PrivacyPolicy() {
             <div className="space-y-8 text-near-black/70 leading-relaxed">
               <div>
                 <h2 className="text-2xl font-heading text-near-black mb-4">1. Introduction</h2>
-                <p>MOAR Bar ("we", "us", "our") respects your privacy and is committed to protecting your personal data. This privacy policy explains how we collect, use, and safeguard your information when you visit cafoenergy.se.</p>
+                <p>MOAR Bar ("we", "us", "our") respects your privacy and is committed to protecting your personal data. This privacy policy explains how we collect, use, and safeguard your information when you visit moarbar.se.</p>
               </div>
 
               <div>
@@ -51,12 +51,12 @@ export default function PrivacyPolicy() {
 
               <div>
                 <h2 className="text-2xl font-heading text-near-black mb-4">5. Your Rights</h2>
-                <p>Under GDPR, you have the right to access, rectify, erase, or restrict the processing of your personal data. Contact us at privacy@cafoenergy.se to exercise these rights.</p>
+                <p>Under GDPR, you have the right to access, rectify, erase, or restrict the processing of your personal data. Contact us at thomaswiseman1@hotmail.com to exercise these rights.</p>
               </div>
 
               <div>
                 <h2 className="text-2xl font-heading text-near-black mb-4">6. Contact</h2>
-                <p>For privacy-related questions, contact us at <a href="mailto:privacy@cafoenergy.se" className="text-gold hover:text-gold-light transition-colors">privacy@cafoenergy.se</a>.</p>
+                <p>For privacy-related questions, contact us at <a href="mailto:thomaswiseman1@hotmail.com" className="text-gold hover:text-gold-light transition-colors">thomaswiseman1@hotmail.com</a>.</p>
               </div>
 
               <p className="text-sm text-near-black/40 mt-12">Last updated: March 2026</p>
