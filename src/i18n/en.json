@@ -18,7 +18,11 @@
     "subtitle": "The clean caffeinated protein bar. Real energy that lasts, with natural caffeine from guarana, protein, and zero added sugar.",
     "cta": "Shop Now",
     "joinWaitlist": "JOIN WAITLIST",
-    "learnMore": "Learn More"
+    "learnMore": "Learn More",
+    "lede": "More energy. More focus. Natural caffeine and protein in one bar, so you don't have to choose between a coffee and a snack.",
+    "caffeine": "Caffeine",
+    "protein": "Protein",
+    "videoAlt": "MOAR Bar brand film"
   },
   "marquee": {
     "top": [
@@ -35,12 +39,15 @@
     "body": "Because the day always asks for a bit more. One more chapter, one more set, one more hour. MOAR is how you have it to give."
   },
   "waitlist": {
-    "title": "BE THE FIRST.",
-    "subtitle": "Join the waitlist — we'll let you know the moment MOAR drops.",
-    "cta": "JOIN",
+    "subtitle": "First sales start 15 November. Join the waitlist and we'll email you the moment MOAR is live.",
+    "cta": "Join",
     "success": "YOU'RE ON THE LIST.",
     "successSub": "We'll be in touch soon.",
-    "error": "Something went wrong — please try again."
+    "error": "Something went wrong — please try again.",
+    "eyebrow": "Join the waitlist",
+    "titleA": "Be first",
+    "titleB": "when it drops.",
+    "fineprint": "No spam. Unsubscribe anytime."
   },
   "waitlistPopup": {
     "eyebrow": "COMING SOON",
@@ -249,12 +256,14 @@
     "releaseText": "Protein and guarana together give you a flatter lift that lasts longer. Most people feel it within 20–30 minutes and stay focused for 3–5 hours, then taper off gradually."
   },
   "footer": {
-    "tagline": "The clean caffeinated protein bar.",
-    "pages": "Pages",
-    "legal": "Legal",
     "social": "Social",
     "privacy": "Privacy Policy",
-    "copyright": "© {{year}} MOAR Bar. All rights reserved."
+    "copyright": "© {{year}} MOAR Bar. All rights reserved.",
+    "explore": "Explore",
+    "help": "Help",
+    "lineA": "More energy.",
+    "lineB": "More focus.",
+    "backToTop": "Back to top"
   },
   "cart": {
     "title": "Your Cart",

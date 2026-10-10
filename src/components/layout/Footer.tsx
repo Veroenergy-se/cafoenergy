@@ -3,65 +3,72 @@ import { useTranslation } from 'react-i18next'
 import { SITE } from '@/lib/constants'
 import MoarLogo from '@/components/shared/MoarLogo'
 
+const linkClass = 'text-off-white/70 hover:text-caforange transition-colors'
+
 export default function Footer() {
   const { t } = useTranslation()
 
+  const columns = [
+    {
+      title: t('footer.explore'),
+      links: [
+        { to: '/shop', label: t('nav.shop') },
+        { to: '/how-it-works', label: t('nav.science') },
+        { to: '/community', label: t('nav.community') },
+        { to: '/about', label: t('nav.about') },
+      ],
+    },
+    {
+      title: t('footer.help'),
+      links: [
+        { to: '/faq', label: 'FAQ' },
+        { to: '/contact', label: t('nav.contact') },
+        { to: '/privacy-policy', label: t('footer.privacy') },
+      ],
+    },
+  ]
+
   return (
-    <footer className="bg-near-black text-white border-t-2 border-gold/30">
-      <div className="page-container pt-20 pb-10">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-          {/* Brand */}
-          <div className="md:col-span-1 flex items-start justify-center">
-            <MoarLogo full className="w-64 text-caforange" />
-          </div>
-
-          {/* Pages */}
-          <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-gold mb-4">
-              {t('footer.pages')}
-            </h4>
-            <div className="space-y-3">
-              <Link to="/shop" className="block text-sm text-white/60 hover:text-gold transition-colors">{t('nav.shop')}</Link>
-              <Link to="/community" className="block text-sm text-white/60 hover:text-gold transition-colors">{t('nav.community')}</Link>
-              <Link to="/about" className="block text-sm text-white/60 hover:text-gold transition-colors">{t('nav.about')}</Link>
-              <Link to="/how-it-works" className="block text-sm text-white/60 hover:text-gold transition-colors">{t('howItWorks.title')}</Link>
-              <Link to="/contact" className="block text-sm text-white/60 hover:text-gold transition-colors">{t('nav.contact')}</Link>
-              <Link to="/faq" className="block text-sm text-white/60 hover:text-gold transition-colors">FAQ</Link>
-            </div>
-          </div>
-
-          {/* Legal */}
-          <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-gold mb-4">
-              {t('footer.legal')}
-            </h4>
-            <div className="space-y-3">
-              <Link to="/privacy-policy" className="block text-sm text-white/60 hover:text-gold transition-colors">{t('footer.privacy')}</Link>
-            </div>
-          </div>
-
-          {/* Social */}
-          <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-gold mb-4">
-              {t('footer.social')}
-            </h4>
-            <div className="flex gap-4">
-              <a href={SITE.social.instagram} target="_blank" rel="noopener noreferrer" className="p-3 bg-white/5 hover:bg-gold/20 hover:text-gold transition-all">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-              </a>
-              <a href={SITE.social.tiktok} target="_blank" rel="noopener noreferrer" className="p-3 bg-white/5 hover:bg-gold/20 hover:text-gold transition-all">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.73a8.19 8.19 0 004.76 1.52v-3.4a4.85 4.85 0 01-1-.16z"/></svg>
-              </a>
-            </div>
-            <p className="text-sm text-white/40 mt-4">{SITE.email}</p>
-          </div>
-        </div>
-
-        <div className="border-t border-white/5 pt-8">
-          <p className="text-center text-sm text-white/30">
-            {t('footer.copyright', { year: new Date().getFullYear() })}
+    <footer className="bg-brown text-off-white overflow-hidden">
+      <div className="page-container pt-16 lg:pt-20">
+        <div className="grid gap-12 md:grid-cols-[minmax(0,1.2fr)_repeat(3,minmax(0,0.6fr))]">
+          <p className="font-display uppercase text-4xl sm:text-5xl leading-[0.9]">
+            {t('footer.lineA')}<br />
+            <span className="text-caforange">{t('footer.lineB')}</span>
           </p>
+
+          {columns.map((col) => (
+            <nav key={col.title} aria-label={col.title}>
+              <h4 className="font-accent text-xs uppercase tracking-[0.2em] font-semibold text-off-white/45">{col.title}</h4>
+              <ul className="mt-4 space-y-2.5">
+                {col.links.map((l) => (
+                  <li key={l.to}><Link to={l.to} className={linkClass}>{l.label}</Link></li>
+                ))}
+              </ul>
+            </nav>
+          ))}
+
+          <div>
+            <h4 className="font-accent text-xs uppercase tracking-[0.2em] font-semibold text-off-white/45">{t('footer.social')}</h4>
+            <ul className="mt-4 space-y-2.5">
+              <li><a href={SITE.social.instagram} target="_blank" rel="noopener noreferrer" className={linkClass}>Instagram</a></li>
+              <li><a href={SITE.social.tiktok} target="_blank" rel="noopener noreferrer" className={linkClass}>TikTok</a></li>
+              <li><a href={`mailto:${SITE.email}`} className={`${linkClass} break-all`}>{SITE.email}</a></li>
+            </ul>
+          </div>
         </div>
+      </div>
+
+      {/* Sign-off: the wordmark, edge to edge */}
+      <div className="page-container mt-16 lg:mt-24">
+        <MoarLogo className="block w-full text-caforange" />
+      </div>
+
+      <div className="page-container mt-6 pb-8 flex flex-wrap justify-between gap-3 text-sm text-off-white/40">
+        <span>{t('footer.copyright', { year: new Date().getFullYear() })}</span>
+        <a href="#top" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }} className="hover:text-off-white transition-colors">
+          {t('footer.backToTop')} ↑
+        </a>
       </div>
     </footer>
   )

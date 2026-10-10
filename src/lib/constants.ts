@@ -8,4 +8,8 @@ export const SITE = {
     tiktok: 'https://www.tiktok.com/@moarbars',
   },
   freeShippingThreshold: { usd: 50, sek: 499 },
+  // Hero video: drop the file in public/videos/ and set e.g. '/videos/hero.mp4'.
+  // Leave empty to show the bar instead. The poster is the still shown while it loads.
+  heroVideo: '',
+  heroPoster: '',
 }
