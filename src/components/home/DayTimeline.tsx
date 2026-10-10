@@ -32,7 +32,6 @@ export default function DayTimeline() {
   const { t } = useTranslation()
   const reduce = useReducedMotion()
   const trackRef = useRef<HTMLDivElement>(null)
-  const paused = useRef(false)
   const drag = useRef<number | null>(null)
 
   // Same feel as the brand marquee: a slow drift that speeds up with scroll velocity.
@@ -44,9 +43,7 @@ export default function DayTimeline() {
 
   useAnimationFrame((_, delta) => {
     if (reduce || drag.current !== null) return
-    const scrollBoost = Math.abs(boost.get())
-    // Hovering pauses the idle drift so a card can be read, but scrolling still moves it.
-    const speed = paused.current ? 0.6 * scrollBoost : 0.6 * (1 + scrollBoost)
+    const speed = 0.9 * (1 + Math.abs(boost.get()))
     baseX.set(baseX.get() - speed * (delta / 1000))
   })
 
@@ -72,8 +69,7 @@ export default function DayTimeline() {
 
       <div
         className="mt-10 cursor-grab active:cursor-grabbing select-none touch-pan-y"
-        onPointerEnter={(e) => { if (e.pointerType === 'mouse') paused.current = true }}
-        onPointerLeave={() => { paused.current = false; endDrag() }}
+        onPointerLeave={endDrag}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={endDrag}
