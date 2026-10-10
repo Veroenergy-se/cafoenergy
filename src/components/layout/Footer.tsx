@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { SITE } from '@/lib/constants'
-import CafoLogo from '@/components/shared/CafoLogo'
+import MoarLogo from '@/components/shared/MoarLogo'
 
 export default function Footer() {
   const { t } = useTranslation()
@@ -12,7 +12,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
           <div className="md:col-span-1 flex items-start justify-center">
-            <CafoLogo className="w-80" invert />
+            <MoarLogo full className="w-64 text-caforange" />
           </div>
 
           {/* Pages */}

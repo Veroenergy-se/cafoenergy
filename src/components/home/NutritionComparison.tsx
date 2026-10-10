@@ -1,110 +1,83 @@
 import { useTranslation } from 'react-i18next'
-import AnimatedSection from '@/components/shared/AnimatedSection'
+import { motion } from 'framer-motion'
 
-type Verdict = 'good' | 'bad' | undefined
-
-const rows: { key: string; cafo: string; coffee: string; energy: string; v: { cafo?: Verdict; coffee?: Verdict; energy?: Verdict } }[] = [
-  { key: 'protein',  cafo: '14g',  coffee: '0g',   energy: '0g',    v: { cafo: 'good' } },
-  { key: 'sugar',    cafo: '2g',   coffee: '0g',   energy: '27g',   v: { cafo: 'good', coffee: 'good', energy: 'bad' } },
-  { key: 'carbs',    cafo: '21g',  coffee: '0g',   energy: '28g',   v: {} },
-  { key: 'caffeine', cafo: '80mg', coffee: '95mg', energy: '180mg', v: { cafo: 'good', energy: 'bad' } },
-  { key: 'fiber',    cafo: '3g',   coffee: '0g',   energy: '0g',    v: { cafo: 'good' } },
+const rows: { key: string; moar: string; energy: string; coffee: string }[] = [
+  { key: 'caffeine', moar: '90mg', energy: '180mg', coffee: '95mg' },
+  { key: 'protein',  moar: '14g',  energy: '0g',    coffee: '0g' },
+  { key: 'sugar',    moar: '2g',   energy: '27g',   coffee: '0g' },
+  { key: 'carbs',    moar: '21g',  energy: '28g',   coffee: '0g' },
+  { key: 'fiber',    moar: '3g',   energy: '0g',    coffee: '0g' },
 ]
 
-function valueClass(v: Verdict, onOrange: boolean) {
-  if (v === 'good') {
-    return onOrange
-      ? 'text-green-600 drop-shadow-[0_1px_3px_rgba(0,0,0,0.35)]'
-      : 'text-green-600'
-  }
-  if (v === 'bad') {
-    return 'text-red-500'
-  }
-  return onOrange ? 'text-off-white' : 'text-brown'
-}
-
-const ROW_H = 'h-[62px] sm:h-[64px]'
-const EXTEND_H = 'h-[31px] sm:h-[32px]'
-
-const noiseTexture = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E")`
+const ease = [0.25, 0.46, 0.45, 0.94] as const
 
 export default function NutritionComparison() {
   const { t } = useTranslation()
 
   return (
-    <section className="bg-forest relative py-20 lg:py-28 overflow-hidden">
-      {/* Grain texture overlay */}
-      <div
-        className="absolute inset-0 opacity-[0.07] mix-blend-overlay pointer-events-none"
-        style={{ backgroundImage: noiseTexture, backgroundRepeat: 'repeat', backgroundSize: '200px 200px' }}
-      />
-
-      <div className="relative z-10 page-container">
-        <AnimatedSection className="w-full">
-          <h2 className="w-full text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading text-white leading-tight tracking-tight mb-10 lg:mb-12">
+    <section className="bg-brown text-off-white py-20 lg:py-28">
+      <div className="page-container">
+        <div className="max-w-3xl mx-auto">
+          <p className="font-accent text-xs uppercase tracking-[0.2em] font-semibold text-caforange">
+            {t('nutrition.eyebrow')}
+          </p>
+          <h2 className="mt-3 font-display uppercase text-5xl sm:text-6xl lg:text-7xl leading-[0.9]">
             {t('nutrition.winsTitle')}
           </h2>
-        </AnimatedSection>
 
-        <AnimatedSection delay={0.15} className="w-full max-w-2xl mx-auto">
-          <div className="grid grid-cols-4 w-full text-[0.6rem] sm:text-xs">
-
-            {/* Labels column */}
-            <div className="flex flex-col bg-white border-2 border-brown border-r-0 rounded-tl-xl rounded-bl-xl overflow-hidden mt-[28px] mb-[28px] sm:mt-[32px] sm:mb-[32px]">
-              <div className={`${ROW_H} flex items-center justify-center px-2 border-b-2 border-brown`}>
-                <span className="font-black tracking-[0.1em] uppercase text-brown text-center leading-tight">{t('nutrition.whatsInside')}</span>
-              </div>
-              {rows.map((row) => (
-                <div key={row.key} className={`${ROW_H} flex items-center justify-center px-1.5 border-b-2 last:border-b-0 border-brown/20`}>
-                  <span className="w-full min-w-0 font-black tracking-normal sm:tracking-[0.06em] uppercase text-brown text-center leading-tight break-words">{t(`nutrition.rows.${row.key}`)}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* CAFO column — orange, extends above & below */}
-            <div className="flex flex-col bg-caforange">
-              <div className={EXTEND_H} />
-              <div className={`${ROW_H} flex items-center justify-center px-1 border-b border-white/15`}>
-                <span className="text-lg sm:text-xl font-heading font-black text-off-white tracking-widest">CAFO</span>
-              </div>
-              {rows.map((row) => (
-                <div key={row.key} className={`${ROW_H} flex items-center justify-center px-1 border-b last:border-b-0 border-white/15`}>
-                  <span className={`text-base sm:text-lg font-black ${valueClass(row.v.cafo, true)}`}>{row.cafo}</span>
-                </div>
-              ))}
-              <div className={EXTEND_H} />
-            </div>
-
-            {/* Energy drinks column */}
-            <div className="flex flex-col bg-white border-y-2 border-brown mt-[28px] mb-[28px] sm:mt-[32px] sm:mb-[32px]">
-              <div className={`${ROW_H} flex items-center justify-center px-1.5 border-b-2 border-brown`}>
-                <span className="w-full min-w-0 font-black tracking-normal sm:tracking-[0.06em] uppercase text-brown text-center leading-tight break-words">{t('nutrition.vsEnergy')}</span>
-              </div>
-              {rows.map((row) => (
-                <div key={row.key} className={`${ROW_H} flex items-center justify-center px-2 border-b-2 last:border-b-0 border-brown/20`}>
-                  <span className={`text-sm sm:text-base font-black ${valueClass(row.v.energy, false)}`}>{row.energy}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Coffee column */}
-            <div className="flex flex-col bg-white border-2 border-brown border-l-0 rounded-tr-xl rounded-br-xl overflow-hidden mt-[28px] mb-[28px] sm:mt-[32px] sm:mb-[32px]">
-              <div className={`${ROW_H} flex items-center justify-center px-1 border-b-2 border-brown`}>
-                <span className="font-black tracking-[0.06em] uppercase text-brown text-center leading-tight">{t('nutrition.vsCoffee')}</span>
-              </div>
-              {rows.map((row) => (
-                <div key={row.key} className={`${ROW_H} flex items-center justify-center px-1 border-b-2 last:border-b-0 border-brown/20`}>
-                  <span className={`text-sm sm:text-base font-black ${valueClass(row.v.coffee, false)}`}>{row.coffee}</span>
-                </div>
-              ))}
-            </div>
-
+          <div className="mt-10 lg:mt-14 overflow-x-auto">
+            <table className="w-full min-w-[300px] border-separate border-spacing-0 text-left">
+              <thead>
+                <tr>
+                  <th scope="col" className="w-[28%] pb-4 align-bottom" aria-label={t('nutrition.whatsInside')} />
+                  <th scope="col" className="w-[24%] bg-caforange rounded-t-2xl px-1 sm:px-3 pt-5 pb-4 text-center align-bottom">
+                    <span className="block font-display uppercase text-2xl sm:text-3xl leading-none">MOAR</span>
+                    <span className="mt-1 block font-accent text-[10px] sm:text-xs font-normal opacity-80">{t('nutrition.per.moar')}</span>
+                  </th>
+                  <th scope="col" className="w-[24%] px-1 sm:px-3 pb-4 text-center align-bottom">
+                    <span className="block font-accent font-semibold text-[10px] sm:text-sm uppercase tracking-[0.08em] sm:tracking-[0.12em]">{t('nutrition.vsEnergy')}</span>
+                    <span className="mt-1 block font-accent text-[10px] sm:text-xs font-normal text-off-white/50">{t('nutrition.per.energy')}</span>
+                  </th>
+                  <th scope="col" className="w-[24%] px-1 sm:px-3 pb-4 text-center align-bottom">
+                    <span className="block font-accent font-semibold text-[10px] sm:text-sm uppercase tracking-[0.08em] sm:tracking-[0.12em]">{t('nutrition.vsCoffee')}</span>
+                    <span className="mt-1 block font-accent text-[10px] sm:text-xs font-normal text-off-white/50">{t('nutrition.per.coffee')}</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {rows.map((row, i) => {
+                  const last = i === rows.length - 1
+                  return (
+                    <motion.tr
+                      key={row.key}
+                      initial={{ opacity: 0, y: 14 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: '-60px' }}
+                      transition={{ duration: 0.5, delay: i * 0.07, ease }}
+                    >
+                      <th scope="row" className="py-4 sm:py-5 pr-2 border-t border-off-white/15 font-accent font-semibold text-[10px] sm:text-sm uppercase tracking-[0.08em] sm:tracking-[0.12em] text-off-white/70">
+                        {t(`nutrition.rows.${row.key}`)}
+                      </th>
+                      <td className={`py-4 sm:py-5 bg-caforange border-t border-brown/15 text-center font-display text-[1.7rem] sm:text-4xl leading-none ${last ? 'rounded-b-2xl' : ''}`}>
+                        {row.moar}
+                      </td>
+                      <td className="py-4 sm:py-5 border-t border-off-white/15 text-center font-accent font-semibold text-base sm:text-xl text-off-white/60 tabular-nums">
+                        {row.energy}
+                      </td>
+                      <td className="py-4 sm:py-5 border-t border-off-white/15 text-center font-accent font-semibold text-base sm:text-xl text-off-white/60 tabular-nums">
+                        {row.coffee}
+                      </td>
+                    </motion.tr>
+                  )
+                })}
+              </tbody>
+            </table>
           </div>
 
-          <p className="mt-6 text-center text-[11px] text-white/50 italic">
+          <p className="mt-6 text-xs leading-relaxed text-off-white/45 max-w-2xl">
             {t('nutrition.footnote')}
           </p>
-        </AnimatedSection>
+        </div>
       </div>
     </section>
   )

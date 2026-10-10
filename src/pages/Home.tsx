@@ -1,23 +1,27 @@
 import { Helmet } from 'react-helmet-async'
 import Hero from '@/components/home/Hero'
 import BrandMarquee from '@/components/home/BrandMarquee'
-import ProductCards from '@/components/home/ProductCards'
+import TradeOff from '@/components/home/TradeOff'
 import NutritionComparison from '@/components/home/NutritionComparison'
-import Testimonials from '@/components/home/Testimonials'
+import TwoInOne from '@/components/home/TwoInOne'
+import ProductCards from '@/components/home/ProductCards'
+import DayTimeline from '@/components/home/DayTimeline'
 import StoryTeaser from '@/components/home/StoryTeaser'
 
 export default function Home() {
   return (
     <>
       <Helmet>
-        <title>CAFO Energy — Focus. For Hours.</title>
-        <meta name="description" content="The clean caffeinated protein bar. Real energy that lasts, with green tea caffeine, protein, and zero added sugar. No crash, no nonsense." />
+        <title>MOAR Bar — More energy. More focus.</title>
+        <meta name="description" content="The caffeinated protein bar. 90 mg natural caffeine and 14 g protein in one bar: your coffee and your snack, without the crash." />
       </Helmet>
       <Hero />
       <BrandMarquee />
       <ProductCards />
+      <TradeOff />
       <NutritionComparison />
-      <Testimonials />
+      <TwoInOne />
+      <DayTimeline />
       <StoryTeaser />
     </>
   )
