@@ -88,7 +88,7 @@ body {
   font-family: var(--font-body);
   color: var(--fg);
   background-color: var(--bg);
-  transition: --bg 0.7s ease, --fg 0.7s ease, --accent 0.7s ease, --logo 0.7s ease;
+  transition: --bg 0.9s ease, --fg 0.9s ease, --accent 0.9s ease, --logo 0.9s ease;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100%;
