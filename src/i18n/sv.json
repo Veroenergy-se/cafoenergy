@@ -47,7 +47,8 @@
     "eyebrow": "Gå med i väntelistan",
     "titleA": "Bli först",
     "titleB": "när den släpps.",
-    "fineprint": "Ingen spam. Avsluta när du vill."
+    "fineprint": "Ingen spam. Avsluta när du vill.",
+    "countdown": {"days": "dagar", "hours": "tim", "minutes": "min", "seconds": "sek", "label": "Tid kvar till försäljningsstart"}
   },
   "waitlistPopup": {
     "eyebrow": "KOMMER SNART",

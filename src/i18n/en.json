@@ -47,7 +47,8 @@
     "eyebrow": "Join the waitlist",
     "titleA": "Be first",
     "titleB": "when it drops.",
-    "fineprint": "No spam. Unsubscribe anytime."
+    "fineprint": "No spam. Unsubscribe anytime.",
+    "countdown": {"days": "days", "hours": "hrs", "minutes": "min", "seconds": "sec", "label": "Time until first sales"}
   },
   "waitlistPopup": {
     "eyebrow": "COMING SOON",

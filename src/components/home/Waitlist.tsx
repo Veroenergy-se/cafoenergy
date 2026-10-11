@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ArrowRight } from 'lucide-react'
+import LaunchCountdown from './LaunchCountdown'
 
 export default function Waitlist() {
   const { t } = useTranslation()
@@ -77,6 +78,8 @@ export default function Waitlist() {
           ) : (
             status !== 'success' && <p className="mt-3 text-sm text-fg/65">{t('waitlist.fineprint')}</p>
           )}
+
+          <LaunchCountdown className="mt-8" />
         </div>
       </div>
     </section>
