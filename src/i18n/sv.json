@@ -136,10 +136,10 @@
     "title": "Vad Som Gör Den Perfekt",
     "caffeineTitle": "Naturligt Koffein",
     "caffeineDesc": "90mg naturligt koffein från guarana för jämn energi som håller.",
-    "proteinTitle": "Växtprotein",
-    "proteinDesc": "14g växtbaserat protein för att hålla dig påfylld och fokuserad.",
+    "proteinTitle": "Protein",
+    "proteinDesc": "14g protein från mjölk, vassle, kollagen och soja som håller dig mätt och fokuserad.",
     "sugarTitle": "Noll Tillsatt Socker",
-    "sugarDesc": "Inga sockerkrascher. Inga artificiella sötningsmedel. Bara ren energi.",
+    "sugarDesc": "Inget tillsatt socker. Sötad med maltitol, så det är bara 2g socker per bar.",
     "comparisonTitle": "Hur MOAR Jämför Sig",
     "vsCoffee": "Kaffe",
     "vsEnergy": "Energidrycker",
@@ -162,12 +162,13 @@
       "bar": "per 55 g bar"
     },
     "fiberTitle": "Fiber",
-    "fiberDesc": "3g fiber saktar ner matsmältningen, så energin kommer jämnt istället för på en gång.",
+    "fiberDesc": "2,6g fiber saktar ner matsmältningen, så energin kommer jämnt istället för på en gång.",
     "vs": {
       "bar": "Proteinbar",
       "energy": "Energidryck",
       "coffee": "Kaffe"
-    }
+    },
+    "warning": "Innehåller koffein (90mg per bar). Rekommenderas inte för barn eller gravida. Innehåller mjölk och soja; kan innehålla jordnötter och nötter. Med sötningsmedel — överdriven konsumtion kan ha laxerande effekt."
   },
   "story": {
     "title": "Tre Bröder. Ett Uppdrag.",
@@ -190,7 +191,7 @@
       "eyebrow": "Vår historia",
       "heading": "Byggt för att gå längre.",
       "p1": "MOAR startade med en fråga: varför smakar prestationsmat som krita? Tre grundare, ett kök, en smak vi vägrade kompromissa med.",
-      "p2": "90mg koffein. 14g växtprotein. Noll tillsatt socker. Allt är där av en anledning — inget som inte är det."
+      "p2": "90mg koffein. 14g protein. Inget tillsatt socker. Allt är där av en anledning — inget som inte är det."
     },
     "quote": "Byggt för dem som ger allt.",
     "values": {
@@ -249,11 +250,11 @@
     "caffeineTitle": "Koffein Från Guarana",
     "caffeineText": "Våra 90mg koffein kommer från guarana, en naturlig källa. Eftersom du äter det tillsammans med protein och fiber istället för att dricka det tas det upp mer gradvis än kaffe eller energidryck, så du får en jämn kick istället för topp och krasch.",
     "proteinTitle": "Ihållande Bränsle",
-    "proteinText": "14g växtprotein och 3g fiber saktar ner matsmältningen och skapar en stadig frisättning av energi. Inga blodsockertoppar, inga krascher — bara timmar av ihållande fokus.",
-    "lowGiTitle": "Lågt Glykemiskt Index",
-    "lowGiText": "Vår formel är designad med ett lågt glykemiskt index, vilket innebär att den inte höjer ditt blodsocker. Det håller din energi stabil och ditt sinne skarpt.",
+    "proteinText": "14g protein och 2,6g fiber saktar ner matsmältningen, så energin från koffeinet kommer jämnt istället för på en gång.",
     "releaseTitle": "Långsammare Frisättning",
-    "releaseText": "Protein och guarana tillsammans ger en jämnare kick som håller längre. De flesta känner effekten inom 20–30 minuter och håller fokus i 3–5 timmar, sedan klingar den av gradvis."
+    "releaseText": "Protein och guarana tillsammans ger en jämnare kick som håller längre. De flesta känner effekten inom 20–30 minuter och håller fokus i 3–5 timmar, sedan klingar den av gradvis.",
+    "glutenTitle": "Glutenfri",
+    "glutenText": "MOAR är glutenfri enligt EU:s regler och tillverkad utan GMO. Den innehåller mjölk och soja och kan innehålla jordnötter och nötter."
   },
   "footer": {
     "social": "Socialt",
@@ -320,9 +321,11 @@
     "q4": "När är det bäst att äta en MOAR-bar?",
     "a4": "15–30 minuter innan du behöver vara i gång. Det kan vara före ett pluggpass, inför träning, under en lång bilresa eller som en eftermiddagshöjare. En regel: försök att inte äta den efter klockan 15 om du är känslig för koffein — halveringstiden innebär att det fortfarande är delvis aktivt vid sänggåendet.",
     "q5": "Hur jämförs den med energidrycker?",
-    "a5": "Energidrycker ger dig koffein plus mycket du inte behöver — socker, konstgjorda sötningsmedel, syntetiska stimulantia, färgämnen. En MOAR-bar ger dig 90 mg naturligt koffein, 14 g protein och 3 g fiber. Det är mat som fungerar, inte en dryck som smakar som ett vetenskapsexperiment.",
+    "a5": "Energidrycker ger dig koffein och inte mycket mer — ofta med mycket socker. En MOAR-bar ger dig 90 mg naturligt koffein, 14 g protein och 2,6 g fiber, med bara 2 g socker. Det är mat som fungerar, inte en dryck som smakar som ett vetenskapsexperiment.",
     "q6": "När får jag min beställning?",
-    "a6": "Vi är för närvarande i pre-lansering och tar emot intresseanmälningar. När vi lanserar levereras beställningar inom Sverige på 2–4 vardagar. Europeisk frakt följer strax efter lansering — anmäl dig för att vara först att veta när ditt land går live."
+    "a6": "Vi är för närvarande i pre-lansering och tar emot intresseanmälningar. När vi lanserar levereras beställningar inom Sverige på 2–4 vardagar. Europeisk frakt följer strax efter lansering — anmäl dig för att vara först att veta när ditt land går live.",
+    "q7": "Vem ska inte äta MOAR?",
+    "a7": "MOAR innehåller koffein (90 mg per bar) och rekommenderas därför inte för barn eller gravida. Den innehåller mjölk och soja och kan innehålla jordnötter och nötter. Den är sötad med maltitol, och precis som andra livsmedel med sötningsmedel kan stor konsumtion ha en laxerande effekt."
   },
   "tradeoff": {
     "eyebrow": "Problemet",
@@ -392,6 +395,83 @@
         "title": "Sena kvällar",
         "body": "Ta dig förbi 02-väggen med riktig mat i magen, inte bara koffein."
       }
+    },
+    "follow": "Följ @moarbars"
+  },
+  "manifesto": {
+    "eyebrow": "Därför gjorde vi den",
+    "text": "Vi ville ha *kicken från ett kaffe* och *mättnaden från ett riktigt mellanmål.* Utan kraschen. Utan tillsatt socker. Inget på hyllan klarade båda. Så vi gjorde den själva.",
+    "signature": "Tom, Charlie & Oliver"
+  },
+  "inside": {
+    "eyebrow": "Inuti en bar",
+    "titleA": "Fyra lager.",
+    "titleB": "Ett jobb.",
+    "lede": "Scrolla så öppnar sig baren. Varje lager visar vad det faktiskt innehåller.",
+    "alt": "En MOAR-bar som öppnar sig i fyra lager: mjölkchoklad, kola, proteinkärna och chokladbotten",
+    "layers": {
+      "chocolate": {
+        "title": "Mjölkchoklad",
+        "pct": "25%",
+        "body": "sötad med maltitol, inget tillsatt socker"
+      },
+      "caramel": {
+        "title": "Kolalager",
+        "pct": "25%",
+        "body": "med oligofruktos (fiber)"
+      },
+      "core": {
+        "title": "Proteinkärna",
+        "body": "kollagen-, mjölk-, vassle- och sojaprotein, med guarana för 90 mg koffein"
+      },
+      "base": {
+        "title": "Inbäddad i choklad",
+        "body": "glutenfri · 55 g · 2 g socker"
+      }
     }
+  },
+  "label": {
+    "eyebrow": "Inget att dölja",
+    "title": "Hela etiketten.",
+    "toggle": "Visa värden",
+    "bar": "Per bar (55 g)",
+    "per100": "Per 100 g",
+    "facts": {
+      "caffeine": "Koffein",
+      "protein": "Protein",
+      "energy": "Energi",
+      "sugars": "Socker",
+      "fibre": "Fiber",
+      "fat": "Fett",
+      "salt": "Salt",
+      "weight": "Vikt"
+    },
+    "subs": {
+      "energy": {
+        "bar": "933 kJ",
+        "per100": "1697 kJ"
+      },
+      "sugars": {
+        "bar": "av 21,5 g kolhydrater",
+        "per100": "av 39 g kolhydrater"
+      },
+      "fat": {
+        "bar": "4,6 g mättat",
+        "per100": "8,3 g mättat"
+      },
+      "weight": {
+        "bar": "en bar",
+        "per100": "referensmängd"
+      }
+    },
+    "chips": {
+      "gluten": "Glutenfri",
+      "gmo": "GMO-fri",
+      "sugar": "Inget tillsatt socker",
+      "allergens": "Innehåller mjölk & soja",
+      "warning": "Innehåller koffein. Rekommenderas inte för barn eller gravida."
+    },
+    "ingredientsTitle": "Alla ingredienser",
+    "ingredients": "Mjölkchoklad med maltitol 25 % (sötningsmedel: maltitoler; kakaosmör, helmjölkspulver, kakaomassa, fettreducerat kakaopulver, emulgeringsmedel: lecitiner; arom), kräm med kolasmak 25 % [fuktighetsbevarande medel: glycerol; maltodextrin, oligofruktos (fiber), sötningsmedel: maltitoler; kokosolja, skummjölkspulver, vatten, modifierad stärkelse, färgämne: sockerkulör; geleringsmedel: pektiner; surhetsreglerande medel: kalciumlaktat; emulgeringsmedel: lecitiner; naturlig arom, salt, förtjockningsmedel: xantangummi], hydrolyserade kollagenpeptider 8,5 %, sötningsmedel: maltitoler; fuktighetsbevarande medel: glycerol; sojaprotein 5,5 %, extruderat sojaprotein 5 % (sojaprotein, tapiokastärkelse, salt), mjölkproteinkoncentrat 4,3 %, vassleproteinkoncentrat 4,3 % (vassleproteinkoncentrat, emulgeringsmedel: lecitiner), rapsolja, vatten, riven kokos, helmjölkspulver, guaranaextrakt 0,75 %, aromer, förtjockningsmedel: akaciagummi; emulgeringsmedel: mono- och diglycerider av fettsyror; antioxidationsmedel: tokoferolrikt extrakt. Kan innehålla jordnötter och nötter. Överdriven konsumtion kan ha laxerande effekt."
   }
 }

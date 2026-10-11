@@ -358,7 +358,7 @@ export default function Shop() {
                   { label: t('nutrition.caffeineTitle'), value: '90mg', desc: t('nutrition.caffeineDesc'), accent: 'forest' },
                   { label: t('nutrition.proteinTitle'),  value: '14g',  desc: t('nutrition.proteinDesc'),  accent: 'gold' },
                   { label: t('nutrition.sugarTitle'),    value: '0g',   desc: t('nutrition.sugarDesc'),    accent: 'forest' },
-                  { label: t('nutrition.fiberTitle'),    value: '3g',   desc: t('nutrition.fiberDesc'),    accent: 'gold' },
+                  { label: t('nutrition.fiberTitle'),    value: '2.6g', desc: t('nutrition.fiberDesc'),    accent: 'gold' },
                 ].map((item) => (
                   <div key={item.label} className="bg-white rounded-3xl p-7 border border-near-black/[0.06] flex gap-5 items-start hover:shadow-md transition-all duration-200">
                     <div className={`text-3xl font-heading shrink-0 leading-none mt-0.5 ${item.accent === 'forest' ? 'text-forest' : 'text-gold'}`}>
@@ -371,6 +371,7 @@ export default function Shop() {
                   </div>
                 ))}
               </div>
+              <p className="mt-6 text-xs text-near-black/50 font-accent leading-relaxed">{t('nutrition.warning')}</p>
             </div>
           </AnimatedSection>
         </div>

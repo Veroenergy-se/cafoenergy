@@ -5,8 +5,11 @@ import CartDrawer from '@/components/shared/CartDrawer'
 import CookieConsent from '@/components/shared/CookieConsent'
 import WaitlistPopup from '@/components/shared/WaitlistPopup'
 import Waitlist from '@/components/home/Waitlist'
+import useToneMorph from '@/hooks/useToneMorph'
 
 export default function Layout() {
+  useToneMorph()
+
   return (
     <div className="min-h-screen flex flex-col w-full">
       <Navbar />

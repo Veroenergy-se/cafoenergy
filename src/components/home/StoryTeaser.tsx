@@ -7,19 +7,20 @@ export default function StoryTeaser() {
   const { t } = useTranslation()
 
   return (
-    <section className="py-24 bg-off-white text-brown">
+    <section data-tone="cream" className="py-20 lg:py-28 text-fg">
       <div className="page-container">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <AnimatedSection direction="left">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-brown leading-tight">
+            <p className="font-accent text-xs uppercase tracking-[0.2em] font-semibold text-accent">{t('nav.about')}</p>
+            <h2 className="mt-3 font-display uppercase text-5xl sm:text-6xl lg:text-7xl leading-[0.9]">
               {t('story.title')}
             </h2>
-            <p className="mt-6 text-lg text-brown/80 leading-relaxed max-w-lg">
+            <p className="mt-6 text-lg text-fg/80 leading-relaxed max-w-lg">
               {t('story.subtitle')}
             </p>
             <Link
               to="/about"
-              className="mt-8 inline-flex items-center gap-2 text-caforange font-semibold font-accent hover:gap-3 transition-all duration-300"
+              className="mt-8 inline-flex items-center gap-2 border-b-2 border-accent pb-1 font-accent font-semibold text-sm uppercase tracking-[0.12em] hover:gap-3 transition-all duration-300"
             >
               {t('story.cta')}
               <ArrowRight className="w-4 h-4" />
@@ -27,7 +28,7 @@ export default function StoryTeaser() {
           </AnimatedSection>
 
           <AnimatedSection direction="right">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-brown/5">
+            <div className="aspect-[4/3] overflow-hidden bg-fg/5">
               <img
                 src="/images/founders.jpg"
                 alt="MOAR Bar founders"

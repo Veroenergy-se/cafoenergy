@@ -30,6 +30,16 @@
   --font-display: "Big Shoulders Display", "Oswald", Impact, sans-serif;
 }
 
+/* Tone colours: follow whichever section fills the middle of the screen
+   (see useToneMorph). Use text-fg / text-accent / border-fg in sections marked
+   with data-tone so text stays readable while the background fades. "inline"
+   makes utilities read the variables where they are used, not once at :root. */
+@theme inline {
+  --color-fg: var(--fg);
+  --color-accent: var(--accent);
+  --color-tone: var(--bg);
+}
+
 /* font-heading ships as Bebas Neue's replacement but Tailwind's font-* utility
    only sets font-family — Montserrat needs its heaviest weight to read as the
    intended display face. */
@@ -51,10 +61,20 @@ html {
   scrollbar-gutter: stable both-edges;
 }
 
+/* Registered so they animate: the page background fades between section
+   colours instead of cutting at hard edges. */
+@property --bg { syntax: "<color>"; inherits: true; initial-value: #ede6dc; }
+@property --fg { syntax: "<color>"; inherits: true; initial-value: #2d1e17; }
+@property --accent { syntax: "<color>"; inherits: true; initial-value: #ff5e1e; }
+
 body {
+  --bg: #ede6dc;
+  --fg: #2d1e17;
+  --accent: #ff5e1e;
   font-family: var(--font-body);
-  color: var(--color-near-black);
-  background-color: var(--color-warm-white);
+  color: var(--fg);
+  background-color: var(--bg);
+  transition: --bg 0.7s ease, --fg 0.7s ease, --accent 0.7s ease;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100%;
@@ -62,6 +82,13 @@ body {
   overflow-x: hidden;
   margin: 0;
   padding: 0;
+}
+
+body[data-tone="brown"] { --bg: #2d1e17; --fg: #ede6dc; --accent: #ff5e1e; }
+body[data-tone="orange"] { --bg: #ff5e1e; --fg: #2d1e17; --accent: #ede6dc; }
+
+@media (prefers-reduced-motion: reduce) {
+  body { transition: none; }
 }
 
 #root {

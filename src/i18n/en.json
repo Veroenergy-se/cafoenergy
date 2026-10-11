@@ -136,10 +136,10 @@
     "title": "What Makes It Perfect",
     "caffeineTitle": "Natural Caffeine",
     "caffeineDesc": "90mg of natural caffeine from guarana for steady energy that lasts.",
-    "proteinTitle": "Plant Protein",
-    "proteinDesc": "14g of plant-based protein to keep you fueled and focused.",
+    "proteinTitle": "Protein",
+    "proteinDesc": "14g of protein from milk, whey, collagen and soy to keep you full and focused.",
     "sugarTitle": "Zero Added Sugar",
-    "sugarDesc": "No sugar crashes. No artificial sweeteners. Just clean energy.",
+    "sugarDesc": "No added sugar. Sweetened with maltitol, so there's only 2g of sugar per bar.",
     "comparisonTitle": "How MOAR Compares",
     "vsCoffee": "Coffee",
     "vsEnergy": "Energy Drinks",
@@ -162,12 +162,13 @@
       "bar": "per 55 g bar"
     },
     "fiberTitle": "Fibre",
-    "fiberDesc": "3g of fibre slows digestion, so the energy comes on steadily instead of all at once.",
+    "fiberDesc": "2.6g of fibre slows digestion, so the energy comes on steadily instead of all at once.",
     "vs": {
       "bar": "Protein bar",
       "energy": "Energy drink",
       "coffee": "Coffee"
-    }
+    },
+    "warning": "Contains caffeine (90mg per bar). Not recommended for children or pregnant women. Contains milk and soy; may contain peanuts and nuts. With sweetener — excessive consumption may produce laxative effects."
   },
   "story": {
     "title": "Three Brothers. One Mission.",
@@ -190,7 +191,7 @@
       "eyebrow": "Our story",
       "heading": "Built to go further.",
       "p1": "MOAR started with one question: why does performance food taste like chalk? Three founders, one kitchen, one flavour we refused to compromise on.",
-      "p2": "90mg caffeine. 14g plant protein. Zero added sugar. Everything there for a reason — nothing that isn't."
+      "p2": "90mg caffeine. 14g protein. No added sugar. Everything there for a reason — nothing that isn't."
     },
     "quote": "Built for the ones who go all in.",
     "values": {
@@ -249,11 +250,11 @@
     "caffeineTitle": "Caffeine From Guarana",
     "caffeineText": "Our 90mg of caffeine comes from guarana, a natural source. Because you eat it with protein and fibre instead of drinking it, it's absorbed more gradually than coffee or an energy drink, so you get a smooth lift instead of a spike and crash.",
     "proteinTitle": "Sustained Fuel",
-    "proteinText": "14g of plant protein and 3g of fiber slow digestion, creating a steady release of energy. No blood sugar spikes, no crashes — just hours of sustained focus.",
-    "lowGiTitle": "Low Glycemic Design",
-    "lowGiText": "Our formula is designed with a low glycemic index, meaning it won't spike your blood sugar. This keeps your energy stable and your mind sharp.",
+    "proteinText": "14g of protein and 2.6g of fibre slow digestion, so the energy from the caffeine comes on steadily instead of all at once.",
     "releaseTitle": "Slower Release",
-    "releaseText": "Protein and guarana together give you a flatter lift that lasts longer. Most people feel it within 20–30 minutes and stay focused for 3–5 hours, then taper off gradually."
+    "releaseText": "Protein and guarana together give you a flatter lift that lasts longer. Most people feel it within 20–30 minutes and stay focused for 3–5 hours, then taper off gradually.",
+    "glutenTitle": "Gluten Free",
+    "glutenText": "MOAR is gluten free under EU rules and made without GMOs. It contains milk and soy, and may contain peanuts and nuts."
   },
   "footer": {
     "social": "Social",
@@ -320,9 +321,11 @@
     "q4": "When's the best time to eat a MOAR bar?",
     "a4": "15–30 minutes before you need to be on. That means before a study session, before training, during a long drive, or as an afternoon pick-me-up. One rule: try not to eat it after 3pm if you're sensitive to caffeine — the half-life means it'll still be partly active at bedtime.",
     "q5": "How does it compare to energy drinks?",
-    "a5": "Energy drinks give you caffeine plus a lot of things you don't need — sugar, artificial sweeteners, synthetic stimulants, colours. A MOAR bar gives you 90mg natural caffeine, 14g protein, and 3g fibre. It's food that works, not a drink engineered to taste like a science experiment.",
+    "a5": "Energy drinks give you caffeine and little else — often with a lot of sugar. A MOAR bar gives you 90mg natural caffeine, 14g protein and 2.6g fibre, with only 2g of sugar. It's food that works, not a drink engineered to taste like a science experiment.",
     "q6": "When will I receive my order?",
-    "a6": "We're currently in pre-launch and taking waitlist signups. Once we ship, orders within Sweden will arrive within 2–4 business days. European shipping will follow shortly after launch — sign up to be the first to know when your country goes live."
+    "a6": "We're currently in pre-launch and taking waitlist signups. Once we ship, orders within Sweden will arrive within 2–4 business days. European shipping will follow shortly after launch — sign up to be the first to know when your country goes live.",
+    "q7": "Who shouldn't eat MOAR?",
+    "a7": "MOAR contains caffeine (90mg per bar), so it's not recommended for children or pregnant women. It contains milk and soy, and may contain peanuts and nuts. It's sweetened with maltitol, and like other foods with sweeteners, eating a lot at once may have a laxative effect."
   },
   "tradeoff": {
     "eyebrow": "The problem",
@@ -392,6 +395,83 @@
         "title": "Late nights",
         "body": "Get past the 2 am wall with real food in you, not just caffeine."
       }
+    },
+    "follow": "Follow @moarbars"
+  },
+  "manifesto": {
+    "eyebrow": "Why we made it",
+    "text": "We wanted the *kick of a coffee* and the *fullness of a real snack.* Without the crash. Without the added sugar. Nothing on the shelf did both. So we made it.",
+    "signature": "Tom, Charlie & Oliver"
+  },
+  "inside": {
+    "eyebrow": "Inside one bar",
+    "titleA": "Four layers.",
+    "titleB": "One job.",
+    "lede": "Scroll and the bar opens up. Every layer is labelled with what's actually in it.",
+    "alt": "A MOAR bar opening into its four layers: milk chocolate, caramel, protein core and chocolate base",
+    "layers": {
+      "chocolate": {
+        "title": "Milk chocolate",
+        "pct": "25%",
+        "body": "sweetened with maltitol, no added sugar"
+      },
+      "caramel": {
+        "title": "Caramel layer",
+        "pct": "25%",
+        "body": "with oligofructose fibre"
+      },
+      "core": {
+        "title": "Protein core",
+        "body": "collagen, milk, whey and soy protein, with guarana for 90 mg of caffeine"
+      },
+      "base": {
+        "title": "Sealed in chocolate",
+        "body": "gluten free · 55 g · 2 g sugar"
+      }
     }
+  },
+  "label": {
+    "eyebrow": "Nothing hidden",
+    "title": "The whole label.",
+    "toggle": "Show values",
+    "bar": "Per bar (55 g)",
+    "per100": "Per 100 g",
+    "facts": {
+      "caffeine": "Caffeine",
+      "protein": "Protein",
+      "energy": "Energy",
+      "sugars": "Sugars",
+      "fibre": "Fibre",
+      "fat": "Fat",
+      "salt": "Salt",
+      "weight": "Weight"
+    },
+    "subs": {
+      "energy": {
+        "bar": "933 kJ",
+        "per100": "1697 kJ"
+      },
+      "sugars": {
+        "bar": "of 21.5 g carbs",
+        "per100": "of 39 g carbs"
+      },
+      "fat": {
+        "bar": "4.6 g saturates",
+        "per100": "8.3 g saturates"
+      },
+      "weight": {
+        "bar": "one bar",
+        "per100": "reference amount"
+      }
+    },
+    "chips": {
+      "gluten": "Gluten free",
+      "gmo": "GMO free",
+      "sugar": "No added sugar",
+      "allergens": "Contains milk & soy",
+      "warning": "Contains caffeine. Not recommended for children or pregnant women."
+    },
+    "ingredientsTitle": "Full ingredients",
+    "ingredients": "Milk chocolate with maltitol 25% (sweetener: maltitols; cocoa butter, whole milk powder, cocoa mass, fat reduced cocoa powder, emulsifier: lecithins; flavouring), paste with caramel flavour 25% [humectant: glycerol; maltodextrin, oligofructose (fibre), sweetener: maltitols; coconut oil, skimmed milk powder, water, modified starch, colour: plain caramel; gelling agent: pectins; acidity regulator: calcium lactate; emulsifier: lecithins; natural flavouring, salt, thickener: xanthan gum], hydrolyzed collagen peptides 8.5%, sweetener: maltitols; humectant: glycerol; soya protein 5.5%, soya protein extrudates 5% (soya protein, tapioca starch, salt), milk protein concentrate 4.3%, whey protein concentrate 4.3% (whey protein concentrate, emulsifier: lecithins), rapeseed oil, water, grated coconut, whole milk powder, guarana extract 0.75%, flavourings, thickener: acacia gum; emulsifier: mono- and diglycerides of fatty acids; antioxidant: tocopherol-rich extract. May contain peanuts and nuts. Excessive consumption may produce laxative effects."
   }
 }

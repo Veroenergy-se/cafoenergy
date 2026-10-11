@@ -46,6 +46,8 @@ function isDarkBehind(header: HTMLElement): boolean {
     // Prefer the section's own background so a coloured card inside it doesn't flip the bar.
     let node: Element | null = el.closest('section, footer') ?? el
     while (node) {
+      // Sections that follow the page tone are transparent; the body's tone decides.
+      if (node === document.body) return document.body.dataset.tone === 'brown'
       const m = getComputedStyle(node).backgroundColor.match(/[\d.]+/g)
       if (m && (m.length < 4 || Number(m[3]) > 0.5)) {
         const [r, g, b] = m.map(Number)
@@ -78,9 +80,15 @@ export default function Navbar() {
     update()
     window.addEventListener('scroll', update, { passive: true })
     window.addEventListener('resize', update)
+    // The page tone changes a frame after scrolling; follow it.
+    const toneWatch = new MutationObserver(() => {
+      if (headerRef.current) setDark(isDarkBehind(headerRef.current))
+    })
+    toneWatch.observe(document.body, { attributes: true, attributeFilter: ['data-tone'] })
     return () => {
       window.removeEventListener('scroll', update)
       window.removeEventListener('resize', update)
+      toneWatch.disconnect()
     }
   }, [pathname])
 
