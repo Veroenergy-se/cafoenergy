@@ -46,12 +46,12 @@ function Row({ words, direction, outline }: RowProps) {
   const half = words.map((w) => `${w} · `).join('')
 
   return (
-    <div ref={ref} className="overflow-hidden [contain:paint]" aria-hidden="true">
+    <div ref={ref} className="overflow-hidden" aria-hidden="true">
       {/* will-change keeps the giant (outlined) text on its own GPU layer, so the
           browser slides a finished image instead of redrawing glyphs every frame. */}
       <motion.div
         style={{ x }}
-        className={`flex w-max whitespace-nowrap will-change-transform [backface-visibility:hidden] font-display uppercase leading-[0.95] text-[clamp(2.6rem,7.5vw,7.5rem)] ${
+        className={`flex w-max whitespace-nowrap will-change-transform font-display uppercase leading-[0.95] text-[clamp(2.6rem,7.5vw,7.5rem)] ${
           outline ? 'text-transparent [-webkit-text-stroke:2px_var(--fg)]' : 'text-fg'
         }`}
       >
