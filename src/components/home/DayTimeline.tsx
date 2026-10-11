@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import { SITE } from '@/lib/constants'
 import { useTranslation } from 'react-i18next'
 import {
   motion,
@@ -40,6 +41,8 @@ export default function DayTimeline() {
   const velocity = useSpring(useVelocity(scrollY), { damping: 50, stiffness: 400 })
   const boost = useTransform(velocity, [0, 1000], [0, 4], { clamp: false })
   const x = useTransform(baseX, (v) => `${wrap(-50, 0, v)}%`)
+  // Cards lean into fast scrolling.
+  const skewX = useTransform(velocity, [-2500, 0, 2500], reduce ? [0, 0, 0] : [7, 0, -7], { clamp: true })
 
   useAnimationFrame((_, delta) => {
     if (reduce || drag.current !== null) return
@@ -61,10 +64,20 @@ export default function DayTimeline() {
   const endDrag = () => { drag.current = null }
 
   return (
-    <section className="bg-brown text-off-white py-20 lg:py-28 overflow-hidden">
-      <div className="page-container">
-        <p className="font-accent text-xs uppercase tracking-[0.2em] font-semibold text-caforange">{t('day.eyebrow')}</p>
-        <h2 className="mt-3 font-display uppercase text-5xl sm:text-6xl lg:text-7xl leading-[0.9]">{t('day.title')}</h2>
+    <section data-tone="brown" className="text-fg py-20 lg:py-28 overflow-hidden">
+      <div className="page-container flex flex-wrap items-end justify-between gap-6">
+        <div>
+          <p className="font-accent text-xs uppercase tracking-[0.2em] font-semibold text-accent">{t('day.eyebrow')}</p>
+          <h2 className="mt-3 font-display uppercase text-5xl sm:text-6xl lg:text-7xl leading-[0.9]">{t('day.title')}</h2>
+        </div>
+        <a
+          href={SITE.social.instagram}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-accent font-semibold text-sm uppercase tracking-[0.12em] border-b-2 border-accent pb-1 hover:text-accent transition-colors"
+        >
+          {t('day.follow')} →
+        </a>
       </div>
 
       <div
@@ -81,8 +94,9 @@ export default function DayTimeline() {
               const photo = Boolean(m.img)
               const bg = m.tone === 'orange' ? 'bg-caforange text-brown' : m.tone === 'cream' ? 'bg-off-white text-brown' : 'text-off-white'
               return (
-                <article
+                <motion.article
                   key={`${copy}-${m.key}`}
+                  style={{ skewX }}
                   aria-hidden={copy === 1 || undefined}
                   className={`relative shrink-0 mr-5 w-[72vw] max-w-[340px] aspect-[3/4] overflow-hidden flex flex-col justify-end p-6 ${bg}`}
                 >
@@ -97,7 +111,7 @@ export default function DayTimeline() {
                     <h3 className="mt-2 font-display uppercase text-2xl leading-none">{t(`day.moments.${m.key}.title`)}</h3>
                     <p className={`mt-3 text-[15px] leading-relaxed ${photo ? 'text-off-white/85' : 'opacity-80'}`}>{t(`day.moments.${m.key}.body`)}</p>
                   </div>
-                </article>
+                </motion.article>
               )
             }),
           )}

@@ -21,15 +21,15 @@ export default function ProductCards() {
   const locale = i18n.language === 'sv' ? 'sv-SE' : 'en-GB'
 
   return (
-    <section className="bg-off-white text-brown py-20 lg:py-28">
+    <section data-tone="cream" className="text-fg py-20 lg:py-28">
       <div className="page-container">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
-            <p className="font-accent text-xs uppercase tracking-[0.2em] font-semibold text-caforange">{t('products.eyebrow')}</p>
+            <p className="font-accent text-xs uppercase tracking-[0.2em] font-semibold text-accent">{t('products.eyebrow')}</p>
             <h2 className="mt-3 font-display uppercase text-5xl sm:text-6xl lg:text-7xl leading-[0.9]">{t('products.title')}</h2>
-            <p className="mt-4 text-lg text-brown/70">{t('products.subtitle')}</p>
+            <p className="mt-4 text-lg text-fg/70">{t('products.subtitle')}</p>
           </div>
-          <Link to="/shop" className="group inline-flex items-center gap-2 font-accent font-semibold text-sm uppercase tracking-[0.12em] border-b-2 border-caforange pb-1">
+          <Link to="/shop" className="group inline-flex items-center gap-2 font-accent font-semibold text-sm uppercase tracking-[0.12em] border-b-2 border-accent pb-1">
             {t('products.subscribeLink')}
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </Link>

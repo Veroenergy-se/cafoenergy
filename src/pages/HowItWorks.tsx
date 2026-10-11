@@ -10,8 +10,8 @@ export default function HowItWorks() {
   const cards = [
     { titleKey: 'howItWorks.caffeineTitle', textKey: 'howItWorks.caffeineText', icon: Leaf, color: 'forest', stat: '90mg', statLabel: 'Natural Caffeine' },
     { titleKey: 'howItWorks.releaseTitle', textKey: 'howItWorks.releaseText', icon: Brain, color: 'gold', stat: '3–5h', statLabel: 'Steady Lift' },
-    { titleKey: 'howItWorks.proteinTitle', textKey: 'howItWorks.proteinText', icon: Dumbbell, color: 'forest', stat: '14g', statLabel: 'Plant Protein' },
-    { titleKey: 'howItWorks.lowGiTitle', textKey: 'howItWorks.lowGiText', icon: BarChart3, color: 'gold', stat: 'Low', statLabel: 'Glycemic Index' },
+    { titleKey: 'howItWorks.proteinTitle', textKey: 'howItWorks.proteinText', icon: Dumbbell, color: 'forest', stat: '14g', statLabel: 'Protein' },
+    { titleKey: 'howItWorks.glutenTitle', textKey: 'howItWorks.glutenText', icon: BarChart3, color: 'gold', stat: '0', statLabel: 'Gluten' },
   ]
 
   return (

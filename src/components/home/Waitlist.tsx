@@ -31,12 +31,12 @@ export default function Waitlist() {
   }
 
   return (
-    <section id="waitlist" className="bg-caforange text-brown py-20 lg:py-28 scroll-mt-20">
+    <section id="waitlist" data-tone="orange" className="text-fg py-20 lg:py-28 scroll-mt-20">
       <div className="page-container grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-end">
         <div>
           <p className="font-accent text-xs uppercase tracking-[0.2em] font-semibold">{t('waitlist.eyebrow')}</p>
           <h2 className="mt-4 font-display uppercase leading-[0.85] text-[clamp(3.5rem,9vw,8rem)]">
-            {t('waitlist.titleA')} <span className="text-off-white">{t('waitlist.titleB')}</span>
+            {t('waitlist.titleA')} <span className="text-accent">{t('waitlist.titleB')}</span>
           </h2>
         </div>
 
@@ -44,12 +44,12 @@ export default function Waitlist() {
           <p className="max-w-md text-lg leading-relaxed">{t('waitlist.subtitle')}</p>
 
           {status === 'success' ? (
-            <div className="mt-8 border-t-2 border-brown pt-5">
+            <div className="mt-8 border-t-2 border-fg pt-5">
               <p className="font-display uppercase text-4xl leading-none">{t('waitlist.success')}</p>
-              <p className="mt-2 text-brown/70">{t('waitlist.successSub')}</p>
+              <p className="mt-2 text-fg/70">{t('waitlist.successSub')}</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="mt-8 flex items-stretch border-b-2 border-brown">
+            <form onSubmit={handleSubmit} className="mt-8 flex items-stretch border-b-2 border-fg">
               <label htmlFor="waitlist-email" className="sr-only">Email</label>
               <input
                 id="waitlist-email"
@@ -59,7 +59,7 @@ export default function Waitlist() {
                 value={email}
                 onChange={e => setEmail(e.target.value)}
                 placeholder="your@email.com"
-                className="min-w-0 flex-1 bg-transparent py-4 text-xl sm:text-2xl placeholder-brown/45 focus:outline-none"
+                className="min-w-0 flex-1 bg-transparent py-4 text-xl sm:text-2xl placeholder-fg/45 focus:outline-none"
               />
               <button
                 type="submit"
@@ -75,7 +75,7 @@ export default function Waitlist() {
           {status === 'error' ? (
             <p className="mt-3 text-sm font-semibold">{t('waitlist.error')}</p>
           ) : (
-            status !== 'success' && <p className="mt-3 text-sm text-brown/65">{t('waitlist.fineprint')}</p>
+            status !== 'success' && <p className="mt-3 text-sm text-fg/65">{t('waitlist.fineprint')}</p>
           )}
         </div>
       </div>

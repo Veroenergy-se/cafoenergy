@@ -17,9 +17,9 @@ export default function TradeOff() {
   const problems = ['nutrition', 'fades', 'taste'] as const
 
   return (
-    <section className="bg-off-white text-brown pb-20 lg:pb-28 overflow-hidden">
-      <div className="page-container border-t border-brown/15 pt-20 lg:pt-28">
-        <p className="font-accent text-xs uppercase tracking-[0.2em] font-semibold text-caforange">
+    <section data-tone="cream" className="text-fg py-20 lg:py-28 overflow-hidden">
+      <div className="page-container">
+        <p className="font-accent text-xs uppercase tracking-[0.2em] font-semibold text-accent">
           {t('tradeoff.eyebrow')}
         </p>
         <h2 className="mt-3 max-w-4xl font-display uppercase text-5xl sm:text-6xl lg:text-7xl leading-[0.9] text-balance">
@@ -30,16 +30,16 @@ export default function TradeOff() {
           {problems.map((p, i) => (
             <motion.div
               key={p}
-              className="border-t-2 border-brown pt-5"
+              className="border-t-2 border-fg pt-5"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.5, delay: i * 0.1, ease }}
             >
               <h3 className="font-display uppercase text-3xl leading-none">
-                <span className="text-caforange">{t(`tradeoff.${p}.lead`)}</span> {t(`tradeoff.${p}.rest`)}
+                <span className="text-accent">{t(`tradeoff.${p}.lead`)}</span> {t(`tradeoff.${p}.rest`)}
               </h3>
-              <p className="mt-3 text-brown/70 leading-relaxed max-w-xs">{t(`tradeoff.${p}.body`)}</p>
+              <p className="mt-3 text-fg/70 leading-relaxed max-w-xs">{t(`tradeoff.${p}.body`)}</p>
             </motion.div>
           ))}
         </div>
@@ -50,22 +50,22 @@ export default function TradeOff() {
             <h3 className="font-display uppercase text-4xl sm:text-5xl leading-[0.9] text-balance">
               {t('tradeoff.mapTitle')}
             </h3>
-            <p className="mt-4 text-lg text-brown/70 max-w-md leading-relaxed">{t('tradeoff.mapBody')}</p>
+            <p className="mt-4 text-lg text-fg/70 max-w-md leading-relaxed">{t('tradeoff.mapBody')}</p>
           </div>
 
           <div className="relative pl-7 pb-7">
             {/* axis labels */}
-            <span className="absolute left-0 top-1/2 -translate-y-1/2 -rotate-90 origin-center whitespace-nowrap font-accent text-[10px] sm:text-xs uppercase tracking-[0.16em] font-semibold text-brown/60 -translate-x-[45%]">
+            <span className="absolute left-0 top-1/2 -translate-y-1/2 -rotate-90 origin-center whitespace-nowrap font-accent text-[10px] sm:text-xs uppercase tracking-[0.16em] font-semibold text-fg/60 -translate-x-[45%]">
               {t('tradeoff.axisY')} ↑
             </span>
-            <span className="absolute bottom-0 left-1/2 -translate-x-1/2 whitespace-nowrap font-accent text-[10px] sm:text-xs uppercase tracking-[0.16em] font-semibold text-brown/60">
+            <span className="absolute bottom-0 left-1/2 -translate-x-1/2 whitespace-nowrap font-accent text-[10px] sm:text-xs uppercase tracking-[0.16em] font-semibold text-fg/60">
               {t('tradeoff.axisX')} →
             </span>
 
-            <div className="relative aspect-[5/4] w-full border-l-2 border-b-2 border-brown">
+            <div className="relative aspect-[5/4] w-full border-l-2 border-b-2 border-fg">
               {/* quadrant dividers */}
-              <div className="absolute left-1/2 top-0 bottom-0 border-l border-dashed border-brown/30" />
-              <div className="absolute top-1/2 left-0 right-0 border-t border-dashed border-brown/30" />
+              <div className="absolute left-1/2 top-0 bottom-0 border-l border-dashed border-fg/30" />
+              <div className="absolute top-1/2 left-0 right-0 border-t border-dashed border-fg/30" />
 
               {/* MOAR's corner */}
               <motion.div
@@ -84,7 +84,7 @@ export default function TradeOff() {
               {others.map((o, i) => (
                 <motion.span
                   key={o.key}
-                  className="absolute -translate-x-1/2 translate-y-1/2 whitespace-nowrap rounded-full border border-brown/25 bg-off-white px-3 py-1.5 font-accent text-[11px] sm:text-sm font-semibold"
+                  className="absolute -translate-x-1/2 translate-y-1/2 whitespace-nowrap rounded-full border border-fg/25 bg-tone px-3 py-1.5 font-accent text-[11px] sm:text-sm font-semibold"
                   style={{ left: `${o.x}%`, bottom: `${o.y}%` }}
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}

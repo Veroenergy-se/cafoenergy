@@ -45,7 +45,7 @@ function Row({ words, direction, outline }: RowProps) {
       <motion.div
         style={{ x }}
         className={`flex w-max whitespace-nowrap font-display uppercase leading-[0.88] text-[clamp(4rem,12vw,12rem)] ${
-          outline ? 'text-transparent [-webkit-text-stroke:2px_var(--color-brown)]' : 'text-brown'
+          outline ? 'text-transparent [-webkit-text-stroke:2px_var(--fg)]' : 'text-fg'
         }`}
       >
         <span className="pr-[0.3em]">{half}</span>
@@ -61,7 +61,7 @@ export default function BrandMarquee() {
   const bottom = t('marquee.bottom', { returnObjects: true }) as string[]
 
   return (
-    <section className="bg-caforange text-brown py-16 sm:py-24 overflow-hidden">
+    <section data-tone="orange" className="text-fg py-16 sm:py-24 overflow-hidden">
       <h2 className="sr-only">{[...top, ...bottom].join('. ')}</h2>
       <Row words={top} direction={1} />
       <Row words={bottom} direction={-1} outline />

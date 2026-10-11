@@ -1,7 +1,9 @@
 import { Helmet } from 'react-helmet-async'
 import Hero from '@/components/home/Hero'
 import BrandMarquee from '@/components/home/BrandMarquee'
+import Manifesto from '@/components/home/Manifesto'
 import TradeOff from '@/components/home/TradeOff'
+import InsideBar from '@/components/home/InsideBar'
 import NutritionComparison from '@/components/home/NutritionComparison'
 import TwoInOne from '@/components/home/TwoInOne'
 import ProductCards from '@/components/home/ProductCards'
@@ -18,7 +20,9 @@ export default function Home() {
       <Hero />
       <BrandMarquee />
       <ProductCards />
+      <Manifesto />
       <TradeOff />
+      <InsideBar />
       <NutritionComparison />
       <TwoInOne />
       <DayTimeline />

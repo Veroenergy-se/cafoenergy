@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import AnimatedSection from '@/components/shared/AnimatedSection'
 import { ChevronDown } from 'lucide-react'
 
-const faqKeys = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6']
+const faqKeys = ['q1', 'q2', 'q3', 'q4', 'q5', 'q7', 'q6']
 
 function FAQAccordion({ qKey }: { qKey: string }) {
   const { t } = useTranslation()
