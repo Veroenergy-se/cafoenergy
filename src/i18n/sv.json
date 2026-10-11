@@ -438,13 +438,13 @@
     "compare": {
       "title": "Samma 55 g. Helt olika bar.",
       "body": "Ja, den är täckt av mjölkchoklad. Men ställ den bredvid en vanlig chokladkaka med samma vikt så är skillnaden tydlig.",
-      "choc": "mjölkchoklad",
+      "choc": "vanlig chokladkaka",
       "rows": {
         "sugar": "Socker",
         "protein": "Protein",
         "energy": "Energi"
       },
-      "source": "Mjölkchoklad: Marabou Mjölkchoklad, etikettvärden per 100 g (58 g socker, 4,7 g protein, 550 kcal) omräknat till 55 g. MOAR: vår näringsdeklaration."
+      "source": "Vanlig chokladkaka: etikettvärden för en typisk mjölkchoklad per 100 g (58 g socker, 4,7 g protein, 550 kcal), omräknat till 55 g. MOAR: vår näringsdeklaration."
     }
   },
   "label": {

@@ -438,13 +438,13 @@
     "compare": {
       "title": "Same 55 g. Very different bar.",
       "body": "Yes, it's coated in milk chocolate. But put it next to a regular chocolate bar of the same weight and the difference is obvious.",
-      "choc": "milk chocolate",
+      "choc": "regular chocolate bar",
       "rows": {
         "sugar": "Sugar",
         "protein": "Protein",
         "energy": "Energy"
       },
-      "source": "Milk chocolate: Marabou Mjölkchoklad, label values per 100 g (58 g sugars, 4.7 g protein, 550 kcal) scaled to 55 g. MOAR: our nutrition declaration."
+      "source": "Regular chocolate bar: label values of a typical milk chocolate bar per 100 g (58 g sugars, 4.7 g protein, 550 kcal), scaled to 55 g. MOAR: our nutrition declaration."
     }
   },
   "label": {

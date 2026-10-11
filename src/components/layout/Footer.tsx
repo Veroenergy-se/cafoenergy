@@ -72,7 +72,7 @@ export default function Footer() {
         <MoarLogo className="block w-full text-accent" />
       </div>
 
-      <div className="page-container mt-6 pb-8 flex flex-wrap justify-between gap-3 text-sm text-fg/40">
+      <div className="page-container mt-6 pb-24 flex flex-wrap justify-between gap-3 text-sm text-fg/40">
         <span>
           {t('footer.copyright', { year: new Date().getFullYear(), company: SITE.company.name })}
           {SITE.company.orgNumber && ` · ${t('footer.orgNumber')} ${SITE.company.orgNumber}`}

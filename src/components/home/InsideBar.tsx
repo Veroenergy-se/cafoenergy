@@ -15,8 +15,9 @@ const sparks = [
   { left: '16%', top: '32%' }, { left: '42%', top: '62%' }, { left: '66%', top: '28%' }, { left: '84%', top: '60%' },
 ]
 
-// Same weight, side by side: MOAR (spec sheet) vs Marabou Mjölkchoklad (ICA label,
-// per 100 g: 58 g sugars, 4.7 g protein, 550 kcal), both scaled to 55 g.
+// Same weight, side by side: MOAR (spec sheet) vs a regular milk chocolate bar
+// (Marabou Mjölkchoklad label, per 100 g: 58 g sugars, 4.7 g protein, 550 kcal),
+// both scaled to 55 g. The brand is deliberately not named on the page.
 const compare = [
   { key: 'sugar', moar: 2, choc: 32, unit: 'g' },
   { key: 'protein', moar: 14, choc: 2.6, unit: 'g' },

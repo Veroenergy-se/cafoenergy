@@ -25,7 +25,7 @@ const en: Record<LegalKey, LegalDoc> = {
       {
         h: '2. Prices and payment',
         p: [
-          'Prices are in Swedish kronor (SEK) and include VAT. Shipping is free on orders over {threshold}; for smaller orders the shipping cost is shown before you pay.',
+          'Prices are in Swedish kronor (SEK). Shipping is free on orders over {threshold}; for smaller orders the shipping cost is shown before you pay.',
           'We email you payment details after you order, and we ship once payment has been received.',
         ],
       },
@@ -187,7 +187,7 @@ const sv: Record<LegalKey, LegalDoc> = {
       {
         h: '2. Priser och betalning',
         p: [
-          'Priserna anges i svenska kronor (SEK) inklusive moms. Frakten är fri vid köp över {threshold}; för mindre beställningar visas fraktkostnaden innan du betalar.',
+          'Priserna anges i svenska kronor (SEK). Frakten är fri vid köp över {threshold}; för mindre beställningar visas fraktkostnaden innan du betalar.',
           'Vi mejlar betalningsuppgifter efter din beställning och skickar varorna när betalningen har kommit in.',
         ],
       },
