@@ -26,7 +26,7 @@
   --font-monument: var(--font-display);
   --font-body: "DM Sans Variable", "DM Sans", sans-serif;
   --font-accent: "DM Sans Variable", "DM Sans", sans-serif;
-  /* Headline face: PP Monument Extended Bold, the brand font (licensed, self-hosted). */
+  /* Headline face: PP Monument Extended Heavy, the brand font (licensed, self-hosted). */
   --font-display: "PP Monument Extended", "Arial Black", sans-serif;
 }
 
@@ -44,16 +44,16 @@
 
 @font-face {
   font-family: "PP Monument Extended";
-  src: url("/fonts/PPMonumentExtended-Bold.woff2") format("woff2");
-  font-weight: 700;
+  src: url("/fonts/PPMonumentExtended-Heavy.woff2") format("woff2");
+  font-weight: 900;
   font-style: normal;
   font-display: swap;
 }
 
-/* Headlines: Monument Extended Bold, the only weight we have. */
+/* Headlines: Monument Extended Heavy (900), the only weight we load. */
 .font-heading,
 .font-display {
-  font-weight: 700;
+  font-weight: 900;
 }
 
 /* Page headings are always set in caps, like the brand guidelines. */
