@@ -124,7 +124,6 @@ const en: Record<LegalKey, LegalDoc> = {
       {
         h: 'Third parties',
         list: [
-          'Google Fonts: our fonts are loaded from Google, which means your browser sends your IP address to Google when the page loads.',
           'Loops: if you join the waitlist, your email address is sent to Loops, the service we use for our mailing list.',
         ],
       },
@@ -158,7 +157,6 @@ const en: Record<LegalKey, LegalDoc> = {
         list: [
           'Loops, the service that stores our waitlist and sends our emails. Data may be processed outside the EU, with the safeguards the GDPR requires.',
           'Our email provider and the carrier that delivers your order.',
-          'Google Fonts, which receives your IP address when our fonts load.',
         ],
       },
       {
@@ -280,7 +278,6 @@ const sv: Record<LegalKey, LegalDoc> = {
       {
         h: 'Tredje parter',
         list: [
-          'Google Fonts: våra typsnitt laddas från Google, vilket innebär att din webbläsare skickar din IP-adress till Google när sidan laddas.',
           'Loops: om du går med i väntelistan skickas din e-postadress till Loops, tjänsten vi använder för vårt nyhetsbrev.',
         ],
       },
@@ -311,7 +308,6 @@ const sv: Record<LegalKey, LegalDoc> = {
         list: [
           'Loops, tjänsten som lagrar vår väntelista och skickar våra mejl. Uppgifter kan behandlas utanför EU, med de skyddsåtgärder som GDPR kräver.',
           'Vår e-postleverantör och transportören som levererar din beställning.',
-          'Google Fonts, som tar emot din IP-adress när våra typsnitt laddas.',
         ],
       },
       {

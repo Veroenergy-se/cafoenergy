@@ -74,7 +74,7 @@ export default function FAQ() {
 
       <section className="bg-off-white py-24 text-center">
         <AnimatedSection>
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-heading text-brown">{t('faq.title')}</h1>
+          <h1 className="text-3xl sm:text-5xl md:text-5xl lg:text-6xl font-heading text-brown">{t('faq.title')}</h1>
           <p className="mt-4 text-brown/50 font-accent text-lg">{t('faq.subtitle')}</p>
         </AnimatedSection>
       </section>
@@ -98,7 +98,7 @@ export default function FAQ() {
         <div className="page-container">
           <AnimatedSection>
             <div className="max-w-2xl mx-auto">
-              <h2 className="text-4xl sm:text-5xl font-heading text-near-black">{t('faq.ctaTitle')}</h2>
+              <h2 className="text-3xl sm:text-4xl font-heading text-near-black">{t('faq.ctaTitle')}</h2>
               <p className="mt-4 text-near-black/50 text-lg">{t('faq.ctaText')}</p>
               <a
                 href="/contact"

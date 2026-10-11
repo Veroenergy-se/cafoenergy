@@ -104,7 +104,7 @@ function DoseSection() {
             <p className="text-[10px] font-accent font-bold text-white/25 tracking-[0.18em] uppercase mb-5">
               The 90mg sweet spot
             </p>
-            <h2 className="text-5xl sm:text-6xl lg:text-7xl font-heading text-white leading-tight mb-6">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-heading text-white leading-tight mb-6">
               Enough to perform.<br />
               <span className="text-gold">Safe enough to stack.</span>
             </h2>
@@ -122,7 +122,7 @@ function DoseSection() {
               <AnimatedSection key={s.time} delay={i * 0.1}>
                 <div className="bg-near-black px-6 py-10 flex flex-col items-center">
                   <p className="text-[10px] font-accent text-white/25 uppercase tracking-widest mb-4">{s.time}</p>
-                  <p className="text-4xl sm:text-5xl font-heading text-gold mb-2">{s.mg}</p>
+                  <p className="text-3xl sm:text-4xl font-heading text-gold mb-2">{s.mg}</p>
                   <p className="text-xs font-accent text-white/35">{s.note}</p>
                 </div>
               </AnimatedSection>
@@ -151,7 +151,7 @@ export default function CaffeineMyths() {
               <span className="inline-block rounded-full text-[10px] font-accent font-bold text-white/40 tracking-widest uppercase border border-white/10 px-4 py-1.5 mb-6">
                 Backed by science
               </span>
-              <h2 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-heading text-white mb-4 leading-tight">
+              <h2 className="text-2xl sm:text-5xl lg:text-5xl xl:text-6xl font-heading text-white mb-4 leading-tight">
                 Caffeine isn't the villain.<br />
                 <span className="text-gold">Misinformation is.</span>
               </h2>

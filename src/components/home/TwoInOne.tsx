@@ -20,7 +20,7 @@ export default function TwoInOne() {
       <div className="page-container grid gap-14 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] items-center">
         <div>
           <p className="font-accent text-xs uppercase tracking-[0.2em] font-semibold">{t('twoInOne.eyebrow')}</p>
-          <h2 className="mt-4 font-display uppercase leading-[0.82] text-[clamp(4.5rem,13vw,11rem)]">
+          <h2 className="mt-4 font-display uppercase leading-[0.9] text-[clamp(2.8rem,8.5vw,6.8rem)]">
             {t('twoInOne.titleA')} <span className="text-accent">{t('twoInOne.titleB')}</span>
             {t('twoInOne.titleC') && (
               <>
@@ -30,7 +30,7 @@ export default function TwoInOne() {
             )}
           </h2>
 
-          <p className="mt-8 font-display uppercase text-3xl sm:text-4xl leading-none">
+          <p className="mt-8 font-display uppercase text-xl sm:text-2xl leading-tight">
             {t('twoInOne.a')}{' '}
             <span className="text-transparent [-webkit-text-stroke:1.5px_var(--fg)]">+ {t('twoInOne.b')}</span>{' '}
             <span className="text-accent">= MOAR</span>
@@ -61,7 +61,7 @@ export default function TwoInOne() {
             src="/images/moar-wrapper.png"
             alt={t('twoInOne.alt')}
             style={{ rotate: wrapRotate, y: wrapY }}
-            className="absolute -bottom-6 -left-4 sm:-left-10 w-[34%] drop-shadow-[0_30px_30px_rgba(45,30,23,0.45)]"
+            className="absolute -bottom-6 -left-4 sm:-left-10 w-[34%] drop-shadow-[0_30px_30px_rgba(45,29,23,0.45)]"
             loading="lazy"
           />
         </div>

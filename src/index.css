@@ -1,33 +1,36 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand palette — the only three colors the site is built from.
-     See: https://claude.ai/artifact/JtfxnUpbjUJQ286CS1pBPx */
-  --color-caforange: #ff5e1e;
+  /* Brand palette from the MOAR brand guidelines (brand/MOAR_Brand_Guidelines.pdf):
+     MOAR Orange (primary), Off White and Brown (secondary). */
+  --color-caforange: #ff5900;
   --color-off-white: #ede6dc;
-  --color-brown: #2d1e17;
+  --color-brown: #2d1d17;
 
   /* Legacy tokens — kept only so old class names (bg-near-black, text-gold, etc.)
      keep working while components are migrated. Each aliases a brand color; none
      of these should be used in new code. Remove once nothing references them. */
-  --color-espresso: #2d1e17;      /* -> brown */
+  --color-espresso: #2d1d17;      /* -> brown */
   --color-cream: #ede6dc;         /* -> off-white */
-  --color-near-black: #2d1e17;    /* -> brown */
-  --color-gold: #ff5e1e;          /* -> caforange */
-  --color-gold-light: #ff8a52;    /* -> caforange, lighter tint */
-  --color-forest: #2d1e17;        /* -> brown */
-  --color-forest-light: #ff5e1e;  /* -> caforange */
+  --color-near-black: #2d1d17;    /* -> brown */
+  --color-gold: #ff5900;          /* -> caforange */
+  --color-gold-light: #ff8a4d;    /* -> caforange, lighter tint */
+  --color-forest: #2d1d17;        /* -> brown */
+  --color-forest-light: #ff5900;  /* -> caforange */
   --color-warm-white: #ede6dc;    /* -> off-white */
   --color-dark-cream: #ede6dc;    /* -> off-white */
 
   /* Type — two faces. Display for headlines/CTAs/big numbers, DM Sans for
      everything read at length or used as UI (nav, labels, body copy). */
-  --font-heading: "Montserrat", sans-serif;
-  --font-monument: "Montserrat", sans-serif;
-  --font-body: "DM Sans", sans-serif;
-  --font-accent: "DM Sans", sans-serif;
-  /* Condensed display face, used only for the MOAR brand marquee. */
-  --font-display: "Big Shoulders Display", "Oswald", Impact, sans-serif;
+  --font-heading: var(--font-display);
+  --font-monument: var(--font-display);
+  --font-body: "DM Sans Variable", "DM Sans", sans-serif;
+  --font-accent: "DM Sans Variable", "DM Sans", sans-serif;
+  /* Headline face. The brand font is Monument Extended (brand guidelines); until its
+     web licence/files arrive we use Archivo at its widest cut (font-stretch 125%).
+     To switch: add an @font-face for "Monument Extended" (woff2 in public/fonts)
+     and put it first in this stack. */
+  --font-display: "Archivo Variable", "Arial Black", sans-serif;
 }
 
 /* Tone colours: follow whichever section fills the middle of the screen
@@ -38,17 +41,22 @@
   --color-fg: var(--fg);
   --color-accent: var(--accent);
   --color-tone: var(--bg);
+  /* Logo colourway per the guidelines: orange on off-white/brown, white on orange. */
+  --color-logo: var(--logo);
 }
 
-/* font-heading ships as Bebas Neue's replacement but Tailwind's font-* utility
-   only sets font-family — Montserrat needs its heaviest weight to read as the
-   intended display face. */
-.font-heading {
-  font-weight: 900;
-}
-
+/* Headlines: the heaviest weight at full width, as in the brand guidelines. */
+.font-heading,
 .font-display {
   font-weight: 900;
+  font-stretch: 125%;
+}
+
+/* Page headings are always set in caps, like the brand guidelines. */
+h1.font-heading,
+h2.font-heading,
+h3.font-heading {
+  text-transform: uppercase;
 }
 
 html {
@@ -64,17 +72,19 @@ html {
 /* Registered so they animate: the page background fades between section
    colours instead of cutting at hard edges. */
 @property --bg { syntax: "<color>"; inherits: true; initial-value: #ede6dc; }
-@property --fg { syntax: "<color>"; inherits: true; initial-value: #2d1e17; }
-@property --accent { syntax: "<color>"; inherits: true; initial-value: #ff5e1e; }
+@property --fg { syntax: "<color>"; inherits: true; initial-value: #2d1d17; }
+@property --accent { syntax: "<color>"; inherits: true; initial-value: #ff5900; }
+@property --logo { syntax: "<color>"; inherits: true; initial-value: #ff5900; }
 
 body {
   --bg: #ede6dc;
-  --fg: #2d1e17;
-  --accent: #ff5e1e;
+  --fg: #2d1d17;
+  --accent: #ff5900;
+  --logo: #ff5900;
   font-family: var(--font-body);
   color: var(--fg);
   background-color: var(--bg);
-  transition: --bg 0.7s ease, --fg 0.7s ease, --accent 0.7s ease;
+  transition: --bg 0.7s ease, --fg 0.7s ease, --accent 0.7s ease, --logo 0.7s ease;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100%;
@@ -84,8 +94,8 @@ body {
   padding: 0;
 }
 
-body[data-tone="brown"] { --bg: #2d1e17; --fg: #ede6dc; --accent: #ff5e1e; }
-body[data-tone="orange"] { --bg: #ff5e1e; --fg: #2d1e17; --accent: #ede6dc; }
+body[data-tone="brown"] { --bg: #2d1d17; --fg: #ede6dc; --accent: #ff5900; --logo: #ff5900; }
+body[data-tone="orange"] { --bg: #ff5900; --fg: #2d1d17; --accent: #ede6dc; --logo: #ffffff; }
 
 @media (prefers-reduced-motion: reduce) {
   body { transition: none; }

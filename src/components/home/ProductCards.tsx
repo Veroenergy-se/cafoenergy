@@ -26,7 +26,7 @@ export default function ProductCards() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
             <p className="font-accent text-xs uppercase tracking-[0.2em] font-semibold text-accent">{t('products.eyebrow')}</p>
-            <h2 className="mt-3 font-display uppercase text-5xl sm:text-6xl lg:text-7xl leading-[0.9]">{t('products.title')}</h2>
+            <h2 className="mt-3 font-display uppercase text-3xl sm:text-4xl lg:text-5xl leading-[0.95]">{t('products.title')}</h2>
             <p className="mt-4 text-lg text-fg/70">{t('products.subtitle')}</p>
           </div>
           <Link to="/shop" className="group inline-flex items-center gap-2 font-accent font-semibold text-sm uppercase tracking-[0.12em] border-b-2 border-accent pb-1">
@@ -65,24 +65,24 @@ export default function ProductCards() {
                         src="/images/moar-wrapper.png"
                         alt=""
                         loading="lazy"
-                        className="absolute h-[118%] w-auto drop-shadow-[0_18px_22px_rgba(45,30,23,0.4)] transition-transform duration-500 ease-out [transform:translateX(var(--x))_rotate(var(--r))] group-hover:[transform:translateX(calc(var(--x)*1.6))_rotate(calc(var(--r)*1.35))_translateY(-6px)]"
+                        className="absolute h-[118%] w-auto drop-shadow-[0_18px_22px_rgba(45,29,23,0.4)] transition-transform duration-500 ease-out [transform:translateX(var(--x))_rotate(var(--r))] group-hover:[transform:translateX(calc(var(--x)*1.6))_rotate(calc(var(--r)*1.35))_translateY(-6px)]"
                         style={{ ['--x' as string]: `${f.x}%`, ['--r' as string]: `${f.r}deg` }}
                       />
                     ))}
                   </div>
-                  <span className="absolute bottom-3 right-4 font-display text-6xl leading-none text-brown/90">×{product.barCount}</span>
+                  <span className="absolute bottom-3 right-4 font-display text-4xl leading-none text-brown/90">×{product.barCount}</span>
                 </div>
 
                 <div className="flex flex-1 flex-col p-6 sm:p-7">
                   <div className="flex items-baseline justify-between gap-4">
-                    <h3 className="font-display uppercase text-3xl leading-none">{t(product.nameKey)}</h3>
+                    <h3 className="font-display uppercase text-xl leading-tight">{t(product.nameKey)}</h3>
                     <span className={`font-accent text-sm ${featured ? 'text-off-white/60' : 'text-brown/50'}`}>{t(product.descriptionKey)}</span>
                   </div>
 
                   <div className="mt-6 flex items-end justify-between gap-4">
                     <div>
                       <div className="flex items-baseline gap-2">
-                        <span className="font-display text-5xl leading-none">{formatPrice(price, currency)}</span>
+                        <span className="font-display text-4xl leading-none">{formatPrice(price, currency)}</span>
                         {product.originalPrice && (
                           <span className={`text-sm line-through ${featured ? 'text-off-white/40' : 'text-brown/35'}`}>
                             {formatPrice(product.originalPrice[currency], currency)}

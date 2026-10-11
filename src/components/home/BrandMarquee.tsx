@@ -44,7 +44,7 @@ function Row({ words, direction, outline }: RowProps) {
     <div className="overflow-hidden" aria-hidden="true">
       <motion.div
         style={{ x }}
-        className={`flex w-max whitespace-nowrap font-display uppercase leading-[0.88] text-[clamp(4rem,12vw,12rem)] ${
+        className={`flex w-max whitespace-nowrap font-display uppercase leading-[0.95] text-[clamp(2.6rem,7.5vw,7.5rem)] ${
           outline ? 'text-transparent [-webkit-text-stroke:2px_var(--fg)]' : 'text-fg'
         }`}
       >

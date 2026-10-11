@@ -24,7 +24,7 @@ export default function TradeOff() {
         <p className="font-accent text-xs uppercase tracking-[0.2em] font-semibold text-accent">
           {t('tradeoff.eyebrow')}
         </p>
-        <h2 className="mt-3 max-w-4xl font-display uppercase text-5xl sm:text-6xl lg:text-7xl leading-[0.9] text-balance">
+        <h2 className="mt-3 max-w-4xl font-display uppercase text-3xl sm:text-4xl lg:text-5xl leading-[0.95] text-balance">
           {t('tradeoff.title')}
         </h2>
 
@@ -38,7 +38,7 @@ export default function TradeOff() {
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.5, delay: i * 0.1, ease }}
             >
-              <h3 className="font-display uppercase text-3xl leading-none">
+              <h3 className="font-display uppercase text-lg sm:text-xl leading-tight">
                 <span className="text-accent">{t(`tradeoff.${p}.lead`)}</span> {t(`tradeoff.${p}.rest`)}
               </h3>
               <p className="mt-3 text-fg/70 leading-relaxed max-w-xs">{t(`tradeoff.${p}.body`)}</p>
@@ -49,7 +49,7 @@ export default function TradeOff() {
         {/* The map */}
         <div className="mt-20 lg:mt-28 grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-center">
           <div>
-            <h3 className="font-display uppercase text-4xl sm:text-5xl leading-[0.9] text-balance">
+            <h3 className="font-display uppercase text-2xl sm:text-3xl leading-[0.95] text-balance">
               <Highlight text={t('tradeoff.mapTitle')} />
             </h3>
             <p className="mt-4 text-lg text-fg/70 max-w-md leading-relaxed">{t('tradeoff.mapBody')}</p>
@@ -94,7 +94,7 @@ export default function TradeOff() {
                   transition={{ duration: 0.45, delay: 0.1 + i * 0.1, ease }}
                 >
                   <span className="block w-3 h-3 shrink-0 rounded-full bg-fg ring-[6px] ring-fg/10" />
-                  <span className="whitespace-nowrap font-display uppercase text-sm sm:text-xl leading-none text-fg/80">
+                  <span className="whitespace-nowrap font-display uppercase text-[10px] sm:text-sm leading-none text-fg/80">
                     {t(`tradeoff.items.${o.key}`)}
                   </span>
                 </motion.div>

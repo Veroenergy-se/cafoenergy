@@ -35,7 +35,7 @@ export default function Waitlist() {
       <div className="page-container grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-end">
         <div>
           <p className="font-accent text-xs uppercase tracking-[0.2em] font-semibold">{t('waitlist.eyebrow')}</p>
-          <h2 className="mt-4 font-display uppercase leading-[0.85] text-[clamp(3.5rem,9vw,8rem)]">
+          <h2 className="mt-4 font-display uppercase leading-[0.92] text-[clamp(2.2rem,5.4vw,5rem)]">
             {t('waitlist.titleA')} <span className="text-accent">{t('waitlist.titleB')}</span>
           </h2>
         </div>
@@ -45,7 +45,7 @@ export default function Waitlist() {
 
           {status === 'success' ? (
             <div className="mt-8 border-t-2 border-fg pt-5">
-              <p className="font-display uppercase text-4xl leading-none">{t('waitlist.success')}</p>
+              <p className="font-display uppercase text-2xl leading-tight">{t('waitlist.success')}</p>
               <p className="mt-2 text-fg/70">{t('waitlist.successSub')}</p>
             </div>
           ) : (

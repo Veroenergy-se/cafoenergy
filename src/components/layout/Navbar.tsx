@@ -36,9 +36,12 @@ function MenuIcon({ open }: { open: boolean }) {
   )
 }
 
+type Behind = 'light' | 'dark' | 'orange'
+
 // Reads the background colour of whatever is behind the bar, so the bar can switch
-// between brown text (on cream/orange) and cream text (on brown) without per-page config.
-function isDarkBehind(header: HTMLElement): boolean {
+// between brown text (on cream/orange) and cream text (on brown), and the logo
+// between orange and white (on orange), as the brand guidelines require.
+function toneBehind(header: HTMLElement): Behind {
   const y = header.getBoundingClientRect().bottom - 8
   const stack = document.elementsFromPoint(window.innerWidth / 2, Math.max(y, 0))
   for (const el of stack) {
@@ -47,23 +50,27 @@ function isDarkBehind(header: HTMLElement): boolean {
     let node: Element | null = el.closest('section, footer') ?? el
     while (node) {
       // Sections that follow the page tone are transparent; the body's tone decides.
-      if (node === document.body) return document.body.dataset.tone === 'brown'
+      if (node === document.body) {
+        const tone = document.body.dataset.tone
+        return tone === 'brown' ? 'dark' : tone === 'orange' ? 'orange' : 'light'
+      }
       const m = getComputedStyle(node).backgroundColor.match(/[\d.]+/g)
       if (m && (m.length < 4 || Number(m[3]) > 0.5)) {
         const [r, g, b] = m.map(Number)
-        return (0.299 * r + 0.587 * g + 0.114 * b) / 255 < 0.45
+        if (r > 200 && g < 150 && b < 100) return 'orange'
+        return (0.299 * r + 0.587 * g + 0.114 * b) / 255 < 0.45 ? 'dark' : 'light'
       }
       node = node.parentElement
     }
   }
-  return false
+  return 'light'
 }
 
 export default function Navbar() {
   const { t } = useTranslation()
   const { pathname } = useLocation()
   const { toggleCart, cartCount } = useCart()
-  const [dark, setDark] = useState(false)
+  const [behind, setBehind] = useState<Behind>('light')
   const [hidden, setHidden] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const lastY = useRef(0)
@@ -75,14 +82,14 @@ export default function Navbar() {
       if (y > 120) setHidden(y > lastY.current)
       else setHidden(false)
       lastY.current = y
-      if (headerRef.current) setDark(isDarkBehind(headerRef.current))
+      if (headerRef.current) setBehind(toneBehind(headerRef.current))
     }
     update()
     window.addEventListener('scroll', update, { passive: true })
     window.addEventListener('resize', update)
     // The page tone changes a frame after scrolling; follow it.
     const toneWatch = new MutationObserver(() => {
-      if (headerRef.current) setDark(isDarkBehind(headerRef.current))
+      if (headerRef.current) setBehind(toneBehind(headerRef.current))
     })
     toneWatch.observe(document.body, { attributes: true, attributeFilter: ['data-tone'] })
     return () => {
@@ -102,7 +109,9 @@ export default function Navbar() {
     return () => { document.body.style.overflow = '' }
   }, [mobileOpen])
 
-  const tone = mobileOpen ? 'text-off-white' : dark ? 'text-off-white' : 'text-brown'
+  const tone = mobileOpen || behind === 'dark' ? 'text-off-white' : 'text-brown'
+  // Logo colourway: white on orange, orange everywhere else.
+  const logoColour = !mobileOpen && behind === 'orange' ? 'text-white' : 'text-caforange'
 
   return (
     <header
@@ -113,7 +122,7 @@ export default function Navbar() {
     >
       <nav className="relative page-container h-20 flex items-center justify-between gap-6">
         <Link to="/" aria-label="MOAR home" className="shrink-0">
-          <MoarLogo className="h-7 sm:h-8" />
+          <MoarLogo className={`h-10 sm:h-11 transition-colors duration-300 ${logoColour}`} />
         </Link>
 
         <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-9">
@@ -189,7 +198,7 @@ export default function Navbar() {
                 >
                   <Link
                     to={link.path}
-                    className={`block py-2 font-display uppercase text-5xl leading-none ${
+                    className={`block py-2 font-display uppercase text-3xl leading-tight ${
                       pathname === link.path ? 'text-caforange' : ''
                     }`}
                   >

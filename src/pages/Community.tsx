@@ -48,7 +48,7 @@ export default function Community() {
       {/* Hero */}
       <section className="bg-off-white py-32 text-center">
         <AnimatedSection>
-          <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-[9rem] xl:text-[12rem] font-heading text-brown">{t('community.title')}</h1>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-5xl font-heading text-brown">{t('community.title')}</h1>
           <p className="mt-4 text-brown/70 font-accent text-lg max-w-xl mx-auto">{t('community.subtitle')}</p>
         </AnimatedSection>
       </section>
@@ -59,7 +59,7 @@ export default function Community() {
 
           <div className="flex flex-col justify-center px-10 py-20 sm:px-14 lg:px-20 xl:px-28">
             <AnimatedSection direction="left">
-              <h2 className="text-5xl sm:text-6xl lg:text-7xl font-heading text-near-black mb-8 leading-tight">
+              <h2 className="text-4xl sm:text-5xl lg:text-5xl font-heading text-near-black mb-8 leading-tight">
                 {t('community.story.heading')}
               </h2>
               <p className="text-near-black font-accent leading-relaxed mb-5 max-w-sm text-lg">
@@ -92,7 +92,7 @@ export default function Community() {
       {/* Breakout quote */}
       <section className="bg-cream py-36 sm:py-52 px-8 text-center">
         <AnimatedSection direction="up">
-          <p className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-heading text-near-black mx-auto leading-tight">
+          <p className="text-3xl sm:text-4xl lg:text-5xl xl:text-5xl font-heading text-near-black mx-auto leading-tight">
             {t('community.quote')}
           </p>
         </AnimatedSection>
@@ -119,7 +119,7 @@ export default function Community() {
 
           <div className="flex flex-col justify-center px-10 py-20 sm:px-14 lg:px-20 xl:px-28 min-h-[55vh]">
             <AnimatedSection direction="right">
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading text-near-black mb-10 leading-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-near-black mb-10 leading-tight">
                 {t('community.values.heading')}
               </h2>
             </AnimatedSection>
@@ -140,11 +140,11 @@ export default function Community() {
       {/* Stats */}
       <section className="bg-cream py-28">
         <div className="page-container">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-12 text-center">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-12 text-center">
             {stats.map((s, i) => (
               <AnimatedSection key={s.l} delay={i * 0.1}>
-                <div className="text-3xl sm:text-5xl lg:text-6xl font-heading text-near-black leading-none">{s.n}</div>
-                <div className="text-base font-accent text-near-black uppercase tracking-widest mt-3">{s.l}</div>
+                <div className="text-2xl sm:text-3xl lg:text-5xl font-heading text-near-black leading-none">{s.n}</div>
+                <div className="text-sm sm:text-base font-accent text-near-black uppercase tracking-widest mt-3 break-words">{s.l}</div>
               </AnimatedSection>
             ))}
           </div>
@@ -164,7 +164,7 @@ export default function Community() {
 
           <div className="flex flex-col justify-center px-10 py-20 sm:px-14 lg:px-20 xl:px-28 min-h-[55vh]">
             <AnimatedSection direction="right">
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading text-near-black mb-4 leading-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-near-black mb-4 leading-tight">
                 {t('community.cta.heading')}
               </h2>
               <p className="text-near-black font-accent leading-relaxed mb-8 max-w-xs text-base">

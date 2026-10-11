@@ -58,7 +58,7 @@ export default function Shop() {
       {/* Hero */}
       <section className="bg-off-white py-32 text-center">
         <AnimatedSection>
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-heading text-brown">{t('products.title')}</h1>
+          <h1 className="text-3xl sm:text-5xl md:text-5xl lg:text-6xl font-heading text-brown">{t('products.title')}</h1>
           <p className="mt-4 text-brown/70 font-accent text-lg">{t('products.subtitle')}</p>
         </AnimatedSection>
       </section>
@@ -112,7 +112,7 @@ export default function Shop() {
 
               {/* Right: options on dark */}
               <div className="flex flex-col justify-center px-8 sm:px-12 lg:px-14 xl:px-16 py-16">
-                <h2 className="text-4xl sm:text-5xl font-heading text-white mb-8 leading-tight">
+                <h2 className="text-3xl sm:text-4xl font-heading text-white mb-8 leading-tight">
                   {t('shop.howManyBarsLine1')}<br />{t('shop.howManyBarsLine2')}
                 </h2>
 
@@ -247,7 +247,7 @@ export default function Shop() {
                         </span>
                       </div>
                       <div className="px-8 pb-8 flex flex-col flex-1">
-                        <h3 className="text-3xl font-heading mb-1 text-near-black">{t(product.nameKey)}</h3>
+                        <h3 className="text-2xl sm:text-3xl font-heading mb-1 text-near-black">{t(product.nameKey)}</h3>
                         <p className="text-sm font-accent leading-relaxed mb-6 flex-1 text-near-black/45">{copy.pitch}</p>
                         <div className="flex items-end justify-between mb-4">
                           <div>
@@ -295,7 +295,7 @@ export default function Shop() {
               <p className="text-[10px] font-accent font-bold text-white/25 tracking-[0.18em] uppercase mb-3">
                 {t('shop.monthlySubscription')}
               </p>
-              <h2 className="text-4xl sm:text-5xl font-heading text-white mb-14 leading-tight">
+              <h2 className="text-3xl sm:text-4xl font-heading text-white mb-14 leading-tight">
                 {t('shop.neverRunOut')}<br /><span className="text-gold">{t('shop.neverThinkAboutIt')}</span>
               </h2>
 
@@ -308,7 +308,7 @@ export default function Shop() {
                       </div>
                       <span className="text-sm font-accent font-bold text-white/20 uppercase tracking-widest">{step}</span>
                     </div>
-                    <h3 className="text-2xl font-heading text-white mb-3">{title}</h3>
+                    <h3 className="text-xl lg:text-2xl break-words font-heading text-white mb-3">{title}</h3>
                     <p className="text-base text-white/35 font-accent leading-relaxed">{desc}</p>
                   </div>
                 ))}
@@ -346,7 +346,7 @@ export default function Shop() {
               <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-12 gap-4">
                 <div>
                   <p className="text-[10px] font-accent font-bold text-near-black/25 tracking-[0.18em] uppercase mb-3">{t('shop.perBar')}</p>
-                  <h2 className="text-4xl sm:text-5xl font-heading text-near-black leading-tight">{t('nutrition.title')}</h2>
+                  <h2 className="text-3xl sm:text-4xl font-heading text-near-black leading-tight">{t('nutrition.title')}</h2>
                 </div>
                 <p className="text-sm text-near-black/40 font-accent max-w-xs leading-relaxed sm:text-right">
                   {t('shop.ingredientReason')}
@@ -382,7 +382,7 @@ export default function Shop() {
         <div className="page-container">
           <AnimatedSection>
             <div className="max-w-xl mx-auto">
-              <h2 className="text-5xl sm:text-6xl font-heading text-brown mb-4">{t('shop.stillDeciding')}</h2>
+              <h2 className="text-2xl sm:text-5xl font-heading text-brown mb-4">{t('shop.stillDeciding')}</h2>
               <p className="text-brown/50 font-accent mb-8 leading-relaxed">
                 {t('shop.stillDecidingText')}
               </p>

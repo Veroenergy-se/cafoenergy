@@ -55,7 +55,7 @@ function WholeLabel() {
       <div className="flex flex-wrap items-end justify-between gap-6">
         <div>
           <p className="font-accent text-xs uppercase tracking-[0.2em] font-semibold text-accent">{t('label.eyebrow')}</p>
-          <h3 className="mt-3 font-display uppercase text-4xl sm:text-5xl lg:text-6xl leading-[0.9]">{t('label.title')}</h3>
+          <h3 className="mt-3 font-display uppercase text-2xl sm:text-3xl lg:text-4xl leading-[0.95]">{t('label.title')}</h3>
         </div>
         <div role="group" aria-label={t('label.toggle')} className="inline-flex rounded-full border-2 border-fg p-[3px]">
           {(['bar', 'per100'] as const).map((m) => (
@@ -77,7 +77,7 @@ function WholeLabel() {
           const v = (mode === 'bar' ? f.bar : f.per100) * (reduce || !inView ? 1 : k)
           return (
             <div key={f.key} className="py-5 pr-4 border-b border-fg/15">
-              <div className={`font-display leading-[0.9] text-[clamp(2.8rem,5.5vw,5.5rem)] tabular-nums ${f.hero ? 'text-accent' : ''}`}>
+              <div className={`font-display leading-[0.9] text-[clamp(1.8rem,3.6vw,3.4rem)] tabular-nums ${f.hero ? 'text-accent' : ''}`}>
                 {fmt(v, f.dec)}<span className="text-[0.42em] ml-0.5">{f.unit}</span>
               </div>
               <div className="mt-1.5 font-accent text-xs uppercase tracking-[0.14em] font-semibold text-fg/65">{t(`label.facts.${f.key}`)}</div>
@@ -121,7 +121,7 @@ function CompareRow({ row, index, last, progress }: { row: (typeof rows)[number]
         {t(`nutrition.rows.${row.key}`)}
       </motion.th>
       <td className={`bg-caforange text-brown border-t border-brown/15 text-center ${last ? 'rounded-b-2xl' : ''}`}>
-        <motion.div style={style} className="py-4 sm:py-5 font-display text-[1.7rem] sm:text-4xl leading-none">
+        <motion.div style={style} className="py-4 sm:py-5 font-display text-lg sm:text-3xl leading-none">
           {row.moar}
         </motion.div>
       </td>
@@ -145,7 +145,7 @@ export default function NutritionComparison() {
       <div className="page-container">
         <div className="max-w-5xl mx-auto">
           <p className="font-accent text-xs uppercase tracking-[0.2em] font-semibold text-accent">{t('nutrition.eyebrow')}</p>
-          <h2 className="mt-3 font-display uppercase text-5xl sm:text-6xl lg:text-7xl leading-[0.9]">{t('nutrition.winsTitle')}</h2>
+          <h2 className="mt-3 font-display uppercase text-3xl sm:text-4xl lg:text-5xl leading-[0.95]">{t('nutrition.winsTitle')}</h2>
 
           <div className="mt-10 lg:mt-14 overflow-x-clip">
             <table ref={tableRef} className="w-full min-w-[288px] border-separate border-spacing-0 text-left">
@@ -153,7 +153,7 @@ export default function NutritionComparison() {
                 <tr>
                   <th scope="col" className="w-[22%] pb-4 align-bottom" aria-label={t('nutrition.whatsInside')} />
                   <th scope="col" className="w-[21%] bg-caforange text-brown rounded-t-2xl px-1 sm:px-3 pt-5 pb-4 text-center align-bottom">
-                    <span className="block font-display uppercase text-2xl sm:text-3xl leading-none">MOAR</span>
+                    <span className="block font-display uppercase text-base sm:text-2xl leading-none">MOAR</span>
                     <span className="mt-1 block font-accent text-[10px] sm:text-xs font-normal opacity-80">{t('nutrition.per.moar')}</span>
                   </th>
                   {others.map((c) => (
