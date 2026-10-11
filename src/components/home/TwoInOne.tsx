@@ -61,7 +61,7 @@ export default function TwoInOne() {
             src="/images/moar-wrapper.png"
             alt={t('twoInOne.alt')}
             style={{ rotate: wrapRotate, y: wrapY }}
-            className="absolute -bottom-6 -left-4 sm:-left-10 w-[34%] drop-shadow-[0_30px_30px_rgba(45,30,23,0.45)]"
+            className="absolute -bottom-6 -left-4 sm:-left-10 w-[34%] drop-shadow-[0_30px_30px_rgba(45,29,23,0.45)]"
             loading="lazy"
           />
         </div>

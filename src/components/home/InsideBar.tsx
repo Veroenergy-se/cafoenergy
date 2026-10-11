@@ -96,7 +96,7 @@ function Layer({ open, dy, top, height, style, children }: { open: MotionValue<n
   const y = useTransform(open, (o) => o * dy)
   return (
     <motion.div
-      className="absolute left-0 right-[44%] sm:right-[34%] rounded-xl shadow-[0_18px_30px_-12px_rgba(45,30,23,0.5)]"
+      className="absolute left-0 right-[44%] sm:right-[34%] rounded-xl shadow-[0_18px_30px_-12px_rgba(45,29,23,0.5)]"
       style={{ y, top, height, background: style }}
     >
       {children}

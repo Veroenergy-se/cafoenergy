@@ -1,26 +1,28 @@
 interface Props {
   className?: string
-  /** Include the spaced "BAR" line under the wordmark. */
-  full?: boolean
 }
 
-// The logo is an SVG used as a mask, so it takes the current text colour
-// (orange on dark, cream on orange, brown on light) instead of shipping one file per colour.
-export default function MoarLogo({ className = '', full = false }: Props) {
-  const src = full ? '/images/moar-logo.svg' : '/images/moar-wordmark.svg'
+// The official MOAR primary logo (MOAR + "BAR", from brand/logos). It is drawn as a
+// mask filled with the current text colour, so callers pick the colourway. The brand
+// guidelines allow: orange on off-white or brown, white on orange; minimum 35 px tall;
+// never rotated, faded, outlined or given effects.
+export default function MoarLogo({ className = '' }: Props) {
+  const src = '/images/moar-logo.svg'
   return (
     <span
       role="img"
       aria-label="MOAR Bar"
       className={`inline-block bg-current ${className}`}
       style={{
-        aspectRatio: full ? '1094 / 396' : '1094 / 312',
+        aspectRatio: '518.24 / 184.83',
         WebkitMaskImage: `url(${src})`,
         maskImage: `url(${src})`,
         WebkitMaskSize: 'contain',
         maskSize: 'contain',
         WebkitMaskRepeat: 'no-repeat',
         maskRepeat: 'no-repeat',
+        WebkitMaskPosition: 'center',
+        maskPosition: 'center',
       }}
     />
   )

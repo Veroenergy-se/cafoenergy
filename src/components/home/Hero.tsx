@@ -78,7 +78,7 @@ export default function Hero() {
               <motion.img
                 src="/images/moar-wrapper.png"
                 alt={t('twoInOne.alt')}
-                className="relative h-[82%] w-auto max-w-none drop-shadow-[0_40px_40px_rgba(45,30,23,0.45)]"
+                className="relative h-[82%] w-auto max-w-none drop-shadow-[0_40px_40px_rgba(45,29,23,0.45)]"
                 initial={{ rotate: -18 }}
                 animate={reduce ? { rotate: -14 } : { rotate: [-14, -10, -14], y: [0, -12, 0] }}
                 transition={reduce ? { duration: 0 } : { duration: 6, repeat: Infinity, ease: 'easeInOut' }}

@@ -69,7 +69,7 @@ export default function Footer() {
 
       {/* Sign-off: the wordmark, edge to edge */}
       <div className="page-container mt-16 lg:mt-24">
-        <MoarLogo className="block w-full text-accent" />
+        <MoarLogo className="block w-full text-logo" />
       </div>
 
       <div className="page-container mt-6 pb-24 flex flex-wrap justify-between gap-3 text-sm text-fg/40">

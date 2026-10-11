@@ -65,7 +65,7 @@ export default function ProductCards() {
                         src="/images/moar-wrapper.png"
                         alt=""
                         loading="lazy"
-                        className="absolute h-[118%] w-auto drop-shadow-[0_18px_22px_rgba(45,30,23,0.4)] transition-transform duration-500 ease-out [transform:translateX(var(--x))_rotate(var(--r))] group-hover:[transform:translateX(calc(var(--x)*1.6))_rotate(calc(var(--r)*1.35))_translateY(-6px)]"
+                        className="absolute h-[118%] w-auto drop-shadow-[0_18px_22px_rgba(45,29,23,0.4)] transition-transform duration-500 ease-out [transform:translateX(var(--x))_rotate(var(--r))] group-hover:[transform:translateX(calc(var(--x)*1.6))_rotate(calc(var(--r)*1.35))_translateY(-6px)]"
                         style={{ ['--x' as string]: `${f.x}%`, ['--r' as string]: `${f.r}deg` }}
                       />
                     ))}
