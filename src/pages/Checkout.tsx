@@ -36,7 +36,7 @@ export default function Checkout() {
         <section className="min-h-[70vh] flex items-center justify-center bg-warm-white">
           <AnimatedSection className="text-center px-6">
             <ShoppingBag className="w-16 h-16 text-near-black/20 mx-auto mb-6" />
-            <h1 className="text-4xl sm:text-5xl font-heading text-near-black mb-4">{t('checkout.emptyTitle')}</h1>
+            <h1 className="text-3xl sm:text-4xl font-heading text-near-black mb-4">{t('checkout.emptyTitle')}</h1>
             <p className="text-near-black/50 mb-8">{t('checkout.emptyText')}</p>
             <Link
               to="/shop"
@@ -101,7 +101,7 @@ export default function Checkout() {
 
       <section className="bg-off-white py-20 text-center">
         <AnimatedSection>
-          <h1 className="text-6xl sm:text-7xl lg:text-8xl font-heading text-brown">{t('checkout.title')}</h1>
+          <h1 className="text-5xl sm:text-5xl lg:text-6xl font-heading text-brown">{t('checkout.title')}</h1>
           {/* Step indicator */}
           <div className="flex items-center justify-center gap-3 mt-8">
             {['cart', 'details'].map((s, i) => (
@@ -134,7 +134,7 @@ export default function Checkout() {
                 <div className="w-20 h-20 bg-forest/10 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Check className="w-10 h-10 text-forest" />
                 </div>
-                <h2 className="text-4xl font-heading text-near-black mb-4">{t('checkout.confirmedTitle')}</h2>
+                <h2 className="text-3xl font-heading text-near-black mb-4">{t('checkout.confirmedTitle')}</h2>
                 <p className="text-near-black/50 max-w-md mx-auto mb-8">{t('checkout.confirmedText')}</p>
                 <Link
                   to="/"

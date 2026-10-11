@@ -6,10 +6,8 @@ import App from './App'
 import { CartProvider } from './providers/CartProvider'
 import ScrollToTop from './components/shared/ScrollToTop'
 import './i18n'
-// Fonts are self-hosted (no requests to Google).
-import '@fontsource/big-shoulders-display/900'
-import '@fontsource/montserrat/800'
-import '@fontsource/montserrat/900'
+// Fonts are self-hosted (no requests to Google): DM Sans here, Monument Extended
+// via @font-face in index.css.
 import '@fontsource-variable/dm-sans/opsz.css'
 import './index.css'
 

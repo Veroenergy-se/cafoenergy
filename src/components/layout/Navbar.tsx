@@ -198,7 +198,7 @@ export default function Navbar() {
                 >
                   <Link
                     to={link.path}
-                    className={`block py-2 font-display uppercase text-5xl leading-none ${
+                    className={`block py-2 font-display uppercase text-3xl leading-tight ${
                       pathname === link.path ? 'text-caforange' : ''
                     }`}
                   >

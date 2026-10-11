@@ -28,7 +28,7 @@ export default function Contact() {
 
       <section className="bg-off-white py-32 text-center">
         <AnimatedSection>
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-heading text-brown">{t('contact.title')}</h1>
+          <h1 className="text-3xl sm:text-5xl md:text-5xl lg:text-6xl font-heading text-brown">{t('contact.title')}</h1>
           <p className="mt-4 text-brown/50 font-accent text-lg max-w-xl mx-auto">{t('contact.subtitle')}</p>
         </AnimatedSection>
       </section>

@@ -58,7 +58,7 @@ export default function Shop() {
       {/* Hero */}
       <section className="bg-off-white py-32 text-center">
         <AnimatedSection>
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-heading text-brown">{t('products.title')}</h1>
+          <h1 className="text-3xl sm:text-5xl md:text-5xl lg:text-6xl font-heading text-brown">{t('products.title')}</h1>
           <p className="mt-4 text-brown/70 font-accent text-lg">{t('products.subtitle')}</p>
         </AnimatedSection>
       </section>
@@ -71,7 +71,7 @@ export default function Shop() {
         <div className={`flex border-b transition-colors duration-500 ${mode === 'subscription' ? 'border-white/10' : 'border-near-black/10'}`}>
           <button
             onClick={() => setMode('subscription')}
-            className={`flex-1 py-7 px-1 font-heading text-xs sm:text-lg lg:text-2xl uppercase tracking-normal sm:tracking-widest transition-all duration-300 flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-3 ${
+            className={`flex-1 py-7 px-1 font-heading text-[10px] sm:text-base lg:text-xl uppercase tracking-normal sm:tracking-widest transition-all duration-300 flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-3 ${
               mode === 'subscription'
                 ? 'text-white border-b-2 border-gold -mb-px'
                 : 'text-near-black/30 hover:text-near-black/60'
@@ -86,7 +86,7 @@ export default function Shop() {
           </button>
           <button
             onClick={() => setMode('onetime')}
-            className={`flex-1 py-7 px-1 font-heading text-xs sm:text-lg lg:text-2xl uppercase tracking-normal sm:tracking-widest transition-all duration-300 ${
+            className={`flex-1 py-7 px-1 font-heading text-[10px] sm:text-base lg:text-xl uppercase tracking-normal sm:tracking-widest transition-all duration-300 ${
               mode === 'onetime'
                 ? 'text-near-black border-b-2 border-near-black -mb-px'
                 : 'text-white/20 hover:text-white/40'
@@ -99,7 +99,7 @@ export default function Shop() {
         {/* SUBSCRIPTION */}
         {mode === 'subscription' && (
           <AnimatedSection direction="scale">
-            <div className="grid lg:grid-cols-[1.3fr_1fr] min-h-[85vh]">
+            <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] min-h-[85vh]">
 
               {/* Left: full-bleed image */}
               <div className="relative hidden lg:block">
@@ -111,8 +111,8 @@ export default function Shop() {
               </div>
 
               {/* Right: options on dark */}
-              <div className="flex flex-col justify-center px-8 sm:px-12 lg:px-14 xl:px-16 py-16">
-                <h2 className="text-4xl sm:text-5xl font-heading text-white mb-8 leading-tight">
+              <div className="min-w-0 flex flex-col justify-center px-5 sm:px-12 lg:px-14 xl:px-16 py-16">
+                <h2 className="text-xl sm:text-4xl font-heading text-white mb-8 leading-tight">
                   {t('shop.howManyBarsLine1')}<br />{t('shop.howManyBarsLine2')}
                 </h2>
 
@@ -129,7 +129,7 @@ export default function Shop() {
                       <button
                         key={boxes}
                         onClick={() => updatePlan(0, boxes)}
-                        className={`flex items-center justify-between px-6 py-5 border text-left transition-all duration-200 ${
+                        className={`flex items-center justify-between gap-3 px-4 sm:px-6 py-5 border text-left transition-all duration-200 ${
                           selected
                             ? 'border-gold bg-white/[0.06] text-white'
                             : 'border-white/10 text-white/60 hover:border-white/25 hover:text-white/90'
@@ -137,7 +137,7 @@ export default function Shop() {
                       >
                         <div>
                           <div className="flex items-center gap-3">
-                            <span className="text-xl font-heading leading-none">{label}</span>
+                            <span className="text-base sm:text-xl font-heading leading-none">{label}</span>
                             {tag && (
                               <span className="text-[10px] font-accent font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-gold text-near-black">
                                 {tag}
@@ -149,7 +149,7 @@ export default function Shop() {
                           </span>
                         </div>
                         <div className="text-right shrink-0 ml-4">
-                          <span className="text-2xl font-heading block">{formatPrice(price, currency)}</span>
+                          <span className="text-lg sm:text-2xl font-heading block whitespace-nowrap">{formatPrice(price, currency)}</span>
                           <span className={`text-xs font-accent font-bold ${selected ? 'text-gold' : 'text-white/25'}`}>{t('shop.save', { discount })}</span>
                         </div>
                       </button>
@@ -163,7 +163,7 @@ export default function Shop() {
                     return (
                       <button
                         onClick={() => { if (!isCustom) updatePlan(0, 4) }}
-                        className={`flex items-center justify-between px-6 py-5 border text-left transition-all duration-200 ${
+                        className={`flex items-center justify-between gap-3 px-4 sm:px-6 py-5 border text-left transition-all duration-200 ${
                           isCustom
                             ? 'border-gold bg-white/[0.06] text-white'
                             : 'border-white/10 text-white/60 hover:border-white/25 hover:text-white/90'
@@ -185,7 +185,7 @@ export default function Shop() {
                         <div className="text-right shrink-0 ml-4">
                           {isCustom ? (
                             <>
-                              <span className="text-2xl font-heading block">{formatPrice(customPrice, currency)}</span>
+                              <span className="text-lg sm:text-2xl font-heading block whitespace-nowrap">{formatPrice(customPrice, currency)}</span>
                               <span className="text-xs font-accent font-bold text-gold">{t('shop.save', { discount: 20 })}</span>
                             </>
                           ) : (
@@ -247,7 +247,7 @@ export default function Shop() {
                         </span>
                       </div>
                       <div className="px-8 pb-8 flex flex-col flex-1">
-                        <h3 className="text-3xl font-heading mb-1 text-near-black">{t(product.nameKey)}</h3>
+                        <h3 className="text-2xl sm:text-3xl font-heading mb-1 text-near-black">{t(product.nameKey)}</h3>
                         <p className="text-sm font-accent leading-relaxed mb-6 flex-1 text-near-black/45">{copy.pitch}</p>
                         <div className="flex items-end justify-between mb-4">
                           <div>
@@ -295,7 +295,7 @@ export default function Shop() {
               <p className="text-[10px] font-accent font-bold text-white/25 tracking-[0.18em] uppercase mb-3">
                 {t('shop.monthlySubscription')}
               </p>
-              <h2 className="text-4xl sm:text-5xl font-heading text-white mb-14 leading-tight">
+              <h2 className="text-3xl sm:text-4xl font-heading text-white mb-14 leading-tight">
                 {t('shop.neverRunOut')}<br /><span className="text-gold">{t('shop.neverThinkAboutIt')}</span>
               </h2>
 
@@ -308,7 +308,7 @@ export default function Shop() {
                       </div>
                       <span className="text-sm font-accent font-bold text-white/20 uppercase tracking-widest">{step}</span>
                     </div>
-                    <h3 className="text-2xl font-heading text-white mb-3">{title}</h3>
+                    <h3 className="text-xl lg:text-2xl break-words font-heading text-white mb-3">{title}</h3>
                     <p className="text-base text-white/35 font-accent leading-relaxed">{desc}</p>
                   </div>
                 ))}
@@ -346,7 +346,7 @@ export default function Shop() {
               <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-12 gap-4">
                 <div>
                   <p className="text-[10px] font-accent font-bold text-near-black/25 tracking-[0.18em] uppercase mb-3">{t('shop.perBar')}</p>
-                  <h2 className="text-4xl sm:text-5xl font-heading text-near-black leading-tight">{t('nutrition.title')}</h2>
+                  <h2 className="text-3xl sm:text-4xl font-heading text-near-black leading-tight">{t('nutrition.title')}</h2>
                 </div>
                 <p className="text-sm text-near-black/40 font-accent max-w-xs leading-relaxed sm:text-right">
                   {t('shop.ingredientReason')}
@@ -382,7 +382,7 @@ export default function Shop() {
         <div className="page-container">
           <AnimatedSection>
             <div className="max-w-xl mx-auto">
-              <h2 className="text-5xl sm:text-6xl font-heading text-brown mb-4">{t('shop.stillDeciding')}</h2>
+              <h2 className="text-2xl sm:text-5xl font-heading text-brown mb-4">{t('shop.stillDeciding')}</h2>
               <p className="text-brown/50 font-accent mb-8 leading-relaxed">
                 {t('shop.stillDecidingText')}
               </p>
