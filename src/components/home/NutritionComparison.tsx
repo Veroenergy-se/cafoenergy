@@ -116,8 +116,8 @@ export default function NutritionComparison() {
           <p className="font-accent text-xs uppercase tracking-[0.2em] font-semibold text-accent">{t('nutrition.eyebrow')}</p>
           <h2 className="mt-3 font-display uppercase text-5xl sm:text-6xl lg:text-7xl leading-[0.9]">{t('nutrition.winsTitle')}</h2>
 
-          <div className="mt-10 lg:mt-14 pb-4 overflow-x-auto overflow-y-hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            <table className="w-full min-w-[300px] border-separate border-spacing-0 text-left">
+          <div className="mt-10 lg:mt-14 overflow-x-clip">
+            <table className="w-full min-w-[288px] border-separate border-spacing-0 text-left">
               <thead>
                 <tr>
                   <th scope="col" className="w-[22%] pb-4 align-bottom" aria-label={t('nutrition.whatsInside')} />
@@ -133,16 +133,18 @@ export default function NutritionComparison() {
                   ))}
                 </tr>
               </thead>
-              <tbody>
+              <motion.tbody
+                initial="hidden"
+                whileInView="shown"
+                viewport={{ once: true, margin: '-80px' }}
+                variants={{ shown: { transition: { staggerChildren: 0.12, delayChildren: 0.05 } } }}
+              >
                 {rows.map((row, i) => {
                   const last = i === rows.length - 1
                   return (
                     <motion.tr
                       key={row.key}
-                      initial={{ opacity: 0, y: 14 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: '-60px' }}
-                      transition={{ duration: 0.5, delay: i * 0.07, ease }}
+                      variants={{ hidden: { opacity: 0, y: 14 }, shown: { opacity: 1, y: 0, transition: { duration: 0.5, ease } } }}
                     >
                       <th scope="row" className="py-4 sm:py-5 pr-2 border-t border-fg/15 font-accent font-semibold text-[10px] sm:text-sm uppercase tracking-[0.08em] sm:tracking-[0.12em] text-fg/70">
                         {t(`nutrition.rows.${row.key}`)}
@@ -158,7 +160,7 @@ export default function NutritionComparison() {
                     </motion.tr>
                   )
                 })}
-              </tbody>
+              </motion.tbody>
             </table>
           </div>
 
