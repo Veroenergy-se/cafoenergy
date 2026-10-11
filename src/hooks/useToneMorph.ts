@@ -3,52 +3,43 @@ import { useLocation } from 'react-router-dom'
 
 type Tone = 'cream' | 'brown' | 'orange'
 
-// Sets body[data-tone] from the [data-tone] section on screen. index.css animates
-// the page colours from that, so sections fade into each other instead of cutting.
-// Sections without data-tone keep their own colours.
+// Sets body[data-tone] from the [data-tone] section that covers the middle of the
+// screen. index.css animates the page colours from that, so sections fade into
+// each other instead of cutting. Sections without data-tone keep their own colours.
 //
-// The section whose colour is showing keeps it for as long as it still covers part
-// of the middle band of the screen (30%–70% down). So the colour holds until the
-// next section has clearly taken over, in either scroll direction, and small
-// back-and-forth scroll jitter can never make it flicker.
-const BAND_TOP = 0.3
-const BAND_BOTTOM = 0.7
-
+// A section marked data-tone-hold keeps its colour for longer on the way out: it
+// still wins while it covers a line higher up the screen (30% instead of 55%), so
+// the next colour arrives once the following section has mostly taken over.
 export default function useToneMorph() {
   const { pathname } = useLocation()
 
   useEffect(() => {
     let frame = 0
-    let active: HTMLElement | null = null
-
     const update = () => {
       frame = 0
-      const h = window.innerHeight
-      const sections = [...document.querySelectorAll<HTMLElement>('[data-tone]')].filter(
-        (el) => el !== document.body,
-      )
-      const atBottom = h + window.scrollY >= document.documentElement.scrollHeight - 2
-
-      if (atBottom) {
-        // The footer may be too short to reach the band, so the last section on screen wins.
-        active = sections.filter((el) => el.getBoundingClientRect().top < h).pop() ?? null
-      } else {
-        const covers = (el: HTMLElement, from: number, to: number) => {
-          const r = el.getBoundingClientRect()
-          return r.top < to && r.bottom > from
-        }
-        if (!active || !active.isConnected || !covers(active, h * BAND_TOP, h * BAND_BOTTOM)) {
-          active =
-            sections.find((el) => covers(el, h * 0.5, h * 0.5)) ??
-            sections.find((el) => covers(el, h * BAND_TOP, h * BAND_BOTTOM)) ??
-            null
+      const mid = window.innerHeight * 0.55
+      const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2
+      const holdLine = window.innerHeight * 0.3
+      let tone: Tone = 'cream'
+      const held = atBottom
+        ? undefined
+        : [...document.querySelectorAll<HTMLElement>('[data-tone-hold]')].find((el) => {
+            const r = el.getBoundingClientRect()
+            return r.top <= mid && r.bottom > holdLine
+          })
+      if (held) tone = held.dataset.tone as Tone
+      else for (const el of document.querySelectorAll<HTMLElement>('[data-tone]')) {
+        if (el === document.body) continue
+        const r = el.getBoundingClientRect()
+        // At the very bottom the footer may be too short to reach the middle line,
+        // so the last section that is on screen wins.
+        if (atBottom ? r.top < window.innerHeight : r.top <= mid && r.bottom > mid) {
+          tone = el.dataset.tone as Tone
+          if (!atBottom) break
         }
       }
-
-      const tone = (active?.dataset.tone as Tone | undefined) ?? 'cream'
       if (document.body.dataset.tone !== tone) document.body.dataset.tone = tone
     }
-
     const onScroll = () => { if (!frame) frame = requestAnimationFrame(update) }
     update()
     window.addEventListener('scroll', onScroll, { passive: true })

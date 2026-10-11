@@ -67,8 +67,9 @@ export default function BrandMarquee() {
   const top = t('marquee.top', { returnObjects: true }) as string[]
   const bottom = t('marquee.bottom', { returnObjects: true }) as string[]
 
+  // data-tone-hold: the orange lingers a little longer into "Pick your box".
   return (
-    <section data-tone="orange" className="text-fg py-16 sm:py-24 overflow-hidden">
+    <section data-tone="orange" data-tone-hold className="text-fg py-16 sm:py-24 overflow-hidden">
       <h2 className="sr-only">{top.join('. ')}</h2>
       <Row words={top} direction={1} />
       <Row words={bottom} direction={-1} outline />
