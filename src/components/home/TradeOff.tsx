@@ -1,15 +1,17 @@
 import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
 import MoarLogo from '@/components/shared/MoarLogo'
+import Highlight from '@/components/shared/Highlight'
 
 const ease = [0.25, 0.46, 0.45, 0.94] as const
 
 // Where each category sits on the energy (x) × nutrition (y) map, in % from bottom-left.
-const others: { key: string; x: number; y: number }[] = [
-  { key: 'proteinBars', x: 25, y: 76 },
-  { key: 'candy', x: 26, y: 22 },
-  { key: 'coffee', x: 66, y: 36 },
-  { key: 'energyDrinks', x: 74, y: 14 },
+// Labels sit right of the dot, or left of it near the right edge.
+const others: { key: string; x: number; y: number; left?: boolean }[] = [
+  { key: 'proteinBars', x: 10, y: 74 },
+  { key: 'candy', x: 12, y: 30 },
+  { key: 'coffee', x: 64, y: 34 },
+  { key: 'energyDrinks', x: 88, y: 10, left: true },
 ]
 
 export default function TradeOff() {
@@ -48,7 +50,7 @@ export default function TradeOff() {
         <div className="mt-20 lg:mt-28 grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-center">
           <div>
             <h3 className="font-display uppercase text-4xl sm:text-5xl leading-[0.9] text-balance">
-              {t('tradeoff.mapTitle')}
+              <Highlight text={t('tradeoff.mapTitle')} />
             </h3>
             <p className="mt-4 text-lg text-fg/70 max-w-md leading-relaxed">{t('tradeoff.mapBody')}</p>
           </div>
@@ -82,17 +84,20 @@ export default function TradeOff() {
               </motion.div>
 
               {others.map((o, i) => (
-                <motion.span
+                <motion.div
                   key={o.key}
-                  className="absolute -translate-x-1/2 translate-y-1/2 whitespace-nowrap rounded-full border border-fg/25 bg-tone px-3 py-1.5 font-accent text-[11px] sm:text-sm font-semibold"
+                  className={`absolute flex items-center gap-2.5 translate-y-1/2 ${o.left ? 'flex-row-reverse -translate-x-[calc(100%-6px)]' : '-translate-x-[6px]'}`}
                   style={{ left: `${o.x}%`, bottom: `${o.y}%` }}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, scale: 0.6 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true, margin: '-80px' }}
-                  transition={{ duration: 0.4, delay: 0.1 + i * 0.08, ease }}
+                  transition={{ duration: 0.45, delay: 0.1 + i * 0.1, ease }}
                 >
-                  {t(`tradeoff.items.${o.key}`)}
-                </motion.span>
+                  <span className="block w-3 h-3 shrink-0 rounded-full bg-fg ring-[6px] ring-fg/10" />
+                  <span className="whitespace-nowrap font-display uppercase text-sm sm:text-xl leading-none text-fg/80">
+                    {t(`tradeoff.items.${o.key}`)}
+                  </span>
+                </motion.div>
               ))}
             </div>
           </div>

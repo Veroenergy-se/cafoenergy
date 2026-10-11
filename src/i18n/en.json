@@ -26,14 +26,14 @@
   },
   "marquee": {
     "top": [
+      "MOAR energy",
       "MOAR focus",
-      "MOAR hours",
-      "MOAR game"
+      "MOAR ambition"
     ],
     "bottom": [
-      "More energy",
-      "More focus",
-      "More ambition"
+      "MOAR energy",
+      "MOAR focus",
+      "MOAR ambition"
     ],
     "eyebrow": "Why MOAR",
     "body": "Because the day always asks for a bit more. One more chapter, one more set, one more hour. MOAR is how you have it to give."
@@ -259,12 +259,17 @@
   "footer": {
     "social": "Social",
     "privacy": "Privacy Policy",
-    "copyright": "© {{year}} MOAR Bar. All rights reserved.",
+    "copyright": "© {{year}} {{company}}. All rights reserved.",
     "explore": "Explore",
     "help": "Help",
     "lineA": "More energy.",
     "lineB": "More focus.",
-    "backToTop": "Back to top"
+    "backToTop": "Back to top",
+    "legal": "Legal",
+    "terms": "Terms of purchase",
+    "shipping": "Shipping & returns",
+    "cookies": "Cookie policy",
+    "orgNumber": "Org. no."
   },
   "cart": {
     "title": "Your Cart",
@@ -299,7 +304,9 @@
     "placeOrder": "Place Order",
     "confirmedTitle": "ORDER SENT!",
     "confirmedText": "Your order has been sent to our team. We'll get back to you shortly with payment details. Check your email!",
-    "backHome": "Back to Home"
+    "backHome": "Back to Home",
+    "agreePrefix": "By placing your order you agree to our",
+    "agreeAnd": "and"
   },
   "cookie": {
     "message": "We use cookies to improve your experience and analyze site traffic.",
@@ -345,7 +352,7 @@
       "rest": "tastes worse",
       "body": "Products built for function ask you to accept a worse taste."
     },
-    "mapTitle": "So we built the bar for the empty corner.",
+    "mapTitle": "So we built the bar for the *empty corner.*",
     "mapBody": "Energy, food and flavour in one. Protein and caffeine together give you a flatter lift that lasts longer, and enough food to keep you full.",
     "axisX": "Energy (caffeine)",
     "axisY": "Nutrition (protein)",
@@ -400,8 +407,7 @@
   },
   "manifesto": {
     "eyebrow": "Why we made it",
-    "text": "We wanted the *kick of a coffee* and the *fullness of a real snack.* Without the crash. Without the added sugar. Nothing on the shelf did both. So we made it.",
-    "signature": "Tom, Charlie & Oliver"
+    "text": "We wanted the *kick of a coffee* and the *fullness of a real snack.* Nothing on the shelf did both. So we made it."
   },
   "inside": {
     "eyebrow": "Inside one bar",
@@ -428,6 +434,17 @@
         "title": "Sealed in chocolate",
         "body": "gluten free · 55 g · 2 g sugar"
       }
+    },
+    "compare": {
+      "title": "Same 55 g. Very different bar.",
+      "body": "Yes, it's coated in milk chocolate. But put it next to a regular chocolate bar of the same weight and the difference is obvious.",
+      "choc": "milk chocolate",
+      "rows": {
+        "sugar": "Sugar",
+        "protein": "Protein",
+        "energy": "Energy"
+      },
+      "source": "Milk chocolate: Marabou Mjölkchoklad, label values per 100 g (58 g sugars, 4.7 g protein, 550 kcal) scaled to 55 g. MOAR: our nutrition declaration."
     }
   },
   "label": {

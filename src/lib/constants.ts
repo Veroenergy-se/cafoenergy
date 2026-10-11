@@ -1,5 +1,8 @@
 export const SITE = {
   name: 'MOAR Bar',
+  // Legal entity shown in the footer and legal pages. Fill in orgNumber and
+  // address (required for Swedish online shops); empty values are hidden.
+  company: { name: 'MOAR Focus AB', orgNumber: '', address: '' },
   domain: 'moarbar.se',
   email: 'thomaswiseman1@hotmail.com',
   ga4Id: 'G-JWFPL9ZW9R',

@@ -8,4 +8,7 @@
   <url><loc>https://moarbar.se/contact</loc><priority>0.6</priority></url>
   <url><loc>https://moarbar.se/faq</loc><priority>0.7</priority></url>
   <url><loc>https://moarbar.se/privacy-policy</loc><priority>0.3</priority></url>
+  <url><loc>https://moarbar.se/terms</loc><priority>0.3</priority></url>
+  <url><loc>https://moarbar.se/shipping-returns</loc><priority>0.4</priority></url>
+  <url><loc>https://moarbar.se/cookies</loc><priority>0.3</priority></url>
 </urlset>

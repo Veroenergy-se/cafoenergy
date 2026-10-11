@@ -41,7 +41,6 @@ export default function Manifesto() {
             </span>
           ))}
         </p>
-        <p className="mt-10 text-fg/60">{t('manifesto.signature')}</p>
       </div>
     </section>
   )

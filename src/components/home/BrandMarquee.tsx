@@ -62,7 +62,7 @@ export default function BrandMarquee() {
 
   return (
     <section data-tone="orange" className="text-fg py-16 sm:py-24 overflow-hidden">
-      <h2 className="sr-only">{[...top, ...bottom].join('. ')}</h2>
+      <h2 className="sr-only">{top.join('. ')}</h2>
       <Row words={top} direction={1} />
       <Row words={bottom} direction={-1} outline />
       <div className="page-container mt-10 sm:mt-14 flex flex-wrap justify-between gap-6">

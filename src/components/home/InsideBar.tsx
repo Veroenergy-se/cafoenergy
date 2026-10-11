@@ -15,6 +15,54 @@ const sparks = [
   { left: '16%', top: '32%' }, { left: '42%', top: '62%' }, { left: '66%', top: '28%' }, { left: '84%', top: '60%' },
 ]
 
+// Same weight, side by side: MOAR (spec sheet) vs Marabou Mjölkchoklad (ICA label,
+// per 100 g: 58 g sugars, 4.7 g protein, 550 kcal), both scaled to 55 g.
+const compare = [
+  { key: 'sugar', moar: 2, choc: 32, unit: 'g' },
+  { key: 'protein', moar: 14, choc: 2.6, unit: 'g' },
+  { key: 'energy', moar: 223, choc: 303, unit: 'kcal' },
+] as const
+
+function ChocolateCompare() {
+  const { t, i18n } = useTranslation()
+  const fmt = (v: number) => v.toLocaleString(i18n.language === 'sv' ? 'sv-SE' : 'en-GB')
+  return (
+    <div className="mt-16 lg:mt-24 border-t-2 border-fg pt-8 grid gap-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
+      <div>
+        <h3 className="font-display uppercase text-3xl sm:text-4xl leading-[0.9]">{t('inside.compare.title')}</h3>
+        <p className="mt-3 max-w-sm text-fg/75">{t('inside.compare.body')}</p>
+      </div>
+      <div className="grid gap-5">
+        {compare.map((c, i) => {
+          const max = Math.max(c.moar, c.choc)
+          return (
+            <div key={c.key} className="grid grid-cols-[5.5rem_minmax(0,1fr)] sm:grid-cols-[7rem_minmax(0,1fr)] gap-x-4 gap-y-1.5 items-center">
+              <span className="row-span-2 font-accent text-xs uppercase tracking-[0.14em] font-semibold">{t(`inside.compare.rows.${c.key}`)}</span>
+              {([['moar', c.moar, 'bg-fg'], ['choc', c.choc, 'bg-fg/25']] as const).map(([who, v, fill]) => (
+                <div key={who} className="flex items-center gap-3 min-w-0">
+                  <div className="h-3 flex-1 min-w-0">
+                    <motion.div
+                      className={`h-full rounded-full ${fill}`}
+                      initial={{ width: 0 }}
+                      whileInView={{ width: `${Math.max(3, (v / max) * 100)}%` }}
+                      viewport={{ once: true, margin: '-60px' }}
+                      transition={{ duration: 0.9, delay: 0.1 + i * 0.12, ease: [0.25, 0.46, 0.45, 0.94] }}
+                    />
+                  </div>
+                  <span className={`w-24 sm:w-48 shrink-0 text-xs sm:text-sm leading-tight tabular-nums ${who === 'moar' ? 'font-semibold' : 'text-fg/70'}`}>
+                    {fmt(v)} {c.unit} · {who === 'moar' ? 'MOAR' : t('inside.compare.choc')}
+                  </span>
+                </div>
+              ))}
+            </div>
+          )
+        })}
+        <p className="text-xs text-fg/60">{t('inside.compare.source')}</p>
+      </div>
+    </div>
+  )
+}
+
 function Layer({ open, dy, top, height, style, children }: { open: MotionValue<number>; dy: number; top: string; height: string; style: string; children?: React.ReactNode }) {
   const y = useTransform(open, (o) => o * dy)
   return (
@@ -90,6 +138,9 @@ export default function InsideBar() {
             />
           ))}
         </div>
+      </div>
+      <div className="page-container">
+        <ChocolateCompare />
       </div>
     </section>
   )
