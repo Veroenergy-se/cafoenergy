@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { motion, useInView, useReducedMotion } from 'framer-motion'
+import { motion, useInView, useReducedMotion, useScroll, useTransform, type MotionValue } from 'framer-motion'
 
 const rows: { key: string; moar: string; bar: string; energy: string; coffee: string }[] = [
   { key: 'caffeine', moar: '90mg', bar: '0mg',  energy: '180mg', coffee: '95mg' },
@@ -24,8 +24,6 @@ const facts: Fact[] = [
   { key: 'salt', bar: 0.31, per100: 0.57, dec: 2, unit: 'g' },
   { key: 'weight', bar: 55, per100: 100, dec: 0, unit: 'g', sub: true },
 ]
-
-const ease = [0.25, 0.46, 0.45, 0.94] as const
 
 function WholeLabel() {
   const { t, i18n } = useTranslation()
@@ -106,8 +104,41 @@ function WholeLabel() {
   )
 }
 
+// One table row whose cells fade and rise with the scroll position: row i appears
+// a little after row i-1, so they come in one by one as you scroll down. Driven by
+// scroll position rather than "in view" detection, so it behaves the same in every
+// browser, and the cells (not the <tr>) move because Safari ignores transforms on rows.
+function CompareRow({ row, index, last, progress }: { row: (typeof rows)[number]; index: number; last: boolean; progress: MotionValue<number> }) {
+  const { t } = useTranslation()
+  const reduce = useReducedMotion()
+  const start = index * 0.13
+  const opacity = useTransform(progress, [start, start + 0.22], reduce ? [1, 1] : [0, 1])
+  const y = useTransform(progress, [start, start + 0.22], reduce ? [0, 0] : [16, 0])
+  const style = { opacity, y }
+  return (
+    <tr>
+      <motion.th style={style} scope="row" className="py-4 sm:py-5 pr-2 border-t border-fg/15 font-accent font-semibold text-[10px] sm:text-sm uppercase tracking-[0.08em] sm:tracking-[0.12em] text-fg/70">
+        {t(`nutrition.rows.${row.key}`)}
+      </motion.th>
+      <td className={`bg-caforange text-brown border-t border-brown/15 text-center ${last ? 'rounded-b-2xl' : ''}`}>
+        <motion.div style={style} className="py-4 sm:py-5 font-display text-[1.7rem] sm:text-4xl leading-none">
+          {row.moar}
+        </motion.div>
+      </td>
+      {others.map((c) => (
+        <motion.td key={c} style={style} className="py-4 sm:py-5 border-t border-fg/15 text-center font-accent font-semibold text-sm sm:text-xl text-fg/60 tabular-nums">
+          {row[c]}
+        </motion.td>
+      ))}
+    </tr>
+  )
+}
+
 export default function NutritionComparison() {
   const { t } = useTranslation()
+  const tableRef = useRef<HTMLTableElement>(null)
+  // 0 when the table's top reaches 90% down the screen, 1 when its bottom is at 60%.
+  const { scrollYProgress } = useScroll({ target: tableRef, offset: ['start 0.9', 'end 0.6'] })
 
   return (
     <section data-tone="brown" className="text-fg py-20 lg:py-28">
@@ -116,8 +147,8 @@ export default function NutritionComparison() {
           <p className="font-accent text-xs uppercase tracking-[0.2em] font-semibold text-accent">{t('nutrition.eyebrow')}</p>
           <h2 className="mt-3 font-display uppercase text-5xl sm:text-6xl lg:text-7xl leading-[0.9]">{t('nutrition.winsTitle')}</h2>
 
-          <div className="mt-10 lg:mt-14 overflow-x-auto">
-            <table className="w-full min-w-[300px] border-separate border-spacing-0 text-left">
+          <div className="mt-10 lg:mt-14 overflow-x-clip">
+            <table ref={tableRef} className="w-full min-w-[288px] border-separate border-spacing-0 text-left">
               <thead>
                 <tr>
                   <th scope="col" className="w-[22%] pb-4 align-bottom" aria-label={t('nutrition.whatsInside')} />
@@ -134,30 +165,9 @@ export default function NutritionComparison() {
                 </tr>
               </thead>
               <tbody>
-                {rows.map((row, i) => {
-                  const last = i === rows.length - 1
-                  return (
-                    <motion.tr
-                      key={row.key}
-                      initial={{ opacity: 0, y: 14 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: '-60px' }}
-                      transition={{ duration: 0.5, delay: i * 0.07, ease }}
-                    >
-                      <th scope="row" className="py-4 sm:py-5 pr-2 border-t border-fg/15 font-accent font-semibold text-[10px] sm:text-sm uppercase tracking-[0.08em] sm:tracking-[0.12em] text-fg/70">
-                        {t(`nutrition.rows.${row.key}`)}
-                      </th>
-                      <td className={`py-4 sm:py-5 bg-caforange text-brown border-t border-brown/15 text-center font-display text-[1.7rem] sm:text-4xl leading-none ${last ? 'rounded-b-2xl' : ''}`}>
-                        {row.moar}
-                      </td>
-                      {others.map((c) => (
-                        <td key={c} className="py-4 sm:py-5 border-t border-fg/15 text-center font-accent font-semibold text-sm sm:text-xl text-fg/60 tabular-nums">
-                          {row[c]}
-                        </td>
-                      ))}
-                    </motion.tr>
-                  )
-                })}
+                {rows.map((row, i) => (
+                  <CompareRow key={row.key} row={row} index={i} last={i === rows.length - 1} progress={scrollYProgress} />
+                ))}
               </tbody>
             </table>
           </div>
