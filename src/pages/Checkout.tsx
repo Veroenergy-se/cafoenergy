@@ -359,6 +359,12 @@ export default function Checkout() {
                         {t('checkout.placeOrder')}
                       </button>
                       <p className="text-xs text-near-black/30 text-center">{t('checkout.instructions')}</p>
+                      <p className="text-xs text-near-black/50 text-center">
+                        {t('checkout.agreePrefix')}{' '}
+                        <Link to="/terms" className="underline hover:text-caforange">{t('footer.terms').toLowerCase()}</Link>{' '}
+                        {t('checkout.agreeAnd')}{' '}
+                        <Link to="/privacy-policy" className="underline hover:text-caforange">{t('footer.privacy').toLowerCase()}</Link>.
+                      </p>
                     </div>
                   </div>
                 </div>

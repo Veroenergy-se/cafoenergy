@@ -26,14 +26,14 @@
   },
   "marquee": {
     "top": [
+      "MOAR energi",
       "MOAR fokus",
-      "MOAR timmar",
-      "MOAR energi"
+      "MOAR ambition"
     ],
     "bottom": [
-      "Mer energi",
-      "Mer fokus",
-      "Mer ambition"
+      "MOAR energi",
+      "MOAR fokus",
+      "MOAR ambition"
     ],
     "eyebrow": "Varför MOAR",
     "body": "För att dagen alltid kräver lite mer. Ett kapitel till, ett set till, en timme till. MOAR ger dig det du behöver för att orka."
@@ -259,12 +259,17 @@
   "footer": {
     "social": "Socialt",
     "privacy": "Integritetspolicy",
-    "copyright": "© {{year}} MOAR Bar. Alla rättigheter förbehållna.",
+    "copyright": "© {{year}} {{company}}. Alla rättigheter förbehållna.",
     "explore": "Utforska",
     "help": "Hjälp",
     "lineA": "Mer energi.",
     "lineB": "Mer fokus.",
-    "backToTop": "Till toppen"
+    "backToTop": "Till toppen",
+    "legal": "Juridik",
+    "terms": "Köpvillkor",
+    "shipping": "Frakt & returer",
+    "cookies": "Cookiepolicy",
+    "orgNumber": "Org.nr"
   },
   "cart": {
     "title": "Din Varukorg",
@@ -299,7 +304,9 @@
     "placeOrder": "Lägg Beställning",
     "confirmedTitle": "BESTÄLLNING SKICKAD!",
     "confirmedText": "Din beställning har skickats till vårt team. Vi återkommer snart med betalningsuppgifter. Kolla din e-post!",
-    "backHome": "Tillbaka till Startsidan"
+    "backHome": "Tillbaka till Startsidan",
+    "agreePrefix": "Genom att beställa godkänner du våra",
+    "agreeAnd": "och vår"
   },
   "cookie": {
     "message": "Vi använder cookies för att förbättra din upplevelse och analysera webbplatstrafik.",
@@ -345,7 +352,7 @@
       "rest": "smakar sämre",
       "body": "Produkter byggda för funktion ber dig acceptera sämre smak."
     },
-    "mapTitle": "Så vi byggde baren för det tomma hörnet.",
+    "mapTitle": "Så vi byggde baren för det *tomma hörnet.*",
     "mapBody": "Energi, mat och smak i ett. Protein och koffein tillsammans ger en jämnare kick som håller längre, och tillräckligt med mat för att hålla dig mätt.",
     "axisX": "Energi (koffein)",
     "axisY": "Näring (protein)",
@@ -400,8 +407,7 @@
   },
   "manifesto": {
     "eyebrow": "Därför gjorde vi den",
-    "text": "Vi ville ha *kicken från ett kaffe* och *mättnaden från ett riktigt mellanmål.* Utan kraschen. Utan tillsatt socker. Inget på hyllan klarade båda. Så vi gjorde den själva.",
-    "signature": "Tom, Charlie & Oliver"
+    "text": "Vi ville ha *kicken från ett kaffe* och *mättnaden från ett riktigt mellanmål.* Inget på hyllan klarade båda. Så vi gjorde den själva."
   },
   "inside": {
     "eyebrow": "Inuti en bar",
@@ -428,6 +434,17 @@
         "title": "Inbäddad i choklad",
         "body": "glutenfri · 55 g · 2 g socker"
       }
+    },
+    "compare": {
+      "title": "Samma 55 g. Helt olika bar.",
+      "body": "Ja, den är täckt av mjölkchoklad. Men ställ den bredvid en vanlig chokladkaka med samma vikt så är skillnaden tydlig.",
+      "choc": "vanlig chokladkaka",
+      "rows": {
+        "sugar": "Socker",
+        "protein": "Protein",
+        "energy": "Energi"
+      },
+      "source": "Vanlig chokladkaka: etikettvärden för en typisk mjölkchoklad per 100 g (58 g socker, 4,7 g protein, 550 kcal), omräknat till 55 g. MOAR: vår näringsdeklaration."
     }
   },
   "label": {
