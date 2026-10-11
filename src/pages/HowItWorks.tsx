@@ -23,7 +23,7 @@ export default function HowItWorks() {
 
       <section className="bg-off-white py-32 text-center">
         <AnimatedSection>
-          <h1 className="text-3xl sm:text-5xl md:text-5xl lg:text-6xl font-heading text-brown">{t('howItWorks.title')}</h1>
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-heading text-brown">{t('howItWorks.title')}</h1>
           <p className="mt-4 text-brown/50 font-accent text-lg max-w-xl mx-auto">{t('howItWorks.subtitle')}</p>
         </AnimatedSection>
       </section>
@@ -48,7 +48,7 @@ export default function HowItWorks() {
                         <Icon className={`w-6 h-6 ${isForest ? 'text-forest' : 'text-gold'}`} />
                       </div>
                       <div className="text-center">
-                        <div className={`text-3xl font-heading leading-none ${isForest ? 'text-forest' : 'text-gold'}`}>
+                        <div className={`text-4xl font-heading leading-none ${isForest ? 'text-forest' : 'text-gold'}`}>
                           {card.stat}
                         </div>
                         <div className="text-[10px] font-accent text-near-black/35 uppercase tracking-wider mt-1.5">
@@ -62,7 +62,7 @@ export default function HowItWorks() {
                       <div className="text-[10px] font-accent text-near-black/20 uppercase tracking-widest mb-2">
                         0{i + 1}
                       </div>
-                      <h2 className="text-xl sm:text-3xl break-words font-heading text-near-black mb-3">
+                      <h2 className="text-2xl sm:text-3xl font-heading text-near-black mb-3">
                         {t(card.titleKey)}
                       </h2>
                       <p className="text-near-black/55 leading-relaxed">
@@ -85,7 +85,7 @@ export default function HowItWorks() {
         <div className="page-container">
           <AnimatedSection>
             <div className="max-w-2xl mx-auto">
-              <h2 className="text-4xl font-heading">Ready to Focus?</h2>
+              <h2 className="text-5xl font-heading">Ready to Focus?</h2>
               <p className="mt-4 text-brown/60 text-lg">Experience clean, sustained energy with MOAR.</p>
               <a
                 href="/shop"

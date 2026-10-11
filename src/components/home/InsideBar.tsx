@@ -45,7 +45,7 @@ function ChocolateCompare() {
   return (
     <div className="mt-16 lg:mt-24 border-t-2 border-fg pt-8 grid gap-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
       <div>
-        <h3 className="font-display uppercase text-2xl sm:text-3xl leading-[0.95]">{t('inside.compare.title')}</h3>
+        <h3 className="font-display uppercase text-3xl sm:text-4xl leading-[0.9]">{t('inside.compare.title')}</h3>
         <p className="mt-3 max-w-sm text-fg/75">{t('inside.compare.body')}</p>
         <ul className="mt-6 grid gap-2.5">
           {items.map((it) => (
@@ -109,7 +109,7 @@ function Tag({ open, dy, top, title, body, pct }: { open: MotionValue<number>; d
   const opacity = useTransform(open, [0.15, 0.7], [0, 1])
   return (
     <motion.div className="absolute right-0 w-[40%] sm:w-[30%]" style={{ y, opacity, top }}>
-      <span className="block font-display uppercase text-[13px] sm:text-lg lg:text-xl leading-tight">{title}</span>
+      <span className="block font-display uppercase text-xl sm:text-2xl lg:text-3xl leading-none">{title}</span>
       <span className="mt-1 block text-[13px] lg:text-sm leading-snug text-fg/75">
         {pct && <span className="text-accent font-semibold">{pct} · </span>}
         {body}
@@ -136,7 +136,7 @@ export default function InsideBar() {
       <div className="page-container grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] items-center">
         <div>
           <p className="font-accent text-xs uppercase tracking-[0.2em] font-semibold">{t('inside.eyebrow')}</p>
-          <h2 className="mt-4 font-display uppercase leading-[0.92] text-[clamp(2.1rem,4.4vw,4.4rem)]">
+          <h2 className="mt-4 font-display uppercase leading-[0.88] text-[clamp(3.2rem,6.5vw,6.5rem)]">
             {t('inside.titleA')}<br />{t('inside.titleB')}
           </h2>
           <p className="mt-5 max-w-sm text-lg leading-relaxed">{t('inside.lede')}</p>

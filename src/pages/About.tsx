@@ -15,7 +15,7 @@ export default function About() {
       {/* Hero */}
       <section className="relative bg-off-white py-32 text-center overflow-hidden">
         <AnimatedSection className="relative z-10">
-          <h1 className="text-3xl sm:text-5xl md:text-5xl lg:text-6xl font-heading text-brown">{t('about.heroTitle')}</h1>
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-heading text-brown">{t('about.heroTitle')}</h1>
         </AnimatedSection>
       </section>
 
@@ -24,7 +24,7 @@ export default function About() {
         <div className="page-container">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection direction="left">
-              <h2 className="text-3xl sm:text-4xl font-heading text-near-black leading-tight">
+              <h2 className="text-4xl sm:text-5xl font-heading text-near-black leading-tight">
                 {t('about.foundersTitle')}
               </h2>
               <p className="mt-6 text-near-black text-lg leading-relaxed">
@@ -58,7 +58,7 @@ export default function About() {
               </div>
             </AnimatedSection>
             <AnimatedSection direction="right" className="order-1 lg:order-2">
-              <h2 className="text-3xl sm:text-4xl font-heading text-near-black leading-tight">
+              <h2 className="text-4xl sm:text-5xl font-heading text-near-black leading-tight">
                 {t('about.journeyTitle')}
               </h2>
               <p className="mt-6 text-near-black text-lg leading-relaxed">
@@ -74,7 +74,7 @@ export default function About() {
         <div className="page-container">
           <AnimatedSection>
             <div className="max-w-3xl mx-auto">
-              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-heading">{t('about.missionTitle')}</h2>
+              <h2 className="text-4xl sm:text-6xl lg:text-8xl font-heading">{t('about.missionTitle')}</h2>
               <p className="mt-8 text-off-white/80 text-lg leading-relaxed">
                 {t('about.missionText')}
               </p>

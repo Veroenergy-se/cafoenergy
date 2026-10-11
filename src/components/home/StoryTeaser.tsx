@@ -12,7 +12,7 @@ export default function StoryTeaser() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <AnimatedSection direction="left">
             <p className="font-accent text-xs uppercase tracking-[0.2em] font-semibold text-accent">{t('nav.about')}</p>
-            <h2 className="mt-3 font-display uppercase text-3xl sm:text-4xl lg:text-5xl leading-[0.95]">
+            <h2 className="mt-3 font-display uppercase text-5xl sm:text-6xl lg:text-7xl leading-[0.9]">
               {t('story.title')}
             </h2>
             <p className="mt-6 text-lg text-fg/80 leading-relaxed max-w-lg">

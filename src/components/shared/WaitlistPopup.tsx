@@ -90,7 +90,7 @@ export default function WaitlistPopup() {
             <p className="font-accent text-gold text-xs tracking-[0.2em] uppercase mb-3">
               {t('waitlistPopup.eyebrow')}
             </p>
-            <h2 className="text-3xl sm:text-4xl font-heading text-white leading-[0.95] tracking-tight mb-3">
+            <h2 className="text-4xl sm:text-5xl font-heading text-white leading-[0.95] tracking-tight mb-3">
               {t('waitlistPopup.title')}
             </h2>
 

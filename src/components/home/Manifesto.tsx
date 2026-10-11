@@ -29,7 +29,7 @@ export default function Manifesto() {
         <p
           ref={ref}
           aria-label={words.map((x) => x.w).join(' ')}
-          className="mt-6 max-w-[22ch] font-display uppercase leading-[1.02] text-[clamp(1.7rem,4.3vw,4.3rem)]"
+          className="mt-6 max-w-[17ch] font-display uppercase leading-[0.95] text-[clamp(2.6rem,6.4vw,6.5rem)]"
         >
           {words.map((x, i) => (
             <span

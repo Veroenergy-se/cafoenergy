@@ -22,15 +22,13 @@
 
   /* Type — two faces. Display for headlines/CTAs/big numbers, DM Sans for
      everything read at length or used as UI (nav, labels, body copy). */
-  --font-heading: var(--font-display);
-  --font-monument: var(--font-display);
+  --font-heading: "Montserrat", sans-serif;
+  --font-monument: "Montserrat", sans-serif;
   --font-body: "DM Sans Variable", "DM Sans", sans-serif;
   --font-accent: "DM Sans Variable", "DM Sans", sans-serif;
-  /* Headline face. The brand font is Monument Extended (brand guidelines); until its
-     web licence/files arrive we use Archivo at its widest cut (font-stretch 125%).
-     To switch: add an @font-face for "Monument Extended" (woff2 in public/fonts)
-     and put it first in this stack. */
-  --font-display: "Archivo Variable", "Arial Black", sans-serif;
+  /* Headline face. The brand font is Monument Extended; to switch, add an
+     @font-face for it (woff2 in public/fonts) and put it first in this stack. */
+  --font-display: "Big Shoulders Display", "Oswald", Impact, sans-serif;
 }
 
 /* Tone colours: follow whichever section fills the middle of the screen
@@ -45,18 +43,10 @@
   --color-logo: var(--logo);
 }
 
-/* Headlines: the heaviest weight at full width, as in the brand guidelines. */
+/* Headlines use the heaviest weight of each face. */
 .font-heading,
 .font-display {
   font-weight: 900;
-  font-stretch: 125%;
-}
-
-/* Page headings are always set in caps, like the brand guidelines. */
-h1.font-heading,
-h2.font-heading,
-h3.font-heading {
-  text-transform: uppercase;
 }
 
 html {

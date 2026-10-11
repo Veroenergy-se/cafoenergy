@@ -40,7 +40,7 @@ export default function Footer() {
     <footer data-tone="brown" className="text-fg overflow-hidden">
       <div className="page-container pt-16 lg:pt-20">
         <div className="grid gap-12 grid-cols-2 md:grid-cols-[minmax(0,1.2fr)_repeat(4,minmax(0,0.6fr))]">
-          <p className="col-span-2 md:col-span-1 font-display uppercase text-2xl sm:text-3xl leading-[0.95]">
+          <p className="col-span-2 md:col-span-1 font-display uppercase text-4xl sm:text-5xl leading-[0.9]">
             {t('footer.lineA')}<br />
             <span className="text-accent">{t('footer.lineB')}</span>
           </p>

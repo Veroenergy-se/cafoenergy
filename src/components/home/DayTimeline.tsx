@@ -68,7 +68,7 @@ export default function DayTimeline() {
       <div className="page-container flex flex-wrap items-end justify-between gap-6">
         <div>
           <p className="font-accent text-xs uppercase tracking-[0.2em] font-semibold text-accent">{t('day.eyebrow')}</p>
-          <h2 className="mt-3 font-display uppercase text-3xl sm:text-4xl lg:text-5xl leading-[0.95]">{t('day.title')}</h2>
+          <h2 className="mt-3 font-display uppercase text-5xl sm:text-6xl lg:text-7xl leading-[0.9]">{t('day.title')}</h2>
         </div>
         <a
           href={SITE.social.instagram}
@@ -107,8 +107,8 @@ export default function DayTimeline() {
                     </>
                   )}
                   <div className="relative">
-                    <span className={`block font-display leading-none ${photo ? 'text-4xl' : 'text-6xl'}`}>{m.time}</span>
-                    <h3 className="mt-2 font-display uppercase text-lg leading-tight">{t(`day.moments.${m.key}.title`)}</h3>
+                    <span className={`block font-display leading-none ${photo ? 'text-6xl' : 'text-8xl'}`}>{m.time}</span>
+                    <h3 className="mt-2 font-display uppercase text-2xl leading-none">{t(`day.moments.${m.key}.title`)}</h3>
                     <p className={`mt-3 text-[15px] leading-relaxed ${photo ? 'text-off-white/85' : 'opacity-80'}`}>{t(`day.moments.${m.key}.body`)}</p>
                   </div>
                 </motion.article>

@@ -20,7 +20,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease }}
         >
-          <h1 className="font-display uppercase leading-[0.92] text-[clamp(1.4rem,6.3vw,4.2rem)] lg:text-[clamp(2.2rem,3.6vw,4.4rem)] break-words">
+          <h1 className="font-display uppercase leading-[0.86] text-[clamp(2.75rem,11vw,8.5rem)] lg:text-[clamp(4rem,7.4vw,8.5rem)]">
             <span className="block">{t('hero.titleLine1')}</span>
             <span className="block text-accent">{t('hero.titleLine2')}</span>
           </h1>
@@ -28,12 +28,12 @@ export default function Hero() {
 
           <div className="mt-8 flex gap-8 sm:gap-12">
             <div>
-              <span className="block font-display text-4xl sm:text-5xl leading-none">90<span className="text-[0.5em]">mg</span></span>
+              <span className="block font-display text-5xl sm:text-6xl leading-none">90<span className="text-[0.5em]">mg</span></span>
               <span className="mt-1 block font-accent text-xs uppercase tracking-[0.16em] font-semibold text-fg/60">{t('hero.caffeine')}</span>
             </div>
             <div className="w-px bg-fg/15" />
             <div>
-              <span className="block font-display text-4xl sm:text-5xl leading-none">14<span className="text-[0.5em]">g</span></span>
+              <span className="block font-display text-5xl sm:text-6xl leading-none">14<span className="text-[0.5em]">g</span></span>
               <span className="mt-1 block font-accent text-xs uppercase tracking-[0.16em] font-semibold text-fg/60">{t('hero.protein')}</span>
             </div>
           </div>
