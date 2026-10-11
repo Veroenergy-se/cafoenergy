@@ -32,7 +32,7 @@ export default function LaunchCountdown({ className = '' }: { className?: string
     <div role="timer" aria-label={t('waitlist.countdown.label')} className={`flex gap-2 sm:gap-3 ${className}`}>
       {units.map(u => (
         <div key={u} className="flex-1 sm:flex-none sm:min-w-[84px] bg-brown text-off-white px-2 pt-3 pb-2.5 text-center">
-          <span className="block font-display text-4xl sm:text-5xl leading-none tabular-nums">
+          <span className="block font-display text-2xl sm:text-4xl leading-none tabular-nums">
             {String(left[u]).padStart(2, '0')}
           </span>
           <span className="mt-1.5 block font-accent text-[10px] uppercase tracking-[0.16em] font-semibold text-off-white/70">
