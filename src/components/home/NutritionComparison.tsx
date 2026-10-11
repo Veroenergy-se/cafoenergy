@@ -116,7 +116,7 @@ export default function NutritionComparison() {
           <p className="font-accent text-xs uppercase tracking-[0.2em] font-semibold text-accent">{t('nutrition.eyebrow')}</p>
           <h2 className="mt-3 font-display uppercase text-5xl sm:text-6xl lg:text-7xl leading-[0.9]">{t('nutrition.winsTitle')}</h2>
 
-          <div className="mt-10 lg:mt-14 overflow-x-auto">
+          <div className="mt-10 lg:mt-14 pb-4 overflow-x-auto overflow-y-hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             <table className="w-full min-w-[300px] border-separate border-spacing-0 text-left">
               <thead>
                 <tr>

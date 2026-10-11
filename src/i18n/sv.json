@@ -437,14 +437,18 @@
     },
     "compare": {
       "title": "Samma 55 g. Helt olika bar.",
-      "body": "Ja, den är täckt av mjölkchoklad. Men ställ den bredvid en vanlig chokladkaka med samma vikt så är skillnaden tydlig.",
-      "choc": "vanlig chokladkaka",
+      "body": "Ja, den är täckt av mjölkchoklad. Bredvid en proteinbar står den sig bra. Bredvid en vanlig chokladkaka med samma vikt är det ingen tävling.",
       "rows": {
         "sugar": "Socker",
         "protein": "Protein",
-        "energy": "Energi"
+        "calories": "Kalorier"
       },
-      "source": "Vanlig chokladkaka: etikettvärden för en typisk mjölkchoklad per 100 g (58 g socker, 4,7 g protein, 550 kcal), omräknat till 55 g. MOAR: vår näringsdeklaration."
+      "source": "Allt per 55 g. Proteinbar: Barebells Salty Peanut (EU-etikett: 1,5 g socker, 20 g protein, 203 kcal). Vanlig chokladkaka: etikettvärden för en typisk mjölkchoklad per 100 g (58 g socker, 4,7 g protein, 550 kcal), omräknat till 55 g. MOAR: vår näringsdeklaration.",
+      "legend": {
+        "moar": "MOAR",
+        "protein": "Proteinbar",
+        "choc": "Vanlig chokladkaka"
+      }
     }
   },
   "label": {

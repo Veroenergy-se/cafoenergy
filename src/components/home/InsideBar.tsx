@@ -15,14 +15,29 @@ const sparks = [
   { left: '16%', top: '32%' }, { left: '42%', top: '62%' }, { left: '66%', top: '28%' }, { left: '84%', top: '60%' },
 ]
 
-// Same weight, side by side: MOAR (spec sheet) vs a regular milk chocolate bar
-// (Marabou Mjölkchoklad label, per 100 g: 58 g sugars, 4.7 g protein, 550 kcal),
-// both scaled to 55 g. The brand is deliberately not named on the page.
-const compare = [
-  { key: 'sugar', moar: 2, choc: 32, unit: 'g' },
-  { key: 'protein', moar: 14, choc: 2.6, unit: 'g' },
-  { key: 'energy', moar: 223, choc: 303, unit: 'kcal' },
+// Same 55 g, three bars: MOAR (spec sheet), a protein bar (Barebells Salty Peanut
+// EU label, 55 g) and a regular milk chocolate bar (Marabou Mjölkchoklad label per
+// 100 g: 58 g sugars, 4.7 g protein, 550 kcal, scaled to 55 g; brand not named).
+const items = [
+  { who: 'moar', fill: 'bg-fg', icon: 'var(--fg)' },
+  { who: 'protein', fill: 'bg-fg/50', icon: 'color-mix(in oklab, var(--fg) 50%, transparent)' },
+  { who: 'choc', fill: 'bg-fg/20', icon: 'color-mix(in oklab, var(--fg) 20%, transparent)' },
 ] as const
+
+const compare = [
+  { key: 'sugar', unit: 'g', v: { moar: 2, protein: 1.5, choc: 32 } },
+  { key: 'protein', unit: 'g', v: { moar: 14, protein: 20, choc: 2.6 } },
+  { key: 'calories', unit: 'kcal', v: { moar: 223, protein: 203, choc: 303 } },
+] as const
+
+// A tiny wrapper silhouette with crimped ends, used as the legend swatch.
+function BarIcon({ color }: { color: string }) {
+  return (
+    <svg viewBox="0 0 44 16" className="w-9 h-auto shrink-0" aria-hidden="true">
+      <path d="M2 2l2 1.5L2 5l2 1.5L2 8l2 1.5L2 11l2 1.5L2 14h40l-2-1.5 2-1.5-2-1.5 2-1.5-2-1.5 2-1.5-2-1.5 2-1.5-2-1.5L42 2z" fill={color} />
+    </svg>
+  )
+}
 
 function ChocolateCompare() {
   const { t, i18n } = useTranslation()
@@ -32,29 +47,42 @@ function ChocolateCompare() {
       <div>
         <h3 className="font-display uppercase text-3xl sm:text-4xl leading-[0.9]">{t('inside.compare.title')}</h3>
         <p className="mt-3 max-w-sm text-fg/75">{t('inside.compare.body')}</p>
+        <ul className="mt-6 grid gap-2.5">
+          {items.map((it) => (
+            <li key={it.who} className="flex items-center gap-3 text-sm font-semibold">
+              <BarIcon color={it.icon} />
+              {t(`inside.compare.legend.${it.who}`)}
+            </li>
+          ))}
+        </ul>
       </div>
-      <div className="grid gap-5">
+      <div className="grid gap-6">
         {compare.map((c, i) => {
-          const max = Math.max(c.moar, c.choc)
+          const max = Math.max(...Object.values(c.v))
           return (
-            <div key={c.key} className="grid grid-cols-[5.5rem_minmax(0,1fr)] sm:grid-cols-[7rem_minmax(0,1fr)] gap-x-4 gap-y-1.5 items-center">
-              <span className="row-span-2 font-accent text-xs uppercase tracking-[0.14em] font-semibold">{t(`inside.compare.rows.${c.key}`)}</span>
-              {([['moar', c.moar, 'bg-fg'], ['choc', c.choc, 'bg-fg/25']] as const).map(([who, v, fill]) => (
-                <div key={who} className="flex items-center gap-3 min-w-0">
-                  <div className="h-3 flex-1 min-w-0">
-                    <motion.div
-                      className={`h-full rounded-full ${fill}`}
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${Math.max(3, (v / max) * 100)}%` }}
-                      viewport={{ once: true, margin: '-60px' }}
-                      transition={{ duration: 0.9, delay: 0.1 + i * 0.12, ease: [0.25, 0.46, 0.45, 0.94] }}
-                    />
-                  </div>
-                  <span className={`w-24 sm:w-48 shrink-0 text-xs sm:text-sm leading-tight tabular-nums ${who === 'moar' ? 'font-semibold' : 'text-fg/70'}`}>
-                    {fmt(v)} {c.unit} · {who === 'moar' ? 'MOAR' : t('inside.compare.choc')}
-                  </span>
-                </div>
-              ))}
+            <div key={c.key} className="grid grid-cols-[5.5rem_minmax(0,1fr)] sm:grid-cols-[7rem_minmax(0,1fr)] gap-x-4 items-center">
+              <span className="font-accent text-xs uppercase tracking-[0.14em] font-semibold">{t(`inside.compare.rows.${c.key}`)}</span>
+              <div className="grid gap-1.5">
+                {items.map((it, k) => {
+                  const v = c.v[it.who]
+                  return (
+                    <div key={it.who} className="flex items-center gap-3 min-w-0">
+                      <div className="h-2.5 flex-1 min-w-0">
+                        <motion.div
+                          className={`h-full rounded-full ${it.fill}`}
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${Math.max(2, (v / max) * 100)}%` }}
+                          viewport={{ once: true, margin: '-60px' }}
+                          transition={{ duration: 0.9, delay: 0.1 + i * 0.15 + k * 0.06, ease: [0.25, 0.46, 0.45, 0.94] }}
+                        />
+                      </div>
+                      <span className={`w-16 sm:w-20 shrink-0 text-xs sm:text-sm tabular-nums ${it.who === 'moar' ? 'font-semibold' : 'text-fg/70'}`}>
+                        {fmt(v)} {c.unit}
+                      </span>
+                    </div>
+                  )
+                })}
+              </div>
             </div>
           )
         })}
