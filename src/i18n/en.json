@@ -437,14 +437,18 @@
     },
     "compare": {
       "title": "Same 55 g. Very different bar.",
-      "body": "Yes, it's coated in milk chocolate. But put it next to a regular chocolate bar of the same weight and the difference is obvious.",
-      "choc": "regular chocolate bar",
+      "body": "Yes, it's coated in milk chocolate. Next to a protein bar it holds its own. Next to a regular chocolate bar of the same weight, it's not even close.",
       "rows": {
         "sugar": "Sugar",
         "protein": "Protein",
-        "energy": "Energy"
+        "calories": "Calories"
       },
-      "source": "Regular chocolate bar: label values of a typical milk chocolate bar per 100 g (58 g sugars, 4.7 g protein, 550 kcal), scaled to 55 g. MOAR: our nutrition declaration."
+      "source": "All per 55 g. Protein bar: Barebells Salty Peanut (EU label: 1.5 g sugars, 20 g protein, 203 kcal). Regular chocolate bar: label values of a typical milk chocolate bar per 100 g (58 g sugars, 4.7 g protein, 550 kcal), scaled to 55 g. MOAR: our nutrition declaration.",
+      "legend": {
+        "moar": "MOAR",
+        "protein": "Protein bar",
+        "choc": "Regular chocolate bar"
+      }
     }
   },
   "label": {
