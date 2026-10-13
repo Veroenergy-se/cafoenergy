@@ -242,6 +242,7 @@
     "sheetCta": "Lägg planen i varukorgen",
     "sheetSum": "{{boxes}} i månaden · {{price}} per leverans",
     "close": "Stäng",
+    "dropAgain": "Släpp igen",
     "launchDate": "15 november"
   },
   "nutrition": {

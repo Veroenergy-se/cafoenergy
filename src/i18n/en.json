@@ -242,6 +242,7 @@
     "sheetCta": "Add plan to cart",
     "sheetSum": "{{boxes}} a month · {{price}} per delivery",
     "close": "Close",
+    "dropAgain": "Drop again",
     "launchDate": "15 November"
   },
   "nutrition": {
