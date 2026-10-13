@@ -22,8 +22,9 @@ export default function Manifesto() {
     if (!reduce) setLit(Math.round(p * words.length))
   })
 
+  // data-tone-hold: the brown stays until the last words ("so we made it") have lit up.
   return (
-    <section data-tone="brown" className="text-fg py-24 lg:py-36">
+    <section data-tone="brown" data-tone-hold className="text-fg py-24 lg:py-36">
       <div className="page-container">
         <p className="font-accent text-xs uppercase tracking-[0.2em] font-semibold text-accent">{t('manifesto.eyebrow')}</p>
         <p
