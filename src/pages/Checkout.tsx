@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useCart } from '@/providers/CartProvider'
-import { getCurrency, formatPrice, getSubscriptionPrice } from '@/lib/products'
+import { getCurrency, formatPrice, itemUnitPrice } from '@/lib/products'
 import { SITE } from '@/lib/constants'
 import AnimatedSection from '@/components/shared/AnimatedSection'
 import { ShoppingBag, ArrowLeft, Check, Minus, Plus, Trash2 } from 'lucide-react'
@@ -59,9 +59,7 @@ export default function Checkout() {
       .map((item) => {
         const product = getProduct(item.productId)
         if (!product) return null
-        const unitPrice = item.subscription
-          ? getSubscriptionPrice(product.price[currency])
-          : product.price[currency]
+        const unitPrice = itemUnitPrice(item, product, currency)
         const tag = item.subscription ? ' [MONTHLY SUBSCRIPTION]' : ''
         return `${item.quantity}x ${t(product.nameKey)}${tag} — ${formatPrice(unitPrice * item.quantity, currency)}`
       })
@@ -84,7 +82,12 @@ export default function Checkout() {
       ? `\n\n⚡ SUBSCRIPTION ORDER — please set up recurring monthly delivery for the items marked above.${planNote ? `\n\nMonthly plan:\n${planNote}` : ''}`
       : ''
 
-    const emailBody = `New order from ${form.name}\n\n${orderLines}\n\nTotal: ${formatPrice(total, currency)}${subscriptionNote}\n\nShipping to:\n${form.name}\n${form.address}\n${form.zip} ${form.city}\n\nContact: ${form.email}`
+    const giftNote = items
+      .filter(i => i.gift && (i.gift.name || i.gift.message))
+      .map(i => `🎁 GIFT (${t(getProduct(i.productId)?.nameKey ?? '')}) for ${i.gift!.name || '—'}: "${i.gift!.message || ''}"`)
+      .join('\n')
+
+    const emailBody = `New order from ${form.name}\n\n${orderLines}\n\nTotal: ${formatPrice(total, currency)}${subscriptionNote}${giftNote ? `\n\n${giftNote}` : ''}\n\nShipping to:\n${form.name}\n${form.address}\n${form.zip} ${form.city}\n\nContact: ${form.email}`
     const subject = hasSubscription
       ? `MOAR Subscription Order from ${form.name}`
       : `MOAR Order from ${form.name}`
@@ -193,9 +196,7 @@ export default function Checkout() {
                               </div>
                               <span className="font-semibold text-sm w-20 text-right">
                                 {formatPrice(
-                                  (item.subscription
-                                    ? getSubscriptionPrice(product.price[currency])
-                                    : product.price[currency]) * item.quantity,
+                                  (itemUnitPrice(item, product, currency)) * item.quantity,
                                   currency
                                 )}
                               </span>

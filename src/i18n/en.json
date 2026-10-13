@@ -133,6 +133,97 @@
     "step3Title": "Full control, always.",
     "step3Desc": "Skip a month, swap quantities, or cancel before each delivery. No fees."
   },
+  "shopPage": {
+    "eyebrow": "Shop · salted caramel",
+    "titleA": "Pick your box.",
+    "titleB": "Subscribe or buy once.",
+    "lede": "12 bars a box. 90 mg caffeine and 14 g protein in every one. Subscribe and save up to 20%, or try a box first.",
+    "stampTop": "First sales",
+    "stampDate": "15 Nov",
+    "ticker": [
+      "Subscribe & save up to 20%",
+      "Free shipping on subscriptions",
+      "Skip or cancel any time",
+      "First sales 15 November"
+    ],
+    "modeSub": "Subscribe",
+    "modeSubNote": "Save up to 20% · free shipping",
+    "modeOne": "One-time",
+    "modeOneNote": "No commitment",
+    "qSub": "How many bars a month?",
+    "qOne": "How many bars?",
+    "box_one": "{{count}} box",
+    "box_other": "{{count}} boxes",
+    "barsCount": "{{count}} bars",
+    "barsMonth": "{{count}} bars / month",
+    "barsWord": "bars",
+    "mostPopular": "Most popular",
+    "saveKr": "Save {{amount}}",
+    "youSaveMonth": "You save {{amount}} a month",
+    "youSave": "You save {{amount}}",
+    "perBar": "{{price}} per bar",
+    "giftToggle": "Send it as a gift",
+    "giftName": "Their name",
+    "giftMessage": "A short message (we print it on a card)",
+    "perksSub": [
+      "Free shipping",
+      "Skip or cancel any time",
+      "Change quantity monthly",
+      "Same date every month"
+    ],
+    "perksOne": [
+      "Ships in 2–4 business days",
+      "Free shipping over 499 kr",
+      "Pay by card",
+      "12 bars per box"
+    ],
+    "ctaSub": "Start my subscription · {{price}}/mo",
+    "ctaOne": "Add to cart · {{price}}",
+    "delivEyebrow": "If you subscribe",
+    "delivTitle": "Your next four boxes.",
+    "delivBody": "Tap any month to skip it or change how many boxes come. Nothing is locked in.",
+    "firstBox": "First box",
+    "ships": "Ships {{date}}",
+    "asPlanned": "As planned",
+    "plusOne": "+1 box",
+    "skip": "Skip",
+    "skipped": "Skipped",
+    "ppbEyebrow": "Price per bar",
+    "ppbTitle": "Cheaper than your 3 PM habit.",
+    "ppbBody": "Every box, both ways, per bar. Next to the coffee and snack it replaces.",
+    "once": "once",
+    "monthly": "monthly",
+    "coffeeSnack": "Coffee + snack",
+    "ppbNote": "Coffee + snack is an estimate: about 38 kr for a café coffee and 30 kr for a snack.",
+    "faqEyebrow": "Before you buy",
+    "faqTitle": "Buying questions.",
+    "faqLink": "Full FAQ",
+    "faq": [
+      {
+        "q": "When does it ship?",
+        "a": "First sales start 15 November. Orders within Sweden arrive in 2–4 business days."
+      },
+      {
+        "q": "Can I cancel the subscription?",
+        "a": "Yes. Skip, pause, change quantity or cancel any time before your next delivery. No fees."
+      },
+      {
+        "q": "How long does a box last?",
+        "a": "12 bars. One a day on weekdays is a little over two weeks."
+      },
+      {
+        "q": "Is it OK to have one every day?",
+        "a": "Yes, for healthy adults. EFSA, the EU food safety authority, considers up to 400 mg of caffeine a day safe. One bar is 90 mg, so count your coffee too. Not for children or pregnant women."
+      },
+      {
+        "q": "How do I pay?",
+        "a": "By card at checkout."
+      }
+    ],
+    "buybarSub": "Monthly",
+    "buybarOne": "One-time",
+    "review": "Review"
+  },
   "nutrition": {
     "title": "What Makes It Perfect",
     "caffeineTitle": "Natural Caffeine",

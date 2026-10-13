@@ -133,6 +133,97 @@
     "step3Title": "Full kontroll, alltid.",
     "step3Desc": "Hoppa över en månad, ändra antal eller avbryt innan varje leverans. Inga avgifter."
   },
+  "shopPage": {
+    "eyebrow": "Butik · salted caramel",
+    "titleA": "Välj din låda.",
+    "titleB": "Prenumerera eller köp en gång.",
+    "lede": "12 barer per låda. 90 mg koffein och 14 g protein i varje. Prenumerera och spara upp till 20 %, eller testa en låda först.",
+    "stampTop": "Försäljningsstart",
+    "stampDate": "15 nov",
+    "ticker": [
+      "Prenumerera och spara upp till 20 %",
+      "Fri frakt på prenumerationer",
+      "Hoppa över eller avsluta när du vill",
+      "Försäljningsstart 15 november"
+    ],
+    "modeSub": "Prenumerera",
+    "modeSubNote": "Spara upp till 20 % · fri frakt",
+    "modeOne": "Engångsköp",
+    "modeOneNote": "Ingen bindning",
+    "qSub": "Hur många barer per månad?",
+    "qOne": "Hur många barer?",
+    "box_one": "{{count}} låda",
+    "box_other": "{{count}} lådor",
+    "barsCount": "{{count}} barer",
+    "barsMonth": "{{count}} barer / månad",
+    "barsWord": "barer",
+    "mostPopular": "Mest populär",
+    "saveKr": "Spara {{amount}}",
+    "youSaveMonth": "Du sparar {{amount}} i månaden",
+    "youSave": "Du sparar {{amount}}",
+    "perBar": "{{price}} per bar",
+    "giftToggle": "Skicka som present",
+    "giftName": "Mottagarens namn",
+    "giftMessage": "Ett kort meddelande (vi skriver det på ett kort)",
+    "perksSub": [
+      "Fri frakt",
+      "Hoppa över eller avsluta när du vill",
+      "Ändra antal varje månad",
+      "Samma datum varje månad"
+    ],
+    "perksOne": [
+      "Skickas inom 2–4 arbetsdagar",
+      "Fri frakt över 499 kr",
+      "Betala med kort",
+      "12 barer per låda"
+    ],
+    "ctaSub": "Starta min prenumeration · {{price}}/mån",
+    "ctaOne": "Lägg i varukorgen · {{price}}",
+    "delivEyebrow": "Om du prenumererar",
+    "delivTitle": "Dina nästa fyra lådor.",
+    "delivBody": "Tryck på en månad för att hoppa över den eller ändra antal lådor. Inget är låst.",
+    "firstBox": "Första lådan",
+    "ships": "Skickas {{date}}",
+    "asPlanned": "Som planerat",
+    "plusOne": "+1 låda",
+    "skip": "Hoppa över",
+    "skipped": "Överhoppad",
+    "ppbEyebrow": "Pris per bar",
+    "ppbTitle": "Billigare än din vana kl. 15.",
+    "ppbBody": "Varje låda, båda sätten, per bar. Bredvid kaffet och mellanmålet den ersätter.",
+    "once": "engång",
+    "monthly": "månadsvis",
+    "coffeeSnack": "Kaffe + mellanmål",
+    "ppbNote": "Kaffe + mellanmål är en uppskattning: cirka 38 kr för ett kafékaffe och 30 kr för ett mellanmål.",
+    "faqEyebrow": "Innan du köper",
+    "faqTitle": "Frågor om köpet.",
+    "faqLink": "Hela FAQ:n",
+    "faq": [
+      {
+        "q": "När skickas det?",
+        "a": "Försäljningen startar 15 november. Beställningar inom Sverige kommer fram inom 2–4 arbetsdagar."
+      },
+      {
+        "q": "Kan jag avsluta prenumerationen?",
+        "a": "Ja. Hoppa över, pausa, ändra antal eller avsluta när du vill före nästa leverans. Inga avgifter."
+      },
+      {
+        "q": "Hur länge räcker en låda?",
+        "a": "12 barer. En om dagen på vardagar räcker drygt två veckor."
+      },
+      {
+        "q": "Går det bra att äta en varje dag?",
+        "a": "Ja, för friska vuxna. EFSA, EU:s livsmedelssäkerhetsmyndighet, bedömer att upp till 400 mg koffein per dag är säkert. En bar innehåller 90 mg, så räkna med ditt kaffe också. Inte för barn eller gravida."
+      },
+      {
+        "q": "Hur betalar jag?",
+        "a": "Med kort i kassan."
+      }
+    ],
+    "buybarSub": "Månadsvis",
+    "buybarOne": "Engångsköp",
+    "review": "Visa"
+  },
   "nutrition": {
     "title": "Vad Som Gör Den Perfekt",
     "caffeineTitle": "Naturligt Koffein",

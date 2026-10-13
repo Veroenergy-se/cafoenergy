@@ -33,10 +33,10 @@ export default function Waitlist() {
 
   return (
     <section id="waitlist" data-tone="orange" className="text-fg py-20 lg:py-28 scroll-mt-20">
-      <div className="page-container grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-end">
+      <div className="page-container grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-end">
         <div>
           <p className="font-accent text-xs uppercase tracking-[0.2em] font-semibold">{t('waitlist.eyebrow')}</p>
-          <h2 className="mt-4 font-display uppercase leading-[0.92] text-[clamp(1.6rem,5.4vw,5rem)] break-words">
+          <h2 className="mt-4 font-display uppercase leading-[0.92] text-[clamp(1.4rem,5.4vw,5rem)] break-words">
             {t('waitlist.titleA')} <span className="text-accent">{t('waitlist.titleB')}</span>
           </h2>
         </div>
