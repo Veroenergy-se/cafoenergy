@@ -52,6 +52,22 @@ export function getSubscriptionPrice(amount: number, boxes = 1): number {
   return Math.round(amount * (1 - getSubscriptionDiscount(boxes)))
 }
 
+// Price of one box, the unit subscriptions are counted in.
+export const BOX_PRICE = { usd: 29, sek: 299 }
+
+// What one cart line costs. A subscription stores its plan as boxes per month, and
+// the discount depends on how many boxes (10 / 15 / 20%).
+export function itemUnitPrice(
+  item: { subscription: boolean; monthlyPlan?: number[] },
+  product: Product,
+  currency: 'usd' | 'sek',
+): number {
+  if (!item.subscription) return product.price[currency]
+  const boxes = item.monthlyPlan?.[0]
+  if (boxes) return getSubscriptionPrice(BOX_PRICE[currency] * boxes, boxes)
+  return getSubscriptionPrice(product.price[currency])
+}
+
 export function getCurrency(_lang: string): 'usd' | 'sek' {
   return 'sek'
 }

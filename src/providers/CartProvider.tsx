@@ -1,11 +1,12 @@
 import { createContext, useContext, useReducer, useEffect, type ReactNode } from 'react'
-import { products, getSubscriptionPrice, type Product } from '@/lib/products'
+import { products, itemUnitPrice, type Product } from '@/lib/products'
 
 export interface CartItem {
   productId: string
   quantity: number
   subscription: boolean
   monthlyPlan?: number[] // [month1_boxes, month2_boxes, month3_boxes]
+  gift?: { name: string; message: string } // one-time orders sent to someone else
 }
 
 interface CartState {
@@ -14,7 +15,7 @@ interface CartState {
 }
 
 type CartAction =
-  | { type: 'ADD_ITEM'; productId: string; subscription: boolean; monthlyPlan?: number[] }
+  | { type: 'ADD_ITEM'; productId: string; subscription: boolean; monthlyPlan?: number[]; gift?: CartItem['gift'] }
   | { type: 'REMOVE_ITEM'; productId: string }
   | { type: 'UPDATE_QUANTITY'; productId: string; quantity: number }
   | { type: 'CLEAR' }
@@ -25,14 +26,23 @@ type CartAction =
 function cartReducer(state: CartState, action: CartAction): CartState {
   switch (action.type) {
     case 'ADD_ITEM': {
-      const existing = state.items.find(i => i.productId === action.productId)
+      // A subscription replaces any earlier subscription: one plan per customer.
+      if (action.subscription) {
+        const rest = state.items.filter(i => !i.subscription)
+        return {
+          ...state,
+          isOpen: true,
+          items: [...rest, { productId: action.productId, quantity: 1, subscription: true, monthlyPlan: action.monthlyPlan }],
+        }
+      }
+      const existing = state.items.find(i => i.productId === action.productId && !i.subscription)
       if (existing) {
         return {
           ...state,
           isOpen: true,
           items: state.items.map(i =>
-            i.productId === action.productId
-              ? { ...i, quantity: i.quantity + 1, subscription: action.subscription, monthlyPlan: action.monthlyPlan }
+            i === existing
+              ? { ...i, quantity: i.quantity + 1, gift: action.gift ?? i.gift }
               : i
           ),
         }
@@ -40,7 +50,7 @@ function cartReducer(state: CartState, action: CartAction): CartState {
       return {
         ...state,
         isOpen: true,
-        items: [...state.items, { productId: action.productId, quantity: 1, subscription: action.subscription, monthlyPlan: action.monthlyPlan }],
+        items: [...state.items, { productId: action.productId, quantity: 1, subscription: false, gift: action.gift }],
       }
     }
     case 'REMOVE_ITEM':
@@ -71,7 +81,7 @@ function cartReducer(state: CartState, action: CartAction): CartState {
 interface CartContextValue {
   items: CartItem[]
   isOpen: boolean
-  addItem: (productId: string, subscription?: boolean, monthlyPlan?: number[]) => void
+  addItem: (productId: string, subscription?: boolean, monthlyPlan?: number[], gift?: CartItem['gift']) => void
   removeItem: (productId: string) => void
   updateQuantity: (productId: string, quantity: number) => void
   clearCart: () => void
@@ -104,10 +114,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     state.items.reduce((sum, item) => {
       const product = products.find(p => p.id === item.productId)
       if (!product) return sum
-      const unitPrice = item.subscription
-        ? getSubscriptionPrice(product.price[currency])
-        : product.price[currency]
-      return sum + unitPrice * item.quantity
+      return sum + itemUnitPrice(item, product, currency) * item.quantity
     }, 0)
 
   const getProduct = (id: string) => products.find(p => p.id === id)
@@ -117,8 +124,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
       value={{
         items: state.items,
         isOpen: state.isOpen,
-        addItem: (productId, subscription = false, monthlyPlan) =>
-          dispatch({ type: 'ADD_ITEM', productId, subscription, monthlyPlan }),
+        addItem: (productId, subscription = false, monthlyPlan, gift) =>
+          dispatch({ type: 'ADD_ITEM', productId, subscription, monthlyPlan, gift }),
         removeItem: (productId) => dispatch({ type: 'REMOVE_ITEM', productId }),
         updateQuantity: (productId, quantity) =>
           dispatch({ type: 'UPDATE_QUANTITY', productId, quantity }),

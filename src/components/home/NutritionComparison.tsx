@@ -25,7 +25,7 @@ const facts: Fact[] = [
   { key: 'weight', bar: 55, per100: 100, dec: 0, unit: 'g', sub: true },
 ]
 
-function WholeLabel() {
+export function WholeLabel({ className = 'mt-20 lg:mt-28' }: { className?: string }) {
   const { t, i18n } = useTranslation()
   const reduce = useReducedMotion()
   const locale = i18n.language === 'sv' ? 'sv-SE' : 'en-GB'
@@ -51,7 +51,7 @@ function WholeLabel() {
   const fmt = (v: number, dec: number) => v.toLocaleString(locale, { minimumFractionDigits: dec, maximumFractionDigits: dec })
 
   return (
-    <div className="mt-20 lg:mt-28">
+    <div className={className}>
       <div className="flex flex-wrap items-end justify-between gap-6">
         <div>
           <p className="font-accent text-xs uppercase tracking-[0.2em] font-semibold text-accent">{t('label.eyebrow')}</p>

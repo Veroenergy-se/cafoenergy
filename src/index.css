@@ -134,3 +134,12 @@ body[data-tone="orange"] { --bg: #ff5900; --fg: #2d1d17; --accent: #ede6dc; --lo
 .animate-marquee {
   animation: marquee 22s linear infinite;
 }
+
+/* Shop page: the floating bar and the scrolling offer line. */
+@keyframes moar-float {
+  0%, 100% { transform: rotate(-14deg) translateY(0); }
+  50% { transform: rotate(-9deg) translateY(-14px); }
+}
+@keyframes moar-tick {
+  to { transform: translateX(-50%); }
+}
