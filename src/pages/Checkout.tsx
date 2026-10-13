@@ -72,7 +72,7 @@ export default function Checkout() {
         const product = getProduct(item.productId)
         if (!product) return null
         const BOX_BARS: Record<number, number> = { 1: 12, 2: 24, 3: 36 }
-        const months = item.monthlyPlan!.map((boxes, i) => `Month ${i + 1}: ${BOX_BARS[boxes] ?? boxes * 12} bars`).join(', ')
+        const months = item.monthlyPlan!.map((boxes, i) => `Month ${i + 1}: ${boxes === 0 ? 'skip' : `${boxes} box${boxes > 1 ? 'es' : ''} (${BOX_BARS[boxes] ?? boxes * 12} bars)`}`).join(', ')
         return `Plan for ${t(product.nameKey)}: ${months}`
       })
       .filter(Boolean)

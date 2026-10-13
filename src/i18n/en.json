@@ -222,7 +222,27 @@
     ],
     "buybarSub": "Monthly",
     "buybarOne": "One-time",
-    "review": "Review"
+    "review": "Review",
+    "paceQ": "How many afternoons a week need a lift?",
+    "paceOpts": [
+      "2–3",
+      "4–5",
+      "Every day"
+    ],
+    "upsellExtra": "+{{extra}}",
+    "upsellText": "gets you 12 more bars, and each bar drops to {{per}}.",
+    "upsellBtn": "Make it bigger",
+    "shipLeft": "Add one more box and shipping is free (from {{threshold}}).",
+    "shipFree": "Free shipping on this order.",
+    "preCtaSub": "Pre-order subscription · {{price}}/mo",
+    "preCtaOne": "Pre-order · {{price}}",
+    "preLine": "Pre-order · ships {{date}}",
+    "sheetEyebrow": "Your plan",
+    "sheetBody": "Tap a month to add a box or skip it. You can change this any time before each delivery.",
+    "sheetCta": "Add plan to cart",
+    "sheetSum": "{{boxes}} a month · {{price}} per delivery",
+    "close": "Close",
+    "launchDate": "15 November"
   },
   "nutrition": {
     "title": "What Makes It Perfect",
