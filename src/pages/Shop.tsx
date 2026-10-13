@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
@@ -7,6 +7,7 @@ import { useCart } from '@/providers/CartProvider'
 import { products, getCurrency, formatPrice, getSubscriptionPrice, BOX_PRICE } from '@/lib/products'
 import { SITE } from '@/lib/constants'
 import { WholeLabel } from '@/components/home/NutritionComparison'
+import BarPile3D from '@/components/shop/BarPile3D'
 
 type Mode = 'subscription' | 'onetime'
 type Boxes = 1 | 2 | 3
@@ -118,77 +119,6 @@ function ShopHero() {
   )
 }
 
-// ---- The bar pile: one bar stuck in the top of a heap that grows 12 → 24 → 36 ----
-
-// Each bar keeps a fixed random spot and tilt (seeded, so it's the same on every visit).
-const PILE = (() => {
-  let seed = 7
-  const rnd = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646 }
-  return Array.from({ length: 36 }, () => ({
-    u: rnd() * 2 - 1,
-    v: rnd(),
-    rot: (rnd() < 0.5 ? 90 : -90) + (rnd() * 80 - 40),
-    depth: rnd(),
-  }))
-})()
-
-function BarPile({ boxes }: { boxes: Boxes }) {
-  const ref = useRef<HTMLDivElement>(null)
-  const [width, setWidth] = useState(0)
-  useLayoutEffect(() => {
-    const el = ref.current
-    if (!el) return
-    const ro = new ResizeObserver(() => setWidth(el.clientWidth))
-    ro.observe(el)
-    setWidth(el.clientWidth)
-    return () => ro.disconnect()
-  }, [])
-
-  const n = boxes * 12
-  const len = Math.min(112, width / 5.2)
-  const thick = len * 0.36
-  const R = Math.min(width * 0.42, len * Math.sqrt(n * 0.12)) // half-width of the mound
-  const H = R * 0.8 // its height
-  // Spread the visible bars evenly left to right (in their random order) so the heap is balanced.
-  const rank: number[] = []
-  PILE.slice(0, n).map((b, i) => [b.u, i] as const).sort((a, b) => a[0] - b[0]).forEach(([, i], r) => { rank[i] = r })
-  const summitW = Math.min(84, width / 6)
-
-  return (
-    <div ref={ref} className="absolute inset-x-0 top-0 bottom-6">
-      {width > 0 && PILE.map((bar, i) => {
-        const on = i < n
-        const tt = on ? ((rank[i] + 0.5) / n) * 2 - 1 + (bar.depth - 0.5) * (2 / n) : 0
-        const x = on ? Math.sign(tt) * Math.pow(Math.abs(tt), 1.15) * R : bar.u * R
-        const y = on ? Math.pow(bar.v, 0.55) * H * (1 - Math.pow(x / R, 2)) - len * 0.12 : -width
-        return (
-          <img
-            key={i}
-            src="/images/moar-wrapper.png"
-            alt=""
-            className="absolute left-1/2 bottom-0 drop-shadow-[0_6px_6px_rgba(45,29,23,0.35)] transition-[transform,opacity] duration-700 ease-[cubic-bezier(.3,1.25,.5,1)]"
-            style={{
-              width: thick,
-              zIndex: 10 + Math.round(bar.depth * 20),
-              opacity: on ? 1 : 0,
-              transitionDelay: on ? `${(i % 12) * 35}ms` : '0ms',
-              transform: `translate(calc(-50% + ${x}px), ${on ? -y : y}px) rotate(${on ? bar.rot : bar.rot * 2}deg)`,
-            }}
-          />
-        )
-      })}
-      {width > 0 && (
-        <img
-          src="/images/moar-wrapper.png"
-          alt=""
-          className="absolute left-1/2 bottom-0 z-40 drop-shadow-[0_18px_18px_rgba(45,29,23,0.45)] transition-transform duration-700 ease-[cubic-bezier(.3,1.25,.5,1)]"
-          style={{ width: summitW, transform: `translate(-50%, ${-H * 0.62}px) rotate(-10deg)` }}
-        />
-      )}
-    </div>
-  )
-}
-
 interface BuilderProps {
   mode: Mode
   setMode: (m: Mode) => void
@@ -231,18 +161,17 @@ function BoxBuilder({ mode, setMode, boxes, setBoxes, currency, locale, ref }: B
   return (
     <section ref={ref} id="builder" data-tone={sub ? 'brown' : 'cream'} className="text-fg py-12 lg:py-20 scroll-mt-16">
       <div className="page-container grid grid-cols-1 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
-        {/* The pile grows with the number of boxes. */}
-        <div className="relative bg-caforange overflow-hidden h-[340px] sm:h-[420px] lg:sticky lg:top-20 lg:self-start lg:h-[min(620px,calc(100vh-110px))]" aria-hidden="true">
-          <BarPile boxes={boxes} />
-          <p className="absolute z-50 left-5 top-4 font-display text-brown leading-[0.8] text-[clamp(3rem,7vw,6rem)]">
+        {/* Real 3D bars fall into a pile; the panel matches the height of the options. */}
+        <BarPile3D count={boxes * 12} dropLabel={t('shopPage.dropAgain')}>
+          <p className="absolute z-10 left-5 top-4 font-display text-brown leading-[0.8] text-[clamp(3rem,7vw,6rem)] pointer-events-none" aria-live="polite">
             {boxes * 12}<span className="text-[0.26em]"> {t('shopPage.barsWord')}</span>
           </p>
           {boxes === 2 && (
-            <span className="absolute z-50 top-4 right-4 bg-brown text-off-white px-3 py-2 font-accent text-[11px] uppercase tracking-[0.14em] font-semibold">
+            <span className="absolute z-10 top-4 right-4 bg-brown text-off-white px-3 py-2 font-accent text-[11px] uppercase tracking-[0.14em] font-semibold">
               {t('shopPage.mostPopular')}
             </span>
           )}
-        </div>
+        </BarPile3D>
 
         <div className="border-2 border-fg/15 border-t-0 lg:border-t-2 lg:border-l-0 p-5 sm:p-10 grid gap-5 content-start">
           {/* Subscribe / one-time switch */}
