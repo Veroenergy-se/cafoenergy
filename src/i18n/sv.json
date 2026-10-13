@@ -222,7 +222,27 @@
     ],
     "buybarSub": "Månadsvis",
     "buybarOne": "Engångsköp",
-    "review": "Visa"
+    "review": "Visa",
+    "paceQ": "Hur många eftermiddagar i veckan behöver en boost?",
+    "paceOpts": [
+      "2–3",
+      "4–5",
+      "Varje dag"
+    ],
+    "upsellExtra": "+{{extra}}",
+    "upsellText": "ger dig 12 barer till, och varje bar kostar då {{per}}.",
+    "upsellBtn": "Gör den större",
+    "shipLeft": "Lägg till en låda till så blir frakten gratis (från {{threshold}}).",
+    "shipFree": "Fri frakt på den här beställningen.",
+    "preCtaSub": "Förbeställ prenumeration · {{price}}/mån",
+    "preCtaOne": "Förbeställ · {{price}}",
+    "preLine": "Förbeställning · skickas {{date}}",
+    "sheetEyebrow": "Din plan",
+    "sheetBody": "Tryck på en månad för att lägga till en låda eller hoppa över den. Du kan ändra när du vill före varje leverans.",
+    "sheetCta": "Lägg planen i varukorgen",
+    "sheetSum": "{{boxes}} i månaden · {{price}} per leverans",
+    "close": "Stäng",
+    "launchDate": "15 november"
   },
   "nutrition": {
     "title": "Vad Som Gör Den Perfekt",
