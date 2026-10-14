@@ -162,20 +162,29 @@ export function createPileScene(container: HTMLElement, textureUrl: string): Pil
     bars.push({ body, mesh })
   }
 
-  const removeLast = (k: number) => {
-    for (let i = 0; i < k && bars.length; i++) {
-      const b = bars.pop()!
-      world.removeBody(b.body)
-      scene.remove(b.mesh)
+  // Fewer bars (or "drop again"): the whole pile falls away through the floor and
+  // out of view, then the new amount drops in fresh from the top.
+  const falling: { body: CANNON.Body; mesh: THREE.Mesh; t: number }[] = []
+  let refillIn = -1 // seconds until the refill starts; -1 = no refill pending
+  const dropAway = () => {
+    queue = 0
+    for (const b of bars) {
+      b.body.collisionFilterMask = 0 // pass through the floor, the walls and each other
+      b.body.wakeUp()
+      b.body.velocity.y = Math.min(b.body.velocity.y, -0.5 - Math.random() * 1.5)
+      b.body.angularVelocity.set(gauss() * 1.5, gauss() * 1.5, gauss() * 1.5)
+      falling.push({ ...b, t: 0 })
     }
-    bars.forEach((b) => b.body.wakeUp())
+    bars.length = 0
+    refillIn = 0.55
   }
 
   let target = 0
   const setCount = (n: number) => {
+    const fewer = n < target || n < bars.length
     target = n
-    if (n < bars.length) { queue = 0; removeLast(bars.length - n) }
-    else queue = n - bars.length
+    if (fewer && bars.length) dropAway()
+    else if (refillIn < 0) queue = Math.max(0, n - bars.length)
     wake()
   }
 
@@ -205,6 +214,10 @@ export function createPileScene(container: HTMLElement, textureUrl: string): Pil
     const dt = last ? Math.min(0.05, (now - last) / 1000) : STEP
     last = now
     spawnT += dt
+    if (refillIn >= 0) {
+      refillIn -= dt
+      if (refillIn < 0) queue = Math.max(0, target - bars.length)
+    }
     while (queue > 0 && spawnT > 0.07) { queue--; spawn(); spawnT -= 0.07 }
     if (queue === 0) spawnT = 0
     if (reduce) { for (let i = 0; i < 400; i++) world.step(STEP) }
@@ -219,6 +232,13 @@ export function createPileScene(container: HTMLElement, textureUrl: string): Pil
       if (body.sleepState !== CANNON.Body.SLEEPING) awake = true
     }
     if (bars.length) { cx /= bars.length; cz /= bars.length }
+    for (let i = falling.length - 1; i >= 0; i--) {
+      const f = falling[i]
+      f.t += dt
+      f.mesh.position.set(f.body.position.x, f.body.position.y, f.body.position.z)
+      f.mesh.quaternion.set(f.body.quaternion.x, f.body.quaternion.y, f.body.quaternion.z, f.body.quaternion.w)
+      if (f.body.position.y < -7 || f.t > 2.5) { world.removeBody(f.body); scene.remove(f.mesh); falling.splice(i, 1) }
+    }
     const r = 1.2 + Math.sqrt(bars.length / 36) * 2.2
     blob.position.x += (cx - blob.position.x) * 0.05
     blob.position.z += (cz - blob.position.z) * 0.05
@@ -230,7 +250,7 @@ export function createPileScene(container: HTMLElement, textureUrl: string): Pil
     renderer.render(scene, camera)
 
     // Keep going while bars move or the camera sways; stop when off screen.
-    idleFrames = awake || queue > 0 ? 0 : idleFrames + 1
+    idleFrames = awake || queue > 0 || falling.length || refillIn >= 0 ? 0 : idleFrames + 1
     if (visible && !document.hidden && (!reduce || idleFrames < 2)) raf = requestAnimationFrame(frame)
   }
   function wake() { if (!raf && visible && !document.hidden) { last = 0; raf = requestAnimationFrame(frame) } }
@@ -238,7 +258,7 @@ export function createPileScene(container: HTMLElement, textureUrl: string): Pil
   const io = new IntersectionObserver((es) => {
     visible = es[0].isIntersecting
     if (visible) {
-      if (target && bars.length + queue === 0) setCount(target)
+      if (target && bars.length + queue + falling.length === 0 && refillIn < 0) setCount(target)
       wake()
     }
   }, { threshold: 0.15 })
@@ -248,7 +268,7 @@ export function createPileScene(container: HTMLElement, textureUrl: string): Pil
 
   return {
     setCount,
-    dropAgain: () => { queue = 0; removeLast(bars.length); setCount(target) },
+    dropAgain: () => { if (bars.length) dropAway(); else setCount(target); wake() },
     dispose: () => {
       if (raf) cancelAnimationFrame(raf)
       io.disconnect()
