@@ -93,7 +93,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden;
+  /* clip, not hidden: hidden turns body into a scroll box and breaks position: sticky */
+  overflow-x: clip;
   margin: 0;
   padding: 0;
 }

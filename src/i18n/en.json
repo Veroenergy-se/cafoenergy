@@ -357,6 +357,203 @@
     "directEmail": "Or email us directly at",
     "followUs": "Follow Us"
   },
+  "science": {
+    "metaTitle": "The science — MOAR Bar",
+    "metaDescription": "Why guarana, why caffeine with protein, why 3 PM, and the numbers behind every choice in a MOAR bar.",
+    "open": {
+      "eyebrow": "The science",
+      "titleA": "Where the kick",
+      "titleB": "comes from.",
+      "body": "Every MOAR bar starts with guarana, a red berry from the Amazon that looks back at you. Its seeds hold about twice the caffeine of a coffee bean.",
+      "scroll": "Scroll",
+      "berryAlt": "A guarana fruit splitting open to show a black seed in white flesh, like an eye"
+    },
+    "guarana": {
+      "eyebrow": "Why guarana?",
+      "titleA": "A seed that brings",
+      "titleB": "its own kick.",
+      "items": [
+        {
+          "stat": "2×",
+          "unit": "",
+          "title": "Stronger than coffee",
+          "body": "Guarana seeds hold about 2–4% caffeine, around twice a coffee bean. So less than half a gram of extract (0.75% of the bar) is enough for 90 mg."
+        },
+        {
+          "stat": "0",
+          "unit": "ml",
+          "title": "You eat it, not drink it",
+          "body": "Caffeine taken with food usually reaches its peak more slowly than on an empty stomach. In MOAR it comes wrapped in protein, fat and fibre."
+        },
+        {
+          "stat": "1",
+          "unit": "plant",
+          "title": "The gentle reputation",
+          "body": "In the seed, guarana's caffeine sits alongside tannins, which is often given as the reason it feels smoother. Research on that is still mixed, so we'll just say: try it."
+        }
+      ]
+    },
+    "combo": {
+      "eyebrow": "Why caffeine + protein?",
+      "titleA": "Two things you already reach for.",
+      "titleB": "In one bar.",
+      "body": "Caffeine gives you the lift. Protein makes it a real snack instead of just a drink. Together, one bar does the job of both.",
+      "coffee": "A coffee",
+      "coffeeSub": "90 mg caffeine",
+      "snack": "A snack",
+      "snackSub": "14 g protein",
+      "moar": "One MOAR",
+      "tableTitle": "The kick of one. The snack of the other.",
+      "cols": [
+        "Coffee",
+        "Protein bar",
+        "MOAR"
+      ],
+      "rows": {
+        "caffeine": "Caffeine",
+        "protein": "Protein",
+        "sugar": "Sugar",
+        "snack": "A snack?"
+      },
+      "yes": "Yes",
+      "no": "No",
+      "note": "A filter coffee (about 200 ml) and a typical 55 g protein bar; values are typical and vary by brand. Protein contributes to the maintenance of muscle mass."
+    },
+    "fit": {
+      "eyebrow": "Why 3 PM?",
+      "titleA": "Eat it at three.",
+      "titleB": "Sleep at eleven.",
+      "body": "Your body clears about half of the caffeine every five hours or so. Have the bar mid-afternoon and most of it is gone by bedtime.",
+      "times": [
+        "3 PM",
+        "7 PM",
+        "11 PM"
+      ],
+      "bigA": "By bedtime,",
+      "bigB": "two thirds of it is gone.",
+      "note": "Based on one 90 mg bar and a typical half-life of about 5 hours; it varies between people. If you're sensitive to caffeine, have it earlier in the day."
+    },
+    "choices": {
+      "eyebrow": "The numbers behind our choices",
+      "titleA": "What 55 grams",
+      "titleB": "is made of.",
+      "parts": {
+        "protein": "Protein",
+        "carbs": "Carbs",
+        "sugar": "Sugar",
+        "fat": "Fat",
+        "fibre": "Fibre",
+        "other": "Other"
+      },
+      "stackLabel": "One 55 g bar: 14.3 g protein, 19.5 g other carbohydrates, 2 g sugars, 9.9 g fat, 2.6 g fibre, about 6.7 g other",
+      "scaleEnd": "55 g · one bar",
+      "thresholds": [
+        {
+          "badge": "High protein",
+          "stat": "26",
+          "unit": "% of energy",
+          "body": "In the EU, a food can be called high in protein when at least 20% of its energy comes from protein. MOAR: 26%."
+        },
+        {
+          "badge": "Low sugar",
+          "stat": "3.6",
+          "unit": "g / 100 g",
+          "body": "\"Low sugar\" means at most 5 g per 100 g. MOAR has 3.6 g, about 2 g in a bar."
+        },
+        {
+          "badge": "Source of fibre",
+          "stat": "4.8",
+          "unit": "g / 100 g",
+          "body": "\"Source of fibre\" starts at 3 g per 100 g. MOAR has 4.8 g, from the oligofructose in the caramel."
+        }
+      ],
+      "picks": [
+        {
+          "a": "90 mg,",
+          "b": "not 150",
+          "body": "About one coffee. Enough to notice, with room for the coffee you already drink."
+        },
+        {
+          "a": "55 g,",
+          "b": "not 40",
+          "body": "Big enough to count as a snack (223 kcal), small enough not to replace lunch."
+        },
+        {
+          "a": "Maltitol,",
+          "b": "not sugar",
+          "body": "It tastes and melts like sugar in chocolate, with about 2.4 kcal per gram instead of 4."
+        },
+        {
+          "a": "Four proteins,",
+          "b": "not one",
+          "body": "Whey and milk for a creamy taste, collagen for a chewy bite, soy crisps for crunch."
+        }
+      ]
+    },
+    "much": {
+      "eyebrow": "How much is too much?",
+      "titleA": "Less than",
+      "titleB": "you'd think.",
+      "body": "One bar has about the same caffeine as one cup of coffee. Count it like one.",
+      "bar": "MOAR bar",
+      "cup": "Cup of coffee",
+      "scaleLabel": "Two coffees and one MOAR bar fill 270 of the 400 mg a day considered safe for healthy adults",
+      "scaleEnd": "400 mg a day",
+      "caption": "Two coffees and a MOAR bar is 270 mg. The EU food safety authority considers up to 400 mg a day fine for healthy adults.",
+      "fine": "Not recommended for children or pregnant women."
+    },
+    "asked": {
+      "eyebrow": "For the curious",
+      "title": "The things people ask us.",
+      "items": [
+        {
+          "q": "Is guarana caffeine different from coffee caffeine?",
+          "a": "No. It's the same molecule, C₈H₁₀N₄O₂. What's different is what comes with it: in MOAR, protein, fat and fibre instead of a cup of hot water."
+        },
+        {
+          "q": "How does caffeine actually work?",
+          "a": "While you're awake, a molecule called adenosine builds up in your brain and tells it you're getting tired. Caffeine has a similar shape, so it sits in the same spots and blocks that signal for a while. It doesn't add energy; it holds off the feeling of tiredness."
+        },
+        {
+          "q": "How long does it last?",
+          "a": "Caffeine usually peaks within about an hour, and your body clears half of it roughly every five hours. That varies a lot from person to person."
+        },
+        {
+          "q": "Can I have it with my coffee?",
+          "a": "Yes. Just count the bar as another cup: 90 mg. Two coffees and a bar is 270 mg, well under the 400 mg a day the EU considers fine for healthy adults."
+        },
+        {
+          "q": "Will I get used to it?",
+          "a": "A bit. People who have caffeine every day build up some tolerance, so the same amount feels milder. A few days with less caffeine resets it."
+        },
+        {
+          "q": "Is maltitol a sugar?",
+          "a": "No. It's a polyol (a \"sugar alcohol\") made from starch. It counts as carbohydrate but not as sugar, and has about 2.4 kcal per gram instead of 4. Like other polyols, a lot at once can have a laxative effect."
+        },
+        {
+          "q": "Is it good before training?",
+          "a": "Plenty of people take caffeine before they train. If you do, eat the bar 30–60 minutes before, since that's when caffeine usually peaks."
+        },
+        {
+          "q": "Why collagen?",
+          "a": "Collagen peptides give the bar its soft, chewy bite. Together with whey, milk and soy protein they make up the 14 g."
+        },
+        {
+          "q": "Is it vegan? Gluten free?",
+          "a": "Not vegan: it contains milk and collagen. It is gluten free and made without GMOs. It contains milk and soy, and may contain peanuts and nuts."
+        },
+        {
+          "q": "Who shouldn't eat it?",
+          "a": "It isn't recommended for children or pregnant women, because of the caffeine."
+        }
+      ]
+    },
+    "end": {
+      "titleA": "Now you know.",
+      "titleB": "Try one.",
+      "cta": "Pick your box"
+    }
+  },
   "howItWorks": {
     "title": "HOW IT WORKS",
     "subtitle": "The science behind sustained focus",

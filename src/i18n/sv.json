@@ -357,6 +357,203 @@
     "directEmail": "Eller maila oss direkt på",
     "followUs": "Följ Oss"
   },
+  "science": {
+    "metaTitle": "Vetenskapen — MOAR Bar",
+    "metaDescription": "Varför guarana, varför koffein med protein, varför kl. 15 och siffrorna bakom varje val i en MOAR-bar.",
+    "open": {
+      "eyebrow": "Vetenskapen",
+      "titleA": "Här kommer",
+      "titleB": "kicken ifrån.",
+      "body": "Varje MOAR-bar börjar med guarana, ett rött bär från Amazonas som tittar tillbaka på dig. Fröna innehåller ungefär dubbelt så mycket koffein som en kaffeböna.",
+      "scroll": "Scrolla",
+      "berryAlt": "En guaranafrukt som öppnar sig och visar ett svart frö i vitt fruktkött, som ett öga"
+    },
+    "guarana": {
+      "eyebrow": "Varför guarana?",
+      "titleA": "Ett frö med",
+      "titleB": "egen kick.",
+      "items": [
+        {
+          "stat": "2×",
+          "unit": "",
+          "title": "Starkare än kaffe",
+          "body": "Guaranafrön innehåller cirka 2–4 % koffein, ungefär dubbelt så mycket som en kaffeböna. Därför räcker mindre än ett halvt gram extrakt (0,75 % av baren) till 90 mg."
+        },
+        {
+          "stat": "0",
+          "unit": "ml",
+          "title": "Du äter den, du dricker den inte",
+          "body": "Koffein som tas med mat når oftast sin topp långsammare än på fastande mage. I MOAR kommer det inbäddat i protein, fett och fiber."
+        },
+        {
+          "stat": "1",
+          "unit": "växt",
+          "title": "Det milda ryktet",
+          "body": "I fröet sitter guaranans koffein tillsammans med tanniner, vilket ofta anges som anledningen till att det känns mjukare. Forskningen är inte entydig, så vi säger bara: testa."
+        }
+      ]
+    },
+    "combo": {
+      "eyebrow": "Varför koffein + protein?",
+      "titleA": "Två saker du redan sträcker dig efter.",
+      "titleB": "I en bar.",
+      "body": "Koffeinet ger dig lyftet. Proteinet gör det till ett riktigt mellanmål i stället för bara en dryck. Tillsammans gör en bar jobbet för båda.",
+      "coffee": "Ett kaffe",
+      "coffeeSub": "90 mg koffein",
+      "snack": "Ett mellanmål",
+      "snackSub": "14 g protein",
+      "moar": "En MOAR",
+      "tableTitle": "Kicken från det ena. Mellanmålet från det andra.",
+      "cols": [
+        "Kaffe",
+        "Protein\u00adbar",
+        "MOAR"
+      ],
+      "rows": {
+        "caffeine": "Koffein",
+        "protein": "Protein",
+        "sugar": "Socker",
+        "snack": "Ett mellanmål?"
+      },
+      "yes": "Ja",
+      "no": "Nej",
+      "note": "En kopp bryggkaffe (cirka 200 ml) och en vanlig proteinbar på 55 g; värdena är typiska och varierar mellan märken. Protein bidrar till att bibehålla muskelmassan."
+    },
+    "fit": {
+      "eyebrow": "Varför kl. 15?",
+      "titleA": "Ät den kl. 15.",
+      "titleB": "Sov kl. 23.",
+      "body": "Kroppen gör sig av med ungefär hälften av koffeinet var femte timme. Ät baren mitt på eftermiddagen så är det mesta borta vid läggdags.",
+      "times": [
+        "15:00",
+        "19:00",
+        "23:00"
+      ],
+      "bigA": "Vid läggdags",
+      "bigB": "är två tredjedelar borta.",
+      "note": "Utgår från en bar med 90 mg och en typisk halveringstid på cirka 5 timmar; det varierar mellan personer. Är du känslig för koffein, ät den tidigare på dagen."
+    },
+    "choices": {
+      "eyebrow": "Siffrorna bakom våra val",
+      "titleA": "Vad 55 gram",
+      "titleB": "består av.",
+      "parts": {
+        "protein": "Protein",
+        "carbs": "Kolhydr.",
+        "sugar": "Socker",
+        "fat": "Fett",
+        "fibre": "Fiber",
+        "other": "Övrigt"
+      },
+      "stackLabel": "En bar på 55 g: 14,3 g protein, 19,5 g övriga kolhydrater, 2 g socker, 9,9 g fett, 2,6 g fiber, cirka 6,7 g övrigt",
+      "scaleEnd": "55 g · en bar",
+      "thresholds": [
+        {
+          "badge": "Hög proteinhalt",
+          "stat": "26",
+          "unit": "% av energin",
+          "body": "I EU får ett livsmedel kallas proteinrikt när minst 20 % av energin kommer från protein. MOAR: 26 %."
+        },
+        {
+          "badge": "Låg sockerhalt",
+          "stat": "3,6",
+          "unit": "g / 100 g",
+          "body": "\"Låg sockerhalt\" betyder högst 5 g per 100 g. MOAR har 3,6 g, cirka 2 g i en bar."
+        },
+        {
+          "badge": "Källa till fiber",
+          "stat": "4,8",
+          "unit": "g / 100 g",
+          "body": "\"Källa till fiber\" börjar vid 3 g per 100 g. MOAR har 4,8 g, från oligofruktosen i kolan."
+        }
+      ],
+      "picks": [
+        {
+          "a": "90 mg,",
+          "b": "inte 150",
+          "body": "Ungefär en kopp kaffe. Tillräckligt för att märkas, med plats för kaffet du redan dricker."
+        },
+        {
+          "a": "55 g,",
+          "b": "inte 40",
+          "body": "Stor nog att räknas som mellanmål (223 kcal), liten nog att inte ersätta lunchen."
+        },
+        {
+          "a": "Maltitol,",
+          "b": "inte socker",
+          "body": "Smakar och smälter som socker i choklad, med cirka 2,4 kcal per gram i stället för 4."
+        },
+        {
+          "a": "Fyra proteiner,",
+          "b": "inte ett",
+          "body": "Vassle och mjölk för en krämig smak, kollagen för seg tuggighet, sojakrisp för krispighet."
+        }
+      ]
+    },
+    "much": {
+      "eyebrow": "Hur mycket är för mycket?",
+      "titleA": "Mindre än",
+      "titleB": "du tror.",
+      "body": "En bar innehåller ungefär lika mycket koffein som en kopp kaffe. Räkna den som en.",
+      "bar": "MOAR-bar",
+      "cup": "Kopp kaffe",
+      "scaleLabel": "Två kaffe och en MOAR-bar fyller 270 av de 400 mg per dag som anses säkra för friska vuxna",
+      "scaleEnd": "400 mg per dag",
+      "caption": "Två kaffe och en MOAR-bar blir 270 mg. EU:s livsmedelssäkerhetsmyndighet bedömer upp till 400 mg per dag som okej för friska vuxna.",
+      "fine": "Rekommenderas inte för barn eller gravida."
+    },
+    "asked": {
+      "eyebrow": "För den nyfikne",
+      "title": "Det folk frågar oss.",
+      "items": [
+        {
+          "q": "Är koffein från guarana annorlunda än från kaffe?",
+          "a": "Nej. Det är samma molekyl, C₈H₁₀N₄O₂. Skillnaden är vad som följer med: i MOAR protein, fett och fiber i stället för en kopp varmt vatten."
+        },
+        {
+          "q": "Hur fungerar koffein egentligen?",
+          "a": "Medan du är vaken byggs en molekyl som heter adenosin upp i hjärnan och säger att du börjar bli trött. Koffein har en liknande form, så det sätter sig på samma platser och blockerar signalen ett tag. Det tillför ingen energi; det håller tröttheten borta."
+        },
+        {
+          "q": "Hur länge håller det?",
+          "a": "Koffein når oftast sin topp inom ungefär en timme, och kroppen gör sig av med hälften ungefär var femte timme. Det varierar mycket mellan personer."
+        },
+        {
+          "q": "Kan jag äta den med mitt kaffe?",
+          "a": "Ja. Räkna bara baren som en kopp till: 90 mg. Två kaffe och en bar blir 270 mg, gott och väl under de 400 mg per dag som EU bedömer som okej för friska vuxna."
+        },
+        {
+          "q": "Vänjer jag mig vid den?",
+          "a": "Lite. Den som får i sig koffein varje dag bygger upp viss tolerans, så samma mängd känns mildare. Några dagar med mindre koffein nollställer det."
+        },
+        {
+          "q": "Är maltitol socker?",
+          "a": "Nej. Det är en polyol (en \"sockeralkohol\") som görs av stärkelse. Den räknas som kolhydrat men inte som socker och har cirka 2,4 kcal per gram i stället för 4. Som andra polyoler kan för mycket på en gång verka laxerande."
+        },
+        {
+          "q": "Är den bra före träning?",
+          "a": "Många tar koffein före träning. Gör du det, ät baren 30–60 minuter innan, eftersom det är då koffeinet brukar nå sin topp."
+        },
+        {
+          "q": "Varför kollagen?",
+          "a": "Kollagenpeptider ger baren dess mjuka, sega tuggighet. Tillsammans med vassle-, mjölk- och sojaprotein blir det 14 g."
+        },
+        {
+          "q": "Är den vegansk? Glutenfri?",
+          "a": "Inte vegansk: den innehåller mjölk och kollagen. Den är glutenfri och gjord utan GMO. Den innehåller mjölk och soja och kan innehålla jordnötter och nötter."
+        },
+        {
+          "q": "Vem ska inte äta den?",
+          "a": "Den rekommenderas inte för barn eller gravida, på grund av koffeinet."
+        }
+      ]
+    },
+    "end": {
+      "titleA": "Nu vet du.",
+      "titleB": "Testa en.",
+      "cta": "Välj din låda"
+    }
+  },
   "howItWorks": {
     "title": "SÅ FUNGERAR DET",
     "subtitle": "Vetenskapen bakom ihållande fokus",
