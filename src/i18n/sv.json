@@ -48,7 +48,13 @@
     "titleA": "Bli först",
     "titleB": "när den släpps.",
     "fineprint": "Ingen spam. Avsluta när du vill.",
-    "countdown": {"days": "dagar", "hours": "tim", "minutes": "min", "seconds": "sek", "label": "Tid kvar till försäljningsstart"}
+    "countdown": {
+      "days": "dagar",
+      "hours": "tim",
+      "minutes": "min",
+      "seconds": "sek",
+      "label": "Tid kvar till försäljningsstart"
+    }
   },
   "waitlistPopup": {
     "eyebrow": "KOMMER SNART",
@@ -289,52 +295,83 @@
     "cta": "Läs Vår Berättelse"
   },
   "community": {
-    "title": "COMMUNITY",
-    "subtitle": "Gå med i rörelsen",
-    "stats": {
-      "universities": "50+ Universitet",
-      "countries": "25 Länder",
-      "focus": "Djupt Fokus-pass",
-      "compromise": "Noll Kompromisser"
+    "metaTitle": "Community — MOAR Bar",
+    "metaDescription": "De som säger ja till åket till och setet till. Tagga @moarbars och hamna på nästa bild.",
+    "hero": {
+      "eyebrow": "Community",
+      "titleA": "MOAR",
+      "titleB": "folk.",
+      "body": "De som säger ja till åket till, setet till och sista tåget hem."
     },
-    "joinTitle": "Redo att Gå Med?",
-    "joinDesc": "Bli en del av en community som värdesätter ren energi och äkta fokus.",
-    "joinCta": "Gå Med i Rörelsen",
-    "story": {
-      "eyebrow": "Vår historia",
-      "heading": "Byggt för att gå längre.",
-      "p1": "MOAR startade med en fråga: varför smakar prestationsmat som krita? Tre grundare, ett kök, en smak vi vägrade kompromissa med.",
-      "p2": "90mg koffein. 14g protein. Inget tillsatt socker. Allt är där av en anledning — inget som inte är det."
+    "ticker": [
+      "MOAR energi",
+      "MOAR fokus",
+      "MOAR ambition",
+      "@moarbars"
+    ],
+    "film": {
+      "eyebrow": "Där ute",
+      "titleA": "Dit MOAR",
+      "titleB": "följer med.",
+      "shots": [
+        {
+          "title": "Times Square",
+          "note": "15.00 någonstans nytt"
+        },
+        {
+          "title": "Före åk två",
+          "note": "Liftkön"
+        },
+        {
+          "title": "Tredje setet",
+          "note": "Ingen ville sluta"
+        },
+        {
+          "title": "Hoppet",
+          "note": "Kör"
+        },
+        {
+          "title": "Fortfarande igång",
+          "note": "Långt efter middagen"
+        }
+      ],
+      "endA": "Ditt ögonblick",
+      "endB": "härnäst?",
+      "endTag": "Tagga @moarbars"
     },
-    "quote": "Byggt för dem som ger allt.",
     "values": {
       "eyebrow": "Vad vi står för",
-      "heading": "Ge alltid allt.",
-      "v1": {
-        "title": "Visa upp.",
-        "body": "Vad dagen än kräver — var redo för det. Det börjar med vad du stoppar i kroppen."
-      },
-      "v2": {
-        "title": "Ge allt.",
-        "body": "Halvhjärtat ger halvhjärtade resultat. MOAR är för dem som inte gör saker halvvägs."
-      },
-      "v3": {
-        "title": "Inga genvägar.",
-        "body": "Rena ingredienser, riktigt bränsle. Vi tog inga genvägar med formeln — och det borde inte du heller."
-      }
+      "items": [
+        {
+          "title": "Dyk upp.",
+          "body": "Regn, snö eller måndag. Att vara där är det mesta."
+        },
+        {
+          "title": "Ge allt.",
+          "body": "Halvhjärtat har aldrig blivit en bra historia."
+        },
+        {
+          "title": "Inga genvägar.",
+          "body": "Den långa vägen är oftast den roliga."
+        }
+      ]
     },
-    "statsNew": {
-      "founders": "Grundare",
-      "origin": "Där det startade",
-      "flavour": "En smak — perfektionerad",
-      "founding": "Grundande community"
+    "founders": {
+      "titleA": "Det började med",
+      "titleB": "tre bröder.",
+      "body": "Innan det fanns en bar fanns vi tre, som aldrig ville runda av dagen. Alla som kommit efter det är vår community.",
+      "link": "Läs vår historia",
+      "stamp": "De första tre",
+      "alt": "De tre grundarna av MOAR"
     },
-    "cta": {
-      "eyebrow": "Redo?",
-      "heading": "Gå med de som inte väntar.",
-      "body": "Följ oss på Instagram eller ta din första box. Hur som helst — du har redan tagit det första steget.",
-      "instagram": "Följ @moarbars",
-      "shop": "Handla baren"
+    "next": {
+      "titleA": "Hamna på",
+      "titleB": "nästa bild.",
+      "body": "Ta med MOAR någonstans bra, tagga @moarbars, så kan du hamna på den här väggen.",
+      "yours": "Din bild här",
+      "yoursShort": "Din?",
+      "follow": "Följ @moarbars",
+      "shop": "Köp dina barer"
     }
   },
   "about": {

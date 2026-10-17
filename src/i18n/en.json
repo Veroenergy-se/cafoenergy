@@ -48,7 +48,13 @@
     "titleA": "Be first",
     "titleB": "when it drops.",
     "fineprint": "No spam. Unsubscribe anytime.",
-    "countdown": {"days": "days", "hours": "hrs", "minutes": "min", "seconds": "sec", "label": "Time until first sales"}
+    "countdown": {
+      "days": "days",
+      "hours": "hrs",
+      "minutes": "min",
+      "seconds": "sec",
+      "label": "Time until first sales"
+    }
   },
   "waitlistPopup": {
     "eyebrow": "COMING SOON",
@@ -289,52 +295,83 @@
     "cta": "Read Our Story"
   },
   "community": {
-    "title": "COMMUNITY",
-    "subtitle": "Join the movement",
-    "stats": {
-      "universities": "50+ Universities",
-      "countries": "25 Countries",
-      "focus": "Deep Focus Sessions",
-      "compromise": "Zero Compromise"
+    "metaTitle": "Community — MOAR Bar",
+    "metaDescription": "The people who say yes to the second run and the extra set. Tag @moarbars and be in the next photo.",
+    "hero": {
+      "eyebrow": "Community",
+      "titleA": "MOAR",
+      "titleB": "people.",
+      "body": "The ones who say yes to the second run, the extra set and the last train home."
     },
-    "joinTitle": "Ready to Join?",
-    "joinDesc": "Be part of a community that values clean energy and real focus.",
-    "joinCta": "Join the Movement",
-    "story": {
-      "eyebrow": "Our story",
-      "heading": "Built to go further.",
-      "p1": "MOAR started with one question: why does performance food taste like chalk? Three founders, one kitchen, one flavour we refused to compromise on.",
-      "p2": "90mg caffeine. 14g protein. No added sugar. Everything there for a reason — nothing that isn't."
+    "ticker": [
+      "MOAR energy",
+      "MOAR focus",
+      "MOAR ambition",
+      "@moarbars"
+    ],
+    "film": {
+      "eyebrow": "Out there",
+      "titleA": "Where MOAR",
+      "titleB": "goes.",
+      "shots": [
+        {
+          "title": "Times Square",
+          "note": "3 PM somewhere new"
+        },
+        {
+          "title": "Before run two",
+          "note": "Lift line"
+        },
+        {
+          "title": "Set three",
+          "note": "Nobody wanted to stop"
+        },
+        {
+          "title": "The jump",
+          "note": "Send it"
+        },
+        {
+          "title": "Still going",
+          "note": "Long after dinner"
+        }
+      ],
+      "endA": "Your moment",
+      "endB": "next?",
+      "endTag": "Tag @moarbars"
     },
-    "quote": "Built for the ones who go all in.",
     "values": {
       "eyebrow": "What we stand for",
-      "heading": "Always go for it.",
-      "v1": {
-        "title": "Show up.",
-        "body": "Whatever the day asks — be ready for it. That starts with what you put in your body."
-      },
-      "v2": {
-        "title": "Go all in.",
-        "body": "Half-effort gets half-results. MOAR is for people who don't do things halfway."
-      },
-      "v3": {
-        "title": "No shortcuts.",
-        "body": "Clean ingredients, real fuel. We didn't cut corners on the formula — and neither should you."
-      }
+      "items": [
+        {
+          "title": "Show up.",
+          "body": "Rain, snow or Monday. Being there is most of it."
+        },
+        {
+          "title": "Go all in.",
+          "body": "Half-hearted never made a good story."
+        },
+        {
+          "title": "No shortcuts.",
+          "body": "The long way round is usually the fun one."
+        }
+      ]
     },
-    "statsNew": {
-      "founders": "Founders",
-      "origin": "Where it started",
-      "flavour": "Flavour — perfected",
-      "founding": "Founding community"
+    "founders": {
+      "titleA": "It started with",
+      "titleB": "three brothers.",
+      "body": "Before there was a bar, there were three of us who never wanted to call it a day. Everyone after that is the community.",
+      "link": "Read our story",
+      "stamp": "The first three",
+      "alt": "The three MOAR founders"
     },
-    "cta": {
-      "eyebrow": "Ready?",
-      "heading": "Join the people who don't wait.",
-      "body": "Follow us on Instagram or grab your first box. Either way — you already made the first move.",
-      "instagram": "Follow @moarbars",
-      "shop": "Shop the bar"
+    "next": {
+      "titleA": "Be in the",
+      "titleB": "next photo.",
+      "body": "Take MOAR somewhere good, tag @moarbars, and you might end up on this wall.",
+      "yours": "Your photo here",
+      "yoursShort": "Yours?",
+      "follow": "Follow @moarbars",
+      "shop": "Get your bars"
     }
   },
   "about": {
