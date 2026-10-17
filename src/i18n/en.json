@@ -375,14 +375,77 @@
     }
   },
   "about": {
-    "heroTitle": "OUR STORY",
-    "foundersTitle": "Three Brothers. Building A Movement.",
-    "foundersText": "What started as a frustration with the energy options available to us as students turned into a mission to create something better. No more sugar crashes. No more jittery coffee runs. Just clean, sustained energy in your pocket.",
-    "journeyTitle": "The Journey Begins",
-    "journeyText": "We spent over a year perfecting our formula — pairing natural caffeine from guarana with real protein and fibre, and eliminating every ingredient we didn't believe in. The result is MOAR: one flavour, perfected.",
-    "teamTitle": "Meet The Team",
-    "missionTitle": "Built For Ambitious Minds",
-    "missionText": "MOAR is designed for anyone who refuses to compromise on what they put in their body. For students cramming for exams. For professionals pushing through deadlines. For anyone who needs real energy that lasts."
+    "metaTitle": "Our Story — MOAR Bar",
+    "metaDescription": "Three brothers from Sweden, an idea on a boat and seven versions of a recipe. How MOAR came to be.",
+    "names": "Tom, Oliver & Charlie",
+    "opening": {
+      "titleA": "We never planned to",
+      "titleB": "make a bar.",
+      "body": "We just wanted to get through the afternoon without a coffee in one hand and a snack in the other. Then we couldn't stop thinking about it.",
+      "alt": "The three of us"
+    },
+    "chapters": [
+      {
+        "label": "Every afternoon",
+        "titleA": "Coffee. Snack.",
+        "titleB": "Every day.",
+        "body": "As students our afternoons looked the same: a coffee, then something to eat, then another coffee. Two things, two queues, every single day."
+      },
+      {
+        "label": "One summer",
+        "titleA": "One summer,",
+        "titleB": "on a boat.",
+        "body": "The idea came on a boat ride one summer. We got talking about our afternoons, the coffee and the snack, and someone asked: why can't they be one thing? We haven't stopped talking about it since."
+      },
+      {
+        "label": "Seven versions",
+        "titleA": "Two suppliers.",
+        "titleB": "Seven recipes.",
+        "body": "Getting it right took two suppliers and about seven versions of the recipe. Too chalky, too sweet, too dry. We kept going until it tasted like something you'd want anyway."
+      },
+      {
+        "label": "One flavour",
+        "titleA": "One flavour.",
+        "titleB": "Salted caramel.",
+        "body": "We could have launched ten. We'd rather get one exactly right."
+      }
+    ],
+    "versions": "{{count}} versions of the recipe",
+    "rules": {
+      "titleA": "Three rules",
+      "titleB": "we never broke.",
+      "items": [
+        {
+          "title": "It has to taste like a treat.",
+          "body": "If we wouldn't eat it on a day off, it wasn't ready."
+        },
+        {
+          "title": "One bar, not two things.",
+          "body": "The kick and the snack in one wrapper, or no bar at all."
+        },
+        {
+          "title": "Nothing we can't explain.",
+          "body": "Every ingredient is there for a reason, and we'll tell you what it is."
+        }
+      ]
+    },
+    "note": {
+      "eyebrow": "A note from us",
+      "lines": [
+        "Hi,",
+        "We're three brothers from Sweden. We made MOAR because we wanted it ourselves, and nothing on the shelf did the job.",
+        "We pack and send every box ourselves. If something's not right, write to us and one of us will answer.",
+        "Thanks for being here this early."
+      ]
+    },
+    "launch": {
+      "label": "15 November",
+      "titleA": "15 November.",
+      "titleB": "Day one.",
+      "body": "The first boxes go out on launch day. The next chapter is the one we write with you.",
+      "shop": "Pre-order a box",
+      "waitlist": "Or join the waitlist"
+    }
   },
   "contact": {
     "title": "Get In Touch",

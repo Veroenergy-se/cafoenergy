@@ -375,14 +375,77 @@
     }
   },
   "about": {
-    "heroTitle": "VÅR BERÄTTELSE",
-    "foundersTitle": "Tre Bröder. Bygger En Rörelse.",
-    "foundersText": "Det som började som en frustration över energialternativen som fanns tillgängliga för oss som studenter blev ett uppdrag att skapa något bättre. Inga fler sockerkrascher. Inga fler nervösa kafferundor. Bara ren, ihållande energi i fickan.",
-    "journeyTitle": "Resan Börjar",
-    "journeyText": "Vi spenderade över ett år på att perfektionera vår formel — kombinerade naturligt koffein från guarana med riktigt protein och fiber, och eliminerade varje ingrediens vi inte trodde på. Resultatet är MOAR: en smak, perfektionerad.",
-    "teamTitle": "Möt Teamet",
-    "missionTitle": "Byggt För Ambitiösa Sinnen",
-    "missionText": "MOAR är designat för alla som vägrar kompromissa med vad de stoppar i kroppen. För studenter som pluggar inför tentor. För yrkesverksamma som pressar genom deadlines. För alla som behöver riktig energi som varar."
+    "metaTitle": "Vår berättelse — MOAR Bar",
+    "metaDescription": "Tre bröder från Sverige, en idé på en båt och sju versioner av ett recept. Så blev MOAR till.",
+    "names": "Tom, Oliver & Charlie",
+    "opening": {
+      "titleA": "Vi tänkte aldrig",
+      "titleB": "göra en bar.",
+      "body": "Vi ville bara ta oss igenom eftermiddagen utan en kaffe i ena handen och ett mellanmål i den andra. Sen kunde vi inte sluta tänka på det.",
+      "alt": "Vi tre"
+    },
+    "chapters": [
+      {
+        "label": "Varje eftermiddag",
+        "titleA": "Kaffe. Mellanmål.",
+        "titleB": "Varje dag.",
+        "body": "Som studenter såg våra eftermiddagar likadana ut: en kaffe, sen något att äta, sen en kaffe till. Två saker, två köer, varje dag."
+      },
+      {
+        "label": "En sommar",
+        "titleA": "En sommar,",
+        "titleB": "på en båt.",
+        "body": "Idén kom på en båttur en sommar. Vi pratade om våra eftermiddagar, kaffet och mellanmålet, och någon frågade: varför kan de inte vara en sak? Vi har inte slutat prata om det sen dess."
+      },
+      {
+        "label": "Sju versioner",
+        "titleA": "Två leverantörer.",
+        "titleB": "Sju recept.",
+        "body": "Att få till det tog två leverantörer och ungefär sju versioner av receptet. För kritigt, för sött, för torrt. Vi fortsatte tills den smakade som något man vill ha ändå."
+      },
+      {
+        "label": "En smak",
+        "titleA": "En smak.",
+        "titleB": "Salted caramel.",
+        "body": "Vi kunde ha lanserat tio. Vi gör hellre en exakt rätt."
+      }
+    ],
+    "versions": "{{count}} versioner av receptet",
+    "rules": {
+      "titleA": "Tre regler vi",
+      "titleB": "aldrig bröt.",
+      "items": [
+        {
+          "title": "Den ska smaka som en godbit.",
+          "body": "Om vi inte skulle äta den en ledig dag var den inte klar."
+        },
+        {
+          "title": "En bar, inte två saker.",
+          "body": "Kicken och mellanmålet i samma förpackning, annars ingen bar alls."
+        },
+        {
+          "title": "Inget vi inte kan förklara.",
+          "body": "Varje ingrediens finns där av en anledning, och vi berättar gärna vilken."
+        }
+      ]
+    },
+    "note": {
+      "eyebrow": "Ett meddelande från oss",
+      "lines": [
+        "Hej,",
+        "Vi är tre bröder från Sverige. Vi gjorde MOAR för att vi ville ha den själva, och inget i hyllan gjorde jobbet.",
+        "Vi packar och skickar varje box själva. Om något inte stämmer, skriv till oss så svarar någon av oss.",
+        "Tack för att du är här så tidigt."
+      ]
+    },
+    "launch": {
+      "label": "15 november",
+      "titleA": "15 november.",
+      "titleB": "Dag ett.",
+      "body": "De första boxarna skickas på lanseringsdagen. Nästa kapitel skriver vi tillsammans med dig.",
+      "shop": "Förbeställ en box",
+      "waitlist": "Eller gå med i väntelistan"
+    }
   },
   "contact": {
     "title": "Hör Av Dig",
