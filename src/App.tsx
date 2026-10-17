@@ -9,6 +9,7 @@ import HowItWorks from './pages/HowItWorks'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import Checkout from './pages/Checkout'
 import FAQ from './pages/FAQ'
+import NotFound from './pages/NotFound'
 import LegalPage from '@/components/shared/LegalPage'
 
 export default function App() {
@@ -27,6 +28,7 @@ export default function App() {
         <Route path="/terms" element={<LegalPage doc="terms" />} />
         <Route path="/shipping-returns" element={<LegalPage doc="shipping" />} />
         <Route path="/cookies" element={<LegalPage doc="cookies" />} />
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   )

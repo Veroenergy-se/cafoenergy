@@ -114,7 +114,6 @@
     "subscribeCta": "Subscribe & save {{discount}}% — {{price}}/month",
     "eachBoxContains": "Each box contains",
     "twelveBars": "12 bars",
-    "oneWeekFocus": "— about one week of daily focus.",
     "shipsNote": "Ships within 2–3 business days · Free shipping over 499 kr",
     "neverRunOut": "Never run out.",
     "neverThinkAboutIt": "Never think about it.",
@@ -130,7 +129,6 @@
     "tryStarterPack": "Try the starter pack",
     "starterEyebrow": "Try it",
     "starterPitch": "First time with MOAR? This is where you start.",
-    "duoPitch": "The one most people stick with. Two weeks of clean focus.",
     "familyPitch": "A full month of bars, lowest cost per bar we offer.",
     "step1Title": "Pick your plan.",
     "step1Desc": "Set how many bars you want each month. Mix it up — different quantities per month.",
@@ -256,7 +254,6 @@
     "caffeineTitle": "Natural Caffeine",
     "caffeineDesc": "90mg of natural caffeine from guarana for steady energy that lasts.",
     "proteinTitle": "Protein",
-    "proteinDesc": "14g of protein from milk, whey, collagen and soy to keep you full and focused.",
     "sugarTitle": "Zero Added Sugar",
     "sugarDesc": "No added sugar. Sweetened with maltitol, so there's only 2g of sugar per bar.",
     "comparisonTitle": "How MOAR Compares",
@@ -281,7 +278,6 @@
       "bar": "per 55 g bar"
     },
     "fiberTitle": "Fibre",
-    "fiberDesc": "2.6g of fibre slows digestion, so the energy comes on steadily instead of all at once.",
     "vs": {
       "bar": "Protein bar",
       "energy": "Energy drink",
@@ -290,9 +286,9 @@
     "warning": "Contains caffeine (90mg per bar). Not recommended for children or pregnant women. Contains milk and soy; may contain peanuts and nuts. With sweetener — excessive consumption may produce laxative effects."
   },
   "story": {
-    "title": "Three Brothers. One Mission.",
-    "subtitle": "We built MOAR because we needed it ourselves. As students, we were tired of choosing between junk food energy and overpriced coffee.",
-    "cta": "Read Our Story"
+    "title": "It started on a boat.",
+    "subtitle": "Three brothers, one summer and seven versions of a recipe. This is how MOAR came to be.",
+    "cta": "Read our story"
   },
   "community": {
     "metaTitle": "Community — MOAR Bar",
@@ -448,14 +444,27 @@
     }
   },
   "contact": {
-    "title": "Get In Touch",
-    "subtitle": "Questions, ideas, or just want to say hi? We'd love to hear from you.",
+    "metaTitle": "Contact — MOAR Bar",
+    "metaDescription": "Questions about an order, an idea or stocking MOAR? Write to us and one of the three of us answers.",
+    "eyebrow": "Contact",
+    "titleA": "Say",
+    "titleB": "hi.",
+    "lede": "Questions about an order, an idea, or you'd like to stock MOAR. Write to us and one of the three of us answers.",
+    "emailLabel": "Email us",
+    "formTitleA": "Or write it",
+    "formTitleB": "here.",
     "name": "Name",
     "email": "Email",
     "message": "Message",
-    "send": "Send Message",
-    "directEmail": "Or email us directly at",
-    "followUs": "Follow Us"
+    "namePh": "Your name",
+    "emailPh": "you@example.com",
+    "messagePh": "What's on your mind?",
+    "send": "Send message",
+    "sentTitle": "Thanks!",
+    "sentBody": "Your email app should have opened with the message. Send it and we'll get back to you.",
+    "follow": "Follow along",
+    "faqLine": "Quick question? It might already be in the",
+    "faqLink": "FAQ"
   },
   "science": {
     "metaTitle": "The science — MOAR Bar",
@@ -654,18 +663,6 @@
       "cta": "Pick your box"
     }
   },
-  "howItWorks": {
-    "title": "HOW IT WORKS",
-    "subtitle": "The science behind sustained focus",
-    "caffeineTitle": "Caffeine From Guarana",
-    "caffeineText": "Our 90mg of caffeine comes from guarana, a natural source. Because you eat it with protein and fibre instead of drinking it, it's absorbed more gradually than coffee or an energy drink, so you get a smooth lift instead of a spike and crash.",
-    "proteinTitle": "Sustained Fuel",
-    "proteinText": "14g of protein and 2.6g of fibre slow digestion, so the energy from the caffeine comes on steadily instead of all at once.",
-    "releaseTitle": "Slower Release",
-    "releaseText": "Protein and guarana together give you a flatter lift that lasts longer. Most people feel it within 20–30 minutes and stay focused for 3–5 hours, then taper off gradually.",
-    "glutenTitle": "Gluten Free",
-    "glutenText": "MOAR is gluten free under EU rules and made without GMOs. It contains milk and soy, and may contain peanuts and nuts."
-  },
   "footer": {
     "social": "Social",
     "privacy": "Privacy Policy",
@@ -682,39 +679,42 @@
     "orgNumber": "Org. no."
   },
   "cart": {
-    "title": "Your Cart",
-    "empty": "Your cart is empty",
+    "title": "Your cart",
+    "empty": "Nothing in here yet.",
     "subtotal": "Subtotal",
     "checkout": "Checkout",
     "checkoutComingSoon": "Checkout Coming Soon",
-    "processing": "Processing...",
+    "processing": "Processing…",
     "noPrices": "Stripe products not configured yet. See .env.example",
-    "freeShipping": "Free shipping on orders over {{amount}}!",
-    "remove": "Remove"
+    "freeShipping": "Add {{amount}} more for free shipping",
+    "remove": "Remove",
+    "emptyCta": "Shop the bars",
+    "monthly": "Monthly",
+    "freeShippingDone": "Free shipping"
   },
   "checkout": {
-    "title": "CHECKOUT",
-    "emptyTitle": "Cart is Empty",
-    "emptyText": "Add some MOAR bars to your cart first!",
-    "shopNow": "Shop Now",
-    "orderSummary": "ORDER SUMMARY",
+    "title": "Checkout",
+    "emptyTitle": "Your cart is empty",
+    "emptyText": "Pick a box in the shop and come back here.",
+    "shopNow": "Shop the bars",
+    "orderSummary": "Your order",
     "subtotal": "Subtotal",
     "shipping": "Shipping",
     "free": "Free",
     "calculated": "Calculated at next step",
     "total": "Total",
-    "continue": "Continue to Shipping",
-    "continueShopping": "Continue Shopping",
+    "continue": "Continue to delivery",
+    "continueShopping": "Keep shopping",
     "backToCart": "Back to cart",
-    "shippingDetails": "SHIPPING DETAILS",
+    "shippingDetails": "Delivery details",
     "address": "Address",
     "city": "City",
     "zip": "Postal Code",
     "instructions": "Your order will be sent via email. We'll reply with payment details.",
-    "placeOrder": "Place Order",
-    "confirmedTitle": "ORDER SENT!",
-    "confirmedText": "Your order has been sent to our team. We'll get back to you shortly with payment details. Check your email!",
-    "backHome": "Back to Home",
+    "placeOrder": "Place order",
+    "confirmedTitle": "Order sent!",
+    "confirmedText": "We've got your order and will email you payment details shortly. Check your inbox.",
+    "backHome": "Back to home",
     "agreePrefix": "By placing your order you agree to our",
     "agreeAnd": "and"
   },
@@ -724,25 +724,86 @@
     "decline": "Decline"
   },
   "faq": {
-    "title": "FREQUENTLY ASKED",
-    "subtitle": "Everything you need to know about MOAR Bar",
-    "ctaTitle": "STILL HAVE QUESTIONS?",
-    "ctaText": "We're happy to help. Reach out and we'll get back to you.",
-    "ctaButton": "Contact Us",
-    "q1": "How much caffeine is in a MOAR bar?",
-    "a1": "Each bar contains 90mg of natural caffeine from guarana — roughly the same as a cup of coffee. Because it comes in a bar with protein and fibre, it's absorbed more gradually, so you get steady, focused energy rather than a sharp spike. No crash.",
-    "q2": "Can I eat more than one bar a day?",
-    "a2": "Yes — that's kind of the point. At 90mg per bar, you can have three across the day and land at 270mg total, which is well within the FDA's recommended limit of 400mg. Morning, midday, pre-workout: each bar fits cleanly into your routine without pushing you over.",
-    "q3": "How long does the energy last?",
-    "a3": "Most people feel the effect within 20–30 minutes and sustain it for 3–5 hours. Because the caffeine comes with protein and fibre, absorption is steadier than coffee or energy drinks — so the energy tapers off gradually instead of cutting out suddenly.",
-    "q4": "When's the best time to eat a MOAR bar?",
-    "a4": "15–30 minutes before you need to be on. That means before a study session, before training, during a long drive, or as an afternoon pick-me-up. One rule: try not to eat it after 3pm if you're sensitive to caffeine — the half-life means it'll still be partly active at bedtime.",
-    "q5": "How does it compare to energy drinks?",
-    "a5": "Energy drinks give you caffeine and little else — often with a lot of sugar. A MOAR bar gives you 90mg natural caffeine, 14g protein and 2.6g fibre, with only 2g of sugar. It's food that works, not a drink engineered to taste like a science experiment.",
-    "q6": "When will I receive my order?",
-    "a6": "We're currently in pre-launch and taking waitlist signups. Once we ship, orders within Sweden will arrive within 2–4 business days. European shipping will follow shortly after launch — sign up to be the first to know when your country goes live.",
-    "q7": "Who shouldn't eat MOAR?",
-    "a7": "MOAR contains caffeine (90mg per bar), so it's not recommended for children or pregnant women. It contains milk and soy, and may contain peanuts and nuts. It's sweetened with maltitol, and like other foods with sweeteners, eating a lot at once may have a laxative effect."
+    "metaTitle": "FAQ — MOAR Bar",
+    "metaDescription": "Delivery, subscriptions, returns and what's in the bar. Quick answers before you order MOAR.",
+    "eyebrow": "FAQ",
+    "titleA": "Questions?",
+    "titleB": "Answers.",
+    "lede": "The short answers before you order. For the science behind the bar, see The science.",
+    "scienceLink": "The science",
+    "groups": [
+      {
+        "title": "Orders & delivery",
+        "items": [
+          {
+            "q": "When does it ship?",
+            "a": "First sales start 15 November. We ship within 2–3 business days of payment, and orders in Sweden usually arrive 2–4 business days after that."
+          },
+          {
+            "q": "Where do you deliver?",
+            "a": "Within Sweden for now. Join the waitlist and we'll tell you when we ship to more countries."
+          },
+          {
+            "q": "What does shipping cost?",
+            "a": "Free on orders over {{threshold}} and on every subscription. For smaller orders the cost is shown before you pay."
+          },
+          {
+            "q": "How do I pay?",
+            "a": "By card at checkout."
+          },
+          {
+            "q": "Can I send it as a gift?",
+            "a": "Yes. Tick “Send it as a gift” in the shop and add their name and a short message."
+          },
+          {
+            "q": "Can I return it?",
+            "a": "You have 14 days from delivery to return unopened bars and boxes. Opened bars can't be returned for hygiene reasons. If something arrives damaged, email us and we'll replace it or refund you."
+          }
+        ]
+      },
+      {
+        "title": "Subscriptions",
+        "items": [
+          {
+            "q": "How does it work?",
+            "a": "Your boxes arrive on the same date every month. You pay less per bar than buying one-off, and shipping is free."
+          },
+          {
+            "q": "Can I skip, change or cancel?",
+            "a": "Yes. Skip a month, change how many boxes or cancel before your next delivery. No fees, just send us an email."
+          },
+          {
+            "q": "How many boxes do I need?",
+            "a": "A box is 12 bars. One on weekdays is a little over two weeks, so two boxes a month covers every weekday."
+          }
+        ]
+      },
+      {
+        "title": "The bar",
+        "items": [
+          {
+            "q": "How much caffeine is in one?",
+            "a": "90 mg from guarana, about the same as a cup of coffee."
+          },
+          {
+            "q": "How many can I have a day?",
+            "a": "EFSA, the EU food safety authority, considers up to 400 mg of caffeine a day safe for healthy adults. One bar is 90 mg, so count your coffee too."
+          },
+          {
+            "q": "What allergens does it contain?",
+            "a": "Milk and soy. It may contain peanuts and nuts. It's gluten free."
+          },
+          {
+            "q": "Who shouldn't eat it?",
+            "a": "Children and pregnant women, because of the caffeine. It's sweetened with maltitol, and eating a lot at once may have a laxative effect."
+          }
+        ]
+      }
+    ],
+    "ctaTitleA": "Still wondering?",
+    "ctaTitleB": "Ask us.",
+    "ctaBody": "One of the three of us answers every message.",
+    "ctaButton": "Contact us"
   },
   "tradeoff": {
     "eyebrow": "The problem",
@@ -790,7 +851,7 @@
     "moments": {
       "study": {
         "title": "Exam mornings",
-        "body": "Eat one 30 minutes before you sit down. Focus for the whole exam, no crash halfway through."
+        "body": "Have one before you sit down. The coffee and the breakfast you skipped, in one."
       },
       "mountain": {
         "title": "Mountain days",
@@ -798,11 +859,11 @@
       },
       "slump": {
         "title": "The 3 pm slump",
-        "body": "Your coffee and your snack in one. Have it before 3 pm and it won't touch your sleep."
+        "body": "Your coffee and your snack in one. Best before 3 pm if caffeine keeps you up."
       },
       "pregame": {
         "title": "Pre-game",
-        "body": "30–45 minutes before. Caffeine lowers perceived effort, and 14 g of protein starts recovery."
+        "body": "30–45 minutes before. 90 mg of caffeine and 14 g of protein in one go."
       },
       "going": {
         "title": "Still going",
@@ -904,5 +965,14 @@
     },
     "ingredientsTitle": "Full ingredients",
     "ingredients": "Milk chocolate with maltitol 25% (sweetener: maltitols; cocoa butter, whole milk powder, cocoa mass, fat reduced cocoa powder, emulsifier: lecithins; flavouring), paste with caramel flavour 25% [humectant: glycerol; maltodextrin, oligofructose (fibre), sweetener: maltitols; coconut oil, skimmed milk powder, water, modified starch, colour: plain caramel; gelling agent: pectins; acidity regulator: calcium lactate; emulsifier: lecithins; natural flavouring, salt, thickener: xanthan gum], hydrolyzed collagen peptides 8.5%, sweetener: maltitols; humectant: glycerol; soya protein 5.5%, soya protein extrudates 5% (soya protein, tapioca starch, salt), milk protein concentrate 4.3%, whey protein concentrate 4.3% (whey protein concentrate, emulsifier: lecithins), rapeseed oil, water, grated coconut, whole milk powder, guarana extract 0.75%, flavourings, thickener: acacia gum; emulsifier: mono- and diglycerides of fatty acids; antioxidant: tocopherol-rich extract. May contain peanuts and nuts. Excessive consumption may produce laxative effects."
+  },
+  "notFound": {
+    "metaTitle": "Page not found — MOAR Bar",
+    "eyebrow": "404",
+    "titleA": "Nothing",
+    "titleB": "here.",
+    "body": "This page doesn't exist, or it moved. The bars are still where they should be.",
+    "shop": "Go to the shop",
+    "home": "Back to home"
   }
 }
