@@ -114,7 +114,6 @@
     "subscribeCta": "Prenumerera & spara {{discount}}% — {{price}}/månad",
     "eachBoxContains": "Varje box innehåller",
     "twelveBars": "12 barer",
-    "oneWeekFocus": "— cirka en vecka av daglig energi.",
     "shipsNote": "Skickas inom 2–3 arbetsdagar · Fri frakt över 499 kr",
     "neverRunOut": "Ta aldrig slut.",
     "neverThinkAboutIt": "Tänk aldrig på det.",
@@ -130,7 +129,6 @@
     "tryStarterPack": "Prova startpaketet",
     "starterEyebrow": "Prova den",
     "starterPitch": "Första gången med MOAR? Här börjar du.",
-    "duoPitch": "Den de flesta håller sig till. Två veckor av rent fokus.",
     "familyPitch": "En hel månads barer, lägsta pris per bar vi erbjuder.",
     "step1Title": "Välj din plan.",
     "step1Desc": "Ställ in hur många barer du vill ha varje månad. Variera — olika antal per månad.",
@@ -256,7 +254,6 @@
     "caffeineTitle": "Naturligt Koffein",
     "caffeineDesc": "90mg naturligt koffein från guarana för jämn energi som håller.",
     "proteinTitle": "Protein",
-    "proteinDesc": "14g protein från mjölk, vassle, kollagen och soja som håller dig mätt och fokuserad.",
     "sugarTitle": "Noll Tillsatt Socker",
     "sugarDesc": "Inget tillsatt socker. Sötad med maltitol, så det är bara 2g socker per bar.",
     "comparisonTitle": "Hur MOAR Jämför Sig",
@@ -281,7 +278,6 @@
       "bar": "per 55 g bar"
     },
     "fiberTitle": "Fiber",
-    "fiberDesc": "2,6g fiber saktar ner matsmältningen, så energin kommer jämnt istället för på en gång.",
     "vs": {
       "bar": "Proteinbar",
       "energy": "Energidryck",
@@ -290,9 +286,9 @@
     "warning": "Innehåller koffein (90mg per bar). Rekommenderas inte för barn eller gravida. Innehåller mjölk och soja; kan innehålla jordnötter och nötter. Med sötningsmedel — överdriven konsumtion kan ha laxerande effekt."
   },
   "story": {
-    "title": "Tre Bröder. Ett Uppdrag.",
-    "subtitle": "Vi byggde MOAR för att vi behövde det själva. Som studenter var vi trötta på att välja mellan skräpmat-energi och överprissatt kaffe.",
-    "cta": "Läs Vår Berättelse"
+    "title": "Det började på en båt.",
+    "subtitle": "Tre bröder, en sommar och sju versioner av ett recept. Så blev MOAR till.",
+    "cta": "Läs vår berättelse"
   },
   "community": {
     "metaTitle": "Community — MOAR Bar",
@@ -448,14 +444,27 @@
     }
   },
   "contact": {
-    "title": "Hör Av Dig",
-    "subtitle": "Frågor, idéer eller bara vill säga hej? Vi vill gärna höra från dig.",
+    "metaTitle": "Kontakt — MOAR Bar",
+    "metaDescription": "Frågor om en beställning, en idé eller vill du sälja MOAR? Skriv till oss så svarar någon av oss tre.",
+    "eyebrow": "Kontakt",
+    "titleA": "Säg",
+    "titleB": "hej.",
+    "lede": "Frågor om en beställning, en idé, eller vill du sälja MOAR? Skriv till oss så svarar någon av oss tre.",
+    "emailLabel": "Mejla oss",
+    "formTitleA": "Eller skriv",
+    "formTitleB": "här.",
     "name": "Namn",
     "email": "E-post",
     "message": "Meddelande",
-    "send": "Skicka Meddelande",
-    "directEmail": "Eller maila oss direkt på",
-    "followUs": "Följ Oss"
+    "namePh": "Ditt namn",
+    "emailPh": "du@exempel.se",
+    "messagePh": "Vad vill du säga?",
+    "send": "Skicka meddelande",
+    "sentTitle": "Tack!",
+    "sentBody": "Ditt mejlprogram borde ha öppnats med meddelandet. Skicka det så återkommer vi.",
+    "follow": "Följ med",
+    "faqLine": "Snabb fråga? Den kanske redan finns bland",
+    "faqLink": "vanliga frågor"
   },
   "science": {
     "metaTitle": "Vetenskapen — MOAR Bar",
@@ -654,18 +663,6 @@
       "cta": "Välj din låda"
     }
   },
-  "howItWorks": {
-    "title": "SÅ FUNGERAR DET",
-    "subtitle": "Vetenskapen bakom ihållande fokus",
-    "caffeineTitle": "Koffein Från Guarana",
-    "caffeineText": "Våra 90mg koffein kommer från guarana, en naturlig källa. Eftersom du äter det tillsammans med protein och fiber istället för att dricka det tas det upp mer gradvis än kaffe eller energidryck, så du får en jämn kick istället för topp och krasch.",
-    "proteinTitle": "Ihållande Bränsle",
-    "proteinText": "14g protein och 2,6g fiber saktar ner matsmältningen, så energin från koffeinet kommer jämnt istället för på en gång.",
-    "releaseTitle": "Långsammare Frisättning",
-    "releaseText": "Protein och guarana tillsammans ger en jämnare kick som håller längre. De flesta känner effekten inom 20–30 minuter och håller fokus i 3–5 timmar, sedan klingar den av gradvis.",
-    "glutenTitle": "Glutenfri",
-    "glutenText": "MOAR är glutenfri enligt EU:s regler och tillverkad utan GMO. Den innehåller mjölk och soja och kan innehålla jordnötter och nötter."
-  },
   "footer": {
     "social": "Socialt",
     "privacy": "Integritetspolicy",
@@ -682,39 +679,42 @@
     "orgNumber": "Org.nr"
   },
   "cart": {
-    "title": "Din Varukorg",
-    "empty": "Din varukorg är tom",
+    "title": "Din varukorg",
+    "empty": "Inget här än.",
     "subtotal": "Delsumma",
-    "checkout": "Till Kassan",
+    "checkout": "Till kassan",
     "checkoutComingSoon": "Kassan Kommer Snart",
-    "processing": "Bearbetar...",
+    "processing": "Bearbetar…",
     "noPrices": "Stripe-produkter inte konfigurerade ännu. Se .env.example",
-    "freeShipping": "Fri frakt på beställningar över {{amount}}!",
-    "remove": "Ta bort"
+    "freeShipping": "Lägg till {{amount}} till för fri frakt",
+    "remove": "Ta bort",
+    "emptyCta": "Handla barer",
+    "monthly": "Varje månad",
+    "freeShippingDone": "Fri frakt"
   },
   "checkout": {
-    "title": "KASSA",
-    "emptyTitle": "Varukorgen Är Tom",
-    "emptyText": "Lägg till några MOAR-barer i varukorgen först!",
-    "shopNow": "Handla Nu",
-    "orderSummary": "ORDERSAMMANFATTNING",
+    "title": "Kassa",
+    "emptyTitle": "Varukorgen är tom",
+    "emptyText": "Välj en box i butiken och kom tillbaka hit.",
+    "shopNow": "Handla barer",
+    "orderSummary": "Din beställning",
     "subtotal": "Delsumma",
     "shipping": "Frakt",
     "free": "Gratis",
     "calculated": "Beräknas i nästa steg",
     "total": "Totalt",
-    "continue": "Fortsätt till Leverans",
-    "continueShopping": "Fortsätt Handla",
+    "continue": "Fortsätt till leverans",
+    "continueShopping": "Fortsätt handla",
     "backToCart": "Tillbaka till varukorgen",
-    "shippingDetails": "LEVERANSUPPGIFTER",
+    "shippingDetails": "Leveransuppgifter",
     "address": "Adress",
     "city": "Stad",
     "zip": "Postnummer",
     "instructions": "Din beställning skickas via e-post. Vi svarar med betalningsuppgifter.",
-    "placeOrder": "Lägg Beställning",
-    "confirmedTitle": "BESTÄLLNING SKICKAD!",
-    "confirmedText": "Din beställning har skickats till vårt team. Vi återkommer snart med betalningsuppgifter. Kolla din e-post!",
-    "backHome": "Tillbaka till Startsidan",
+    "placeOrder": "Lägg beställning",
+    "confirmedTitle": "Beställning skickad!",
+    "confirmedText": "Vi har fått din beställning och mejlar dig betalningsuppgifter inom kort. Kolla din inkorg.",
+    "backHome": "Till startsidan",
     "agreePrefix": "Genom att beställa godkänner du våra",
     "agreeAnd": "och vår"
   },
@@ -724,25 +724,86 @@
     "decline": "Avböj"
   },
   "faq": {
-    "title": "VANLIGA FRÅGOR",
-    "subtitle": "Allt du behöver veta om MOAR Bar",
-    "ctaTitle": "HAR DU FLER FRÅGOR?",
-    "ctaText": "Vi hjälper gärna till. Hör av dig så återkommer vi.",
-    "ctaButton": "Kontakta Oss",
-    "q1": "Hur mycket koffein innehåller en MOAR-bar?",
-    "a1": "Varje bar innehåller 90 mg naturligt koffein från guarana — ungefär lika mycket som en kopp kaffe. Eftersom det kommer i en bar med protein och fiber tas det upp mer gradvis, så du får jämn, fokuserad energi istället för en skarp topp. Ingen krasch.",
-    "q2": "Kan jag äta mer än en bar per dag?",
-    "a2": "Ja — det är lite poängen. Med 90 mg per bar kan du äta tre under dagen och landa på 270 mg totalt, vilket är väl inom FDA:s rekommenderade gräns på 400 mg. Morgon, lunch, före träning: varje bar passar in i din rutin utan att du går över.",
-    "q3": "Hur länge håller energin i sig?",
-    "a3": "De flesta känner effekten inom 20–30 minuter och håller den i 3–5 timmar. Eftersom koffeinet kommer tillsammans med protein och fiber sker upptaget jämnare än med kaffe eller energidryck — så energin klingar av gradvis istället för att ta slut tvärt.",
-    "q4": "När är det bäst att äta en MOAR-bar?",
-    "a4": "15–30 minuter innan du behöver vara i gång. Det kan vara före ett pluggpass, inför träning, under en lång bilresa eller som en eftermiddagshöjare. En regel: försök att inte äta den efter klockan 15 om du är känslig för koffein — halveringstiden innebär att det fortfarande är delvis aktivt vid sänggåendet.",
-    "q5": "Hur jämförs den med energidrycker?",
-    "a5": "Energidrycker ger dig koffein och inte mycket mer — ofta med mycket socker. En MOAR-bar ger dig 90 mg naturligt koffein, 14 g protein och 2,6 g fiber, med bara 2 g socker. Det är mat som fungerar, inte en dryck som smakar som ett vetenskapsexperiment.",
-    "q6": "När får jag min beställning?",
-    "a6": "Vi är för närvarande i pre-lansering och tar emot intresseanmälningar. När vi lanserar levereras beställningar inom Sverige på 2–4 vardagar. Europeisk frakt följer strax efter lansering — anmäl dig för att vara först att veta när ditt land går live.",
-    "q7": "Vem ska inte äta MOAR?",
-    "a7": "MOAR innehåller koffein (90 mg per bar) och rekommenderas därför inte för barn eller gravida. Den innehåller mjölk och soja och kan innehålla jordnötter och nötter. Den är sötad med maltitol, och precis som andra livsmedel med sötningsmedel kan stor konsumtion ha en laxerande effekt."
+    "metaTitle": "Vanliga frågor — MOAR Bar",
+    "metaDescription": "Leverans, prenumeration, returer och vad som finns i baren. Snabba svar innan du beställer MOAR.",
+    "eyebrow": "Vanliga frågor",
+    "titleA": "Frågor?",
+    "titleB": "Svar.",
+    "lede": "De korta svaren innan du beställer. Vill du veta mer om vad som finns i baren, läs Vetenskapen.",
+    "scienceLink": "Vetenskapen",
+    "groups": [
+      {
+        "title": "Beställning & leverans",
+        "items": [
+          {
+            "q": "När skickas den?",
+            "a": "Försäljningen startar 15 november. Vi skickar inom 2–3 vardagar efter betalning, och beställningar inom Sverige kommer oftast fram 2–4 vardagar efter det."
+          },
+          {
+            "q": "Vart levererar ni?",
+            "a": "Inom Sverige just nu. Gå med i väntelistan så hör vi av oss när vi skickar till fler länder."
+          },
+          {
+            "q": "Vad kostar frakten?",
+            "a": "Fri frakt vid köp över {{threshold}} och på alla prenumerationer. För mindre beställningar visas kostnaden innan du betalar."
+          },
+          {
+            "q": "Hur betalar jag?",
+            "a": "Med kort i kassan."
+          },
+          {
+            "q": "Kan jag skicka den som present?",
+            "a": "Ja. Kryssa i ”Skicka som present” i butiken och lägg till namn och en kort hälsning."
+          },
+          {
+            "q": "Kan jag returnera?",
+            "a": "Du har 14 dagar från leverans på dig att returnera oöppnade barer och boxar. Öppnade barer kan inte returneras av hygienskäl. Om något kommer fram skadat, mejla oss så skickar vi en ny eller betalar tillbaka."
+          }
+        ]
+      },
+      {
+        "title": "Prenumeration",
+        "items": [
+          {
+            "q": "Hur fungerar det?",
+            "a": "Dina boxar kommer samma datum varje månad. Du betalar mindre per bar än om du köper styckvis, och frakten är fri."
+          },
+          {
+            "q": "Kan jag hoppa över, ändra eller avsluta?",
+            "a": "Ja. Hoppa över en månad, ändra antal boxar eller avsluta innan nästa leverans. Inga avgifter, skicka bara ett mejl."
+          },
+          {
+            "q": "Hur många boxar behöver jag?",
+            "a": "En box är 12 barer. En om dagen på vardagar räcker i drygt två veckor, så två boxar i månaden täcker alla vardagar."
+          }
+        ]
+      },
+      {
+        "title": "Baren",
+        "items": [
+          {
+            "q": "Hur mycket koffein innehåller den?",
+            "a": "90 mg från guarana, ungefär lika mycket som en kopp kaffe."
+          },
+          {
+            "q": "Hur många kan jag äta om dagen?",
+            "a": "EFSA, EU:s livsmedelssäkerhetsmyndighet, anser att upp till 400 mg koffein om dagen är säkert för friska vuxna. En bar är 90 mg, så räkna med ditt kaffe också."
+          },
+          {
+            "q": "Vilka allergener innehåller den?",
+            "a": "Mjölk och soja. Kan innehålla jordnötter och nötter. Den är glutenfri."
+          },
+          {
+            "q": "Vem ska inte äta den?",
+            "a": "Barn och gravida, på grund av koffeinet. Den är sötad med maltitol, och att äta mycket på en gång kan ha en laxerande effekt."
+          }
+        ]
+      }
+    ],
+    "ctaTitleA": "Undrar du något mer?",
+    "ctaTitleB": "Fråga oss.",
+    "ctaBody": "En av oss tre svarar på varje meddelande.",
+    "ctaButton": "Kontakta oss"
   },
   "tradeoff": {
     "eyebrow": "Problemet",
@@ -790,7 +851,7 @@
     "moments": {
       "study": {
         "title": "Tentamorgon",
-        "body": "Ät en 30 minuter innan du sätter dig. Fokus hela tentan, ingen krasch halvvägs."
+        "body": "Ät en innan du sätter dig. Kaffet och frukosten du hoppade över, i ett."
       },
       "mountain": {
         "title": "Dagar i backen",
@@ -798,11 +859,11 @@
       },
       "slump": {
         "title": "Dippen klockan 15",
-        "body": "Kaffet och mellanmålet i ett. Ät den före 15 så påverkar den inte sömnen."
+        "body": "Kaffet och mellanmålet i ett. Helst före 15 om koffein håller dig vaken."
       },
       "pregame": {
         "title": "Före match",
-        "body": "30–45 minuter innan. Koffein sänker upplevd ansträngning och 14 g protein startar återhämtningen."
+        "body": "30–45 minuter innan. 90 mg koffein och 14 g protein på en gång."
       },
       "going": {
         "title": "Fortfarande igång",
@@ -904,5 +965,14 @@
     },
     "ingredientsTitle": "Alla ingredienser",
     "ingredients": "Mjölkchoklad med maltitol 25 % (sötningsmedel: maltitoler; kakaosmör, helmjölkspulver, kakaomassa, fettreducerat kakaopulver, emulgeringsmedel: lecitiner; arom), kräm med kolasmak 25 % [fuktighetsbevarande medel: glycerol; maltodextrin, oligofruktos (fiber), sötningsmedel: maltitoler; kokosolja, skummjölkspulver, vatten, modifierad stärkelse, färgämne: sockerkulör; geleringsmedel: pektiner; surhetsreglerande medel: kalciumlaktat; emulgeringsmedel: lecitiner; naturlig arom, salt, förtjockningsmedel: xantangummi], hydrolyserade kollagenpeptider 8,5 %, sötningsmedel: maltitoler; fuktighetsbevarande medel: glycerol; sojaprotein 5,5 %, extruderat sojaprotein 5 % (sojaprotein, tapiokastärkelse, salt), mjölkproteinkoncentrat 4,3 %, vassleproteinkoncentrat 4,3 % (vassleproteinkoncentrat, emulgeringsmedel: lecitiner), rapsolja, vatten, riven kokos, helmjölkspulver, guaranaextrakt 0,75 %, aromer, förtjockningsmedel: akaciagummi; emulgeringsmedel: mono- och diglycerider av fettsyror; antioxidationsmedel: tokoferolrikt extrakt. Kan innehålla jordnötter och nötter. Överdriven konsumtion kan ha laxerande effekt."
+  },
+  "notFound": {
+    "metaTitle": "Sidan finns inte — MOAR Bar",
+    "eyebrow": "404",
+    "titleA": "Inget",
+    "titleB": "här.",
+    "body": "Sidan finns inte, eller så har den flyttat. Barerna finns kvar där de ska.",
+    "shop": "Till butiken",
+    "home": "Till startsidan"
   }
 }

@@ -1,34 +1,35 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence } from 'framer-motion'
-import AnimatedSection from '@/components/shared/AnimatedSection'
-import { ChevronDown } from 'lucide-react'
+import { SITE } from '@/lib/constants'
 
-const faqKeys = ['q1', 'q2', 'q3', 'q4', 'q5', 'q7', 'q6']
+// FAQ: the buying questions, in three groups. The science page answers the rest.
 
-function FAQAccordion({ qKey }: { qKey: string }) {
-  const { t } = useTranslation()
+type Item = { q: string; a: string }
+type Group = { title: string; items: Item[] }
+
+const TONES = ['cream', 'brown', 'orange'] as const
+
+function Question({ q, a }: Item) {
   const [open, setOpen] = useState(false)
-
   return (
-    <div className="border-b border-near-black/5 last:border-0">
+    <div className="border-b-[1.5px] border-fg/25">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between py-6 text-left group"
+        aria-expanded={open}
+        className="w-full flex items-center justify-between gap-6 py-5 md:py-6 text-left group"
       >
-        <span className="text-lg font-semibold font-accent text-near-black pr-8 group-hover:text-gold transition-colors">
-          {t(`faq.${qKey}`)}
-        </span>
-        <motion.div
-          animate={{ rotate: open ? 180 : 0 }}
-          transition={{ duration: 0.2 }}
-          className="flex-shrink-0"
+        <span className="font-display uppercase leading-[1.05] text-[clamp(1rem,2vw,1.6rem)] group-hover:text-accent transition-colors">{q}</span>
+        <span
+          aria-hidden="true"
+          className={`shrink-0 font-display text-2xl leading-none text-accent transition-transform duration-300 ${open ? 'rotate-45' : ''}`}
         >
-          <ChevronDown className="w-5 h-5 text-near-black/30" />
-        </motion.div>
+          +
+        </span>
       </button>
-      <AnimatePresence>
+      <AnimatePresence initial={false}>
         {open && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
@@ -37,9 +38,7 @@ function FAQAccordion({ qKey }: { qKey: string }) {
             transition={{ duration: 0.25, ease: 'easeInOut' }}
             className="overflow-hidden"
           >
-            <p className="pb-6 text-near-black/55 leading-relaxed pr-12">
-              {t(`faq.a${qKey.slice(1)}`)}
-            </p>
+            <p className="pb-6 font-accent text-[clamp(15px,1.3vw,18px)] leading-relaxed max-w-[60ch] opacity-85">{a}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -49,65 +48,62 @@ function FAQAccordion({ qKey }: { qKey: string }) {
 
 export default function FAQ() {
   const { t } = useTranslation()
+  const threshold = `${SITE.freeShippingThreshold.sek} kr`
+  const groups = t('faq.groups', { returnObjects: true, threshold }) as Group[]
 
-  // Build structured data from translations
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: faqKeys.map((qKey) => ({
-      '@type': 'Question',
-      name: t(`faq.${qKey}`),
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: t(`faq.a${qKey.slice(1)}`),
-      },
-    })),
+    mainEntity: groups.flatMap((g) =>
+      g.items.map((it) => ({ '@type': 'Question', name: it.q, acceptedAnswer: { '@type': 'Answer', text: it.a } })),
+    ),
   }
 
   return (
     <>
       <Helmet>
-        <title>FAQ — MOAR Bar</title>
-        <meta name="description" content="Frequently asked questions about MOAR bars. Learn about caffeine content, ingredients, shipping, and more." />
+        <title>{t('faq.metaTitle')}</title>
+        <meta name="description" content={t('faq.metaDescription')} />
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
 
-      <section className="bg-off-white py-24 text-center">
-        <AnimatedSection>
-          <h1 className="text-3xl sm:text-5xl md:text-5xl lg:text-6xl font-heading text-brown">{t('faq.title')}</h1>
-          <p className="mt-4 text-brown/50 font-accent text-lg">{t('faq.subtitle')}</p>
-        </AnimatedSection>
-      </section>
-
-      <section className="py-24 bg-warm-white">
+      <section data-tone="cream" className="text-fg pt-36 pb-16 lg:pt-44 lg:pb-20">
         <div className="page-container">
-          <div className="max-w-3xl mx-auto">
-          <AnimatedSection>
-            <div className="bg-white rounded-3xl p-8 lg:p-10 border border-near-black/5">
-              {faqKeys.map((qKey) => (
-                <FAQAccordion key={qKey} qKey={qKey} />
-              ))}
-            </div>
-          </AnimatedSection>
-          </div>
+          <p className="font-accent text-xs uppercase tracking-[0.2em] font-semibold text-accent">{t('faq.eyebrow')}</p>
+          <h1 className="mt-5 font-display uppercase leading-[0.9] text-[clamp(1.7rem,7.6vw,8.4rem)]">
+            {t('faq.titleA')}<br /><span className="text-accent">{t('faq.titleB')}</span>
+          </h1>
+          <p className="mt-8 max-w-[40ch] font-accent text-[clamp(16px,1.5vw,20px)] leading-relaxed">
+            {t('faq.lede').split(t('faq.scienceLink'))[0]}
+            <Link to="/how-it-works" className="underline underline-offset-4 decoration-2 hover:text-accent">{t('faq.scienceLink')}</Link>
+            {t('faq.lede').split(t('faq.scienceLink'))[1]}
+          </p>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-24 bg-cream text-center">
-        <div className="page-container">
-          <AnimatedSection>
-            <div className="max-w-2xl mx-auto">
-              <h2 className="text-3xl sm:text-4xl font-heading text-near-black">{t('faq.ctaTitle')}</h2>
-              <p className="mt-4 text-near-black/50 text-lg">{t('faq.ctaText')}</p>
-              <a
-                href="/contact"
-                className="mt-8 inline-flex px-8 py-4 bg-gradient-to-r from-gold to-gold-light text-near-black font-bold font-accent hover:-translate-y-1 hover:shadow-xl hover:shadow-gold/20 transition-all duration-300"
-              >
-                {t('faq.ctaButton')}
-              </a>
+      {groups.map((g, i) => (
+        <section key={g.title} data-tone={TONES[i % TONES.length]} className="text-fg py-16 lg:py-24">
+          <div className="page-container grid md:grid-cols-[0.7fr_1.3fr] gap-6 md:gap-16">
+            <div className="md:sticky md:top-32 self-start">
+              <b className="block font-display text-accent leading-none text-[clamp(2.4rem,6vw,5rem)]">{String(i + 1).padStart(2, '0')}</b>
+              <h2 className="mt-3 font-display uppercase leading-[0.95] text-[clamp(1.4rem,3vw,2.6rem)]">{g.title}</h2>
             </div>
-          </AnimatedSection>
+            <div className="border-t-[3px] border-fg">
+              {g.items.map((it) => <Question key={it.q} {...it} />)}
+            </div>
+          </div>
+        </section>
+      ))}
+
+      <section data-tone="cream" className="text-fg py-24 lg:py-32 text-center">
+        <div className="page-container">
+          <h2 className="font-display uppercase leading-[0.92] text-[clamp(1.6rem,6.6vw,6.4rem)]">
+            {t('faq.ctaTitleA')} <span className="text-accent">{t('faq.ctaTitleB')}</span>
+          </h2>
+          <p className="mt-6 font-accent text-[clamp(16px,1.5vw,20px)]">{t('faq.ctaBody')}</p>
+          <Link to="/contact" className="mt-9 inline-block bg-brown text-off-white px-7 py-5 font-accent text-sm uppercase tracking-[0.14em] font-semibold hover:-translate-y-0.5 transition-transform">
+            {t('faq.ctaButton')} →
+          </Link>
         </div>
       </section>
     </>

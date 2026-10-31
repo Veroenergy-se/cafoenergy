@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useCart } from '@/providers/CartProvider'
 import { getCurrency, formatPrice, itemUnitPrice } from '@/lib/products'
 import { SITE } from '@/lib/constants'
 import { isStripeConfigured, redirectToCheckout } from '@/lib/stripe'
-import { X, Minus, Plus, ShoppingBag, Loader2 } from 'lucide-react'
+import { X, Loader2 } from 'lucide-react'
 
 export default function CartDrawer() {
   const { t, i18n } = useTranslation()
@@ -24,7 +24,7 @@ export default function CartDrawer() {
         <>
           {/* Backdrop */}
           <motion.div
-            className="fixed inset-0 bg-black/50 z-40"
+            className="fixed inset-0 bg-brown/60 z-40"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -34,20 +34,18 @@ export default function CartDrawer() {
 
           {/* Drawer */}
           <motion.div
-            className="fixed right-0 top-0 h-full w-full max-w-md bg-white z-50 shadow-2xl flex flex-col"
+            className="fixed right-0 top-0 h-full w-full max-w-md bg-off-white text-brown z-50 shadow-2xl flex flex-col"
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 30, stiffness: 300 }}
           >
-            <div className="flex items-center justify-between p-6 border-b border-gray-100">
-              <h2 className="text-xl font-semibold font-accent flex items-center gap-2">
-                <ShoppingBag className="w-5 h-5" />
-                {t('cart.title')}
-              </h2>
+            <div className="flex items-center justify-between px-6 py-5 border-b-[3px] border-brown">
+              <h2 className="font-display uppercase text-2xl leading-none">{t('cart.title')}</h2>
               <button
                 onClick={() => setOpen(false)}
-                className="p-2 hover:bg-gray-100 transition-colors"
+                aria-label={t('shopPage.close')}
+                className="p-2 hover:bg-brown/10 transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -56,13 +54,19 @@ export default function CartDrawer() {
             <div className="flex-1 overflow-y-auto p-6">
               {items.length === 0 ? (
                 <motion.div
-                  className="flex flex-col items-center justify-center h-full text-gray-400"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
+                  className="flex flex-col items-start justify-center h-full"
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.15 }}
                 >
-                  <ShoppingBag className="w-12 h-12 mb-4" />
-                  <p className="text-lg">{t('cart.empty')}</p>
+                  <p className="font-display uppercase text-[2.2rem] leading-[0.95]">{t('cart.empty')}</p>
+                  <Link
+                    to="/shop"
+                    onClick={() => setOpen(false)}
+                    className="mt-6 inline-block bg-brown text-off-white px-7 py-5 font-accent text-sm uppercase tracking-[0.14em] font-semibold hover:-translate-y-0.5 transition-transform"
+                  >
+                    {t('cart.emptyCta')} →
+                  </Link>
                 </motion.div>
               ) : (
                 <div className="space-y-6">
@@ -80,20 +84,18 @@ export default function CartDrawer() {
                           transition={{ duration: 0.25, delay: i * 0.05 }}
                           className="flex gap-4"
                         >
-                          <div className="w-20 h-20 bg-gradient-to-br from-forest/10 to-forest/5 rounded-2xl flex items-center justify-center flex-shrink-0">
-                            <span className="text-forest font-heading text-lg">MOAR</span>
-                          </div>
+                          <img src={product.image} alt="" className="w-20 h-20 object-contain shrink-0" />
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2 flex-wrap">
-                              <h3 className="font-semibold text-sm">{t(product.nameKey)}</h3>
+                              <h3 className="font-display uppercase text-base leading-tight">{t(product.nameKey)}</h3>
                               {item.subscription && (
-                                <span className="text-[9px] font-bold font-accent uppercase tracking-wider bg-gold/15 text-gold px-2 py-0.5 rounded-full">
-                                  Monthly
+                                <span className="font-accent text-[10px] font-bold uppercase tracking-[0.14em] bg-caforange text-brown px-2 py-1">
+                                  {t('cart.monthly')}
                                 </span>
                               )}
                             </div>
-                            <p className="text-sm text-gray-500">{t(product.descriptionKey)}</p>
-                            <p className="font-semibold mt-1">
+                            <p className="text-sm opacity-65">{t(product.descriptionKey)}</p>
+                            <p className="font-display mt-1.5">
                               {formatPrice(
                                 itemUnitPrice(item, product, currency),
                                 currency
@@ -103,23 +105,25 @@ export default function CartDrawer() {
                           <div className="flex flex-col items-end gap-2">
                             <button
                               onClick={() => removeItem(item.productId)}
-                              className="text-xs text-gray-400 hover:text-red-500 transition-colors"
+                              className="font-accent text-xs uppercase tracking-[0.14em] opacity-60 hover:opacity-100 underline underline-offset-4"
                             >
                               {t('cart.remove')}
                             </button>
-                            <div className="flex items-center gap-2 border border-gray-200">
+                            <div className="flex items-center border-[2px] border-brown">
                               <button
                                 onClick={() => updateQuantity(item.productId, item.quantity - 1)}
-                                className="p-1.5 hover:bg-gray-100 transition-colors"
+                                aria-label="−1"
+                                className="w-8 h-8 font-display hover:bg-brown/10 transition-colors"
                               >
-                                <Minus className="w-3 h-3" />
+                                −
                               </button>
-                              <span className="text-sm font-medium w-6 text-center">{item.quantity}</span>
+                              <span className="text-sm font-semibold w-7 text-center">{item.quantity}</span>
                               <button
                                 onClick={() => updateQuantity(item.productId, item.quantity + 1)}
-                                className="p-1.5 hover:bg-gray-100 transition-colors"
+                                aria-label="+1"
+                                className="w-8 h-8 font-display hover:bg-brown/10 transition-colors"
                               >
-                                <Plus className="w-3 h-3" />
+                                +
                               </button>
                             </div>
                           </div>
@@ -133,22 +137,27 @@ export default function CartDrawer() {
 
             {items.length > 0 && (
               <motion.div
-                className="border-t border-gray-100 p-6 space-y-4"
+                className="border-t-[3px] border-brown p-6 space-y-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                {total < threshold && (
-                  <p className="text-sm text-center text-gray-500">
-                    {t('cart.freeShipping', { amount: formatPrice(threshold, currency) })}
+                <div>
+                  <p className="font-accent text-sm">
+                    {total < threshold
+                      ? t('cart.freeShipping', { amount: formatPrice(threshold - total, currency) })
+                      : t('cart.freeShippingDone')}
                   </p>
-                )}
-                <div className="flex justify-between items-center text-lg font-semibold">
-                  <span>{t('cart.subtotal')}</span>
-                  <span>{formatPrice(total, currency)}</span>
+                  <div className="mt-2 h-1.5 bg-brown/15">
+                    <div className="h-full bg-caforange transition-[width] duration-500" style={{ width: `${Math.min(100, (total / threshold) * 100)}%` }} />
+                  </div>
+                </div>
+                <div className="flex justify-between items-baseline">
+                  <span className="font-display uppercase text-lg">{t('cart.subtotal')}</span>
+                  <span className="font-display text-2xl">{formatPrice(total, currency)}</span>
                 </div>
                 {checkoutError && (
-                  <p className="text-sm text-center text-red-500">{checkoutError}</p>
+                  <p className="text-sm text-center text-red-700">{checkoutError}</p>
                 )}
                 {isStripeConfigured() ? (
                   <button
@@ -168,7 +177,7 @@ export default function CartDrawer() {
                       }
                     }}
                     disabled={checkingOut}
-                    className="w-full py-4 bg-gradient-to-r from-gold to-gold-light text-near-black font-bold font-accent hover:-translate-y-0.5 hover:shadow-lg hover:shadow-gold/25 transition-all duration-200 disabled:opacity-60 flex items-center justify-center gap-2"
+                    className="w-full py-5 bg-brown text-off-white font-accent text-sm uppercase tracking-[0.14em] font-semibold hover:-translate-y-0.5 transition-transform disabled:opacity-60 flex items-center justify-center gap-2"
                   >
                     {checkingOut ? (
                       <>
@@ -185,7 +194,7 @@ export default function CartDrawer() {
                       setOpen(false)
                       navigate('/checkout')
                     }}
-                    className="w-full py-4 bg-gradient-to-r from-gold to-gold-light text-near-black font-bold font-accent hover:-translate-y-0.5 hover:shadow-lg hover:shadow-gold/25 transition-all duration-200 flex items-center justify-center gap-2"
+                    className="w-full py-5 bg-brown text-off-white font-accent text-sm uppercase tracking-[0.14em] font-semibold hover:-translate-y-0.5 transition-transform flex items-center justify-center gap-2"
                   >
                     {t('cart.checkout')}
                   </button>
