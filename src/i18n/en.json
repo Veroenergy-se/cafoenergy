@@ -158,10 +158,8 @@
     "box_one": "{{count}} box",
     "box_other": "{{count}} boxes",
     "barsCount": "{{count}} bars",
-    "barsMonth": "{{count}} bars / month",
     "barsWord": "bars",
     "mostPopular": "Most popular",
-    "saveKr": "Save {{amount}}",
     "youSaveMonth": "You save {{amount}} a month",
     "youSave": "You save {{amount}}",
     "perBar": "{{price}} per bar",
@@ -226,17 +224,6 @@
     "buybarSub": "Monthly",
     "buybarOne": "One-time",
     "review": "Review",
-    "paceQ": "How many afternoons a week need a lift?",
-    "paceOpts": [
-      "2–3",
-      "4–5",
-      "Every day"
-    ],
-    "upsellExtra": "+{{extra}}",
-    "upsellText": "gets you 12 more bars, and each bar drops to {{per}}.",
-    "upsellBtn": "Make it bigger",
-    "shipLeft": "Add one more box and shipping is free (from {{threshold}}).",
-    "shipFree": "Free shipping on this order.",
     "preCtaSub": "Pre-order subscription · {{price}}/mo",
     "preCtaOne": "Pre-order · {{price}}",
     "preLine": "Pre-order · ships {{date}}",
@@ -246,7 +233,14 @@
     "sheetSum": "{{boxes}} a month · {{price}} per delivery",
     "close": "Close",
     "dropAgain": "Drop again",
-    "launchDate": "15 November"
+    "launchDate": "15 November",
+    "paceHints": [
+      "2–3 a week",
+      "Every weekday",
+      "Every day"
+    ],
+    "monthShort": "mo",
+    "topPick": "Top pick"
   },
   "nutrition": {
     "title": "What Makes It Perfect",
