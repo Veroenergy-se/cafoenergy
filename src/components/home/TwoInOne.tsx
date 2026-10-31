@@ -12,7 +12,7 @@ export default function TwoInOne() {
   // The clock runs from 12:00 to 3:00 as the section scrolls into the middle of the screen.
   const hour = useTransform(scrollYProgress, [0, 1], reduce ? [90, 90] : [0, 90])
   const minute = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [0, 1080])
-  const wrapRotate = useTransform(scrollYProgress, [0, 1], reduce ? [-14, -14] : [-34, -14])
+  const wrapRotate = useTransform(scrollYProgress, [0, 1], reduce ? [-4, -4] : [-22, -4])
   const wrapY = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [80, 0])
 
   return (
@@ -58,10 +58,10 @@ export default function TwoInOne() {
 
           {/* The bar, leaning on the clock */}
           <motion.img
-            src="/images/moar-wrapper.png"
+            src="/images/moar-bar.webp"
             alt={t('twoInOne.alt')}
             style={{ rotate: wrapRotate, y: wrapY }}
-            className="absolute -bottom-6 -left-4 sm:-left-10 w-[34%] drop-shadow-[0_30px_30px_rgba(45,29,23,0.45)]"
+            className="absolute -bottom-6 -left-4 sm:-left-10 w-[62%] drop-shadow-[0_30px_30px_rgba(45,29,23,0.45)]"
             loading="lazy"
           />
         </div>

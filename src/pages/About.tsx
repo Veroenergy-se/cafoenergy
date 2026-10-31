@@ -76,10 +76,10 @@ function Visual({ i }: { i: number }) {
   if (i === 3) {
     return (
       <img
-        src="/images/moar-wrapper.png"
+        src="/images/moar-bar.webp"
         alt=""
         loading="lazy"
-        className="mt-8 ml-[10%] w-[min(230px,50%)] -rotate-[14deg] drop-shadow-[0_26px_26px_rgba(0,0,0,0.35)]"
+        className="mt-10 w-[min(460px,100%)] drop-shadow-[0_26px_26px_rgba(0,0,0,0.35)]"
       />
     )
   }

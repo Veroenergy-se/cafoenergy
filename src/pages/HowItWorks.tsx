@@ -190,7 +190,7 @@ function Combo() {
           </motion.div>
           <motion.div className="absolute left-1/2 top-1/2 grid justify-items-center gap-3"
             style={{ x: '-50%', y: '-50%', opacity: moarOpacity, scale: moarScale }}>
-            <img src="/images/moar-wrapper.png" alt="" className="h-[220px] lg:h-[260px] w-auto -rotate-12 drop-shadow-[0_26px_26px_rgba(45,29,23,0.35)]" />
+            <img src="/images/moar-bar.webp" alt="" className="w-[min(380px,78vw)] lg:w-[440px] h-auto drop-shadow-[0_26px_26px_rgba(45,29,23,0.35)]" />
             <b className="font-display uppercase text-off-white text-[clamp(.9rem,1.8vw,1.3rem)]">{t('science.combo.moar')}</b>
           </motion.div>
         </div>
