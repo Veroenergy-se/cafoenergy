@@ -16,7 +16,7 @@ export const products: Product[] = [
     descriptionKey: 'products.starter.description',
     barCount: 12,
     price: { usd: 29, sek: 299 },
-    image: '/images/product-1box.png',
+    image: '/images/moar-bar.webp',
   },
   {
     id: 'duo',
@@ -26,7 +26,7 @@ export const products: Product[] = [
     price: { usd: 54, sek: 559 },
     originalPrice: { usd: 58, sek: 599 },
     badge: 'products.bestseller',
-    image: '/images/product-2box.png',
+    image: '/images/moar-bar.webp',
   },
   {
     id: 'family',
@@ -36,7 +36,7 @@ export const products: Product[] = [
     price: { usd: 75, sek: 769 },
     originalPrice: { usd: 87, sek: 899 },
     badge: 'products.discount',
-    image: '/images/product-3box.png',
+    image: '/images/moar-bar.webp',
   },
 ]
 
