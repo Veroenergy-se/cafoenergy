@@ -9,9 +9,9 @@ const ease = [0.25, 0.46, 0.45, 0.94] as const
 
 // Fanned wrappers: one per box in the pack. Angles spread wider on hover.
 const fans: Record<number, { r: number; x: number }[]> = {
-  1: [{ r: -12, x: 0 }],
-  2: [{ r: -20, x: -18 }, { r: 6, x: 18 }],
-  3: [{ r: -26, x: -30 }, { r: -6, x: 0 }, { r: 14, x: 30 }],
+  1: [{ r: 0, x: 0 }],
+  2: [{ r: -6, x: -16 }, { r: 5, x: 16 }],
+  3: [{ r: -9, x: -28 }, { r: 0, x: 0 }, { r: 8, x: 28 }],
 }
 
 export default function ProductCards() {
@@ -62,10 +62,10 @@ export default function ProductCards() {
                     {fans[boxes]?.map((f, k) => (
                       <img
                         key={k}
-                        src="/images/moar-wrapper.png"
+                        src="/images/moar-bar.webp"
                         alt=""
                         loading="lazy"
-                        className="absolute h-[118%] w-auto drop-shadow-[0_18px_22px_rgba(45,29,23,0.4)] transition-transform duration-500 ease-out [transform:translateX(var(--x))_rotate(var(--r))] group-hover:[transform:translateX(calc(var(--x)*1.6))_rotate(calc(var(--r)*1.35))_translateY(-6px)]"
+                        className={`absolute ${boxes > 1 ? 'w-[78%]' : 'w-[88%]'} h-auto drop-shadow-[0_18px_22px_rgba(45,29,23,0.4)] transition-transform duration-500 ease-out [transform:translateY(var(--x))_rotate(var(--r))] group-hover:[transform:translateY(calc(var(--x)*1.4))_rotate(calc(var(--r)*1.35))_translateX(6px)]`}
                         style={{ ['--x' as string]: `${f.x}%`, ['--r' as string]: `${f.r}deg` }}
                       />
                     ))}

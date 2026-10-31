@@ -25,7 +25,7 @@ export default function BarPile3D({ count, dropLabel, children }: { count: numbe
     import('./pileScene')
       .then(({ createPileScene }) => {
         if (cancelled || !ref.current) return
-        scene.current = createPileScene(ref.current, '/images/moar-wrapper-tex.jpg')
+        scene.current = createPileScene(ref.current, '/images/moar-bar-tex.jpg')
         scene.current.setCount(latest.current)
       })
       .catch(() => setFallback(true))
@@ -45,7 +45,7 @@ export default function BarPile3D({ count, dropLabel, children }: { count: numbe
     >
       {fallback && (
         <div className="absolute inset-0 grid place-items-center" aria-hidden="true">
-          <img src="/images/moar-wrapper.png" alt="" className="w-[28%] -rotate-12 drop-shadow-[0_30px_30px_rgba(45,29,23,0.45)]" />
+          <img src="/images/moar-bar.webp" alt="" className="w-[62%] drop-shadow-[0_30px_30px_rgba(45,29,23,0.45)]" />
         </div>
       )}
       {children}
