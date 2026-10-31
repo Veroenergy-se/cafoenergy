@@ -15,7 +15,7 @@ export default function Home() {
     <>
       <Helmet>
         <title>MOAR Bar — More energy. More focus.</title>
-        <meta name="description" content="The caffeinated protein bar. 90 mg natural caffeine and 14 g protein in one bar: your coffee and your snack, without the crash." />
+        <meta name="description" content="The caffeinated protein bar. 90 mg natural caffeine and 14 g protein in one bar: your coffee and your snack in one." />
       </Helmet>
       <Hero />
       <BrandMarquee />
