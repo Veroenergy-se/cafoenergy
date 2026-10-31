@@ -158,10 +158,8 @@
     "box_one": "{{count}} låda",
     "box_other": "{{count}} lådor",
     "barsCount": "{{count}} barer",
-    "barsMonth": "{{count}} barer / månad",
     "barsWord": "barer",
     "mostPopular": "Mest populär",
-    "saveKr": "Spara {{amount}}",
     "youSaveMonth": "Du sparar {{amount}} i månaden",
     "youSave": "Du sparar {{amount}}",
     "perBar": "{{price}} per bar",
@@ -226,17 +224,6 @@
     "buybarSub": "Månadsvis",
     "buybarOne": "Engångsköp",
     "review": "Visa",
-    "paceQ": "Hur många eftermiddagar i veckan behöver en boost?",
-    "paceOpts": [
-      "2–3",
-      "4–5",
-      "Varje dag"
-    ],
-    "upsellExtra": "+{{extra}}",
-    "upsellText": "ger dig 12 barer till, och varje bar kostar då {{per}}.",
-    "upsellBtn": "Gör den större",
-    "shipLeft": "Lägg till en låda till så blir frakten gratis (från {{threshold}}).",
-    "shipFree": "Fri frakt på den här beställningen.",
     "preCtaSub": "Förbeställ prenumeration · {{price}}/mån",
     "preCtaOne": "Förbeställ · {{price}}",
     "preLine": "Förbeställning · skickas {{date}}",
@@ -246,7 +233,14 @@
     "sheetSum": "{{boxes}} i månaden · {{price}} per leverans",
     "close": "Stäng",
     "dropAgain": "Släpp igen",
-    "launchDate": "15 november"
+    "launchDate": "15 november",
+    "paceHints": [
+      "2–3 i veckan",
+      "Varje vardag",
+      "Varje dag"
+    ],
+    "monthShort": "mån",
+    "topPick": "Populärast"
   },
   "nutrition": {
     "title": "Vad Som Gör Den Perfekt",

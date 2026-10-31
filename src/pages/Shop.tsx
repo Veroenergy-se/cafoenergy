@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next'
 import { useReducedMotion } from 'framer-motion'
 import { useCart } from '@/providers/CartProvider'
 import { products, getCurrency, formatPrice, getSubscriptionPrice, BOX_PRICE } from '@/lib/products'
-import { SITE } from '@/lib/constants'
 import { WholeLabel } from '@/components/home/NutritionComparison'
 import BarPile3D from '@/components/shop/BarPile3D'
 
@@ -142,12 +141,7 @@ function BoxBuilder({ mode, setMode, boxes, setBoxes, currency, locale, ref }: B
   const preorder = Date.now() < LAUNCH.getTime()
   const fmtPer = (v: number) => `${v.toLocaleString(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 })} kr`
   const perks = t(sub ? 'shopPage.perksSub' : 'shopPage.perksOne', { returnObjects: true }) as string[]
-  const paceOpts = t('shopPage.paceOpts', { returnObjects: true }) as string[]
-  const threshold = SITE.freeShippingThreshold[currency]
-
-  // Nudge to the next size: what it costs extra and what each bar drops to.
-  const next = boxes < 3 ? ((boxes + 1) as Boxes) : null
-  const nextQ = next ? quote(mode, next, currency) : null
+  const paceHints = t('shopPage.paceHints', { returnObjects: true }) as string[]
 
   const buy = () => {
     if (sub) { setPlanOpen(true); return }
@@ -166,122 +160,65 @@ function BoxBuilder({ mode, setMode, boxes, setBoxes, currency, locale, ref }: B
           <p className="absolute z-10 left-5 top-4 font-display text-brown leading-[0.8] text-[clamp(3rem,7vw,6rem)] pointer-events-none" aria-live="polite">
             {boxes * 12}<span className="text-[0.26em]"> {t('shopPage.barsWord')}</span>
           </p>
-          {boxes === 2 && (
-            <span className="absolute z-10 top-4 right-4 bg-brown text-off-white px-3 py-2 font-accent text-[11px] uppercase tracking-[0.14em] font-semibold">
-              {t('shopPage.mostPopular')}
-            </span>
-          )}
         </BarPile3D>
 
-        <div className="border-2 border-fg/15 border-t-0 lg:border-t-2 lg:border-l-0 p-5 sm:p-10 grid gap-5 content-start">
-          {/* Subscribe / one-time switch */}
-          <div role="group" aria-label={t('shop.monthlySubscription')} className="relative grid grid-cols-2 border-2 border-fg">
-            <span
-              className={`absolute inset-y-0 left-0 w-1/2 bg-caforange transition-transform duration-500 ease-out ${sub ? '' : 'translate-x-full'}`}
-              aria-hidden="true"
-            />
+        <div className="border-2 border-fg/15 border-t-0 lg:border-t-2 lg:border-l-0 p-5 sm:p-10 grid gap-7 content-center">
+          {/* Monthly / once: two words, the chosen one underlined */}
+          <div role="group" aria-label={t('shop.monthlySubscription')} className="flex gap-5 sm:gap-7">
             {(['subscription', 'onetime'] as Mode[]).map((m) => (
               <button
                 key={m}
                 type="button"
                 aria-pressed={mode === m}
                 onClick={() => setMode(m)}
-                className={`relative z-10 py-3.5 px-2 grid gap-1 justify-items-center font-accent text-xs uppercase tracking-[0.12em] font-semibold transition-colors ${mode === m ? 'text-white' : ''}`}
+                className={`flex-1 basis-0 min-w-0 text-left pb-2 border-b-4 transition-opacity ${mode === m ? 'border-caforange' : 'border-transparent opacity-40 hover:opacity-70'}`}
               >
-                {t(m === 'subscription' ? 'shopPage.modeSub' : 'shopPage.modeOne')}
-                <span className="text-[10px] tracking-[0.06em] opacity-80 font-medium">
+                <span className="block font-display uppercase whitespace-nowrap text-[clamp(.62rem,2.6vw,1.15rem)] lg:text-[clamp(.9rem,1.4vw,1.15rem)] leading-none">
+                  {t(m === 'subscription' ? 'shopPage.modeSub' : 'shopPage.modeOne')}
+                </span>
+                <span className="block mt-2 font-accent text-[11px] uppercase tracking-[0.12em] font-semibold opacity-80">
                   {t(m === 'subscription' ? 'shopPage.modeSubNote' : 'shopPage.modeOneNote')}
                 </span>
               </button>
             ))}
           </div>
 
-          {/* Pace picker: answers "how many do I need?" */}
-          <div className="grid gap-2">
-            <p className="font-accent text-[11px] uppercase tracking-[0.14em] font-semibold text-fg/75">{t('shopPage.paceQ')}</p>
-            <div className="flex flex-wrap gap-1.5">
-              {BOX_OPTIONS.map((b, i) => (
-                <button
-                  key={b}
-                  type="button"
-                  aria-pressed={boxes === b}
-                  onClick={() => setBoxes(b)}
-                  className={`rounded-full border-[1.5px] px-3.5 py-2 text-sm font-semibold transition-colors ${boxes === b ? 'bg-caforange border-caforange text-white' : 'border-fg/35 hover:border-fg'}`}
-                >
-                  {paceOpts[i]}
-                </button>
-              ))}
-            </div>
+          {/* The bar count is the choice */}
+          <div role="group" aria-label={t(sub ? 'shopPage.qSub' : 'shopPage.qOne')} className="grid grid-cols-3 gap-2 border-y-[3px] border-fg py-5">
+            {BOX_OPTIONS.map((b, i) => (
+              <button
+                key={b}
+                type="button"
+                aria-pressed={boxes === b}
+                onClick={() => setBoxes(b)}
+                className={`relative text-left pt-5 transition-opacity ${boxes === b ? '' : 'opacity-30 hover:opacity-60'}`}
+              >
+                {b === 2 && (
+                  <span className="absolute top-0 left-0 whitespace-nowrap font-display uppercase text-[9px] sm:text-[10px] leading-none text-caforange">{t('shopPage.topPick')}</span>
+                )}
+                <span className={`block font-display leading-[0.9] text-[clamp(2.4rem,5vw,4.6rem)] tabular-nums ${boxes === b ? 'text-caforange' : ''}`}>{b * 12}</span>
+                <span className="block mt-2 font-display uppercase text-[11px] sm:text-xs leading-none">{t('shopPage.box', { count: b })}</span>
+                <span className="block mt-1.5 text-[13px] leading-snug opacity-75">{paceHints[i]}</span>
+              </button>
+            ))}
           </div>
 
-          <h2 className="font-display uppercase leading-[0.95] text-2xl sm:text-3xl">{t(sub ? 'shopPage.qSub' : 'shopPage.qOne')}</h2>
-
-          <div className="grid grid-cols-3 gap-2">
-            {BOX_OPTIONS.map((b) => {
-              const qb = quote(mode, b, currency)
-              return (
-                <button
-                  key={b}
-                  type="button"
-                  aria-pressed={boxes === b}
-                  onClick={() => setBoxes(b)}
-                  className={`relative text-left grid gap-1.5 px-2.5 sm:px-3 pt-4 pb-3 border-2 transition-colors ${boxes === b ? 'border-caforange bg-caforange/15' : 'border-fg/20 hover:border-fg/50'}`}
-                >
-                  {b === 2 && (
-                    <span className="absolute -top-2.5 left-2 bg-caforange text-white px-1.5 py-1 font-accent text-[9px] uppercase tracking-[0.12em] font-semibold leading-none">
-                      {t('shopPage.mostPopular')}
-                    </span>
-                  )}
-                  <span className="font-display text-sm sm:text-lg leading-none">{t('shopPage.box', { count: b })}</span>
-                  <span className="text-xs text-fg/70">{t(sub ? 'shopPage.barsMonth' : 'shopPage.barsCount', { count: b * 12 })}</span>
-                  <span className="min-h-[10px] font-accent text-[10px] uppercase tracking-[0.1em] font-semibold text-caforange">
-                    {qb.saved > 0 ? t('shopPage.saveKr', { amount: formatPrice(qb.saved, currency) }) : ''}
-                  </span>
-                </button>
-              )
-            })}
-          </div>
-
-          <div className="grid gap-2">
-            <div className="flex items-baseline gap-3 flex-wrap">
-              <span className="font-display leading-[0.9] text-[clamp(2.5rem,5vw,3.8rem)] tabular-nums">{formatPrice(shown, currency)}</span>
-              {q.saved > 0 && <s className="text-fg/45">{formatPrice(q.full, currency)}</s>}
-            </div>
+          <div className="flex items-end gap-4 flex-wrap">
+            <span className="font-display leading-[0.85] text-[clamp(2.6rem,5vw,4.2rem)] tabular-nums">{formatPrice(shown, currency)}</span>
+            {q.saved > 0 && <s className="mb-1 opacity-50">{formatPrice(q.full, currency)}</s>}
             {q.saved > 0 && (
-              <span className="justify-self-start bg-caforange text-white px-2.5 py-2 font-accent text-xs uppercase tracking-[0.1em] font-semibold">
-                {t(sub ? 'shopPage.youSaveMonth' : 'shopPage.youSave', { amount: formatPrice(q.saved, currency) })}
+              <span className="mb-1.5 inline-block bg-caforange text-brown px-3 py-2.5 font-display uppercase text-xs leading-none -rotate-[4deg]">
+                −{formatPrice(q.saved, currency)}{sub ? ` / ${t('shopPage.monthShort')}` : ''}
               </span>
             )}
-            <span className="text-sm text-fg/75">{t('shopPage.perBar', { price: fmtPer(q.price / (boxes * 12)) })}</span>
           </div>
 
-          {next && nextQ && (
-            <div className="border-[1.5px] border-dashed border-caforange px-3 py-2.5 flex flex-wrap items-center justify-between gap-2.5 text-sm">
-              <span>
-                <b>{t('shopPage.upsellExtra', { extra: formatPrice(nextQ.price - q.price, currency) })}</b>{' '}
-                {t('shopPage.upsellText', { per: fmtPer(nextQ.price / (next * 12)) })}
-              </span>
-              <button
-                type="button"
-                onClick={() => setBoxes(next)}
-                className="bg-caforange text-white px-2.5 py-2 font-accent text-[11px] uppercase tracking-[0.1em] font-semibold"
-              >
-                {t('shopPage.upsellBtn')}
-              </button>
-            </div>
-          )}
+          <p className="font-accent text-[12px] uppercase tracking-[0.12em] font-semibold leading-relaxed opacity-80">
+            {[t('shopPage.perBar', { price: fmtPer(q.price / (boxes * 12)) }), ...perks.slice(0, 3)].join(' · ')}
+          </p>
 
           {!sub && (
-            <div className="grid gap-1.5 text-sm">
-              <span>{q.price >= threshold ? t('shopPage.shipFree') : t('shopPage.shipLeft', { threshold: formatPrice(threshold, currency) })}</span>
-              <span className="relative h-2 bg-fg/15 overflow-hidden">
-                <span className="absolute inset-y-0 left-0 bg-caforange transition-[width] duration-500" style={{ width: `${Math.min(100, (q.price / threshold) * 100)}%` }} />
-              </span>
-            </div>
-          )}
-
-          {!sub && (
-            <div className="border-t-2 border-fg/15 pt-4 grid gap-2">
+            <div className="grid gap-2">
               <label className="flex items-center gap-2.5 font-accent text-xs uppercase tracking-[0.12em] font-semibold cursor-pointer">
                 <input type="checkbox" checked={gift} onChange={(e) => setGift(e.target.checked)} className="w-4.5 h-4.5 accent-caforange" />
                 {t('shopPage.giftToggle')}
@@ -308,24 +245,20 @@ function BoxBuilder({ mode, setMode, boxes, setBoxes, currency, locale, ref }: B
             </div>
           )}
 
-          <ul className="grid sm:grid-cols-2 gap-x-4 gap-y-1.5 text-sm">
-            {perks.map((p) => (
-              <li key={p} className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-caforange shrink-0" />{p}</li>
-            ))}
-          </ul>
-
-          <button
-            type="button"
-            onClick={buy}
-            className="bg-caforange text-white py-5 px-3 font-accent text-sm uppercase tracking-[0.14em] font-semibold hover:-translate-y-0.5 transition-transform"
-          >
-            {cta}
-          </button>
-          {preorder && (
-            <p className="-mt-2 text-center font-accent text-[11px] uppercase tracking-[0.14em] font-semibold text-caforange">
-              {t('shopPage.preLine', { date: t('shopPage.launchDate') })}
-            </p>
-          )}
+          <div className="grid gap-3">
+            <button
+              type="button"
+              onClick={buy}
+              className="bg-caforange text-brown py-5 px-3 font-accent text-sm uppercase tracking-[0.14em] font-semibold hover:-translate-y-0.5 transition-transform"
+            >
+              {cta}
+            </button>
+            {preorder && (
+              <p className="text-center font-accent text-[11px] uppercase tracking-[0.14em] font-semibold opacity-70">
+                {t('shopPage.preLine', { date: t('shopPage.launchDate') })}
+              </p>
+            )}
+          </div>
         </div>
       </div>
 
