@@ -75,7 +75,6 @@ export default function Hero() {
             <span className="block">{t('hero.titleLine1')}</span>
             <span className="block text-accent">{t('hero.titleLine2')}</span>
           </h1>
-          <p className="mt-6 max-w-md text-lg leading-relaxed text-fg/85">{t('hero.lede')}</p>
 
           <div className="mt-8 flex gap-8 sm:gap-12">
             <div>
