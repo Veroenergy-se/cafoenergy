@@ -60,16 +60,16 @@ export default function Hero() {
       <div aria-hidden="true" className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-brown/60 to-transparent" />
       <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-brown to-transparent" />
 
-      <div className="relative page-container min-h-[100svh] flex items-end md:items-center pt-28 pb-14 md:pb-20">
+      <div className="relative px-6 md:px-[4vw] min-h-[100svh] flex items-end md:items-center pt-28 pb-14 md:pb-20">
         <motion.div
-          className="w-full min-w-0 max-w-[780px]"
+          className="w-full min-w-0 max-w-[780px] md:max-w-[36vw]"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease, delay: 0.2 }}
         >
           {/* Sized from the longest word so every language fits without breaking a word */}
           <h1
-            className="font-display uppercase leading-[0.92] text-[min(4.6rem,calc((100vw-48px)/(var(--n)*1.02)))] md:text-[min(4.8rem,4.6vw,calc(780px/(var(--n)*1.02)))] drop-shadow-[0_2px_24px_rgba(0,0,0,0.35)]"
+            className="font-display uppercase leading-[0.92] text-[min(4.6rem,calc((100vw-48px)/(var(--n)*1.02)))] md:text-[min(4.8rem,3.6vw,calc(36vw/(var(--n)*1.02)))] drop-shadow-[0_2px_24px_rgba(0,0,0,0.35)]"
             style={{ '--n': longest } as React.CSSProperties}
           >
             <span className="block">{t('hero.titleLine1')}</span>
