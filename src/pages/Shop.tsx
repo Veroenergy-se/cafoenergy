@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
 import { useReducedMotion } from 'framer-motion'
-import { goToCheckout } from '@/lib/checkoutLinks'
+import { goToCheckout, goToWaitlist, CHECKOUT_OPEN } from '@/lib/checkoutLinks'
 import { products, getCurrency, formatPrice, getSubscriptionPrice, BOX_PRICE } from '@/lib/products'
 import { WholeLabel } from '@/components/home/NutritionComparison'
 import BarPile3D from '@/components/shop/BarPile3D'
@@ -140,11 +140,16 @@ function BoxBuilder({ mode, setMode, boxes, setBoxes, currency, locale, ref }: B
   const paceHints = t('shopPage.paceHints', { returnObjects: true }) as string[]
 
   const buy = () => {
+    // While the shop is closed, every button goes to the waitlist — there is
+    // no point opening the plan sheet for a subscription nobody can start.
+    if (!CHECKOUT_OPEN) { goToWaitlist(); return }
     if (sub) { setPlanOpen(true); return }
     goToCheckout('onetime', boxes)
   }
 
-  const cta = preorder
+  const cta = !CHECKOUT_OPEN
+    ? t('shopPage.waitlistCta')
+    : preorder
     ? t(sub ? 'shopPage.preCtaSub' : 'shopPage.preCtaOne', { price: formatPrice(q.price, currency) })
     : t(sub ? 'shopPage.ctaSub' : 'shopPage.ctaOne', { price: formatPrice(q.price, currency) })
 
@@ -331,7 +336,7 @@ function PlanSheet({ open, onClose, boxes, currency, locale }: { open: boolean; 
           onClick={confirm}
           className="bg-caforange text-white py-5 font-accent text-sm uppercase tracking-[0.14em] font-semibold"
         >
-          {t('shopPage.sheetCta')}
+          {t(CHECKOUT_OPEN ? 'shopPage.sheetCta' : 'shopPage.sheetWaitlistCta')}
         </button>
       </div>
     </>

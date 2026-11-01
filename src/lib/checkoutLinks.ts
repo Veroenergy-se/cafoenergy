@@ -9,6 +9,15 @@
  * To add a flavour or a box size, create the link in Stripe and add it here.
  */
 
+/**
+ * Whether the shop can take money yet.
+ *
+ * False until there is stock to ship: the buy buttons send people to the
+ * waitlist instead of to Stripe, and their labels change to match. Flip to
+ * true on the day the first boxes are ready and the shop is open.
+ */
+export const CHECKOUT_OPEN = false
+
 export type CheckoutMode = 'onetime' | 'subscription'
 export type BoxCount = 1 | 2 | 3
 
@@ -36,8 +45,27 @@ export function checkoutUrl(mode: CheckoutMode, boxes: BoxCount): string {
   return LINKS[mode][boxes]
 }
 
-/** Sends the customer to Stripe for this option. */
+/** Scrolls to the waitlist form and puts the cursor in the email field. */
+export function goToWaitlist(): void {
+  const section = document.getElementById('waitlist')
+  if (!section) {
+    window.location.hash = 'waitlist'
+    return
+  }
+  section.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  const email = section.querySelector<HTMLInputElement>('input[type="email"]')
+  if (email) window.setTimeout(() => email.focus({ preventScroll: true }), 600)
+}
+
+/**
+ * Sends the customer to Stripe for this option — or to the waitlist while
+ * the shop is closed.
+ */
 export function goToCheckout(mode: CheckoutMode, boxes: BoxCount): void {
+  if (!CHECKOUT_OPEN) {
+    goToWaitlist()
+    return
+  }
   const url = checkoutUrl(mode, boxes)
   if (url) window.location.href = url
 }

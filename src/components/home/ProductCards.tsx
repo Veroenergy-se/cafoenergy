@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
 import { ArrowRight, ShoppingBag } from 'lucide-react'
-import { goToCheckout, PRODUCT_BOXES } from '@/lib/checkoutLinks'
+import { goToCheckout, PRODUCT_BOXES, CHECKOUT_OPEN } from '@/lib/checkoutLinks'
 import { products, getCurrency, formatPrice } from '@/lib/products'
 
 const ease = [0.25, 0.46, 0.45, 0.94] as const
@@ -101,7 +101,7 @@ export default function ProductCards() {
                     }`}
                   >
                     <ShoppingBag className="w-4 h-4" />
-                    {t('products.addToCart')}
+                    {t(CHECKOUT_OPEN ? 'products.addToCart' : 'products.joinWaitlist')}
                   </button>
                 </div>
               </motion.article>

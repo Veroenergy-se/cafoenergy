@@ -87,7 +87,8 @@
     "discount": "-20%",
     "eyebrow": "Pre-order",
     "perBar": "{{price}} kr per bar",
-    "subscribeLink": "Subscribe and save up to 20%"
+    "subscribeLink": "Subscribe and save up to 20%",
+    "joinWaitlist": "Join the waitlist"
   },
   "shop": {
     "metaTitle": "Shop — MOAR Bar",
@@ -240,7 +241,9 @@
       "Every day"
     ],
     "monthShort": "mo",
-    "topPick": "Top pick"
+    "topPick": "Top pick",
+    "waitlistCta": "Join the waitlist",
+    "sheetWaitlistCta": "Join the waitlist"
   },
   "nutrition": {
     "title": "What Makes It Perfect",

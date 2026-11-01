@@ -87,7 +87,8 @@
     "discount": "-20%",
     "eyebrow": "Förbeställ",
     "perBar": "{{price}} kr per bar",
-    "subscribeLink": "Prenumerera och spara upp till 20%"
+    "subscribeLink": "Prenumerera och spara upp till 20%",
+    "joinWaitlist": "Gå med i väntelistan"
   },
   "shop": {
     "metaTitle": "Handla — MOAR Bar",
@@ -240,7 +241,9 @@
       "Varje dag"
     ],
     "monthShort": "mån",
-    "topPick": "Populärast"
+    "topPick": "Populärast",
+    "waitlistCta": "Gå med i väntelistan",
+    "sheetWaitlistCta": "Gå med i väntelistan"
   },
   "nutrition": {
     "title": "Vad Som Gör Den Perfekt",
@@ -508,7 +511,7 @@
       "tableTitle": "Kicken från det ena. Mellanmålet från det andra.",
       "cols": [
         "Kaffe",
-        "Protein\u00adbar",
+        "Protein­bar",
         "MOAR"
       ],
       "rows": {
