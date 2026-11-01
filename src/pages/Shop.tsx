@@ -227,7 +227,7 @@ function BoxBuilder({ mode, setMode, boxes, setBoxes, currency, locale, ref }: B
           </div>
 
           <p className="font-accent text-[12px] uppercase tracking-[0.12em] font-semibold leading-relaxed opacity-80">
-            {[t('shopPage.perBar', { price: fmtPer(q.price / (boxes * 12)) }), ...perks.slice(0, 3)].join(' · ')}
+            {[t('shopPage.perBar', { price: fmtPer(q.price / (boxes * 12)) }), ...perks.slice(0, sub ? 3 : 1)].join(' · ')}
           </p>
 
           <div className="grid gap-3">
@@ -238,11 +238,6 @@ function BoxBuilder({ mode, setMode, boxes, setBoxes, currency, locale, ref }: B
             >
               <span key={cta} className="inline-block motion-safe:animate-[moar-fade_.3s_ease-out]">{cta}</span>
             </button>
-            {preorder && (
-              <p className="text-center font-accent text-[11px] uppercase tracking-[0.14em] font-semibold opacity-70">
-                {t('shopPage.preLine', { date: t('shopPage.launchDate') })}
-              </p>
-            )}
           </div>
         </div>
       </div>
