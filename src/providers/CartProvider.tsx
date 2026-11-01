@@ -72,7 +72,7 @@ function cartReducer(state: CartState, action: CartAction): CartState {
     case 'SET_OPEN':
       return { ...state, isOpen: action.isOpen }
     case 'HYDRATE':
-      return { ...state, items: action.items.map(i => ({ subscription: false, ...i })) }
+      return { ...state, items: action.items.map(i => ({ ...i, subscription: i.subscription ?? false })) }
     default:
       return state
   }
