@@ -133,6 +133,9 @@ function BoxBuilder({ mode, setMode, boxes, setBoxes, currency, locale, ref }: B
   const sub = mode === 'subscription'
   const q = quote(mode, boxes, currency)
   const shown = useCountUp(q.price)
+  const savingRef = useRef(q)
+  if (q.saved > 0) savingRef.current = q
+  const lastSaving = savingRef.current
   const [planOpen, setPlanOpen] = useState(false)
   const preorder = Date.now() < LAUNCH.getTime()
   const fmtPer = (v: number) => `${v.toLocaleString(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 })} kr`
@@ -212,10 +215,13 @@ function BoxBuilder({ mode, setMode, boxes, setBoxes, currency, locale, ref }: B
             <span className="font-display leading-[0.85] text-[clamp(2.6rem,5vw,4.2rem)] tabular-nums">{formatPrice(shown, currency)}</span>
             {/* Always laid out, hidden when there is no saving, so switching
                 box counts never makes the panel jump. On phones it sits on its own line. */}
-            <span className={`flex items-end gap-4 basis-full sm:basis-auto ${q.saved > 0 ? '' : 'invisible'}`} aria-hidden={q.saved === 0}>
-              <s className="mb-1 opacity-50">{formatPrice(q.saved > 0 ? q.full : q.price, currency)}</s>
+            <span
+              className={`flex items-end gap-4 basis-full sm:basis-auto transition-[opacity,transform] duration-300 ease-out ${q.saved > 0 ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}
+              aria-hidden={q.saved === 0}
+            >
+              <s className="mb-1 opacity-50">{formatPrice(lastSaving.full, currency)}</s>
               <span className="mb-1.5 inline-block bg-caforange text-brown px-3 py-2.5 font-display uppercase text-xs leading-none -rotate-[4deg]">
-                −{formatPrice(q.saved, currency)}{sub ? ` / ${t('shopPage.monthShort')}` : ''}
+                −{formatPrice(lastSaving.saved, currency)}{sub ? ` / ${t('shopPage.monthShort')}` : ''}
               </span>
             </span>
           </div>
@@ -230,7 +236,7 @@ function BoxBuilder({ mode, setMode, boxes, setBoxes, currency, locale, ref }: B
               onClick={buy}
               className="bg-caforange text-brown py-5 px-3 font-accent text-sm uppercase tracking-[0.14em] font-semibold hover:-translate-y-0.5 transition-transform"
             >
-              {cta}
+              <span key={cta} className="inline-block motion-safe:animate-[moar-fade_.3s_ease-out]">{cta}</span>
             </button>
             {preorder && (
               <p className="text-center font-accent text-[11px] uppercase tracking-[0.14em] font-semibold opacity-70">
@@ -422,7 +428,7 @@ function BuyBar({ builderRef, mode, boxes, currency }: { builderRef: React.RefOb
       aria-hidden={!show}
       tabIndex={show ? 0 : -1}
       onClick={() => builderRef.current?.scrollIntoView({ behavior: 'smooth' })}
-      className={`fixed z-40 left-1/2 -translate-x-1/2 bottom-[calc(78px+env(safe-area-inset-bottom,0px))] sm:bottom-[calc(14px+env(safe-area-inset-bottom,0px))] w-[min(560px,calc(100%-24px))] bg-brown text-off-white flex items-center justify-between gap-3 pl-4 pr-2.5 py-2.5 shadow-[0_16px_40px_rgba(0,0,0,0.3)] text-left transition-transform duration-500 ease-out ${show ? 'translate-y-0' : 'translate-y-[160%]'}`}
+      className={`fixed z-40 left-1/2 -translate-x-1/2 bottom-[calc(78px+env(safe-area-inset-bottom,0px))] sm:bottom-[calc(14px+env(safe-area-inset-bottom,0px))] w-[min(560px,calc(100%-24px))] bg-brown text-off-white flex items-center justify-between gap-3 pl-4 pr-2.5 py-2.5 shadow-[0_16px_40px_rgba(0,0,0,0.3)] text-left transition-[transform,opacity] duration-500 ease-out ${show ? 'translate-y-0 opacity-100' : 'translate-y-[calc(100%+120px)] opacity-0 pointer-events-none'}`}
     >
       <span className="text-xs leading-snug">
         <span className="block font-display uppercase text-sm sm:text-base">{t('shopPage.box', { count: boxes })} · {formatPrice(q.price, currency)}</span>
