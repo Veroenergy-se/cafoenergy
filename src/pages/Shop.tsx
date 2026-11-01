@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
 import { useReducedMotion } from 'framer-motion'
-import { useCart } from '@/providers/CartProvider'
+import { goToCheckout } from '@/lib/checkoutLinks'
 import { products, getCurrency, formatPrice, getSubscriptionPrice, BOX_PRICE } from '@/lib/products'
 import { WholeLabel } from '@/components/home/NutritionComparison'
 import BarPile3D from '@/components/shop/BarPile3D'
@@ -130,13 +130,9 @@ interface BuilderProps {
 
 function BoxBuilder({ mode, setMode, boxes, setBoxes, currency, locale, ref }: BuilderProps) {
   const { t } = useTranslation()
-  const { addItem } = useCart()
   const sub = mode === 'subscription'
   const q = quote(mode, boxes, currency)
   const shown = useCountUp(q.price)
-  const [gift, setGift] = useState(false)
-  const [giftName, setGiftName] = useState('')
-  const [giftMsg, setGiftMsg] = useState('')
   const [planOpen, setPlanOpen] = useState(false)
   const preorder = Date.now() < LAUNCH.getTime()
   const fmtPer = (v: number) => `${v.toLocaleString(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 })} kr`
@@ -145,7 +141,7 @@ function BoxBuilder({ mode, setMode, boxes, setBoxes, currency, locale, ref }: B
 
   const buy = () => {
     if (sub) { setPlanOpen(true); return }
-    addItem(ONE_TIME_IDS[boxes], false, undefined, gift && (giftName || giftMsg) ? { name: giftName, message: giftMsg } : undefined)
+    goToCheckout('onetime', boxes)
   }
 
   const cta = preorder
@@ -217,34 +213,6 @@ function BoxBuilder({ mode, setMode, boxes, setBoxes, currency, locale, ref }: B
             {[t('shopPage.perBar', { price: fmtPer(q.price / (boxes * 12)) }), ...perks.slice(0, 3)].join(' · ')}
           </p>
 
-          {!sub && (
-            <div className="grid gap-2">
-              <label className="flex items-center gap-2.5 font-accent text-xs uppercase tracking-[0.12em] font-semibold cursor-pointer">
-                <input type="checkbox" checked={gift} onChange={(e) => setGift(e.target.checked)} className="w-4.5 h-4.5 accent-caforange" />
-                {t('shopPage.giftToggle')}
-              </label>
-              {gift && (
-                <div className="grid gap-2">
-                  <input
-                    id="gift-name"
-                    value={giftName}
-                    onChange={(e) => setGiftName(e.target.value)}
-                    placeholder={t('shopPage.giftName')}
-                    className="bg-transparent border-b-2 border-fg/40 py-2 focus:outline-none focus:border-caforange placeholder-fg/45"
-                  />
-                  <textarea
-                    id="gift-message"
-                    rows={2}
-                    value={giftMsg}
-                    onChange={(e) => setGiftMsg(e.target.value)}
-                    placeholder={t('shopPage.giftMessage')}
-                    className="bg-transparent border-b-2 border-fg/40 py-2 resize-none focus:outline-none focus:border-caforange placeholder-fg/45"
-                  />
-                </div>
-              )}
-            </div>
-          )}
-
           <div className="grid gap-3">
             <button
               type="button"
@@ -270,7 +238,6 @@ function BoxBuilder({ mode, setMode, boxes, setBoxes, currency, locale, ref }: B
 // Opens from the subscribe button: the next four deliveries, each one adjustable.
 function PlanSheet({ open, onClose, boxes, currency, locale }: { open: boolean; onClose: () => void; boxes: Boxes; currency: 'usd' | 'sek'; locale: string }) {
   const { t } = useTranslation()
-  const { addItem } = useCart()
   const dates = deliveryDates(locale)
   // 0 = as planned, 1 = one extra box, 2 = skipped
   const [states, setStates] = useState([0, 0, 0, 0])
@@ -289,11 +256,13 @@ function PlanSheet({ open, onClose, boxes, currency, locale }: { open: boolean; 
   }, [open, onClose])
 
   const cycle = (i: number) => setStates((s) => s.map((v, j) => (j === i ? (v + 1) % 3 : v)))
-  const plan = states.map((s) => (s === 2 ? 0 : boxes + (s === 1 ? 1 : 0)))
 
+  // The plan sheet sets how many boxes a month the subscription starts at.
+  // Per-month skips and extras aren't carried to Stripe yet — subscribers
+  // adjust those in the Stripe customer portal after the first order.
   const confirm = () => {
-    addItem('starter', true, plan)
     onClose()
+    goToCheckout('subscription', boxes)
   }
 
   return (
