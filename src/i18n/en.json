@@ -243,7 +243,8 @@
     "monthShort": "mo",
     "topPick": "Top pick",
     "waitlistCta": "Join the waitlist",
-    "sheetWaitlistCta": "Join the waitlist"
+    "sheetWaitlistCta": "Join the waitlist",
+    "buyNow": "Buy now · {{price}}"
   },
   "nutrition": {
     "title": "What Makes It Perfect",
