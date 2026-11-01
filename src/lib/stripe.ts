@@ -1,75 +1,91 @@
-import { loadStripe } from '@stripe/stripe-js'
 import type { CartItem } from '@/providers/CartProvider'
 
-const STRIPE_KEY = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY || ''
+/**
+ * Checkout runs through /api/checkout, which creates the Stripe Checkout
+ * Session server-side and returns its URL. Prices live in Stripe and are
+ * chosen on the server, so nothing here can be tampered with in the browser.
+ *
+ * Requires a host that can run serverless functions. GitHub Pages cannot.
+ */
 
-// Map product IDs to Stripe price IDs from env
-const PRICE_IDS: Record<string, string> = {
-  starter: import.meta.env.VITE_STRIPE_PRICE_STARTER || '',
-  duo: import.meta.env.VITE_STRIPE_PRICE_DUO || '',
-  family: import.meta.env.VITE_STRIPE_PRICE_FAMILY || '',
-}
-
-// Shipping rate IDs from Stripe Dashboard (optional)
-// Create these in Stripe Dashboard > Settings > Shipping rates
-const SHIPPING_RATE_IDS = (import.meta.env.VITE_STRIPE_SHIPPING_RATES || '')
-  .split(',')
-  .map((id: string) => id.trim())
-  .filter(Boolean)
-
+/**
+ * Whether to show the Stripe checkout button rather than the manual
+ * order form. Off unless VITE_CHECKOUT_ENABLED is 'true', so the site can
+ * ship ahead of the endpoint being live.
+ */
 export function isStripeConfigured(): boolean {
-  return STRIPE_KEY.startsWith('pk_') && !STRIPE_KEY.includes('placeholder')
+  return import.meta.env.VITE_CHECKOUT_ENABLED === 'true'
 }
 
-export async function redirectToCheckout(items: CartItem[]) {
+type CheckoutResult =
+  | { error: null }
+  | { error: 'not_configured' | 'no_prices' | 'empty_cart' | 'network' }
+  | { error: 'stripe_error'; message?: string }
+
+export async function redirectToCheckout(
+  items: CartItem[],
+  locale = 'sv',
+): Promise<CheckoutResult> {
   if (!isStripeConfigured()) {
-    return { error: 'not_configured' as const }
+    return { error: 'not_configured' }
+  }
+  if (items.length === 0) {
+    return { error: 'empty_cart' }
   }
 
-  const stripe = await loadStripe(STRIPE_KEY)
-  if (!stripe) {
-    return { error: 'load_failed' as const }
-  }
-
-  const lineItems = items
-    .map((item) => {
-      const priceId = PRICE_IDS[item.productId]
-      if (!priceId || priceId.includes('test_starter') || priceId.includes('test_duo') || priceId.includes('test_family')) {
-        return null
-      }
-      return { price: priceId, quantity: item.quantity }
+  let response: Response
+  try {
+    response = await fetch('/api/checkout', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        locale,
+        items: items.map((item) => ({
+          productId: item.productId,
+          quantity: item.quantity,
+          subscription: item.subscription,
+          monthlyPlan: item.monthlyPlan,
+          gift: item.gift,
+        })),
+      }),
     })
-    .filter((item): item is { price: string; quantity: number } => item !== null)
-
-  if (lineItems.length === 0) {
-    return { error: 'no_prices' as const }
+  } catch {
+    return { error: 'network' }
   }
 
-  const checkoutOptions: Parameters<typeof stripe.redirectToCheckout>[0] = {
-    lineItems,
-    mode: 'payment',
-    successUrl: `${window.location.origin}/checkout?success=true`,
-    cancelUrl: `${window.location.origin}/shop`,
-    // Stripe collects shipping address
-    shippingAddressCollection: {
-      allowedCountries: [
-        'SE', 'NO', 'DK', 'FI', 'DE', 'NL', 'BE', 'FR', 'AT', 'CH',
-        'GB', 'IE', 'ES', 'IT', 'PT', 'PL', 'CZ', 'US', 'CA',
-      ],
-    },
+  let data: { url?: string; error?: string; message?: string } = {}
+  try {
+    data = await response.json()
+  } catch {
+    return { error: 'stripe_error' }
   }
 
-  // Add shipping rates if configured
-  if (SHIPPING_RATE_IDS.length > 0) {
-    // @ts-expect-error — shipping options supported by Stripe Checkout
-    checkoutOptions.shippingOptions = SHIPPING_RATE_IDS.map((id: string) => ({ shippingRate: id }))
+  if (!response.ok || !data.url) {
+    if (data.error === 'no_prices') return { error: 'no_prices' }
+    if (data.error === 'empty_cart') return { error: 'empty_cart' }
+    return { error: 'stripe_error', message: data.message }
   }
 
-  const result = await stripe.redirectToCheckout(checkoutOptions)
-
-  if (result.error) {
-    return { error: 'stripe_error' as const, message: result.error.message }
-  }
-
+  window.location.href = data.url
   return { error: null }
+}
+
+/**
+ * Opens the Stripe customer portal for the subscription just purchased.
+ * Takes the session_id handed back on the success redirect.
+ */
+export async function openCustomerPortal(sessionId: string): Promise<{ error: string | null }> {
+  try {
+    const response = await fetch('/api/portal', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ sessionId }),
+    })
+    const data: { url?: string; error?: string } = await response.json()
+    if (!response.ok || !data.url) return { error: data.error || 'portal_failed' }
+    window.location.href = data.url
+    return { error: null }
+  } catch {
+    return { error: 'network' }
+  }
 }
