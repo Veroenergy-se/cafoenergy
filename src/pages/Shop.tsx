@@ -262,6 +262,9 @@ function PlanSheet({ open, onClose, boxes, currency, locale }: { open: boolean; 
 
   const cycle = (i: number) => setStates((s) => s.map((v, j) => (j === i ? (v + 1) % 3 : v)))
 
+  // Boxes per month as the sheet currently shows them: 0 = skipped, +1 = extra.
+  const plan = states.map((s) => (s === 2 ? 0 : boxes + (s === 1 ? 1 : 0)))
+
   // The plan sheet sets how many boxes a month the subscription starts at.
   // Per-month skips and extras aren't carried to Stripe yet — subscribers
   // adjust those in the Stripe customer portal after the first order.
