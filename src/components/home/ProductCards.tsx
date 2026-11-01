@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
 import { ArrowRight, ShoppingBag } from 'lucide-react'
-import { useCart } from '@/providers/CartProvider'
+import { goToCheckout, PRODUCT_BOXES, CHECKOUT_OPEN } from '@/lib/checkoutLinks'
 import { products, getCurrency, formatPrice } from '@/lib/products'
 
 const ease = [0.25, 0.46, 0.45, 0.94] as const
@@ -16,7 +16,6 @@ const fans: Record<number, { r: number; x: number }[]> = {
 
 export default function ProductCards() {
   const { t, i18n } = useTranslation()
-  const { addItem } = useCart()
   const currency = getCurrency(i18n.language)
   const locale = i18n.language === 'sv' ? 'sv-SE' : 'en-GB'
 
@@ -96,13 +95,13 @@ export default function ProductCards() {
                   </div>
 
                   <button
-                    onClick={() => addItem(product.id)}
+                    onClick={() => goToCheckout('onetime', PRODUCT_BOXES[product.id])}
                     className={`mt-6 inline-flex w-full items-center justify-center gap-2 py-4 font-accent font-semibold text-sm uppercase tracking-[0.14em] transition-colors duration-200 ${
                       featured ? 'bg-caforange text-brown hover:bg-off-white' : 'bg-brown text-off-white hover:bg-caforange hover:text-brown'
                     }`}
                   >
                     <ShoppingBag className="w-4 h-4" />
-                    {t('products.addToCart')}
+                    {t(CHECKOUT_OPEN ? 'products.addToCart' : 'products.joinWaitlist')}
                   </button>
                 </div>
               </motion.article>

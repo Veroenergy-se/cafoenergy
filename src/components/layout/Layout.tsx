@@ -1,7 +1,6 @@
 import { Outlet } from 'react-router-dom'
 import Navbar from './Navbar'
 import Footer from './Footer'
-import CartDrawer from '@/components/shared/CartDrawer'
 import CookieConsent from '@/components/shared/CookieConsent'
 import WaitlistPopup from '@/components/shared/WaitlistPopup'
 import Waitlist from '@/components/home/Waitlist'
@@ -18,7 +17,6 @@ export default function Layout() {
       </main>
       <Waitlist />
       <Footer />
-      <CartDrawer />
       <CookieConsent />
       <WaitlistPopup />
     </div>

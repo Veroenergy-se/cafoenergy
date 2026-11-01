@@ -3,7 +3,6 @@ import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ShoppingBag } from 'lucide-react'
-import { useCart } from '@/providers/CartProvider'
 import LanguageSwitcher from '@/components/shared/LanguageSwitcher'
 import MoarLogo from '@/components/shared/MoarLogo'
 
@@ -69,7 +68,6 @@ function toneBehind(header: HTMLElement): Behind {
 export default function Navbar() {
   const { t } = useTranslation()
   const { pathname } = useLocation()
-  const { toggleCart, cartCount } = useCart()
   const [behind, setBehind] = useState<Behind>('light')
   const [hidden, setHidden] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -142,24 +140,13 @@ export default function Navbar() {
         <div className="flex items-center gap-2 sm:gap-3">
           <LanguageSwitcher />
 
-          <button
-            onClick={toggleCart}
-            className="relative p-2 opacity-80 hover:opacity-100 transition-opacity"
-            aria-label="Open cart"
+          <Link
+            to="/shop"
+            className="p-2 opacity-80 hover:opacity-100 transition-opacity"
+            aria-label={t('nav.shop')}
           >
             <ShoppingBag className="w-5 h-5" />
-            {cartCount > 0 && (
-              <motion.span
-                className="absolute -top-1 -right-1 w-5 h-5 bg-caforange text-off-white text-xs font-bold rounded-full flex items-center justify-center"
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                key={cartCount}
-                transition={{ type: 'spring', stiffness: 400, damping: 15 }}
-              >
-                {cartCount}
-              </motion.span>
-            )}
-          </button>
+          </Link>
 
           <a
             href="#waitlist"
