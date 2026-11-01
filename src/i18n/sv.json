@@ -243,7 +243,8 @@
     "monthShort": "mån",
     "topPick": "Populärast",
     "waitlistCta": "Gå med i väntelistan",
-    "sheetWaitlistCta": "Gå med i väntelistan"
+    "sheetWaitlistCta": "Gå med i väntelistan",
+    "buyNow": "Köp nu · {{price}}"
   },
   "nutrition": {
     "title": "Vad Som Gör Den Perfekt",
@@ -511,7 +512,7 @@
       "tableTitle": "Kicken från det ena. Mellanmålet från det andra.",
       "cols": [
         "Kaffe",
-        "Protein­bar",
+        "Protein\u00adbar",
         "MOAR"
       ],
       "rows": {

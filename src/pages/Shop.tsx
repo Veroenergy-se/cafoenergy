@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
 import { useReducedMotion } from 'framer-motion'
-import { goToCheckout, goToWaitlist, CHECKOUT_OPEN } from '@/lib/checkoutLinks'
+import { goToCheckout, goToWaitlist, isCheckoutOpen, CHECKOUT_OPEN } from '@/lib/checkoutLinks'
 import { products, getCurrency, formatPrice, getSubscriptionPrice, BOX_PRICE } from '@/lib/products'
 import { WholeLabel } from '@/components/home/NutritionComparison'
 import BarPile3D from '@/components/shop/BarPile3D'
@@ -142,12 +142,16 @@ function BoxBuilder({ mode, setMode, boxes, setBoxes, currency, locale, ref }: B
   const buy = () => {
     // While the shop is closed, every button goes to the waitlist — there is
     // no point opening the plan sheet for a subscription nobody can start.
-    if (!CHECKOUT_OPEN) { goToWaitlist(); return }
+    const open = isCheckoutOpen(mode, boxes)
+    if (!open) { goToWaitlist(); return }
     if (sub) { setPlanOpen(true); return }
     goToCheckout('onetime', boxes)
   }
 
-  const cta = !CHECKOUT_OPEN
+  const buyNow = !CHECKOUT_OPEN && isCheckoutOpen(mode, boxes)
+  const cta = buyNow
+    ? t('shopPage.buyNow', { price: formatPrice(q.price, currency) })
+    : !CHECKOUT_OPEN
     ? t('shopPage.waitlistCta')
     : preorder
     ? t(sub ? 'shopPage.preCtaSub' : 'shopPage.preCtaOne', { price: formatPrice(q.price, currency) })
@@ -204,14 +208,16 @@ function BoxBuilder({ mode, setMode, boxes, setBoxes, currency, locale, ref }: B
             ))}
           </div>
 
-          <div className="flex items-end gap-4 flex-wrap">
+          <div className="flex items-end gap-x-4 gap-y-1 flex-wrap">
             <span className="font-display leading-[0.85] text-[clamp(2.6rem,5vw,4.2rem)] tabular-nums">{formatPrice(shown, currency)}</span>
-            {q.saved > 0 && <s className="mb-1 opacity-50">{formatPrice(q.full, currency)}</s>}
-            {q.saved > 0 && (
+            {/* Always laid out, hidden when there is no saving, so switching
+                box counts never makes the panel jump. On phones it sits on its own line. */}
+            <span className={`flex items-end gap-4 basis-full sm:basis-auto ${q.saved > 0 ? '' : 'invisible'}`} aria-hidden={q.saved === 0}>
+              <s className="mb-1 opacity-50">{formatPrice(q.saved > 0 ? q.full : q.price, currency)}</s>
               <span className="mb-1.5 inline-block bg-caforange text-brown px-3 py-2.5 font-display uppercase text-xs leading-none -rotate-[4deg]">
                 −{formatPrice(q.saved, currency)}{sub ? ` / ${t('shopPage.monthShort')}` : ''}
               </span>
-            )}
+            </span>
           </div>
 
           <p className="font-accent text-[12px] uppercase tracking-[0.12em] font-semibold leading-relaxed opacity-80">

@@ -18,6 +18,12 @@
  */
 export const CHECKOUT_OPEN = false
 
+/**
+ * Options that already go to Stripe while the rest of the shop is closed,
+ * so the payment link can be tried end to end. Empty this to close them again.
+ */
+const OPEN_EARLY: { mode: CheckoutMode; boxes: BoxCount }[] = [{ mode: 'onetime', boxes: 1 }]
+
 export type CheckoutMode = 'onetime' | 'subscription'
 export type BoxCount = 1 | 2 | 3
 
@@ -41,6 +47,11 @@ export const PRODUCT_BOXES: Record<string, BoxCount> = {
   family: 3,
 }
 
+/** Whether this option can be bought now (the whole shop, or an early option). */
+export function isCheckoutOpen(mode: CheckoutMode, boxes: BoxCount): boolean {
+  return CHECKOUT_OPEN || OPEN_EARLY.some((o) => o.mode === mode && o.boxes === boxes)
+}
+
 export function checkoutUrl(mode: CheckoutMode, boxes: BoxCount): string {
   return LINKS[mode][boxes]
 }
@@ -62,7 +73,7 @@ export function goToWaitlist(): void {
  * the shop is closed.
  */
 export function goToCheckout(mode: CheckoutMode, boxes: BoxCount): void {
-  if (!CHECKOUT_OPEN) {
+  if (!isCheckoutOpen(mode, boxes)) {
     goToWaitlist()
     return
   }
