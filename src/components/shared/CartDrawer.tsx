@@ -164,7 +164,7 @@ export default function CartDrawer() {
                     onClick={async () => {
                       setCheckingOut(true)
                       setCheckoutError(null)
-                      const result = await redirectToCheckout(items)
+                      const result = await redirectToCheckout(items, i18n.language)
                       if (result.error) {
                         setCheckoutError(
                           result.error === 'no_prices'
