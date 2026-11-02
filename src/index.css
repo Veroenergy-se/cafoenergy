@@ -148,3 +148,7 @@ body[data-tone="orange"] { --bg: #ff5900; --fg: #2d1d17; --accent: #ede6dc; --lo
 @keyframes moar-tick {
   to { transform: translateX(-50%); }
 }
+
+/* Shop picker: no browser focus box on click; a brand outline for keyboard users. */
+#builder button:focus { outline: none; }
+#builder button:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
