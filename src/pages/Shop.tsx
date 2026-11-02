@@ -211,12 +211,13 @@ function BoxBuilder({ mode, setMode, boxes, setBoxes, currency, locale, ref }: B
             ))}
           </div>
 
-          <div className="flex items-end gap-x-4 gap-y-1 flex-wrap">
+          <div className="grid gap-2 justify-items-start">
             <span className="font-display leading-[0.85] text-[clamp(2.6rem,5vw,4.2rem)] tabular-nums">{formatPrice(shown, currency)}</span>
-            {/* Always laid out, hidden when there is no saving, so switching
-                box counts never makes the panel jump. On phones it sits on its own line. */}
+            {/* Its own line under the price, always laid out (hidden when there is no
+                saving): the count-up changes the price's width every frame, and sharing a
+                line made this wrap back and forth, resizing the panel and the 3D pile. */}
             <span
-              className={`flex items-end gap-4 basis-full sm:basis-auto transition-[opacity,transform] duration-300 ease-out ${q.saved > 0 ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}
+              className={`flex items-end gap-4 transition-[opacity,transform] duration-300 ease-out ${q.saved > 0 ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}
               aria-hidden={q.saved === 0}
             >
               <s className="mb-1 opacity-50">{formatPrice(lastSaving.full, currency)}</s>
