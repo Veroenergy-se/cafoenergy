@@ -12,7 +12,7 @@ export const SITE = {
   },
   freeShippingThreshold: { usd: 50, sek: 499 },
   // First sales (Swedish time). Drives the countdown under the waitlist form.
-  launchDate: '2026-11-15T00:00:00+01:00',
+  launchDate: '2027-01-15T00:00:00+01:00',
   // Hero film (public/videos). Phones get an upright cut; posters show while it loads.
   heroVideo: '/videos/hero.mp4',
   heroVideoMobile: '/videos/hero-mobile.mp4',

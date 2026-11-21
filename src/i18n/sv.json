@@ -38,7 +38,7 @@
     "body": "För att dagen alltid kräver lite mer. Ett kapitel till, ett set till, en timme till. MOAR ger dig det du behöver för att orka."
   },
   "waitlist": {
-    "subtitle": "Försäljningen startar 15 november. Gå med i väntelistan så mejlar vi dig när MOAR finns att köpa.",
+    "subtitle": "Försäljningen startar 15 januari. Gå med i väntelistan så mejlar vi dig när MOAR finns att köpa.",
     "cta": "Gå med",
     "success": "DU ÄR MED PÅ LISTAN.",
     "successSub": "Vi hör av oss snart.",
@@ -143,12 +143,12 @@
     "titleB": "Prenumerera eller köp en gång.",
     "lede": "12 barer per låda. 90 mg koffein och 14 g protein i varje. Prenumerera och spara upp till 20 %, eller testa en låda först.",
     "stampTop": "Försäljningsstart",
-    "stampDate": "15 nov",
+    "stampDate": "15 jan",
     "ticker": [
       "Prenumerera och spara upp till 20 %",
       "Fri frakt på prenumerationer",
       "Hoppa över eller avsluta när du vill",
-      "Försäljningsstart 15 november"
+      "Försäljningsstart 15 januari"
     ],
     "modeSub": "Prenumerera",
     "modeSubNote": "Spara upp till 20 % · fri frakt",
@@ -203,7 +203,7 @@
     "faq": [
       {
         "q": "När skickas det?",
-        "a": "Försäljningen startar 15 november. Beställningar inom Sverige kommer fram inom 2–4 arbetsdagar."
+        "a": "Försäljningen startar 15 januari. Beställningar inom Sverige kommer fram inom 2–4 arbetsdagar."
       },
       {
         "q": "Kan jag avsluta prenumerationen?",
@@ -234,7 +234,7 @@
     "sheetSum": "{{boxes}} i månaden · {{price}} per leverans",
     "close": "Stäng",
     "dropAgain": "Släpp igen",
-    "launchDate": "15 november",
+    "launchDate": "15 januari",
     "paceHints": [
       "2–3 i veckan",
       "Varje vardag",
@@ -432,8 +432,8 @@
       ]
     },
     "launch": {
-      "label": "15 november",
-      "titleA": "15 november.",
+      "label": "15 januari",
+      "titleA": "15 januari.",
       "titleB": "Dag ett.",
       "body": "De första boxarna skickas på lanseringsdagen. Nästa kapitel skriver vi tillsammans med dig.",
       "shop": "Förbeställ en box",
@@ -734,7 +734,7 @@
         "items": [
           {
             "q": "När skickas den?",
-            "a": "Försäljningen startar 15 november. Vi skickar inom 2–3 vardagar efter betalning, och beställningar inom Sverige kommer oftast fram 2–4 vardagar efter det."
+            "a": "Försäljningen startar 15 januari. Vi skickar inom 2–3 vardagar efter betalning, och beställningar inom Sverige kommer oftast fram 2–4 vardagar efter det."
           },
           {
             "q": "Vart levererar ni?",

@@ -38,7 +38,7 @@
     "body": "Because the day always asks for a bit more. One more chapter, one more set, one more hour. MOAR is how you have it to give."
   },
   "waitlist": {
-    "subtitle": "First sales start 15 November. Join the waitlist and we'll email you the moment MOAR is live.",
+    "subtitle": "First sales start 15 January. Join the waitlist and we'll email you the moment MOAR is live.",
     "cta": "Join",
     "success": "YOU'RE ON THE LIST.",
     "successSub": "We'll be in touch soon.",
@@ -143,12 +143,12 @@
     "titleB": "Subscribe or buy once.",
     "lede": "12 bars a box. 90 mg caffeine and 14 g protein in every one. Subscribe and save up to 20%, or try a box first.",
     "stampTop": "First sales",
-    "stampDate": "15 Nov",
+    "stampDate": "15 Jan",
     "ticker": [
       "Subscribe & save up to 20%",
       "Free shipping on subscriptions",
       "Skip or cancel any time",
-      "First sales 15 November"
+      "First sales 15 January"
     ],
     "modeSub": "Subscribe",
     "modeSubNote": "Save up to 20% · free shipping",
@@ -203,7 +203,7 @@
     "faq": [
       {
         "q": "When does it ship?",
-        "a": "First sales start 15 November. Orders within Sweden arrive in 2–4 business days."
+        "a": "First sales start 15 January. Orders within Sweden arrive in 2–4 business days."
       },
       {
         "q": "Can I cancel the subscription?",
@@ -234,7 +234,7 @@
     "sheetSum": "{{boxes}} a month · {{price}} per delivery",
     "close": "Close",
     "dropAgain": "Drop again",
-    "launchDate": "15 November",
+    "launchDate": "15 January",
     "paceHints": [
       "2–3 a week",
       "Every weekday",
@@ -432,8 +432,8 @@
       ]
     },
     "launch": {
-      "label": "15 November",
-      "titleA": "15 November.",
+      "label": "15 January",
+      "titleA": "15 January.",
       "titleB": "Day one.",
       "body": "The first boxes go out on launch day. The next chapter is the one we write with you.",
       "shop": "Pre-order a box",
@@ -734,7 +734,7 @@
         "items": [
           {
             "q": "When does it ship?",
-            "a": "First sales start 15 November. We ship within 2–3 business days of payment, and orders in Sweden usually arrive 2–4 business days after that."
+            "a": "First sales start 15 January. We ship within 2–3 business days of payment, and orders in Sweden usually arrive 2–4 business days after that."
           },
           {
             "q": "Where do you deliver?",

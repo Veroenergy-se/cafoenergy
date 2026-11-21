@@ -7,13 +7,14 @@ import { goToCheckout, goToWaitlist, isCheckoutOpen, CHECKOUT_OPEN } from '@/lib
 import { products, getCurrency, formatPrice, getSubscriptionPrice, BOX_PRICE } from '@/lib/products'
 import { WholeLabel } from '@/components/home/NutritionComparison'
 import BarPile3D from '@/components/shop/BarPile3D'
+import { SITE } from '@/lib/constants'
 
 type Mode = 'subscription' | 'onetime'
 type Boxes = 1 | 2 | 3
 
 const BOX_OPTIONS: Boxes[] = [1, 2, 3]
 const ONE_TIME_IDS: Record<Boxes, string> = { 1: 'starter', 2: 'duo', 3: 'family' }
-const LAUNCH = new Date('2026-11-15T00:00:00+01:00')
+const LAUNCH = new Date(SITE.launchDate)
 
 // What a choice costs, and what it would cost without the discount.
 function quote(mode: Mode, boxes: Boxes, currency: 'usd' | 'sek') {
@@ -54,7 +55,7 @@ function useCountUp(target: number) {
 // The next four delivery days: the 15th of each month, starting at launch.
 function deliveryDates(locale: string) {
   const now = new Date()
-  let d = LAUNCH > now ? new Date(2026, 10, 15, 12) : new Date(now.getFullYear(), now.getMonth() + (now.getDate() > 15 ? 1 : 0), 15, 12)
+  let d = LAUNCH > now ? new Date(LAUNCH.getFullYear(), LAUNCH.getMonth(), LAUNCH.getDate(), 12) : new Date(now.getFullYear(), now.getMonth() + (now.getDate() > 15 ? 1 : 0), 15, 12)
   const out: string[] = []
   for (let i = 0; i < 4; i++) {
     out.push(d.toLocaleDateString(locale, { day: 'numeric', month: 'short' }).replace('.', ''))
